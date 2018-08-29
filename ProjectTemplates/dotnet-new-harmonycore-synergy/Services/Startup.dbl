@@ -1,0 +1,46 @@
+﻿
+import System
+import System.Collections.Generic
+import System.Linq
+import System.Threading.Tasks
+import Microsoft.AspNetCore.Builder
+import Microsoft.AspNetCore.Hosting
+import Microsoft.Extensions.Configuration
+import Microsoft.Extensions.DependencyInjection
+import Microsoft.Extensions.Logging
+import Microsoft.Extensions.Options
+
+namespace Company.WebApplication1
+
+    public class Startup
+
+        public setprivate property Configuration, @IConfiguration
+
+        public method Startup
+			required in configuration, @IConfiguration
+        proc
+            this.Configuration = configuration
+        endmethod
+
+        ;; This method gets called by the runtime. Use this method to add services to the container.
+
+        public method ConfigureServices, void
+			required in services, @IServiceCollection 
+        proc
+            services.AddMvcCore()
+        endmethod
+
+        ;; This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+        public method Configure, void
+			required in app, @IApplicationBuilder 
+			required in env, @IHostingEnvironment
+        proc
+            if (env.IsDevelopment())
+                app.UseDeveloperExceptionPage()
+            app.UseMvc()
+        endmethod
+
+    endclass
+
+endnamespace
