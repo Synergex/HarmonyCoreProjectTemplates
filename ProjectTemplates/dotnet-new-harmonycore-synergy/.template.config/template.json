@@ -1,7 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Synergex International Corp",
-  "classifications": [ "Common", "Library", "HarmonyCore" ],
+  "classifications": [
+    "Common",
+    "Library",
+    "HarmonyCore"
+  ],
   "name": "Harmony Core Services Solution",
   "generatorVersions": "[1.0.0.0-*)",
   "description": "A Harmony Core Services solution that can run on .NET Core on Windows and Linux",
@@ -17,8 +21,8 @@
   "guids": [
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
     "c9ea95ba-dc15-4a74-82c0-94172559edce",
-	"51a1b4ab-cea6-4b90-a6ee-4d32c2282848",
-	"9F59F1FE-5272-46EF-911E-AFC94D9B311F"
+    "51a1b4ab-cea6-4b90-a6ee-4d32c2282848",
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F"
   ],
   "symbols": {
     "TargetFrameworkOverride": {
@@ -57,15 +61,33 @@
     }
   },
   "primaryOutputs": [
-    { "path": "Company.Services1.sln" },
-    { "path": "Services/Services.synproj" },
-	{ "path": "Services/Startup.dbl" },
-    { "path": "Services/Controllers/ValuesController.dbl" },
-	{ "path": "Repository/Repository.synproj" },
-	{ "path": "Repository/repository.scm" },
-	{ "path": "Services.Host/Services.Host.synproj" },
-	{ "path": "Services.Host/SelfHost.dbl" },
-	{ "path": "Services.Host/Properties/launchSettings.json" }
+    {
+      "path": "Company.Services1.sln"
+    },
+    {
+      "path": "Services/Services.synproj"
+    },
+    {
+      "path": "Services/Startup.dbl"
+    },
+    {
+      "path": "Services/Controllers/ValuesController.dbl"
+    },
+    {
+      "path": "Repository/Repository.synproj"
+    },
+    {
+      "path": "Repository/repository.scm"
+    },
+    {
+      "path": "Services.Host/Services.Host.synproj"
+    },
+    {
+      "path": "Services.Host/SelfHost.dbl"
+    },
+    {
+      "path": "Services.Host/Properties/launchSettings.json"
+    }
   ],
   "defaultName": "HarmonyCoreServices",
   "postActions": [
@@ -73,7 +95,9 @@
       "condition": "(!skipRestore)",
       "description": "Restore NuGet packages required by this project.",
       "manualInstructions": [
-        { "text": "Run 'dotnet restore'" }
+        {
+          "text": "Run 'dotnet restore'"
+        }
       ],
       "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
       "continueOnError": true
