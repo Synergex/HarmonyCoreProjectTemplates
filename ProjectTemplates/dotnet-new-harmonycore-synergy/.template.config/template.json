@@ -16,7 +16,7 @@
     "language": "Synergy",
     "type": "project"
   },
-  "sourceName": "Company.Services1",
+  "sourceName": "HarmonyCoreServices.sln",
   "preferNameDirectory": true,
   "guids": [
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
@@ -62,7 +62,7 @@
   },
   "primaryOutputs": [
     {
-      "path": "Company.Services1.sln"
+      "path": "HarmonyCoreServices.sln"
     },
     {
       "path": "Services/Services.synproj"
