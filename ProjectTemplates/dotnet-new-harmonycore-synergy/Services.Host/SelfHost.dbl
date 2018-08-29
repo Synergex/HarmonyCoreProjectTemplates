@@ -5,8 +5,7 @@ import Microsoft.AspNetCore.TestHost
 import System.Collections.Generic
 import System.IO
 import System.Text
-import SampleServices
-import SampleServices.Models
+import Services
 
 main SelfHost
 

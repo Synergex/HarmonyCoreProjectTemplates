@@ -10,7 +10,7 @@ import Microsoft.Extensions.DependencyInjection
 import Microsoft.Extensions.Logging
 import Microsoft.Extensions.Options
 
-namespace Company.WebApplication1
+namespace Services
 
     public class Startup
 
@@ -27,7 +27,7 @@ namespace Company.WebApplication1
         public method ConfigureServices, void
 			required in services, @IServiceCollection 
         proc
-            services.AddMvcCore()
+            services.AddMvc()
         endmethod
 
         ;; This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
