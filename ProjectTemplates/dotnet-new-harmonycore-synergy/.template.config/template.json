@@ -16,7 +16,7 @@
     "language": "Synergy",
     "type": "project"
   },
-  "sourceName": "HarmonyCoreServices.sln",
+  "sourceName": "HarmonyCoreServices",
   "preferNameDirectory": true,
   "guids": [
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
@@ -65,28 +65,16 @@
       "path": "HarmonyCoreServices.sln"
     },
     {
-      "path": "Services/Services.synproj"
-    },
-    {
-      "path": "Services/Startup.dbl"
-    },
-    {
-      "path": "Services/Controllers/ValuesController.dbl"
+      "path": "IdentityServer/IdentityServer.csproj"
     },
     {
       "path": "Repository/Repository.synproj"
     },
     {
-      "path": "Repository/repository.scm"
+      "path": "Services/Services.synproj"
     },
     {
       "path": "Services.Host/Services.Host.synproj"
-    },
-    {
-      "path": "Services.Host/SelfHost.dbl"
-    },
-    {
-      "path": "Services.Host/Properties/launchSettings.json"
     }
   ],
   "defaultName": "HarmonyCoreServices",
