@@ -78,7 +78,7 @@
       "path": "Services.Host/Services.Host.synproj"
     },
     {
-      "path": "Services.Host/Services.Test.synproj"
+      "path": "Services.Test/Services.Test.synproj"
     }
   ],
   "defaultName": "HarmonyCoreServices",
