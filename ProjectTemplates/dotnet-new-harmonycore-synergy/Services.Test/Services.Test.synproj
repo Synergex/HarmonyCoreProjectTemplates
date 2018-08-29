@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="SelfHost.dbl" />
+    <Content Include="TestConstants.Values.Default.dbl" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
