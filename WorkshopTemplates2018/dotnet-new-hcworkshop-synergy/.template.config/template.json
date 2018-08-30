@@ -6,12 +6,12 @@
     "Library",
     "HarmonyCore"
   ],
-  "name": "Harmony Core Services Solution",
+  "name": "Harmony Core Workshop 2018",
   "generatorVersions": "[1.0.0.0-*)",
-  "description": "A Harmony Core Services solution that can run on .NET Core on Windows and Linux",
-  "groupIdentity": "Harmony.Core.Templates",
-  "identity": "Harmony.Core.Template.ServicesSolution",
-  "shortName": "harmonycore",
+  "description": "A Harmony Core Services solution created for the 2018 DevPartner Conference workshop.",
+  "groupIdentity": "Harmony.Core.2018Workshop",
+  "identity": "Harmony.Core.WorkshopLibrary.2018",
+  "shortName": "hcworkshop",
   "tags": {
     "language": "Synergy",
     "type": "project"
@@ -22,7 +22,8 @@
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
     "c9ea95ba-dc15-4a74-82c0-94172559edce",
     "51a1b4ab-cea6-4b90-a6ee-4d32c2282848",
-    "9F59F1FE-5272-46EF-911E-AFC94D9B311F"
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F",
+    "044bdb4e-971e-4d5b-a11e-bae1a40a91a7"
   ],
   "symbols": {
     "TargetFrameworkOverride": {
@@ -65,6 +66,9 @@
       "path": "HarmonyCoreServices.sln"
     },
     {
+      "path": "IdentityServer/IdentityServer.csproj"
+    },
+    {
       "path": "Repository/Repository.synproj"
     },
     {
@@ -72,6 +76,9 @@
     },
     {
       "path": "Services.Host/Services.Host.synproj"
+    },
+    {
+      "path": "Services.Test/Services.Test.synproj"
     }
   ],
   "defaultName": "HarmonyCoreServices",

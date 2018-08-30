@@ -17,7 +17,7 @@ namespace Services
         public setprivate property Configuration, @IConfiguration
 
         public method Startup
-            required in configuration, @IConfiguration
+			required in configuration, @IConfiguration
         proc
             this.Configuration = configuration
         endmethod
@@ -25,7 +25,7 @@ namespace Services
         ;; This method gets called by the runtime. Use this method to add services to the container.
 
         public method ConfigureServices, void
-            required in services, @IServiceCollection 
+			required in services, @IServiceCollection 
         proc
             services.AddMvc()
         endmethod
@@ -33,8 +33,8 @@ namespace Services
         ;; This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 
         public method Configure, void
-            required in app, @IApplicationBuilder 
-            required in env, @IHostingEnvironment
+			required in app, @IApplicationBuilder 
+			required in env, @IHostingEnvironment
         proc
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage()

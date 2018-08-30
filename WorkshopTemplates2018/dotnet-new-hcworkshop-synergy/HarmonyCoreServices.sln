@@ -37,6 +37,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		UserDefinedTokens.tkn = UserDefinedTokens.tkn
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleData", "SampleData", "{D0EC827E-8959-42E2-A386-9FEB33F0F468}"
+	ProjectSection(SolutionItems) = preProject
+		SampleData\customer.txt = SampleData\customer.txt
+		SampleData\customer.xdl = SampleData\customer.xdl
+		SampleData\items.txt = SampleData\items.txt
+		SampleData\items.xdl = SampleData\items.xdl
+		SampleData\order_items.txt = SampleData\order_items.txt
+		SampleData\order_items.xdl = SampleData\order_items.xdl
+		SampleData\orders.txt = SampleData\orders.txt
+		SampleData\orders.xdl = SampleData\orders.xdl
+		SampleData\orders_old.txt = SampleData\orders_old.txt
+		SampleData\orders_old.xdl = SampleData\orders_old.xdl
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}"
+EndProject
+Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Test", "Services.Test\Services.Test.synproj", "{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +87,22 @@ Global
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|x86.ActiveCfg = Release|x86
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|x86.Build.0 = Release|x86
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}.Release|x86.Build.0 = Release|Any CPU
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Debug|x86.ActiveCfg = Debug|x86
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Debug|x86.Build.0 = Debug|x86
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Release|x86.ActiveCfg = Release|x86
+		{044BDB4E-971E-4D5B-A11E-BAE1A40A91A7}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
