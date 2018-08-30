@@ -6,11 +6,11 @@
     "Library",
     "HarmonyCore"
   ],
-  "name": "Harmony Core Services Solution",
+  "name": "Harmony Core Starter Solution",
   "generatorVersions": "[1.0.0.0-*)",
-  "description": "A Harmony Core Services solution that can run on .NET Core on Windows and Linux",
-  "groupIdentity": "Harmony.Core.Templates",
-  "identity": "Harmony.Core.Template.ServicesSolution",
+  "description": "Creates a solution that includes the suggested projects for getting started with Harmony Core development.",
+  "groupIdentity": "Harmony.Core.ProjectTemplates",
+  "identity": "Harmony.Core.ProjectTemplates.StarterSolution",
   "shortName": "harmonycore",
   "tags": {
     "language": "Synergy",
