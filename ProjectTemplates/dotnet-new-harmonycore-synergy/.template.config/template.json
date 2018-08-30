@@ -2,9 +2,7 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Synergex International Corp",
   "classifications": [
-    "Common",
-    "Library",
-    "HarmonyCore"
+    "Solution"
   ],
   "name": "Harmony Core Starter Solution",
   "generatorVersions": "[1.0.0.0-*)",
