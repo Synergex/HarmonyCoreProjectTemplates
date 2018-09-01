@@ -60,6 +60,7 @@ import Harmony.Core.EF.Extensions
 import Microsoft.AspNetCore.Authorization
 </IF DEFINED_ENABLE_AUTHENTICATION>
 import <MODELS_NAMESPACE>
+import Harmony.Core.Interface
 
 namespace <NAMESPACE>
 
@@ -72,6 +73,9 @@ namespace <NAMESPACE>
     public class <StructurePlural>Controller extends ODataController
     
         public readwrite property DBContext, @<SERVICES_NAMESPACE>.DBContext
+<IF DEFINED_ENABLE_POST>
+        public readwrite property ServiceProvider, @IServiceProvider
+</IF DEFINED_ENABLE_POST>
 
         ;;; <summary>
         ;;; Constructs a new instance of <StructurePlural>Controller
@@ -79,8 +83,14 @@ namespace <NAMESPACE>
         ;;; <param name="dbContext">Database context</param>
         public method <StructurePlural>Controller
             dbContext, @<SERVICES_NAMESPACE>.DBContext
+ <IF DEFINED_ENABLE_POST>
+           serviceProvider, @IServiceProvider
+</IF DEFINED_ENABLE_POST>
         proc
             this.DBContext = dbContext
+<IF DEFINED_ENABLE_POST>
+            this.ServiceProvider = serviceProvider
+</IF DEFINED_ENABLE_POST>
         endmethod
 
 ;//
@@ -220,33 +230,39 @@ namespace <NAMESPACE>
 ;//
 ;// POST ----------------------------------------------------------------------
 ;//
-;//        {ODataRoute("<StructurePlural>")}
-;//        ;;; <summary>
-;//        ;;; Create a new <structureNoplural> (automatically assigned primary key).
-;//        ;;; </summary>
-;//        ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
-;//        public method Post, @IActionResult
-;//            {FromBody}
-;//            required in a<StructureNoplural>, @<StructureNoplural>
-;//        proc
-;//            ;; Validate inbound data
-;//            if (!ModelState.IsValid)
-;//                mreturn BadRequest(ModelState)
-;//
-;//            ;TODO: How do we support the auto-generation of primary key in this scenario?
-;//            DBContext.<StructurePlural>.Add(a<StructureNoplural>)
-;//
-;//            ;TODO: Need to add a Location header
-;//
-;//            ;;Commit the change
-;//            DBContext.SaveChanges()
-;//
-;//            mreturn Ok()
-;//
-;//        endmethod
-;//
-;// PUT
-;//
+<IF DEFINED_ENABLE_POST>
+        {ODataRoute("<StructurePlural>")}
+        ;;; <summary>
+        ;;; Create a new <structureNoplural> (automatically assigned primary key).
+        ;;; </summary>
+        ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
+        public method Post, @IActionResult
+            {FromBody}
+            required in a<StructureNoplural>, @<StructureNoplural>
+        proc
+            ;;Remove the primary key fields from ModelState
+<PRIMARY_KEY>
+<SEGMENT_LOOP>
+            ModelState.Remove("<FieldSqlName>")
+</SEGMENT_LOOP>
+</PRIMARY_KEY>
+
+            ;; Validate inbound data
+            if (!ModelState.IsValid)
+                mreturn BadRequest(ModelState)
+            disposable data keyFactory = (@IPrimaryKeyFactory)ServiceProvider.GetService(^typeof(IPrimaryKeyFactory))
+            ;;Get the next available primary key value
+            KeyFactory.AssignPrimaryKey(a<StructureNoplural>)
+
+            ;;Add the new <structureNoplural>
+            DBContext.<StructurePlural>.Add(a<StructureNoplural>)
+            DBContext.SaveChanges()
+
+            mreturn Created(a<StructureNoplural>)
+
+        endmethod
+
+</IF DEFINED_ENABLE_POST>
 ;//
 ;// PUT -----------------------------------------------------------------------
 ;//

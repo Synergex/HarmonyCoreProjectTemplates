@@ -47,10 +47,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="StartupCustom.dbl" />
     <Folder Include="Controllers" />
     <Folder Include="Models" />
     <Folder Include="wwwroot" />
-	<Compile Include="Startup.dbl" />
-	<Compile Include="Controllers\ValuesController.dbl" />
+    <None Include="PrimaryKeyGenerator.dbl" />
+    <Compile Include="Startup.dbl" />
+    <Compile Include="Controllers\ValuesController.dbl" />
   </ItemGroup>
 </Project>
