@@ -34,3 +34,7 @@ OutputFiles
 /UpgradeLog.htm
 
 /ftp.tmp
+
+/SampleData/*.ism
+/SampleData/*.is1
+/SampleData/*.ddf
