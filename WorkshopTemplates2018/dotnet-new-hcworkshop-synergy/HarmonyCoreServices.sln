@@ -39,16 +39,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleData", "SampleData", "{D0EC827E-8959-42E2-A386-9FEB33F0F468}"
 	ProjectSection(SolutionItems) = preProject
-		SampleData\customer.txt = SampleData\customer.txt
-		SampleData\customer.xdl = SampleData\customer.xdl
+		SampleData\customers.txt = SampleData\customers.txt
+		SampleData\customers.xdl = SampleData\customers.xdl
 		SampleData\items.txt = SampleData\items.txt
 		SampleData\items.xdl = SampleData\items.xdl
 		SampleData\order_items.txt = SampleData\order_items.txt
 		SampleData\order_items.xdl = SampleData\order_items.xdl
 		SampleData\orders.txt = SampleData\orders.txt
 		SampleData\orders.xdl = SampleData\orders.xdl
-		SampleData\orders_old.txt = SampleData\orders_old.txt
-		SampleData\orders_old.xdl = SampleData\orders_old.xdl
+		SampleData\sysparams.txt = SampleData\sysparams.txt
+		SampleData\vendors.txt = SampleData\vendors.txt
+		SampleData\vendors.xdl = SampleData\vendors.xdl
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{B94D4768-C75B-4AE4-8CB8-9DCEE22B192F}"
