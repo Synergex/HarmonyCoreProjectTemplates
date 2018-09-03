@@ -6,19 +6,36 @@ set SolutionDir=%~dp0
 rem ================================================================================================================================
 rem Specify the names of the projects to generate code into:
 
-set ServicesProject=
-set HostProject=
-set TestProject=
+set ServicesProject=Services
+set HostProject=Services.Host
+set TestProject=Services.Test
 
 rem ================================================================================================================================
 rem Specify the names of the repository structures to generate code from:
 
-set STRUCTURES=
+set DATA_STRUCTURES=
+set FILE_STRUCTURES=%DATA_STRUCTURES%
+
+rem DATA_STRUCTURES Is a list all of structures that you wish to generate models and
+rem                 controllers for. In other words it declares all of the "entities"
+rem                 that are being represented and exposed by the environment.
+rem
+rem FILE_STRUCTURES If you don't have multi-record format files then this should be the
+rem                 same as DATA_STRUCTURES. But if you do then FILE_STRUCTURES should
+rem                 only list ONE of the structures assigned to each file, so this list
+rem                 will be a subset of DATA_STRUCTURES.
+
+rem ================================================================================================================================
+rem Specify optional "system parameter file" structure
+
 set PARAMSTR=
 
-rem STRUCTURES is used when processing all of the individual data structures
-rem STRUCTURES may be different if data for multiple structures is stored in a single file.
-rem In this case only one of those structures needs to be processed.
+rem In the sammple environment the system parameter file is a relative file that contains
+rem "next available record number" data for use in conjunction with POST (create with automated
+rem primary key assignment) operaitons. Naming the structure associated with that file here
+rem ensures that a copy of that file will be made available in the sample self-host environment
+rem along with other data files in the sample data folder. This mechanism will require customization
+rem for use in other environments.
 
 rem ================================================================================================================================
 rem Comment or uncomment the following lines to enable or disable optional features:
@@ -61,7 +78,7 @@ rem ============================================================================
 rem Generate a Web API / OData CRUD environment
 
 rem Generate model, metadata and controller classes
-codegen -s %STRUCTURES% ^
+codegen -s %DATA_STRUCTURES% ^
         -t ODataModel ODataMetaData ODataController ^
         -o %SolutionDir%%ServicesProject% -tf ^
         -n %ServicesProject% ^
@@ -69,7 +86,7 @@ codegen -s %STRUCTURES% ^
 if ERRORLEVEL 1 goto error
 
 rem Generate the DbContext and EdmBuilder and Startup classes
-codegen -s %STRUCTURES% -ms ^
+codegen -s %DATA_STRUCTURES% -ms ^
         -t ODataDbContext ODataEdmBuilder ODataStartup ^
         -o %SolutionDir%%ServicesProject% ^
         -n %ServicesProject% ^
@@ -80,7 +97,7 @@ rem ============================================================================
 rem Self hosting
 
 if DEFINED ENABLE_SELF_HOST_GENERATION (
-  codegen -s %STRUCTURES% %PARAMSTR% -ms ^
+  codegen -s %FILE_STRUCTURES% %PARAMSTR% -ms ^
           -t ODataStandAloneSelfHost ^
           -o %SolutionDir%%HostProject% ^
           -n %HostProject% ^
@@ -93,7 +110,7 @@ rem Swagger documentation and Postman tests
 
 rem Generate a Swagger file
 if DEFINED ENABLE_SWAGGER_DOCS (
-  codegen -s %STRUCTURES% -ms ^
+  codegen -s %DATA_STRUCTURES% -ms ^
           -t ODataSwaggerYaml ^
           -o %SolutionDir%%ServicesProject%\wwwroot ^
              %STDOPTS%
@@ -102,7 +119,7 @@ if DEFINED ENABLE_SWAGGER_DOCS (
 
 rem Generate Postman Tests
 if DEFINED ENABLE_POSTMAN_TESTS (
-  codegen -s %STRUCTURES% -ms ^
+  codegen -s %DATA_STRUCTURES% -ms ^
           -t ODataPostManTests ^
           -o %SolutionDir% ^
              %STDOPTS%
@@ -115,22 +132,22 @@ rem Unit testing project
 if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate OData client model, data loader and unit test classes
-  codegen -s %STRUCTURES% ^
-          -t ODataClientModel ODataTestDataLoader ODataTestDataGenerator ODataUnitTests ^
+  codegen -s %DATA_STRUCTURES% ^
+          -t ODataClientModel ODataTestDataLoader ODataUnitTests ^
           -o %SolutionDir%%TestProject% -tf ^
           -n %TestProject% ^
              %STDOPTS%
   if ERRORLEVEL 1 goto error
 
   rem Generate data generator classes; one time, not replaced
-  codegen -s %STRUCTURES% ^
-          -t ODataClientModel ODataTestDataLoader ODataTestDataGenerator ODataUnitTests ^
+  codegen -s %DATA_STRUCTURES% ^
+          -t ODataTestDataGenerator ^
           -o %SolutionDir%%TestProject% -tf ^
           -n %TestProject% %NOREPLACEOPTS%
   if ERRORLEVEL 1 goto error
 
   rem Generate the test environment
-  codegen -s %STRUCTURES% %PARAMSTR% -ms ^
+  codegen -s %FILE_STRUCTURES% %PARAMSTR% -ms ^
           -t ODataTestEnvironment ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -138,7 +155,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   if ERRORLEVEL 1 goto error
 
   rem Generate the unit test environment class, and the self-hosting program
-  codegen -s %STRUCTURES% -ms ^
+  codegen -s %FILE_STRUCTURES% -ms ^
           -t ODataUnitTestEnvironment ODataSelfHost ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -146,7 +163,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   if ERRORLEVEL 1 goto error
 
   rem Generate the unit test constants properties classes
-  codegen -s %STRUCTURES% -ms ^
+  codegen -s %DATA_STRUCTURES% -ms ^
           -t ODataTestConstantsProperties ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -154,7 +171,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   if ERRORLEVEL 1 goto error
 
   rem Generate unit test constants values class; one time, not replaced
-  codegen -s %STRUCTURES% -ms ^
+  codegen -s %DATA_STRUCTURES% -ms ^
           -t ODataTestConstantsValues ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
