@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Synergex International Corp",
+  "classifications": [
+    "Solution"
+  ],
+  "name": "Harmony Core Demo",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "A Harmony Core Services demo solution.",
+  "groupIdentity": "Harmony.Core.Demo",
+  "identity": "Harmony.Core.Demo",
+  "shortName": "hcdemo",
+  "tags": {
+    "language": "Synergy",
+    "type": "project"
+  },
+  "sourceName": "HarmonyCoreServices",
+  "preferNameDirectory": true,
+  "guids": [
+    "f9257051-cc32-4541-baf3-3dd58c1e7f61",
+    "c9ea95ba-dc15-4a74-82c0-94172559edce",
+    "51a1b4ab-cea6-4b90-a6ee-4d32c2282848",
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F",
+    "044bdb4e-971e-4d5b-a11e-bae1a40a91a7"
+  ],
+  "symbols": {
+    "TargetFrameworkOverride": {
+      "type": "parameter",
+      "description": "Overrides the target framework",
+      "replaces": "TargetFrameworkOverride",
+      "datatype": "string",
+      "defaultValue": ""
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netstandard2.1",
+          "description": "Target netstandard2.1"
+        },
+        {
+          "choice": "netcoreapp2.1",
+          "description": "Target netcoreapp2.1"
+        }
+      ],
+      "replaces": "netcoreapp2.1",
+      "defaultValue": "netcoreapp2.1"
+    },
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": "HarmonyCoreServices.sln"
+    },
+    {
+      "path": "Repository/Repository.synproj"
+    },
+    {
+      "path": "Services/Services.synproj"
+    },
+    {
+      "path": "Services.Host/Services.Host.synproj"
+    },
+    {
+      "path": "Services.Test/Services.Test.synproj"
+    }
+  ],
+  "defaultName": "HarmonyCoreServices",
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}
