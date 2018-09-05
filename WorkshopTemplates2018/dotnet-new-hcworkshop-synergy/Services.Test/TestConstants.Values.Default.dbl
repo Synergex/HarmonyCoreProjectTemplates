@@ -32,9 +32,9 @@ namespace Services.Test
 
             GetCustomer_ByAltKey_State_State = "CA"
 
-        GetCustomer_ByAltKey_Zip_ZipCode, 98046
+        GetCustomer_ByAltKey_Zip_ZipCode = 98046
 
-        GetCustomer_ByAltKey_PaymentTerms_PaymentTermsCode, "01"
+        GetCustomer_ByAltKey_PaymentTerms_PaymentTermsCode = "01"
 
             UpdateCustomer_CustomerNumber = 99999
 
@@ -110,7 +110,7 @@ namespace Services.Test
 
             GetVendor_ByAltKey_State_State = "MA"
 
-        GetVendor_ByAltKey_Zip_ZipCode, 01000
+        GetVendor_ByAltKey_Zip_ZipCode = 01000
 
             GetVendor_ByAltKey_PaymentTerms_PaymentTermsCode = "30"
             UpdateVendor_VendorNumber = 999999
