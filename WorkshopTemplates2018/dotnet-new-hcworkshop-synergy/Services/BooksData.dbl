@@ -1,0 +1,104 @@
+
+import Microsoft.AspNet.OData.Builder
+import Microsoft.EntityFrameworkCore
+import Microsoft.OData.Edm
+import Services.Models
+import System
+import System.Collections.Generic
+import System.Text
+
+namespace Services
+
+    public class BooksEdmBuilder
+
+        public static method GetEdmModel, @IEdmModel
+        proc
+
+            data builder = new ODataConventionModelBuilder()
+
+            builder.EntitySet<Book>("Books")
+            builder.EntitySet<Press>("Presses")
+
+            mreturn builder.GetEdmModel()
+
+        endmethod
+
+    endclass
+
+    public class BooksDbContext extends DbContext
+
+        public method BooksDbContext
+            required in options, @DbContextOptions<BooksDbContext>
+            endparams
+            parent(options)
+        proc
+            
+        endmethod
+
+        public readwrite property Books, @DbSet<Book>
+
+        public readwrite property Presses, @DbSet<Press>
+
+        protected override method OnModelCreating, void
+            required in builder, @ModelBuilder
+        proc
+        endmethod
+
+    endclass
+
+    public static class BooksDataSource
+
+        private static readwrite property books, @IList<Book>
+
+        public static method GetBooks, @IList<Book>
+        proc
+            if (books != ^null)
+                mreturn books
+
+            books = new List<Book>()
+
+            data newBook = new Book() { 
+            &    Id = 1,
+            &    ISBN = "978-0-321-87758-1",
+            &    Title = "Essential C# 5.0",
+            &    Author = "Mark Michaelis",
+            &    Price = 59.99,
+            &    Address = new Location() {
+            &    City = "Redmond",
+            &    Street = "156th Avenue NE"
+            &    },
+            &    Press = new Press() {
+            &    Id = 1,
+            &    Name = "Addison-Wesley",
+            &    Category = BookCategory.Book
+            &    }
+            &    }
+
+            books.Add(newBook)
+
+            newBook = new Book() {
+            &    Id = 2,
+            &    ISBN = "063-6-920-02371-5",
+            &    Title = "Enterprise Games",
+            &    Author = "Michael Hugos",
+            &    Price = 49.99,
+            &    Address = new Location() {
+            &    City = "Bellevue",
+            &    Street = "Main St."
+            &    },
+            &    Press = new Press() {
+            &    Id = 2,
+            &    Name = "O'Reilly",
+            &    Category = BookCategory.EBook
+            &    }
+            &    }
+
+            books.Add(newBook)
+
+            mreturn books
+
+        endmethod
+
+    endclass
+
+endnamespace

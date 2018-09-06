@@ -1,14 +1,31 @@
 ﻿
-import System
-import System.Collections.Generic
-import System.Linq
-import System.Threading.Tasks
+import Microsoft.AspNet.OData
+import Microsoft.AspNet.OData.Extensions
+import Microsoft.AspNet.OData.Builder
+import Microsoft.AspNet.OData.Routing
 import Microsoft.AspNetCore.Builder
 import Microsoft.AspNetCore.Hosting
+import Microsoft.AspNetCore.Http
+import Microsoft.AspNetCore.Mvc
+import Microsoft.EntityFrameworkCore
 import Microsoft.Extensions.Configuration
 import Microsoft.Extensions.DependencyInjection
 import Microsoft.Extensions.Logging
 import Microsoft.Extensions.Options
+import Microsoft.OData
+import Microsoft.OData.Edm
+import Microsoft.OData.UriParser
+import System
+import System.Collections.Generic
+import System.Linq
+import System.Threading.Tasks
+
+
+import Harmony.Core
+import Harmony.Core.Context
+import Harmony.OData
+import Services.Models
+
 
 namespace Services
 
@@ -16,29 +33,56 @@ namespace Services
 
         public setprivate property Configuration, @IConfiguration
 
+        ;;; <summary>
+        ;;; Constructor
+        ;;; </summary>
+        ;;; <param name="configuration">Configuration information.</param>
         public method Startup
-			required in configuration, @IConfiguration
+            required in configuration, @IConfiguration
         proc
             this.Configuration = configuration
         endmethod
 
-        ;; This method gets called by the runtime. Use this method to add services to the container.
-
+        ;;; <summary>
+        ;;; This method gets called by the runtime.
+        ;;; Use this method to add services to the dependency injection container.
+        ;;; </summary>
         public method ConfigureServices, void
-			required in services, @IServiceCollection 
+            required in services, @IServiceCollection 
         proc
-            services.AddMvc()
+            lambda dbContextOptions(contextOptions)
+            begin
+                contextOptions.UseInMemoryDatabase()
+            end
+            services.AddDbContext<BooksDbContext>(dbContextOptions)
+
+            services.AddOdata()
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+
         endmethod
 
-        ;; This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-
+        ;;; <summary>
+        ;;; This method gets called by the runtime.
+        ;;; Use this method to configure the HTTP request pipeline.
+        ;;; </summary>
         public method Configure, void
-			required in app, @IApplicationBuilder 
-			required in env, @IHostingEnvironment
+            required in app, @IApplicationBuilder 
+            required in env, @IHostingEnvironment
         proc
+            ;;If we're in development mode, show detailed error messages
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage()
-            app.UseMvc()
+
+            ;;Specify OData options
+            lambda odataOptions(options)
+            begin
+                options.MapODataServiceRoute("odata","odata",BooksEdmBuilder.GetEdmModel())
+            end
+
+            ;;;Enable MVC
+            app.UseMvc(odataOptions)
+
         endmethod
 
     endclass

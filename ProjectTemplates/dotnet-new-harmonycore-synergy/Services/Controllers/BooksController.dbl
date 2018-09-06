@@ -1,0 +1,48 @@
+import System
+import System.Collections.Generic
+import System.Linq
+import System.Text
+import Microsoft.AspNet.OData
+import Services.Models
+import Microsoft.AspNetCore.Mvc
+import Harmony.Core.EF.Extensions
+
+namespace Services.Controllers
+
+    public class BooksController extends ODataController
+
+        private db, @BooksDbContext
+
+        public method BooksController
+            required in context, @BooksDbContext
+        proc
+            db = context
+            if (db.Books.Count()==0)
+            begin
+                data b, @Book
+                foreach b in BooksDataSource.GetBooks()
+                begin
+                    db.Books.Add(b)
+                    db.Presses.Add(b.Press)
+                end
+            db.SaveChanges()
+            end
+        endmethod
+
+        {EnableQuery}
+        public method Get, @IActionResult
+
+        proc
+            mreturn Ok(db.Books)
+        endmethod
+
+        {EnableQuery}
+        public method Get, @SingleResult<Book>
+            required in key, int
+        proc
+            mreturn new SingleResult<Book>(db.Books.FindQuery(key))
+        endmethod
+
+    endclass
+
+endnamespace
