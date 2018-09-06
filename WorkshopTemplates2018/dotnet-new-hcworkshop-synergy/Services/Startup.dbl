@@ -77,7 +77,29 @@ namespace Services
             ;;Specify OData options
             lambda odataOptions(options)
             begin
-                options.MapODataServiceRoute("odata","odata",BooksEdmBuilder.GetEdmModel())
+                data model = BooksEdmBuilder.GetEdmModel()
+
+                ;;Enable optional OData features
+
+                ;;Enable $select expressions to select properties returned
+                options.Select()
+
+                ;;Enable $filter expressions to filter rows returned
+                options.Filter()
+
+                ;;Enable $orderby expressions to custom sort results
+                options.OrderBy()
+
+                ;;Enable /$count endpoints
+                options.Count()
+
+                ;;Enable $expand expressions to expand relations
+                options.Expand()
+
+                ;;Specify the maximum rows that may be returned by $top expressions
+                options.MaxTop(100)
+
+                options.MapODataServiceRoute("odata","odata",model)
             end
 
             ;;;Enable MVC
