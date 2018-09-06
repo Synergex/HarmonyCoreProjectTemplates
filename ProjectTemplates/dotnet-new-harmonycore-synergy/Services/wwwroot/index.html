@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Harmony Core Service</title>
+</head>
+<body>
+    <h1> Welcome to your Harmony Core RESTful Web Service</h1>
+    <ul>
+        <li>
+            <a href="/odata">View a list of exposed entities</a>
+        </li>
+        <li>
+            <a href="/odata/$metadata">View service metadata</a>
+        </li>
+    </ul>
+    <h2>
+        Query the Sample Data
+    </h2>
+    <ul>
+        <li>
+            <a href="/odata/Books">Simple query (all books)</a>
+        </li>
+        <li>
+            <a href="/odata/Books?$filter=Price le 50">Filtered query (books under $50)</a>
+        </li>
+        <li>
+            <a href="/odata/Books?$filter=Price le 50&$select=ISBN,Title&$expand=Press($select=Name)">Advanced query (Books under $50, selected information, and expanding press name)</a>
+        </li>
+    </ul>
+</body>
+</html>

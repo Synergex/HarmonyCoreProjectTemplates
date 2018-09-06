@@ -61,4 +61,10 @@
     <Compile Include="Startup.dbl" />
     <None Include="StartupCustom.dbl" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\index.html">
+      <SubType>Content</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
