@@ -1,7 +1,35 @@
 <html>
 <head>
     <title>Harmony Core Service</title>
-</head>
+    <style>
+        body {
+            font-family: "Helvetica";
+            background-color: lightsteelblue;
+        }
+        
+        h1 {
+            color: navy;
+        } 
+        h2 {
+            color: navy;
+        } 
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+        a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: red;
+            text-decoration: none;
+        }
+        a:active {
+            color: red;
+            text-decoration: none;
+        }
+        </style></head>
 <body>
     <h1> Welcome to your Harmony Core RESTful Web Service</h1>
     <ul>
@@ -15,6 +43,12 @@
     <h2>
         Query the Sample Data
     </h2>
+    <p>
+        When you first create a new project you will have a sample data environment that presents book data.
+        However this sample environment will be disabled when you start generating your own services information
+        the project. Specifically, the sample data environment will stop working when you generate a replacement
+        Web API Startup class.
+    </p>
     <ul>
         <li>
             <a href="/odata/Books">Simple query (all books)</a>
