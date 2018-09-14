@@ -16,19 +16,20 @@ import Microsoft.OData.Edm
 import Microsoft.AspNet.OData.Builder
 import System.Collections.Generic
 import Services.Models
+import Services.ExposedMethods
 
 namespace Services
 
     public partial class EdmBuilder
 
         ;;; <summary>
-        ;;; Add custom EDM biulder code here.
+        ;;; Add custom EDM builder code here.
         ;;; </summary>
         ;;; <param name="serviceProvider"></param>
         ;;; <param name="builder"></param>
         partial static method GetEdmModelCustom, void
             required in serviceProvider, @IServiceProvider
-            required in builder, @ODataConventionModelBuilder
+            required in builder, @ODataModelBuilder
         proc
 
         endmethod
