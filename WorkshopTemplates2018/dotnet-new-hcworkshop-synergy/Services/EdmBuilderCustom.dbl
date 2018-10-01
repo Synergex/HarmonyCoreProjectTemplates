@@ -16,7 +16,7 @@ import Microsoft.OData.Edm
 import Microsoft.AspNet.OData.Builder
 import System.Collections.Generic
 import Services.Models
-import Services.ExposedMethods
+import Services.CustomFunctionality
 
 namespace Services
 
@@ -31,7 +31,7 @@ namespace Services
             required in serviceProvider, @IServiceProvider
             required in builder, @ODataModelBuilder
         proc
-
+            builder.AddMethods<OrdersMethods>("OrdersMethods")
         endmethod
 
     endclass

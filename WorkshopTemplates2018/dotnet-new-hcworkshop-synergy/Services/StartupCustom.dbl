@@ -40,6 +40,7 @@ namespace Services
             services, @IServiceCollection 
         proc
             services.AddScoped<IPrimaryKeyFactory,PrimaryKeyGenerator>()
+            ;services.TryAddEnumerable(ServiceDescriptor.Singleton<IActionInvokerProvider, HarmonySprocActionInvokerProvider>())
         endmethod
 
         partial method ConfigureCustom, void
