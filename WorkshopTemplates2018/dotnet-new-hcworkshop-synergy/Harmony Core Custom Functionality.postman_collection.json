@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "598deded-ed39-4842-87d1-67f15f4dc3a9",
+		"_postman_id": "cce34c7e-addd-4f43-b74f-1810cc428386",
 		"name": "Harmony Core Custom Functionality",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -91,6 +91,14 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5a730cdd-84d5-42e5-954f-b6aba5801073",
+			"key": "AccessToken",
+			"value": "",
+			"type": "string"
 		}
 	]
 }
