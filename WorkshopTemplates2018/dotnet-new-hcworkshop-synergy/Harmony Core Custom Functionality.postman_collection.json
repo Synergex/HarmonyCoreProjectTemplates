@@ -34,6 +34,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Read Order and Items",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://localhost:8086/odata/Orders(11)?$expand=REL_OrderItems",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"odata",
+						"Orders(11)"
+					],
+					"query": [
+						{
+							"key": "$expand",
+							"value": "REL_OrderItems"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
