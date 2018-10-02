@@ -58,7 +58,7 @@
     <None Include="PrimaryKeyGenerator.dbl" />
     <Compile Include="BooksData.dbl" />
     <Compile Include="Controllers\BooksController.dbl" />
-    <Compile Include="CustomFunctionality\OrdersMethods.dbl" />
+    <None Include="CustomFunctionality\OrdersMethods.dbl" />
     <Compile Include="Models\BooksModels.dbl" />
     <Compile Include="Startup.dbl" />
     <None Include="StartupCustom.dbl" />
