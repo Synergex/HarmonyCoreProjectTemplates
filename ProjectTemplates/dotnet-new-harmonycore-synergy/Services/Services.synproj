@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>1.0-*</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.AspNetCore">
-      <Version>1.0-*</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>1.0-*</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.OData">
-      <Version>1.0-*</Version>
+      <Version>1.0.3</Version>
     </PackageReference>
     <PackageReference Include="IdentityServer4.AccessTokenValidation">
       <Version>2.6.0</Version>
@@ -48,14 +48,25 @@
       <Project>{c9ea95ba-dc15-4a74-82c0-94172559edce}</Project>
       <Private>True</Private>
     </ProjectReference>
+    <ProjectReference Include="..\Services.Controllers\Services.Controllers.synproj">
+      <Name>Services.Controllers</Name>
+      <Project>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Isolated\Services.Isolated.synproj">
+      <Name>Services.Isolated</Name>
+      <Project>{74d56bb7-0a25-477e-8070-0100c0839700}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\Services.Models\Services.Models.synproj">
+      <Name>Services.Models</Name>
+      <Project>{74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers" />
-    <Folder Include="Models" />
     <Folder Include="wwwroot" />
     <Compile Include="BooksData.dbl" />
-    <Compile Include="Controllers\BooksController.dbl" />
-    <Compile Include="Models\BooksModels.dbl" />
     <Compile Include="Startup.dbl" />
   </ItemGroup>
   <ItemGroup>

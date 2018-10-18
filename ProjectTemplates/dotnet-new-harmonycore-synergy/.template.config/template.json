@@ -20,7 +20,10 @@
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
     "c9ea95ba-dc15-4a74-82c0-94172559edce",
     "51a1b4ab-cea6-4b90-a6ee-4d32c2282848",
-    "9F59F1FE-5272-46EF-911E-AFC94D9B311F"
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F",
+    "04111e5c-9d68-489b-b09a-433b6d2c7d5e",
+    "74d56bb7-0a25-477e-8070-0100c0839700",
+    "74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0"
   ],
   "symbols": {
     "TargetFrameworkOverride": {
@@ -69,7 +72,16 @@
       "path": "Services/Services.synproj"
     },
     {
+      "path": "Services.Controllers/Services.Controllers.synproj"
+    },
+    {
       "path": "Services.Host/Services.Host.synproj"
+    },
+    {
+      "path": "Services.Isolated/Services.Isolated.synproj"
+    },
+    {
+      "path": "Services.Models/Services.Models.synproj"
     }
   ],
   "defaultName": "HarmonyCoreServices",

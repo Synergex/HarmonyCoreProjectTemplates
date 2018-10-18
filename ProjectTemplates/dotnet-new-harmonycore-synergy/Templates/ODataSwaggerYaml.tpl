@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME>SwaggerFile.yaml</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.6</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.7</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>API_CONTACT_EMAIL</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_DESCRIPTION</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_LICENSE_NAME</REQUIRES_USERTOKEN>
@@ -775,6 +775,53 @@ definitions:
         </IF INTEGER>
     </IF CUSTOM_NOT_HARMONY_EXCLUDE>
 </FIELD_LOOP>
+;//
+;// Document relation properties
+;//
+<IF DEFINED_ENABLE_RELATIONS>
+ <IF STRUCTURE_RELATIONS>
+  <RELATION_LOOP>
+;//
+   <IF MANY_TO_ONE_TO_MANY>
+      REL_<RelationFromkey>:
+        $ref: '#/definitions/<RelationTostructureNoplural>'
+        description: Related <RelationTostructureNoplural>
+   </IF MANY_TO_ONE_TO_MANY>
+;//
+   <IF ONE_TO_ONE_TO_ONE>
+      REL_<RelationFromkey>:
+        $ref: '#/definitions/<RelationTostructureNoplural>'
+        description: Related <RelationTostructureNoplural>
+   </IF ONE_TO_ONE_TO_ONE>
+;//
+   <IF ONE_TO_ONE>
+      REL_<RelationFromkey>:
+        $ref: '#/definitions/<RelationTostructureNoplural>'
+        description: Related <RelationTostructureNoplural>
+   </IF ONE_TO_ONE>
+;//
+   <IF ONE_TO_MANY_TO_ONE>
+      REL_<RelationTostructurePlural>:
+        type: array
+        items:
+          $ref: '#/definitions/<RelationTostructureNoplural>'
+        description: Related <RelationTostructurePlural>
+   </IF ONE_TO_MANY_TO_ONE>
+;//
+   <IF ONE_TO_MANY>
+      REL_<RelationTostructurePlural>:
+        type: array
+        items:
+          $ref: '#/definitions/<RelationTostructureNoplural>'
+        description: Related <RelationTostructurePlural>
+   </IF ONE_TO_MANY>
+;//
+    </RELATION_LOOP>
+  </IF STRUCTURE_RELATIONS>
+</IF DEFINED_ENABLE_RELATIONS>
+;//
+;// Provide example data
+;//
     example:
 <FIELD_LOOP>
     <IF CUSTOM_NOT_HARMONY_EXCLUDE>

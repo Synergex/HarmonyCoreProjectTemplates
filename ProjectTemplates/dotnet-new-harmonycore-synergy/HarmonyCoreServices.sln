@@ -24,7 +24,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Templates\ODataSwaggerYaml.tpl = Templates\ODataSwaggerYaml.tpl
 		Templates\ODataTestConstantsProperties.tpl = Templates\ODataTestConstantsProperties.tpl
 		Templates\ODataTestConstantsValues.tpl = Templates\ODataTestConstantsValues.tpl
-		Templates\ODataTestDataGenerator.tpl = Templates\ODataTestDataGenerator.tpl
 		Templates\ODataTestDataLoader.tpl = Templates\ODataTestDataLoader.tpl
 		Templates\ODataTestEnvironment.tpl = Templates\ODataTestEnvironment.tpl
 		Templates\ODataUnitTestEnvironment.tpl = Templates\ODataUnitTestEnvironment.tpl
@@ -36,6 +35,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		regen.bat = regen.bat
 		UserDefinedTokens.tkn = UserDefinedTokens.tkn
 	EndProjectSection
+EndProject
+Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Isolated", "Services.Isolated\Services.Isolated.synproj", "{74D56BB7-0A25-477E-8070-0100C0839700}"
+EndProject
+Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Models", "Services.Models\Services.Models.synproj", "{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}"
+EndProject
+Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Controllers", "Services.Controllers\Services.Controllers.synproj", "{04111E5C-9D68-489B-B09A-433B6D2C7D5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +74,30 @@ Global
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|Any CPU.Build.0 = Release|Any CPU
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|x86.ActiveCfg = Release|x86
 		{51A1B4AB-CEA6-4B90-A6EE-4D32C2282848}.Release|x86.Build.0 = Release|x86
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Debug|x86.ActiveCfg = Debug|x86
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Debug|x86.Build.0 = Debug|x86
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Release|x86.ActiveCfg = Release|x86
+		{74D56BB7-0A25-477E-8070-0100C0839700}.Release|x86.Build.0 = Release|x86
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Debug|x86.ActiveCfg = Debug|x86
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Debug|x86.Build.0 = Debug|x86
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Release|x86.ActiveCfg = Release|x86
+		{74D61DA7-929E-4AA5-B6C4-5DDC2CCCE1F0}.Release|x86.Build.0 = Release|x86
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Debug|x86.ActiveCfg = Debug|x86
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Debug|x86.Build.0 = Debug|x86
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Release|x86.ActiveCfg = Release|x86
+		{04111E5C-9D68-489B-B09A-433B6D2C7D5E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
