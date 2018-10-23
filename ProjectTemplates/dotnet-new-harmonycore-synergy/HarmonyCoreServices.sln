@@ -18,8 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Templates\ODataMetaData.tpl = Templates\ODataMetaData.tpl
 		Templates\ODataModel.tpl = Templates\ODataModel.tpl
 		Templates\ODataPostManTests.tpl = Templates\ODataPostManTests.tpl
-		Templates\ODataSelfHost.tpl = Templates\ODataSelfHost.tpl
-		Templates\ODataStandAloneSelfHost.tpl = Templates\ODataStandAloneSelfHost.tpl
+		Templates\ODataStandAloneSelfHost.tpl = Templates\ODataSelfHost.tpl
 		Templates\ODataStartup.tpl = Templates\ODataStartup.tpl
 		Templates\ODataSwaggerYaml.tpl = Templates\ODataSwaggerYaml.tpl
 		Templates\ODataTestConstantsProperties.tpl = Templates\ODataTestConstantsProperties.tpl
@@ -27,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Templates\ODataTestDataLoader.tpl = Templates\ODataTestDataLoader.tpl
 		Templates\ODataTestEnvironment.tpl = Templates\ODataTestEnvironment.tpl
 		Templates\ODataUnitTestEnvironment.tpl = Templates\ODataUnitTestEnvironment.tpl
+		Templates\ODataSelfHost.tpl = Templates\ODataUnitTestHost.tpl
 		Templates\ODataUnitTests.tpl = Templates\ODataUnitTests.tpl
 	EndProjectSection
 EndProject
