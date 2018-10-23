@@ -8,8 +8,7 @@
 ;//
 ;// Type:        CodeGen Template
 ;//
-;// Description: Generates a an environment setup classs for a Harmony Core
-;//              self hosting program.
+;// Description: Generates an environment setup class for a self host program
 ;//
 ;// Copyright (c) 2018, Synergex International, Inc. All rights reserved.
 ;//
@@ -39,7 +38,7 @@
 ;;
 ;; Title:       SelfHostEnvironment.dbl
 ;;
-;; Description: Environment setup classs for a Harmony Core self hosting program
+;; Description: Environment setup class for a Harmony Core self host program
 ;;
 ;;*****************************************************************************
 ;; WARNING: GENERATED CODE!
@@ -58,7 +57,13 @@ import <MODELS_NAMESPACE>
 
 namespace <NAMESPACE>
 
-    public static class SelfHostEnvironment
+    public partial static class SelfHostEnvironment
+
+        ;;Declare the InitializeCustom partial method
+        ;;This method can be implemented in a partial class to provide custom code to initialize the self hosting environment
+        partial static method InitializeCustom, void
+
+        endmethod
 
         public static method Initialize, void
 
@@ -73,7 +78,16 @@ namespace <NAMESPACE>
 <IF DEFINED_ENABLE_CREATE_TEST_FILES>
             deleteFiles()
             createFiles()
+
 </IF DEFINED_ENABLE_CREATE_TEST_FILES>
+            ;;If we have an InitializeCustom method, call it
+            InitializeCustom()
+
+        endmethod
+
+        ;;Declare the CleanupCustom partial method
+        ;;This method can be implemented in a partial class to provide custom code to cleanup the self hosting environment before close
+        partial static method CleanupCustom, void
 
         endmethod
 
@@ -85,6 +99,15 @@ namespace <NAMESPACE>
             deleteFiles()
 
 </IF DEFINED_ENABLE_CREATE_TEST_FILES>
+            ;;If we have a CleanupCustom method, call it
+            CleanupCustom()
+
+        endmethod
+
+        ;;Declare the SetLogicalsCustom partial method
+        ;;This method can be implemented in a partial class to provide custom code to define logical names
+        partial static method SetLogicalsCustom, void
+            required in logicals, @List<string>
         endmethod
 
         private static method setLogicals, void
@@ -104,10 +127,23 @@ namespace <NAMESPACE>
             end
             </STRUCTURE_LOOP>
 
+            ;;If we have a SetLogicalsCustom method, call it
+            SetLogicalsCustom(logicals)
+
+            ;;Now we'll check each logical. If it already has a value we'll do nothing, otherwise
+            ;;we'll set the logical to point to the local folder whose name is identified by the
+            ;;user-defined token DATA_FOLDER
             foreach logical in logicals
             begin
                 data sts, int
-                xcall setlog(logical,sampleDataFolder,sts)
+                data translation, a80
+                ;;Is it set?
+                xcall getlog(logical,translation,sts)
+                if (!sts)
+                begin
+                    ;;No, we'll set it to <DATA_FOLDER>
+                    xcall setlog(logical,sampleDataFolder,sts)
+                end
             end
 
         endmethod

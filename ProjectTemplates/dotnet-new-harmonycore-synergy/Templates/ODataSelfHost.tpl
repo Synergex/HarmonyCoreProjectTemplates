@@ -1,6 +1,5 @@
 <CODEGEN_FILENAME>SelfHost.dbl</CODEGEN_FILENAME>
 <REQUIRES_CODEGEN_VERSION>5.3.7</REQUIRES_CODEGEN_VERSION>
-<REQUIRES_USERTOKEN>MODELS_NAMESPACE</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_DOCS_PATH</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVICES_NAMESPACE</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVER_PROTOCOL</REQUIRES_USERTOKEN>
@@ -9,7 +8,7 @@
 <REQUIRES_USERTOKEN>SERVER_HTTPS_PORT</REQUIRES_USERTOKEN>
 ;//****************************************************************************
 ;//
-;// Title:       ODataSelfHost.tpl
+;// Title:       ODataStandaloneSelfHost.tpl
 ;//
 ;// Type:        CodeGen Template
 ;//
@@ -58,7 +57,6 @@ import System.IO
 import System.Text
 import <SERVICES_NAMESPACE>
 import <NAMESPACE>
-import <MODELS_NAMESPACE>
 
 main SelfHost
 

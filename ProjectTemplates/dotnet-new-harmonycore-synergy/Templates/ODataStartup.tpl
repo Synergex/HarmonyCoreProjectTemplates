@@ -146,8 +146,9 @@ namespace <NAMESPACE>
             services.AddSwaggerGen()
 
             data mvcBuilder = services.AddMvcCore()
-            &    .AddJsonFormatters()    ;;For PATCH
-            &    .AddApiExplorer()        ;;Swagger UI
+            &    .AddDataAnnotations()      ;;Enable data annotations
+            &    .AddJsonFormatters()       ;;For PATCH
+            &    .AddApiExplorer()          ;;Swagger UI
 <ELSE>
             data mvcBuilder = services.AddMvcCore()
             &    .AddJsonFormatters()    ;;For PATCH
