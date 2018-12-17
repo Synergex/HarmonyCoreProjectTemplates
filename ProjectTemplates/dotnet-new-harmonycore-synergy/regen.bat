@@ -16,7 +16,9 @@ rem ============================================================================
 rem Specify the names of the repository structures to generate code from:
 
 set DATA_STRUCTURES=
+set DATA_ALIASES=%DATA_STRUCTURES%
 set FILE_STRUCTURES=%DATA_STRUCTURES%
+set FILE_ALIASES=%DATA_ALIASES%
 
 rem DATA_STRUCTURES Is a list all of structures that you wish to generate models and
 rem                 controllers for. In other words it declares all of the "entities"
@@ -87,6 +89,7 @@ rem Generate a Web API / OData CRUD environment
 
 rem Generate model and metadata classes
 codegen -s %DATA_STRUCTURES% ^
+        -a %DATA_ALIASES% ^
         -t ODataModel ODataMetaData ^
         -o %SolutionDir%%ModelsProject% ^
         -n %ModelsProject% ^
@@ -95,6 +98,7 @@ if ERRORLEVEL 1 goto error
 
 rem Generate controller classes
 codegen -s %DATA_STRUCTURES% ^
+        -a %DATA_ALIASES% ^
         -t ODataController ^
         -o %SolutionDir%%ControllersProject% ^
         -n %ControllersProject% ^
@@ -103,6 +107,7 @@ if ERRORLEVEL 1 goto error
 
 rem Generate the DbContext class
 codegen -s %DATA_STRUCTURES% -ms ^
+        -a %DATA_ALIASES% ^
         -t ODataDbContext ^
         -o %SolutionDir%%ModelsProject% ^
         -n %ModelsProject% ^
@@ -111,6 +116,7 @@ if ERRORLEVEL 1 goto error
 
 rem Generate the EdmBuilder and Startup classes
 codegen -s %DATA_STRUCTURES% -ms ^
+        -a %DATA_ALIASES% ^
         -t ODataEdmBuilder ODataStartup ^
         -o %SolutionDir%%ServicesProject% ^
         -n %ServicesProject% ^
@@ -122,6 +128,7 @@ rem Self hosting
 
 if DEFINED ENABLE_SELF_HOST_GENERATION (
   codegen -s %FILE_STRUCTURES% %PARAMSTR% -ms ^
+          -a %FILE_ALIASES% ^
           -t ODataSelfHost ODataSelfHostEnvironment ^
           -o %SolutionDir%%HostProject% ^
           -n %HostProject% ^
@@ -135,6 +142,7 @@ rem Swagger documentation and Postman tests
 rem Generate a Swagger file
 if DEFINED ENABLE_SWAGGER_DOCS (
   codegen -s %DATA_STRUCTURES% -ms ^
+          -a %DATA_ALIASES% ^
           -t ODataSwaggerYaml ^
           -o %SolutionDir%%ServicesProject%\wwwroot ^
              %STDOPTS%
@@ -144,6 +152,7 @@ if DEFINED ENABLE_SWAGGER_DOCS (
 rem Generate Postman Tests
 if DEFINED ENABLE_POSTMAN_TESTS (
   codegen -s %DATA_STRUCTURES% -ms ^
+          -a %DATA_ALIASES% ^
           -t ODataPostManTests ^
           -o %SolutionDir% ^
              %STDOPTS%
@@ -157,6 +166,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate OData client model, data loader and unit test classes
   codegen -s %DATA_STRUCTURES% ^
+          -a %DATA_ALIASES% ^
           -t ODataClientModel ODataTestDataLoader ODataUnitTests ^
           -o %SolutionDir%%TestProject% -tf ^
           -n %TestProject% ^
@@ -165,6 +175,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate the test environment
   codegen -s %FILE_STRUCTURES% %PARAMSTR% -ms ^
+          -a %FILE_ALIASES% ^
           -t ODataTestEnvironment ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -173,6 +184,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate the unit test environment class, and the unit test hosting program
   codegen -s %FILE_STRUCTURES% -ms ^
+          -a %FILE_ALIASES% ^
           -t ODataUnitTestEnvironment ODataUnitTestHost ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -181,6 +193,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate the unit test constants properties classes
   codegen -s %DATA_STRUCTURES% -ms ^
+          -a %DATA_ALIASES% ^
           -t ODataTestConstantsProperties ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
@@ -189,6 +202,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
   rem Generate unit test constants values class; one time, not replaced
   codegen -s %DATA_STRUCTURES% -ms ^
+          -a %DATA_ALIASES% ^
           -t ODataTestConstantsValues ^
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
