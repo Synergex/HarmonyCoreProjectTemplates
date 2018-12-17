@@ -58,7 +58,7 @@ namespace <NAMESPACE>
     ;;; Exposes metadata relating to the <StructureNoplural> model class.
     ;;; </summary>
     public partial class <StructureNoplural>Metadata extends DataObjectMetadataBase
-        
+
         ;;; <summary>
         ;;; Constructs an new <StructureNoplural>Metadata object.
         ;;; </summary>
@@ -124,7 +124,7 @@ namespace <NAMESPACE>
       <COUNTER_1_RESET>
       <FROM_KEY_SEGMENT_LOOP>
         <IF SEG_TYPE_LITERAL>
-            AddFieldInfo("<RelationFromkey>Literal<COUNTER_1_INCREMENT><COUNTER_1_VALUE>", "TAG_LITERAL", 0, 0, 0, false,"<SEGMENT_LITVAL>")
+            AddFieldInfo("<RelationFromkey>Literal<COUNTER_1_INCREMENT><COUNTER_1_VALUE>", "TAG_LITERAL", 0, 0, 0, false,^null,"<SEGMENT_LITVAL>")
         </IF SEG_TYPE_LITERAL>
       </FROM_KEY_SEGMENT_LOOP>
     </RELATION_LOOP>
@@ -146,7 +146,7 @@ namespace <NAMESPACE>
 </IF STRUCTURE_RELATIVE>
 
         endmethod
-    
+
         ;;; <summary>
         ;;; Returns a new <StructureNoplural> object containing data from a record and a GRFA.
 <IF DEFINED_ENABLE_RELATIONS>
@@ -193,7 +193,7 @@ namespace <NAMESPACE>
       <IF TO_STRUCTURE_INCLUDED>
 ;//
         <IF MANY_TO_ONE_TO_MANY>
-                ("REL_<RelationFromkey>"), 
+                ("REL_<RelationFromkey>"),
                     new<StructureNoplural>.REL_<RelationFromkey> = (@<RelationTostructureNoplural>)joinedObject.Value
         </IF MANY_TO_ONE_TO_MANY>
 ;//
@@ -203,7 +203,7 @@ namespace <NAMESPACE>
         </IF ONE_TO_ONE>
 ;//
         <IF ONE_TO_MANY_TO_ONE>
-                ("REL_<RelationTostructurePlural>"), 
+                ("REL_<RelationTostructurePlural>"),
                     new<StructureNoplural>.REL_<RelationTostructurePlural> = (@ICollection<<RelationTostructureNoplural>>)joinedObject.Value
         </IF ONE_TO_MANY_TO_ONE>
 ;//
