@@ -2,6 +2,7 @@
 import Harmony.Core.Context
 import Microsoft.AspNetCore.Mvc
 import Microsoft.AspNetCore.Authorization
+import System.Threading.Tasks
 
 namespace Services.Controllers
 
@@ -15,6 +16,16 @@ namespace Services.Controllers
                 throw new System.NotImplementedException()
             endmethod
         endproperty
+
+        public virtual method Recycle, @Task
+        proc
+            mreturn Task.FromResult(true)
+        endmethod
+
+        public virtual method EnsureReady, @Task
+        proc
+            mreturn Task.FromResult(true)
+        endmethod
 
         public virtual method InitServices, void
             required in aServices, @IServiceProvider
