@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructureNoplural>.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.10</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_OPTION>TF</REQUIRES_OPTION>
 <CODEGEN_FOLDER>Models</CODEGEN_FOLDER>
 ;//****************************************************************************
@@ -52,6 +52,7 @@ import System.Collections.Generic
 
 namespace <NAMESPACE>
 
+    {JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)}
     public partial class <StructureNoplural>
 
 <FIELD_LOOP>
@@ -81,7 +82,7 @@ namespace <NAMESPACE>
         ;;; Relationship (Type A)
         ;;; <STRUCTURE_NOPLURAL>.<RELATION_FROMKEY> (one) --> (one) --> (many) <RELATION_TOSTRUCTURE_NOPLURAL>.<RELATION_TOKEY>
         ;;; </summary>
-        public readwrite property REL_<RelationFromkey>, @<RelationTostructureNoplural>
+        public readwrite property REL_<RelationTostructureNoplural>, @<RelationTostructureNoplural>
         </IF MANY_TO_ONE_TO_MANY>
 ;//
 ;//
@@ -91,7 +92,7 @@ namespace <NAMESPACE>
         ;;; Relationship (Type B)
         ;;; <STRUCTURE_NOPLURAL>.<RELATION_FROMKEY> (one) --> (one) --> (one) <RELATION_TOSTRUCTURE_NOPLURAL>.<RELATION_TOKEY>
         ;;; </summary>
-        public readwrite property REL_<RelationFromkey>, @<RelationTostructureNoplural>
+        public readwrite property REL_<RelationTostructureNoplural>, @<RelationTostructureNoplural>
         </IF ONE_TO_ONE_TO_ONE>
 ;//
 ;//
@@ -101,7 +102,7 @@ namespace <NAMESPACE>
         ;;; Relationship (Type C)
         ;;; <STRUCTURE_NOPLURAL>.<RELATION_FROMKEY> (one) --> (one) <RELATION_TOSTRUCTURE_NOPLURAL>.<RELATION_TOKEY>
         ;;; </summary>
-        public readwrite property REL_<RelationFromkey>, @<RelationTostructureNoplural>
+        public readwrite property REL_<RelationTostructureNoplural>, @<RelationTostructureNoplural>
         </IF ONE_TO_ONE>
 ;//
 ;//

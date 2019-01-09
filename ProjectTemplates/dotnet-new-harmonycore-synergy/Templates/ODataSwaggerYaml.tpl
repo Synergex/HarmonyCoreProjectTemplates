@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME>SwaggerFile.yaml</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.10</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>API_CONTACT_EMAIL</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_DESCRIPTION</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_LICENSE_NAME</REQUIRES_USERTOKEN>
@@ -809,19 +809,19 @@ definitions:
   <IF TO_STRUCTURE_INCLUDED>
 ;//
    <IF MANY_TO_ONE_TO_MANY>
-      REL_<RelationFromkey>:
+      REL_<RelationTostructureNoplural>:
         $ref: '#/definitions/<RelationTostructureNoplural>'
         description: Related <RelationTostructureNoplural>
    </IF MANY_TO_ONE_TO_MANY>
 ;//
    <IF ONE_TO_ONE_TO_ONE>
-      REL_<RelationFromkey>:
+      REL_<RelationTostructureNoplural>:
         $ref: '#/definitions/<RelationTostructureNoplural>'
         description: Related <RelationTostructureNoplural>
    </IF ONE_TO_ONE_TO_ONE>
 ;//
    <IF ONE_TO_ONE>
-      REL_<RelationFromkey>:
+      REL_<RelationTostructureNoplural>:
         $ref: '#/definitions/<RelationTostructureNoplural>'
         description: Related <RelationTostructureNoplural>
    </IF ONE_TO_ONE>

@@ -120,6 +120,7 @@ codegen -s %DATA_STRUCTURES% -ms ^
         -t ODataEdmBuilder ODataStartup ^
         -o %SolutionDir%%ServicesProject% ^
         -n %ServicesProject% ^
+        -ut CONTROLLERS_NAMESPACE=%ControllersProject% ^
            %STDOPTS%
 if ERRORLEVEL 1 goto error
 
