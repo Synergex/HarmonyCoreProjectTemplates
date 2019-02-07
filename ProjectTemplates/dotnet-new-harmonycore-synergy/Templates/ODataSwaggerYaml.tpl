@@ -1,12 +1,12 @@
 <CODEGEN_FILENAME>SwaggerFile.yaml</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
-<REQUIRES_USERTOKEN>API_CONTACT_EMAIL</REQUIRES_USERTOKEN>
-<REQUIRES_USERTOKEN>API_DESCRIPTION</REQUIRES_USERTOKEN>
-<REQUIRES_USERTOKEN>API_LICENSE_NAME</REQUIRES_USERTOKEN>
-<REQUIRES_USERTOKEN>API_LICENSE_URL</REQUIRES_USERTOKEN>
-<REQUIRES_USERTOKEN>API_TERMS_URL</REQUIRES_USERTOKEN>
+<REQUIRES_CODEGEN_VERSION>5.3.13</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>API_TITLE</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_VERSION</REQUIRES_USERTOKEN>
+<REQUIRES_USERTOKEN>API_DESCRIPTION</REQUIRES_USERTOKEN>
+;//<REQUIRES_USERTOKEN>API_TERMS_URL</REQUIRES_USERTOKEN>
+;//<REQUIRES_USERTOKEN>API_CONTACT_EMAIL</REQUIRES_USERTOKEN>
+;//<REQUIRES_USERTOKEN>API_LICENSE_NAME</REQUIRES_USERTOKEN>
+;//<REQUIRES_USERTOKEN>API_LICENSE_URL</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVER_BASE_PATH</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVER_HTTPS_PORT</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVER_NAME</REQUIRES_USERTOKEN>
@@ -55,22 +55,27 @@
 # *****************************************************************************
 # 
 swagger: '2.0'
+
 info:
   description: <API_DESCRIPTION>
   version: <API_VERSION>
   title: <API_TITLE>
-  termsOfService: <API_TERMS_URL>
-  contact:
-    email: <API_CONTACT_EMAIL>
-  license:
-    name: <API_LICENSE_NAME>
-    url: '<API_LICENSE_URL>'
+;//  termsOfService: <API_TERMS_URL>
+;//  contact:
+;//    email: <API_CONTACT_EMAIL>
+;//  license:
+;//    name: <API_LICENSE_NAME>
+;//    url: '<API_LICENSE_URL>'
+
 host: '<SERVER_NAME>:<SERVER_HTTPS_PORT>'
 basePath: /<SERVER_BASE_PATH>
+
 schemes:
   - https
+
 consumes:
   - application/json
+
 produces:
   - application/json
 ;//
@@ -78,16 +83,19 @@ produces:
 ;//
 ;// Tags that can be applied to operations to categorize them
 ;//
+
 tags:
 <STRUCTURE_LOOP>
   - name: <StructurePlural>
     description: Operations related to <STRUCTURE_DESC>
+
 </STRUCTURE_LOOP>
 ;//
 ;//----------------------------------------------------------------------------
 ;//
 ;// Operation paths
 ;//
+
 paths:
 <STRUCTURE_LOOP>
 ;//
@@ -96,9 +104,12 @@ paths:
 ;// Get all records
 ;//
 <IF DEFINED_ENABLE_GET_ALL>
+<IF GET_ALL_ENDPOINT>
 <COUNTER_1_RESET>
 <COUNTER_1_INCREMENT>
+
   /<StructurePlural>:
+
     get:
       summary: Get all <structurePlural>
       description: Get all or a filtered collection of <structurePlural>.
@@ -151,19 +162,22 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/<StructureNoplural>'
+              $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
         <IF DEFINED_ENABLE_AUTHENTICATION>
         '401':
           description: Unauthorized
         </IF DEFINED_ENABLE_AUTHENTICATION>
+</IF GET_ALL_ENDPOINT>
 </IF DEFINED_ENABLE_GET_ALL>
 ;//
 ;// POST
 ;//
 <IF DEFINED_ENABLE_POST>
+<IF POST_ENDPOINT>
 <IF COUNTER_1_EQ_0>
   /<StructurePlural>:
 </IF COUNTER_1_EQ_0>
+
     post:
       summary: Create a <structureNoplural>
       description: Create a new <structureNoplural>. When using a POST operation the primary key value will be assigned automatically. The primary key properties can be ommitted from the data in the request body, but if present will be ignored and replaced by automatically generated values.
@@ -177,24 +191,28 @@ paths:
           description: Data for <structureNoplural> to create.
           required: true
           schema:
-            $ref: '#/definitions/<StructureNoplural>Post'
+            '<StructureNoplural>Types.yaml#/<StructureNoplural>Post'
       responses:
         '201':
           description: The <structureNoplural> was created. The data for the new <structureNoplural> will be included in the response body, including the auotmatically assigned primary key values, and the response will include a "Location" header indicating the URL that can be used to retrieve the newly created <structureNoplural>.
           schema:
-            $ref: '#/definitions/<StructureNoplural>'
+            $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
         '400':
           description: Bad request
         <IF DEFINED_ENABLE_AUTHENTICATION>
         '401':
           description: Unauthorized
         </IF DEFINED_ENABLE_AUTHENTICATION>
+</IF POST_ENDPOINT>
 </IF DEFINED_ENABLE_POST>
 ;//
 ;// GET Count
 ;//
 <IF DEFINED_ENABLE_COUNT>
+<IF GET_ENDPOINT>
+
   /<StructurePlural>/$count:
+
     get:
       summary: Count <structurePlural>
       description: Count all or a filtered collection of <structurePlural>.
@@ -218,6 +236,7 @@ paths:
         '401':
           description: Unauthorized
         </IF DEFINED_ENABLE_AUTHENTICATION>
+</IF GET_ENDPOINT>
 </IF DEFINED_ENABLE_COUNT>
 ;//
 ;//----------------------------------------------------------------------------
@@ -229,9 +248,12 @@ paths:
 ;// Get via primary key
 ;//
 <IF DEFINED_ENABLE_GET_ONE>
+<IF GET_ENDPOINT>
 <COUNTER_1_RESET>
-  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
+
+  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
 <COUNTER_1_INCREMENT>
+
     get:
       summary: Get a single <structureNoplural>
       description: Get a <structureNoplural> via a complete primary key.
@@ -280,23 +302,27 @@ paths:
         '200':
           description: OK (the requested <structureNoplural> was found and returned)
           schema:
-            $ref: '#/definitions/<StructureNoplural>'
+            $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
         <IF DEFINED_ENABLE_AUTHENTICATION>
         '401':
           description: Unauthorized
         </IF DEFINED_ENABLE_AUTHENTICATION>
         '404':
           description: Not found (the requested <structureNoplural> was not found)
+</IF GET_ENDPOINT>
 </IF DEFINED_ENABLE_GET_ONE>
 ;//
 ;// ----------------------------------------------------------------------------
 ;// Delete via primary key
 ;//
 <IF DEFINED_ENABLE_DELETE>
+<IF DELETE_ENDPOINT>
 <IF COUNTER_1_EQ_0>
-  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
+
+  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
 </IF COUNTER_1_EQ_0>
 <COUNTER_1_INCREMENT>
+
     delete:
       summary: Delete <structureNoplural>
       description: Delete a <structureNoplural> via a complete primary key.
@@ -338,16 +364,20 @@ paths:
         </IF DEFINED_ENABLE_AUTHENTICATION>
         '404':
           description: Not found content (the specified <structureNoplural> was not found)
+</IF DELETE_ENDPOINT>
 </IF DEFINED_ENABLE_DELETE>
 ;//
 ;// ----------------------------------------------------------------------------
 ;// Create or update via primary key
 ;//
 <IF DEFINED_ENABLE_PUT>
+<IF PUT_ENDPOINT>
 <IF COUNTER_1_EQ_0>
-  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
+
+  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
 </IF COUNTER_1_EQ_0>
 <COUNTER_1_INCREMENT>
+
     put:
       summary: Create or update <structureNoplural>
       description: Create or update a <structureNoplural> via a complete primary key.
@@ -385,12 +415,12 @@ paths:
           description: Data for <structureNoplural> to create or update.
           required: true
           schema:
-            $ref: '#/definitions/<StructureNoplural>'
+            $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
       responses:
         '201':
           description: Created (the <structureNoplural> was created)
           schema:
-            $ref: '#/definitions/<StructureNoplural>'
+            $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
         '204':
           description: No Content (the <structureNoplural> was updated)
         '400':
@@ -399,16 +429,20 @@ paths:
         '401':
           description: Unauthorized
         </IF DEFINED_ENABLE_AUTHENTICATION>
+</IF PUT_ENDPOINT>
 </IF DEFINED_ENABLE_PUT>
 ;//
 ;// ----------------------------------------------------------------------------
 ;// Patch via primary key
 ;//
 <IF DEFINED_ENABLE_PATCH>
+<IF PATCH_ENDPOINT>
 <IF COUNTER_1_EQ_0>
-  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
+
+  '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>a{RecordNumber}</IF STRUCTURE_RELATIVE>)':
 </IF COUNTER_1_EQ_0>
 <COUNTER_1_INCREMENT>
+
     patch:
       summary: Patch <structureNoplural>
       description: Patch a <structureNoplural> via complete primary key.
@@ -458,6 +492,7 @@ paths:
         </IF DEFINED_ENABLE_AUTHENTICATION>
         '404':
           description: Not found (the specified <structureNoplural> was not found)
+</IF PATCH_ENDPOINT>
 </IF DEFINED_ENABLE_PATCH>
 ;//
 ;//----------------------------------------------------------------------------
@@ -466,12 +501,15 @@ paths:
 ;//
 <IF STRUCTURE_ISAM>
 <IF DEFINED_ENABLE_ALTERNATE_KEYS>
+<IF ALTERNATE_KEY_ENDPOINTS>
 <ALTERNATE_KEY_LOOP>
+
   '/<StructurePlural>(<SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP>)':
 ;//
 ;// ----------------------------------------------------------------------------
 ;// Get via alternate key
 ;//
+
     get:
   <IF DUPLICATES>
       summary: Get <structurePlural>
@@ -548,9 +586,9 @@ paths:
   <IF DUPLICATES>
             type: array
             items:
-              $ref: '#/definitions/<StructureNoplural>'
+              $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
   <ELSE>
-            $ref: '#/definitions/<StructureNoplural>'
+            $ref: '<StructureNoplural>Types.yaml#/<StructureNoplural>'
   </IF DUPLICATES>
 ;//
 ;// ----------------------------------------------------------------------------
@@ -558,7 +596,9 @@ paths:
 ;//
   <IF DEFINED_ENABLE_COUNT>
     <IF DUPLICATES>
+
   '/<StructurePlural>(<SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP>)/$count':
+
     get:
       summary: Count <structurePlural>
       description: Count <structurePlural> via complete alternate key <KeyName>.
@@ -598,20 +638,24 @@ paths:
     </IF DUPLICATES>
   </IF DEFINED_ENABLE_COUNT>
 </ALTERNATE_KEY_LOOP>
+</IF ALTERNATE_KEY_ENDPOINTS>
 </IF DEFINED_ENABLE_ALTERNATE_KEYS>
 </IF STRUCTURE_ISAM>
-<IF DEFINED_ENABLE_PROPERTY_ENDPOINTS>
 ;//
 ;// ----------------------------------------------------------------------------
 ;// Single property operations
 ;//
+<IF DEFINED_ENABLE_PROPERTY_ENDPOINTS>
+<IF PROPERTY_ENDPOINTS>
 <FIELD_LOOP>
 <IF NOTPKSEGMENT>
 <IF CUSTOM_NOT_HARMONY_EXCLUDE>
 ;//
 ;// Invividual property
 ;//
+
   '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><IF SINGLE_SEGMENT>{key}<ELSE><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></IF SINGLE_SEGMENT></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>{RecordNumber}</IF STRUCTURE_RELATIVE>)/<FieldSqlName>':
+
     get:
       summary: Get <structureNoplural> property <FieldSqlName>
       description: Get <structureNoplural> property <FieldSqlName> via complete primary key.
@@ -663,7 +707,9 @@ paths:
 ;// Invividual property - value only
 ;//
 <IF DEFINED_ENABLE_PROPERTY_VALUE_DOCS>
+
   '/<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><IF SINGLE_SEGMENT>{key}<ELSE><SEGMENT_LOOP><FieldSqlName>=<IF ALPHA>''</IF ALPHA>{a<FieldSqlName>}<IF ALPHA>''</IF ALPHA><,></SEGMENT_LOOP></IF SINGLE_SEGMENT></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>{RecordNumber}</IF STRUCTURE_RELATIVE>)/<FieldSqlName>/$value':
+
     get:
       summary: Get <structureNoplural> property <FieldSqlName>
       description: Get <structureNoplural> property <FieldSqlName> via complete primary key, returning the raw value.
@@ -715,6 +761,7 @@ paths:
 </IF CUSTOM_NOT_HARMONY_EXCLUDE>
 </IF NOTPKSEGMENT>
 </FIELD_LOOP>
+</IF PROPERTY_ENDPOINTS>
 </IF DEFINED_ENABLE_PROPERTY_ENDPOINTS>
 </STRUCTURE_LOOP>
 ;//
@@ -735,7 +782,8 @@ security:
 </IF DEFINED_ENABLE_AUTHENTICATION>
 ;//----------------------------------------------------------------------------
 ;//
-;// Definitions of data models 
+;// Definitions of data models.
+;// The definitions for each type are included from a separate YAML file.
 ;//
 definitions:
 <STRUCTURE_LOOP>
@@ -743,178 +791,16 @@ definitions:
 ;// Full type
 ;//
   <StructureNoplural>:
-    required:
-<IF STRUCTURE_ISAM>
-  <PRIMARY_KEY>
-    <SEGMENT_LOOP>
-      - <FieldSqlname>
-    </SEGMENT_LOOP>
-  </PRIMARY_KEY>
-</IF STRUCTURE_ISAM>
-<IF STRUCTURE_RELATIVE>
-      - RecordNumber
-</IF STRUCTURE_RELATIVE>
-    properties:
-<FIELD_LOOP>
-    <IF CUSTOM_NOT_HARMONY_EXCLUDE>
-      <FieldSqlname>:
-        <IF ALPHA>
-        type: string
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF ALPHA>
-        <IF DECIMAL>
-        <IF PRECISION>
-        type: number
-        format: float
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        <ELSE>
-        <IF CUSTOM_HARMONY_AS_STRING>
-        type: string
-        example: <FIELD_SAMPLE_DATA>
-        <ELSE>
-        type: integer
-        example: <FIELD_SAMPLE_DATA>
-        </IF CUSTOM_HARMONY_AS_STRING>
-        description: <FIELD_DESC>
-        </IF PRECISION>
-        </IF DECIMAL>
-        <IF DATE>
-        type: string
-        format: date-time
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF DATE>
-        <IF TIME>
-        type: string
-        format: date-time
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF TIME>
-        <IF INTEGER>
-        type: number
-        format: <IF I124>int32<ELSE>int64</IF I124>
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF INTEGER>
-    </IF CUSTOM_NOT_HARMONY_EXCLUDE>
-</FIELD_LOOP>
-;//
-;// Document relation properties
-;//
-<IF DEFINED_ENABLE_RELATIONS>
- <IF STRUCTURE_RELATIONS>
-  <RELATION_LOOP>
-  <IF TO_STRUCTURE_INCLUDED>
-;//
-   <IF MANY_TO_ONE_TO_MANY>
-      REL_<RelationTostructureNoplural>:
-        $ref: '#/definitions/<RelationTostructureNoplural>'
-        description: Related <RelationTostructureNoplural>
-   </IF MANY_TO_ONE_TO_MANY>
-;//
-   <IF ONE_TO_ONE_TO_ONE>
-      REL_<RelationTostructureNoplural>:
-        $ref: '#/definitions/<RelationTostructureNoplural>'
-        description: Related <RelationTostructureNoplural>
-   </IF ONE_TO_ONE_TO_ONE>
-;//
-   <IF ONE_TO_ONE>
-      REL_<RelationTostructureNoplural>:
-        $ref: '#/definitions/<RelationTostructureNoplural>'
-        description: Related <RelationTostructureNoplural>
-   </IF ONE_TO_ONE>
-;//
-   <IF ONE_TO_MANY_TO_ONE>
-      REL_<RelationTostructurePlural>:
-        type: array
-        items:
-          $ref: '#/definitions/<RelationTostructureNoplural>'
-        description: Related <RelationTostructurePlural>
-   </IF ONE_TO_MANY_TO_ONE>
-;//
-   <IF ONE_TO_MANY>
-      REL_<RelationTostructurePlural>:
-        type: array
-        items:
-          $ref: '#/definitions/<RelationTostructureNoplural>'
-        description: Related <RelationTostructurePlural>
-   </IF ONE_TO_MANY>
-;//
-      </IF TO_STRUCTURE_INCLUDED>
-    </RELATION_LOOP>
-  </IF STRUCTURE_RELATIONS>
-</IF DEFINED_ENABLE_RELATIONS>
-;//
-;// Provide example data
-;//
-    example:
-<FIELD_LOOP>
-    <IF CUSTOM_NOT_HARMONY_EXCLUDE>
-      <FieldSqlname>: <FIELD_SAMPLE_DATA>
-    </IF CUSTOM_NOT_HARMONY_EXCLUDE>
-</FIELD_LOOP>
+    $ref: "<StructureNoplural>Types.yaml#/<StructureNoplural>"
 ;//
 ;// Type without primary key properties
 ;//
+<IF DEFINED_ENABLE_POST>
+<IF POST_ENDPOINT>
   <StructureNoplural>Post:
-    properties:
-<FIELD_LOOP>
-  <IF NOTPKSEGMENT>
-    <IF CUSTOM_NOT_HARMONY_EXCLUDE>
-      <FieldSqlname>:
-        <IF ALPHA>
-        type: string
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF ALPHA>
-        <IF DECIMAL>
-        <IF PRECISION>
-        type: number
-        format: float
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        <ELSE>
-        <IF CUSTOM_HARMONY_AS_STRING>
-        type: string
-        example: <FIELD_SAMPLE_DATA>
-        <ELSE>
-        type: integer
-        example: <FIELD_SAMPLE_DATA>
-        </IF CUSTOM_HARMONY_AS_STRING>
-        description: <FIELD_DESC>
-        </IF PRECISION>
-        </IF DECIMAL>
-        <IF DATE>
-        type: string
-        format: date-time
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF DATE>
-        <IF TIME>
-        type: string
-        format: date-time
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF TIME>
-        <IF INTEGER>
-        type: number
-        format: <IF I124>int32<ELSE>int64</IF I124>
-        example: <FIELD_SAMPLE_DATA>
-        description: <FIELD_DESC>
-        </IF INTEGER>
-    </IF CUSTOM_NOT_HARMONY_EXCLUDE>
-  </IF NOTPKSEGMENT>
-</FIELD_LOOP>
-    example:
-<FIELD_LOOP>
-  <IF NOTPKSEGMENT>
-    <IF CUSTOM_NOT_HARMONY_EXCLUDE>
-      <FieldSqlname>: <FIELD_SAMPLE_DATA>
-    </IF CUSTOM_NOT_HARMONY_EXCLUDE>
-  </IF NOTPKSEGMENT>
-</FIELD_LOOP>
+    $ref: "<StructureNoplural>Types.yaml#/<StructureNoplural>Post"
+</IF POST_ENDPOINT>
+</IF DEFINED_ENABLE_POST>
 </STRUCTURE_LOOP>
 ;//
 ;//----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructureNoplural>.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.13</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_OPTION>TF</REQUIRES_OPTION>
 <CODEGEN_FOLDER>Models</CODEGEN_FOLDER>
 ;//****************************************************************************
@@ -71,6 +71,7 @@ namespace <NAMESPACE>
 
 .region "Relationships to other entities"
 
+  <IF STRUCTURE_RELATIONS>
     <RELATION_LOOP>
       <IF TO_STRUCTURE_INCLUDED>
         <COUNTER_1_INCREMENT>
@@ -127,6 +128,7 @@ namespace <NAMESPACE>
 
       </IF TO_STRUCTURE_INCLUDED>
     </RELATION_LOOP>
+  </IF STRUCTURE_RELATIONS>
 .endregion
 
     endclass

@@ -40,6 +40,12 @@ namespace Services.Controllers
             throw new NotImplementedException()
         endmethod
 	
+        public virtual method Destroy, void
+            endparams
+        proc
+            
+        endmethod
+
     endclass
 
 endnamespace

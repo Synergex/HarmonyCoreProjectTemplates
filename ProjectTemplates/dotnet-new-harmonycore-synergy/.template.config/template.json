@@ -63,6 +63,9 @@
   },
   "primaryOutputs": [
     {
+      "path": ".gitignore"
+    },
+    {
       "path": "HarmonyCoreServices.sln"
     },
     {

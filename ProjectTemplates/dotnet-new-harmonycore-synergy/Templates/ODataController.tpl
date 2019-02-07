@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructurePlural>Controller.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.13</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>MODELS_NAMESPACE</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>SERVICES_NAMESPACE</REQUIRES_USERTOKEN>
 <REQUIRES_USERTOKEN>API_ENABLE_QUERY_PARAMS</REQUIRES_USERTOKEN>
@@ -72,24 +72,19 @@ namespace <NAMESPACE>
     public partial class <StructurePlural>Controller extends ODataController
     
         public readwrite property DBContext, @<MODELS_NAMESPACE>.DBContext
-<IF DEFINED_ENABLE_POST>
         public readwrite property ServiceProvider, @IServiceProvider
-</IF DEFINED_ENABLE_POST>
 
         ;;; <summary>
         ;;; Constructs a new instance of <StructurePlural>Controller
         ;;; </summary>
-        ;;; <param name="dbContext">Database context</param>
+        ;;; <param name="aDbContext">Database context instance (DI)</param>
+        ;;; <param name="aServiceProvider">Service provider instance (DI)</param>
         public method <StructurePlural>Controller
-            dbContext, @<MODELS_NAMESPACE>.DBContext
- <IF DEFINED_ENABLE_POST>
-           serviceProvider, @IServiceProvider
-</IF DEFINED_ENABLE_POST>
+            aDbContext, @<MODELS_NAMESPACE>.DBContext
+            aServiceProvider, @IServiceProvider
         proc
-            this.DBContext = dbContext
-<IF DEFINED_ENABLE_POST>
-            this.ServiceProvider = serviceProvider
-</IF DEFINED_ENABLE_POST>
+            this.DBContext = aDbContext
+            this.ServiceProvider = aServiceProvider
         endmethod
 
 ;//
@@ -114,17 +109,17 @@ namespace <NAMESPACE>
         ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
         public method Get<StructurePlural>, @IActionResult
         proc
-            mreturn Ok(DBContext.<StructurePlural>)
+            mreturn Ok(DBContext.<StructurePlural>.AsNoTracking())
         endmethod
 
 </IF GET_ALL_ENDPOINT>
 </IF DEFINED_ENABLE_GET_ALL>
 ;//
-;// GET ONE -------------------------------------------------------------------
+;// GET ONE (PRIMARY KEY READ) ------------------------------------------------
 ;//
 <IF DEFINED_ENABLE_GET_ONE>
 <IF GET_ENDPOINT>
-        {ODataRoute("<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>{a<FieldSqlName>}<,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)")}
+        {ODataRoute("<StructurePlural>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP><FieldSqlName>={a<FieldSqlName>}<,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)")}
   <IF DEFINED_ENABLE_AUTHENTICATION>
     <IF USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
@@ -154,7 +149,11 @@ namespace <NAMESPACE>
   <PRIMARY_KEY>
     <SEGMENT_LOOP>
             {FromODataUri}
+            <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+            <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+            </IF CUSTOM_HARMONY_AS_STRING>
     </SEGMENT_LOOP>
   </PRIMARY_KEY>
 </IF STRUCTURE_ISAM>
@@ -164,7 +163,7 @@ namespace <NAMESPACE>
 </IF STRUCTURE_RELATIVE>
         proc
 ;//Shouldn't really need the generic type arg on FindQuery. Compiler issue?
-            mreturn new SingleResult<<StructureNoplural>>(DBContext.<StructurePlural>.FindQuery<<StructureNoplural>>(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>))
+            mreturn new SingleResult<<StructureNoplural>>(DBContext.<StructurePlural>.AsNoTracking().FindQuery<<StructureNoplural>>(DBContext, <IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>))
         endmethod
 
 </IF GET_ENDPOINT>
@@ -198,10 +197,14 @@ namespace <NAMESPACE>
         public method Get<StructurePlural>By<KeyName>, @IActionResult
             <SEGMENT_LOOP>
             {FromODataUri}
+            <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+            <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+            </IF CUSTOM_HARMONY_AS_STRING>
             </SEGMENT_LOOP>
         proc
-            data result = DBContext.<StructurePlural>.FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",a<FieldSqlName><,></SEGMENT_LOOP>)
+            data result = DBContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",a<FieldSqlName><,></SEGMENT_LOOP>)
             if (result == ^null)
                 mreturn NotFound()
             mreturn Ok(result)
@@ -228,10 +231,14 @@ namespace <NAMESPACE>
         public method Get<StructureNoplural>By<KeyName>, @SingleResult<<StructureNoplural>>
             <SEGMENT_LOOP>
             {FromODataUri}
+            <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+            <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+            </IF CUSTOM_HARMONY_AS_STRING>
             </SEGMENT_LOOP>
         proc
-            mreturn new SingleResult<<StructureNoplural>>(DBContext.<StructurePlural>.FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",a<FieldSqlName><,></SEGMENT_LOOP>))
+            mreturn new SingleResult<<StructureNoplural>>(DBContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP>))
         endmethod
       </IF DUPLICATES>
 
@@ -276,14 +283,22 @@ namespace <NAMESPACE>
         <SEGMENT_LOOP>
             <IF SINGLE_SEGMENT>
             {FromODataUri}
+            <IF CUSTOM_HARMONY_AS_STRING>
+            required in key, string
+            <ELSE>
             required in key, <SEGMENT_SNTYPE>
+            </IF CUSTOM_HARMONY_AS_STRING>
             <ELSE>
             {FromODataUri}
+            <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+            <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+            </IF CUSTOM_HARMONY_AS_STRING>
             </IF SINGLE_SEGMENT>
         </SEGMENT_LOOP>
         proc
-            data result = DBContext.<StructurePlural>.Find(<IF SINGLE_SEGMENT>key<ELSE><SEGMENT_LOOP>a<FieldSqlName><,></SEGMENT_LOOP></IF SINGLE_SEGMENT>)
+            data result = DBContext.<StructurePlural>.AsNoTracking().Find(<IF SINGLE_SEGMENT>key<ELSE><SEGMENT_LOOP>a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP></IF SINGLE_SEGMENT>)
             if (result==^null)
                 mreturn NotFound()
             mreturn OK(result.<FieldSqlName>)
@@ -309,7 +324,7 @@ namespace <NAMESPACE>
             {FromODataUri}
             required in key, int
         proc
-            data result = DBContext.<StructurePlural>.Find(key)
+            data result = DBContext.<StructurePlural>.AsNoTracking().Find(key)
             if (result==^null)
                 mreturn NotFound()
             mreturn OK(result.<FieldSqlName>)
@@ -398,7 +413,11 @@ namespace <NAMESPACE>
     <PRIMARY_KEY>
       <SEGMENT_LOOP>
             {FromODataUri}
+        <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+        <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+        </IF CUSTOM_HARMONY_AS_STRING>
       </SEGMENT_LOOP>
     </PRIMARY_KEY>
   </IF STRUCTURE_ISAM>
@@ -428,7 +447,7 @@ namespace <NAMESPACE>
             try
             begin
                 ;;Add and commit
-                data existing = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
+                data existing = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
                 if(existing == ^null) then
                 begin
                     DBContext.<StructurePlural>.Add(a<StructureNoplural>)
@@ -482,7 +501,11 @@ namespace <NAMESPACE>
     <PRIMARY_KEY>
       <SEGMENT_LOOP>
             {FromODataUri}
+        <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+        <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+        </IF CUSTOM_HARMONY_AS_STRING>
       </SEGMENT_LOOP>
     </PRIMARY_KEY>
   </IF STRUCTURE_ISAM>
@@ -501,7 +524,7 @@ namespace <NAMESPACE>
             try
             begin
                 ;;Get the <structureNoplural> to be updated
-                data <structureNoplural>ToUpdate = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
+                data <structureNoplural>ToUpdate = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
 
                 ;;Did we find it?
                 if(<structureNoplural>ToUpdate == ^null)
@@ -556,7 +579,11 @@ namespace <NAMESPACE>
     <PRIMARY_KEY>
       <SEGMENT_LOOP>
             {FromODataUri}
+        <IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, string
+        <ELSE>
             required in a<FieldSqlName>, <SEGMENT_SNTYPE>
+        </IF CUSTOM_HARMONY_AS_STRING>
       </SEGMENT_LOOP>
     </PRIMARY_KEY>
   </IF STRUCTURE_ISAM>
@@ -566,7 +593,7 @@ namespace <NAMESPACE>
   </IF STRUCTURE_RELATIVE>
         proc
             ;;Get the <structureNoplural> to be deleted
-            data <structureNoplural>ToRemove = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
+            data <structureNoplural>ToRemove = DBContext.<StructurePlural>.Find(<IF STRUCTURE_ISAM><PRIMARY_KEY><SEGMENT_LOOP>a<FieldSqlName><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY></IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>aRecordNumber</IF STRUCTURE_RELATIVE>)
 
             ;;Did we find it?
             if (<structureNoplural>ToRemove == ^null)

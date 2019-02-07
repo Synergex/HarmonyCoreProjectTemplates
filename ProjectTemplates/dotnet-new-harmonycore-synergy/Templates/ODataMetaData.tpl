@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructureNoplural>MetaData.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.12</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.13</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
 ;// Title:       ODataMetaData.tpl
@@ -59,6 +59,47 @@ namespace <NAMESPACE>
     ;;; </summary>
     public partial class <StructureNoplural>Metadata extends DataObjectMetadataBase
 
+;//
+;//    Instantiate any required convertert
+;//
+<FIELD_LOOP>
+    <IF CUSTOM_NOT_HARMONY_EXCLUDE>
+        <IF DATEORTIME>
+          <IF DATE_YYMMDD>
+            <IF CUSTOM_HARMONY_AS_STRING>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XX-XX-XX")
+            <ELSE>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYMMDD")
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF DATE_YYMMDD>
+          <IF DATE_YYYYMMDD>
+            <IF CUSTOM_HARMONY_AS_STRING>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XXXX-XX-XX")
+            <ELSE>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYYYMMDD")
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF DATE_YYYYMMDD>
+          <IF TIME>
+            <IF CUSTOM_HARMONY_AS_STRING>
+            <IF TIME_HHMM>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XX:XX")
+            </IF TIME_HHMM>
+            <IF TIME_HHMMSS>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XX:XX:XX")
+            </IF TIME_HHMMSS>
+            <ELSE>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:HHMM")
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF TIME>
+        <ELSE>
+            <IF CUSTOM_HARMONY_AS_STRING>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("<FIELD_FORMATSTRING>")
+            <ELSE>
+            </IF CUSTOM_HARMONY_AS_STRING>
+        </IF DATEORTIME>
+    </IF CUSTOM_NOT_HARMONY_EXCLUDE>
+</FIELD_LOOP>
+
         ;;; <summary>
         ;;; Constructs an new <StructureNoplural>Metadata object.
         ;;; </summary>
@@ -75,15 +116,40 @@ namespace <NAMESPACE>
             AddFieldInfo("RecordNumber", "INTEGER", 4, 0, 0, false)
 </IF STRUCTURE_RELATIVE>
     <IF CUSTOM_NOT_HARMONY_EXCLUDE>
-      <IF CUSTOM_HARMONY_AS_STRING>
-            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, new SynergyDecimalConverter.LiteralFormatter("<FIELD_FORMATSTRING>"))
-      <ELSE>
-        <IF DATE>
-            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYYYMMDD"))
+        <IF DATEORTIME>
+          <IF DATE_YYMMDD>
+            <IF CUSTOM_HARMONY_AS_STRING>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            <ELSE>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF DATE_YYMMDD>
+          <IF DATE_YYYYMMDD>
+            <IF CUSTOM_HARMONY_AS_STRING>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            <ELSE>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF DATE_YYYYMMDD>
+          <IF TIME>
+            <IF CUSTOM_HARMONY_AS_STRING>
+            <IF TIME_HHMM>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            </IF TIME_HHMM>
+            <IF TIME_HHMMSS>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            </IF TIME_HHMMSS>
+            <ELSE>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            </IF CUSTOM_HARMONY_AS_STRING>
+          </IF TIME>
         <ELSE>
+            <IF CUSTOM_HARMONY_AS_STRING>
+            AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false, m<FieldSqlname>Formatter)
+            <ELSE>
             AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false)
-        </IF DATE>
-      </IF CUSTOM_HARMONY_AS_STRING>
+            </IF CUSTOM_HARMONY_AS_STRING>
+        </IF DATEORTIME>
     </IF CUSTOM_NOT_HARMONY_EXCLUDE>
 </FIELD_LOOP>
 ;//
@@ -172,6 +238,8 @@ namespace <NAMESPACE>
 
   </FOREIGN_KEY_LOOP>
 </IF STRUCTURE_ISAM>
+
+        InitializeCustomFields()
         endmethod
 
         ;;; <summary>
@@ -276,8 +344,18 @@ namespace <NAMESPACE>
             (<KEY_NUMBER>),
             begin
     <SEGMENT_LOOP>
+      <IF DATEORTIME>
+                if((segValueLength=KeyValueHelper(key<KEY_NUMBER>.<FieldSqlName>, "<FieldSqlname>", parts, m<FieldSqlname>Formatter))<<SEGMENT_LENGTH>)
+                    mreturn key<KEY_NUMBER>(1:startPos+segValueLength)
+      <ELSE>
+        <IF CUSTOM_HARMONY_AS_STRING>
+                if((segValueLength=KeyValueHelper(key<KEY_NUMBER>.<FieldSqlName>, "<FieldSqlname>", parts, m<FieldSqlname>Formatter))<<SEGMENT_LENGTH>)
+                    mreturn key<KEY_NUMBER>(1:startPos+segValueLength)
+        <ELSE>
                 if((segValueLength=KeyValueHelper(key<KEY_NUMBER>.<FieldSqlName>, "<FieldSqlname>", parts))<<SEGMENT_LENGTH>)
                     mreturn key<KEY_NUMBER>(1:startPos+segValueLength)
+        </IF CUSTOM_HARMONY_AS_STRING>
+      </IF DATEORTIME>
         <IF MORE>
                 startPos += <SEGMENT_LENGTH>
         </IF MORE>
@@ -292,6 +370,10 @@ namespace <NAMESPACE>
         endmethod
 
 </IF STRUCTURE_ISAM>
+
+    private partial method InitializeCustomFields, void
+    proc
+    endmethod
     endclass
 
 endnamespace
