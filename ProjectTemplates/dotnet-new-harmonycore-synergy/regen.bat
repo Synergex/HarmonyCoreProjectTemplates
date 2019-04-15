@@ -15,7 +15,7 @@ set TestProject=Services.Test
 rem ================================================================================================================================
 rem Specify the names of the repository structures to generate code from:
 
-set DATA_STRUCTURES=
+set DATA_STRUCTURES=CUSTOMERS ORDERS ITEMS ORDER_ITEMS VENDORS
 set DATA_ALIASES=%DATA_STRUCTURES%
 
 set FILE_STRUCTURES=%DATA_STRUCTURES%
@@ -33,7 +33,7 @@ rem                 will be a subset of DATA_STRUCTURES.
 rem ================================================================================================================================
 rem Specify optional "system parameter file" structure
 
-set PARAMSTR=
+set PARAMSTR=SYSPARAMS
 
 rem In the sammple environment the system parameter file is a relative file that contains
 rem "next available record number" data for use in conjunction with POST (create with automated
@@ -45,26 +45,26 @@ rem for use in other environments.
 rem ================================================================================================================================
 rem Comment or uncomment the following lines to enable or disable optional features:
 
-rem set ENABLE_GET_ALL=-define ENABLE_GET_ALL
-rem set ENABLE_GET_ONE=-define ENABLE_GET_ONE
-rem set ENABLE_SELF_HOST_GENERATION=YES
-rem set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
-rem set ENABLE_SWAGGER_DOCS=-define ENABLE_SWAGGER_DOCS
-rem set ENABLE_POSTMAN_TESTS=YES
-rem set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
-rem set ENABLE_COUNT=-define ENABLE_COUNT
-rem set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
+set ENABLE_GET_ALL=-define ENABLE_GET_ALL
+set ENABLE_GET_ONE=-define ENABLE_GET_ONE
+set ENABLE_SELF_HOST_GENERATION=YES
+set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
+set ENABLE_SWAGGER_DOCS=-define ENABLE_SWAGGER_DOCS
+set ENABLE_POSTMAN_TESTS=YES
+set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
+set ENABLE_COUNT=-define ENABLE_COUNT
+set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
 rem set ENABLE_PROPERTY_VALUE_DOCS=-define ENABLE_PROPERTY_VALUE_DOCS
-rem set ENABLE_SELECT=-define ENABLE_SELECT
-rem set ENABLE_FILTER=-define ENABLE_FILTER
-rem set ENABLE_ORDERBY=-define ENABLE_ORDERBY
-rem set ENABLE_TOP=-define ENABLE_TOP
-rem set ENABLE_SKIP=-define ENABLE_SKIP
-rem set ENABLE_RELATIONS=-define ENABLE_RELATIONS
-rem set ENABLE_PUT=-define ENABLE_PUT
+set ENABLE_SELECT=-define ENABLE_SELECT
+set ENABLE_FILTER=-define ENABLE_FILTER
+set ENABLE_ORDERBY=-define ENABLE_ORDERBY
+set ENABLE_TOP=-define ENABLE_TOP
+set ENABLE_SKIP=-define ENABLE_SKIP
+set ENABLE_RELATIONS=-define ENABLE_RELATIONS
+set ENABLE_PUT=-define ENABLE_PUT
 rem set ENABLE_POST=-define ENABLE_POST
-rem set ENABLE_PATCH=-define ENABLE_PATCH
-rem set ENABLE_DELETE=-define ENABLE_DELETE
+set ENABLE_PATCH=-define ENABLE_PATCH
+set ENABLE_DELETE=-define ENABLE_DELETE
 rem set ENABLE_SPROC=-define ENABLE_SPROC
 rem set ENABLE_ADAPTER_ROUTING=-define ENABLE_ADAPTER_ROUTING
 rem set ENABLE_AUTHENTICATION=-define ENABLE_AUTHENTICATION
@@ -72,7 +72,7 @@ rem set ENABLE_FIELD_SECURITY=-define ENABLE_FIELD_SECURITY
 rem set ENABLE_UNIT_TEST_GENERATION=YES
 rem set ENABLE_CASE_SENSITIVE_URL=-define ENABLE_CASE_SENSITIVE_URL
 rem set ENABLE_CORS=-define ENABLE_CORS
-rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
+set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES

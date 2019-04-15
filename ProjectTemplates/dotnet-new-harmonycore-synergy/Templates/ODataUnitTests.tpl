@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructureNoplural>Tests.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.3.13</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.15</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_OPTION>TF</REQUIRES_OPTION>
 <CODEGEN_FOLDER>UnitTests</CODEGEN_FOLDER>
 <REQUIRES_USERTOKEN>CLIENT_MODELS_NAMESPACE</REQUIRES_USERTOKEN>
@@ -54,6 +54,7 @@ import Microsoft.VisualStudio.TestTools.UnitTesting
 import Newtonsoft.Json
 import System.Collections.Generic
 import System.Net.Http
+import System.Net
 import <SERVICES_NAMESPACE>
 import <CLIENT_MODELS_NAMESPACE>
 
@@ -84,29 +85,29 @@ namespace <NAMESPACE>
     <RELATION_LOOP>
       <IF TO_STRUCTURE_INCLUDED>
         ;;------------------------------------------------------------
-        ;;Get all <StructurePlural> and expand relation REL_<RelationTostructureNoplural>
+        ;;Get all <StructurePlural> and expand relation <HARMONYCORE_RELATION_NAME>
 
         {TestMethod}
         {TestCategory("<StructureNoplural> Tests - Read All")}
         <IF MANY_TO_ONE_TO_MANY>
-        public method Get<StructurePlural>_Expand_REL_<RelationTostructureNoplural>, void
+        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
-            data uri = "/odata/<StructurePlural>?$expand=REL_<RelationTostructureNoplural>"
+            data uri = "/odata/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
         </IF MANY_TO_ONE_TO_MANY>
         <IF ONE_TO_ONE>
-        public method Get<StructurePlural>_Expand_REL_<RelationTostructureNoplural>, void
+        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
-            data uri = "/odata/<StructurePlural>?$expand=REL_<RelationTostructureNoplural>"
+            data uri = "/odata/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
         </IF ONE_TO_ONE>
         <IF ONE_TO_MANY_TO_ONE>
-        public method Get<StructurePlural>_Expand_REL_<RelationTostructurePlural>, void
+        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
-            data uri = "/odata/<StructurePlural>?$expand=REL_<RelationTostructurePlural>"
+            data uri = "/odata/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
         </IF ONE_TO_MANY_TO_ONE>
         <IF ONE_TO_MANY>
-        public method Get<StructurePlural>_Expand_REL_<RelationTostructurePlural>, void
+        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
-            data uri = "/odata/<StructurePlural>?$expand=REL_<RelationTostructurePlural>"
+            data uri = "/odata/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
         </IF ONE_TO_MANY>
             disposable data client = UnitTestEnvironment.Server.CreateClient()
             <IF DEFINED_ENABLE_AUTHENTICATION>
@@ -126,7 +127,7 @@ namespace <NAMESPACE>
         {TestCategory("<StructureNoplural> Tests - Read All")}
         public method Get<StructurePlural>_Expand_All, void
         proc
-            data uri = "/odata/<StructurePlural>?$expand=<RELATION_LOOP><IF TO_STRUCTURE_INCLUDED><IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY><,></IF TO_STRUCTURE_INCLUDED></RELATION_LOOP>"
+            data uri = "/odata/<StructurePlural>?$expand=<RELATION_LOOP><IF TO_STRUCTURE_INCLUDED><IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY><,></IF TO_STRUCTURE_INCLUDED></RELATION_LOOP>"
             disposable data client = UnitTestEnvironment.Server.CreateClient()
             <IF DEFINED_ENABLE_AUTHENTICATION>
             client.SetBearerToken(UnitTestEnvironment.AccessToken)
@@ -161,17 +162,17 @@ namespace <NAMESPACE>
     <RELATION_LOOP>
       <IF TO_STRUCTURE_INCLUDED>
         ;;------------------------------------------------------------
-        ;;Get a single <StructureNoplural> by primary key and expand relation <IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY>
+        ;;Get a single <StructureNoplural> by primary key and expand relation <IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>
 
         {TestMethod}
         {TestCategory("<StructureNoplural> Tests - Read by Primary Key")}
-        public method Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY>, void
+        public method Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>, void
         proc
             data client = UnitTestEnvironment.Server.CreateClient()
             <IF DEFINED_ENABLE_AUTHENTICATION>
             client.SetBearerToken(UnitTestEnvironment.AccessToken)
             </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
@@ -191,7 +192,7 @@ namespace <NAMESPACE>
             <IF DEFINED_ENABLE_AUTHENTICATION>
             client.SetBearerToken(UnitTestEnvironment.AccessToken)
             </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<RELATION_LOOP><IF TO_STRUCTURE_INCLUDED><IF MANY_TO_ONE_TO_MANY>REL_<RelationTostructureNoplural></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE>REL_<RelationTostructureNoplural></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE>REL_<RelationTostructurePlural></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY>REL_<RelationTostructurePlural></IF ONE_TO_MANY><,></IF TO_STRUCTURE_INCLUDED></RELATION_LOOP>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_All_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<RELATION_LOOP><IF TO_STRUCTURE_INCLUDED><IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY><,></IF TO_STRUCTURE_INCLUDED></RELATION_LOOP>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_All_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
@@ -341,6 +342,20 @@ namespace <NAMESPACE>
             </IF COUNTER_1_EQ_1>
             </IF NOTKEYSEGMENT>
             </FIELD_LOOP>
+
+
+            ;;Update one non-existant property in the customer
+            data badPatchDoc = new JsonPatchDocument()
+            badPatchDoc.Replace("xyzzy", "Z")
+
+            ;;Serialize the bad patch to JSON
+            data badSerializedPatch = JsonConvert.SerializeObject(badPatchDoc)
+
+            ;;Apply the bad patch
+            disposable data badPatchRequestBody = new StringContent(badSerializedPatch,System.Text.Encoding.UTF8, "application/json-patch+json")
+            disposable data badPatchResponse = client.PatchAsync(request, badPatchRequestBody).Result
+            ;;Check that we got a failure response from the web service
+            Assert.AreEqual(badPatchResponse.StatusCode, HttpStatusCode.BadRequest)
 
             ;;Update one property in the <structureNoplural>
             data patchDoc = new JsonPatchDocument()

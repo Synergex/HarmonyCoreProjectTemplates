@@ -1,12 +1,12 @@
-﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\Common.props" />
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <Name>Repository</Name>
     <OutputName>Repository</OutputName>
-	<ProjectGuid>{c9ea95ba-dc15-4a74-82c0-94172559edce}</ProjectGuid>
+    <ProjectGuid>{CC6C33FB-C46C-4484-972C-C454743F8ADD}</ProjectGuid>
     <ProjectTypeGuids>{1BD24377-84D3-44B8-B8F3-81C1EB3E22B4};{BBD0F5D1-1CC4-42fd-BA4C-A96779C64378}</ProjectTypeGuids>
+    <NugetTargetMoniker>RPS,Version=1.0</NugetTargetMoniker>
     <OutputType>RPS</OutputType>
     <EnableCommonProperties>True</EnableCommonProperties>
     <AssemblyName>Repository</AssemblyName>
@@ -29,12 +29,17 @@
   <ItemGroup>
     <Compile Include="repository.scm" />
   </ItemGroup>
-  <Import Condition="Exists('$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Repository.targets')" Project="$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Repository.targets" />
-  <Import Condition="Exists('$(ProgramFilesx86)\MSBuild\Synergex\dbl\Synergex.SynergyDE.Repository.targets')" Project="$(ProgramFilesx86)\MSBuild\Synergex\dbl\Synergex.SynergyDE.Repository.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
+  <Import Project="$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\11.0.1001.2555\build\rps\Synergex.SynergyDE.Build.targets" Condition="Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\11.0.1001.2555\build\rps\Synergex.SynergyDE.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\11.0.1001.2555\build\rps\Synergex.SynergyDE.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\11.0.1001.2555\build\rps\Synergex.SynergyDE.Build.targets'))" />
+  </Target>
 </Project>

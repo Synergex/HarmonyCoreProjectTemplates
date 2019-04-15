@@ -10,19 +10,19 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>1.0.35</Version>
+      <Version>1.0.45</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.AspNetCore">
-      <Version>1.0.35</Version>
+      <Version>1.0.45</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>1.0.35</Version>
+      <Version>1.0.45</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.OData">
-      <Version>1.0.35</Version>
+      <Version>1.0.45</Version>
     </PackageReference>
-    <PackageReference Include="Synergex.SynergyDE.Build" Version="10.3.*" />
-    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="10.3.*" />
+    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.0.1001.2555" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="10.3.3072" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch">
       <Version>2.1.1</Version>
     </PackageReference>
@@ -32,8 +32,12 @@
     <PackageReference Include="SSH.NET" Version="2016.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BooksController.dbl" />
+    <Compile Include="CustomersController.dbl" />
     <Compile Include="IsolatedMethodsBase.dbl" />
+    <Compile Include="ItemsController.dbl" />
+    <Compile Include="OrderItemsController.dbl" />
+    <Compile Include="OrdersController.dbl" />
+    <Compile Include="VendorsController.dbl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Services.Models\Services.Models.synproj">
