@@ -3,7 +3,7 @@
   <metadata>
     <id>Harmony.Core.ProjectTemplates</id>
 	  <!-- version 3rd digits 100's mini version 10.2.3 (3000) bump 3010 for 10.3.1a -->
-    <version>1.0.45</version>
+    <version>1.0.46</version>
     <authors>Synergex International Corporation</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Harmony Core Project Templates for .Net Core and .Net Standard. Click the project URL for release note information.</description>
