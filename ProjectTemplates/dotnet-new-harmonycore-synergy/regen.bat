@@ -162,6 +162,13 @@ if DEFINED ENABLE_SWAGGER_DOCS (
           -o %SolutionDir%%ServicesProject%\wwwroot ^
              %STDOPTS%
   if ERRORLEVEL 1 goto error
+
+  codegen -s %DATA_STRUCTURES% ^
+          -a %DATA_ALIASES% ^
+          -t ODataSwaggerType ^
+          -o %SolutionDir%%ServicesProject%\wwwroot ^
+             %STDOPTS%
+  if ERRORLEVEL 1 goto error
 )
 
 rem Generate Postman Tests
