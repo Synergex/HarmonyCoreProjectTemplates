@@ -31,7 +31,7 @@
     <PackageReference Include="Nito.AsyncEx">
       <Version>5.0.0-pre-05</Version>
     </PackageReference>
-    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.0.1001.2555" />
+    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.0.1001.2586" />
     <PackageReference Include="Synergex.SynergyDE.synrnt" Version="10.3.3072" />
     <PackageReference Include="System.Linq.Dynamic.Core">
       <Version>1.0.8.17</Version>
@@ -43,8 +43,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.synproj">
       <Name>Repository</Name>
-      <Project>{c9ea95ba-dc15-4a74-82c0-94172559edce}</Project>
+      <Project>{cc6c33fb-c46c-4484-972c-c454743f8add}</Project>
       <Private>True</Private>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.synproj">
       <Name>Services</Name>
