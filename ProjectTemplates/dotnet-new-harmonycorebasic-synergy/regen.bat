@@ -55,11 +55,14 @@ rem for use in other environments.
 rem ================================================================================================================================
 rem Comment or uncomment the following lines to enable or disable optional features:
 
+rem Note that the ENABLE_SWAGGER_DOCS and ENABLE_API_VERSIONING are mutually exclusive.
+
 rem set ENABLE_GET_ALL=-define ENABLE_GET_ALL
 rem set ENABLE_GET_ONE=-define ENABLE_GET_ONE
 rem set ENABLE_SELF_HOST_GENERATION=YES
 rem set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
 rem set ENABLE_SWAGGER_DOCS=-define ENABLE_SWAGGER_DOCS
+rem set ENABLE_API_VERSIONING=-define ENABLE_API_VERSIONING
 rem set ENABLE_POSTMAN_TESTS=YES
 rem set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
 rem set ENABLE_COUNT=-define ENABLE_COUNT
@@ -95,7 +98,7 @@ if not "NONE%ENABLE_SELECT%%ENABLE_FILTER%%ENABLE_ORDERBY%%ENABLE_TOP%%ENABLE_SK
 rem ================================================================================================================================
 rem Configure standard command line options and the CodeGen environment
 
-set NOREPLACEOPTS=-e -lf -u %SolutionDir%UserDefinedTokens.tkn %ENABLE_GET_ALL% %ENABLE_GET_ONE% %ENABLE_OVERLAYS% %ENABLE_ALTERNATE_FIELD_NAMES% %ENABLE_AUTHENTICATION% %ENABLE_CUSTOM_AUTHENTICATION% %ENABLE_FIELD_SECURITY% %ENABLE_PROPERTY_ENDPOINTS% %ENABLE_PROPERTY_VALUE_DOCS% %ENABLE_CASE_SENSITIVE_URL% %ENABLE_CREATE_TEST_FILES% %ENABLE_CORS% %ENABLE_IIS_SUPPORT% %ENABLE_DELETE% %ENABLE_PUT% %ENABLE_POST% %ENABLE_PATCH% %ENABLE_ALTERNATE_KEYS% %ENABLE_SWAGGER_DOCS% %ENABLE_RELATIONS% %ENABLE_SELECT% %ENABLE_FILTER% %ENABLE_ORDERBY% %ENABLE_COUNT% %ENABLE_TOP% %ENABLE_SKIP% %ENABLE_SPROC% %ENABLE_ADAPTER_ROUTING% %ENABLE_READ_ONLY_PROPERTIES% %PARAM_OPTIONS_PRESENT% -i %SolutionDir%Templates -rps %RPSMFIL% %RPSTFIL%
+set NOREPLACEOPTS=-e -lf -u %SolutionDir%UserDefinedTokens.tkn %ENABLE_GET_ALL% %ENABLE_GET_ONE% %ENABLE_OVERLAYS% %ENABLE_ALTERNATE_FIELD_NAMES% %ENABLE_AUTHENTICATION% %ENABLE_CUSTOM_AUTHENTICATION% %ENABLE_FIELD_SECURITY% %ENABLE_PROPERTY_ENDPOINTS% %ENABLE_PROPERTY_VALUE_DOCS% %ENABLE_CASE_SENSITIVE_URL% %ENABLE_CREATE_TEST_FILES% %ENABLE_CORS% %ENABLE_IIS_SUPPORT% %ENABLE_DELETE% %ENABLE_PUT% %ENABLE_POST% %ENABLE_PATCH% %ENABLE_ALTERNATE_KEYS% %ENABLE_SWAGGER_DOCS% %ENABLE_API_VERSIONING% %ENABLE_RELATIONS% %ENABLE_SELECT% %ENABLE_FILTER% %ENABLE_ORDERBY% %ENABLE_COUNT% %ENABLE_TOP% %ENABLE_SKIP% %ENABLE_SPROC% %ENABLE_ADAPTER_ROUTING% %ENABLE_READ_ONLY_PROPERTIES% %PARAM_OPTIONS_PRESENT% -i %SolutionDir%Templates -rps %RPSMFIL% %RPSTFIL%
 set STDOPTS=%NOREPLACEOPTS% -r
 
 rem ================================================================================================================================
@@ -134,7 +137,7 @@ codegen -s %DATA_STRUCTURES% -ms ^
         -t ODataEdmBuilder ODataStartup ^
         -o %SolutionDir%%ServicesProject% ^
         -n %ServicesProject% ^
-        -ut CONTROLLERS_NAMESPACE=%ControllersProject% ^
+        -ut CONTROLLERS_NAMESPACE=%ControllersProject% MODELS_NAMESPACE=%ModelsProject% ^
            %STDOPTS%
 if ERRORLEVEL 1 goto error
 
@@ -154,7 +157,7 @@ if DEFINED ENABLE_SELF_HOST_GENERATION (
 rem ================================================================================
 rem Swagger documentation and Postman tests
 
-rem Generate a Swagger file
+rem Generate a Swagger files
 if DEFINED ENABLE_SWAGGER_DOCS (
   codegen -s %DATA_STRUCTURES% -ms ^
           -a %DATA_ALIASES% ^

@@ -1,16 +1,16 @@
 {
     "info": {
-        "_postman_id": "b76dd9dc-de6b-422b-8774-020128ec4a5e",
+        "_postman_id": "b2b2579d-05e5-44f3-8a46-ec74978819a1",
         "name": "Harmony Core Sample API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
         {
-            "_postman_id": "0a78cde9-816c-4879-9bc7-98d7c5d89528",
+            "_postman_id": "6020f4f9-e11e-4076-a7b4-32de237299de",
             "name": "Customer Tests",
             "item": [
                 {
-                    "_postman_id": "de4d94d3-3e4f-4a55-86e4-744e0f009a52",
+                    "_postman_id": "30d9927e-5237-4043-ac6f-a0966e55f1c5",
                     "name": "Read customers",
                     "request": {
                         "method": "GET",
@@ -41,7 +41,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "63efeb2d-df9a-431e-9d2c-7c0ac644edc5",
+                    "_postman_id": "5dbc9346-af1d-4997-9142-625eac317c04",
                     "name": "Count customers",
                     "request": {
                         "method": "GET",
@@ -73,7 +73,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "07514026-9852-4d1e-b025-a54af73132e9",
+                    "_postman_id": "30f9995e-8b90-4577-bca1-f9264d38d7a5",
                     "name": "Read customer",
                     "request": {
                     "method": "GET",
@@ -104,7 +104,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "5ca298b9-e6b9-4dbb-a2fc-5a741ed3c68d",
+                    "_postman_id": "6af3455a-94fd-4712-9006-a8b6909f588e",
                     "name": "Read customers by State",
                     "request": {
                     "method": "GET",
@@ -135,7 +135,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8787083d-9c45-4cf9-af3a-ce099b1e00d8",
+                    "_postman_id": "fbcda875-3255-4d62-9d88-f0d30120dd76",
                     "name": "Count customers by State",
                     "request": {
                     "method": "GET",
@@ -167,7 +167,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c5bd846a-ecce-452f-93ea-d4040b68a56a",
+                    "_postman_id": "febe6b5d-31b5-40fc-b43a-885fd59f16c3",
                     "name": "Read customers by Zip",
                     "request": {
                     "method": "GET",
@@ -198,7 +198,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "fb6ef7e4-883d-435d-9755-6eb54b72f0ae",
+                    "_postman_id": "465f911a-c79b-488e-a057-ba9339c84135",
                     "name": "Count customers by Zip",
                     "request": {
                     "method": "GET",
@@ -230,7 +230,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "51f672a2-e43b-47bb-9579-4aa36311d69d",
+                    "_postman_id": "977f6ca2-137c-4bf0-b99a-7857b60d9cfd",
                     "name": "Read customers by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -261,7 +261,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "de068a40-8c75-4039-8d5b-f70666d78b18",
+                    "_postman_id": "f04e285e-ae52-4a93-b126-0cbb7dba65a6",
                     "name": "Count customers by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -293,7 +293,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8b13a0e5-c859-42d8-9ae8-b6a0874346d8",
+                    "_postman_id": "34fdf210-40d9-4a35-9c7d-ab425a8a0d80",
                     "name": "Read customer name",
                     "request": {
                     "method": "GET",
@@ -324,7 +324,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ed3f0292-9215-4314-b416-778e18b88986",
+                    "_postman_id": "9f6a1ae4-1478-41a0-b854-310a4fad7298",
                     "name": "Read customer street",
                     "request": {
                     "method": "GET",
@@ -355,7 +355,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "dc180cd1-e3a5-4266-81fd-edd99b0498e0",
+                    "_postman_id": "23ced0ba-6a15-4f6b-8677-7eac31e07e75",
                     "name": "Read customer city",
                     "request": {
                     "method": "GET",
@@ -386,7 +386,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "a8d1df0d-e772-49a4-ba5b-7877d781f26f",
+                    "_postman_id": "5e565169-212c-4140-8b31-5786cd84029a",
                     "name": "Read customer state",
                     "request": {
                     "method": "GET",
@@ -417,7 +417,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "1f0d1c0c-ff37-4d52-9515-7f9fcc9f5414",
+                    "_postman_id": "fb4d1e3f-11f5-4259-a11c-94fb0768f34f",
                     "name": "Read customer zipCode",
                     "request": {
                     "method": "GET",
@@ -448,7 +448,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b17d532c-6c99-4ac5-8078-f9c499136257",
+                    "_postman_id": "dc60fd71-3842-4b48-822c-77f743a5b6ef",
                     "name": "Read customer contact",
                     "request": {
                     "method": "GET",
@@ -479,7 +479,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ee1fb574-14e1-4a27-b13a-4b46640050e2",
+                    "_postman_id": "db270549-fbb5-4053-b00f-8523b575a3a7",
                     "name": "Read customer phone",
                     "request": {
                     "method": "GET",
@@ -510,7 +510,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "41055ab4-75ea-490a-b264-5e7e29667e51",
+                    "_postman_id": "71b72579-6c76-4fa3-a436-4fbe9860d810",
                     "name": "Read customer fax",
                     "request": {
                     "method": "GET",
@@ -541,7 +541,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "f5385607-c966-4e70-806f-d35fd88678ab",
+                    "_postman_id": "ddbbbce3-4dd0-4d9e-bfaf-b03e2ce1a8b9",
                     "name": "Read customer favoriteItem",
                     "request": {
                     "method": "GET",
@@ -572,7 +572,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "f3365833-3042-479f-84a4-25cbb3239fea",
+                    "_postman_id": "be8d0339-d7e6-421e-8fb7-7d3ad253e3d9",
                     "name": "Read customer paymentTermsCode",
                     "request": {
                     "method": "GET",
@@ -603,7 +603,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "bf12b36f-9d80-47f1-ab24-48ef21b76229",
+                    "_postman_id": "b53e1b5c-fcd5-42c9-be66-74d1fa2a1092",
                     "name": "Read customer taxId",
                     "request": {
                     "method": "GET",
@@ -634,7 +634,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "607fc86c-fdfc-40dc-bb85-56166b54830b",
+                    "_postman_id": "8b0e03b4-a54b-465c-b7ee-abda0025a422",
                     "name": "Read customer creditLimit",
                     "request": {
                     "method": "GET",
@@ -665,7 +665,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b6c728e6-5487-4651-a972-b2be16c1b0bb",
+                    "_postman_id": "2309a922-6e10-43e7-b557-d808d27fd866",
                     "name": "Create or update customer",
                     "request": {
                     "method": "PUT",
@@ -726,7 +726,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8ba29d4d-f667-4da0-97af-8ad1d8a98de4",
+                    "_postman_id": "72957038-a774-4b9e-90db-706e5dbd2aa0",
                     "name": "Delete customer",
                     "request": {
                     "method": "DELETE",
@@ -758,11 +758,11 @@
             ]
         },
         {
-            "_postman_id": "eb924937-dd7a-4c72-a8d9-0775423d99d7",
+            "_postman_id": "40630d66-39fb-4996-8346-d475b619d0f6",
             "name": "Order Tests",
             "item": [
                 {
-                    "_postman_id": "fdbe48e9-7fbb-458f-bf5b-0ee2e81a58c3",
+                    "_postman_id": "0d53ba9c-35e0-433c-b356-34cdd68c4aa8",
                     "name": "Read orders",
                     "request": {
                         "method": "GET",
@@ -793,7 +793,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6374c6ff-b9d3-4f02-a670-b7893187cdf2",
+                    "_postman_id": "5810b027-72d9-4126-af00-67bbd2b05491",
                     "name": "Count orders",
                     "request": {
                         "method": "GET",
@@ -825,7 +825,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ea78209e-fabe-4be7-b664-29277397587e",
+                    "_postman_id": "b8060d19-117f-4b48-b953-9794bac25b71",
                     "name": "Read order",
                     "request": {
                     "method": "GET",
@@ -856,7 +856,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d2385aa9-fdbe-4379-96d0-ada9b696d14c",
+                    "_postman_id": "984b937b-3436-4e6e-9aa1-7933105cb053",
                     "name": "Read orders by CustomerNumber",
                     "request": {
                     "method": "GET",
@@ -887,7 +887,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6d93c161-b06f-41f9-b00f-06b01cc1c012",
+                    "_postman_id": "fedf129a-f678-4a77-8dbe-43c8d584ebfa",
                     "name": "Count orders by CustomerNumber",
                     "request": {
                     "method": "GET",
@@ -919,7 +919,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6a4629e6-441e-4dda-a8e3-8e56e4e4c093",
+                    "_postman_id": "941a5a67-f766-49be-bd7e-931ed4376801",
                     "name": "Read orders by DateOrdered",
                     "request": {
                     "method": "GET",
@@ -934,7 +934,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/Orders(DateOrdered=2019-05-21)",
+                        "raw": "https://localhost:8086/odata/Orders(DateOrdered=2019-05-30)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -942,7 +942,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "Orders(DateOrdered=2019-05-21)"
+                            "Orders(DateOrdered=2019-05-30)"
                         ]
                     }
                     },
@@ -950,7 +950,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7204e375-3a72-4910-83e5-cdb56a9c86a5",
+                    "_postman_id": "a0f4135e-ed16-47f2-934c-9874ce7d07e4",
                     "name": "Count orders by DateOrdered",
                     "request": {
                     "method": "GET",
@@ -965,7 +965,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/Orders(DateOrdered=2019-05-21)/$count",
+                        "raw": "https://localhost:8086/odata/Orders(DateOrdered=2019-05-30)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -973,7 +973,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "Orders(DateOrdered=2019-05-21)",
+                            "Orders(DateOrdered=2019-05-30)",
                             "$count"
                         ]
                     }
@@ -982,7 +982,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "a2319c7a-9ba8-4d5e-81b3-0550e58bd776",
+                    "_postman_id": "ab6d46b2-0b31-4b72-9e62-cdbcee3c3232",
                     "name": "Read orders by DateCompleted",
                     "request": {
                     "method": "GET",
@@ -997,7 +997,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/Orders(DateCompleted=2019-05-21)",
+                        "raw": "https://localhost:8086/odata/Orders(DateCompleted=2019-05-30)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -1005,7 +1005,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "Orders(DateCompleted=2019-05-21)"
+                            "Orders(DateCompleted=2019-05-30)"
                         ]
                     }
                     },
@@ -1013,7 +1013,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "276ec889-121e-4de2-837e-0e717a037ee3",
+                    "_postman_id": "a2c7f3c3-bf75-4b3b-b630-36242e95bbcf",
                     "name": "Count orders by DateCompleted",
                     "request": {
                     "method": "GET",
@@ -1028,7 +1028,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/Orders(DateCompleted=2019-05-21)/$count",
+                        "raw": "https://localhost:8086/odata/Orders(DateCompleted=2019-05-30)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -1036,7 +1036,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "Orders(DateCompleted=2019-05-21)",
+                            "Orders(DateCompleted=2019-05-30)",
                             "$count"
                         ]
                     }
@@ -1045,7 +1045,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "95621a52-dcbb-4733-9936-3f822e52b239",
+                    "_postman_id": "e8b82d08-70d5-4998-8eac-69dd9c95d3e8",
                     "name": "Read order customerNumber",
                     "request": {
                     "method": "GET",
@@ -1076,7 +1076,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "2182c14e-6aea-494d-8591-b75ac53ed0ba",
+                    "_postman_id": "02b012f3-f1d4-4a3f-9bda-5cda1e548c5d",
                     "name": "Read order placedBy",
                     "request": {
                     "method": "GET",
@@ -1107,7 +1107,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "55033153-a7cd-40e1-9c4e-fc41a8ae6fc4",
+                    "_postman_id": "c661fddb-6d0f-419b-8444-e189cf7f3f83",
                     "name": "Read order customerReference",
                     "request": {
                     "method": "GET",
@@ -1138,7 +1138,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8ff84618-0069-4316-bb10-bb2a83231027",
+                    "_postman_id": "37c52cb4-8151-4dc4-bc34-1ec76c65dac5",
                     "name": "Read order paymentTermsCode",
                     "request": {
                     "method": "GET",
@@ -1169,7 +1169,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "cac989d7-3b4d-4115-8c78-efa60977b838",
+                    "_postman_id": "e67a99fa-b25f-4e05-8bcf-aaa015c4dfd6",
                     "name": "Read order dateOrdered",
                     "request": {
                     "method": "GET",
@@ -1200,7 +1200,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "9bf2ff5f-4750-46cc-8a9c-84fc3b15baf0",
+                    "_postman_id": "39094a7a-1a36-4b1f-a0a5-9bc7c578e597",
                     "name": "Read order dateCompleted",
                     "request": {
                     "method": "GET",
@@ -1231,7 +1231,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7fd1d335-559e-4bb6-8679-be5713de14ca",
+                    "_postman_id": "0ea64955-3fe7-4c7e-8ddb-a709708209fb",
                     "name": "Create or update order",
                     "request": {
                     "method": "PUT",
@@ -1292,7 +1292,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "cd728bcb-71af-4b8a-b2f2-4119565ea660",
+                    "_postman_id": "90afb51d-8563-421a-842e-d6100b05abf4",
                     "name": "Delete order",
                     "request": {
                     "method": "DELETE",
@@ -1324,11 +1324,11 @@
             ]
         },
         {
-            "_postman_id": "fbd48a56-87cf-48a5-87a9-a014e95a956c",
+            "_postman_id": "e3e8b67e-011e-4a9a-bc35-bb09abadbb0b",
             "name": "Item Tests",
             "item": [
                 {
-                    "_postman_id": "30ceaf36-219a-43d6-afeb-57611cca12cd",
+                    "_postman_id": "a8753802-2c7c-4f6f-a9cd-ca901a31588d",
                     "name": "Read items",
                     "request": {
                         "method": "GET",
@@ -1359,7 +1359,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "e1546943-2ebe-4bf8-b2cb-d0680e8a7a02",
+                    "_postman_id": "a35d5777-6bf7-454e-8250-1f7de39a1481",
                     "name": "Count items",
                     "request": {
                         "method": "GET",
@@ -1391,7 +1391,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "50d09f15-223a-4ef7-9fb8-fc501c2def3b",
+                    "_postman_id": "6f9a3e34-6f48-4a08-b6e9-603db15175b4",
                     "name": "Read item",
                     "request": {
                     "method": "GET",
@@ -1422,7 +1422,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b8f7ddb1-03ba-41fa-9b57-b97f23e8addd",
+                    "_postman_id": "e3585b49-e9f7-491e-809f-e6963fa9907d",
                     "name": "Read items by VendorNumber",
                     "request": {
                     "method": "GET",
@@ -1453,7 +1453,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "12ad482a-ff57-47e1-b63d-452bcf5b5958",
+                    "_postman_id": "f07451a3-04b2-453c-a23d-bf0eec173e8d",
                     "name": "Count items by VendorNumber",
                     "request": {
                     "method": "GET",
@@ -1485,7 +1485,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "49d3bf13-b62f-41e7-8e29-6921a44a71af",
+                    "_postman_id": "9f086ca6-9238-4940-acb6-eaadcebab8e4",
                     "name": "Read items by Color",
                     "request": {
                     "method": "GET",
@@ -1516,7 +1516,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "875fda52-d83c-4923-9c4c-1b3885b88fcb",
+                    "_postman_id": "1069396d-23d3-44f4-9e04-18a856881daa",
                     "name": "Count items by Color",
                     "request": {
                     "method": "GET",
@@ -1548,7 +1548,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "df5cc78d-52a2-4cf1-9a61-0541afff9d03",
+                    "_postman_id": "ba16a979-d9c4-44f8-9fd5-2d44402544ea",
                     "name": "Read items by Size",
                     "request": {
                     "method": "GET",
@@ -1579,7 +1579,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d7834ba8-3a99-4cf2-94de-4c9a22b18a44",
+                    "_postman_id": "cb4eb79f-081d-4aaa-8435-827cceb6d868",
                     "name": "Count items by Size",
                     "request": {
                     "method": "GET",
@@ -1611,7 +1611,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7e4750a5-4b43-417e-bcc8-e2f104e934ba",
+                    "_postman_id": "47699112-7436-439b-96b2-93971bc44a2d",
                     "name": "Read items by Name",
                     "request": {
                     "method": "GET",
@@ -1642,7 +1642,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "bedde5af-7e56-4702-914b-0cc3d9b31d1b",
+                    "_postman_id": "e80985b7-b8d8-4371-84e4-b20af0ceb4d1",
                     "name": "Count items by Name",
                     "request": {
                     "method": "GET",
@@ -1674,7 +1674,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "aefda086-0888-469e-ad20-cf7908ee73ae",
+                    "_postman_id": "7d3300a2-cf61-45e4-b5c9-957e55b01f8d",
                     "name": "Read item vendorNumber",
                     "request": {
                     "method": "GET",
@@ -1705,7 +1705,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b4f65c7e-1797-4d9b-a0e5-3f753c9951f6",
+                    "_postman_id": "a1b41d74-8ab0-47fa-bea1-03a9871c64a1",
                     "name": "Read item size",
                     "request": {
                     "method": "GET",
@@ -1736,7 +1736,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "3e56c85c-a41d-42a8-9140-1479db64c6f6",
+                    "_postman_id": "5a4465c7-78fb-4755-aac1-e9d4c6f3c298",
                     "name": "Read item commonName",
                     "request": {
                     "method": "GET",
@@ -1767,7 +1767,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ff05c1b8-b4ff-4792-8e9b-4d2b06640371",
+                    "_postman_id": "3bfc860f-9070-4573-9e0d-c3dc36c48241",
                     "name": "Read item latinName",
                     "request": {
                     "method": "GET",
@@ -1798,7 +1798,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "19e839b8-6db8-41fd-ba27-71071eccc88f",
+                    "_postman_id": "02e15f25-8de5-434e-b4eb-54f7556d5b5d",
                     "name": "Read item zoneCode",
                     "request": {
                     "method": "GET",
@@ -1829,7 +1829,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c7302563-1ea5-4dae-bd23-60052a15aaa9",
+                    "_postman_id": "a207285a-4534-4600-8688-32a3a76beebf",
                     "name": "Read item type",
                     "request": {
                     "method": "GET",
@@ -1860,7 +1860,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "95ce35d6-800d-4ca6-9d89-914738c94400",
+                    "_postman_id": "de3852b0-c77a-446d-83a5-2e2210c9de6a",
                     "name": "Read item flowering",
                     "request": {
                     "method": "GET",
@@ -1891,7 +1891,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ed7234e2-0215-4dca-9a7c-4eac5c764bec",
+                    "_postman_id": "dcfae7eb-c6d3-4e54-b6fa-1da81714e8c3",
                     "name": "Read item flowerColor",
                     "request": {
                     "method": "GET",
@@ -1922,7 +1922,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d0437de0-9336-4611-98be-c8c657f2ef01",
+                    "_postman_id": "0d2af4b4-658d-4b9d-897a-6f2a28fccd38",
                     "name": "Read item shape",
                     "request": {
                     "method": "GET",
@@ -1953,7 +1953,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "efb7aad7-02e1-4758-8ba4-1c9448cf4784",
+                    "_postman_id": "e86b2e7f-3117-4354-ace9-de7661ab49b4",
                     "name": "Read item maxHeight",
                     "request": {
                     "method": "GET",
@@ -1984,7 +1984,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d25c9935-1c33-4b56-b2a1-b0aeaa240c0b",
+                    "_postman_id": "d5394e9a-c976-4429-96a9-6eada25280a5",
                     "name": "Read item maxWidth",
                     "request": {
                     "method": "GET",
@@ -2015,7 +2015,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b3228980-673d-47f8-b3bc-6302368a7f1e",
+                    "_postman_id": "95ed018f-218a-47c3-bd71-39e5f1a0dded",
                     "name": "Read item waterRequirement",
                     "request": {
                     "method": "GET",
@@ -2046,7 +2046,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "4e2a4d92-f7eb-4d37-a4a5-a15680c7ffdd",
+                    "_postman_id": "c5e54dd9-a124-4f75-8db0-8acc837bad54",
                     "name": "Read item sunRequirement",
                     "request": {
                     "method": "GET",
@@ -2077,7 +2077,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "60f58b43-6f85-4250-a835-a1f379ddef4e",
+                    "_postman_id": "f2df67d2-e9de-466d-a5d4-6865275ba203",
                     "name": "Read item binLocation",
                     "request": {
                     "method": "GET",
@@ -2108,7 +2108,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ba6fbdf7-5077-4ea0-a964-d2927d8ed3dc",
+                    "_postman_id": "9a888a36-3753-423d-9a35-7f7f383580a2",
                     "name": "Read item qtyOnHand",
                     "request": {
                     "method": "GET",
@@ -2139,7 +2139,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ed57c6ae-4ded-402d-aa6a-65ced40e790b",
+                    "_postman_id": "711c4c80-d1b9-488e-b569-c7cf86e570ab",
                     "name": "Read item qtyAllocated",
                     "request": {
                     "method": "GET",
@@ -2170,7 +2170,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b087aea9-b94e-4d60-bdf5-75b0b97dafe9",
+                    "_postman_id": "1a5604b9-2f90-4edb-a40c-0cba88dbf901",
                     "name": "Read item qtyOnOrder",
                     "request": {
                     "method": "GET",
@@ -2201,7 +2201,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "fd5f3e68-f7f3-4153-aabf-798515541a9c",
+                    "_postman_id": "4c1f8be8-f721-4939-b575-20c4442126c9",
                     "name": "Read item reorderLevel",
                     "request": {
                     "method": "GET",
@@ -2232,7 +2232,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "18ccf08b-a50a-4ed2-a539-ec03b6a15777",
+                    "_postman_id": "5a0ce636-92ba-4f01-af8f-cd214b12d8b1",
                     "name": "Read item unitPrice",
                     "request": {
                     "method": "GET",
@@ -2263,7 +2263,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "07dd61fd-04d5-4285-af9d-5689fc0ea59c",
+                    "_postman_id": "cab74483-e294-4dd6-956e-13251768e461",
                     "name": "Read item costPrice",
                     "request": {
                     "method": "GET",
@@ -2294,7 +2294,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "935d7555-4464-4915-a347-b372c6f4b316",
+                    "_postman_id": "e7670474-4e85-48f4-a9b7-155284e1b1e6",
                     "name": "Create or update item",
                     "request": {
                     "method": "PUT",
@@ -2355,7 +2355,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "49dd7b91-8f0d-417c-a398-f0b7c0220658",
+                    "_postman_id": "11140b4a-e570-44ef-9892-04bea8e118a7",
                     "name": "Delete item",
                     "request": {
                     "method": "DELETE",
@@ -2387,11 +2387,11 @@
             ]
         },
         {
-            "_postman_id": "d1024a50-2cdb-4efc-a0dc-306c1949c8b8",
+            "_postman_id": "39951607-eb3f-4683-8062-5e9f3281be9f",
             "name": "OrderItem Tests",
             "item": [
                 {
-                    "_postman_id": "32b7d617-be7a-4e77-93a8-f86ae8d1a248",
+                    "_postman_id": "6a243e9c-ab2c-488b-bed3-bd84dfe4d4ab",
                     "name": "Read orderItems",
                     "request": {
                         "method": "GET",
@@ -2422,7 +2422,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "1214cec3-cd01-407e-8d27-e0990c3241b6",
+                    "_postman_id": "7f8cba8b-37c0-478d-9d78-3669824a912a",
                     "name": "Count orderItems",
                     "request": {
                         "method": "GET",
@@ -2454,7 +2454,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7426b52f-5338-4a23-b143-49691eb44d30",
+                    "_postman_id": "48c181d2-6552-4cee-9b17-ed8c215b4d7e",
                     "name": "Read orderItem",
                     "request": {
                     "method": "GET",
@@ -2485,7 +2485,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "be132acd-7c0b-4e4d-bbf3-a407b82b1604",
+                    "_postman_id": "d32fd504-2e89-4efc-8509-c6b043aabcd9",
                     "name": "Read orderItems by ItemOrdered",
                     "request": {
                     "method": "GET",
@@ -2516,7 +2516,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ad383fc7-f6a1-482b-821e-bcba2b08f7d5",
+                    "_postman_id": "52bb2679-ecdd-40f2-b98e-8c8f625076aa",
                     "name": "Count orderItems by ItemOrdered",
                     "request": {
                     "method": "GET",
@@ -2548,7 +2548,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "f9017013-1d1b-4de8-8724-452ef702a867",
+                    "_postman_id": "eeab2f3f-d7a8-4a89-972c-5cc0acb13426",
                     "name": "Read orderItems by DateShipped",
                     "request": {
                     "method": "GET",
@@ -2563,7 +2563,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/OrderItems(DateShipped=2019-05-21)",
+                        "raw": "https://localhost:8086/odata/OrderItems(DateShipped=2019-05-30)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2571,7 +2571,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "OrderItems(DateShipped=2019-05-21)"
+                            "OrderItems(DateShipped=2019-05-30)"
                         ]
                     }
                     },
@@ -2579,7 +2579,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "78d2ac2e-385e-48de-96de-303c22409596",
+                    "_postman_id": "5049fc00-687a-47f4-9e0b-c075845dc81c",
                     "name": "Count orderItems by DateShipped",
                     "request": {
                     "method": "GET",
@@ -2594,7 +2594,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/OrderItems(DateShipped=2019-05-21)/$count",
+                        "raw": "https://localhost:8086/odata/OrderItems(DateShipped=2019-05-30)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2602,7 +2602,7 @@
                         "port": "8086",
                         "path": [
                             "odata",
-                            "OrderItems(DateShipped=2019-05-21)",
+                            "OrderItems(DateShipped=2019-05-30)",
                             "$count"
                         ]
                     }
@@ -2611,7 +2611,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "a7285d3f-60e4-4f79-a36f-7a5b09f1d961",
+                    "_postman_id": "502cdabb-ef66-4fe9-90a6-3be562decf00",
                     "name": "Read orderItems by InvoiceNumber",
                     "request": {
                     "method": "GET",
@@ -2642,7 +2642,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "45dd4083-4fe6-4192-a261-efd27d5024a3",
+                    "_postman_id": "eead5aaf-38b2-4a2a-9bfd-63a1a911c24b",
                     "name": "Count orderItems by InvoiceNumber",
                     "request": {
                     "method": "GET",
@@ -2674,7 +2674,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "a455c709-8138-4f48-968f-d23d2ec5d8ee",
+                    "_postman_id": "6003a296-5b7e-4bc6-826f-ab78ab9d8149",
                     "name": "Read orderItem itemOrdered",
                     "request": {
                     "method": "GET",
@@ -2705,7 +2705,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d3dd2086-15b9-4aa0-a4b5-721e558a6ce9",
+                    "_postman_id": "29a75934-0216-44d5-8936-578005482750",
                     "name": "Read orderItem quantityOrdered",
                     "request": {
                     "method": "GET",
@@ -2736,7 +2736,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "9b156dea-937f-49d0-8d11-64d9942c1124",
+                    "_postman_id": "43492f66-9449-49f2-9cc6-bad44d80e452",
                     "name": "Read orderItem unitPrice",
                     "request": {
                     "method": "GET",
@@ -2767,7 +2767,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "56bffe65-2319-4cc4-9fc7-d6ebf076dc42",
+                    "_postman_id": "a7b8a19c-e976-449d-9a7d-25d11b4b3d17",
                     "name": "Read orderItem dateShipped",
                     "request": {
                     "method": "GET",
@@ -2798,7 +2798,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6b26cad2-3fd5-43d1-8d67-d6bcb1271350",
+                    "_postman_id": "2fad966f-6285-4e6c-8a89-6dd710b0f6b3",
                     "name": "Read orderItem invoiceNumber",
                     "request": {
                     "method": "GET",
@@ -2829,7 +2829,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "614bdd59-e1f6-4b89-aa58-b84ed3386f20",
+                    "_postman_id": "8085b2be-5537-4d31-a546-9373f9aa19bb",
                     "name": "Create or update orderItem",
                     "request": {
                     "method": "PUT",
@@ -2890,7 +2890,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "e534a541-1f79-4b8e-b495-cf1381d7bad5",
+                    "_postman_id": "842f8bfb-7543-478a-b822-6f57d638f67c",
                     "name": "Delete orderItem",
                     "request": {
                     "method": "DELETE",
@@ -2922,11 +2922,11 @@
             ]
         },
         {
-            "_postman_id": "891e67a5-3bda-4242-a989-3de4f9ec3553",
+            "_postman_id": "f69f9f79-5fff-4f8d-8148-211565538707",
             "name": "Vendor Tests",
             "item": [
                 {
-                    "_postman_id": "8959e121-075a-4714-b96f-72598e18b5c7",
+                    "_postman_id": "2d7e4687-00eb-44fc-9701-f26d4233eef6",
                     "name": "Read vendors",
                     "request": {
                         "method": "GET",
@@ -2957,7 +2957,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "e1fe61cb-5d43-4d74-8677-6132288a11e2",
+                    "_postman_id": "229af917-46ca-4a21-a2b6-60dbc7f20c6f",
                     "name": "Count vendors",
                     "request": {
                         "method": "GET",
@@ -2989,7 +2989,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "f7e53e82-283d-4832-9cc2-fa0c8e190564",
+                    "_postman_id": "4237cbce-5f05-46ee-8aec-595774eb3fbd",
                     "name": "Read vendor",
                     "request": {
                     "method": "GET",
@@ -3020,7 +3020,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "72c11608-bb95-42c4-9b9f-6ac19c956682",
+                    "_postman_id": "95c1d7bd-f88e-4155-9531-8bee84b905ec",
                     "name": "Read vendors by State",
                     "request": {
                     "method": "GET",
@@ -3051,7 +3051,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "e9a15144-64a7-4c39-a096-be2266f7f471",
+                    "_postman_id": "8ea373cb-e747-434d-9638-d8f58fbd1fa2",
                     "name": "Count vendors by State",
                     "request": {
                     "method": "GET",
@@ -3083,7 +3083,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d5fa9611-c054-4676-9959-57af0c8e9951",
+                    "_postman_id": "62102f26-a037-41cb-819b-145416d12156",
                     "name": "Read vendors by Zip",
                     "request": {
                     "method": "GET",
@@ -3114,7 +3114,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "06d1bbd4-9213-4c44-8f67-f1b6c57a726b",
+                    "_postman_id": "b8ed36ed-ec44-440d-a58b-27dc88afb9c6",
                     "name": "Count vendors by Zip",
                     "request": {
                     "method": "GET",
@@ -3146,7 +3146,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7a1017b5-715b-49de-a97f-e9bb40318ba6",
+                    "_postman_id": "35a5334e-6623-4686-af4d-d5c08ad892e4",
                     "name": "Read vendors by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -3177,7 +3177,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "9a7b7d87-371f-4a26-a8cf-04c1ebd76bf7",
+                    "_postman_id": "43f8f4e0-e73a-4708-b852-08a1e2075359",
                     "name": "Count vendors by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -3209,7 +3209,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "1ac611de-c116-4bca-bcda-ddf61484785f",
+                    "_postman_id": "3e07c2c4-4f1e-4d49-856c-778527741aee",
                     "name": "Read vendor name",
                     "request": {
                     "method": "GET",
@@ -3240,7 +3240,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "9153f011-4863-4af3-b8f9-4defed6c13d5",
+                    "_postman_id": "264bfba5-a38c-4dc3-ba59-85a687732bba",
                     "name": "Read vendor street",
                     "request": {
                     "method": "GET",
@@ -3271,7 +3271,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "286360eb-6729-4dbc-bd30-44b7b2d1b4e6",
+                    "_postman_id": "2f40743e-cac1-461d-bcb7-3f26d0923033",
                     "name": "Read vendor city",
                     "request": {
                     "method": "GET",
@@ -3302,7 +3302,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "5f916e27-03de-482f-92fc-c63305d5b6b9",
+                    "_postman_id": "7da465af-b2ff-4ae1-b05d-78f5b011d482",
                     "name": "Read vendor state",
                     "request": {
                     "method": "GET",
@@ -3333,7 +3333,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "48be87e2-6f50-458f-94cb-e5440a9470f1",
+                    "_postman_id": "31e2421c-7c75-48cd-a2f8-096cb95e6371",
                     "name": "Read vendor zipCode",
                     "request": {
                     "method": "GET",
@@ -3364,7 +3364,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d873f90e-2831-4d4c-9220-47ad4e7b56e2",
+                    "_postman_id": "29c8e3b2-eb61-4fbc-8e13-292858e1c484",
                     "name": "Read vendor contact",
                     "request": {
                     "method": "GET",
@@ -3395,7 +3395,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "4e21f41d-c848-4c60-9ebd-b0ab24ce62e2",
+                    "_postman_id": "8fb0ead5-d7ad-414d-9b85-939e7b08d001",
                     "name": "Read vendor phone",
                     "request": {
                     "method": "GET",
@@ -3426,7 +3426,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "20d71bf3-87da-41b0-9087-bbdf5396cd8e",
+                    "_postman_id": "b60da3ec-c869-46b9-9717-581c8aaf2607",
                     "name": "Read vendor fax",
                     "request": {
                     "method": "GET",
@@ -3457,7 +3457,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "acb16440-d7a0-4784-89b0-f469450a5f29",
+                    "_postman_id": "20675aa4-33bc-4850-bebb-ef3e5acd85ed",
                     "name": "Read vendor paymentTermsCode",
                     "request": {
                     "method": "GET",
@@ -3488,7 +3488,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "00c453cc-660b-4975-83a2-5a3fab41af10",
+                    "_postman_id": "60b81cc9-ffa0-49b4-819f-64961038d43c",
                     "name": "Create or update vendor",
                     "request": {
                     "method": "PUT",
@@ -3549,7 +3549,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6be9a35a-7f6f-48fa-8123-bf9ee74f6cac",
+                    "_postman_id": "d6e71760-92f8-4aea-822b-94da9ccc715d",
                     "name": "Delete vendor",
                     "request": {
                     "method": "DELETE",
@@ -3585,7 +3585,7 @@
         {
             "listen": "prerequest",
             "script": {
-                "id": "6a2fccb6-5f7d-4bb3-80e0-8313f3c40369",
+                "id": "8adbaf29-6a35-4937-b9c0-91815c92d505",
                 "type": "text/javascript",
                 "exec": [
                     ""
@@ -3595,7 +3595,7 @@
         {
             "listen": "test",
             "script": {
-                "id": "f6d42829-acd4-465b-ad45-bbfc9256565b",
+                "id": "075f47d2-c8b4-4db8-b21e-ad1982d07f20",
                 "type": "text/javascript",
                 "exec": [
                     ""
