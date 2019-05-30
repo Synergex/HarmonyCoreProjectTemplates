@@ -59,4 +59,10 @@
   <ItemGroup>
     <Folder Include="wwwroot" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\index.html">
+      <SubType>Content</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
