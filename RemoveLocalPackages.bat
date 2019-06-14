@@ -1,4 +1,11 @@
 pushd %~dp0
-dotnet new -u Harmony.Core.ProjectTemplates.1.0.55
+setlocal
+
+set /p HC_VERSION=<HarmonyCoreVersion.txt
+set NUPKG_FILE=Harmony.Core.ProjectTemplates.%HC_VERSION%
+
+dotnet new -u %NUPKG_FILE%
+
+endlocal
 popd
 pause
