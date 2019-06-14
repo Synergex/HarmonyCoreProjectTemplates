@@ -11,11 +11,13 @@ set ModelsProject=Services.Models
 set ControllersProject=Services.Controllers
 set HostProject=Services.Host
 set TestProject=Services.Test
+set TraditionalBridgeProject=TraditionalBridge
+set TraditionalBridgeNamespace=TraditionalBridge
 
 rem ================================================================================================================================
 rem Specify the names of the repository structures to generate code from:
 
-set DATA_STRUCTURES=CUSTOMERS ORDERS ITEMS ORDER_ITEMS VENDORS
+set DATA_STRUCTURES=
 set DATA_ALIASES=%DATA_STRUCTURES%
 
 set FILE_STRUCTURES=%DATA_STRUCTURES%
@@ -23,6 +25,9 @@ set FILE_ALIASES=%DATA_ALIASES%
 
 set CUSTOM_STRUCTURES=
 set CUSTOM_ALIASES=%CUSTOM_STRUCTURES%
+
+set BRIDGE_STRUCTURES=
+set BRIDGE_ALIASES=%BRIDGE_STRUCTURES%
 
 rem DATA_STRUCTURES     Is a list all structures that you wish to generate models, metadata and
 rem                     controllers for. In other words it declares all of the "entities"
@@ -40,10 +45,14 @@ rem                     for, but which will NOT be exposed to the Entity Framewo
 rem                     These classes are intended for use only by custom code-based endpoints
 rem                     and the DbContext and EdmBuilder classes will know nothing about them.
 
+rem BRIDGE_STRUCTURES	Is a list of structures that you wish to generate models and metadata
+rem                     for use with a Traditional Bridge environment. These types will NOT
+rem                     be exposed to the Entity Framework provider.
+
 rem ================================================================================================================================
 rem Specify optional "system parameter file" structure
 
-set PARAMSTR=SYSPARAMS
+set PARAMSTR=
 
 rem In the sammple environment the system parameter file is a relative file that contains
 rem "next available record number" data for use in conjunction with POST (create with automated
@@ -57,27 +66,27 @@ rem Comment or uncomment the following lines to enable or disable optional featu
 
 rem Note that the ENABLE_SWAGGER_DOCS and ENABLE_API_VERSIONING are mutually exclusive.
 
-set ENABLE_GET_ALL=-define ENABLE_GET_ALL
-set ENABLE_GET_ONE=-define ENABLE_GET_ONE
-set ENABLE_SELF_HOST_GENERATION=YES
-set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
-set ENABLE_SWAGGER_DOCS=-define ENABLE_SWAGGER_DOCS
+rem set ENABLE_GET_ALL=-define ENABLE_GET_ALL
+rem set ENABLE_GET_ONE=-define ENABLE_GET_ONE
+rem set ENABLE_SELF_HOST_GENERATION=YES
+rem set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
+rem set ENABLE_SWAGGER_DOCS=-define ENABLE_SWAGGER_DOCS
 rem set ENABLE_API_VERSIONING=-define ENABLE_API_VERSIONING
-set ENABLE_POSTMAN_TESTS=YES
-set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
-set ENABLE_COUNT=-define ENABLE_COUNT
-set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
+rem set ENABLE_POSTMAN_TESTS=YES
+rem set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
+rem set ENABLE_COUNT=-define ENABLE_COUNT
+rem set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
 rem set ENABLE_PROPERTY_VALUE_DOCS=-define ENABLE_PROPERTY_VALUE_DOCS
-set ENABLE_SELECT=-define ENABLE_SELECT
-set ENABLE_FILTER=-define ENABLE_FILTER
-set ENABLE_ORDERBY=-define ENABLE_ORDERBY
-set ENABLE_TOP=-define ENABLE_TOP
-set ENABLE_SKIP=-define ENABLE_SKIP
-set ENABLE_RELATIONS=-define ENABLE_RELATIONS
-set ENABLE_PUT=-define ENABLE_PUT
+rem set ENABLE_SELECT=-define ENABLE_SELECT
+rem set ENABLE_FILTER=-define ENABLE_FILTER
+rem set ENABLE_ORDERBY=-define ENABLE_ORDERBY
+rem set ENABLE_TOP=-define ENABLE_TOP
+rem set ENABLE_SKIP=-define ENABLE_SKIP
+rem set ENABLE_RELATIONS=-define ENABLE_RELATIONS
+rem set ENABLE_PUT=-define ENABLE_PUT
 rem set ENABLE_POST=-define ENABLE_POST
-set ENABLE_PATCH=-define ENABLE_PATCH
-set ENABLE_DELETE=-define ENABLE_DELETE
+rem set ENABLE_PATCH=-define ENABLE_PATCH
+rem set ENABLE_DELETE=-define ENABLE_DELETE
 rem set ENABLE_SPROC=-define ENABLE_SPROC
 rem set ENABLE_ADAPTER_ROUTING=-define ENABLE_ADAPTER_ROUTING
 rem set ENABLE_AUTHENTICATION=-define ENABLE_AUTHENTICATION
@@ -86,10 +95,11 @@ rem set ENABLE_FIELD_SECURITY=-define ENABLE_FIELD_SECURITY
 rem set ENABLE_UNIT_TEST_GENERATION=YES
 rem set ENABLE_CASE_SENSITIVE_URL=-define ENABLE_CASE_SENSITIVE_URL
 rem set ENABLE_CORS=-define ENABLE_CORS
-set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
+rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
+rem set ENABLE_TRADITIONAL_BRIDGE_GENERATION=YES
 
 if not "NONE%ENABLE_SELECT%%ENABLE_FILTER%%ENABLE_ORDERBY%%ENABLE_TOP%%ENABLE_SKIP%%ENABLE_RELATIONS%"=="NONE" (
   set PARAM_OPTIONS_PRESENT=-define PARAM_OPTIONS_PRESENT
@@ -232,6 +242,22 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
              %NOREPLACEOPTS%
+  if ERRORLEVEL 1 goto error
+)
+
+rem ================================================================================
+rem Generate code for the TraditionalBridge sample environment
+
+if ENABLE_TRADITIONAL_BRIDGE_GENERATION (
+  set CODEGEN_TPLDIR=Templates\TraditionalBridge
+
+  rem Generate model classes
+  codegen -s %BRIDGE_STRUCTURES% ^
+          -a %BRIDGE_ALIASES% ^
+          -t ODataModel ^
+          -o %SolutionDir%%TraditionalBridgeProject%\source ^
+          -n %TraditionalBridgeNamespace% ^
+          -e -r -lf
   if ERRORLEVEL 1 goto error
 )
 

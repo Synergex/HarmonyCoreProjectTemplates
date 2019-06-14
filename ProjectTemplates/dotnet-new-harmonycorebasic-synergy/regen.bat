@@ -11,6 +11,8 @@ set ModelsProject=Services.Models
 set ControllersProject=Services.Controllers
 set HostProject=Services.Host
 set TestProject=Services.Test
+set TraditionalBridgeProject=TraditionalBridge
+set TraditionalBridgeNamespace=TraditionalBridge
 
 rem ================================================================================================================================
 rem Specify the names of the repository structures to generate code from:
@@ -23,6 +25,9 @@ set FILE_ALIASES=%DATA_ALIASES%
 
 set CUSTOM_STRUCTURES=
 set CUSTOM_ALIASES=%CUSTOM_STRUCTURES%
+
+set BRIDGE_STRUCTURES=
+set BRIDGE_ALIASES=%BRIDGE_STRUCTURES%
 
 rem DATA_STRUCTURES     Is a list all structures that you wish to generate models, metadata and
 rem                     controllers for. In other words it declares all of the "entities"
@@ -39,6 +44,10 @@ rem CUSTOM_STRUCTURES	Is a list of structures that you wish to generate models a
 rem                     for, but which will NOT be exposed to the Entity Framework provider.
 rem                     These classes are intended for use only by custom code-based endpoints
 rem                     and the DbContext and EdmBuilder classes will know nothing about them.
+
+rem BRIDGE_STRUCTURES	Is a list of structures that you wish to generate models and metadata
+rem                     for use with a Traditional Bridge environment. These types will NOT
+rem                     be exposed to the Entity Framework provider.
 
 rem ================================================================================================================================
 rem Specify optional "system parameter file" structure
@@ -90,6 +99,7 @@ rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
+rem set ENABLE_TRADITIONAL_BRIDGE_GENERATION=YES
 
 if not "NONE%ENABLE_SELECT%%ENABLE_FILTER%%ENABLE_ORDERBY%%ENABLE_TOP%%ENABLE_SKIP%%ENABLE_RELATIONS%"=="NONE" (
   set PARAM_OPTIONS_PRESENT=-define PARAM_OPTIONS_PRESENT
@@ -232,6 +242,22 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
           -o %SolutionDir%%TestProject% ^
           -n %TestProject% ^
              %NOREPLACEOPTS%
+  if ERRORLEVEL 1 goto error
+)
+
+rem ================================================================================
+rem Generate code for the TraditionalBridge sample environment
+
+if ENABLE_TRADITIONAL_BRIDGE_GENERATION (
+  set CODEGEN_TPLDIR=Templates\TraditionalBridge
+
+  rem Generate model classes
+  codegen -s %BRIDGE_STRUCTURES% ^
+          -a %BRIDGE_ALIASES% ^
+          -t ODataModel ^
+          -o %SolutionDir%%TraditionalBridgeProject%\source ^
+          -n %TraditionalBridgeNamespace% ^
+          -e -r -lf
   if ERRORLEVEL 1 goto error
 )
 
