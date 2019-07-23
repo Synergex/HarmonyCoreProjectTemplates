@@ -1,6 +1,6 @@
 <CODEGEN_FILENAME><StructureNoplural>MetaData.dbl</CODEGEN_FILENAME>
 <OPTIONAL_USERTOKEN>RPSDATAFILES= </OPTIONAL_USERTOKEN>
-<REQUIRES_CODEGEN_VERSION>5.3.15</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.3.17</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
 ;// Title:       DataObjectMetaData.tpl
@@ -84,7 +84,7 @@ namespace <NAMESPACE>
 			required in dataArea, a
 			required in grfa, a
 			record
-				new<StructureNoplural>, @<StructureNoplural>
+				new<StructureNoplural>, @<NAMESPACE>.<StructureNoplural>
 		proc
 			new<StructureNoplural> = new <StructureNoplural>(dataArea) 
 			new<StructureNoplural>.GlobalRFA = grfa
