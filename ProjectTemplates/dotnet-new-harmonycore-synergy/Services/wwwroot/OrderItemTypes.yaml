@@ -66,3 +66,34 @@ OrderItem:
     UnitPrice: 15.99
     DateShipped: 2018-03-17T00:00:00-08:00
     InvoiceNumber: 166825
+
+OrderItemPost:
+  properties:
+    ItemOrdered:
+      type: integer
+      example: 21
+      description: Item ordered
+    QuantityOrdered:
+      type: integer
+      example: 3
+      description: Quantity ordered
+    UnitPrice:
+      type: number
+      format: float
+      example: 15.99
+      description: Unit price
+    DateShipped:
+      type: string
+      format: date-time
+      example: 2018-03-17T00:00:00-08:00
+      description: Date shipped
+    InvoiceNumber:
+      type: integer
+      example: 166825
+      description: Invoice number
+  example:
+    ItemOrdered: 21
+    QuantityOrdered: 3
+    UnitPrice: 15.99
+    DateShipped: 2018-03-17T00:00:00-08:00
+    InvoiceNumber: 166825

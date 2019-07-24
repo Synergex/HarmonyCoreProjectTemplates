@@ -65,6 +65,7 @@ namespace Services.Models
         ;;; Vendor number
         ;;; </summary>
         {Key}
+		{Range(0,999999, ErrorMessage="Vendor number must be between 0 and 999999. ")}
         public property VendorNumber, int
             method get
             proc
@@ -139,6 +140,7 @@ namespace Services.Models
         ;;; <summary>
         ;;; Zip Code
         ;;; </summary>
+		{Range(0,99999, ErrorMessage="Zip Code must be between 0 and 99999. ")}
         public property ZipCode, int
             method get
             proc

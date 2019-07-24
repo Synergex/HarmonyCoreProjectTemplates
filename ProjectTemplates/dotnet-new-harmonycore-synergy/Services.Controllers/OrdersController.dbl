@@ -16,6 +16,7 @@ import Microsoft.AspNet.OData
 import Microsoft.AspNet.OData.Routing
 import Microsoft.EntityFrameworkCore
 import Microsoft.EntityFrameworkCore.Infrastructure
+import Microsoft.Extensions.Options
 import Harmony.Core.EF.Extensions
 import Harmony.Core.Interface
 import Harmony.OData
@@ -29,20 +30,25 @@ namespace Services.Controllers
     ;;; </summary>
     public partial class OrdersController extends ODataController
     
-        public readwrite property DBContext, @Services.Models.DBContext
-        public readwrite property ServiceProvider, @IServiceProvider
+        ;;Services provided via dependency injection
+        private _DbContext, @Services.Models.DBContext
+        private _ServiceProvider, @IServiceProvider
+        private _AppSettings, @IOptions<AppSettings>
 
         ;;; <summary>
         ;;; Constructs a new instance of OrdersController
         ;;; </summary>
         ;;; <param name="aDbContext">Database context instance (DI)</param>
         ;;; <param name="aServiceProvider">Service provider instance (DI)</param>
+        ;;; <param name="aAppSettings">Application settings</param>
         public method OrdersController
             aDbContext, @Services.Models.DBContext
             aServiceProvider, @IServiceProvider
+            aAppSettings, @IOptions<AppSettings>
         proc
-            this.DBContext = aDbContext
-            this.ServiceProvider = aServiceProvider
+            this._DbContext = aDbContext
+            this._ServiceProvider = aServiceProvider
+			this._AppSettings = aAppSettings
         endmethod
 
         {ODataRoute("Orders")}
@@ -53,7 +59,7 @@ namespace Services.Controllers
         ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
         public method GetOrders, @IActionResult
         proc
-            mreturn Ok(DBContext.Orders.AsNoTracking())
+            mreturn Ok(_DbContext.Orders.AsNoTracking())
         endmethod
 
         {ODataRoute("Orders(OrderNumber={aOrderNumber})")}
@@ -67,7 +73,7 @@ namespace Services.Controllers
             {FromODataUri}
             required in aOrderNumber, int
         proc
-            mreturn new SingleResult<Order>(DBContext.Orders.AsNoTracking().FindQuery<Order>(DBContext, aOrderNumber))
+            mreturn new SingleResult<Order>(_DbContext.Orders.AsNoTracking().FindQuery<Order>(_DbContext, aOrderNumber))
         endmethod
 
         {ODataRoute("Orders(CustomerNumber={aCustomerNumber})")}
@@ -81,7 +87,7 @@ namespace Services.Controllers
             {FromODataUri}
             required in aCustomerNumber, int
         proc
-            data result = DBContext.Orders.AsNoTracking().FindAlternate("CustomerNumber",aCustomerNumber)
+            data result = _DbContext.Orders.AsNoTracking().FindAlternate("CustomerNumber",aCustomerNumber)
             if (result == ^null)
                 mreturn NotFound()
             mreturn Ok(result)
@@ -98,7 +104,7 @@ namespace Services.Controllers
             {FromODataUri}
             required in aDateOrdered, DateTime
         proc
-            data result = DBContext.Orders.AsNoTracking().FindAlternate("DateOrdered",aDateOrdered)
+            data result = _DbContext.Orders.AsNoTracking().FindAlternate("DateOrdered",aDateOrdered)
             if (result == ^null)
                 mreturn NotFound()
             mreturn Ok(result)
@@ -115,119 +121,38 @@ namespace Services.Controllers
             {FromODataUri}
             required in aDateCompleted, DateTime
         proc
-            data result = DBContext.Orders.AsNoTracking().FindAlternate("DateCompleted",aDateCompleted)
+            data result = _DbContext.Orders.AsNoTracking().FindAlternate("DateCompleted",aDateCompleted)
             if (result == ^null)
                 mreturn NotFound()
             mreturn Ok(result)
         endmethod
 
-
-        {ODataRoute("Orders({key})/CustomerNumber")}
+        {ODataRoute("Orders")}
         ;;; <summary>
-        ;;; Get the CustomerNumber property of a single Order, by primary key.
+        ;;; Create a new order (automatically assigned primary key).
         ;;; </summary>
-        ;;; <param name="key">Customer number</param>
-        ;;; <returns>
-        ;;; Returns an int containing the value of the requested property.
-        ;;;</returns>
-        public method GetCustomerNumber, @IActionResult
-            {FromODataUri}
-            required in key, int
+        ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
+        public method PostOrder, @IActionResult
+            {FromBody}
+            required in aOrder, @Order
         proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.CustomerNumber)
-        endmethod
+            ;;Remove the primary key fields from ModelState
+            ModelState.Remove("OrderNumber")
 
-        {ODataRoute("Orders({key})/PlacedBy")}
-        ;;; <summary>
-        ;;; Get the PlacedBy property of a single Order, by primary key.
-        ;;; </summary>
-        ;;; <param name="key">Order placed by</param>
-        ;;; <returns>
-        ;;; Returns a string containing the value of the requested property.
-        ;;;</returns>
-        public method GetPlacedBy, @IActionResult
-            {FromODataUri}
-            required in key, int
-        proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.PlacedBy)
-        endmethod
+            ;; Validate inbound data
+            if (!ModelState.IsValid)
+                mreturn BadRequest(ModelState)
 
-        {ODataRoute("Orders({key})/CustomerReference")}
-        ;;; <summary>
-        ;;; Get the CustomerReference property of a single Order, by primary key.
-        ;;; </summary>
-        ;;; <param name="key">Customer order reference</param>
-        ;;; <returns>
-        ;;; Returns a string containing the value of the requested property.
-        ;;;</returns>
-        public method GetCustomerReference, @IActionResult
-            {FromODataUri}
-            required in key, int
-        proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.CustomerReference)
-        endmethod
+            ;;Get the next available primary key value
+            disposable data keyFactory = (@IPrimaryKeyFactory)_ServiceProvider.GetService(^typeof(IPrimaryKeyFactory))
+            KeyFactory.AssignPrimaryKey(aOrder)
 
-        {ODataRoute("Orders({key})/PaymentTermsCode")}
-        ;;; <summary>
-        ;;; Get the PaymentTermsCode property of a single Order, by primary key.
-        ;;; </summary>
-        ;;; <param name="key">Payment terms code</param>
-        ;;; <returns>
-        ;;; Returns a string containing the value of the requested property.
-        ;;;</returns>
-        public method GetPaymentTermsCode, @IActionResult
-            {FromODataUri}
-            required in key, int
-        proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.PaymentTermsCode)
-        endmethod
+            ;;Add the new order
+            _DbContext.Orders.Add(aOrder)
+            _DbContext.SaveChanges(keyFactory)
 
-        {ODataRoute("Orders({key})/DateOrdered")}
-        ;;; <summary>
-        ;;; Get the DateOrdered property of a single Order, by primary key.
-        ;;; </summary>
-        ;;; <param name="key">Date ordered</param>
-        ;;; <returns>
-        ;;; Returns a DateTime containing the value of the requested property.
-        ;;;</returns>
-        public method GetDateOrdered, @IActionResult
-            {FromODataUri}
-            required in key, int
-        proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.DateOrdered)
-        endmethod
+            mreturn Created(aOrder)
 
-        {ODataRoute("Orders({key})/DateCompleted")}
-        ;;; <summary>
-        ;;; Get the DateCompleted property of a single Order, by primary key.
-        ;;; </summary>
-        ;;; <param name="key">Date order completed</param>
-        ;;; <returns>
-        ;;; Returns a DateTime containing the value of the requested property.
-        ;;;</returns>
-        public method GetDateCompleted, @IActionResult
-            {FromODataUri}
-            required in key, int
-        proc
-            data result = DBContext.Orders.Find(key)
-            if (result==^null)
-                mreturn NotFound()
-            mreturn OK(result.DateCompleted)
         endmethod
 
         {ODataRoute("Orders(OrderNumber={aOrderNumber})")}
@@ -252,17 +177,17 @@ namespace Services.Controllers
             try
             begin
                 ;;Add and commit
-                data existing = DBContext.Orders.Find(aOrderNumber)
+                data existing = _DbContext.Orders.Find(aOrderNumber)
                 if(existing == ^null) then
                 begin
-                    DBContext.Orders.Add(aOrder)
-                    DBContext.SaveChanges()
+                    _DbContext.Orders.Add(aOrder)
+                    _DbContext.SaveChanges()
                     mreturn Created(aOrder)
                 end
                 else
                 begin
                     aOrder.CopyTo(existing)
-                    DBContext.SaveChanges()
+                    _DbContext.SaveChanges()
                     mreturn NoContent()
                 end
             end
@@ -294,7 +219,7 @@ namespace Services.Controllers
             try
             begin
                 ;;Get the order to be updated
-                data orderToUpdate = DBContext.Orders.Find(aOrderNumber)
+                data orderToUpdate = _DbContext.Orders.Find(aOrderNumber)
                 data patchError, @JsonPatchError, ^null
                 ;;Did we find it?
                 if(orderToUpdate == ^null)
@@ -307,8 +232,8 @@ namespace Services.Controllers
                     mreturn BadRequest(string.Format("Error applying patch document: error message {0}, caused by {1}", patchError.ErrorMessage, JsonConvert.SerializeObject(patchError.Operation)))
 
                 ;;Update and commit
-                DBContext.Orders.Update(orderToUpdate)
-                DBContext.SaveChanges()
+                _DbContext.Orders.Update(orderToUpdate)
+                _DbContext.SaveChanges()
             end
             catch (e, @InvalidOperationException)
             begin
@@ -331,15 +256,15 @@ namespace Services.Controllers
             required in aOrderNumber, int
         proc
             ;;Get the order to be deleted
-            data orderToRemove = DBContext.Orders.Find(aOrderNumber)
+            data orderToRemove = _DbContext.Orders.Find(aOrderNumber)
 
             ;;Did we find it?
             if (orderToRemove == ^null)
                 mreturn NotFound()
 
             ;;Delete and commit
-            DBContext.Orders.Remove(orderToRemove)
-            DBContext.SaveChanges()
+            _DbContext.Orders.Remove(orderToRemove)
+            _DbContext.SaveChanges()
 
             mreturn NoContent()
 

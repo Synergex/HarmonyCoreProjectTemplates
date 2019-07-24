@@ -59,8 +59,8 @@ namespace Services
         proc
             ;;Declare entities
             builder.EntitySet<Customer>("Customers")
-            builder.EntitySet<Order>("Orders")
             builder.EntitySet<Item>("Items")
+            builder.EntitySet<Order>("Orders")
             builder.EntitySet<OrderItem>("OrderItems")
             builder.EntitySet<Vendor>("Vendors")
 
@@ -90,14 +90,6 @@ namespace Services
                 
                 
                 
-            
-            data orderType = (@EdmEntityType)tempModel.FindDeclaredType("Services.Models.Order")
-            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"CustomerNumber",orderType.FindProperty("CustomerNumber")}})
-            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"DateOrdered",orderType.FindProperty("DateOrdered")}})
-            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"DateCompleted",orderType.FindProperty("DateCompleted")}})
-                
-                
-                
                 
             
             data itemType = (@EdmEntityType)tempModel.FindDeclaredType("Services.Models.Item")
@@ -105,6 +97,14 @@ namespace Services
             tempModel.AddAlternateKeyAnnotation(itemType, new Dictionary<string, IEdmProperty>() {{"FlowerColor",itemType.FindProperty("FlowerColor")}})
             tempModel.AddAlternateKeyAnnotation(itemType, new Dictionary<string, IEdmProperty>() {{"Size",itemType.FindProperty("Size")}})
             tempModel.AddAlternateKeyAnnotation(itemType, new Dictionary<string, IEdmProperty>() {{"CommonName",itemType.FindProperty("CommonName")}})
+                
+                
+                
+            
+            data orderType = (@EdmEntityType)tempModel.FindDeclaredType("Services.Models.Order")
+            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"CustomerNumber",orderType.FindProperty("CustomerNumber")}})
+            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"DateOrdered",orderType.FindProperty("DateOrdered")}})
+            tempModel.AddAlternateKeyAnnotation(orderType, new Dictionary<string, IEdmProperty>() {{"DateCompleted",orderType.FindProperty("DateCompleted")}})
                 
                 
                 

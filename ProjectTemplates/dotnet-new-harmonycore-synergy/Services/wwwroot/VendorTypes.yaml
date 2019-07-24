@@ -77,3 +77,52 @@ Vendor:
     Phone: (555) 627-2663
     Fax: (555) 627-6382
     PaymentTermsCode: "60"
+
+VendorPost:
+  properties:
+    Name:
+      type: string
+      example: "Gardens R Us"
+      description: Vendor name
+    Street:
+      type: string
+      example: "97 Main St"
+      description: Street address
+    City:
+      type: string
+      example: "Concord"
+      description: City
+    State:
+      type: string
+      example: "NH"
+      description: State
+    ZipCode:
+      type: integer
+      example: 03214
+      description: Zip Code
+    Contact:
+      type: string
+      example: "Jeremiah Johnson"
+      description: Contact name
+    Phone:
+      type: string
+      example: (555) 627-2663
+      description: Phone number
+    Fax:
+      type: string
+      example: (555) 627-6382
+      description: Fax number
+    PaymentTermsCode:
+      type: string
+      example: "60"
+      description: Payment terms code
+  example:
+    Name: "Gardens R Us"
+    Street: "97 Main St"
+    City: "Concord"
+    State: "NH"
+    ZipCode: 03214
+    Contact: "Jeremiah Johnson"
+    Phone: (555) 627-2663
+    Fax: (555) 627-6382
+    PaymentTermsCode: "60"

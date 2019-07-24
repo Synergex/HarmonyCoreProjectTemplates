@@ -67,3 +67,39 @@ Order:
     PaymentTermsCode: "30"
     DateOrdered: 2018-03-01T00:00:00-08:00
     DateCompleted: 2018-03-12T00:00:00-08:00
+
+OrderPost:
+  properties:
+    CustomerNumber:
+      type: integer
+      example: 622822
+      description: Customer number
+    PlacedBy:
+      type: string
+      example: "John Doe"
+      description: Order placed by
+    CustomerReference:
+      type: string
+      example: "PO12345"
+      description: Customer order reference
+    PaymentTermsCode:
+      type: string
+      example: "30"
+      description: Payment terms code
+    DateOrdered:
+      type: string
+      format: date-time
+      example: 2018-03-01T00:00:00-08:00
+      description: Date ordered
+    DateCompleted:
+      type: string
+      format: date-time
+      example: 2018-03-12T00:00:00-08:00
+      description: Date order completed
+  example:
+    CustomerNumber: 622822
+    PlacedBy: "John Doe"
+    CustomerReference: "PO12345"
+    PaymentTermsCode: "30"
+    DateOrdered: 2018-03-01T00:00:00-08:00
+    DateCompleted: 2018-03-12T00:00:00-08:00
