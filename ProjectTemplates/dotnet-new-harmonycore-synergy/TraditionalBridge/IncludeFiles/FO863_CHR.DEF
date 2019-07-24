@@ -1,0 +1,31 @@
+;FO863_CHR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 863 CHARACTERISTIC FILE                                                                                                
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   225                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO863_CHR                                                                                                                   
+        FOC_RECV_ID               ,A5           ; RECEIVING PART ID CODE                      1 thru     5                          
+        FOC_REPORT_NO             ,D9           ; REPORT NUMBER                               6 thru    14                          
+        FOC_CUST_PART             ,A22          ; FORDS PART NUMBER                          15 thru    36                          
+        FOC_CHAR_DESCR            ,A20          ; CHARACTERISTIC DESCRIPTION                 37 thru    56                          
+        FOC_PROC_CODE             ,A2           ; PROCESS CODE                               57 thru    58                          
+        FOC_SAMPLE_SIZE           ,D9           ; SAMPLE SIZE                                59 thru    67                          
+        FOC_SAMPLE_UOFM           ,A2           ; SAMPLE UNIT OF MEASURE                     68 thru    69                          
+        FOC_SAMPLE_FREQ           ,D9           ; SAMPLE FREQUENCY                           70 thru    78                          
+        FOC_NORMALITY             ,A1           ; NORMALITY CODE                             79 thru    79                          
+        FOC_SPC_CODE              ,A2           ; SPC CHART CODE                             80 thru    81                          
+        FOC_SPC_DESCR             ,A60          ; SPC CODE DESCRIPTION                       82 thru   141                          
+        FOC_RANGE_UOFM            ,A2           ; RANGE UNIT OF MEASURE                     142 thru   143                          
+        FOC_RANGE_MIN             ,D10          ; RANGE MINIMUM VALUE                       144 thru   153                          
+        FOC_RANGE_MAX             ,D10          ; RANGE MAXIMUM VALUE                       154 thru   163                          
+        FOC_RANGE_QUAL            ,A2           ; RANGE VALUE QUALIFIER                     164 thru   165                          
+        FOC_CPK_CAP               ,D10          ; CPK CAPABILITY VALUE                      166 thru   175                          
+        FOC_X_DBL_BAR             ,D10          ; X DOUBLE BAR VALUE                        176 thru   185                          
+        FOC_R_BAR                 ,D10          ; R BAR VALUE                               186 thru   195                          
+        FOC_STD_DEV               ,D10          ; STANDARD DEVIATION                        196 thru   205                          
+        FOC_CP_CAP                ,D10          ; CP CAPABILITY VALUE                       206 thru   215                          
+        FOC_MEAS_VALUE            ,D10          ; MEASUREMENT VALUE (SINGLE)                216 thru   225                          
+                                                                                                                                    
+                                                                                                                                    

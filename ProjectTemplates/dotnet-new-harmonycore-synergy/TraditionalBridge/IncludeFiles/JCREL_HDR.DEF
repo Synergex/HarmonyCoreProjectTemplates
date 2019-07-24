@@ -1,0 +1,53 @@
+;JCREL_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       JOHNSON CONTROLS 830/862 HDR                                                                                                
+;       DATE : 10-APR-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   495                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  JCREL_HDR                                                                                                                   
+        JCH_COMP                  ,A8           ; RESERVED FOR SPLIT (COMPANY)                1 thru     8                          
+        JCH_SEQN                  ,D5           ; RESERVED FOR SPLIT (SEQUENCE)               9 thru    13                          
+        JCH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER             14 thru    27                          
+        JCH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER              28 thru    41                          
+        JCH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM              42 thru    55                          
+        JCH_SUPP_ID               ,A15          ; SUPPLIER ID                                56 thru    70                          
+        JCH_REL_DT                ,D8           ; RELEASE DATE                               71 thru    78                          
+        JCH_TP_PART               ,A30          ; PART NUMBER                                79 thru   108                          
+        JCH_DEST_CODE             ,A15          ; DESTINATION CODE                          109 thru   123                          
+        JCH_PO                    ,A22          ; PURCHASE ORDER NUMBER                     124 thru   145                          
+        JCH_PURPOSE               ,D2           ; PURPOSE                                   146 thru   147                          
+        JCH_RELEASE_NO            ,A30          ; RELEASE NUMBER                            148 thru   177                          
+        JCH_HSTART_DT             ,D8           ; HORIZON START DATE                        178 thru   185                          
+        JCH_HEND_DT               ,D8           ; HORIZON END DATE                          186 thru   193                          
+        JCH_UOFM                  ,A2           ; UNIT OF MEASURE                           194 thru   195                          
+        JCH_SHIP_FROM             ,A15          ; SHIP FROM CODE                            196 thru   210                          
+        JCH_FCST_QL               ,A2           ; FORECAST QUALIFIER                        211 thru   212                          
+        JCH_FCST_QTY_QL           ,A1           ; QUANTITIY QUALIFIER                       213 thru   213                          
+        JCH_FAB_DT                ,D8           ; FAB DATE   (NOT USED BY JC)               214 thru   221                          
+        JCH_FAB_QTY               ,D9           ; FAB QUANTITY    (830 ONLY)                222 thru   230                          
+        JCH_RAW_DT                ,D8           ; RAW DATE     (NOT USED BY JC)             231 thru   238                          
+        JCH_RAW_QTY               ,D9           ; RAW QUANTITY     (830 ONLY)               239 thru   247                          
+        JCH_PCUM_DT               ,D8           ; PREV CUM DATE (NOT USED BY JC)            248 thru   255                          
+        JCH_PCUM_QTY              ,D9           ; PREVIOUS CUM REQ.  (830 ONLY)             256 thru   264                          
+        JCH_REC_DT                ,D8           ; LAST RECEIPT DATE                         265 thru   272                          
+        JCH_REC_QTY               ,D9           ; LAST RECEIPT QUANTITY                     273 thru   281                          
+        JCH_SHIPPER_NO            ,A10          ; LAST RECEIPT SHIPPER NUMBER               282 thru   291                          
+        JCH_CSTART_DT             ,D8           ; CUM START DATE                            292 thru   299                          
+        JCH_LREC_CUM              ,D9           ; LAST RECEIVED CUM                         300 thru   308                          
+        JCH_LREC_DT               ,D8           ; LAST RECEIVED DATE                        309 thru   316                          
+        JCH_MI_CODE               ,A15          ; MATERIAL ISSUER                           317 thru   331                          
+        JCH_PART_DESC             ,A30          ; TP PART DESCRIPTION                       332 thru   361                          
+        JCH_PCNT                  ,D3           ; RESERVED FOR SPLIT (PERCENT)              362 thru   364                          
+        JCH_SHIP_CODE             ,A2           ; SHIP CODE                                 365 thru   366                          
+        JCH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             367 thru   371                          
+        JCH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            372 thru   375                          
+        JCH_BD_CONTACT            ,A35          ; BUYER CONTACT NAME                        376 thru   410                          
+        JCH_BD_PHONE              ,A25          ; BUYER PHONE NUMBER                        411 thru   435                          
+        JCH_NT_CONTACT            ,A35          ; NOTIFICATION CONTACT NAME                 436 thru   470                          
+        JCH_NT_PHONE              ,A25          ; NOTIFICATION CONTACT PHONE NO             471 thru   495                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        JCREL_HDR_KEY             ,A145         ; PRIMARY SORT KEY                                                                  
+                                  ,A350         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,107 @@
+RECORD CHDATA_DAT
+;
+; CHDATA_DAT.DEF - CHRYSLER MATERIAL RELEASE RAW DATA FILE (FIXED LENGTH)
+;
+; 	STRUCTURE: 	SEQUENTIAL
+; 	RECORD LEN: 	146
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+		; "A" records
+	ARECID	,A1	; record id code
+	ASEQ	,D1	; record position number
+	ASUPCD	,A5	; supplier id
+	ASUFIX	,A1	; supplier suffix
+	ADVSN	,D2	; division (1=car, 2=truck)
+		,A8	; filler
+	AMESGE	,A128	; remarks
+
+RECORD	,X	; "B" records
+		,A18	; same as above
+	BRELNM	,A5	; release number
+	BISSDT	,A8	; release issue date (mm/dd/yy)
+	BREQDT	,A5	; required thru date (mmmyy)
+	BWEKDT	,9A5	; ship weeks (mm/dd)
+	BMTHDT	,2A10	; plan month dates (free form)
+		,A45	; filler
+
+RECORD	,X	; "C" records
+		,A8	; same as above
+	CPART	,A9	; chrysler part number
+	CCNTRL	,A1	; control (G=group, L=local)
+	CPONUM	,A8	; po number
+	CDECK	,A4	; deck number
+	CISSBY	,A8	; issued by
+	CMTHQT	,3D8	; plan month quantity
+	CFABQT	,D8	; fab quantity
+	CRAWQT	,D8	; raw quantity
+		,A68	; filler
+
+RECORD	,X	; "C" records for a Trim Release
+		,A38	; same as above
+	CMTHQ2	,4D8	; plan month quantity for trim release
+	CFABQ2	,D8	; fab quantity		'	'
+	CRAWQ2	,D8	; raw quantity		'	'
+		,A60	; filler
+
+RECORD	,X	; "D" records
+		,A18	; same as "C" record
+	DPLNT	,D5	; plant code
+	DLSTQT	,D8	; last ship quantity
+	DYTDCM	,D8	; cum ytd shipped
+		,A4	; filler
+	DLSTDT	,A8	; last ship date
+	DSHIP	,A2	; ship code
+	DBAY	,A5	; ship dock/bay
+	DREQDT	,A8	; date which cums are based (mmddyy)
+	DREQCM	,D8	; requirements thru based on cum date
+	DWEKQT	,9D8	; weekly ship quantities
+
+RECORD	,X	; "E" records
+		,A23	; same as "D" record
+	EPREDT	,A8	; pre production date
+	EPREQT	,D8	; pre production quantity
+	EPILDT	,A8	; early pilot date
+	EPILQT	,D8	; early pilot quantity
+	EAPDTE	,A8	; Advance pilot date
+	EAPQTY	,D8	; Advance pilot quantity
+	EEAPDT	,A8	; Early advance pilot date
+	EEAPQT	,D8	; Early advance pilot quantity
+		,A59	; filler
+
+;
+;	JIT release record layout (SDS supplier delivery schedule)
+;
+
+RECORD	,X	; jit details record
+	JSUPCD	,A5	; supplier id
+	JSUFIX	,A1	; supplier suffix
+	JPART	,A9	; chyrsler part number
+		,A1	; not used
+	JPLANT	,D5	; plant code
+	JGATE	,A7	; gateline balance
+	JFIRM	,A7	; firm balance
+	JSBFRM	,A7	; sub-firm balance
+	JYTDCM	,A7	; accum thru ytd cum
+	JADJST	,A7	; adjustments
+	JGATDY	,A3	; gateline days
+	JFRMDY	,A3	; firm days
+	JSBFDY	,A3	; sub-firm days
+	JISSDT	,D6	; issue date (mmddyy)
+	JISSTM	,A6	; issue time (hhmmss)
+	JDLVCD	,A3	; delivery code
+	JDOCK	,A2	; dock code
+	JYTDDT	,D6	; accum thru date (YTD date) mmddyy
+	JLSTDT	,D6	; last ship date (mmddyy)
+	JLSTQT	,A7	; last ship quantity
+	JSHPCM	,A7	; dias ship ytd cum
+	JDECK	,A3	; group deck
+	JHOURS	,D4	; in transit hours (999V9)
+	JMODE	,A1	; ship mode
+		,A30	; filler
+
+RECORD	,X	; jit detail hours
+		,A21	; same as above
+	JDLVDT	,D5	; delivery date (mmddy)
+	JHRQT	,24A5	; hourly quantities

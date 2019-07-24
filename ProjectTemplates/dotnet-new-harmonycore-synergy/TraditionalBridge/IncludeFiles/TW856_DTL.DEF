@@ -1,0 +1,25 @@
+;TW856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       TRW ASN DETAIL FILE                                                                                                         
+;       DATE : 05-AUG-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   107                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  TW856_DTL                                                                                                                   
+        TWD_SHIPPER               ,D9           ; SHIPPER NUMBER                              1 thru     9                          
+        TWD_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       10 thru    31                          
+        TWD_SHIP_QTY              ,D8           ; SHIP QUANTITY                              32 thru    39                          
+        TWD_UOFM                  ,A2           ; UNIT OF MEASURE                            40 thru    41                          
+        TWD_YTD_CUM               ,D9           ; YTD CUM                                    42 thru    50                          
+        TWD_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                      51 thru    72                          
+        TWD_PO_DATE               ,D6           ; PURCHASE ORDER DATE                        73 thru    78                          
+        TWD_NET_WGT               ,D8           ; NET WEIGHT                                 79 thru    86                          
+        TWD_GROSS_WGT             ,D8           ; DETAILED GROSS WGT                         87 thru    94                          
+        TWD_CONT_CODE             ,A5           ; CONTAINER CODE: 1                          95 thru    99                          
+        TWD_CONT_QTY1             ,D4           ; CONTAINER QTY:  1                         100 thru   103                          
+        TWD_TOTAL_HLS             ,D4           ; TOTAL DETAIL HIERARCHIAL                  104 thru   107                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        TW856_DTL_KEY             ,A9           ; PRIMARY SORT KEY                                                                  
+                                  ,A98          ; PRIMARY KEY POSITIONING                                                           

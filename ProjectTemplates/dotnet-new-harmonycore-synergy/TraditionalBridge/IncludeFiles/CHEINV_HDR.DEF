@@ -1,0 +1,83 @@
+; CHEINV_HDR.DEF
+;
+;	Chrysler Electronic Invoice Header File.
+;
+;	Date: 13-Feb-89
+;
+;	File Organization: Indexed (Isam)	Record Size: 138
+;
+;-------------------------------------------------------------------------------
+; Date	      	Programmer    Modification
+; ----------  	----------    -------------------------------------------------
+; 8/11/93	R. Greene    	Added fields CIH_BILL_ABBRV, CIH_FROM_ABBRV,
+;				CIH_INV_TYPE, CIH_PACK_NUM.  Increased Record
+;				Size from 100 to 125.
+;10/31/95 	M. Collins	Expand PO number to 22 characters, expand record
+;				from 125 to 138.
+;12/06/95	M. Collins	Added field CIH_TRANS_MODE.  used filler area
+;-------------------------------------------------------------------------------
+
+RECORD CHEINV_HDR
+	CIH_INV_NO	,D7	; Invoice Number.
+	CIH_DEST_ABBRV	,A5	; Chrysler Plant Abbreviation.
+
+	CIH_SUPP_ABBRV	,A5	; Supplier Abbreviation
+	CIH_THIRD_ABBRV	,A5	; Third Party Ship To Abbreviation.
+	CIH_THIRD_QUAL	,A2	; Third Party Ship To Id Qualifier.
+
+	CIH_INV_DATE	,D6	; Invoice Date.
+	CIH_BILL_NO	,D9	; Bill of Lading Number.
+	CIH_CARR_CODE	,A4	; Carrier Code (SCAC).
+	CIH_SHIP_DATE	,D6	; Date Shipped.
+	CIH_PO_NUM	,A22	; Purchase Order/Contract Number.
+
+	CIH_TRANS_DATE	,D6	; Date Invoice was Transmitted.
+	CIH_TRANS_TIME	,D4	; Time Invoice was Transmitted.
+	CIH_TRANS_ICS	,D9	; Interchange Control Number Transmitted under.
+
+	CIH_BILL_ABBRV	,A5	; Bill To Abbreviation.             
+	CIH_FROM_ABBRV	,A5	; Ship From Abbreviation.           
+	CIH_INV_TYPE	,A2	; 00 original, 05 cancel	    
+	CIH_PACK_NUM	,A9     ; Packing Slip Number               
+	CIH_TRANS_MODE	,A2	; Transportation Mode
+			,A25	; Filler
+;-------------------------------------------------------------------------------
+;	-------- Alternate Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD CIH_KEY1
+	K1_CIH_INV_NO		,D7	; Invoice Number.
+	K1_CIH_DEST_ABBRV	,A5	; Destination Abbreviation.
+
+RECORD CIH_KEY2
+	K2_CIH_BILL_NO		,D9	; Bill of Lading/Shipper Number.
+
+;-------------------------------------------------------------------------------
+;	-------- Alternate Record Definition --------
+;-------------------------------------------------------------------------------
+
+.IFDEF CHEINV_HDR_ALT
+
+RECORD A_CHEINV_HDR
+	,A%SIZE(CHEINV_HDR)
+RECORD, X
+	A_CIH_INV_NO		,D7	; Invoice Number.
+	A_CIH_DEST_ABBRV	,A5	; Chrysler destination Abbreviation.
+	A_CIH_SUPP_ABBRV	,A5	; Supplier Abbreviation
+	A_CIH_THIRD_ABBRV	,A5	; Third Party Ship To Abbreviation.
+	A_CIH_THIRD_QUAL	,A2	; Third Party Ship To Id Qualifier.
+	A_CIH_INV_DATE		,D6	; Invoice Date.
+	A_CIH_BILL_NO		,D9	; Bill of Lading Number.
+	A_CIH_CARR_CODE		,A4	; Carrier Code (SCAC).
+	A_CIH_SHIP_DATE		,D6	; Date Shipped.
+	A_CIH_PO_NUM		,A22	; Purchase Order/Contract Number.
+	A_CIH_TRANS_DATE	,D6	; Date Invoice was Transmitted.
+	A_CIH_TRANS_TIME	,D4	; Time Invoice was Transmitted.
+	A_CIH_TRANS_ICS		,D9	; ICS/Packet # Transmitted under.
+	A_CIH_BILL_ABBRV	,A5	; Bill To Abbreviation.             
+	A_CIH_FROM_ABBRV	,A5	; Ship From Abbreviation.           
+	A_CIH_INV_TYPE		,A2	; 00 original, 05 cancel	    
+	A_CIH_PACK_NUM		,A9     ; Packing Slip Number               
+	A_CIH_TRANS_MODE	,A2	; Transportation Mode
+				,A25	; Filler
+.ENDC

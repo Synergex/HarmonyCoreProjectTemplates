@@ -1,0 +1,69 @@
+;FO862_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 862 SHIPPING SCHEDULE HDR                                                                                              
+;       DATE : 04-OCT-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   677                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO862_HDR                                                                                                                   
+        FSH_REL_NO                ,A30          ; RELEASE NUMBER                              1 thru    30                          
+        FSH_CONTROL               ,D9           ; CONTROL #                                  31 thru    39                          
+        FSH_SHIP_TO               ,A5           ; SHIP TO CODE                               40 thru    44                          
+        FSH_PART_NO               ,A30          ; PART NUMBER                                45 thru    74                          
+        FSH_ISSUE_DATE            ,D8           ; DATE ISSUED                                75 thru    82                          
+        FSH_REF_NO                ,A15          ; REFERENCE NUMBER                           83 thru    97                          
+        FSH_SHIP_FROM             ,A5           ; SHIP FROM CODE                             98 thru   102                          
+        FSH_PURPOSE               ,A2           ; RELEASE PURPOSE                           103 thru   104                          
+        FSH_REL_TYPE              ,A2           ; RELEASE TYPE                              105 thru   106                          
+        FSH_START_DATE            ,D8           ; HORIZON START DATE                        107 thru   114                          
+        FSH_END_DATE              ,D8           ; HORIZON END DATE                          115 thru   122                          
+        FSH_BILL_TO               ,A5           ; BILL TO CODE                              123 thru   127                          
+        FSH_BUYER                 ,A5           ; BUYER CODE                                128 thru   132                          
+        FSH_SELLER                ,A5           ; SELLER CODE                               133 thru   137                          
+        FSH_PO_NUM                ,A22          ; PURCHASE ORDER NUMBER                     138 thru   159                          
+        FSH_UOFM                  ,A2           ; UNIT OF MEASURE                           160 thru   161                          
+        FSH_DOCK_CODE             ,A15          ; DOCK CODE                                 162 thru   176                          
+        FSH_LINE_FEED             ,A15          ; LINE FEED CODE                            177 thru   191                          
+        FSH_RESERVE               ,A15          ; RESERVE LINE FEED CODE                    192 thru   206                          
+        FSH_ASN_QTY               ,02D9         ; LAST SHIP/ARRIVE QTY                      207 thru   224                          
+        FSH_ASN_CUM               ,02D9         ; LAST SHIP/ARRIVE CUM                      225 thru   242                          
+        FSH_SA_DATE               ,02D8         ; LAST SHIP/ARRIVAL DATE                    243 thru   258                          
+        FSH_SA_QUAL               ,02A3         ; SHIP/ARRIVAL QUALIFIER                    259 thru   264                          
+        FSH_MODEL                 ,02D8         ; MODEL YEAR START DATE                     265 thru   280                          
+        FSH_PEND_AHEAD            ,D9           ; PENDING QUANTITY AHEAD OF CUM             281 thru   289                          
+        FSH_CHAL_AHEAD            ,D9           ; CHALLENGE QTY AHEAD OF CUM                290 thru   298                          
+        FSH_PEND_BEHIND           ,D9           ; PENDING QUANTITY BEHIND CUM               299 thru   307                          
+        FSH_CHAL_BEHIND           ,D9           ; CHALLENGE QTY BEHIND CUM                  308 thru   316                          
+        FSH_CP_SA_QUAL            ,A3           ; CHAL/PEND SHIP/ARRIVAL QUAL               317 thru   319                          
+        FSH_CP_DATE               ,D8           ; CHALLENGE/PENDING SHIP DATE               320 thru   327                          
+        FSH_LAST_ASN              ,A11          ; LAST ASN NUMBER                           328 thru   338                          
+        FSH_CONT_QUAL             ,A5           ; CONTAINER QUALIFIER                       339 thru   343                          
+        FSH_CONT_PACK             ,D8           ; CONTAINER WEIGHT                          344 thru   351                          
+        FSH_WGT_QUAL              ,A1           ; WEIGHT QUALIFIER                          352 thru   352                          
+        FSH_WEIGHT                ,D8           ; WEIGHT PER THOUSAND                       353 thru   360                          
+        FSH_WGT_UOFM              ,A2           ; WEIGHT UNIT OF MEASURE                    361 thru   362                          
+        FSH_PACK_CODE             ,A7           ; PACKAGING CODE                            363 thru   369                          
+        FSH_CONSIGNEE             ,A5           ; INTERMEDIATE COSIGNEE CODE                370 thru   374                          
+        FSH_CONTACT_CD            ,02A2         ; CONTACT CODE - "EX","RD"                  375 thru   378                          
+        FSH_CONTACT               ,02A35        ; CONTACT NAME OR RD CODE                   379 thru   448                          
+        FSH_PHONE                 ,02A15        ; CONTACT PHONE NUMBER                      449 thru   478                          
+        FSH_DEL_DOCK              ,A15          ; DELIVERY DOCK                             479 thru   493                          
+        FSH_FST_QUAL              ,A1           ; FORECAST QUALIFIER                        494 thru   494                          
+        FSH_LAST_SHIP             ,D8           ; LAST SHIP DATE                            495 thru   502                          
+        FSH_COMPANY               ,A8           ; COMPANY CODE                              503 thru   510                          
+        FSH_COMP_SEQ              ,D5           ; COMPANY SEQUENCE CODE                     511 thru   515                          
+        FSH_COMP_PERC             ,D5           ; COMPANY PERCENTAGE                        516 thru   520                          
+        FSH_PO_NO                 ,A30          ; PURCHASE ORDER NUMBER                     521 thru   550                          
+        FSH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             551 thru   555                          
+        FSH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            556 thru   559                          
+        FSH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            560 thru   573                          
+        FSH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             574 thru   587                          
+        FSH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             588 thru   601                          
+        FSH_ICS_HDR               ,A64          ; INTERCHANGE CONTROL HEADER                602 thru   665                          
+        FSH_ISA_DT                ,D8           ; ISA 09 CREATE DATE                        666 thru   673                          
+        FSH_ISA_TM                ,D4           ; ISA 10 CREATE TIME                        674 thru   677                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO862_HDR_KEY             ,A97          ; PRIMARY SORT KEY                                                                  
+                                  ,A580         ; PRIMARY KEY POSITIONING                                                           

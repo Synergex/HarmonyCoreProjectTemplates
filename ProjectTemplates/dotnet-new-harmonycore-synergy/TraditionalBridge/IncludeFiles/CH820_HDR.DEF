@@ -1,0 +1,39 @@
+;CH820_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER REMITTANCE ADVICE                                                                                                  
+;       DATE : 03-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   281                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH820_HDR                                                                                                                   
+        CHH_KEY_SEQ               ,D9           ; NUMBER TO TIE HDR TO DTLS                   1 thru     9                          
+        CHH_SUPP_CODE             ,A15          ; SUPPLIER CODE ASSIGND BY CHRY              10 thru    24                          
+        CHH_CHECK_NO              ,A30          ; CHECK NUMBER OR DEBIT DATE                 25 thru    54                          
+        CHH_EE_ISS_DATE           ,D8           ; EFECTIVE ENTRY ISSUE DATE                  55 thru    62                          
+        CHH_TRAN_CODE             ,A1           ; I=REMITTANCE ONLY,E=DEBIT+REM              63 thru    63                          
+        CHH_CR_DB_CODE            ,A1           ; CREDIT DEBIT CODE                          64 thru    64                          
+        CHH_TRAN_DATE             ,D8           ; TRANSACTION DATE                           65 thru    72                          
+        CHH_TRAN_CENT             ,D2           ; TRANSACTION DATE CENTURY                   73 thru    74                          
+        CHH_CUST_CODE             ,A35          ; CUSTOMER CODE                              75 thru   109                          
+        CHH_CUST_NAME             ,A35          ; CUSTOMER NAME                             110 thru   144                          
+        CHH_SUPP_NAME             ,A35          ; SUPPLIER NAME                             145 thru   179                          
+        CHH_PAY_AMOUNT            ,D15          ; AMOUNT OF PAYMENT                         180 thru   194                          
+        CHH_PAY_METHOD            ,A3           ; METHOD OF PAYMENT                         195 thru   197                          
+        CHH_CONTACT_FUN           ,A2           ; CONTACT FUNCTION                          198 thru   199                          
+        CHH_CONTACT_QL            ,A2           ; CONTACT COMM QUALIFIER                    200 thru   201                          
+        CHH_CONTACT_NO            ,A10          ; CONTACT PHONE NUMBER                      202 thru   211                          
+        CHH_CUR_ENT_ID            ,A2           ; CURRENCY ENTITY ID                        212 thru   213                          
+        CHH_CUR_CODE              ,A3           ; CURRENCY CODE                             214 thru   216                          
+        CHH_TRACE_TYPE            ,A2           ; TRACE TYPE                                217 thru   218                          
+        CHH_ID_CODE_QL            ,A2           ; ASSIGNED ID CODE                          219 thru   220                          
+        CHH_ORIG_CO_ID            ,A10          ; ORIGINATING COMP ID                       221 thru   230                          
+        CHH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             231 thru   235                          
+        CHH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            236 thru   239                          
+        CHH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            240 thru   253                          
+        CHH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             254 thru   267                          
+        CHH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             268 thru   281                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH820_HDR_KEY             ,A62          ; PRIMARY SORT KEY                                                                  
+                                  ,A219         ; PRIMARY KEY POSITIONING                                                           

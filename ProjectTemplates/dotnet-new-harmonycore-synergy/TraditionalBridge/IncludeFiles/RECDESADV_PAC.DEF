@@ -1,0 +1,33 @@
+;RECDESADV_PAC.DEF                                                                                                                  
+;                                                                                                                                   
+;       RECEIVED DESPATCH ADVICE PAC                                                                                                
+;       DATE : 17-DEC-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   220                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RECDESADV_PAC                                                                                                               
+        DES_PAC_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DES_PAC_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DES_PAC_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DES_PAC_HDR_LIN           ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        DES_PAC_DTL_LIN           ,D6           ; GENERAL SEPARATOR LINE                     49 thru    54                          
+        DES_PAC_LIN_LIN           ,D6           ; LIN LINE NUMBER                            55 thru    60                          
+        DES_PAC_LINE              ,D6           ; PACKAGING LINE NUMBER                      61 thru    66                          
+        DES_PAC_COUNT             ,D8           ; NUMBER OF PACKAGES                         67 thru    74                          
+        DES_PAC_LEVEL             ,A3           ; PACKAGING LEVEL                            75 thru    77                          
+        DES_PAC_RELATE            ,A3           ; PACKAGING RELATED INFORMATION              78 thru    80                          
+        DES_PAC_TERMS             ,A3           ; PACKAGING TERMS AND CONDITIONS             81 thru    83                          
+        DES_PAC_TYPE_ID           ,A17          ; TYPE OF PACKAGES ID                        84 thru   100                          
+        DES_PAC_TYPE              ,A35          ; TYPE OF PACKAGES                          101 thru   135                          
+        DES_PAC_DESC              ,A3           ; ITEM DESCRIPTION TYPE                     136 thru   138                          
+        DES_PAC_TYPE2             ,A35          ; TYPE OF PACKAGES                          139 thru   173                          
+        DES_PAC_ITEM_NO           ,A3           ; ITEM NUMBER TYPE                          174 thru   176                          
+        DES_PAC_TYPE3             ,A35          ; TYPE OF PACKAGES                          177 thru   211                          
+        DES_PAC_ITEM2             ,A3           ; ITEM NUMBER TYPE                          212 thru   214                          
+        DES_PAC_RET_RES           ,A3           ; RETURNABLE PACKAGE PAY RESP               215 thru   217                          
+        DES_PAC_RET_CON           ,A3           ; RETURNABLE PACKAGE CONTENTS               218 thru   220                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RECDESADV_PAC_KEY         ,A66          ; PRIMARY SORT KEY                                                                  
+                                  ,A154         ; PRIMARY KEY POSITIONING                                                           

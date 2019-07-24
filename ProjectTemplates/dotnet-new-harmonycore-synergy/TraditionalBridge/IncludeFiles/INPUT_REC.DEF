@@ -1,0 +1,49 @@
+;
+; Record of values for calling UINPUT
+;
+RECORD 	INPUT_CTL
+	ROW		,D2	;screen row
+			,A1
+	COL		,D2     ;screen col
+			,A1
+	INMAX		,D2     ;max chars input to allow
+			,A1
+	INMIN		,D2     ;min chars input to allow
+			,A1
+	INTYPE		,A2     ;type of input to allow
+			,A1
+	SPECKEY		,A5     ;special keys to allow
+			,A1
+	MASKLEN		,D2     ;length of mask
+			,A1
+	MASK		,A18    ;mask for redisplay
+			,A1
+	FIELD_NAME	,A15	;name of the field tobe input
+			,A1
+	DEFAULT_VALUE	,A80	;default value
+
+RECORD 	INPUT_RET
+	ENTRY		,A80    ;returned entry
+	INXCTL		,D2     ;returned flag
+	CHARS_ENTERED	,I1	;number of characters entered
+                                                             
+;
+; Record of values for calling display window input
+;
+RECORD DISPLAY_INPUT_SELECT
+	DIS_CONTROL	,A14
+	DIS_POS_ROW	,D3
+	DIS_POS_COL	,D3
+	DIS_WIND_ROW	,D3
+	DIS_WIND_COL	,D3
+	DIS_TOT_COLS	,D3
+	DIS_OPTION	,D3
+	DIS_STATUS	,I4
+;---------------------------UGETFLD CONTROLS------------------------------------
+	DIS_WIDTH	,D3	; Width of selection column for UGETFLD
+	DIS_COL		,5D3    ; The window column for each display column
+	DIS_CHOICE	,D3     ; The returned choice fro UGETFLD
+	DIS_SELECTS	,D3	; Total number of choices to select from
+				; for UGETFLD.
+	DIS_WINDOW	,D2
+

@@ -1,0 +1,38 @@
+; CH810_DTL.DEF
+;
+;	Chrysler Input Detail File for X12 Generation.
+;
+;	Date: 13-Feb-89
+;
+;-------------------------------------------------------------------------------
+; Date	      	Programmer    Modification
+; ----------  	----------    -------------------------------------------------
+; 8/11/93	R. Greene    	Added fields CD_PACK_SLIP, CD_SID_NO, decreased
+;				record size from 100 to 90 by removing filler.
+;
+; 8-21-95	M. Collins	Changed to 30 character part, changed to 22 
+;				character po number, increased record size from
+;				90 to 124
+;-------------------------------------------------------------------------------
+; File Organization: Sequential	| Record Size: 124		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD CH810_DTL
+	CD_SEQ_NO	,D5	; Input Sequence Number		|   1 thru 5
+	CD_SEQ_NO2	,D5	; Secondary Input Sequence	|   6 thru 10
+
+	CD_SUPP_ID	,A4	; Supplier Id Code		|  11 thru 14
+	CD_INV_NO	,D7	; Invoice Number		|  15 thru 21
+	CD_PART_NO	,A30	; Part Number			|  22 thru 51
+
+	CD_INV_QTY	,D8	; Quantity Invoiced		|  52 thru 59
+	CD_UOFM		,A2	; Unit of Measure		|  60 thru 61
+	CD_UNIT_PRICE	,A11	; Unit Price Masked(XXXXX.XXXXX)|  62 thru 72
+
+	CD_PO_QUAL	,A2	; Purchase Order Qualifier	|  73 thru 74
+	CD_PO_NO	,A22	; Purchase Order Number		|  75 thru 96
+
+	CD_GROSS_WGT	,A8	; Gross Weight (XXXXX.XX)	|  97 thru 104
+	CD_POUNDS_QUAL	,A2	; Pounds Qualifier		| 105 thru 106
+	CD_PACK_SLIP    ,A9	; Packing Slip Number           | 107 thru 115
+	CD_SID_NO	,A9	; Shipper ID Number             | 116 thru 1124

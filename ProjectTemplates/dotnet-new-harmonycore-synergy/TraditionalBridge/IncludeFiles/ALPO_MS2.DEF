@@ -1,0 +1,73 @@
+;ALPO_MS2.DEF                                                                                                                       
+;                                                                                                                                   
+;       ALLIED-SIGNAL MISCELLANEOUS 2                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   856                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  ALPO_MS2                                                                                                                    
+        M850_2_GS_CTL             ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        M850_2_PO_NO              ,A22          ; P.O. NUMBER                                10 thru    31                          
+        M850_2_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        32 thru    39                          
+        M850_2_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     40 thru    45                          
+        M850_2_ADR_SEQ            ,D6           ; ADDRESS SEQUENCE NUMBER                    46 thru    51                          
+        M850_2_N9_SEQ             ,D6           ; N9 SEQUENCE NUMBER                         52 thru    57                          
+        M850_2_PID_SEQ            ,D6           ; PID SEQUENCE NUMBER                        58 thru    63                          
+        M850_2_PKG_SEQ            ,D6           ; PKG SEQUENCE NUMBER                        64 thru    69                          
+        M850_2_SLN_SEQ            ,D6           ; SLN SEQUENCE NUMBER                        70 thru    75                          
+        M850_2_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 76 thru    78                          
+        M850_2_SEG_TYPE           ,A3           ; SEGMENT TYPE                               79 thru    81                          
+        M850_2_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            82 thru    87                          
+        M850_PER_FUNCT            ,A2           ; CONTACT FUNCTION CODE                      88 thru    89                          
+        M850_PER_NAME             ,A35          ; CONTACT NAME                               90 thru   124                          
+        M850_PER_NO_QL            ,02A2         ; CONTACT PHONE NUMBER QUALIFIER            125 thru   128                          
+        M850_PER_PHONE            ,02A21        ; PHONE NUMBER                              129 thru   170                          
+        M850_PWK_TYPE             ,A2           ; FILLER                                    171 thru   172                          
+        M850_PWK_TRANS            ,A2           ; TRANSMISSION CODE                         173 thru   174                          
+        M850_PWK_COPIES           ,D2           ; COPIES NEEDED                             175 thru   176                          
+        M850_PWK_ORG_ID           ,A2           ; ORGANIZATION ID                           177 thru   178                          
+        M850_PWK_ID_QL            ,A2           ; IDENTIFICATINO CODE QUALIFIER             179 thru   180                          
+        M850_PWK_ID               ,A17          ; ID CODE                                   181 thru   197                          
+        M850_2_DESC               ,A80          ; PAPERWORK DESCRIPTION & PO3_08            198 thru   277                          
+        M850_PO3_REASON           ,A2           ; PO3 CHANGE REASON CODE                    278 thru   279                          
+        M850_PO3_DATE             ,D8           ; DATE                                      280 thru   287                          
+        M850_PO3_PRI_CD           ,A3           ; PRICE ID CODE                             288 thru   290                          
+        M850_PO3_PRICE            ,D14          ; UNIT PRICE                                291 thru   304                          
+        M850_PO3_BASIS            ,A2           ; BASIS UNIT PRICE CODE                     305 thru   306                          
+        M850_PO3_QTY              ,D10          ; PO3 QUANTITY                              307 thru   316                          
+        M850_PO3_UOM              ,A2           ; PO3 UNIT OF MEASUREMENT                   317 thru   318                          
+        M850_IT8_REQ              ,A2           ; REQUIREMENT TYPE                          319 thru   320                          
+        M850_IT8_ACTION           ,A1           ; ACTION CODE                               321 thru   321                          
+        M850_IT8_AMT              ,D9           ; AMOUNT                                    322 thru   330                          
+        M850_IT8_AGENCY           ,A2           ; AGENCY QUALIFIER                          331 thru   332                          
+        M850_IT8_ACCT             ,A35          ; ACCOUNT NUMBER                            333 thru   367                          
+        M850_IT8_SUB              ,A2           ; PRODUCT SUBSTITUTION CODE                 368 thru   369                          
+        M850_IT8_INV_DT           ,D8           ; INVOICE DATE                              370 thru   377                          
+        M850_IT8_ID_QL            ,10A2         ; PRODUCT/SERVICE ID QUAL                   378 thru   397                          
+        M850_IT8_ID               ,10A30        ; PRODUCT/SERVICE ID                        398 thru   697                          
+        M850_TD3_EQUIP            ,A2           ; EQUIPMENT CODE                            698 thru   699                          
+        M850_TD3_INIT             ,A4           ; EQUIPMENT INITIAL                         700 thru   703                          
+        M850_TD3_EQ_NO            ,A10          ; EQUIPMENT NUMBER                          704 thru   713                          
+        M850_TD3_WT_QL            ,A2           ; WEIGHT QUALIFIER                          714 thru   715                          
+        M850_TD3_WEIGHT           ,D10          ; WEIGHT                                    716 thru   725                          
+        M850_TD3_UOFM             ,A2           ; UNIT OF MEASURE                           726 thru   727                          
+        M850_TD3_OWNER            ,A1           ; OWNERSHIP CODE                            728 thru   728                          
+        M850_TD3_SEAL             ,A2           ; SEAL STATUS CODE                          729 thru   730                          
+        M850_TD3_SEALNO           ,A15          ; SEAL NUMBER                               731 thru   745                          
+        M850_TD4_HANDL            ,A3           ; SPECIAL HANDLING CODE                     746 thru   748                          
+        M850_TD4_HAZMAT           ,A1           ; HAZARDOUS MATERIAL CODE QUAL              749 thru   749                          
+        M850_TD4_HAZCLS           ,A4           ; HAZARDOUS MATERIAL CLASS CODE             750 thru   753                          
+        M850_NX2_ADD_QL           ,A2           ; ADDRESS COMPONENT QUALIFIER               754 thru   755                          
+        M850_NX2_INFO             ,A35          ; ADDRESS INFORMATION                       756 thru   790                          
+        M850_TC2_COMMQL           ,A1           ; COMMODITY CODE QUALIFIER                  791 thru   791                          
+        M850_TC2_COMM             ,A16          ; COMMODITY CODE                            792 thru   807                          
+        M850_INC_TERMS            ,A2           ; TERMS TYPE CODE                           808 thru   809                          
+        M850_INC_BASIS            ,A2           ; BASIS CODE                                810 thru   811                          
+        M850_INC_INSTL            ,D15          ; TOTAL NUMBER OF INSTALLATIONS             812 thru   826                          
+        M850_INC_CUR              ,D15          ; CURRENT INSTALLMENT                       827 thru   841                          
+        M850_INC_AMT              ,D15          ; MONETARY AMOUNT                           842 thru   856                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        ALPO_MS2_KEY              ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A769         ; PRIMARY KEY POSITIONING                                                           

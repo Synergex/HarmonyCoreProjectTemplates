@@ -1,0 +1,39 @@
+;GM830X_ADD.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE X12 830 ADDRESS                                                                                                
+;       DATE : 19-AUG-03                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   931                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM830X_ADD                                                                                                                  
+        XMA_SUPP_CODE             ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        XMA_ISSUE_CODE            ,A15          ; ISSUED BY/DIVISION CODE                    16 thru    30                          
+        XMA_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       31 thru    52                          
+        XMA_MODEL_YEAR            ,A4           ; MODEL YEAR                                 53 thru    56                          
+        XMA_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   57 thru    71                          
+        XMA_REL_NO                ,A8           ; RELEASE NUMBER                             72 thru    79                          
+        XMA_REL_REF               ,A15          ; RELEASE REFERENCE NUMBER                   80 thru    94                          
+        XMA_KANBAN                ,A10          ; KANBAN # (NUMMI)                           95 thru   104                          
+        XMA_FRN                   ,A10          ; FINAL REQ # (NUMMI)                       105 thru   114                          
+        XMA_REL_DATE              ,D8           ; RELEASE/ISSUE DATE                        115 thru   122                          
+        XMA_FILLER_1              ,A4           ; UNUSED                                    123 thru   126                          
+        XMA_ID_TYPE               ,09A2         ; ENTITY TYPE                               127 thru   144                          
+        XMA_ID_CODE               ,04A15        ; ENTITY ID CODE                            145 thru   204                          
+        XMA_NAME_1                ,04A30        ; ENTITIY NAME-1                            205 thru   324                          
+        XMA_NAME_2                ,04A30        ; ENTITIY NAME-2                            325 thru   444                          
+        XMA_ADDR_1                ,04A30        ; ENTITY ADDRESS-1                          445 thru   564                          
+        XMA_ADDR_2                ,04A30        ; ENTITY ADDRESS-2                          565 thru   684                          
+        XMA_CITY                  ,04A19        ; ENTITY CITY                               685 thru   760                          
+        XMA_STATE                 ,04A2         ; ENTITY STATE                              761 thru   768                          
+        XMA_ZIP_CODE              ,04A9         ; ENTITY ZIP CODE                           769 thru   804                          
+        XMA_COUNTRY               ,04A2         ; ENTITY COUNTRY                            805 thru   812                          
+        XMA_LOC_CODE              ,04A2         ; LOCATION CODE                             813 thru   820                          
+        XMA_BFR_SEQ               ,D6           ; BFR SEQUENCE NUMBER                       821 thru   826                          
+        XMA_LIN_SEQ               ,D6           ; LIN SEQUENCE NUMBER                       827 thru   832                          
+        XMA_SHIP_NAME             ,A15          ; SHIP TO NAME                              833 thru   847                          
+        XMA_FILLER_2              ,A84          ; FILLER                                    848 thru   931                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM830X_ADD_KEY            ,A126         ; PRIMARY SORT KEY                                                                  
+                                  ,A805         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,57 @@
+;CA850_MSCI.DEF                                                                                                                     
+;                                                                                                                                   
+;       MISCELLANEOUS; ITD,ITA                                                                                                      
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   608                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_MSCI                                                                                                                  
+        M850_I_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        M850_I_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        M850_I_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        M850_I_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 37 thru    39                          
+        M850_I_SEG_TYPE           ,A3           ; SEGMENT TYPE                               40 thru    42                          
+        M850_I_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        M850_I_TERM               ,A2           ; TERM TYPE                                  49 thru    50                          
+        M850_I_BASIS              ,A2           ; TERMS BASIS CODE                           51 thru    52                          
+        M850_I_DISC               ,D6           ; DISCOUNT PERCENTAGE                        53 thru    58                          
+        M850_I_DISC_DUE           ,D8           ; DISCOUNT DUE DATE                          59 thru    66                          
+        M850_I_DISC_DAY           ,D3           ; DAYS DISCOUNT APPLICABLE                   67 thru    69                          
+        M850_I_NET_DUE            ,D8           ; NET DUE DATE                               70 thru    77                          
+        M850_I_NET_DAY            ,D3           ; NET DAYS DUE                               78 thru    80                          
+        M850_I_DISC_AMT           ,D10          ; DISCOUNT AMOUNT                            81 thru    90                          
+        M850_I_DEF_DATE           ,D8           ; DISCOUNT DEFERRED DUE DATE                 91 thru    98                          
+        M850_I_DEF_AMT            ,D10          ; DEFERRRED AMOUNT DUE                       99 thru   108                          
+        M850_I_NOTE               ,A80          ; NOTES & ITA13 DESCR                       109 thru   188                          
+        M850_I_DAY_MTH            ,D2           ; DAY OF MONTH FOR DISCOUNT                 189 thru   190                          
+        M850_I_PAY_MTHD           ,A1           ; PAYMENT METHOD                            191 thru   191                          
+        M850_ITA_A_C              ,A1           ; ALLOWANCE OR CHANGE INDICATOR             192 thru   192                          
+        M850_ITA_AGENCY           ,A2           ; AGENCY QUALIFIER CODE                     193 thru   194                          
+        M850_ITA_SSS              ,A10          ; SPECIAL SERVICES CODE                     195 thru   204                          
+        M850_ITA_MTHD             ,A2           ; METHOD OF HANDLING                        205 thru   206                          
+        M850_ITA_AC_NO            ,A16          ; ALLOWANCE OR CHARGE NUMBER                207 thru   222                          
+        M850_ITA_RATE             ,D9           ; A/C RATE                                  223 thru   231                          
+        M850_ITA_AMT              ,D9           ; ALLOWANCE OR CHARGE TOTAL                 232 thru   240                          
+        M850_ITA_PERCQL           ,A1           ; A/C PERCENT QUALIFIER                     241 thru   241                          
+        M850_ITA_PERC             ,D6           ; A/C PERCENTAGE                            242 thru   247                          
+        M850_ITA_QTY              ,D10          ; A/C QUANTITY                              248 thru   257                          
+        M850_ITA_UOM              ,A2           ; A/C UNIT OF MEAS CODE                     258 thru   259                          
+        M850_ITA_QTY2             ,D15          ; QUANTITY OF FREE GOODS                    260 thru   274                          
+        M850_ITA_CRG_CD           ,A3           ; A/C SPECIAL CHARGE CODE                   275 thru   277                          
+        M850_CTP_CLASS            ,A2           ; CLASS OF TRADE CODE                       278 thru   279                          
+        M850_CTP_ID               ,A3           ; PRICE IDENTIFIER CODE                     280 thru   282                          
+        M850_CTP_PRICE            ,D14          ; UNIT PRICE                                283 thru   296                          
+        M850_CTP_UOFM             ,A2           ; UNIT OF MEASURE                           297 thru   298                          
+        M850_CTP_QL               ,A3           ; PRICE MULTIPLIER QUALIFIER                299 thru   301                          
+        M850_CTP_MULT             ,D10          ; PRICE MULTIPLIER                          302 thru   311                          
+        M850_CTP_DOLLAR           ,D15          ; MONETARY AMOUNT                           312 thru   326                          
+        M850_CTP_BASE             ,A2           ; BASIS OF UNIT PRICE                       327 thru   328                          
+        M850_CTP_QTY              ,D15          ; QUANTITY                                  329 thru   343                          
+        M850_I_FILLER2            ,A67          ; FILLER                                    344 thru   410                          
+        M850_I_FILLER3            ,A99          ; FILLER                                    411 thru   509                          
+        M850_I_FILLER4            ,A99          ; FILLER                                    510 thru   608                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_MSCI_KEY            ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A560         ; PRIMARY KEY POSITIONING                                                           

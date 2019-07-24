@@ -1,0 +1,293 @@
+; CALITERALS.DEF
+;
+; CARaS RESERVED LITERALS
+;
+;	09-28-92	TIM BUNKER	ADDED PRINT_ALL_NOEND TO ULPON VALUES
+;	1-20-93		M. FARNETH	ADDED 'RELEASE_CHANGE'
+;	2-8-93		M. FARNETH	INCREASED "BLANKS" TO 512 BYTES.
+;	02-09-93	T. Bunker	Added BY_SUPP_DEST for splits.
+;	03-09-98	S. Thornhill	Added IO_PREVIOUS 
+;	15-feb-00	M. Collins	Added IO_DONTHANDLEIT
+;	26-Oct-2001	L. Warpup	Changed REDI product logical to SCM and added other product logicals.
+.ifdef LITERAL_INIT
+GLOBAL LITERAL
+.else
+EXTERNAL LITERAL
+.endc
+	BLANKS		,A512
+	CAGOOD_DATA	,D2,	0
+	CAABORT_KEY	,D2,	1
+	CAEND_KEY	,D2,	2
+	CAYES		,D2,	9
+	CANO		,D2,	10
+	CAPF1		,D2,	4
+	CAPF2		,D2,	5
+	CAPF3		,D2,	6
+	CAPF4		,D2,	7
+	CATX_KEY	,D2,	8
+	CANEXT		,D2,	11
+	CAPREV		,D2,	12
+	CAINSERT	,D2,	15
+	CADELETE	,D2,	16
+;
+; UDATSWAP calling option literals
+;
+	DS_OPT1		,D1	,1	;from YYMMDD to MMDDYY
+	DS_OPT2		,D1	,2      ;from MMDDYY to DD-MMM-YYYY
+	DS_OPT3		,D1	,3      ;from MMDDYY to YYMMDD
+	DS_OPT4		,D1	,4      ;from DD-MMM-YYYY to MMDDYY
+	DS_OPT5		,D1	,5	;from DD-MMM-YY to MMDDYY
+	DS_OPT6		,D1	,6	;from YYMMDD to MM/DD/YY
+	DS_OPT7		,D1	,7	;from YYMMDD to MM/DD/YYYY
+;
+;
+	ENABLED		,D1	,1
+	DISABLED	,D1	,0
+;
+; ULPON VALUES FOR LPSW      
+	PRINT_ALL	,D1	,1  ;allow print, spool or display
+	PRINT_SPOOL	,D1	,2  ;allow print or spool or local print
+	PRINT_ONLY	,D1	,3  ;print on global printer only
+	SPOOL_ONLY	,D1	,4  ;spool only
+	PRINT_LOCAL	,D1	,5  ;print on local or global printer only
+	PRINT_PREV	,D1	,6  ;use last selected print options
+	PRINT_ALL_NOEND ,D1	,7  ;Allow print, spool or display,
+				    ;with no end option
+        PRINT_BATCH     ,D1     ,8  ;print on printer or spool
+; RETURNED
+	PRINT_END	,D1	,0  ;END was selected
+	PRINT_CONT	,D1	,1  ;continue with printing
+
+; special screen attributes for display from UOUTPUT
+; Note, these are defined in the DIBOL 4.0 manual
+	BLINK		,D1	,1
+	BOLD		,D1	,2
+	REVERSE		,D1	,4
+	UNDERSCORE	,D1	,8
+
+; Literals for I/O routines
+	IO_ADD		,A1	,'A'	; Index file add
+	IO_DELETE	,A1	,'D'	; Index file delete
+	IO_FIND		,A1	,'F'	; Find an Indexed Record.
+	IO_GETRFA	,A1	,'G'	; Get the RFA of the existing record
+	IO_NEXT		,A1	,'N'	; Index file read next
+	IO_PREVIOUS	,A1	,'B'	; Index file read previous
+	IO_POSRFA	,A1	,'P'	; Load the RFA and do a read next to
+					; re-read the record
+	IO_READ		,A1	,'R'	; Index file read by specific key
+					; Relative file read by relative
+					; record number
+	IO_READ_EXACT	,A1	,'E'	; Index file read by specific key
+					; for an EXACT match only
+	IO_WRITE	,A1	,'W'	; Sequential or relative file write
+	IO_UPDATE	,A1	,'U'	; Index file update
+	IO_STORE	,A1	,'S'	; 
+	IO_ALLOW_ABORT	,D1	,0	; Allow abort on record locked
+	IO_NOABORT	,D1	,1	; Do not allow abort on record locked
+	IO_NOABORT_NDSP	,D1	,2	; Do not allow abort on record locked &
+					; Do Not display locked message.(used
+					; in "UISAM")
+	IO_DONTHANDLEIT	,D1	,3	; Do not process IO errors, it is up to
+					; the calling routine to do.  (used 
+					; in "UISAM")
+	IO_EOF		,D1	,2	; End of file reached.
+					;
+					; File access allowed to other
+					; programs or channels
+					; Note, these are defined in the 
+					; DIBOL 4.0 manual
+	SHARE_NONE	,I4	,0	; No sharing
+	SHARE_READ	,I4	,1	; Read-only
+	SHARE_ALL	,I4	,2	; All access allowed
+					;
+; Literals for UFOPEN and UFILSPEC non-DIBOL run time errors
+	IO_SUCCESS	,I4	,000	; I/O successfully completed
+	IO_ERR_LOCK	,I4	,040	; Record locked error
+	IO_ERR_NCMP	,I4	,501	; Company record not found in
+					; $CARASDATA file
+	IO_ERR_FOPN	,I4	,502	; Unable to open company data file
+	IO_ERR_NLOG	,I4	,503	; Logical name not found in company
+					; data file
+	IO_ERR_NCLOG	,I4	,504	; Logical name not found in $CARASDATA
+					; data file
+; literals for maintenance module modes
+	ADD		,D1	,1
+	CHANGE		,D1	,2
+	DELETE		,D1	,3
+	PRINT		,D1	,4
+	PURGE		,D1	,5
+
+; literals for ISAM routine returns
+	FOUND		,D1	,0
+	NOT_FOUND	,D1	,1
+	EOF		,D1	,9
+; general switch setting literals
+	ON		,D1	,1
+	OFF		,D1	,0
+
+; literals for security by module access
+	SECR_NONE	,I4	,0
+	SECR_READ	,I4	,1
+	SECR_MODIFY	,I4	,2
+	SECR_EXTEND	,I4	,3
+	SECR_NONE_A	,A1	,'N'
+	SECR_READ_A	,A1	,'I'
+	SECR_MODIFY_A	,A1	,'M' 
+	SECR_EXTEND_A	,A1	,'X' 
+
+; literals for transfer code run types
+	RUN_CODE_CARAS	,A1	,'C'	; execute a module within CARaS
+					;
+					; The following codes are used with
+					; functions that are external to
+					; CARaS.
+	RUN_CODE_RUN	,A1	,'R'	; Function is invoked by DIBOL STOP.
+					; If first non-blank character is
+					; an "@" then the command file will
+					; be executed; if first non-blank
+					; character is a "$" then the DCL
+					; command will be executed; otherwise
+					; the program will be run.
+	RUN_CODE_SPAWN	,A1	,'S'	; Invoke function with LIB$SPAWN
+					; with nowait qualifier.
+	RUN_CODE_SPAWN_WAIT	,A1,'W'	; Invoke function with LIB$SPAWN
+					; with wait qualifier.
+;
+; literals for inquiry only access in maintenance modules
+;
+	INQ_ONLY	,A*	,'INQUIRY ONLY ACCESS - NO CHANGES ALLOWED'
+	INQ_INVALID	,A*	,'INVALID SELECTION FOR INQUIRY ONLY ACCESS'
+	INQ_NEXTSCREEN	,A*	,'INQUIRY ONLY. DO YOU WISH TO VIEW NEXT SCREEN?'
+
+;
+; literal values for the Database Split Types
+;
+	NO_SPLIT	,D1,	0	; No Data Split Requested.
+	BY_SUPP		,D1,	1	; Split Incoming Data by Supplier Id.
+	BY_PART		,D1,	2	; Split Incoming Data by T.P. Part #.
+	BY_BOTH		,D1,	3	; Split Data by Supplier Id & Part #.
+	BY_SUPP_DEST	,D1,	4	; Split Data by Supplier or Dest.
+        BY_SUPP_DEST_PART ,D1,  5       ; Split Data by Supplier Dest & Part #.
+;
+; literal values for the Part/Destination Detail Record Types
+;
+	JIT		,D2,	10	; JIT/Daily Requirements.
+	SHIP_NOW	,D2,	15	; Immediate Requirement.
+	FIRM_WEEK	,D2,	20	; Firm/Weekly Requirements.
+	FORECAST	,D2,	30	; Forecast/Planning Requirements.
+	FAB		,D2,	40	; Authorized Fabrication Requirements.
+	RAW		,D2,	50	; Authorized Raw Material Requirements.
+	HIGH_FAB	,D2,	60	; Highest Authorized Fab Quantity/Cum.
+	HIGH_RAW	,D2,	70	; Highest Authorized Raw Quantity/Cum.
+;
+; literal values for the Hold/Trx Release Types
+;
+	JIT_ONLY		,D1,	1	; JIt Release           - purge & add.
+	FIRM_ONLY		,D1,	2	; Firm/Forecast/Fab/Raw - purge & add.
+	JIT_AND_FIRM		,D1,	3	; All types		- purge & add.
+	PREVIOUS_FIRM_SUPERSEDE	,D1,	4	; Record type 20 only   - purge & add.
+	FIRM_ONLY_REPLACEMENT	,D1,	5	; Record type 20 only   - purge & add.
+	RELEASE_CHANGE		,D1,	6	; Change existing release info.
+;
+; literal values for the System Parameter Forecast Types
+;
+	BY_DIV		,D1,	1	; Trading Partner Forecasts by Part/Div
+	BY_DEST		,D1,	2	; Trading Partner Forecasts by Part/Dest
+	BY_EITHER	,D1,	3	; Trading Partner Forecasts by Both.
+;
+; literal values for the Ford Releasing Division Codes.
+;
+	FODIRECT_REL	,A15,	'AP'	; Ford Direct Releases.
+	FOINDIR_REL	,A15,	'AP'	; Ford Indirect Releases.
+	FOKENTKY_REL	,A15,	'AP'	; Ford Kentucky Truck Releases.
+	FOUTTRIM_REL	,A15,	'FD'	; Ford Utica Trim Releases.
+	FOWINDSR_REL	,A15,	'WE'	; Ford Windsor Export Releases.
+	FOENGINE_REL	,A15,	'EF'	; Ford Engine Releases.
+	FOCLIMATE_REL	,A15,	'CC'	; Ford Climate Control Releases.
+;
+; literal values for updating of CUMs from what function.
+;
+	CUM_UPD_ASN	,D1	,1	; ASNs
+	CUM_UPD_SHP	,D1	,2	; After Shipper is Printed
+	CUM_UPD_SHR	,D1	,3	; After Daily Shipping Report
+	CUM_UPD_NONE	,D1	,4	; Update not applicable
+;
+; literal values for shipping interface flag
+;
+	SHIP_IFACE_NONE		,D1	,0	; No shipping interface done
+	SHIP_IFACE_IMPORT	,D1	,1	; Interface into CARaS
+	SHIP_IFACE_EXPORT	,D1	,2	; Interface from CARaS
+	SHIP_IFACE_BOTH		,D1	,3	; Interface both ways
+;
+; literal values for UWKDAY date types
+;
+	CA_MDY			,D1	,1	; Date is in MMDDYY format
+	CA_YMD			,D1	,2	; Date is in YYMMDD format
+	CA_IDATE		,D1	,3	; Date is UCDI julian
+						;  date format
+;
+; literal values for EDI standards
+;
+	CAL_X12			,A2	,'X2'
+	CAL_ODETTE		,A2	,'OD'
+	CAL_EDIFACT		,A2	,'UN'
+	STANDARD_X12		,D1	,0
+	STANDARD_EDIFACT	,D1	,1
+	STANDARD_ODETTE		,D1	,2
+	STANDARD_XML		,D1	,3
+	STANDARD_UNKNOWN	,D1	,4
+;
+; literal values for error message types
+;
+	CAERR_INFO              ,D1     ,1
+	CAERR_WARN              ,D1     ,1
+	CAERR_FATAL             ,D1     ,1
+
+; literal values for machine and system names from xcall envrn
+
+	MACHINE_MIPS		,D3	,001
+	MACHINE_UNIX_386	,D3	,003
+	MACHINE_AIX		,D3	,004
+	MACHINE_HPUX		,D3	,009
+	MACHINE_DGAVIION	,D3	,010
+	MACHINE_SILICON_GRAPHICS,D3	,012
+	MACHINE_SUN_SOLARIS	,D3	,020
+	MACHINE_DEC_UNIX_AXP	,D3	,021
+	MACHINE_MOTOROLA	,D3	,024
+	MACHINE_NCR		,D3	,027
+	MACHINE_WINDOWS_INTEL	,D3	,101
+	MACHINE_WINDOWS_ALPHA	,D3	,102
+	MACHINE_OPENVMS_AXP	,D3	,200
+	MACHINE_OPENVMS_VAX	,D3	,201
+
+	SYSTEM_VMS		,D2	,6
+	SYSTEM_UNIX		,D2	,8
+	SYSTEM_WINDOWS_NT_35	,D2	,11
+	SYSTEM_WINDOWS_95	,D2	,13
+	SYSTEM_WINDOWS_NT_4	,D2	,14
+	SYSTEM_WINDOWS_2000	,D2	,15
+	SYSTEM_WINDOWS_98	,D2	,16
+
+;	Miscellaneous literals for screen display
+	FIELD_TERM		,A2	,': '
+	FIELD_SEARCH		,A1	,'>'
+
+;	Product
+	ADMIN			,D1	,9
+	CARaS			,D1	,1
+	REDI			,D1	,3
+	SCHEDULER		,D1	,2
+	SCM			,D1	,0
+
+;	Ship History Record Types
+	SHIPH_HDR	,D1,1
+	SHIPH_BASE	,D1,2
+	SHIPH_PART	,D1,3
+	SHIPH_ADJ	,D1,4
+	SHIPH_MISS	,D1,5
+        SHIPH_CON       ,A2,'C'
+        SHIPH_RET       ,A2,'R'
+        SHIPH_SNO       ,A2,'S'
+	SHIPH_HAC	,D1, 1
+	SHIPH_PAC	,D1, 3
+		

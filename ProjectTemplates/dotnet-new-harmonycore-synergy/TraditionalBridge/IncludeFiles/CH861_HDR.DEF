@@ -1,0 +1,42 @@
+;CH861_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER RECV ADVICE HEADER                                                                                                 
+;       DATE : 03-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   289                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH861_HDR                                                                                                                   
+        CHRH_REF_NO               ,D15          ; REFERENCE NUMBER                            1 thru    15                          
+        CHRH_SHIP_NO              ,A30          ; SHIPPER ID                                 16 thru    45                          
+        CHRH_SUPP_CODE            ,A7           ; SUPPLIER CODE                              46 thru    52                          
+        CHRH_DEST_CODE            ,A7           ; DESTINATION CODE                           53 thru    59                          
+        CHRH_CRE_DATE             ,D8           ; CREATION DATE                              60 thru    67                          
+        CHRH_PURPOSE              ,D2           ; PURPOSE                                    68 thru    69                          
+        CHRH_CARR_NO              ,A30          ; CARRIER NUMBER                             70 thru    99                          
+        CHRH_BOL_NO               ,A30          ; BILL OF LADING NUMBER                     100 thru   129                          
+        CHRH_SEAL_NO              ,A15          ; SEAL NUMBER                               130 thru   144                          
+        CHRH_SHIP_DATE            ,D8           ; SHIP DATE                                 145 thru   152                          
+        CHRH_REC_DATE             ,D8           ; RECEIVE DATE                              153 thru   160                          
+        CHRH_PROC_DATE            ,D8           ; DISCREP. PROCESS DATE                     161 thru   168                          
+        CHRH_PROC_TIME            ,D4           ; DISCREP PROCESS TIME                      169 thru   172                          
+        CHRH_PROC_TZ              ,A2           ; DISC PROC TIME ZONE                       173 thru   174                          
+        CHRH_CARR_NAME            ,A17          ; CARRIER NAME                              175 thru   191                          
+        CHRH_EQUIP_CODE           ,A2           ; TRANS EQUIPMENT CODE                      192 thru   193                          
+        CHRH_EQUIP_PFIX           ,A4           ; EQUIP NUMBER PREFIX                       194 thru   197                          
+        CHRH_EQUIP_NO             ,A10          ; EQUIPMENT NUMBER                          198 thru   207                          
+        CHRH_SHIP_FROM            ,A7           ; MATL SHIPPED FROM                         208 thru   214                          
+        CHRH_SHIP_TO              ,A7           ; MATL RETURN POINT                         215 thru   221                          
+        CHRH_ADV_TYPE             ,D1           ; ADVICE TYPE, 1=REC 2=DISPSTION            222 thru   222                          
+        CHRH_COMPANY              ,A8           ; COMPANY TO SPLIT TO                       223 thru   230                          
+        CHRH_SEQNUM               ,D5           ; SEQUENCE NUMBER                           231 thru   235                          
+        CHRH_PERCENT              ,D3           ; COMPANY PERCENT TOTAL                     236 thru   238                          
+        CHRH_TRANSNUM             ,A5           ; DOCUMENT JOURNAL TRANSMISSION             239 thru   243                          
+        CHRH_FILSEQNUM            ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            244 thru   247                          
+        CHRH_HCNTRLNUM            ,A14          ; ENVELOPE HEADER CONTROL NUMBER            248 thru   261                          
+        CHRH_GCNTRLNUM            ,A14          ; ENVELOPE GROUP CONTROL NUMBER             262 thru   275                          
+        CHRH_DCNTRLNUM            ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             276 thru   289                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH861_HDR_KEY             ,A59          ; PRIMARY SORT KEY                                                                  
+                                  ,A230         ; PRIMARY KEY POSITIONING                                                           

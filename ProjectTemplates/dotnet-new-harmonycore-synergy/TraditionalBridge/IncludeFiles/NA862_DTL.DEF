@@ -1,0 +1,60 @@
+;NA862_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NAVISTAR SHIP SCHEDULE DETAIL                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   238                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NA862_DTL                                                                                                                   
+        NSD_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        NSD_ISSUED_BY             ,A15          ; ISSUED BY                                  16 thru    30                          
+        NSD_REL_NO                ,A19          ; RELEASE NUMBER                             31 thru    49                          
+        NSD_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       50 thru    71                          
+        NSD_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   72 thru    86                          
+        NSD_ORIGINAL_PO           ,A30          ; ORIGINAL PURCHASE ORDER                    87 thru   116                          
+        NSD_REQ_DATE              ,D8           ; REQUIREMENT DATE                          117 thru   124                          
+        NSD_REQ_TIME              ,D4           ; REQUIREMENT TIME                          125 thru   128                          
+        NSD_REQ_QTY               ,D8           ; REQUIREMENT QUANTITY                      129 thru   136                          
+	NSD_FCST_QL               ,A2		; FORECAST QUALIFIER			    137 thru   138
+	NSD_FCST_TM_QL            ,A1		; FORECAST TIMING QUALIFIER                 139 thru   139
+	NSD_FILLER                ,A99		; FILLER                                    140 thru   238
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NA862_DTL_KEY             ,A128         ; PRIMARY SORT KEY                                                                  
+                                  ,A110         ; PRIMARY KEY POSITIONING                                                           
+.IFDEF XX862_DTL_WORK
+RECORD NA862_DTL_WORK
+        NSD_COMP_W                ,A8           ; Company Code
+        NSD_SEQN_W                ,D5           ; Sequence Number
+        NSD_SUPPLIER_W            ,A15          ; SUPPLIER ID CODE
+        NSD_ISSUED_BY_W           ,A15          ; ISSUED BY      
+        NSD_REL_NO_W              ,A19          ; RELEASE NUMBER
+        NSD_CUST_PART_W           ,A22          ; CUSTOMER PART NUMBER 
+        NSD_SHIP_TO_W             ,A15          ; SHIP TO/DESTINATION CODE
+        NSD_ORIGINAL_PO_W         ,A30          ; ORIGINAL PURCHASE ORDER  
+        NSD_REQ_DATE_W            ,D8           ; REQUIREMENT DATE       
+        NSD_REQ_TIME_W            ,D4           ; REQUIREMENT TIME      
+        NSD_REQ_QTY_W             ,D8           ; REQUIREMENT QUANTITY 
+	NSD_FCST_QL_W             ,A2		; FORECAST QUALIFIER
+	NSD_FCST_TM_QL_W          ,A1		; FORECAST TIMING QUALIFIER
+	NSD_FILLER_W              ,A99		; FILLER
+        NSD_PCNT_W                ,D3.2
+
+RECORD, X
+                        	  ,A8     	; Company Code
+                        	  ,D5     	; Sequence Number
+        NA862U_DTL      ,A%SIZE(NA862_DTL)      ;unsplit detail record
+.ENDC
+
+.IFDEF XX862_DTL_TOTALS
+RECORD NA862_DTL_TOTALS
+;
+;	Navistar Release Requirements - Split Processing.
+;	Working Storage Buffer of Quantity Fields.
+;
+;	The quantity fields accumulate the total quantities thet have been
+;	split to multiple companies.  This buffer is not written to any file.
+;
+	NSD_REQ_QTY_T		  ,D8		; QUANTITY REQUIRED
+.ENDC

@@ -1,0 +1,55 @@
+;CA855_SAK.DEF                                                                                                                      
+;                                                                                                                                   
+;       PO ACK SCHEDULE ACK LAYOUT                                                                                                  
+;       DATE : 01-NOV-12                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   581                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA855_SAK                                                                                                                   
+        SK855_TP_DESIG            ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        SK855_INCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        SK855_GROUP_ID            ,A15          ; RECEIVER GROUP ID CODE                     18 thru    32                          
+        SK855_PO_NO               ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        SK855_PO_DATE             ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        SK855_PO_LINE             ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        SK855_CUST_PART           ,A30          ; CUSTOMER PART ID                           83 thru   112                          
+        SK855_DATE_ACK            ,D8           ; DATE BEING ACKNOWLEDGED                   113 thru   120                          
+        SK855_SLN_SEQ             ,D6           ; SLN CONTROL SEQ NO                        121 thru   126                          
+        SK855_KEY_FILL            ,A18          ; KEY FILLER                                127 thru   144                          
+        SK855_ITEM_STAT           ,A2           ; LINE ITEM STATUS CODE                     145 thru   146                          
+        SK855_QTY                 ,D9           ; ACKNOWLEDGED QUANTITY                     147 thru   155                          
+        SK855_ACK_UOFM            ,A2           ; ACKNOWLEDGED UNIT OF MEAS                 156 thru   157                          
+        SK855_DTM_QL              ,A3           ; DATE TIME QUALIFIER                       158 thru   160                          
+        SK855_REF_NO              ,A45          ; REQUEST REFERENCE NUMBER                  161 thru   205                          
+        SK855_PROD_QL1            ,A2           ; PRODUCT ID1 QUALIFIER                     206 thru   207                          
+        SK855_PROD_ID1            ,A30          ; PRODUCT IDENTIFIER 1                      208 thru   237                          
+        SK855_PROD_QL2            ,A2           ; PRODUCT ID2 QUALIFIER                     238 thru   239                          
+        SK855_PROD_ID2            ,A30          ; PRODUCT IDENTIFIER 2                      240 thru   269                          
+        SK855_PROD_QL3            ,A2           ; PRODUCT ID3 QUALIFIER                     270 thru   271                          
+        SK855_PROD_ID3            ,A30          ; PRODUCT IDENTIFIER 3                      272 thru   301                          
+        SK855_PROD_QL4            ,A2           ; PRODUCT ID4 QUALIFIER                     302 thru   303                          
+        SK855_PROD_ID4            ,A30          ; PRODUCT IDENTIFIER 4                      304 thru   333                          
+        SK855_PROD_QL5            ,A2           ; PRODUCT ID5 QUALIFIER                     334 thru   335                          
+        SK855_PROD_ID5            ,A30          ; PRODUCT IDENTIFIER 5                      336 thru   365                          
+        SK855_PROD_QL6            ,A2           ; PRODUCT ID6 QUALIFIER                     366 thru   367                          
+        SK855_PROD_ID6            ,A30          ; PRODUCT IDENTIFIER 6                      368 thru   397                          
+        SK855_PROD_QL7            ,A2           ; PRODUCT ID7 QUALIFIER                     398 thru   399                          
+        SK855_PROD_ID7            ,A30          ; PRODUCT IDENTIFIER 7                      400 thru   429                          
+        SK855_PROD_QL8            ,A2           ; PRODUCT ID8 QUALIFIER                     430 thru   431                          
+        SK855_PROD_ID8            ,A30          ; PRODUCT IDENTIFIER 8                      432 thru   461                          
+        SK855_PROD_QL9            ,A2           ; PRODUCT ID9 QUALIFIER                     462 thru   463                          
+        SK855_PROD_ID9            ,A30          ; PRODUCT IDENTIFIER 9                      464 thru   493                          
+        SK855_PROD_QL10           ,A2           ; PRODUCT ID10 QUALIFIER                    494 thru   495                          
+        SK855_PROD_ID10           ,A30          ; PRODUCT IDENTIFIER 10                     496 thru   525                          
+        SK855_TRANS               ,A2           ; TRANSPORTATION MODE                       526 thru   527                          
+        SK855_TIME                ,D4           ; SCHEDULE TIME                             528 thru   531                          
+        SK855_BACKORDER           ,D9           ; BACKORDER QUANTITY                        532 thru   540                          
+        SK855_BACKOR_DT           ,D8           ; BACKORDER SHIP DATE                       541 thru   548                          
+        SK855_BO_TIME             ,D4           ; BO SCHED TIME                             549 thru   552                          
+        SK855_BO_DTM_QL           ,A3           ; BO DATE TIME QUAL                         553 thru   555                          
+        SK855_FILLER              ,A26          ; FILLER                                    556 thru   581                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA855_SAK_KEY             ,A144         ; PRIMARY SORT KEY                                                                  
+                                  ,A437         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,28 @@
+; Structure     : CA852_HDR                                 
+; File Type     : ASCII                                     
+; Creation Date : 01-MAY-06, 13:30:11                       
+; Description   : Product Activity Header Flat File         
+;      Record Size    : 43                                  
+;      # of Files     : 0                                   
+;      # of Fields    : 15                                  
+;      # of Keys      : 0                                   
+;      # of Relations : 0                                   
+                                                            
+                                                            
+RECORD CA852_HDR                                            
+  H852_TP_DESIG   ,A2         ; (1,2) TRADING PARTNER DESIGNATOR           1 THR
+  H852_GS_CTL     ,D9         ; (3,11) GS CONTROL NUMBER                   3 THR
+  H852_HDR_LINE   ,D6         ; (12,17) HEADER LINE NUMBER                12 THR
+  H852_HANDLE_CD  ,A1         ; (18,18) TRANSACTION HANDLING CODE         18 THR
+  H852_START_DATE ,D8         ; (19,26) Start Date                        19 THR
+  H852_END_DATE   ,D8         ; (27,34) End Date                          27 THR
+  H852_TRANSNUM   ,A5         ; (35,39) DOC JOURNAL TRANSMISSION NO       35 THR
+  H852_FILESEQNUM ,D4         ; (40,43) FILE SEQUENCE NUMBER              40 THR
+  H852_HCNTRLNUM  ,A14        ; (44,57) INTERCHANGE CONTROL NUMBER        44 THR
+  H852_GCNTRLNUM  ,A14        ; (58,71) GROUP CONTROL NUMBER              58 THR
+  H852_DCNTRLNUM  ,A14        ; (72,85) DOCUMENT CONTROL NUMBER           72 THR
+  H852_ENTITY1    ,A35        ; (86,120) ALL EDI IDENTIFICATION CODES     86 THR
+  H852_ENTITY2    ,A35        ; (121,155) ALL EDI IDENTIFICATION CODES   121 THR
+  H852_ENTITY3    ,A35        ; (156,190) ALL EDI IDENTIFICATION CODES   156 THR
+  CA852_HDR_KEY    ,A17  @H852_TP_DESIG                                         
+                              ; (1,17) Primary Key                              

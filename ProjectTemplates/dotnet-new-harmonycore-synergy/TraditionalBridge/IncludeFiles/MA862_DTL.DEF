@@ -1,0 +1,75 @@
+;MA862_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       MAZDA DELIVERY ORDER DETAIL                                                                                                 
+;       DATE : 09-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   319                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  MA862_DTL                                                                                                                   
+        MDD_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        MDD_PLANT_CODE            ,A2           ; SUPPLIER PLANT CODE                        16 thru    17                          
+        MDD_SHIP_DEST             ,A15          ; SHIPMENT DESTINATION                       18 thru    32                          
+        MDD_DOCK_CODE             ,A3           ; MAZDA DOCK CODE                            33 thru    35                          
+        MDD_PURPOSE               ,A2           ; PURPOSE CODE                               36 thru    37                          
+        MDD_DO_NUM                ,A8           ; DELIVERY ORDER NUMBER                      38 thru    45                          
+        MDD_PARTNO                ,A22          ; MAZDA PART NUMBER                          46 thru    67                          
+        MDD_PO_NUM                ,A22          ; PURCHASE ORDER NUMBER                      68 thru    89                          
+        MDD_WORK_ORDER            ,A22          ; WORK ORDER NUMBER                          90 thru   111                          
+        MDD_PROCEDURE             ,A5           ; DETAIL PROCEDURE                          112 thru   116                          
+        MDD_UOFM                  ,A2           ; UNIT OF MEASURE                           117 thru   118                          
+        MDD_NOTE                  ,02A60        ; NOTES                                     119 thru   238                          
+        MDD_DO_QTY                ,D8           ; DELIVERY ORDER QUANTITY                   239 thru   246                          
+        MDD_DO_DATE               ,D8           ; DELIVERY ORDER DATE                       247 thru   254                          
+        MDD_JIT_QTY               ,D8           ; JIT QUNATITY                              255 thru   262                          
+        MDD_JIT_TIME              ,D4           ; JIT TIME                                  263 thru   266                          
+        MDD_ID_PART               ,A22          ; ITEM NUMBER TO PRINT ON LABEL             267 thru   288                          
+        MDD_ID_LOCATION           ,A5           ; STORAGE LOCATION ON ID LABEL              289 thru   293                          
+        MDD_ID_TAG                ,A5           ; PART TAG NUMBER ON ID LABEL               294 thru   298                          
+        MDD_ID_SUPPLY             ,A15          ; LINE SUPPLY LOCATION ON LABEL             299 thru   313                          
+        MDD_PULL_AHEAD            ,A2           ; PULL AHEAD CODE                           314 thru   315                          
+        MDD_FILLER                ,A4           ; FILLER                                    316 thru   319                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        MA862_DTL_KEY             ,A67          ; PRIMARY SORT KEY                                                                  
+                                  ,A252         ; PRIMARY KEY POSITIONING                                                           
+.IFDEF XX862_DTL_WORK
+RECORD MA862_DTL_WORK
+        MDD_COMP_W              ,A8     ; Company Code
+        MDD_SEQN_W              ,D5     ; Sequence Number
+        MDD_SUPP_ID_W           ,A15    ; SUPPLIER ID                    
+        MDD_PLANT_CODE_W        ,A2     ; SUPPLIER PLANT CODE            
+        MDD_SHIP_DEST_W         ,A15    ; SHIPMENT DESTINATION           
+        MDD_DOCK_CODE_W         ,A3     ; MAZDA DOCK CODE                
+        MDD_PURPOSE_W           ,A2     ; PURPOSE CODE                   
+        MDD_DO_NUM_W            ,A8     ; DELIVERY ORDER NUMBER          
+        MDD_PARTNO_W            ,A22    ; MAZDA PART NUMBER              
+        MDD_PO_NUM_W            ,A22    ; PURCHASE ORDER NUMBER          
+        MDD_WORK_ORDER_W        ,A22    ; WORK ORDER NUMBER              
+        MDD_PROCEDURE_W         ,A5     ; DETAIL PROCEDURE               
+        MDD_UOFM_W              ,A2     ; UNIT OF MEASURE                
+        MDD_NOTE_W              ,02A60  ; NOTES                          
+        MDD_DO_QTY_W            ,D8     ; DELIVERY ORDER QUANTITY        
+        MDD_DO_DATE_W           ,D8     ; DELIVERY ORDER DATE            
+        MDD_JIT_QTY_W           ,D8     ; JIT QUNATITY                   
+        MDD_JIT_TIME_W          ,D4     ; JIT TIME                       
+        MDD_ID_PART_W           ,A22    ; ITEM NUMBER TO PRINT ON LABEL  
+        MDD_ID_LOCATION_W       ,A5     ; STORAGE LOCATION ON ID LABEL   
+        MDD_ID_TAG_W            ,A5     ; PART TAG NUMBER ON ID LABEL    
+        MDD_ID_SUPPLY_W         ,A15    ; LINE SUPPLY LOCATION ON LABEL  
+        MDD_PULL_AHEAD_W        ,A2     ; PULL AHEAD CODE                
+        MDD_FILLER_W            ,A4     ; FILLER                         
+        MDD_PCNT_W              ,D3.2
+RECORD, X
+                        ,A8     ; Company Code
+                        ,D5     ; Sequence Number
+        MA862U_DTL      ,A%SIZE(MA862_DTL)      ;unsplit detail record
+.ENDC
+
+.IFDEF XX862_DTL_TOTALS
+RECORD MA862_DTL_TOTALS
+        MDD_PACK_QTY_T          ,D8     ; Packaging Quantity
+        MDD_DO_QTY_T            ,D8     ; Delivery Order Quantity
+        MDD_JIT_QTY_T           ,D8     ; Just In Time Quantity
+        MDD_PCNT_T              ,D3.2
+.ENDC 

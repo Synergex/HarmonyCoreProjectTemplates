@@ -1,0 +1,20 @@
+;VO856_CTN.DEF                                                                                                                      
+;                                                                                                                                   
+;       VOLVO ASN CONTAINER FILE                                                                                                    
+;       DATE : 30-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   221                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  VO856_CTN                                                                                                                   
+        VOC_ASN_NO                ,A30          ; ASN NUMBER                                  1 thru    30                          
+        VOC_CONT_CODE             ,A5           ; CONTAINER CODE                             31 thru    35                          
+        VOC_CONT_QTY              ,D7           ; CONTAINER QUANTITY                         36 thru    42                          
+        VOC_INTR_ID               ,A15          ; INTERCHANGE ID                             43 thru    57                          
+        VOC_GROUP_ID              ,A15          ; GROUP ID                                   58 thru    72                          
+        VOC_LOAD_DESC             ,A50          ; LOAD DESCRIPTION                           73 thru   122                          
+        VOC_FILLER                ,A99          ; FILLER                                    123 thru   221                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        VO856_CTN_KEY             ,A35          ; PRIMARY SORT KEY                                                                  
+                                  ,A186         ; PRIMARY KEY POSITIONING                                                           

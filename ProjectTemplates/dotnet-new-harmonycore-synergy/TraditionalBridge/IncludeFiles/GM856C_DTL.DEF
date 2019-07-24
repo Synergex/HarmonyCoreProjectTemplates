@@ -1,0 +1,58 @@
+;GM856C_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORP/ISP/SPO ASN DETAIL                                                                                                  
+;       DATE : 02-SEP-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   627                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM856C_DTL                                                                                                                  
+        GCD_TELE_PROC             ,A3           ; DIV TELEPROCESSING ID                       1 thru     3                          
+        GCD_ISSUE_BY              ,A15          ; ISSUED BY DIVISION CODE                     4 thru    18                          
+        GCD_SHIP_TO               ,A15          ; SHIP TO DESTINATION CODE                   19 thru    33                          
+        GCD_ASN_NO                ,A30          ; ASN NUMBER                                 34 thru    63                          
+        GCD_PART_NO               ,A30          ; GM PART NO                                 64 thru    93                          
+        GCD_REL_NO                ,A30          ; RELEASE REF NO (SHIP REF)                  94 thru   123                          
+        GCD_PART_QL               ,A2           ; PART NUMBER QUALIFIER                     124 thru   125                          
+        GCD_PARENT_ID             ,D5           ; HIERARCHY ORD LEVEL                       126 thru   130                          
+        GCD_REL_QL                ,A2           ; RELEASE NUMBER QUALIFIER                  131 thru   132                          
+        GCD_PO_QL                 ,A2           ; GM PURCHASE ORDER QUALIFIER               133 thru   134                          
+        GCD_PO_NO                 ,A22          ; GM PURCHASE ORDER NUMBER                  135 thru   156                          
+        GCD_PO_DATE               ,D8           ; PURCHASE ORDER DATE                       157 thru   164                          
+        GCD_CONTRACT_QL           ,A2           ; GM CONTRACT NUMBER QUALIFIER              165 thru   166                          
+        GCD_CONTRACT_NO           ,A30          ; GM CONTRACT NUMBER                        167 thru   196                          
+        GCD_RETRN_QL              ,A2           ; RETURNABLE CONTAINERS QUALIFIE            197 thru   198                          
+        GCD_RETRN_QTY             ,D8           ; RETURNABLE CONTAINERS QUANTITY            199 thru   206                          
+        GCD_RETRN_CODE            ,A5           ; RETURNABLE CONTAINERS CODES               207 thru   211                          
+        GCD_SHIP_QTY              ,D8           ; SHIPMENT QUANTITY                         212 thru   219                          
+        GCD_UOFM                  ,A2           ; UNIT OF MEASURE                           220 thru   221                          
+        GCD_YTD_CUM               ,D9           ; YEAR TO DATE QTY SHIPPED                  222 thru   230                          
+        GCD_PACK_CODE             ,A5           ; PACKAGING CODE                            231 thru   235                          
+        GCD_PACK_QTY              ,D6           ; NUMBER OF CONTAINERS                      236 thru   241                          
+        GCD_PACK_UOFM             ,A2           ; PACK UNIT OF MEASURE TBL #355             242 thru   243                          
+        GCD_WEIGHT_QL1            ,A2           ; WEIGHT QUALIFIER-1                        244 thru   245                          
+        GCD_WEIGHT                ,D8           ; WEIGHT                                    246 thru   253                          
+        GCD_WEIGHT_QL2            ,A2           ; WEIGHT QUALIFIER-2                        254 thru   255                          
+        GCD_LOT_QL                ,A2           ; LOT NUMBER QUALIFIER                      256 thru   257                          
+        GCD_LOT_NO                ,A30          ; LOT NUMBER                                258 thru   287                          
+        GCD_HEAT_QL               ,A2           ; HEAT QUALIFIER                            288 thru   289                          
+        GCD_HEAT_CODE             ,A30          ; HEAT CODE                                 290 thru   319                          
+        GCD_DOCK_QL               ,A2           ; DOCK QUALIFIER                            320 thru   321                          
+        GCD_DOCK_NO               ,A30          ; DOCK NUMBER                               322 thru   351                          
+        GCD_MODEL_YR_QL           ,A2           ; MODEL YEAR QUALIFIER                      352 thru   353                          
+        GCD_MODEL_YR              ,A2           ; MODEL YEAR                                354 thru   355                          
+        GCD_MEA_QL1               ,A2           ; MEA SEGMENT QUALIFER 1                    356 thru   357                          
+        GCD_UNITS_PER             ,D5           ; UNITS PER CONTAINER                       358 thru   362                          
+        GCD_DISC_QUAL             ,A2           ; DISCREPANCY CODE QUALIFIER                363 thru   364                          
+        GCD_DISC_CODE             ,A20          ; DISCREPANCY CODE                          365 thru   384                          
+        GCD_ETD_REASON            ,A2           ; ETD TABLE #626                            385 thru   386                          
+        GCD_ETD_RESP              ,A1           ; ETD TABLE #627                            387 thru   387                          
+        GCD_ETD_REF_NO            ,A30          ; ETD REFERENCE NUMBER                      388 thru   417                          
+        GCD_MODEL_CCYR            ,A4           ; MODEL YEAR WITH CENTURY                   418 thru   421                          
+        GCD_FILLER                ,A8           ; FILLER                                    422 thru   429                          
+        GCD_FILLER1               ,A99          ; FILLER                                    430 thru   528                          
+        GCD_FILLER2               ,A99          ; FILLER                                    529 thru   627                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+                                  ,A597         ; PRIMARY KEY POSITIONING                                                           
+        GM856C_DTL_KEY            ,A30          ; PRIMARY SORT KEY                                                                  

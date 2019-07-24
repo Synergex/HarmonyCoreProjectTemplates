@@ -1,0 +1,19 @@
+;RTSEG_GS.DEF                                                                                                                       
+;                                                                                                                                   
+;       FUNCTIONAL GROUP START SEGMENT                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    72                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_GS                                                                                                                    
+        GS_SEG                    ,A3           ; GS SEGMENT IDENTIFIER                       1 thru     3                          
+        GS_01                     ,A2           ; FUNCTIONAL ID CODE                          4 thru     5                          
+        GS_02                     ,A15          ; APPLICATION SENDER'S CODE                   6 thru    20                          
+        GS_03                     ,A15          ; APPLICATION RECEIVER'S CODE                21 thru    35                          
+        GS_04                     ,D8           ; DATE                                       36 thru    43                          
+        GS_05                     ,A6           ; TIME                                       44 thru    49                          
+        GS_06                     ,A9           ; GROUP CONTROL NUMBER                       50 thru    58                          
+        GS_07                     ,A2           ; RESPONSIBLE AGENCY CODE                    59 thru    60                          
+        GS_08                     ,A12          ; VERSION/REL IND ID CODE                    61 thru    72                          
+                                                                                                                                    
+                                                                                                                                    

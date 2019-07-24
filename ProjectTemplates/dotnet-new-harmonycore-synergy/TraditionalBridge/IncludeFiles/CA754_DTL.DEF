@@ -1,0 +1,25 @@
+;CA754_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       ROUTING INSTRUCTIONS ADDRESS                                                                                                
+;       DATE : 21-SEP-10                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   167                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA754_DTL                                                                                                                   
+        D754_ISA_CTL              ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        D754_GS_CTL               ,A14          ; GROUP CONTROL                              15 thru    28                          
+        D754_HDR_LINE             ,D6           ; HEADER LINE                                29 thru    34                          
+        D754_DTL_LINE             ,D6           ; DETAIL LINE                                35 thru    40                          
+        D754_LINE_NO              ,D6           ; LINE NUMBER FROM LX                        41 thru    46                          
+        D754_SCAC_CODE            ,A4           ; CARRIER CODE                               47 thru    50                          
+        D754_DATE                 ,D8           ; DATE                                       51 thru    58                          
+        D754_MULTI_STOP           ,A1           ; MULTI STOP FLAG                            59 thru    59                          
+        D754_STOP_NO              ,D3           ; STOP NUMBER                                60 thru    62                          
+        D754_ENTITY_ID1           ,A35          ; ENTITY ID                                  63 thru    97                          
+        D754_ENTITY_ID2           ,A35          ; ENTITY ID 2                                98 thru   132                          
+        D754_ENTITY_ID3           ,A35          ; ENTITY ID 3                               133 thru   167                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA754_DTL_KEY             ,A40          ; PRIMARY SORT KEY                                                                  
+                                  ,A127         ; PRIMARY KEY POSITIONING                                                           

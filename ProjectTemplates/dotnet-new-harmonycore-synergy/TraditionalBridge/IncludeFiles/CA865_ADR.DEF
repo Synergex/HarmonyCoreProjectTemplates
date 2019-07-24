@@ -1,0 +1,45 @@
+;CA865_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PO CHANGE ACK. ADDRESS FILE                                                                                                 
+;       DATE : 08-APR-11                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   718                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA865_ADR                                                                                                                   
+        A865_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        A865_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        A865_GROUP_ID             ,A15          ; GROUP RECEIVER ID CODE                     18 thru    32                          
+        A865_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        A865_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        A865_SORT_CTL             ,D3           ; TO CONTROL THE SORT ORDER                  63 thru    65                          
+        A865_ENTITY_QL            ,A2           ; ORGANIZATION ENTITY ID QUALIF              66 thru    67                          
+        A865_NAME                 ,A35          ; NAME                                       68 thru   102                          
+        A865_ID_CD_QL             ,A2           ; ID CODE QUALIFIER                         103 thru   104                          
+        A865_ID_CODE              ,A17          ; IDENTIFICATION CODE                       105 thru   121                          
+        A865_ADDR1A               ,A35          ; ADDRESS LINE 1A                           122 thru   156                          
+        A865_ADDR1B               ,A35          ; ADDRESS LINE 1B                           157 thru   191                          
+        A865_ADDR1C               ,A35          ; ADDRESS LINE 1C                           192 thru   226                          
+        A865_ADDR1D               ,A35          ; ADDRESS LINE 1D                           227 thru   261                          
+        A865_ADDR2A               ,A35          ; ADDRESS LINE 2A                           262 thru   296                          
+        A865_ADDR2B               ,A35          ; ADDRESS LINE 2B                           297 thru   331                          
+        A865_ADDR2C               ,A35          ; ADDRESS LINE 2C                           332 thru   366                          
+        A865_ADDR2D               ,A35          ; ADDRESS LINE 2D                           367 thru   401                          
+        A865_CITY                 ,A30          ; CITY                                      402 thru   431                          
+        A865_STATE                ,A2           ; STATE/PROVINCE CODE                       432 thru   433                          
+        A865_ZIP_CODE             ,A15          ; POSTAL CODE                               434 thru   448                          
+        A865_COUNTRY              ,A2           ; COUNTRY CODE                              449 thru   450                          
+        A865_LOC_QL               ,A2           ; ADDRESS LOCATION QUALIFIER                451 thru   452                          
+        A865_LOC_ID               ,A25          ; LOCATION IDENTIFICATION                   453 thru   477                          
+        A865_PER_FUNCT            ,A2           ; CONTACT FUNCTION CODE                     478 thru   479                          
+        A865_PER_NAME             ,A35          ; CONTACT NAME                              480 thru   514                          
+        A865_PER_COM_QL           ,A2           ; COMM NUMBER QUALIFIER                     515 thru   516                          
+        A865_PER_COM_NO           ,A21          ; COMMUNICATIONS NUMBER                     517 thru   537                          
+        A865_COM_QL2              ,A2           ; COMMUNICATION QUAL (PER)                  538 thru   539                          
+        A865_COM_NO2              ,A80          ; COMMUNICATION NO (PER)                    540 thru   619                          
+        A865_NEW_CNTRY            ,A3           ; EXPANDED CNTRY                            620 thru   622                          
+        A865_FILLER               ,A96          ; FILLER                                    623 thru   718                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA865_ADR_KEY             ,A62          ; PRIMARY SORT KEY                                                                  
+                                  ,A656         ; PRIMARY KEY POSITIONING                                                           

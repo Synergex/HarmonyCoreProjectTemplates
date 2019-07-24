@@ -1,0 +1,49 @@
+;CA856_ITA.DEF                                                                                                                      
+;                                                                                                                                   
+;       COMMON ASN ALLOWANCE/CHARGES                                                                                                
+;       DATE : 27-JUN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   780                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA856_ITA                                                                                                                   
+        A856_SEQ1                 ,D6           ; INPUT SEQUENCE LEVEL 1                      1 thru     6                          
+        A856_SEQ2                 ,D6           ; INPUT SEQUENCE LEVEL 2                      7 thru    12                          
+        A856_SEQ3                 ,D6           ; INPUT SEQUENCE LEVEL 3                     13 thru    18                          
+        A856_SEQ4                 ,D6           ; INPUT SEQUENCE LEVEL 4                     19 thru    24                          
+        A856_SEQ5                 ,D6           ; INPUT SEQUENCE LEVEL 5                     25 thru    30                          
+        A856_SEQ6                 ,D6           ; INPUT SEQUENCE LEVEL 6                     31 thru    36                          
+        A856_SEQ7                 ,D6           ; INPUT SEQUENCE LEVEL 7                     37 thru    42                          
+        A856_SEQ8                 ,D6           ; INPUT SEQUENCE LEVEL 8                     43 thru    48                          
+        A856_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                 49 thru    50                          
+        A856_TELE_PROC            ,A3           ; DIVISION TELEPROCESSING ID -GM             51 thru    53                          
+        A856_ISS_BY_KEY           ,A15          ; ISSUE BY KEYFIELD (GM)                     54 thru    68                          
+        A856_DEST_KEY             ,A15          ; DESTINATION KEYFIELD (GM)                  69 thru    83                          
+        A856_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                    84 thru    98                          
+        A856_GROUP_ID             ,A15          ; GROUP ID                                   99 thru   113                          
+        A856_ASN_NO               ,A30          ; SHIPMENT ASN/ID NUMBER                    114 thru   143                          
+        A856_PO_NO                ,A22          ; PURCHASE ORDER NO (KEY)                   144 thru   165                          
+        A856_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                      166 thru   195                          
+        A856_SHIP_REF             ,A30          ; SHIP REFERENCE NO                         196 thru   225                          
+        A856_MODEL_YR             ,A2           ; MODEL YEAR                                226 thru   227                          
+        A856_INDICATOR            ,A1           ; ALLOWANCE/CHARGE INDICATOR                228 thru   228                          
+        A856_AGENCY               ,A2           ; AGENCY QUALIFIER                          229 thru   230                          
+        A856_SS_CODE              ,A10          ; SPECIAL SERVICES CODE                     231 thru   240                          
+        A856_MTHD_HANDL           ,A2           ; METHOD OF HANDLING                        241 thru   242                          
+        A856_AC_NO                ,A16          ; ALLOWANCE/CHARGE NUMBER                   243 thru   258                          
+        A856_RATE                 ,D9           ; ALLOWANCE/CHARGE RATE                     259 thru   267                          
+        A856_TOT_AMT              ,D9           ; TOTAL AMOUNT                              268 thru   276                          
+        A856_PCT_QL               ,A2           ; A/C PERCENT QUALIFIER                     277 thru   278                          
+        A856_PERCENT              ,D6           ; A/C PERCENT                               279 thru   284                          
+        A856_AC_QTY               ,D10          ; QUANTITY                                  285 thru   294                          
+        A856_DESC                 ,A80          ; A/C DESCRIPTION                           295 thru   374                          
+        A856_SPEC_CODE            ,A10          ; SPECIAL A/C CODE                          375 thru   384                          
+        A856_OVERSEAS             ,D1           ; INTERNATIONAL SHIPMENT                    385 thru   385                          
+        A856_FILLER1              ,A98          ; FILLER 1                                  386 thru   483                          
+        A856_FILLER2              ,A99          ; FILLER 2                                  484 thru   582                          
+        A856_FILLER3              ,A99          ; FILLER 3                                  583 thru   681                          
+        A856_FILLER4              ,A99          ; FILLER 4                                  682 thru   780                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA856_ITA_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A732         ; PRIMARY KEY POSITIONING                                                           

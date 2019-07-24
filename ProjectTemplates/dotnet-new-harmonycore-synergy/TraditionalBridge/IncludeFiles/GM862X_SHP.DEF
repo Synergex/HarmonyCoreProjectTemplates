@@ -1,0 +1,30 @@
+;GM862X_SHP.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE X12 862 SHP                                                                                                    
+;       DATE : 21-MAY-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   155                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM862X_SHP                                                                                                                  
+        XSS_SUPP_CODE             ,A15          ; SUPPLIER CODE                               1 thru    15                          
+        XSS_ISSUE_CODE            ,A15          ; ISSUED BY/DIVISION CODE                    16 thru    30                          
+        XSS_CUST_PART             ,A22          ; CUSTOMER PART                              31 thru    52                          
+        XSS_MODEL_YEAR            ,A4           ; MODEL YEAR                                 53 thru    56                          
+        XSS_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   57 thru    71                          
+        XSS_REL_NO                ,A8           ; RELEASE NUMBER                             72 thru    79                          
+        XSS_KANBAN_CODE           ,A1           ; KANBAN CODE                                80 thru    80                          
+        XSS_SKANBAN               ,A10          ; STARTING KANBAN #                          81 thru    90                          
+        XSS_ISSUE_DATE            ,D8           ; ISSUE DATE                                 91 thru    98                          
+        XSS_FILLER_1              ,A14          ; KEY FILLER                                 99 thru   112                          
+        XSS_QTY_QUAL              ,A2           ; QUANTITY QUALIFIER                        113 thru   114                          
+        XSS_QTY                   ,D10          ; QUANTITY                                  115 thru   124                          
+        XSS_DATE_TM_QL            ,A3           ; DATE TIME QUALIFIER                       125 thru   127                          
+        XSS_DATE_1                ,D8           ; DATE INFO                                 128 thru   135                          
+        XSS_DATE_2                ,D8           ; DATE INFO                                 136 thru   143                          
+        XSS_BSS_SEQ               ,D6           ; BSS SEQUENCE NUMBER                       144 thru   149                          
+        XSS_LIN_SEQ               ,D6           ; LIN SEQUENCE NUMBER                       150 thru   155                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM862X_SHP_KEY            ,A112         ; PRIMARY SORT KEY                                                                  
+                                  ,A43          ; PRIMARY KEY POSITIONING                                                           

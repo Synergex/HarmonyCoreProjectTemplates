@@ -1,0 +1,24 @@
+; CH856_PCK.DEF
+;
+;	CHRYSLER CTX RAW INPUT PACKAGING CODE FILE FOR X12 ASN GENERATION.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	25-May-89	W. Chunn	Original
+;
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 65		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;									|
+RECORD CH856_PCK
+	CP_INPUT_SEQ	,D5		; Input Sequence Number.	|	  1 thru 5
+	CP_TRANS_ID	,A15		; Transmit Identification Number|	  6 thru 20
+	CP_DEST_CODE	,A15		; Destination Code		|        21 thru 35
+	CP_ASN_NO	,A9		; ASN Number			|	 36 thru 44
+	CP_PACK_CODE	,A5		; Packaging Code		|	 45 thru 49
+	CP_PACK_QTY	,D8		; Packaging Qty 		|	 50 thru 57
+			,A8		; Filler			|        58 thru 65

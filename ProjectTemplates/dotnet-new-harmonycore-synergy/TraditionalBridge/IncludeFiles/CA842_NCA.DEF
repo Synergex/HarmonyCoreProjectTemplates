@@ -1,0 +1,26 @@
+;CA842_NCA.DEF                                                                                                                      
+;                                                                                                                                   
+;       NONCONFORMANCE REPORT ACTION                                                                                                
+;       DATE : 18-AUG-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   192                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA842_NCA                                                                                                                   
+        NA842_ISA_CTL             ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        NA842_GS_CTL              ,A14          ; GROUP CONTROL                              15 thru    28                          
+        NA842_ST_CTL              ,A14          ; DOCUMENT CONTROL                           29 thru    42                          
+        NA842_HL_LIN              ,D6           ; HL SEQUENCE                                43 thru    48                          
+        NA842_SPS_LIN             ,D6           ; SAMPLING SEQUENCE                          49 thru    54                          
+        NA842_NCD_LIN             ,D6           ; NONCONFORMANCE SEQUENCE                    55 thru    60                          
+        NA842_MEA_LIN             ,D6           ; MEASUREMENT SEQUENCE                       61 thru    66                          
+        NA842_NCA_LIN             ,D6           ; NONCONFORMANCE ACTION SEQUENCE             67 thru    72                          
+        NA842_ID                  ,A20          ; ASSIGNED ID                                73 thru    92                          
+        NA842_RESPONSE            ,A2           ; RESULTANT RESPONSE CODE                    93 thru    94                          
+        NA842_DESC                ,A80          ; DESCRIPTION                                95 thru   174                          
+        NA842_QTY                 ,A15          ; QUANTITY                                  175 thru   189                          
+        NA842_UOFM                ,A3           ; UNIT OF MEASURE                           190 thru   192                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA842_NCA_KEY             ,A72          ; PRIMARY SORT KEY                                                                  
+                                  ,A120         ; PRIMARY KEY POSITIONING                                                           

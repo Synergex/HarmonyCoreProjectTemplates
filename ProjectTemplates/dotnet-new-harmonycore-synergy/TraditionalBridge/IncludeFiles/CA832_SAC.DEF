@@ -1,0 +1,26 @@
+;CA832_SAC.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRICE CATALOG (832) CHARGES                                                                                                 
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   183                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA832_SAC                                                                                                                   
+        S832_SEQN_1               ,D6           ; SEQUENCE NUMBER 1                           1 thru     6                          
+        S832_SEQN_2               ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        S832_SEQN_3               ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        S832_SEQN_4               ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        S832_GS_ID                ,A17          ; RECEIVER ID                                25 thru    41                          
+        S832_ISA_ID               ,A17          ; ISA RECEIVER                               42 thru    58                          
+        S832_CATALOG_NO           ,A15          ; CATALOG NUMBER                             59 thru    73                          
+        S832_A_OR_C               ,A1           ; ALLOWANCE OR CHARGE INDICATOR              74 thru    74                          
+        S832_AGENCY               ,A2           ; AGENCY QUALIFIER CODE                      75 thru    76                          
+        S832_METHOD               ,A2           ; METHOD OF HANDLING CODE                    77 thru    78                          
+        S832_TOTAL_AMT            ,D15          ; TOTAL AMOUNT OF CHARGE/ALLOW               79 thru    93                          
+        S832_SPCL_CODE            ,A10          ; SPECIAL CHARGE/SERVICE CODE                94 thru   103                          
+        S832_DESC                 ,A80          ; DESCRIPTION                               104 thru   183                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA832_SAC_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A159         ; PRIMARY KEY POSITIONING                                                           

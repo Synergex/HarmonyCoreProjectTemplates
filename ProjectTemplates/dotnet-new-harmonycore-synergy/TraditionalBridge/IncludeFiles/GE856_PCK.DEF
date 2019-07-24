@@ -1,0 +1,24 @@
+;GE856_PCK.DEF                                                                                                                      
+;                                                                                                                                   
+;       GE ASN CONTAINER FILE                                                                                                       
+;       DATE : 06-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   278                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GE856_PCK                                                                                                                   
+        GEPA_SUPPLIER             ,A17          ; SUPPLIER ID                                 1 thru    17                          
+        GEPA_ASN_NO               ,A30          ; ASN NUMBER                                 18 thru    47                          
+        GEPA_TP_PART              ,A30          ; CUSTOMER PART NUMBER                       48 thru    77                          
+        GEPA_CONT_CODE            ,A5           ; CONTAINER CODE                             78 thru    82                          
+        GEPA_CONT_QTY             ,D7           ; CONTAINER QUANTITY                         83 thru    89                          
+        GEPA_GROSS                ,D8           ; GROSS WEIGHT                               90 thru    97                          
+        GEPA_UOFM                 ,A2           ; UNIT OF MEASURE                            98 thru    99                          
+        GEPA_INTRCHNGE            ,A15          ; INTERCHANGE ID                            100 thru   114                          
+        GEPA_GROUP                ,A15          ; GROUP ID                                  115 thru   129                          
+        GEPA_CONT_DESC            ,A50          ; LADING DESCRIPTION                        130 thru   179                          
+        GEPA_FILLER               ,A99          ; FILLER                                    180 thru   278                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GE856_PCK_KEY             ,A82          ; PRIMARY SORT KEY                                                                  
+                                  ,A196         ; PRIMARY KEY POSITIONING                                                           

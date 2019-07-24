@@ -1,0 +1,29 @@
+;CARREQ_ORD.DEF                                                                                                                     
+;                                                                                                                                   
+;       ROUTING REQUEST ORDERS                                                                                                      
+;       DATE : 21-OCT-10                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   317                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CARREQ_ORD                                                                                                                  
+        SRRO_ISA_ID               ,A35          ; INTERCHANGE ID                              1 thru    35                          
+        SRRO_GROUP_ID             ,A35          ; GROUP ID                                   36 thru    70                          
+        SRRO_REQUEST_NO           ,A35          ; REQUEST NUMBER                             71 thru   105                          
+        SRRO_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                        106 thru   111                          
+        SRRO_LINE_NO              ,D6           ; LINE NUMBER                               112 thru   117                          
+        SRRO_ORDER_NO             ,A35          ; ORDER NUMBER                              118 thru   152                          
+        SRRO_PO_NO                ,A35          ; PURCHASE ORDER                            153 thru   187                          
+        SRRO_CUST_ORDER           ,A35          ; CUSTOMER_ORDER                            188 thru   222                          
+        SRRO_PACKAGE              ,A10          ; PACKAGE FORM                              223 thru   232                          
+        SRRO_QUANTITY             ,D15          ; QUANTITY                                  233 thru   247                          
+        SRRO_WGT_UNIT             ,A10          ; WEIGHT UNIT                               248 thru   257                          
+        SRRO_WEIGHT               ,D15          ; WEIGHT                                    258 thru   272                          
+        SRRO_VOL_UNIT             ,A10          ; VOLUME UNIT                               273 thru   282                          
+        SRRO_VOLUME               ,D15          ; VOLUME                                    283 thru   297                          
+        SRRO_COMMODITY            ,A10          ; COMMODITY CODE                            298 thru   307                          
+        SRRO_FRGT_CLASS           ,A10          ; FREIGHT CLASS                             308 thru   317                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CARREQ_ORD_KEY            ,A117         ; PRIMARY SORT KEY                                                                  
+                                  ,A200         ; PRIMARY KEY POSITIONING                                                           

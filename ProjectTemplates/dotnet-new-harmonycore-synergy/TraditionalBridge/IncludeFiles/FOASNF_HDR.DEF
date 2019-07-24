@@ -1,0 +1,79 @@
+; FOASNF_HDR.DEF
+;
+;	Ford Fixed Length (Proprietary) Adavnce Shipping Notice (ASN) 
+;	Header File.
+;
+;	File Organization: Isam 		Record Size: 100
+;
+;	Primary Key --> FFH_SHIP_ID (Positions 1 thru 9)
+;
+;		 	Note: If FFH_SHIP_ID.EQ.000000000
+;			      Then	Allow Duplicates (A Default Record)
+;
+;			      Else	Do Not Allow Duplicate Ship Ids.
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	13-Oct-88	J. Rheingans	Original
+;
+;-------------------------------------------------------------------------------
+;
+;
+RECORD FOASNF_HDR
+	FFH_SHIP_ID	,D9		; Shipment Id Number (Primary Key).
+	FFH_DEST_ABBRV	,A5		; Destination Abbreviation.
+	FFH_SUPP_ABBRV	,A5		; Supplier Abbreviation.
+	FFH_CONV_CODE	,A1		; Conveyance Code.
+	FFH_CONV_NO	,D6		; Conveyance Number.
+	FFH_BILL_LADING	,D6		; Bill of Lading Number.
+	FFH_CARRIER	,A12		; Carrier Code.
+	FFH_CARR_CODE	,A4		; Carrier Abbreviation.
+	FFH_SHIP_DATE	,D6		; Date Shipped, Format: YYMMDD
+	FFH_SHIP_TIME	,D4		; Time Shipped, Format: HHMM
+	FFH_CONTAINERS	,A6		; Containers.
+	FFH_ORG_TDATE	,D6		; Date Originally Transmitted, YYMMDD.
+	FFH_ORG_TTIME	,D4		; Time Originally Transmitted, HHMM.
+	FFH_TRANS_DATE	,D6		; Date of Last Transmission, YYMMDD.
+	FFH_TRANS_TIME	,D4		; Time of Last Transmission, HHMM.
+			,A16		; Filler.
+RECORD FFH_KEY1
+	;
+	; No Duplicates, No Changes Allowed.
+	;
+	K1_FFH_SHIP_ID		,D9	; Shipment Identification (shipper #)
+	K1_FFH_DEST_ABBRV	,A5	; Destination Abbreviation.
+
+RECORD FFH_KEY2
+	;
+	; No Duplicates, Changes Allowed.
+	;
+	K2_FFH_SUPP_ABBRV	,A5	; Supplier Abbreviation
+	K2_FFH_SHIP_ID		,D9	; Ship Identification
+
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Defintion -------
+;-------------------------------------------------------------------------------
+
+.IFDEF FOASNF_HDR_ALT
+RECORD A_FOASNF_HDR
+			,A%SIZE(FOASNF_HDR)
+RECORD,X
+	A_FFH_SHIP_ID		,D9	; Shipment Id Number (Primary Key).
+	A_FFH_DEST_ABBRV	,A5	; Destination Abbreviation.
+	A_FFH_SUPP_ABBRV	,A5	; Supplier Abbreviation.
+	A_FFH_CONV_CODE		,A1	; Conveyance Code.
+	A_FFH_CONV_NO		,D6	; Conveyance Number.
+	A_FFH_BILL_LADING	,D6	; Bill of Lading Number.
+	A_FFH_CARRIER		,A12	; Carrier Code.
+	A_FFH_CARR_CODE		,A4	; Carrier Abbreviation.
+	A_FFH_SHIP_DATE		,D6	; Date Shipped, Format: YYMMDD
+	A_FFH_SHIP_TIME		,D4	; Time Shipped, Format: HHMM
+	A_FFH_CONTAINERS	,A6	; Containers.
+	A_FFH_ORG_TDATE		,D6	; Date Originally Transmitted, YYMMDD.
+	A_FFH_ORG_TTIME		,D4	; Time Originally Transmitted, HHMM.
+	A_FFH_TRANS_DATE	,D6	; Date of Last Transmission, YYMMDD.
+	A_FFH_TRANS_TIME	,D4	; Time of Last Transmission, HHMM.
+				,A16	; Filler.
+.ENDC

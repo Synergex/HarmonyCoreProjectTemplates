@@ -1,0 +1,11 @@
+;SC850_FLG.DEF                                                                                                                      
+;                                                                                                                                   
+;       STEELCASE PO FLAG FILE                                                                                                      
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :     3                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  SC850_FLG                                                                                                                   
+        SCF_FLAG                  ,A3           ; FLAG TO SHOW 850 RECEIVED                   1 thru     3                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,57 @@
+RECORD SPD_MASTER
+;
+;	CHSPD_MST.DEF - CARaS CHRYSLER SPD MASTER FILE
+;
+;		STRUCTURE:	INDEXED
+;		KEY 0:		SM_PLANT, SM_VIN, SM_PART_NUMBER  
+;							No Duplicates allowed
+;		KEY 1:		SM_SEQ_NBR		Duplicates Allowed,
+;							Changes Allowed
+;		KEY 2:		SM_PLANT, SM_SHIP_DATE, SM_SEQ_NBR
+;							Duplicates Allowed,
+;							Changes Allowed
+;		KEY 3:		SM_PART_NUMBER, SM_PLANT, SM_SHIP_DATE
+;							Duplicates Allowed,
+;							Changes Allowed
+;		RECORD LEN:	100
+;
+;-------------------------------------------------------------------------------
+;		----------- Record Definition ---------
+;-------------------------------------------------------------------------------
+
+	SM_PLANT	,D5	; Plant Identificatin
+	SM_VIN		,A8	; Vehicle Identification Number, Last 8
+	SM_PART_NUMBER	,A8	; Part Number
+	SM_SEQ_NBR	,D7	; Broadcast Sequence Number
+	SM_SHIP_DATE	,D6	; Shipment Date (YYMMDD)
+	SM_VON		,A8	; Vehicle Order Number
+	SM_BODY_MODEL	,A6	; Body Model
+	SM_TRIM_CODE	,A4	; Trim Code
+	SM_STATUS	,A1	; Last Transmission Status 'T'=TRIM ,'F'=FRAME
+	SM_DATE		,D5	; Broadcast Date (YYDDD)
+	SM_TIME		,D6	; Broadcast Time (HHMMSS)
+	SM_SHIP_QTY	,D2	; Shipment Quantity
+	SM_PAID_QTY	,D2	; CAP Payment Quantity
+	SM_AR_POSTED	,A1	; A/R Posting/Payment Indicator
+				; ' ' or 'N' = New
+				; 'G' = Good/Processed
+	SM_IM_POSTED	,A1	; I/M Posting/Payment Indicator
+				; ' ' or 'N' = New
+				; 'I' = Inventory Master Quantity Updated
+			,A30	; Filler
+
+RECORD, X
+	SM_KEY0		,A21	; Primary Key
+	SM_KEY1		,A7	; Secondary Key
+			,A72	; Filler
+
+RECORD SM_KEY2
+	SM_PLANT_2	,D%SIZE(SM_PLANT)
+	SM_SHIP_DATE_2	,D%SIZE(SM_SHIP_DATE)
+	SM_SEQ_NBR_2	,D%SIZE(SM_SEQ_NBR)
+
+RECORD SM_KEY3
+	SM_PART_3	,A%SIZE(SM_PART_NUMBER)
+	SM_PLANT_3	,D%SIZE(SM_PLANT)
+	SM_SHIP_DATE_3	,D%SIZE(SM_SHIP_DATE)
+

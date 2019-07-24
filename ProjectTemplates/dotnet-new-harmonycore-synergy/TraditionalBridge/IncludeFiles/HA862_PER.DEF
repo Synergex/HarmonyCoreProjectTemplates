@@ -1,0 +1,18 @@
+;HA862_PER.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 862 PER SEGMENT                                                                                                     
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    62                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA862_PER                                                                                                                   
+        HA862PRP1SEQ_NO           ,D5           ; PARENT LEVEL 1 SEQUENCE NUMBER              1 thru     5                          
+        HA862PRP2SEQ_NO           ,D5           ; PARENT LEVEL 2 SEQUENCE NO                  6 thru    10                          
+        HA862PRP3SEQ_NO           ,D5           ; PARENT LEVEL 3 SEQUENCE NO                 11 thru    15                          
+        HA862_PER_COLAT           ,A2           ; REC TYPE COLLATING SEQ - 43                16 thru    17                          
+        HA862_PER_REC             ,A3           ; RECORD TYPE - PER                          18 thru    20                          
+        HA862PER_SEQ_NO           ,D5           ; PER SEQUENCE NO                            21 thru    25                          
+        HA862_PER_01              ,A2           ; CONTACT FUNCTION CODE                      26 thru    27                          
+        HA862_PER_02              ,A35          ; NAME                                       28 thru    62                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,27 @@
+;CA865_SCH.DEF                                                                                                                      
+;                                                                                                                                   
+;       PO CHANGE ACK. SCHEDULE                                                                                                     
+;       DATE : 10-AUG-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   257                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA865_SCH                                                                                                                   
+        S865_TP_DESIG             ,A2           ; TRADING PARTNER DESIG                       1 thru     2                          
+        S865_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        S865_GROUP_ID             ,A15          ; RECEIVER GROUP ID CODE                     18 thru    32                          
+        S865_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        S865_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        S865_PO_LINE              ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        S865_CUST_PART            ,A30          ; CUSTOMER PART NO                           83 thru   112                          
+        S865_SCH_DATE1            ,D8           ; SCHEDULED DATE1                           113 thru   120                          
+        S865_SCH_TIME1            ,D4           ; SCHEDULE TIME 1                           121 thru   124                          
+        S865_DTM_QL1              ,A3           ; DATE/TIME QUAL FOF SCH DATE1              125 thru   127                          
+        S865_SCH_QTY              ,D9           ; SCHEDULED QUANTITY                        128 thru   136                          
+        S865_SCH_UOFM             ,A2           ; SCHED QTY UNIT OF MEASURE                 137 thru   138                          
+        S865_ASSIGN_ID            ,A20          ; ASSIGNED ID                               139 thru   158                          
+        S865_FILLER               ,A99          ; FILLER                                    159 thru   257                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA865_SCH_KEY             ,A127         ; PRIMARY SORT KEY                                                                  
+                                  ,A130         ; PRIMARY KEY POSITIONING                                                           

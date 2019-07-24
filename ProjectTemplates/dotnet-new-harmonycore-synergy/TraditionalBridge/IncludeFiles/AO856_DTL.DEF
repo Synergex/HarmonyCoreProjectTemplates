@@ -1,0 +1,35 @@
+;AO856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       A.O. SMITH 856 DETAIL FILE                                                                                                  
+;       DATE : 30-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   290                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  AO856_DTL                                                                                                                   
+        CD_TRANS_ID               ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        CD_GROUP_ID               ,A15          ; GROUP ID                                   16 thru    30                          
+        CD_SEQ_1                  ,D5           ; INPUT SEQUENCE NUMBER 1                    31 thru    35                          
+        CD_SEQ_2                  ,D5           ; INPUT SEQUENCE NUMBER 2                    36 thru    40                          
+        CD_CUST_PART              ,A30          ; CUSTOMER PART                              41 thru    70                          
+        CD_PART_QUAL              ,A2           ; PART QUALIFIER                             71 thru    72                          
+        CD_SHIP_QTY               ,D8           ; SHIP QUANTITY                              73 thru    80                          
+        CD_UOFM                   ,A2           ; UNIT OF MEASURE                            81 thru    82                          
+        CD_YTD_CUM                ,D9           ; YEAR TO DATE CUM                           83 thru    91                          
+        CD_PO_NO                  ,A22          ; PURCHASE ORDER NUMBER                      92 thru   113                          
+        CD_REF1_QUAL              ,A2           ; PART REFERENCE #1 QUALIFIER               114 thru   115                          
+        CD_REF2_QUAL              ,A2           ; PART REFERENCE #2 QUALIFIER               116 thru   117                          
+        CD_REF3_QUAL              ,A2           ; PART REFERENCE #3 QUALIFIER               118 thru   119                          
+        CD_REF4_QUAL              ,A2           ; PART REFERENCE #4 QUALIFIER               120 thru   121                          
+        CD_REF_1                  ,A30          ; PART REFERENCE #1                         122 thru   151                          
+        CD_REF_2                  ,A30          ; PART REFERENCE #3                         152 thru   181                          
+        CD_REF_3                  ,A30          ; PART REFERENCE #3                         182 thru   211                          
+        CD_REF_4                  ,A30          ; PART REFERENCE #4                         212 thru   241                          
+        CD_PO_DATE                ,D8           ; PURCHASE ORDER DATE                       242 thru   249                          
+        CD_PO_LINE                ,A20          ; PURCHASE ORDER LINE                       250 thru   269                          
+        CD_HL_ID                  ,D6           ; HIERARCHICAL ID                           270 thru   275                          
+        CD_DEST_CODE              ,A15          ; DESTIANTION CODE FOR PART                 276 thru   290                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        AO856_DTL_KEY             ,A40          ; PRIMARY SORT KEY                                                                  
+                                  ,A250         ; PRIMARY KEY POSITIONING                                                           

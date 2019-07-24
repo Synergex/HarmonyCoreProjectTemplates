@@ -1,0 +1,18 @@
+	.INCLUDE 'CASHIPH_AC' DICTIONARY,RECORD='CASHIPH_AC'
+	.INCLUDE 'CASHIPH_HAC' DICTIONARY,RECORD='CASHIPH_HAC'
+	.INCLUDE 'CASHIPH_PAC' DICTIONARY,RECORD='CASHIPH_PAC'
+
+RECORD				; number of data fields and sizes
+				; used for unstringing header a/c data
+	HHAC_TOT_FIELDS	,D4	,20
+	HHAC_SIZE	,20A4	,"A1","D6","A2","A10","A2","A16","D9","D9",
+&				 "A1","D6","D10","A2","D15","A80","A3","A30",
+&				 "A12","D1","A10","D12"
+
+RECORD				; number of data fields and sizes
+				; used for unstringing part a/c data
+	HPAC_TOT_FIELDS	,D4	,20
+	HPAC_SIZE	,20A4	,"A1","D6","A2","A10","A2","A16","D9","D9",
+&				 "A1","D6","D10","A2","D15","A80","A3","A30",
+&				 "A12","D1","A10","D12"
+

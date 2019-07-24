@@ -1,0 +1,13 @@
+;RTSEG_BMG.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL BMG SEGMENT FILE                                                                                                     
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    85                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_BMG                                                                                                                   
+        BMG_SEG                   ,A3           ; RECORD TYPE - BMG                           1 thru     3                          
+        BMG_01                    ,A2           ; TRANSACTION SET PURPOSE                     4 thru     5                          
+        BMG_02                    ,A80          ; DESCRIPTION                                 6 thru    85                          
+                                                                                                                                    
+                                                                                                                                    

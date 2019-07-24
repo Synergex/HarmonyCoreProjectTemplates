@@ -1,0 +1,33 @@
+;FO820_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD REMITTANCE ADVICE DETAIL                                                                                               
+;       DATE : 17-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   299                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO820_DTL                                                                                                                   
+        FRD_UCCS_CODE             ,A15          ; SUPPLIER UCCS CODE                          1 thru    15                          
+        FRD_CHECK_NO              ,A9           ; CHECK NUMBER                               16 thru    24                          
+        FRD_CHECK_DATE            ,D8           ; CHECK DATE                                 25 thru    32                          
+        FRD_TRANS_REF             ,A15          ; TRANSACTION REFERENCE NUMBER               33 thru    47                          
+        FRD_DISB_AMT              ,D15          ; DISBURSAL AMOUNT                           48 thru    62                          
+        FRD_DISC_AMT              ,D15          ; TERMS DISCOUNT AMOUNT                      63 thru    77                          
+        FRD_SELLER_INV            ,A11          ; SELLER'S INVOICE NUMBER                    78 thru    88                          
+        FRD_PACK_LIST             ,A11          ; PACKING LIST NUMBER                        89 thru    99                          
+        FRD_STATE_NO              ,A11          ; STATEMENT NUMBER                          100 thru   110                          
+        FRD_INV_DATE              ,D8           ; INVOICE DATE                              111 thru   118                          
+        FRD_RECV_DATE             ,D8           ; RECEIVED DATE                             119 thru   126                          
+        FRD_STATE_DATE            ,D8           ; STATEMENT DATE                            127 thru   134                          
+        FRD_PLANT_NO              ,A20          ; PLANT NUMBER                              135 thru   154                          
+        FRD_IN_FREIGHT            ,A30          ; INBOUND FREIGHT                           155 thru   184                          
+        FRD_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             185 thru   189                          
+        FRD_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            190 thru   193                          
+        FRD_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            194 thru   207                          
+        FRD_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             208 thru   221                          
+        FRD_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             222 thru   235                          
+        FRD_ICS_HDR               ,A64          ; INTERCHANGE CONTROL HEADER                236 thru   299                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO820_DTL_KEY             ,A47          ; PRIMARY SORT KEY                                                                  
+                                  ,A252         ; PRIMARY KEY POSITIONING                                                           

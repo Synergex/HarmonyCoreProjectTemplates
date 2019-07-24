@@ -1,0 +1,500 @@
+RECORD ORACLE_INVOICE_COMMON_KEY,X
+	OI_COMMON_TP_CD			,A25	;Trading Partner Code
+	OI_COMMON_DELIVERY_NAME		,A22	;Key 1 (Primary key)
+	OI_COMMON_SALES_ORDER_NBR	,A22	;Key 2
+	OI_COMMON_SUPPLIER_ITEM_NBR	,A22	;Key 3
+	OI_COMMON_REC_NBR		,A4	;Record Number
+	OI_COMMON_REC_LAYOUT_CD		,A2	;Record Layout Code
+	OI_COMMON_REC_QUALIFIER		,A3	;Record Layout Qualifier
+
+
+RECORD ORACLE_INVOICE_CT_CTL,X
+					,A100	;Common key
+	OI_CT_CTL_COMMUNICATION_METHOD	,A2	;Communication Method
+	OI_CT_CTL_TEST_INDICATOR	,A1	;Test Indicator
+	OI_CT_CTL_TRX_TYPE		,A6	;Transaction Type
+	OI_CT_CTL_DOCUMENT_TYPE		,A5	;Document Type
+						;  Maps to EIH_INV_TYPE
+	OI_CT_CTL_DOCUMENT_PURPOSE_CD	,A2	;Document Purpose Code
+	OI_CT_CTL_DOCUMENT_CD		,A35	;Document Code
+	OI_CT_CTL_TP_TRANSLATOR_CD	,A35	;TP Translator Code
+						;  Maps to EIH_TP_DESIG
+	OI_CT_CTL_TP_LOCATION_CD	,A35	;TP Location Code
+	OI_CT_CTL_TP_DESCR		,A71	;TP Description
+	OI_CT_CTL_TP_REF_1		,A80	;TP Reference 1
+						;  Maps to EIH_TP_CODE
+	OI_CT_CTL_TP_REF_2		,A80	;TP Reference 2
+						;  Maps to EIH_DEST
+	OI_CT_CTL_TRX_DATE_TIME		,A15	;Transaction Date/Time
+	OI_CT_CTL_TRX_RUN_ID		,D15	;Transaction Run ID
+
+
+RECORD ORACLE_INVOICE_CM_BT1,X
+					,A100	;Common key
+	OI_CM_BT1_BILL_TO_CUST_LOC	,A40	;Bill To Customer Location
+	OI_CM_BT1_BILL_TO_CUST_NBR	,A30	;Bill To Customer Number
+	OI_CM_BT1_BILL_TO_CUST_SIC_CD	,A30	;Bill To Customer SIC Code
+	OI_CM_BT1_BILL_TO_CUST_SLS_CHN	,A30	;Bill To Customer Sales Channel
+	OI_CM_BT1_BILL_TO_CONT_LNAME	,A50	;Bill To Contact Last Name
+						;Maps to EIH_CONTACT
+	OI_CM_BT1_BILL_TO_CONT_FNAME	,A40	;Bill To Contact First Name
+						;Maps to EIH_CONTACT
+	OI_CM_BT1_BILL_TO_CONT_TITLE	,A50	;Bill To Contact Job Title
+						;Maps to EIH_DEPT_NO
+
+
+RECORD ORACLE_INVOICE_RF_BT1,X
+					,A100	;Common key
+	OI_RF_BT1_BILL_TO_TP_REF_1	,A80	;Bill To Tp Reference 1
+						;Maps to EIH_TP_CODE
+	OI_RF_BT1_BILL_TO_TP_REF_2	,A80	;Bill To Tp Reference 2
+						;Maps to EIH_BILL_TO
+
+
+RECORD ORACLE_INVOICE_CM_ST1,X
+					,A100	;Common key
+	OI_CM_ST1_SHIP_TO_LOCATION	,A40	;Ship To Location
+	OI_CM_ST1_SHIP_TO_CUST_NBR	,A30	;Ship To Customer Number
+	OI_CM_ST1_SHIP_TO_CUST_SIC_CD	,A30	;Ship To Customer SIC Code
+	OI_CM_ST1_SHIP_TO_CUST_SLS_CHN	,A30	;Ship To Customer Sales Channel
+	OI_CM_ST1_SHIP_TO_CONT_LNAME	,A50	;Ship To Contact Last Name
+						;Maps to EIH_CONTACT
+	OI_CM_ST1_SHIP_TO_CONT_FNAME	,A40	;Ship To Contact First Name
+						;Maps to EIH_CONTACT
+	OI_CM_ST1_SHIP_TO_CONT_TITLE	,A50	;Ship To Contact Job Title
+						;Maps to EIH_DEPT_NO
+
+
+RECORD ORACLE_INVOICE_RF_ST1,X
+					,A100	;Common key
+	OI_RF_ST1_SHIP_TO_TP_REF_1	,A80	;Ship To Tp Reference 1
+						;Maps to EIH_TP_CODE
+	OI_RF_ST1_SHIP_TO_TP_REF_2	,A80	;Ship To Tp Reference 2
+						;Maps to EIH_SHIP_TO
+
+
+RECORD ORACLE_INVOICE_CM_SO1,X
+					,A100	;Common key
+	OI_CM_SO1_SOLD_TO_LOCATION	,A40	;Sold To Location
+	OI_CM_SO1_SOLD_TO_CUST_NBR	,A30	;Sold To Customer Number
+	OI_CM_SO1_SOLD_TO_CUST_SIC_CD	,A30	;Sold To Customer SIC Code
+	OI_CM_SO1_SOLD_TO_CUST_SLS_CHN,	A30	;Sold To Customer Sales Channel
+	OI_CM_SO1_SOLD_TO_CONT_LNAME	,A50	;Sold To Contact Last Name
+						;Maps to EIH_CONTACT
+	OI_CM_SO1_SOLD_TO_CONT_FNAME	,A40	;Sold To Contact First Name
+						;Maps to EIH_CONTACT
+	OI_CM_SO1_SOLD_TO_CONT_TITLE	,A50	;Sold To Contact Job Title
+						;Maps to EIH_DEPT_NO
+
+
+RECORD ORACLE_INVOICE_RF_SO1,X
+					,A100	;Common key
+	OI_RF_SO1_SOLD_TO_TP_REF_1	,A80	;Sold To Tp Reference 1
+						;Maps to EIH_TP_CODE
+	OI_RF_SO1_SOLD_TO_TP_REF_2	,A80	;Sold To Tp Reference 2
+						;Maps to EIH_SOLD_TO
+
+
+RECORD ORACLE_INVOICE_RF_RE1,X
+					,A100	;Common key
+	OI_RF_RE1_REMIT_TO_TP_REF_1	,A80	;Remit To Tp Reference 1
+						;Maps to EIH_TP_CODE
+	OI_RF_RE1_REMIT_TO_TP_REF_2	,A80	;Remit To Tp Reference 2
+						;Maps to EIH_REMIT_TO
+
+
+RECORD ORACLE_INVOICE_SF_SF1,X
+					,A100	;Common key
+	OI_SF_SF1_SHIP_FROM_CD_INT	,A3	;Ship From Code (Internal)
+	OI_SF_SF1_SHIP_FROM_CD_EXT1	,A80	;Ship From Code (Ext1)
+						;Maps to EIH_COMP_CODE
+; should be ??					;Maps to EIH_SHIP_FROM
+
+
+RECORD ORACLE_INVOICE_IV_IV1,X
+					,A100	;Common key
+	OI_IV_IV1_INV_NBR		,A20	;Invoice Number
+						;  Maps to EIH_INV_NO,
+						;	   EIH_SHIPPER, and
+						;	   EIH_VOL_NO
+	OI_IV_IV1_CREDITED_INV_NBR	,A20	;Credited Invoice Number
+	OI_IV_IV1_REF_INV_NBR		,A20	;Reference Invoice Number
+	OI_IV_IV1_PARENT_INV_NBR	,A20	;Parent Invoice Number
+	OI_IV_IV1_SHPMNT_DATE		,D15	;Shipment Date
+						;  Maps to EIH_SHIP_DATE
+	OI_IV_IV1_PO_NBR		,A50	;Purchase Order Number
+						;  Maps to EIH_PO_NO and
+						;	   EID_PONUM
+	OI_IV_IV1_CREATION_DATE		,D15	;Creation Date
+	OI_IV_IV1_PO_REV_NBR		,A50	;Purchase Order Revision Number
+	OI_IV_IV1_COMMIT_START_DATE	,D15	;Commitment Start Date
+	OI_IV_IV1_PO_DATE		,D15	;Purchase Order Date
+						;  Maps to EIH_PO_DATE
+	OI_IV_IV1_COMMIT_END_DATE	,D15	;Commitment End Date
+	OI_IV_IV1_TRX_DATE		,D15	;Transaction Date
+						;  Maps to EIH_INV_DATE,
+						;	   EIH_TRANS_DATE, and
+						;	   EIH_TRANS_TIME
+	OI_IV_IV1_LAST_UPDATE_DATE	,D15	;Last Update Date
+	OI_IV_IV1_DUE_DATE		,D15	;Due Date
+						;  Maps to EIH_NET_DAYS
+	OI_IV_IV1_TOTAL_AMT_DUE		,A22	;Total Amount Due (Numeric)
+	OI_IV_IV1_AMT_TAX_DUE		,A22	;Amount Tax Due (Numeric)
+	OI_IV_IV1_AMT_FREIGHT_DUE	,A22	;Amount Freight Due (Numeric)
+	OI_IV_IV1_AMT_LINE_ITEMS_DUE	,A22	;Amount Line Items Due (Numeric)
+	OI_IV_IV1_INV_NAME_INT		,A20	;Invoice Name (Internal)
+	OI_IV_IV1_INV_NAME_EXT1		,A10	;Invoice Name (Ext 1)
+
+RECORD ORACLE_INVOICE_11D_IV_IV1,X
+					,A100	;Common key
+	OID_IV_IV1_INV_NBR		,A20	;Invoice Number
+						;  Maps to EIH_INV_NO,
+						;	   EIH_SHIPPER, and
+						;	   EIH_VOL_NO
+	OID_IV_IV1_CREDITED_INV_NBR	,A20	;Credited Invoice Number
+	OID_IV_IV1_REF_INV_NBR		,A20	;Reference Invoice Number
+	OID_IV_IV1_PARENT_INV_NBR	,A20	;Parent Invoice Number
+	OID_IV_IV1_SHPMNT_DATE		,D15	;Shipment Date
+						;  Maps to EIH_SHIP_DATE
+	OID_IV_IV1_PO_NBR		,A50	;Purchase Order Number
+						;  Maps to EIH_PO_NO and
+						;	   EID_PONUM
+	OID_IV_IV1_CREATION_DATE	,D15	;Creation Date
+	OID_IV_IV1_PO_REV_NBR		,A50	;Purchase Order Revision Number
+	OID_IV_IV1_COMMIT_START_DATE	,D15	;Commitment Start Date
+	OID_IV_IV1_PO_DATE		,D15	;Purchase Order Date
+						;  Maps to EIH_PO_DATE
+	OID_IV_IV1_COMMIT_END_DATE	,D15	;Commitment End Date
+	OID_IV_IV1_TRX_DATE		,D15	;Transaction Date
+						;  Maps to EIH_INV_DATE,
+						;	   EIH_TRANS_DATE, and
+						;	   EIH_TRANS_TIME
+	OID_IV_IV1_LAST_UPDATE_DATE	,D15	;Last Update Date
+	OID_IV_IV1_DUE_DATE		,D15	;Due Date
+						;  Maps to EIH_NET_DAYS
+	OID_IV_IV1_TOTAL_AMT_DUE	,A22	;Total Amount Due (Numeric)
+	OID_IV_IV1_TOTAL_AMT_REMAIN	,A22	;Total Amount Remaining (Numeric)
+	OID_IV_IV1_AMT_TAX_DUE		,A22	;Amount Tax Due (Numeric)
+	OID_IV_IV1_AMT_FREIGHT_DUE	,A22	;Amount Freight Due (Numeric)
+	OID_IV_IV1_AMT_LINE_ITEMS_DUE	,A22	;Amount Line Items Due (Numeric)
+	OID_IV_IV1_INV_NAME_INT		,A20	;Invoice Name (Internal)
+	OID_IV_IV1_INV_NAME_EXT1	,A10	;Invoice Name (Ext 1)
+	
+RECORD ORACLE_INVOICE_IV_IV4,X
+					,A100	;Common key
+	OI_IV_IV4_SHPMNT_WAYBILL_NBR	,A30	;Shipment Waybill Number
+						;  Maps to EIH_CARRIER_REF
+	OI_IV_IV4_SHIP_VIA_INT		,A30	;Ship Via (Internal)
+	OI_IV_IV4_SHIP_VIA_EXT1		,A30	;Ship Via (Ext1)
+						;  Maps to EIH_SCAC
+	OI_IV_IV4_SHIP_VIA_EXT2		,A30	;Ship Via (Ext2)
+						;  Maps to EIH_TRANS_MODE
+	OI_IV_IV4_SHIP_VIA_EXT3		,A30	;Ship Via (Ext3)
+	OI_IV_IV4_SHIP_VIA_EXT4		,A30	;Ship Via (Ext4)
+	OI_IV_IV4_SHIP_VIA_EXT5		,A30	;Ship Via (Ext5)
+	OI_IV_IV4_SHPMNT_FOB_INT	,A30	;Shipment FOB (Internal)
+	OI_IV_IV4_SHPMNT_FOB_PT_EXT1	,A30	;Shipment FOB Point (Ext1)
+						;  Maps to EIH_RESPONSE
+	OI_IV_IV4_SHPMNT_FOB_PT_EXT2	,A30	;Shipment FOB Point (Ext2)
+						;  Maps to EIH_TRADE_TERMS
+	OI_IV_IV4_SHPMNT_FOB_PT_EXT3	,A30	;Shipment FOB Point (Ext3)
+						;  Maps to EIH_TITLE_PASS
+	OI_IV_IV4_SHPMNT_FOB_PT_EXT4	,A30	;Shipment FOB Point (Ext4)
+						;  Maps to EIH_FOB_DESCR
+	OI_IV_IV4_SHPMNT_FOB_PT_EXT5	,A30	;Shipment FOB Point (Ext5)
+
+
+RECORD ORACLE_INVOICE_IV_IV5,X
+					,A100	;Common key
+	OI_IV_IV5_CURR_CD		,A15	;Currency Code
+	OI_IV_IV5_CURR_CD_EXT1	,A15	;Currency Code(Ext1)
+						;  Maps to EIH_CURRENCY
+	OI_IV_IV5_CURR_EXCHANGE_RATE	,A22	;Currency Exchange Rate (Numeric)
+	OI_IV_IV5_BASE_CURR_CD		,A15	;Base Currency Code
+	OI_IV_IV5_BASE_CURR_CD_EXT1	,A15	;Base Currency code(Ext1)
+
+
+RECORD ORACLE_INVOICE_IV_IV6,X
+					,A100	;Common key
+	OI_IV_IV6_PYMNT_TERM_NAME_INT	,A40	;Payment Term Name (Internal)
+						;  Maps to EIH_METH_PAY,
+						;	   EIH_TERM_TYPE, and
+						;	   EIH_TERM_BASIS
+	OI_IV_IV6_TERM_DUE_PERCENT	,A10	;Term Due Percent
+	OI_IV_IV6_TERM_DUE_DATE		,A10	;Term Due Date
+	OI_IV_IV6_TERM_DUE_DAYS		,A10	;Term Due Days
+	OI_IV_IV6_TERM_DUE_DAY_OF_MO	,A10	;Term Due Day of Month
+	OI_IV_IV6_TERM_DUE_CUTOFF_DAY	,A10	;Term Due Cutoff Day
+	OI_IV_IV6_TERM_DUE_MOS_FORWARD	,A10	;Term Due Months Forward
+	OI_IV_IV6_DISC_1_PERCENT	,A10	;Discount 1 Percent (Numeric)
+						;  Maps to EIH_DISC_PERCNT
+	OI_IV_IV6_DISC_1_DAYS		,A10	;Discount 1 Days
+						;  Maps to EIH_DISC_DAYS
+	OI_IV_IV6_DISC_1_DATE		,A10	;Discount 1 Date
+	OI_IV_IV6_DISC_1_DAY_OF_MO	,A10	;Discount 1 Day of Month
+	OI_IV_IV6_DISC_1_MOS_FORWARD	,A10	;Discount 1 Months Forward
+	OI_IV_IV6_DISC_2_PERCENT	,A10	;Discount 2 Percent
+	OI_IV_IV6_DISC_2_DAYS		,A10	;Discount 2 Days
+	OI_IV_IV6_DISC_2_DATE		,A10	;Discount 2 Date
+	OI_IV_IV6_DISC_2_DAY_OF_MO	,A10	;Discount 2 Day of Month
+	OI_IV_IV6_DISC_2_MOS_FORWARD	,A10	;Discount 2 Months Forward
+	OI_IV_IV6_DISC_3_PERCENT	,A10	;Discount 3 Percent
+	OI_IV_IV6_DISC_3_DAYS		,A10	;Discount 3 Days
+	OI_IV_IV6_DISC_3_DATE		,A10	;Discount 3 Date
+	OI_IV_IV6_DISC_3_DAY_OF_MO	,A10	;Discount 3 Day of Month
+	OI_IV_IV6_DISC_3_MOS_FORWARD	,A10	;Discount 3 Months Forward
+	OI_IV_IV6_PYMNT_TERM_NAME_EXT1	,A30	;Payment Term Name (Ext 1)
+
+RECORD ORACLE_INVOICE_A2_IH3,X
+					,A100	;Common Key
+	OI_A2_IH3_TRN_HDR_FLEX_10	,A80	;Transaction Header FLEX 10
+	OI_A2_IH3_TRN_HDR_FLEX_11	,A80	;Transaction Header FLEX 11
+	OI_A2_IH3_TRN_HDR_FLEX_12	,A80	;Transaction Header FLEX 12
+	OI_A2_IH3_TRN_HDR_FLEX_13	,A80	;Transaction Header FLEX 13
+	OI_A2_IH3_TRN_HDR_FLEX_14	,A80	;Transaction Header FLEX 14
+
+RECORD ORACLE_INVOICE_A2_IH6,X
+					,A100	;Common Key
+	OI_A2_IH6_INV_HDR_INTR_FLEX_5	,A80	;Invoice Header Interface FLEX 5
+	OI_A2_IH6_INV_HDR_INTR_FLEX_6	,A80	;Invoice Header Interface FLEX 6
+	OI_A2_IH6_INV_HDR_INTR_FLEX_7	,A80	;Invoice Header Interface FLEX 7
+	OI_A2_IH6_INV_HDR_INTR_FLEX_8	,A80	;Invoice Header Interface FLEX 8
+						;Maps to BOL #
+	OI_A2_IH6_INV_HDR_INTR_FLEX_9	,A80	;Invoice Header Interface FLEX 9
+	
+RECORD ORACLE_INVOICE_A2_IH7,X
+					,A100	;Common key
+	OI_A2_IH7_INV_HDR_INTR_FLEX_10	,A80	;Invoice Header Interface FLEX 10
+	OI_A2_IH7_INV_HDR_INTR_FLEX_11	,A80	;Invoice Header Interface FLEX 11
+	OI_A2_IH7_INV_HDR_INTR_FLEX_12	,A80	;Invoice Header Interface FLEX 12
+	OI_A2_IH7_INV_HDR_INTR_FLEX_13	,A80	;Invoice Header Interface FLEX 13
+	OI_A2_IH7_INV_HDR_INTR_FLEX_14	,A80	;Invoice Header Interface FLEX 14
+						;Maps to EIH_USER_REF2
+
+
+RECORD ORACLE_INVOICE_IV_IV8,X
+					,A100	;Common key
+	OI_IV_IV8_EQUIPMENT_PREFIX	,A10	;Equipment Prefix
+						;  Maps to EIH_EQUIP_PREFIX
+	OI_IV_IV8_EQUIPMENT_NBR		,A30	;Equipment Number
+						;  Maps to EIH_EQUIP_NO
+	OI_IV_IV8_PACKING_SLIP_NBR	,A30	;Packing Slip Number
+	OI_IV_IV8_ROUTING_INSTRUCTIONS	,A150	;Routing Instructions
+						;  Maps to EIH_ROUTING
+
+
+RECORD ORACLE_INVOICE_A1_IH5,X
+					,A100	;Common key
+	OI_A1_IH5_INV_HDR_INTR_FLEXTXT	,A30	;Inv Hdr Interface Flex Context
+	OI_A1_IH5_INV_HDR_INTR_FLEX_1	,A80	;Inv Header Interface FLEX 1
+	OI_A1_IH5_INV_HDR_INTR_FLEX_2	,A80	;Inv Header Interface FLEX 2
+						; Oracle Sales Order Type 
+						; Custom Dana CRF 24137
+
+RECORD ORACLE_INVOICE_A2_IH8,X
+					,A100	;Common key
+	OI_A2_IH8_INV_HDR_INTR_FLEX_15	,A80	;Invoice Header Interface FLEX 15
+						;Maps to EIH_USER_REF1
+
+
+RECORD ORACLE_INVOICE_AH_AH1,X
+					,A100	;Common key
+	OI_AH_AH1_HDR_AC_INDICATOR	,A1	;Header Allowance/Charge Indicator
+						;  Maps to EIH_A_OR_C
+	OI_AH_AH1_HDR_AC_AMT		,A22	;Header Allowance/Charge Amount
+						;(Numeric)
+						;  Maps to EIH_AC_AMT
+	OI_AH_AH1_HDR_SPCL_SRV_CD_INT	,A10	;Header Special Services Code (Internal)
+	OI_AH_AH1_HDR_SPCL_SRV_CD_EXT1	,A10	;Header Special Services Code(Ext1)
+						;  Maps to EIH_AC_SPC_CRG
+	OI_AH_AH1_HDR_SPCL_SRV_CD_EXT2	,A10	;Header Special Services Code(Ext2)
+	OI_AH_AH1_HDR_SPCL_SRV_CD_EXT3	,A10	;Header Special Services Code(Ext3)
+	OI_AH_AH1_HDR_SPCL_SRV_CD_EXT4	,A10	;Header Special Services Code(Ext4)
+	OI_AH_AH1_HDR_SPCL_SRV_CD_EXT5	,A10	;Header Special Services Code(Ext5)
+	OI_AH_AH1_HDR_HANDLING_CD_INT	,A3	;Header Handling Code (Internal)
+	OI_AH_AH1_HDR_HANDLING_CD_EXT1	,A10	;Header Handling Code(External 1)
+						;  Maps to EIH_AC_METH_HDL
+	OI_AH_AH1_HDR_HANDLING_CD_EXT2	,A10	;Header Handling Code(Ext2)
+	OI_AH_AH1_HDR_HANDLING_CD_EXT3	,A10	;Header Handling Code(External 3)
+	OI_AH_AH1_HDR_HANDLING_CD_EXT4	,A10	;Header Handling Code(External 4)
+	OI_AH_AH1_HDR_HANDLING_CD_EXT5	,A10	;Header Handling Code(External 5)
+	OI_AH_AH1_HDR_SPCL_CHG_CD_INT	,A3	;Header Special Charges Code (Internal)
+	OI_AH_AH1_HDR_SPCL_CHG_CD_EXT1	,A10	;Header Special Charges Code(Ext1)
+						;  Maps to EIH_AC_SPEC_CRG
+	OI_AH_AH1_HDR_SPCL_CHG_CD_EXT2	,A10	;Header Special Charges Code(Ext2)
+	OI_AH_AH1_HDR_SPCL_CHG_CD_EXT3	,A10	;Header Special Charges Code(Ext3)
+	OI_AH_AH1_HDR_SPCL_CHG_CD_EXT4	,A10	;Header Special Charges Code(Ext4)
+	OI_AH_AH1_HDR_SPCL_CHG_CD_EXT5	,A10	;Header Special Charges Code(Ext5)
+
+
+RECORD ORACLE_INVOICE_AH_AH2,X
+					,A100	;Common key
+	OI_AH_AH2_HDR_AC_DESCR		,A80	;Header Allowance Charge Description
+						;  Maps to EIH_AC_DESCR
+	OI_AH_AH2_HDR_AGENCY_QUAL_CD	,A3	;Header Agency Qualifier Code
+						;  Maps to EID_AC_ASSOC_Q
+	OI_AH_AH2_HDR_AC_RATE		,A22	;Header Allowance Charge Rate
+						;(Numeric)
+						;  Maps to EIH_AC_CHG_RATE
+	OI_AH_AH2_HDR_AC_PCT_QUAL	,A3	;Header Allowance Charge Pct Qualifier
+						;  Maps to EIH_AC_PCT_QL
+	OI_AH_AH2_HDR_AC_PCT		,A22	;Header Allowance Charge Pct
+						;(Numeric)
+						;  Maps to EIH_AC_PCT
+
+
+RECORD ORACLE_INVOICE_AH_IH3,X
+					,A100	;Common key
+	OI_AH_IH3_HDR_AC_FLEX_14	,A80	;Header Allowance Charge Flex 14
+						;  Maps to EIH_AC_FREE_QTY
+
+RECORD ORACLE_INVOICE_AH_IH4,X
+					,A100	;Common key
+	OI_AH_IH4_HDR_AC_FLEX_15	,A80	;Header Allowance Charge Flex 15
+						;Maps to EIH_AC_REF_NUMBER
+
+
+RECORD ORACLE_INVOICE_IT_IT1,X
+					,A100	;Common key
+	OI_IT_IT1_LINE_NBR		,A22	;Line Number (Numeric)
+	OI_IT_IT1_CREDITED_LINE_NBR	,A22	;Credited Line Number (Numeric)
+	OI_IT_IT1_SUPP_LINE_PART_NBR	,A50	;(Supplier) Line Part Number
+						;  Maps to EIH_OUR_PART 
+	OI_IT_IT1_CUST_ITEM_NBR		,A50	;Customer Item Number
+						;  Maps to EIH_CUST_PART 
+	OI_IT_IT1_ORDERED_QTY		,A22	;Ordered Quantity (Numeric)
+	OI_IT_IT1_INVOICED_QTY		,A22	;Invoiced Quantity (Numeric)
+						;  Maps to EID_INV_QTY and
+						;	   EID_SHIPPED_QTY
+	OI_IT_IT1_UOM_CD		,A3	;UOM Code
+	OI_IT_IT1_UOM_CD_EXT1		,A5	;UOM Code(Ext 1)
+						;  Maps to EID_UOFM and
+						;	   EID_SHIPPED_UOFM
+	OI_IT_IT1_UNIT_STANDARD_PRICE	,A22	;Unit Standard Price (Numeric)
+						;  Maps to EID_PRICE
+	OI_IT_IT1_UNIT_SELLING_PRICE	,A22	;Unit Selling Price (Numeric)
+						;  Maps to EID_RETAIL_PRICE
+	OI_IT_IT1_LINE_AMT		,A22	;Line Amount (Numeric)
+	OI_IT_IT1_CREDIT_MEMO_REASON	,A30	;Credit Memo Reason
+
+
+RECORD ORACLE_INVOICE_IT_IT2,X
+					,A100	;Common key
+	OI_IT_IT2_SALES_ORDER_NBR	,A50	;Sales Order Number
+	OI_IT_IT2_SALES_ORDER_REV_NBR	,A22	;Sales Order Revision Number
+						;(Numeric)
+	OI_IT_IT2_SALES_ORDER_LINE_NBR	,A30	;Sales Order Line Number
+						;  Custom mapping for Dana Heavy 
+						;  Axle when FR Aftermarket Dest
+						;  to EID_POLN
+	OI_IT_IT2_SALES_ORDER_DATE	,D15	;Sales Order Date
+	OI_IT_IT2_PART_DESCR		,A125	;Part Description
+						;  Maps to EID_OUR_PART_DESC
+	OI_IT_IT2_CUST_ITEM_DESCR	,A125	;Customer Item Description
+						;  Maps to EID_CUST_PART_DESC
+
+
+RECORD ORACLE_INVOICE_IT_IT4,X
+					,A100	;Common key
+	OI_IT_IT4_SHIP_ORDER_STAT_INT	,A22	;Ship Order Status (Internal)
+						;(Numeric)
+	OI_IT_IT4_SHIP_ORDER_STAT_EXT1	,A80	;Ship Order Status (Ext 1)
+						;  Maps to EIH_SO_STATUS
+	OI_IT_IT4_TRX_REF_KEY		,A30	;Transaction Reference Key
+						;  Maps to EID_REQ_ID
+
+RECORD ORACLE_INVOICE_A1_IL1,X
+
+					,A100	;Common key
+	OI_A1_IL1_LN_INTR_FLEXTXT	,A30	;Interface Line Flexfld Context
+	OI_A1_IL1_LN_INTR_FLEX_1	,A30	;Interface Line FLEX 1
+	OI_A1_IL1_LN_INTR_FLEX_2	,A30	;Interface Line FLEX 2
+
+RECORD ORACLE_INVOICE_A1_LN1,X
+
+					,A100	;Common key
+	OI_A1_LN1_LN_FLEXTXT		,A30	;Line Flexfield Context
+	OI_A1_LN1_LN_FLEX_1		,A80	;Line FLEX 1
+	OI_A1_LN1_LN_FLEX_2		,A80	;Line FLEX 2
+	OI_A1_LN1_LN_FLEX_3		,A80	;Line FLEX 3
+						;Maps to Seq Chg(DHA install id)
+	OI_A1_LN1_LN_FLEX_4		,A80	;Line FLEX 4
+
+
+RECORD ORACLE_INVOICE_A2_LN3,X
+					,A100	;Common key
+	OI_A2_LN3_LN_FLEX_11		,A80	;Line FLEX 11
+	OI_A2_LN3_LN_FLEX_12		,A80	;Line FLEX 12
+	OI_A2_LN3_LN_FLEX_13		,A80	;Line FLEX 13
+	OI_A2_LN3_LN_FLEX_14		,A80	;Line FLEX 14
+						;Maps to EID_REC_DATE
+
+
+RECORD ORACLE_INVOICE_A2_LN4,X
+					,A100	;Common key
+	OI_A2_LN4_LN_FLEX_15		,A80	;Line FLEX 15
+						;Maps to EID_TERMS_AMOUNT
+
+
+RECORD ORACLE_INVOICE_A2_LP4,X
+					,A100	;Common key
+	OI_A2_LP4_LN_PART_FLEX_15	,A80	;Line FLEX 15
+						;Maps to EID_BASIS_CODE
+
+
+RECORD ORACLE_INVOICE_AL_AD1,X
+					,A100	;Common key
+					,A5
+	OI_AL_AD1_LINE_NBR		,D18	;Line Number
+	OI_AL_AD1_DTL_AC_INDICATOR	,A1	;Detail Allowance/Charge Indicator
+						;  Maps to EID_A_OR_C
+	OI_AL_AD1_DTL_AC_AMT		,A22	;Detail Allowance/Charge Amount
+						;(Numeric)
+						;  Maps to EID_AC_AMOUNT
+	OI_AL_AD1_DTL_SPCL_SRV_CD_INT	,A10	;Detail Special Services Code (Internal)
+	OI_AL_AD1_DTL_SPCL_SRV_CD_EXT1	,A10	;Detail Special Services Code(Ext 1)
+						;  Maps to EID_SERVICE_CODE
+	OI_AL_AD1_DTL_SPCL_SRV_CD_EXT2	,A10	;Detail Special Services Code(Ext 2)
+	OI_AL_AD1_DTL_SPCL_SRV_CD_EXT3	,A10	;Detail Special Services Code(Ext 3)
+	OI_AL_AD1_DTL_SPCL_SRV_CD_EXT4	,A10	;Detail Special Services Code(Ext 4)
+	OI_AL_AD1_DTL_SPCL_SRV_CD_EXT5	,A10	;Detail Special Services Code(Ext 5)
+	OI_AL_AD1_DTL_HANDLING_CD_INT	,A3	;Detail Handling Code (Internal)
+	OI_AL_AD1_DTL_HANDLING_CD_EXT1	,A10	;Detail Handling Code(Ext 1)
+						;  Maps to EID_AC_CODE
+	OI_AL_AD1_DTL_HANDLING_CD_EXT2	,A10	;Detail Handling Code(Ext 2)
+	OI_AL_AD1_DTL_HANDLING_CD_EXT3	,A10	;Detail Handling Code(Ext 3)
+	OI_AL_AD1_DTL_HANDLING_CD_EXT4	,A10	;Detail Handling Code(Ext 4)
+	OI_AL_AD1_DTL_HANDLING_CD_EXT5	,A10	;Detail Handling Code(Ext 5)
+	OI_AL_AD1_DTL_SPCL_CHG_CD_INT	,A3	;Detail Special Charges Code (Internal)
+	OI_AL_AD1_DTL_SPCL_CHG_CD_EXT1	,A10	;Detail Special Charges Code(Ext 1)
+						;  Maps to EID_AC_SPEC_CRG
+	OI_AL_AD1_DTL_SPCL_CHG_CD_EXT2	,A10	;Detail Special Charges Code(Ext 2)
+	OI_AL_AD1_DTL_SPCL_CHG_CD_EXT3	,A10	;Detail Special Charges Code(Ext 3)
+	OI_AL_AD1_DTL_SPCL_CHG_CD_EXT4	,A10	;Detail Special Charges Code(Ext 4)
+	OI_AL_AD1_DTL_SPCL_CHG_CD_EXT5	,A10	;Detail Special Charges Code(Ext 5)
+
+
+RECORD ORACLE_INVOICE_AL_AD2,X
+					,A100	;Common key
+	OI_AL_AD2_DTL_AC_DESCR		,A80	;Detail Allowance Charge Description
+						;  Maps to EID_AC_DESCR
+	OI_AL_AD2_DTL_AGENCY_QUAL_CD	,A3	;Detail Agency Qualifier Code
+						;  Maps to EID_AC_ASSOC_Q
+	OI_AL_AD2_DTL_AC_RATE		,A22	;Detail Allowance Charge Rate
+						;(Numeric)
+						;  Maps to EID_CHARGE_RATE
+	OI_AL_AD2_DTL_AC_PCT_QUAL	,A3	;Detail Allowance Charge Pct Qualifier
+	OI_AL_AD2_DTL_AC_PCT		,A22	;Detail Allowance Charge Pct
+						;(Numeric)
+						;  Maps to EID_AC_PCT
+	OI_AL_AD2_DTL_AC_UOM		,A3	;Detail Allowance Charge Unit Of Measure
+						;  Maps to EID_AC_UOFM
+	OI_AL_AD2_DTL_AC_QTY		,A22	;Detail Allowance Charge Quantity
+						;(Numeric)
+						;  Maps to EID_AC_QTY
+
+
+RECORD ORACLE_INVOICE_AL_IL4,X
+					,A100	;Common key
+	OI_AL_IL4_DTL_AC_FLEX_15	,A80	;Detail Allowance Charge FLEX 15
+						;Maps to EID_AC_REF_NUMBER

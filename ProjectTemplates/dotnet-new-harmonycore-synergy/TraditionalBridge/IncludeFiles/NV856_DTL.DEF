@@ -1,0 +1,36 @@
+;NV856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NVG ASN DETAIL FILE                                                                                                         
+;       DATE : 24-JAN-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   416                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NV856_DTL                                                                                                                   
+        NVDA_SUPP_ID              ,A17          ; SUPPLIER ID                                 1 thru    17                          
+        NVDA_ASN_NO               ,A30          ; ASN NUMBER                                 18 thru    47                          
+        NVDA_PROD_QL              ,A2           ; PRODUCT QL                                 48 thru    49                          
+        NVDA_MSTSN                ,A30          ; MASTER SERIAL NUMBER                       50 thru    79                          
+        NVDA_TP_PART              ,A30          ; NVG PART NUMBER                            80 thru   109                          
+        NVDA_DEST                 ,A17          ; DESTINATION                               110 thru   126                          
+        NVDA_BOL_NO               ,A30          ; BILL OF LADING NUMBER                     127 thru   156                          
+        NVDA_PK_NO                ,A30          ; PACKING LIST NUMBER                       157 thru   186                          
+        NVDA_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                     187 thru   208                          
+        NVDA_EC_LVL               ,A30          ; ENGINEERING CHANGE LEVEL                  209 thru   238                          
+        NVDA_RC_QL                ,A2           ; RETURN CONTAINER QUALIFIER                239 thru   240                          
+        NVDA_RC_NO                ,A30          ; RETURN CONTAINER NUMBER                   241 thru   270                          
+        NVDA_DOCK_CODE            ,A30          ; DOCK CODE                                 271 thru   300                          
+        NVDA_LINE_FEED            ,A30          ; LINE FEED                                 301 thru   330                          
+        NVDA_QTY                  ,D10          ; QUANTITY                                  331 thru   340                          
+        NVDA_UOFM                 ,A2           ; UNIT OF MEASURE                           341 thru   342                          
+        NVDA_YTD_CUM              ,D9           ; YEAR TO DATE CUM                          343 thru   351                          
+        NVDA_PARENT_ID            ,A2           ; PARENT ID                                 352 thru   353                          
+        NVDA_INTRCHNGE            ,A15          ; INTERCHANGE ID                            354 thru   368                          
+        NVDA_GROUP                ,A15          ; GROUP ID                                  369 thru   383                          
+        NVDA_RC_FLAG              ,A1           ; RETURN CONTAINER FLAG                     384 thru   384                          
+        NVDA_PROD_QL_2            ,A2           ; PRODUCT QL                                385 thru   386                          
+        NVDA_OUR_PART             ,A30          ; OUR PART NUMBER                           387 thru   416                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NV856_DTL_KEY             ,A109         ; PRIMARY SORT KEY                                                                  
+                                  ,A307         ; PRIMARY KEY POSITIONING                                                           

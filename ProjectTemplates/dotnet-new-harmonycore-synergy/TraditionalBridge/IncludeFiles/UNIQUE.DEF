@@ -1,0 +1,143 @@
+; UNIQUE.DEF   - OPERATING SYSTEM UNIQUE DEFINITIONS
+;------------------------------------------------------------------------------
+.DEFINE CARAS_DATE_8	,1
+.DEFINE OS_ADDR_SIZE    ,4      ; Length of a memory address
+.DEFINE CARAS_V64       ,1
+RECORD
+	DATE_SIZE_VAR	,D8
+
+;********** VMS SPECIFIC **********
+.ifdef OS_VMS
+
+.INCLUDE '$JPIDEF' LIBRARY 'SYS$SHARE:DBLSTARLET'
+
+LITERAL
+	ROOT_DIR	,A*,	'CARAS$ROOT'
+	DAT_DIR		,A*,	'CARAS$ROOT:[DAT]'
+	EXE_DIR		,A*,	'CARAS$ROOT:[EXE]'
+	MISC_DIR	,A*,	'CARAS$ROOT:[MISC]'
+	ARCHIVE_DIR	,A*,	'CARAS$ROOT:[ARCHIVE]'
+	GLOBAL_DATA_DIR	,A*,	'CARAS$ROOT:[GLOBAL_DATA]'
+	FLEXSCAN_DIR	,A*,	'CARAS$ROOT:[FLEXSCAN]'
+	PAR_DIR		,A*,	'CARAS$ROOT:[FDL]'
+	BAM_DIR		,A*,	'CARAS$ROOT:[BAM]'
+	BAM_QUEUE	,A*,	'CARAS$ROOT:[BAM.QUEUE]'
+RECORD
+	CARASDATA_SYM	,A*,	'$CARASDATA'
+
+LITERAL	
+	COMPANY_LEN	,D2, 08		; VMS Company Code length
+	COPYCMD		,A*, 'COPY '	; VMS copy command
+	MOVECMD		,A*, 'RENAME '	; VMS rename command
+	
+
+	; Error Severity Levels.
+
+	WARNIN,	I1, 0		;   warning
+	SUCCSS,	I1, 1		;   success
+	ERR,	I1, 2		;   error
+	INFO,	I1, 3		;   informational
+	FATAL,	I1, 4		;   fatal
+
+
+	; Assign generic variables to VMS specific
+
+	OTHER		,I,	JPI$K_OTHER
+	NETWORK		,I,	JPI$K_NETWORK
+	BATCH		,I,	JPI$K_BATCH
+	INTERACTIVE	,I,	JPI$K_INTERACTIVE
+
+	; Assign the size of the date to process
+.endc
+
+
+;********** UNIX SPECIFIC **********
+.ifdef OS_UNIX
+
+; execute U_DELET instead of DBL DELET subroutine.
+.DEFINE DELET, UDELET
+
+EXTERNAL FUNCTION
+	SUCCESS		,I
+
+RECORD
+	CARASDATA_SYM	,A*,	'CARASDATA'
+
+LITERAL	
+	COMPANY_LEN	,D2, 03	; UNIX COMPANY CODE LENGTH
+	COPYCMD		,A3, 'cp '	; unix copy command
+	MOVECMD		,A3, 'mv '	; unix rename command
+
+	; Error Severity Levels.
+
+	WARNIN,	I1, 0		;   warning
+	SUCCSS,	I1, 1		;   success
+	ERR,	I1, 2		;   error
+	INFO,	I1, 3		;   informational
+	FATAL,	I1, 4		;   fatal
+
+	; modes, for compatability w/VMS.
+
+	OTHER		,I2, 1
+	NETWORK		,I2, 2
+	BATCH		,I2, 3
+	INTERACTIVE	,I2, 4
+
+	ROOT_DIR	,A*,	'$CARAS_ROOT'
+	DAT_DIR		,A*,	'$CARAS_ROOT/dat/'
+	EXE_DIR		,A*,	'$CARAS_ROOT/exe/'
+	MISC_DIR	,A*,	'$CARAS_ROOT/misc/'
+	ARCHIVE_DIR	,A*,	'$CARAS_ROOT/archive/'
+	GLOBAL_DATA_DIR	,A*,	'$CARAS_ROOT/global_data/'
+	FLEXSCAN_DIR	,A*,	'$CARAS_ROOT/flexscan/'
+	PAR_DIR		,A*,	'$CARAS_ROOT/par/'
+	BAM_DIR		,A*,	'$CARAS_ROOT/BAM/'
+	BAM_QUEUE	,A*,	'$CARAS_ROOT/BAM/queue'
+.endc
+
+;************ WINDOWS VERSION **********
+.ifdef OS_WINDOWSNT
+
+; execute U_DELET instead of DBL DELET subroutine.
+.DEFINE DELET, UDELET
+
+EXTERNAL FUNCTION
+	SUCCESS         ,I
+
+RECORD
+	CARASDATA_SYM   ,A*,    'CARASDATA'
+
+LITERAL 
+	COMPANY_LEN     ,D2, 03 
+	COPYCMD         ,A5, 'copy '      ; unix copy command
+	MOVECMD		,A5, 'move '	; windows move command
+
+	; Error Severity Levels.
+
+	WARNIN, I1, 0           ;   warning
+	SUCCSS, I1, 1           ;   success
+	ERR,    I1, 2           ;   error
+	INFO,   I1, 3           ;   informational
+	FATAL,  I1, 4           ;   fatal
+
+
+	; modes, for compatability w/VMS.
+
+	OTHER           ,I2, 1
+	NETWORK         ,I2, 2
+	BATCH           ,I2, 3
+	INTERACTIVE     ,I2, 4
+
+	; console device - used by UCONMESSAG to send messages to
+	;                  console. Used by bar code scanning.
+	ROOT_DIR        ,A*,    '%CARAS_ROOT%'
+	DAT_DIR         ,A*,    '%CARAS_ROOT%\dat\'
+	EXE_DIR         ,A*,    '%CARAS_ROOT%\exe\'
+	MISC_DIR        ,A*,    '%CARAS_ROOT%\misc\'
+	ARCHIVE_DIR     ,A*,    '%CARAS_ROOT%\archive\'
+	GLOBAL_DATA_DIR	,A*,    '%CARAS_ROOT%\global_data\'
+	FLEXSCAN_DIR	,A*,    '%CARAS_ROOT%\flexscan\'
+	PAR_DIR		,A*,	'%CARAS_ROOT%\par\'
+	BAM_DIR        ,A*,     '%CARAS_ROOT%\BAM\'
+	BAM_QUEUE        ,A*,   '%CARAS_ROOT%\BAM\queue'
+.endc

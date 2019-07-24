@@ -1,0 +1,78 @@
+;DS862_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       DIAMOND STAR 862 HEADER FILE                                                                                                
+;       DATE : 29-JUN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   269                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  DS862_HDR                                                                                                                   
+        DRH_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        DRH_RELNO                 ,A10          ; RELEASE NUMBER                             16 thru    25                          
+        DRH_RELDAT                ,D8           ; RELEASE DATE                               26 thru    33                          
+        DRH_LINE_SEQ              ,A6           ; LINE SEQUENCE NUMBER                       34 thru    39                          
+        DRH_PARTNO                ,A30          ; PART NUMBER                                40 thru    69                          
+        DRH_DEST_ID               ,A15          ; DESTINATION - SHIP TO                      70 thru    84                          
+        DRH_ISSUE_BY              ,A15          ; ISSUE BY                                   85 thru    99                          
+        DRH_RAN                   ,A7           ; RAN NUMBER                                100 thru   106                          
+        DRH_PURPOSE               ,A2           ; PURPOSE CODE                              107 thru   108                          
+        DRH_FTQ                   ,A2           ; FORECAST TYPE QUALIFIER                   109 thru   110                          
+        DRH_FROM_DATE             ,D8           ; HORIZON START DATE                        111 thru   118                          
+        DRH_TO_DATE               ,D8           ; HORIZON END DATE                          119 thru   126                          
+        DRH_FQQ                   ,A1           ; FORECAST QUANTITY QUALIFIER               127 thru   127                          
+        DRH_UOM                   ,A2           ; UNIT OF MEASURE                           128 thru   129                          
+        DRH_TRANS_METH            ,A2           ; TRANSPORTATION METHOD                     130 thru   131                          
+        DRH_ROUTE_ID              ,A35          ; ROUTE ID                                  132 thru   166                          
+        DRH_CARRIER               ,A17          ; CARRIER CODE                              167 thru   183                          
+        DRH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSNUM		    184 thru   188
+        DRH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQ NUM             189 thru   192
+        DRH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            193 thru   206
+        DRH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             207 thru   220
+        DRH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             221 thru   234
+	DRH_SUPP_NAME		  ,A35	        ; SUPPLIER NAME				    235 thru   269
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        DS862_HDR_KEY             ,A106         ; PRIMARY SORT KEY                                                                  
+                                  ,A77          ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF XX862_HDR_WORK
+
+RECORD  DS862_HDR_WORK
+	DRH_COMP_W		    ,A8
+	DRH_SEQN_W		    ,D5
+        DRH_SUPP_ID_W               ,A%SIZE(DRH_SUPP_ID)
+        DRH_RELNO_W                 ,A%SIZE(DRH_RELNO)
+        DRH_RELDAT_W                ,D%SIZE(DRH_RELDAT)
+        DRH_LINE_SEQ_W              ,A%SIZE(DRH_LINE_SEQ)
+        DRH_PARTNO_W                ,A%SIZE(DRH_PARTNO)
+        DRH_DEST_ID_W               ,A%SIZE(DRH_DEST_ID)
+        DRH_ISSUE_BY_W              ,A%SIZE(DRH_ISSUE_BY)
+	DRH_RAN_W		    ,A%SIZE(DRH_RAN)
+        DRH_PURPOSE_W               ,A%SIZE(DRH_PURPOSE)
+        DRH_FTQ_W                   ,A%SIZE(DRH_FTQ)
+        DRH_FROM_DATE_W             ,D%SIZE(DRH_FROM_DATE)
+        DRH_TO_DATE_W               ,D%SIZE(DRH_TO_DATE)
+        DRH_FQQ_W                   ,A%SIZE(DRH_FQQ)
+        DRH_UOM_W                   ,A%SIZE(DRH_UOM)
+        DRH_TRANS_METH_W            ,A%SIZE(DRH_TRANS_METH)
+        DRH_ROUTE_ID_W              ,A%SIZE(DRH_ROUTE_ID)
+	DRH_CARRIER_W		    ,A%SIZE(DRH_CARRIER)
+	DRH_PCNT_W		    ,D3.2
+        DRH_TRANSNUM_W              ,A%SIZE(DRH_TRANSNUM)
+        DRH_FILSEQNUM_W             ,D%SIZE(DRH_FILSEQNUM)
+        DRH_HCNTRLNUM_W             ,A%SIZE(DRH_HCNTRLNUM)
+        DRH_GCNTRLNUM_W             ,A%SIZE(DRH_GCNTRLNUM)
+        DRH_DCNTRLNUM_W             ,A%SIZE(DRH_DCNTRLNUM)
+	DRH_SUPP_NAME_W		    ,A%SIZE(DRH_SUPP_NAME)
+RECORD	,X
+				,A8
+				,D5
+	DS862U_HDR		,A%SIZE(DS862_HDR)
+.ENDC
+
+.IFDEF XX862_HDR_TOTALS
+RECORD DS862_HDR_TOTALS
+	
+	DRH_PCNT_T		,D3.2
+.ENDC
+

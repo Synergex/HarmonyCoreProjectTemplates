@@ -1,0 +1,51 @@
+;CAR856_MS3.DEF                                                                                                                     
+;                                                                                                                                   
+;       MISC:TD1,TD3,TD4,TD5,SDQ                                                                                                    
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   640                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_MS3                                                                                                                  
+        MR8563_SHIP_ID            ,A30          ; SHIPMENT ID NO                              1 thru    30                          
+        MR8563_PRC_DTM            ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        MR8563_HL_ID              ,A12          ; HIERARCHICAL STRUCT HL ID CODE             43 thru    54                          
+        MR8563_ADR_LOOP           ,D3           ; ADDRESS LOOP SEQUENCE NO                   55 thru    57                          
+        MR8563_CLD_LOOP           ,D3           ; CLD LOOP SEQUENCE NO                       58 thru    60                          
+        MR8563_SORT_CTL           ,A4           ; SORT CONTROL FOR SEGMENTS                  61 thru    64                          
+        MR8563_SEG_ID             ,A3           ; SEGMENT ID                                 65 thru    67                          
+        MR8563_SEQ_NO             ,D6           ; SEQUENCE OF REPEATED SEGMENT               68 thru    73                          
+        MR8563_PKG_CODE           ,A5           ; PACKAGING CODE                             74 thru    78                          
+        MR8563_LAD_QTY            ,D7           ; LADING QUANTITY                            79 thru    85                          
+        MR8563_CCODE_QL           ,A1           ; COMMONDITY CODE QUALIFIER                  86 thru    86                          
+        MR8563_CCODE              ,A16          ; COMMODITY CODE                             87 thru   102                          
+        MR8563_DESC               ,A80          ; DESCRIPTION                               103 thru   182                          
+        MR8563_WGT_QL             ,A2           ; WEIGHT QUALIFIER                          183 thru   184                          
+        MR8563_WEIGHT             ,D8           ; WEIGHT 6.2                                185 thru   192                          
+        MR8563_WGT_UOM            ,A2           ; WEIGHT UNIT OF MEASURE                    193 thru   194                          
+        MR8563_EQ_CODE            ,A2           ; TD3 EQUIPMENT CODE                        195 thru   196                          
+        MR8563_EQ_INITL           ,A4           ; TD3 EQUIPMENT INITIAL                     197 thru   200                          
+        MR8563_EQ_NO              ,A10          ; TD3 EQUIPEMENT NO                         201 thru   210                          
+        MR8563_OWNER_CD           ,A1           ; TD3 OWNERSHIP CODE                        211 thru   211                          
+        MR8563_SP_HNDL            ,A3           ; TD4 SPECIAL HANDLING CODE                 212 thru   214                          
+        MR8563_HAZ_QL             ,A1           ; TD4 HAZARDOUS MATL CODE QUALIF            215 thru   215                          
+        MR8563_HAZ_CLS            ,A4           ; TD4 HAZARDOUS MATL CLASS                  216 thru   219                          
+        MR8563_RTG_SEQ            ,A2           ; TD5 ROUTING SEQUENCE CODE                 220 thru   221                          
+        MR8563_ID_CD_QL           ,A2           ; TD5 ID CODE QUALIFIER                     222 thru   223                          
+        MR8563_ID_CODE            ,A17          ; TD5 ID CODE                               224 thru   240                          
+        MR8563_TRA_METH           ,A2           ; TD5 TRANSPORTATION METHOD CODE            241 thru   242                          
+        MR8563_SHIPSTAT           ,A2           ; TD5 SHIPMENT ORDER STATUS CODE            243 thru   244                          
+        MR8563_LOC_QL             ,A2           ; TD5 LOCATION QUALIFIER                    245 thru   246                          
+        MR8563_LOC_ID             ,A25          ; TD5 LOCATION IDENTIFICATION               247 thru   271                          
+        MR8563_TR_DIR             ,A2           ; TD5 TRANSIT DIRECTION CODE                272 thru   273                          
+        MR8563_TR_DIRQL           ,A2           ; TD5 TRANSIT TIME DIRECTION QL             274 thru   275                          
+        MR8563_TR_TIME            ,D6           ; TD5 TRANSIT TIME 4.2                      276 thru   281                          
+        MR8563_SDQ_UOM            ,A2           ; SDQ UNIT OF MEASURE FIELD                 282 thru   283                          
+        MR8563_SDQ_IDQL           ,A2           ; SDQ ID CODE QUALIFIER                     284 thru   285                          
+        MR8563_SDQ_IDCD           ,10A17        ; SDQ ID CODE                               286 thru   455                          
+        MR8563_SDQ_QTY            ,10D15        ; SDQ QUANTITY FIELDS 10.5                  456 thru   605                          
+        MR8563_FILLER             ,A35          ; FILLER                                    606 thru   640                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_MS3_KEY            ,A73          ; PRIMARY SORT KEY                                                                  
+                                  ,A567         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,38 @@
+;CA810_HAC.DEF                                                                                                                      
+;                                                                                                                                   
+;       ELECTRONIC INV HDR LEVEL A/C                                                                                                
+;       DATE : 22-MAY-12                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   317                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA810_HAC                                                                                                                   
+        CAAH_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        CAAH_SUPPLIER             ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CAAH_INV_NO               ,A30          ; INVOICE NUMBER                             18 thru    47                          
+        CAAH_DEST                 ,A15          ; DESTINATION CODE                           48 thru    62                          
+        CAAH_A_OR_C               ,A1           ; ALLOWANCE / CHARGE TYPE                    63 thru    63                          
+        CAAH_METH_HDL             ,A2           ; ALLOW/CHARGE METHOD HDL CODE               64 thru    65                          
+        CAAH_AC_SERVICE           ,A10          ; ALLOWANCE / CHARGE SS CODE                 66 thru    75                          
+        CAAH_AC_DESC              ,A30          ; ALLOWANCE / CHARGE DESC                    76 thru   105                          
+        CAAH_AC_QTY               ,D10          ; ALLOWANCE / CHARGE QTY                    106 thru   115                          
+        CAAH_AC_PRICE             ,D10          ; ALLOWANCE / CHARGE PRICE                  116 thru   125                          
+        CAAH_AC_UOFM              ,A2           ; ALLOWANCE / CHARGE UOFM                   126 thru   127                          
+        CAAH_AC_PCT_COD           ,A2           ; ALLOWANCE / CHARGE PCT CODE               128 thru   129                          
+        CAAH_AC_PCT               ,D5           ; ALLOWANCE / CHARGE PERCENT                130 thru   134                          
+        CAAH_AC_AMOUNT            ,D10          ; ALLOWANCE / CHARGE TOTAL                  135 thru   144                          
+        CAAH_AC_PCT_AMT           ,D10          ; ALLOWANCE / CHARGE % TOTAL                145 thru   154                          
+        CAAH_AC_AGENCY            ,A2           ; ALLOW/CHARGE AGENCY QUALIFIER             155 thru   156                          
+        CAAH_AC_REF_NUM           ,A16          ; ALLOW/CHG REFERENCE NUMBER                157 thru   172                          
+        CAAH_AC_FRE_QTY           ,D10          ; ALLOW/CHG FREE GOODS QTY                  173 thru   182                          
+        CAAH_AC_SPC_CRG           ,A3           ; ALLOW/CHG SPECIAL CHARGE CODE             183 thru   185                          
+        CAAH_INTRCHG_ID           ,A15          ; RECEIVE INTERCHANGE ID CODE               186 thru   200                          
+        CAAH_GROUP_ID             ,A15          ; GROUP RECEIVE ID                          201 thru   215                          
+        CAAH_POLN                 ,A20          ; PURCHASE ORDER LINE                       216 thru   235                          
+        CAAH_PONUM                ,A22          ; PURCHASE ORDER NUMBER                     236 thru   257                          
+        CAAH_LINE_SEQNO           ,A30          ; LINE SEQUENCE NUMBER                      258 thru   287                          
+        CAAH_RELNO                ,A30          ; RELEASE NUMBER                            288 thru   317                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+                                  ,A302         ; PRIMARY KEY POSITIONING                                                           
+        CA810_HAC_KEY             ,A15          ; PRIMARY SORT KEY                                                                  

@@ -1,0 +1,31 @@
+;CAAA_TED.DEF                                                                                                                       
+;                                                                                                                                   
+;       TED,NTE                                                                                                                     
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   704                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAAA_TED                                                                                                                    
+        AAT_HDR_SEQ               ,D6           ; HEADER SEQUENCE                             1 thru     6                          
+        AAT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE                             7 thru    12                          
+        AAT_TED_SEQ               ,D6           ; TED SEQUENCE                               13 thru    18                          
+        AAT_TED_ERROR             ,A3           ; APPLICATION ERROR CODE                     19 thru    21                          
+        AAT_TED_MSG               ,A60          ; FREE FORM MESSAGE                          22 thru    81                          
+        AAT_TED_SEG_ID            ,A3           ; SEGMENT ID CODE                            82 thru    84                          
+        AAT_TED_SEG_POS           ,D6           ; SEGMENT POSITION IN TRANS SET              85 thru    90                          
+        AAT_TED_ELM_POS           ,D2           ; ELEMENT POSITION IN TRANS SET              91 thru    92                          
+        AAT_TED_ELM_REF           ,D4           ; DATA ELEMENT REFERENCE NUMBER              93 thru    96                          
+        AAT_TED_BAD_DAT           ,A99          ; COPY OF BAD DATA ELEMENT                   97 thru   195                          
+        AAT_TED_NEW_DAT           ,A99          ; NEW DATA ELEMENT CONTENT                  196 thru   294                          
+        AAT_NTE_CODE              ,A3           ; NOTE REFERENCE CODE                       295 thru   297                          
+        AAT_NTE_DESC              ,A80          ; NOTE DESCRIPTION                          298 thru   377                          
+        AAT_INTERCHANGE           ,A15          ; INTERCHANGE ID                            378 thru   392                          
+        AAT_GROUP                 ,A15          ; GROUP ID                                  393 thru   407                          
+        AAT_FILLER1               ,A99          ; FILLER                                    408 thru   506                          
+        AAT_FILLER2               ,A99          ; FILLER                                    507 thru   605                          
+        AAT_FILLER3               ,A99          ; FILLER                                    606 thru   704                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAAA_TED_KEY              ,A18          ; PRIMARY SORT KEY                                                                  
+                                  ,A686         ; PRIMARY KEY POSITIONING                                                           

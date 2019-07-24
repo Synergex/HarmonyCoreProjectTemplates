@@ -1,0 +1,64 @@
+; HOASN_CON.DEF
+;
+;	Honda Maintainable ASN Container File
+;
+;-------------------------------------------------------------------------------
+;--- CARaS Modification Log ----------------------------------------------------
+;-------------------------------------------------------------------------------
+;
+;	Modified	Programmer	Description
+;	---------	----------	------------
+;	18-Sept-89	J. Rheingans	Original
+;
+;	12-Mar-90	Rich Mae	Added Alternate Buffer.
+;
+;	30-Nov-92	T. Bunker	Added kd order number.
+;	03-Dec-93	T. Bunker	Expand part number to 30.
+;					Expand record size from 115 to 128.
+;-------------------------------------------------------------------------------
+; File Organization: Indexed	| Record Size: 128
+;-------------------------------------------------------------------------------
+
+RECORD HOASN_CON
+	HOC_SHIP_ID	,D9	; Shipment (ASN/Shipper) Id Number
+	HOC_OUR_PART	,A30	; Our/Supplier Part Number
+	HOC_KD_ORDER	,A15	; KD Order Number
+	HOC_TARE_LEVEL	,D5	; Tare Level Identifier
+	HOC_CONT_CODE	,A5	; Container Code	
+	HOC_UNITS_PER	,D7	; Units Per Container
+
+	HOC_CONT_QTY	,D5	; Number of Containers	
+			,A52
+RECORD HOC_KEY0, X
+	K0_HOC_SHIP_ID		,D%SIZE(HOC_SHIP_ID)
+	K0_HOC_OUR_PART		,A%SIZE(HOC_OUR_PART)
+	K0_HOC_KD_ORDER		,A%SIZE(HOC_KD_ORDER)
+	K0_HOC_TARE_LEVEL	,D%SIZE(HOC_TARE_LEVEL)
+	K0_HOC_CONT_CODE	,A%SIZE(HOC_CONT_CODE)
+	K0_HOC_UNITS_PER	,D%SIZE(HOC_UNITS_PER)
+
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Definition -------
+;-------------------------------------------------------------------------------
+.IFDEF HOASN_CON_ALT
+RECORD A_HOASN_CON
+			,A%SIZE(HOASN_CON)
+RECORD, X
+	A_HOC_SHIP_ID		,D9	; Shipment (ASN/Shipper) Id Number
+	A_HOC_OUR_PART		,A30	; Our/Supplier Part Number
+	A_HOC_KD_ORDER		,A15	; KD Order Number
+	A_HOC_TARE_LEVEL	,D5	; Tare Level Identifier
+	A_HOC_CONT_CODE		,A5	; Container Code	
+	A_HOC_UNITS_PER		,D7	; Units Per Container
+	A_HOC_CONT_QTY		,D5	; Number of Containers	
+				,A52
+
+RECORD A_HOC_KEY0, X
+	A_K0_HOC_SHIP_ID	,D%SIZE(A_HOC_SHIP_ID)
+	A_K0_HOC_OUR_PART	,A%SIZE(A_HOC_OUR_PART)
+	A_K0_HOC_KD_ORDER	,A%SIZE(A_HOC_KD_ORDER)
+	A_K0_HOC_TARE_LEVEL	,D%SIZE(A_HOC_TARE_LEVEL)
+	A_K0_HOC_CONT_CODE	,A%SIZE(A_HOC_CONT_CODE)
+	A_K0_HOC_UNITS_PER	,D%SIZE(A_HOC_UNITS_PER)
+
+.ENDC

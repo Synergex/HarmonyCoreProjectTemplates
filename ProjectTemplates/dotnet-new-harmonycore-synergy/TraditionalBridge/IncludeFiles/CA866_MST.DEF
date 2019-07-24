@@ -1,0 +1,63 @@
+; CA866_MST.DEF
+;
+;	CARaS Sequential Parts Delivery Master File (866)
+;
+;	File Organization: Isam 		Record Size: 256
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	30-Oct-91	B. Schmelter	Creation
+;
+;	06-Jan-93	A. Sparks	Made VIN_NO part of Key_0
+;
+;	16-Nov-93	T. Bunker	Increase part number to 30.  Add
+;					123 bytes of filler.
+;-------------------------------------------------------------------------------
+;
+;
+RECORD CA866_MST
+	M866_TP		,A2	; Trading Partner
+	M866_DEST	,A5	; Ship To Destination Abbrv Code
+	M866_JOB_SEQ	,A7	; Job Sequence Number
+	M866_C_PART	,A30	; Customer Part Number
+	M866_VIN_NO	,A17	; Vehicle Indentification Number
+				;
+	M866_DEL_DATE	,D6	; Delivery Date
+	M866_REF_NO	,A9	; Reference Number
+	M866_PROC_DATE	,D6	; TP Process Date
+	M866_JOB_NO	,A3	; Job Number
+	M866_QTY	,D3	; Quantity
+	M866_DOCK_CODE	,A8	; Dock Name
+	M866_SH_FROM	,A5	; Ship From Abbrv Code
+	M866_SUPP	,A5	; Supplier Abbrv Code
+				;
+	M866_INV_NO	,A9	; Invoice number
+	M866_INV_QTY	,D3	; Invoice qty
+			,A138	; Filler
+
+;-------------------------------------------------------------------------------
+;	-------- Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD,X
+	;
+	; No Changes Allowed.
+	;
+	CA866_MST_KEY0		,A61
+
+RECORD CA866_MST_KEY1
+	; Duplicates allowed, changes allowed
+	K1_M866_TP	,A%SIZE(M866_TP)
+	K1_M866_VIN_NO	,A%SIZE(M866_VIN_NO)
+	K1_M866_C_PART	,A%SIZE(M866_C_PART)
+
+RECORD CA866_MST_KEY2
+	; Duplicates allowed, changes allowed
+	K2_M866_TP	,A%SIZE(M866_TP)
+	K2_M866_DEST	,D%SIZE(M866_DEST)
+	K2_M866_DEL_DATE,D%SIZE(M866_DEL_DATE)
+	K2_M866_JOB_SEQ	,A%SIZE(M866_JOB_SEQ)
+	K2_M866_C_PART	,A%SIZE(M866_C_PART)

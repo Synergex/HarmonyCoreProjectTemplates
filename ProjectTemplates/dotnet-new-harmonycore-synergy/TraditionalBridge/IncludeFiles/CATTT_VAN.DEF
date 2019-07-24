@@ -1,0 +1,25 @@
+; CATTT_VAN.DEF
+;
+;	This Record Contains a list of Networks, Trading Partners, and
+;	transaction sets to transmit/receive.
+;
+;	STRUCTURE = SEQUENTIAL
+;	RECORD LENGTH = 255
+;
+;	   DATE		PROGRAMMER	MODIFICATIONS
+;	---------  	----------      -------------
+;	11-May-93	Bill Schmelter	Creation
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+;
+RECORD CATTT_VAN
+	VAN_NETWORK	,A10	; Transmission via network.
+	VAN_TP_DESIG	,A2	; Trading Partner Designator
+	VAN_TRANS_SET	,A3	; Transmit/Receive transaction set
+				;
+	VAN_SUPP_ABBRV	,A5	; Supplier abbrv
+	VAN_ACTION	,A1	; S=Send,R=Receive,B=Both
+	VAN_ID_FILE	,A15	; GENID/TRNID File name
+			,A219	; Filler

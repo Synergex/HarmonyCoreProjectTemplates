@@ -1,0 +1,34 @@
+;CADESA_MSC.DEF                                                                                                                     
+;                                                                                                                                   
+;       DESADV MISC FILE                                                                                                            
+;       DATE : 16-JUL-13                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   407                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADESA_MSC                                                                                                                  
+        DESM_SEQ1                 ,D6           ; SEQUENCE 1                                  1 thru     6                          
+        DESM_SEQ2                 ,D6           ; SEQUENCE 2                                  7 thru    12                          
+        DESM_SEQ3                 ,D6           ; SEQUENCE 3                                 13 thru    18                          
+        DESM_SEQ4                 ,D6           ; SEQUENCE 4                                 19 thru    24                          
+        DESM_SEQ5                 ,D6           ; SEQUENCE 5                                 25 thru    30                          
+        DESM_SEQ6                 ,D6           ; SEUQENCE 6                                 31 thru    36                          
+        DESM_TELE_PROC            ,A5           ; GM COMMUNICATIONS CODE                     37 thru    41                          
+        DESM_INTRCHG_ID           ,A35          ; INTERCHANGE ID                             42 thru    76                          
+        DESM_GROUP_ID             ,A35          ; GROUP ID                                   77 thru   111                          
+        DESM_DESADV_NO            ,A30          ; DESPATCH ADVICE NUMBER                    112 thru   141                          
+        DESM_TARE_SEQ             ,D9           ; TARE SEQUENCE                             142 thru   150                          
+        DESM_CONT_SEQ             ,D9           ; CONTAINER SEQUENCE                        151 thru   159                          
+        DESM_CONT_QTY             ,D9           ; NUMBER OF CONTAINERS                      160 thru   168                          
+        DESM_UNITS_PER            ,D9           ; NUMBER OF PARTS PER CONTAINER             169 thru   177                          
+        DESM_UNITS_UOFM           ,A3           ; UNIT OF MEASURE/NO. OF UNITS              178 thru   180                          
+        DESM_NET_WT               ,D15          ; NET WEIGHT PER CONTAINER                  181 thru   195                          
+        DESM_GROSS_WT             ,D15          ; GROSS WEIGHT PER CONTAINER                196 thru   210                          
+        DESM_CONT_CODE            ,A17          ; CONTAINER CODE                            211 thru   227                          
+        DESM_OUR_PART             ,A30          ; OUR PART                                  228 thru   257                          
+        DESM_OUTER_CODE           ,A17          ; OUTER CONTAINER CODE                      258 thru   274                          
+        DESM_INNER_CODE           ,A17          ; INNER CONATINER CODE                      275 thru   291                          
+        DESM_LID_CODE             ,A17          ; LID CONTAINER CODE                        292 thru   308                          
+        DESM_PACKAGE_ID           ,A35          ; PACKAGE ID                                309 thru   343                          
+        DESM_FILLER               ,A64          ; FILLER                                    344 thru   407                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,95 @@
+;RT856_SHP.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ASN SHIPMENT LEVEL                                                                                                   
+;       DATE : 08-NOV-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   968                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT856_SHP                                                                                                                   
+        RTS_MATCH1                ,D6           ; SHIPMENT LEVEL MATCH FIELD                  1 thru     6                          
+        RTS_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                  7 thru     8                          
+        RTS_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            9 thru    23                          
+        RTS_SHIPPER               ,D9           ; SHIPPER NUMBER                             24 thru    32                          
+        RTS_ASN_DATE              ,D6           ; ASN DATE                                   33 thru    38                          
+        RTS_ASN_TIME              ,D4           ; ASN CREATION TIME                          39 thru    42                          
+        RTS_INV_DATE              ,D6           ; INVOICE DATE                               43 thru    48                          
+        RTS_ASN_PURPOSE           ,A2           ; ASN PURPOSE CODE                           49 thru    50                          
+        RTS_CURRENCY              ,A3           ; TYPE OF CURRENCY                           51 thru    53                          
+        RTS_SHIP_FROM             ,A15          ; SHIP FROM CODE                             54 thru    68                          
+        RTS_SHPFRM_QUAL           ,A2           ; SHIP FROM CODE QUALIFIER                   69 thru    70                          
+        RTS_SHPFRM_NAME           ,A25          ; SHIP FROM NAME                             71 thru    95                          
+        RTS_SHPFRM_ADD1           ,A25          ; SHIP FROM ADDRESS LINE 1                   96 thru   120                          
+        RTS_SHPFRM_ADD2           ,A25          ; SHIP FROM ADDRESS LINE 2                  121 thru   145                          
+        RTS_SHPFRM_CITY           ,A15          ; SHIP FROM CITY                            146 thru   160                          
+        RTS_SHPFRM_ST             ,A2           ; SHIP FROM STATE                           161 thru   162                          
+        RTS_SHPFRM_ZIP            ,A10          ; SHIP FROM ZIP CODE                        163 thru   172                          
+        RTS_SHPFRM_ABBR           ,A5           ; SHIP FROM ABBRV                           173 thru   177                          
+        RTS_SHIP_TO               ,A15          ; SHIP TO CODE                              178 thru   192                          
+        RTS_SHPTO_QUAL            ,A2           ; SHIP TO CODE QUALIFIER                    193 thru   194                          
+        RTS_SHPTO_NAME            ,A25          ; SHIP TO NAME                              195 thru   219                          
+        RTS_SHPTO_ADD1            ,A25          ; SHIP TO ADDRESS LINE 1                    220 thru   244                          
+        RTS_SHPTO_ADD2            ,A25          ; SHIP TO ADDRESS LINE 2                    245 thru   269                          
+        RTS_SHPTO_CITY            ,A15          ; SHIP TO CITY                              270 thru   284                          
+        RTS_SHPTO_ST              ,A2           ; SHIP TO STATE                             285 thru   286                          
+        RTS_SHPTO_ZIP             ,A10          ; SHIP TO ZIP CODE                          287 thru   296                          
+        RTS_SHPTO_ABBRV           ,A5           ; SHIP TO ABBRVIATION                       297 thru   301                          
+        RTS_SHIP_DATE             ,D6           ; SHIP DATE                                 302 thru   307                          
+        RTS_CONT1_TYPE            ,A5           ; CONTAINER 1 TYPE                          308 thru   312                          
+        RTS_CONT1_QTY             ,D10          ; CONTAINER 1 QUANTITY                      313 thru   322                          
+        RTS_CONT2_TYPE            ,A5           ; CONTAINER 2 TYPE                          323 thru   327                          
+        RTS_CONT2_QTY             ,D10          ; CONTAINER 2 QUANTITY                      328 thru   337                          
+        RTS_CONT3_TYPE            ,A5           ; CONTAINER 3 TYPE                          338 thru   342                          
+        RTS_CONT3_QTY             ,D10          ; CONTAINER 3 QUANTITY                      343 thru   352                          
+        RTS_SHIP_STATUS           ,A2           ; SHIP ORDER STATUS CODE                    353 thru   354                          
+        RTS_TOT_CONT              ,D10          ; CONTAINERS SHIPPED                        355 thru   364                          
+        RTS_CONT_UOFM             ,A2           ; CONTAINER UNIT OF MEASURE CODE            365 thru   366                          
+        RTS_EQUIP_CODE            ,A2           ; EQUIPMENT CODE                            367 thru   368                          
+        RTS_PREFIX                ,A4           ; EQUIPMENT PREFIX                          369 thru   372                          
+        RTS_EQUIP_NO              ,A10          ; EQUIPMENT NUMBER                          373 thru   382                          
+        RTS_SCAC                  ,A5           ; STANDARD CARRIER ALPHA CODE               383 thru   387                          
+        RTS_CARRIER               ,A35          ; CARRIER NAME                              388 thru   422                          
+        RTS_CARRIER_REF           ,A30          ; CARRIER REFERENCE/PRO NUMBER              423 thru   452                          
+        RTS_TRANS_MODE            ,A2           ; TRANSPORTATION MODE                       453 thru   454                          
+        RTS_ROUTING               ,A35          ; ROUTING COMMENTS                          455 thru   489                          
+        RTS_ROUT_CODE             ,A2           ; ROUTING SEQUENCE CODE                     490 thru   491                          
+        RTS_ROUT_NO               ,A15          ; ROUTING SEQUENCE NUMBER                   492 thru   506                          
+        RTS_DELIV_DATE            ,D6           ; DELIVERY DATE                             507 thru   512                          
+        RTS_DELIV_TIME            ,D4           ; DELIVERY TIME                             513 thru   516                          
+        RTS_EXP_DATE              ,D6           ; EXPIRATION DATE                           517 thru   522                          
+        RTS_TRANS_QUAL            ,A2           ; TRANSIT TIME QUALIFIER                    523 thru   524                          
+        RTS_TRANS_TIME            ,D4           ; TRANSIT TIME                              525 thru   528                          
+        RTS_HAND_CODE             ,A2           ; SPECIAL HANDLING CODE                     529 thru   530                          
+        RTS_HAND_DESC             ,A35          ; SPECIAL HANDLING DESCRIPTION              531 thru   565                          
+        RTS_BOL_NO                ,A15          ; BILL OF LADING NUMBER                     566 thru   580                          
+        RTS_METH_PAY              ,A2           ; METHOD OF PAYMENT CODE                    581 thru   582                          
+        RTS_PACK_LIST             ,A15          ; PACKING LIST NUMBER                       583 thru   597                          
+        RTS_DEPT_NO               ,A15          ; DEPARTMENT NUMBER                         598 thru   612                          
+        RTS_SALES_DIV             ,A15          ; SELLER DIVISION CODE                      613 thru   627                          
+        RTS_CONTACT               ,A25          ; CONTACT NAME                              628 thru   652                          
+        RTS_PHONE                 ,A10          ; CONTACT PHONE NUMBER                      653 thru   662                          
+        RTS_TERM_TYPE             ,A2           ; TERMS TYPE CODE                           663 thru   664                          
+        RTS_TERM_BASIS            ,A2           ; TERMS BASIS DATE CODE                     665 thru   666                          
+        RTS_RESPONSE              ,A2           ; TRANSPORTATION RESPONSIBILITY             667 thru   668                          
+        RTS_RESPON_DESC           ,A30          ; TRANS RESPONSIBILITY DESC                 669 thru   698                          
+        RTS_GROSS_WGT             ,D10          ; GROSS WEIGHT OF SHIPMENT                  699 thru   708                          
+        RTS_GR_WGT_UOFM           ,A2           ; GROSS WEIGHT UNIT OF MEASURE              709 thru   710                          
+        RTS_ITEM_LINES            ,D6           ; TOTAL OF ITEM LINES                       711 thru   716                          
+        RTS_LOADS_SHP             ,D4           ; NUMBER OF LOADS SHIPPED                   717 thru   720                          
+        RTS_REF1_QL               ,A2           ; USER DEFINED QUALIFIER 1                  721 thru   722                          
+        RTS_USER_REF1             ,A15          ; USER DEFINED REFERENCE 1                  723 thru   737                          
+        RTS_REF2_QL               ,A2           ; USER DEFINED QUALIFIER 2                  738 thru   739                          
+        RTS_USER_REF2             ,A15          ; USER DEFINED REFERENCE 2                  740 thru   754                          
+        RTS_USER_REF3             ,A30          ; USER DEFINED REFERENCE 3                  755 thru   784                          
+        RTS_INTRCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE              785 thru   799                          
+        RTS_GROUP_ID              ,A12          ; RECEIVER GROUP ID CODE                    800 thru   811                          
+        RTS_TITLE_PASS            ,A2           ; TITLE PASS LOCATION                       812 thru   813                          
+        RTS_TITLE_DESC            ,A30          ; TITLE PASS DESCRIPTION                    814 thru   843                          
+        RTS_TOT_CUBE              ,D9           ; TOTAL CUBE FOR SHIPMENT                   844 thru   852                          
+        RTS_CUBE_UOFM             ,A2           ; CUBE UNIT OF MEASURE                      853 thru   854                          
+        RTS_SHIP_TRKNO            ,A15          ; BUYER ASSIGNED SHIP TRACK NO              855 thru   869                          
+        RTS_FILLER                ,A99          ; FILLER                                    870 thru   968                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT856_SHP_KEY             ,A6           ; PRIMARY SORT KEY                                                                  
+                                  ,A962         ; PRIMARY KEY POSITIONING                                                           

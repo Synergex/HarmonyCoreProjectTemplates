@@ -1,0 +1,45 @@
+;CA832_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRICE/SALES CATALOG ADDRESS                                                                                                 
+;       DATE : 27-SEP-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   556                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA832_ADR                                                                                                                   
+        A832_DEST_ABBRV           ,A5           ; DESTINATION ABBREVIATION                    1 thru     5                          
+        A832_CAT_NUM              ,A15          ; CATALOG NUMBER                              6 thru    20                          
+        A832_CAT_VER              ,A15          ; CATALOG VERSION                            21 thru    35                          
+        A832_CAT_PURP             ,A2           ; CATALOG PURPOSE                            36 thru    37                          
+        A832_TP_PART              ,A30          ; TRADING PARTNERS PART                      38 thru    67                          
+        A832_DTL_SEQ              ,D6           ; DETIAL SEQUENCE                            68 thru    73                          
+        A832_ADR_SEQ              ,D6           ; ADDRESS SEQUENCE                           74 thru    79                          
+        A832_CTP_SEQ              ,D6           ; CTP SEQUENCE                               80 thru    85                          
+        A832_PKL_SEQ              ,D6           ; PKL SEQUENCE                               86 thru    91                          
+        A832_LFG_SEQ              ,D6           ; LFG SEQUENCE                               92 thru    97                          
+        A832_TRANS_ID             ,A17          ; INTERCHANGE ID                             98 thru   114                          
+        A832_GROUP_ID             ,A17          ; GROUP ID                                  115 thru   131                          
+        A832_ENT_ID_CD            ,A2           ; ENTITY ID CODE                            132 thru   133                          
+        A832_NAME                 ,A35          ; NAME                                      134 thru   168                          
+        A832_ID_CD_QL             ,A2           ; ID CODE QUALIFIER                         169 thru   170                          
+        A832_ID_CD                ,A20          ; ID CODE                                   171 thru   190                          
+        A832_ENT_REL_CD           ,A2           ; ENTITY RELATIONSHIP CODE                  191 thru   192                          
+        A832_ENT_IDF_CD           ,A2           ; ENTITY IDENTIIFIER CODE                   193 thru   194                          
+        A832_NAME1                ,A35          ; NAME 1                                    195 thru   229                          
+        A832_NAME2                ,A35          ; NAME 2                                    230 thru   264                          
+        A832_NAME3                ,A35          ; NAME 3                                    265 thru   299                          
+        A832_NAME4                ,A35          ; NAME 4                                    300 thru   334                          
+        A832_ADDR1                ,A35          ; ADDRESS 1                                 335 thru   369                          
+        A832_ADDR2                ,A35          ; ADDRESS 2                                 370 thru   404                          
+        A832_ADDR3                ,A35          ; ADDRESS 3                                 405 thru   439                          
+        A832_ADDR4                ,A35          ; ADDRESS 4                                 440 thru   474                          
+        A832_CITY                 ,A30          ; CITY                                      475 thru   504                          
+        A832_STATE                ,A2           ; STATE                                     505 thru   506                          
+        A832_ZIP                  ,A15          ; ZIP CODE                                  507 thru   521                          
+        A832_CNTRY                ,A3           ; COUNTRY                                   522 thru   524                          
+        A832_LOC_QL               ,A2           ; LOCATION QUALIFIER                        525 thru   526                          
+        A832_LOC_ID               ,A30          ; LOCATION ID                               527 thru   556                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA832_ADR_KEY             ,A131         ; PRIMARY SORT KEY                                                                  
+                                  ,A425         ; PRIMARY KEY POSITIONING                                                           

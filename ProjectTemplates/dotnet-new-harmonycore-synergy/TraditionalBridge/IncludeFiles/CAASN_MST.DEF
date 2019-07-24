@@ -1,0 +1,412 @@
+; Standard ASN Master file
+; Used in build of Non-automotive ANSI standard ASNs.
+;-------------------------------------------------------------------------------
+
+RECORD CAASN_MST                                        
+    T856_TP_DESIG   , A2     ; TRADING PARTNER                 
+    T856_ENTITY_ID  , A35    ; ENTITY ID
+    T856_SHIP_ID    , A30    ; SHIPMENT ID                     
+    T856_PURPOSE    , A2     ; ASN PURPOSE CODE                
+    T856_DEPTH      , D2     ; LEVEL                           
+    T856_HL_PARENT  , A21    ; PARENT ID                       
+    T856_LVL1_SEQ   , A3     ; LEVEL 1 SEQUENCE                
+    T856_LVL2_SEQ   , A3     ; ASN LOOP LEVEL 2 SEQUENCE       
+    T856_LVL3_SEQ   , A3     ; ASN LOOP LEVEL 3 SEQUENCE       
+    T856_LVL4_SEQ   , A3     ; LOOP LEVEL 4 SEQUENCE           
+    T856_LVL5_SEQ   , A3     ; LOOP LEVEL 5 SEQUENCE           
+    T856_LVL6_SEQ   , A3     ; SORT CONTROL SEQUENCE           
+    T856_HL_ID      , A12    ; HL ID                           
+    T856_SEG_TYPE   , A3     ; SEGMENT TYPE                    
+    T856_SEQ_NO     , D3     ; SEQUENCE NUMBER                 
+    T856_FILLER     , A896   ; FILLER                          
+
+RECORD ,X
+		    , A128
+    T856_ASN_DATE   , D6     ; ASN CREATION DATE                
+    T856_ASN_TIME   , D8     ; ASN CREATION TIME                
+    T856_STRUCTURE  , A4     ; HIERARCHICAL STRUCTURE CODE      
+    T856_TYPE       , A2     ; TRANSACTION TYPE CODE            
+    T856_STATUS     , A3     ; STATUS CODE                      
+    T856_SHIP_DATE  , D6     ; SHIPMENT DATE                    
+    T856_SHIP_TIME  , D4     ; SHIPMENT TIME                    
+    T856_DELIV_DATE , D6     ; DELIVERY DATE                    
+    T856_DELIV_TIME , D4     ; DELIVERY TIME                    
+    T856_DATE_QL1   , A3     ; DTM DATE QUALIFIER               
+    T856_DATE_1     , D6     ; DTM DATE                         
+    T856_TIME_1     , D8     ; DTM TIME                         
+    T856_DATE_QL2   , A3     ; DTM DATE QUALIFIER               
+    T856_DATE_2     , D6     ; DTM DATE                         
+    T856_TIME_2     , D8     ; DTM TIME                         
+    T856_SUPP_ABBRV , A5     ; SUPPLIER ABBREVIATION            
+    T856_XMIT_DATE  , D6     ; DATE ASN WAS SENT                
+    T856_XMIT_TIME  , D8     ; TIME ASN WAS SENT                
+    T856_ISA_REC    , A15    ; ISA RECEIVER ID
+    T856_GS_REC     , A15    ; GS RECEIVER ID
+    T856_ORIG_TP    , A2     ; ORIGINAL INCOMING TP
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_DTM_QL     , A3     ; DATE/TIME QUALIFIER              
+    T856_DTM_DATE   , D6     ; ASN DTM SEGMENT DATE             
+    T856_DTM_TIME   , D8     ; ASN DTM SEGMENT TIME             
+    T856_DTM_CODE   , A2     ; DATE/TIME CODE                   
+    T856_DTM_CENT   , A2     ; CENTURY
+    T856_DTM_FORMAT , A3     ; DATE/TIME FORMAT QUALIFIER       
+    T856_DTM_PERIOD , A35    ; DATE/TIME PERIOD                 
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_REF_QL     , A2     ; REFERENCE NUMBER QUALIFIER       
+    T856_REF_NO     , A30    ; REFERENCE NUMBER                 
+    T856_REF_DESC   , A80    ; REFERENCE NUMBER DESCRIPTION     
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_PRF_PO_NO  , A22    ; PURCHASE ORDER NUMBER            
+    T856_PRF_RELNO  , A30    ; RELEASE NUMBER                   
+    T856_PRF_CHGSEQ , A8     ; CHANGE SEQUENCE NUMBER           
+    T856_PRF_PODATE , D6     ; PURCHASE ORDER DATE              
+    T856_PRF_PO_LIN , A11    ; PURCHASE ORDER LINE NUMBER       
+    T856_PRF_CONTR  , A30    ; CONTRACT NUMBER                  
+    T856_PRF_PO_TYP , A2     ; PURCHASE ORDER TYPE CODE         
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_PWK_TYPE   , A2     ; PAPERWORK TYPE                   
+    T856_PWK_TRANS  , A2     ; TRANSMISSION CODE                
+    T856_PWK_COPIES , D2     ; COPIES NEEDED                    
+    T856_PWK_ENTITY , A2     ; ENTITY ID CODE                   
+    T856_PWK_ID_QL  , A2     ; ID CODE QUALIFIER                
+    T856_PWK_ID     , A17    ; ID CODE                          
+    T856_PWK_DESC   , A80    ; DESCRIPTION                      
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_ETD_REASON , A2     ; EXCESS TRANSPORTATION REASON     
+    T856_ETD_RESP   , A1     ; RESPONSIBILITY CODE              
+    T856_ETD_REF_QL , A2     ; REFERENCE NUMBER QUALIFIER       
+    T856_ETD_REF_NO , A30    ; REFERENCE NUMBER                 
+    T856_ETD_FRGT   , A2     ; FREIGHT PAYMENT RESPONSIBILITY   
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_CUR_ENTITY , A2     ; CURRENCY ENTITY ID               
+    T856_CUR_CODE   , A3     ; CURRENCY CODE                    
+    T856_CUR_EX_RT  , D6     ; CURRENCY EXCHANGE RATE           
+    T856_CUR2_CODE  , A3     ; CURRENCY CODE 2                  
+    T856_CUR2_ENT   , A2     ; CURRENCY ENTITY CODE 2           
+    T856_CUR_EX_CD  , A3     ; CURRENCY MARKET/EXCHANGE CODE    
+    T856_CUR_DTM    , A3     ; DATE/TIME QUALIFIER              
+    T856_CUR_DATE   , D6     ; CURRENCY DATE                    
+    T856_CUR_TIME   , D8     ; CURRENCY TIME                    
+
+RECORD ,X                                                                                                                   
+		    , A128
+    T856_NTE_FORM   , A3     ; NOTE DESCRIPTOR                  
+    T856_NTE        , A60    ; NOTES                            
+
+RECORD ,X
+		    , A128
+    T856_TD1_PACK   , A5     ; PACKAGING CODE                  
+    T856_TD1_LADQTY , D7     ; LADING QUANTITY                 
+    T856_TD1_CC_QL  , A1     ; COMMODITY CODE QUALIFIER        
+    T856_TD1_CC     , A16    ; COMMODITY CODE                  
+    T856_TD1_DESC   , A50    ; LADING DESCRIPTION              
+    T856_TD1_WGT_QL , A2     ; WEIGHT QUALIFIER                
+    T856_TD1_WEIGHT , D10    ; WEIGHT                          
+    T856_TD1_UOFM   , A2     ; UNIT OF MEASURE                 
+
+RECORD ,X
+		    , A128
+    T856_TD5_RTESEQ , A2     ; ROUTING SEQUENCE CODE           
+    T856_TD5_ID_QL  , A2     ; ID CODE QUALIFIER               
+    T856_TD5_ID     , A17    ; IDENTIFICATION CODE             
+    T856_TD5_MODE   , A2     ; TRANSPORTATION MODE             
+    T856_TD5_ROUTE  , A35    ; ROUTING                         
+    T856_TD5_STATUS , A2     ; SHIPMENT/ORDER STATUS CODE      
+    T856_TD5_LOC_QL , A2     ; LOCATION QUALIFIER              
+    T856_TD5_LOC_ID , A30    ; LOCATION ID                     
+    T856_TD5_DIRECT , A2     ; TRANSIT DIRECTION CODE          
+    T856_TD5_DIR_QL , A2     ; TRANSIT TIME DIRECTION QUAL     
+    T856_TD5_TIME   , D4     ; TRANSIT TIME                    
+    T856_TD5_LVL    , A2     ; SERVICE LEVEL CODE              
+    T856_TD3_EQUIP  , A2     ; EQUIPMENT CODE                  
+    T856_TD3_PREFIX , A4     ; EQUIPMENT INITIAL               
+    T856_TD3_NUMBER , A10    ; EQUIPMENT NUMBER                
+    T856_TD3_WT_QL  , A2     ; WEIGHT QUALIFIER                
+    T856_TD3_WEIGHT , D10    ; WEIGHT                          
+    T856_TD3_UOFM   , A2     ; UNIT OR BASIS FOR MEASUREMENT   
+    T856_TD3_OWNER  , A1     ; OWNERSHIP CODE                  
+    T856_TD3_STATUS , A2     ; SEAL STATUS CODE                
+    T856_TD3_SEAL   , A15    ; SEAL NUMBER                     
+    T856_TD4_HANDL  , A3     ; SPECIAL HANDLING                
+    T856_TD4_HAZARD , A1     ; HAZARDOUS MATERIAL CODE         
+    T856_TD4_CLASS  , A4     ; HAZARDOUS MATERIAL CLASS        
+    T856_TD4_DESC   , A80    ; HAZARDOUS MATERIAL DESCRIPTION  
+
+RECORD ,X
+		    , A128
+    T856_PKG_TYPE   , A1     ; ITEM DESCRIPTION TYPE           
+    T856_PKG_CHAR   , A5     ; PACKAGING CHARACTERISTIC CODE   
+    T856_PKG_AGENCY , A2     ; AGENCY QUALIFIER CODE           
+    T856_PKG_CODE   , A7     ; PACKAGING DESCRIPTION CODE      
+    T856_PKG_DESC   , A80    ; PACKAGING DESCRIPTION           
+    T856_PKG_OPT_CD , A2     ; UNIT LOAD OPTION CODE           
+
+RECORD ,X
+		    , A128
+    T856_MEA_REF_ID , A2     ; MEASUREMENT REFERENCE ID CODE   
+    T856_MEA_QL     , A3     ; MEASUREMENT QUALIFIER           
+    T856_MEA_VALUE  , D10    ; MEASUREMENT VALUE               
+    T856_MEA_UOFM   , A2     ; UNIT OF MEASURE                 
+    T856_MEA_MIN    , D10    ; MEASUREMENT RANGE MINIMUM       
+    T856_MEA_MAX    , D10    ; MEASUREMENT RANGE MAXIMUM       
+    T856_MEA_SIG    , A2     ; MEASURMENT SIGNIFICANCE CODE    
+    T856_MEA_ATTR   , A2     ; MEASUREMENT ATTRIBUTE CODE      
+    T856_MEA_SURFAC , A2     ; SURFACE/LAYER/POSITION CODE     
+    T856_MEA_DEVICE , A4     ; MEASUREMENT METHOD OR DEVICE    
+
+RECORD ,X
+		    , A128
+    T856_FOB_PAYMTH , A2     ; SHIPMENT METHOD OF PAYMENT      
+    T856_FOB_LOC_QL , A2     ; LOCATION QUALIFIER              
+    T856_FOB_DESC   , A80    ; FOB DESCRIPTION 1               
+    T856_FOB_TRMSQL , A2     ; TRANSPORTATION TERMS QUAL       
+    T856_FOB_TERMS  , A3     ; TRANSPORTATION TERMS            
+    T856_FOB_LOCQL2 , A2     ; LOCATION QUALIFIER 2            
+    T856_FOB2_DESC  , A80    ; FOB DESCRIPTION                 
+    T856_FOB_RISK   , A2     ; RISK OF LOSS QUALIFIER          
+    T856_FOB3_DESC  , A80    ; FOB DESCRIPTION                 
+
+RECORD ,X
+		    , A128
+    T856_PAL_TYPE   , A2     ; PALLET TYPE CODE                
+    T856_PAL_TIERS  , D3     ; PALLET TIERS                    
+    T856_PAL_BLOCKS , D3     ; PALLET BLOCKS                   
+    T856_PAL_PACK   , D6     ; PACK SIZE                       
+    T856_PAL_WEIGHT , D8     ; UNIT WEIGHT                     
+    T856_PAL_WT_UM  , A2     ; WEIGHT UNIT OF MEASURE          
+    T856_PAL_LENGTH , D8     ; PALLET LENGTH                   
+    T856_PAL_WIDTH  , D8     ; PALLET WIDTH                    
+    T856_PAL_HEIGHT , D8     ; PALLET HEIGHT                   
+    T856_PAL_DIM_UM , A2     ; DIMENSIONS UNIT OF MEASURE      
+    T856_PAL_GR_WGT , D9     ; GROSS WEIGHT PER PACK           
+    T856_PAL_GR_UM  , A2     ; GROSS WEIGHT UNIT OF MEASURE    
+    T856_PAL_GR_VOL , D9     ; GROSS VOLUME PER PACK           
+    T856_PAL_VOL_UM , A2     ; GROSS VOLUME UNIT OF MEASURE    
+    T856_PAL_EXCHAN , A1     ; PALLET EXCHANGE CODE            
+
+RECORD ,X
+		    , A128
+    T856_PER_FUNCT  , A2     ; CONTACT FUNCTION CODE           
+    T856_PER_NAME   , A35    ; CONTACT NAME                    
+    T856_PER_NO_QL  , A2     ; COMMUNICATIONS NUMBER QUAL      
+    T856_PER_COMM   , A80    ; COMMUNICATION NUMBER            
+    T856_PER2_NO_QL , A2     ; COMMUNICATION NUMBER QUAL       
+    T856_PER2_COMM  , A80    ; COMMUNICTIONS NUMBER            
+
+RECORD ,X
+		    , A128
+    T856_N1_ENTITY  , A2     ; ENTITY ID QUALIFIER             
+    T856_N1_NAME    , A35    ; NAME                            
+    T856_N1_ID_QL   , A2     ; ID CODE QUAL                    
+    T856_N1_ID      , A17    ; ID CODE                         
+    T856_N1_REL     , A2     ; ENTITY RELATIONSHIP CODE        
+    T856_N1_ENTITY2 , A2     ; ENTITY IDENTIFIER CODE          
+    T856_N2_NAME    , A35    ; NAME                            
+    T856_N2_NAME2   , A35    ; NAME                            
+    T856_N3_ADDR    , A35    ; ADDRESS                         
+    T856_N3_ADDR2   , A35    ; ADDRESS                         
+    T856_N4_CITY    , A30    ; CITY NAME                       
+    T856_N4_STATE   , A2     ; STATE/PROVINCE CODE             
+    T856_N4_ZIP     , A9     ; POSTAL CODE                     
+    T856_N4_CTRY    , A2     ; COUNTRY CODE                    
+    T856_N4_LOC_QL  , A2     ; LOCATION QUALIFIER              
+    T856_N4_LOC_ID  , A30    ; LOCATION ID                     
+
+RECORD ,X
+		    , A128
+    T856_PID_TYPE   , A1     ; PRODUCT DESCRIPTION TYPE        
+    T856_PID_CHAR   , A3     ; PRODUCT CHARACTERISTIC CODE     
+    T856_PID_AGENCY , A2     ; AGENCY QUALIFIER                
+    T856_PID_CODE   , A12    ; PRODUCT DESCRIPTION CODE        
+    T856_PID_DESC   , A80    ; PRODUCT DESCRIPTION             
+    T856_PID_SURF   , A2     ; SURFACE/LAYER CODE              
+    T856_PID_SUB    , A15    ; SUBQUALIFIER                    
+    T856_PID_COND   , A1     ; CONDITIONS RESPONSE CODE
+
+RECORD ,X
+		    , A128
+    T856_LIN_ID     , A11    ; ASSIGNED IDENTIFICATION         
+    T856_LIN_QL1    , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_LIN_ID1    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL2    , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_LIN_ID2    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL3    , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_LIN_ID3    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL4    , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_LIN_ID4    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL5    , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_LIN_ID5    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL6    , A2     ; PRODUCT/SERVICE QL              
+    T856_LIN_ID6    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL7    , A2     ; PRODUCT/SERVICE QL              
+    T856_LIN_ID7    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL8    , A2     ; PRODUCT/SERVICE QL              
+    T856_LIN_ID8    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL9    , A2     ; PRODUCT/SERVICE QL              
+    T856_LIN_ID9    , A30    ; PRODUCT/SERVICE ID              
+    T856_LIN_QL10   , A2     ; PRODUCT/SERVICE QL              
+    T856_LIN_ID10   , A30    ; PRODUCT/SERVICE ID              
+    T856_SN1_ID     , A11    ; ASSIGNED ID                     
+    T856_SN1_UNITS  , D10    ; NUMBER OF UNITS SHIPPED         
+    T856_SN1_UOFM   , A2     ; UNIT OF MEASURE                 
+    T856_SN1_YTD    , D9     ; QUANTITY SHIPPED TO DATE        
+    T856_SN1_ORDER  , D9     ; QUANTITY ORDERED                
+    T856_SN1_ORD_UM , A2     ; QUANTITY ORDERED UNIT OF MEAS   
+    T856_SN1_RC_COD , A2     ; RETURNABLE CONTAINER MAKE-UP    
+    T856_SN1_STATUS , A2     ; LINE ITEM STATUS CODE           
+    T856_DEST_ABBRV , A5     ; DESTINATION ABBRV               
+    T856_OUR_PART   , A30    ; VENDOR'S PART                   
+    T856_SHIP_REF   , A30    ; SHIP REFERENCE NUMBER           
+    T856_HL_LEVEL   ,A2   ; HL LEVEL CODE
+
+RECORD ,X
+		    , A128
+    T856_PO4_PACK   , D6     ; INNER PACK SIZE                 
+    T856_PO4_SIZE   , D8     ; PACK SIZE                       
+    T856_PO4_UOFM   , A2     ; PACK UNIT OF MEASURE            
+    T856_PO4_CODE   , A5     ; PACKAGING CODE                  
+    T856_PO4_WT_QL  , A2     ; WEIGHT QUALIFIER                
+    T856_PO4_GR_WGT , A9     ; GROSS WEIGHT                    
+    T856_PO4_GWT_UM , A2     ; GROSS WEIGHT UNIT OF MEASURE    
+    T856_PO4_GR_VOL , D9     ; GROSS VOLUME                    
+    T856_PO4_VOL_UM , A2     ; GROSS VOLUME UNIT OF MEASURE    
+    T856_PO4_LENGTH , D8     ; PACK LENGTH                     
+    T856_PO4_WIDTH  , D8     ; PACK WIDTH                      
+    T856_PO4_HEIGHT , D8     ; PACK HEIGHT                     
+    T856_PO4_DIM_UM , A2     ; DIMENSIONS UNIT OF MEASURE      
+
+RECORD ,X
+		    , A128
+    T856_SLN_LINE1  , A11    ; ASSIGNED ID                     
+    T856_SLN_LINE2  , A11    ; ASSIGNED ID                     
+    T856_SLN_CONFIG , A1     ; CONFIGURATION CODE              
+    T856_SLN_QTY    , D15    ; QUANTITY                        
+    T856_SLN_UOFM   , A2     ; UNIT OF MEASURE                 
+    T856_SLN_PRICE  , D14    ; UNIT PRICE                      
+    T856_SLN_BASIS  , A2     ; PRICE BASIS                     
+    T856_SLN_REL    , A1     ; PRICE RELATIONSHIP CODE         
+    T856_SLN_QL1    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID1    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL2    , A2     ; PRODUCT/SERVICE QUAL            
+    T856_SLN_ID2    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL3    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID3    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL4    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID4    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL5    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID5    , A17    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL6    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID6    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL7    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID7    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL8    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID8    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL9    , A2     ; PRODUCT/SERVICE QL              
+    T856_SLN_ID9    , A30    ; PRODUCT/SERVICE ID              
+    T856_SLN_QL10   , A2     ; PRODUCT/SERVICE QUALIFIER       
+    T856_SLN_ID10   , A30    ; PRODUCT/SERVICE ID              
+
+RECORD ,X
+		    , A128
+    T856_CLD_LOADS  , D5     ; NUMBER OF LOADS                
+    T856_CLD_UNITS  , D10    ; NUMBER OF UNITS SHIPPED        
+    T856_CLD_PACK   , A5     ; PACKAGING CODE                 
+    T856_CLD_SIZE   , D8     ; PACK SIZE                      
+    T856_CLD_UOFM   , A2     ; UNIT/BASIS FOR MEASUREMENT     
+
+RECORD ,X
+		    , A128
+    T856_SDQ_UOFM   , A2     ; UNIT OF MEASURE                
+    T856_SDQ_ID_QL  , A2     ; ID CODE QUALIFIER              
+    T856_SDQ_ID1    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY1   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID2    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY2   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID3    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY3   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID4    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY4   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID5    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY5   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID6    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY6   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID7    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY7   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID8    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY8   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID9    , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY9   , D15    ; DESTINATION QUANTITY           
+    T856_SDQ_ID10   , A17    ; DESTINATION ID                 
+    T856_SDQ_QTY10  , D15    ; DESTIANTION QUANTITY           
+    T856_SDQ_LOC_ID , A30    ; LOCATION ID                    
+
+RECORD ,X
+		    , A128
+    T856_MAN_QL     , A2     ; MARKS AND NUMBERS QUANLIFIER   
+    T856_MAN1       , A45    ; MARKS AND NUMBERS              
+    T856_MAN2       , A45    ; MARKS AND NUMBERS              
+    T856_MAN2_QL    , A2     ; MARKS AND NUMBERS QUALIFIER    
+    T856_MAN3       , A45    ; MARKS AND NUMBERS              
+    T856_MAN4       , A45    ; MARKS AND NUMBERS              
+
+RECORD ,X
+		    , A128
+    T856_GF_REF_QL  , A2     ; REFERENCE NUMBER QUAL          
+    T856_GF_REF_NO  , A30    ; REFERENCE NUMBER               
+    T856_GF_CONTR   , A30    ; CONTRACT NUMBER                
+    T856_GF_AMT     , D15    ; MONETARY AMOUNT                
+    T856_GF_REF_QL2 , A2     ; REFERENCE NUMBER QUALIFIER     
+    T856_GF_REF_NO2 , A30    ; REFERENCE NUMBER               
+    T856_GF_REF_QL3 , A2     ; REFERENCE NUMBER QUALIFIER     
+    T856_GF_REF_NO3 , A30    ; REFERENCE NUMBER               
+
+RECORD ,X
+		    , A128
+    T856_ITA_A_C    , A1     ; ALLOWANCE/CHARGE INDICATOR     
+    T856_ITA_AGENCY , A2     ; AGENCY QUALIFIER               
+    T856_ITA_SSS    , A10    ; SPECIAL SERVICES CODE          
+    T856_ITA_METHOD , A2     ; METHOD OF HANDLING             
+    T856_ITA_AC_NO  , A16    ; ALLOWANCE/CHARGE NUMBER        
+    T856_ITA_RATE   , D9     ; ALLOWANCE/CHARGE RATE          
+    T856_ITA_TOTAL  , D9     ; ALLOWANCE/CHARGE TOTAL         
+    T856_ITA_PERCQL , A1     ; PERCENT QUALIFIER              
+    T856_ITA_PERC   , D6     ; ALLOWANCE/CHARGE PERCENT       
+    T856_ITA_QTY    , D10    ; ALLOWANCE/CHARGE QUANTITY      
+    T856_ITA_UOFM   , A2     ; UNIT OF MEASURE                
+    T856_ITA_QTY2   , D15    ; QUANTITY                       
+    T856_ITA_DESC   , A80    ; DESCRIPTION                    
+    T856_ITA_CODE   , A3     ; SPECIAL CHARGE/ALLOWANCE CODE  
+    T856_ITA_SUB    , A15    ; SOURCE SUBQUALIFIER            
+    T856_ITA_REL    , A1     ; PRICE RELATIONSHIP CODE        
+
+RECORD ,X
+    CAASN_MST_KEY0	, A128
+    CAASN_MST_DATA	, A896
+
+RECORD CAASN_MST_KEY0_P1,X
+			,A%SIZE(T856_TP_DESIG)	; TRADING PARTNER
+			,A%SIZE(T856_ENTITY_ID)	; ENTITY ID
+			,A%SIZE(T856_SHIP_ID)	; SHIPMENT ID             
+			,A%SIZE(T856_PURPOSE)	; ASN PURPOSE CODE
+
+RECORD	CAASN_MST_KEY1		; Key 1 
+    K1_T856_TP_DESIG	, A2	; TRADING PARTNER                 
+    K1_T856_SEG_TYPE	, A3	; SEGMENT TYPE                    
+    K1_T856_SHIP_ID	, A30	; SHIPMENT ID                     
+
+RECORD	CAASN_MST_KEY1_P1 ,X	; Key 1 - Partial Key
+    P1_T856_TP_DESIG	, A2	; TRADING PARTNER                 
+    P1_T856_SEG_TYPE	, A3	; SEGMENT TYPE                    
+

@@ -1,0 +1,13 @@
+;RTSEG_AK2.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ACKNOWLEDGEMENT AK2 SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    15                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_AK2                                                                                                                   
+        AK2_SEG                   ,A3           ; AK2 SEGMENT IDENTIFIER                      1 thru     3                          
+        AK2_01                    ,A3           ; TRANSACTION SET ID CODE                     4 thru     6                          
+        AK2_02                    ,A9           ; TRANSACTION SET CONTROL NUMBER              7 thru    15                          
+                                                                                                                                    
+                                                                                                                                    

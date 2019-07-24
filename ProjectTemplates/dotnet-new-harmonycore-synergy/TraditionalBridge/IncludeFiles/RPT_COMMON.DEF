@@ -1,0 +1,35 @@
+;
+COMMON	RPT_COMMON
+;
+; Common for CARaS report utilities 
+;
+; 	RECORD LEN: 	123
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	------------
+;	08-Jun-88	Laura Cole	Original
+;
+;-------------------------------------------------------------------------------
+;
+	RPT_LPSW	,D1	;switch indicating report option chosen
+	RPT_NAME	,A80    ;complete report file pathname with version
+	RPT_DATE	,A11	;date to print report
+	RPT_TIME	,A11	;time to print report
+	RPT_FORM	,D5	;number of a special form if needed
+	RPT_COPIES	,A3	;number of copies
+	RPT_DEL		,A1	;del report after print flag
+	RPT_IMM		,A1	;print immediatly flag
+	RPT_PQUE	,A40	;print queue name
+	RPT_PSTART	,A20	;print start control file name
+	RPT_PEND	,A20	;print end control file name
+	RPT_FIRST	,D1	;flag = 1 on 1st call ULPOUT
+	RPT_ABORT	,D1	;flag = 1 if abort of screen display report
+	RPT_LAST_LPSW	,D1	;for saving last report option
+	RPT_ENTRY	,A4	;name of printer as entered
+	RPT_SUBMIT_DATE	,A11	;date to submit report process to batch
+	RPT_SUBMIT_TIME	,A8	;time to submit report process to batch
+	RPT_QUEUE	,A31	;batch queue on which to process report
+	RPT_MODULE	,A15	;report module name

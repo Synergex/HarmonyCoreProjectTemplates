@@ -1,0 +1,55 @@
+RECORD CH862X_DTL_WORK
+;
+;	Chrysler Shipping Schedule (862) Detail 
+;		- Split Processing (Temporary Work File)
+;
+;	Fields defined in this record are identical to CH862X_DTL with the 
+;	exception of the additional fields in this record of CHSD_COMP_W and 
+;	CHSD_SEQN_W.
+;
+;	STRUCTURE:	Sequential
+;	LENGTH:		617
+;	SORT KEY:	CHSD_COMP_W and CHSD_SEQN_W
+;
+	CHSD_COMP_W	,A8	; Company Code
+	CHSD_SEQN_W	,D5	; Sequence Number
+	CHSD_SUPP_ID_W	,A7	; Supplier ID
+	CHSD_PARTNO_W	,A30	; Customer Part Number
+	CHSD_REFNO_W	,A10	; Release Number
+				; Format: YYDDDHHMM
+	CHSD_RELDAT_W	,D8	; Release Date
+	CHSD_DEST_ID_W	,A7	; Destination - Ship to
+	CHSD_ISSUE_BY_W	,A7	; Release Issued by (division)
+	CHSD_DOCK_W	,A5	; Dock Code
+	CHSD_LINE_FEED_W,A8	; Production Line Feed
+	CHSD_PURPOSE_W	,A2	; Purpose
+				;
+	CHSD_REQ_TYPE_W	,D2	; Caras Defined Requirement Type
+	CHSD_REQ_DATE_W	,D8	; Date required
+	CHSD_REQ_TIME_W	,D4	; Time required
+	CHSD_RAN_W	,A20	; Release Authorization Number
+	CHSD_MY_W	,A2	; Delivery Year
+				;
+	CHSD_REQ_PRD_W	,A1	; Requirement Period
+				; D = Daily,  F = Flexible,
+				; Z = Daily,No Shpment Scheduled
+	CHSD_REQ_CODE_W	,A1	; Requirement Type
+				; C= Firm, D= Planning-Tenative	
+				; Z= Zero Shipments Scheduled	
+				; When (REQ_PRD/TYPE = FD) then 
+				; First  is aka GATELINE order	   
+				; Second is aka PLANNED FIRM	
+				; Third  is aka PLANNED SUB-FIRM
+				; There will only be three
+	CHSD_THRU_DATE_W,D8	; Requirement thru date
+	CHSD_REQ_QTY_W	,D8	; Daily Cumulative Qty required
+				;
+	CHSD_JIT_TIME_W	,14D4	; Jit Time
+	CHSD_JIT_QTY_W	,14D8	; Jit Quantity
+	CHSD_JIT_RAN_W	,14A20	; Jit Release Authorization Number
+			,A24	; Filler
+
+RECORD, X
+			,A8	; Company Code
+			,D5	; Sequence Number
+	CH862XU_DTL	,A%SIZE(CH862X_DTL)	;unsplit detail record

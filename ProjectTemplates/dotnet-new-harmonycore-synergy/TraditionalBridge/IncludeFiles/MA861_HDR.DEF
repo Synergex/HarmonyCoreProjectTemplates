@@ -1,0 +1,30 @@
+;MA861_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       MAZDA RECEIVING ADVICE HEADER                                                                                               
+;       DATE : 19-JUN-01                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   193                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  MA861_HDR                                                                                                                   
+        MHA_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        MHA_PLANT_CODE            ,A2           ; SUPPLIER PLANT CODE                        16 thru    17                          
+        MHA_ASN_NO                ,A30          ; ADVANCE SHIPPING NOTE NUMBER               18 thru    47                          
+        MHA_ISSUE_DATE            ,D8           ; MATERIAL RELEASE ISSUE DATE                48 thru    55                          
+        MHA_ISSUE_BY              ,A15          ; MATERIAL RELEASE ISSUER                    56 thru    70                          
+        MHA_PURPOSE               ,A2           ; PURPOSE CODE                               71 thru    72                          
+        MHA_START_DATE            ,D8           ; HORIZON START DATE                         73 thru    80                          
+        MHA_END_DATE              ,D8           ; HORIZON END DATE                           81 thru    88                          
+        MHA_BUYER_CODE            ,A5           ; BUYER CODE                                 89 thru    93                          
+        MHA_BUYER_NAME            ,A15          ; BUYER'S NAME                               94 thru   108                          
+        MHA_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             109 thru   113                          
+        MHA_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            114 thru   117                          
+        MHA_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            118 thru   131                          
+        MHA_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             132 thru   145                          
+        MHA_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             146 thru   159                          
+        MHA_SHIP_FROM             ,A17          ; SHIP FROM CODE                            160 thru   176                          
+        MHA_SHIP_TO               ,A17          ; SHIP TO CODE                              177 thru   193                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        MA861_HDR_KEY             ,A47          ; PRIMARY SORT KEY                                                                  
+                                  ,A146         ; PRIMARY KEY POSITIONING                                                           

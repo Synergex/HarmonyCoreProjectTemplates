@@ -1,0 +1,20 @@
+;HA830_FST.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 830 FST SEGMENT                                                                                                     
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    45                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA830_FST                                                                                                                   
+        HA830FSP1SEQ_NO           ,D5           ; PARENT LEVEL 1 SEQUENCE NO                  1 thru     5                          
+        HA830FSP2SEQ_NO           ,D5           ; PARENT LEVEL 2 SEQUENCE NO                  6 thru    10                          
+        HA830FSP3SEQ_NO           ,D5           ; PARENT LEVEL 3 SEQUNCE NO                  11 thru    15                          
+        HA830_FST_COLAT           ,A2           ; RECORD TYPE COLLATING SEQ - 44             16 thru    17                          
+        HA830_FST_REC             ,A3           ; RECORD TYPE - FST                          18 thru    20                          
+        HA830FST_SEQ_NO           ,D5           ; FST SEQUENCE NNUMBER                       21 thru    25                          
+        HA830_FST_01              ,D10          ; REQUIRED QUANTITY                          26 thru    35                          
+        HA830_FST_02              ,A1           ; FORECAST QUALIFIER                         36 thru    36                          
+        HA830_FST_03              ,A1           ; FORECAST TIMING QUALIFIER                  37 thru    37                          
+        HA830_FST_04              ,D8           ; DOCK DATE                                  38 thru    45                          
+                                                                                                                                    
+                                                                                                                                    

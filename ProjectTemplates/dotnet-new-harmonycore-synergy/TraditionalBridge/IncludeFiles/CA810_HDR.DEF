@@ -1,0 +1,164 @@
+;CA810_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       ELECTRONIC INVOICE HEADER                                                                                                   
+;       DATE : 21-JUL-14                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  2576                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA810_HDR                                                                                                                   
+        CAH_TP_DESIG              ,A2           ; TRADING PARTNER DESIG                       1 thru     2                          
+        CAH_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CAH_INV_NO                ,A30          ; INVOICE NUMBER                             18 thru    47                          
+        CAH_DEST                  ,A15          ; DESTINATION CODE                           48 thru    62                          
+        CAH_INV_DATE              ,D8           ; INVOICE DATE                               63 thru    70                          
+        CAH_INV_TYPE              ,A2           ; INVOICE TYPE                               71 thru    72                          
+        CAH_SHIPPER               ,A30          ; SHIPPER NUMBER                             73 thru   102                          
+        CAH_PO_NO                 ,A22          ; CUSTOMER PURCHASE ORDER                   103 thru   124                          
+        CAH_PO_DATE               ,D8           ; PURCHASE ORDER DATE                       125 thru   132                          
+        CAH_RELNO                 ,A30          ; RELEASE NUMBER                            133 thru   162                          
+        CAH_CURRENCY              ,A3           ; TYPE OF CURRENCY                          163 thru   165                          
+        CAH_SHIP_FROM             ,A15          ; SHIP FROM CODE                            166 thru   180                          
+        CAH_SHPFRM_NAME           ,A35          ; SHIP FROM NAME                            181 thru   215                          
+        CAH_SHPFRM_ADD1           ,A35          ; SHIP FROM ADDRESS 1                       216 thru   250                          
+        CAH_SHPFRM_ADD2           ,A35          ; SHIP FROM ADDRESS 2                       251 thru   285                          
+        CAH_SHPFRM_CITY           ,A30          ; SHIP FROM CITY                            286 thru   315                          
+        CAH_SHPFRM_ST             ,A2           ; SHIP FROM STATE                           316 thru   317                          
+        CAH_SHPFRM_ZIP            ,A15          ; SHIP FROM ZIP CODE                        318 thru   332                          
+        CAH_SHIP_TO               ,A15          ; SHIP TO CODE                              333 thru   347                          
+        CAH_SHPTO_NAME            ,A35          ; SHIP TO NAME                              348 thru   382                          
+        CAH_SHPTO_ADD1            ,A35          ; SHIP TO ADDRESS 1                         383 thru   417                          
+        CAH_SHPTO_ADD2            ,A35          ; SHIP TO ADDRESS 2                         418 thru   452                          
+        CAH_SHPTO_CITY            ,A30          ; SHIP TO CITY                              453 thru   482                          
+        CAH_SHPTO_ST              ,A2           ; SHIP TO STATE                             483 thru   484                          
+        CAH_SHPTO_ZIP             ,A15          ; SHIP TO ZIP CODE                          485 thru   499                          
+        CAH_BILL_TO               ,A15          ; BILL TO CODE                              500 thru   514                          
+        CAH_BILL_NAME             ,A35          ; BILL TO NAME                              515 thru   549                          
+        CAH_BILL_ADD1             ,A35          ; BILL TO ADDRESS 1                         550 thru   584                          
+        CAH_BILL_ADD2             ,A35          ; BILL TO ADDRESS 2                         585 thru   619                          
+        CAH_BILL_CITY             ,A30          ; BILL TO CITY                              620 thru   649                          
+        CAH_BILL_ST               ,A2           ; BILL TO STATE                             650 thru   651                          
+        CAH_BILL_ZIP              ,A15          ; BILL TO ZIP CODE                          652 thru   666                          
+        CAH_REMIT_TO              ,A15          ; REMIT TO CODE                             667 thru   681                          
+        CAH_REMIT_NAME            ,A35          ; REMIT TO NAME                             682 thru   716                          
+        CAH_REMIT_ADD1            ,A35          ; REMIT TO ADDRESS 1                        717 thru   751                          
+        CAH_REMIT_ADD2            ,A35          ; REMIT TO ADDRESS                          752 thru   786                          
+        CAH_REMIT_CITY            ,A30          ; REMIT TO CITY                             787 thru   816                          
+        CAH_REMIT_ST              ,A2           ; REMIT TO STATE                            817 thru   818                          
+        CAH_REMIT_ZIP             ,A15          ; REMIT TO ZIP                              819 thru   833                          
+        CAH_SHIP_DATE             ,D8           ; SHIP DATE                                 834 thru   841                          
+        CAH_TOT_CONT              ,D10          ; CONTAINERS SHIPPED                        842 thru   851                          
+        CAH_CONT_UOFM             ,A2           ; CONTAINER - UNIT OF MEASURE               852 thru   853                          
+        CAH_EQUIP_CODE            ,A2           ; EQUIPMENT CODE                            854 thru   855                          
+        CAH_PREFIX                ,A4           ; EQUIPMENT PREFIX                          856 thru   859                          
+        CAH_EQUIP_NO              ,A7           ; EQUIPMENT NUMBER                          860 thru   866                          
+        CAH_SCAC                  ,A5           ; SCAC CODE                                 867 thru   871                          
+        CAH_TRANS_MODE            ,A2           ; TRANSPORTATION MODE                       872 thru   873                          
+        CAH_ROUTING               ,A35          ; ROUTING COMMENTS                          874 thru   908                          
+        CAH_DISC_PERCNT           ,D5           ; TERMS PERCENTAGE                          909 thru   913                          
+        CAH_RESPONSE              ,A2           ; TRANS RESPONSIBILITY                      914 thru   915                          
+        CAH_RESPON_DESC           ,A30          ; TRANS RESPOSIBILITY DESC                  916 thru   945                          
+        CAH_TRADE_TERMS           ,A6           ; TRADE TERMS                               946 thru   951                          
+        CAH_TRADE_DESC            ,A30          ; TRADE TERMS DESCRIPTION                   952 thru   981                          
+        CAH_TITLE_PASS            ,A2           ; TITLE PASS LOCATION                       982 thru   983                          
+        CAH_TITLE_DESC            ,A30          ; TITLE PASS DESC                           984 thru  1013                          
+        CAH_BOL_NO                ,A30          ; BILL OF LADING NUMBER                    1014 thru  1043                          
+        CAH_METH_PAY              ,A2           ; METHOD OF PAYMENT                        1044 thru  1045                          
+        CAH_PACK_LIST             ,A30          ; PACKING LIST                             1046 thru  1075                          
+        CAH_USER_REF1             ,A15          ; USER REFERENCE 1                         1076 thru  1090                          
+        CAH_USER_REF2             ,A15          ; USER REFERENCE 2                         1091 thru  1105                          
+        CAH_DEPT_NO               ,A15          ; BUYER DEPARTMENT CODE                    1106 thru  1120                          
+        CAH_SALES_DIV             ,A15          ; SELLER DIVISION CODE                     1121 thru  1135                          
+        CAH_CONTACT               ,A25          ; CONTACT NAME                             1136 thru  1160                          
+        CAH_PHONE                 ,A10          ; CONTACT PHONE #                          1161 thru  1170                          
+        CAH_TERM_TYPE             ,A2           ; TERMS TYPE CODE                          1171 thru  1172                          
+        CAH_TERM_BASIS            ,A2           ; TERMS BASIS DATE CODE                    1173 thru  1174                          
+        CAH_DISC_DAYS             ,D3           ; DISCOUNT DAYS                            1175 thru  1177                          
+        CAH_NET_DAYS              ,D3           ; NET DAYS                                 1178 thru  1180                          
+        CAH_DEFER_DAYS            ,D3           ; DEFERRED DAYS                            1181 thru  1183                          
+        CAH_DEFER_PCT             ,D5           ; DEFERRED PERCENTAGE                      1184 thru  1188                          
+        CAH_INV_PCT               ,D5           ; PAYABLE PERCENTAGE                       1189 thru  1193                          
+        CAH_DAY_OF_MTH            ,D2           ; DAY OF THE MONTH REFERENCED              1194 thru  1195                          
+        CAH_DISC_DATE             ,D8           ; TERMS DISCOUNT DUE DATE                  1196 thru  1203                          
+        CAH_NET_DATE              ,D8           ; TERMS NET DUE DATE                       1204 thru  1211                          
+        CAH_TERMS_DAMT            ,D10          ; TERMS DISCOUNT AMOUNT                    1212 thru  1221                          
+        CAH_TOTAL                 ,D10          ; INV TOTAL WITH DISC AND A/C              1222 thru  1231                          
+        CAH_WO_TOTAL              ,D10          ; INV TOTAL WITHOUT DISC AND A/C           1232 thru  1241                          
+        CAH_DISC_TOTAL            ,D10          ; DISCOUNT TOTAL                           1242 thru  1251                          
+        CAH_TERMS_TOTAL           ,D10          ; TOTAL AMT SUBJECT TO TERMS               1252 thru  1261                          
+        CAH_DEFER_TOTAL           ,D10          ; DEFERRED TOTAL                           1262 thru  1271                          
+        CAH_AC_PCT_TOT            ,D10          ; A/C PERCENTAGE TOTAL                     1272 thru  1281                          
+        CAH_AC_TOTAL              ,D10          ; A/C TOTAL                                1282 thru  1291                          
+        CAH_ITEM_LINES            ,D6           ; TOTAL OF ITEM LINES                      1292 thru  1297                          
+        CAH_ACTION_CODE           ,A2           ; ACTION CODE                              1298 thru  1299                          
+        CAH_USER_REF3             ,A30          ; COMBINED USER REF2 & REF3                1300 thru  1329                          
+        CAH_INTRCHG_ID            ,A15          ; INTERCHANGE ID                           1330 thru  1344                          
+        CAH_GROUP_ID              ,A15          ; GROUP ID                                 1345 thru  1359                          
+        CAH_TOT_WEIGHT            ,D10          ; TOTAL SHIPMENT WEIGHT                    1360 thru  1369                          
+        CAH_WEIGHT_UOFM           ,A2           ; TOTAL WEIGHT UNIT OF MEASURE             1370 thru  1371                          
+        CAH_TAX_AMT_1             ,D15          ; TX1 AMOUNT 1                             1372 thru  1386                          
+        CAH_TAX_AMT_2             ,D15          ; TXI AMOUNT 2                             1387 thru  1401                          
+        CAH_TAX_AMT_3             ,D15          ; TXI AMOUNT 3                             1402 thru  1416                          
+        CAH_TAX_PER_1             ,D10          ; TXI PERCENT 1                            1417 thru  1426                          
+        CAH_TAX_PER_2             ,D10          ; TXI PERCENT 2                            1427 thru  1436                          
+        CAH_TAX_PER_3             ,D10          ; TXI PERCENT 3                            1437 thru  1446                          
+        CAH_REMIT_CCD             ,A2           ; REMIT TO COUNTRY CODE                    1447 thru  1448                          
+        CAH_SOLD_DATE             ,D8           ; SOLD DATE                                1449 thru  1456                          
+        CAH_PO_RCVD_DT            ,D8           ; PURCHASE ORDER RECEIVED DATE             1457 thru  1464                          
+        CAH_PROMO_DATE            ,D8           ; PROMOTION END DATE                       1465 thru  1472                          
+        CAH_PROMO_NO              ,A30          ; PROMOTION NUMBER                         1473 thru  1502                          
+        CAH_CURR_IDCODE           ,A3           ; CURRENCY CODE ENTITY ID                  1503 thru  1505                          
+        CAH_SHIP_TIME             ,D4           ; SHIP TIME                                1506 thru  1509                          
+        CAH_SHPTO_CTRY            ,A10          ; COUNTRY                                  1510 thru  1519                          
+        CAH_DEST_ABBRV            ,A5           ; DEST ABBRV FROM INVOICE                  1520 thru  1524                          
+        CAH_RECV_NO               ,A30          ; RECEIVING NUMBER                         1525 thru  1554                          
+        CAH_DEAL_PO               ,A30          ; DEALER PO NUMBER                         1555 thru  1584                          
+        CAH_ALT_INV               ,A30          ; INVOICE WITH SUFFIX                      1585 thru  1614                          
+        CAH_SERVICE_LVL           ,A2           ; SERVICE LEVEL CODE                       1615 thru  1616                          
+        CAH_PAY_METHOD            ,A2           ; PAYMENT METHOD CODE                      1617 thru  1618                          
+        CAH_EDI_DATE              ,D8           ; EDI TRANSMISSION DATE                    1619 thru  1626                          
+        CAH_VAT_REFNO             ,A30          ; TAX REGISTRATION NUMBER                  1627 thru  1656                          
+        CAH_SINGLE_PK             ,D1           ; SINGLE PACK LIST FLAG                    1657 thru  1657                          
+        CAH_ROUTE_NO              ,A30          ; ROUTE NUMBER                             1658 thru  1687                          
+        CAH_MULT_ROUTE            ,D1           ; MULTIPLE ROUTE FLAG                      1688 thru  1688                          
+        CAH_CARR_REFNO            ,A30          ; CARRIER REFERENCE NUMBER                 1689 thru  1718                          
+        CAH_SF_QL                 ,A2           ; SHIP FROM QUALIFIER                      1719 thru  1720                          
+        CAH_BT_QL                 ,A2           ; BILL TO QUALIFIER                        1721 thru  1722                          
+        CAH_MULT_PO               ,D1           ; MULTIPLE PURCHASE ORDER FLAG             1723 thru  1723                          
+        CAH_TAX_CODE              ,A2           ; TAX TYPE CODE                            1724 thru  1725                          
+        CAH_TOTAL_MASK            ,A11          ; ALPHA INV TOTAL FOR MASKING              1726 thru  1736                          
+        CAH_PURPOSE_CD            ,A2           ; PURPOSE CODE                             1737 thru  1738                          
+        CAH_CONT_PH_NO            ,A80          ; CONTACT PHONE 1                          1739 thru  1818                          
+        CAH_CONT_PH_QL            ,A2           ; PHONE QAULIIFER 1                        1819 thru  1820                          
+        CAH_CONT_PH_NO2           ,A80          ; CONTATC PHONE2                           1821 thru  1900                          
+        CAH_CONT_PH_QL2           ,A2           ; CONTACT PHONE QL 2                       1901 thru  1902                          
+        CAH_ORDER_NO              ,A30          ; ORDER NUMBER                             1903 thru  1932                          
+        CAH_CONTRACT              ,A30          ; CONTRAT NUMBER                           1933 thru  1962                          
+        CAH_QUOTE                 ,A30          ; QUOTE NUMBER                             1963 thru  1992                          
+        CAH_DEFER_DATE            ,D8           ; DEFFERED DUE DATE                        1993 thru  2000                          
+        CAH_DEFER_DAMT            ,D10          ; DEFER DUE AMOUNT                         2001 thru  2010                          
+        CAH_SO_STATUS             ,A2           ; STATUS                                   2011 thru  2012                          
+        CAH_ACCOUNT               ,A45          ; ACCOUNT NUMBER                           2013 thru  2057                          
+        CAH_BK_NAME               ,A35          ; BANK NAME                                2058 thru  2092                          
+        CAH_SHIP_TM_QL            ,A2           ; TIME CODE                                2093 thru  2094                          
+        CAH_SHIP_ATIME            ,A4           ; SHIP TIME ALPHA 4 FOR MIN 4              2095 thru  2098                          
+        CAH_JOB_NO                ,A30          ; JOB NUMBER                               2099 thru  2128                          
+        CAH_INTERNAL_NO           ,A30          ; INTERNAL ORDER                           2129 thru  2158                          
+        CAH_BILL_CTRY             ,A10          ; BILL TO COUNTRY                          2159 thru  2168                          
+        CAH_SHPFRM_CTRY           ,A10          ; SHIP FROM COUNTRY                        2169 thru  2178                          
+        CAH_SF_VAT_NO             ,A30          ; SHIP FROM OR SUPPLIER VAT NO             2179 thru  2208                          
+        CAH_TAX_EXEMPT            ,A30          ; TAX EXEMPT NUMBER                        2209 thru  2238                          
+        CAH_ST_QL                 ,A2           ; SHIP TO QUAL                             2239 thru  2240                          
+        CAH_BILL_TAXID            ,A60          ; BILL TO TAX ID                           2241 thru  2300                          
+        CAH_SOLD_TO               ,A15          ; SOLD TO CODE                             2301 thru  2315                          
+        CAH_SOLD_NAME             ,A35          ; SOLD TO NAME                             2316 thru  2350                          
+        CAH_SOLD_ADD1             ,A35          ; SOLD TO ADDRESS 1                        2351 thru  2385                          
+        CAH_SOLD_ADD2             ,A35          ; SOLD TO ADDRESS 2                        2386 thru  2420                          
+        CAH_SOLD_CITY             ,A30          ; SOLD TO CITY                             2421 thru  2450                          
+        CAH_SOLD_ST               ,A2           ; SOLD TO STATE                            2451 thru  2452                          
+        CAH_SOLD_ZIP              ,A15          ; SOLD TO ZIP                              2453 thru  2467                          
+        CAH_SOLD_CTRY             ,A10          ; SOLD TO COUNTRY                          2468 thru  2477                          
+        CAH_TAX_EX_DESC           ,A80          ; TAX LICENSE EXEMPTION DESCR              2478 thru  2557                          
+        CAH_D_TOT_QTY             ,A15          ; TOTAL INV QTY WITH 5 DECIMALS            2558 thru  2572                          
+        CAH_FILLER                ,A4           ; FILLER                                   2573 thru  2576                          
+                                                                                                                                    
+                                                                                                                                    

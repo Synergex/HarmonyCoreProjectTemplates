@@ -1,0 +1,48 @@
+; CA866_TRX.DEF
+;
+;	Chrysler Sequential Parts Delivery File
+;
+;	File Organization: Isam 		Record Size: 256
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	25-Jul-91	G. Scibilia	Creation
+;
+;	23-Dec-92	A. Sparks	Made VIN_NO part of Key_0
+;
+;	16-Nov-93	T. Bunker	Increase part number to 30.  Add 83 
+;					bytes of filler.
+;-------------------------------------------------------------------------------
+;
+;
+RECORD CA866_TRX
+	T866_TP		,A2	; Trading Partner
+	T866_DEST_CODE	,A15	; Ship To Code
+	T866_JOB_SEQ	,A7	; Job Sequence Number
+	T866_CUST_PART	,A30	; Customer Part Number
+	T866_VIN_NO	,A17	; Vehicle Indentification Number
+	T866_DEL_DATE	,D6	; Delivery Date
+	T866_SEQ_NO	,D5	; Internal Sequence Number (Place Holder)
+	T866_REF_NO	,A9	; Reference Number
+	T866_JOB_NO	,A3	; Job Number
+	T866_QTY	,D10	; Quantity
+	T866_DOCK_CODE	,A8	; Dock Name
+	T866_PROC_DATE	,D6	; Process Date
+	T866_SF_CODE	,A15	; Ship From Code
+	T866_SUPP_CODE	,A15	; Supplier Code
+	T866_HORIZ_START,D6	; Horizon Start Date
+	T866_HORIZ_END	,D6	; Horizon End Date
+			,A96	; Filler
+
+;-------------------------------------------------------------------------------
+;	-------- Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD,X
+	;
+	; No Duplicates, No Changes Allowed.
+	;
+	CA866_TRX_KEY0	,A71

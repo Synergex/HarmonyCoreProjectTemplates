@@ -1,0 +1,28 @@
+;CA810_DTX.DEF                                                                                                                      
+;                                                                                                                                   
+;       INVOICE DETAIL LEVEL TAX FILE                                                                                               
+;       DATE : 03-DEC-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   245                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA810_DTX                                                                                                                   
+        CATD_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        CATD_SUPPLIER             ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CATD_INV_NO               ,A30          ; INVOICE NUMBER                             18 thru    47                          
+        CATD_CUST_PART            ,A30          ; TRADING PARTNER PART NUMBER                48 thru    77                          
+        CATD_SHIP_REF             ,A30          ; SHIPPING REFERENCE                         78 thru   107                          
+        CATD_DEST                 ,A15          ; DESTINATION CODE                          108 thru   122                          
+        CATD_TAX_CODE             ,A2           ; TAX TYPE CODE                             123 thru   124                          
+        CATD_TAX_AMT              ,D18          ; TAX AMOUNT                                125 thru   142                          
+        CATD_PERCENT              ,D10          ; TAX PERCENTAGE                            143 thru   152                          
+        CATD_JUR_CD_QL            ,A2           ; TAX JURISDICTION CODE QL                  153 thru   154                          
+        CATD_JUR_CODE             ,A10          ; JURISDICTION CODE                         155 thru   164                          
+        CATD_EXEMPT_CD            ,A1           ; EXEMPTION CODE                            165 thru   165                          
+        CATD_REL_CODE             ,A1           ; RELATIONSHIP CODE                         166 thru   166                          
+        CATD_BASIS_PCT            ,D9           ; DOLLAR BASIS FOR PERCENT                  167 thru   175                          
+        CATD_TAX_ID               ,A20          ; TAX IDENTIFICATION NUMBER                 176 thru   195                          
+        CATD_ASSIGN_ID            ,A20          ; ASSIGNED IDENTIFICATION                   196 thru   215                          
+        CATD_INTRCHG_ID           ,A15          ; RECEIVE INTERCHANGE ID CODE               216 thru   230                          
+        CATD_GROUP_ID             ,A15          ; GROUP RECEIVE ID                          231 thru   245                          
+                                                                                                                                    
+                                                                                                                                    

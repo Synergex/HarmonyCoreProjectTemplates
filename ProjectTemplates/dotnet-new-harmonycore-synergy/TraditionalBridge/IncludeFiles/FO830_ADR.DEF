@@ -1,0 +1,27 @@
+;FO830_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 830 ADDRESS FILE                                                                                                       
+;       DATE : 04-OCT-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   202                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO830_ADR                                                                                                                   
+        FRA_REL_NO                ,A30          ; RELEASE NUMBER                              1 thru    30                          
+        FRA_CONTROL               ,D9           ; CONTROL #                                  31 thru    39                          
+        FRA_SEQ_NO                ,D6           ; SEQUENCE NUMBER                            40 thru    45                          
+        FRA_ORG_ID                ,A2           ; ORGANIZATION IDENTIFICATION                46 thru    47                          
+        FRA_ID_CODE               ,A5           ; ORGANIZATION ID CODE                       48 thru    52                          
+        FRA_NAME                  ,A35          ; ORGANIZATION/BUYER NAME                    53 thru    87                          
+        FRA_ADDRESS_1             ,A35          ; ADDRESS LINE 1                             88 thru   122                          
+        FRA_ADDRESS_2             ,A35          ; ADDRESS LINE 2                            123 thru   157                          
+        FRA_CITY                  ,A19          ; CITY                                      158 thru   176                          
+        FRA_STATE                 ,A2           ; STATE                                     177 thru   178                          
+        FRA_POSTAL_CODE           ,A9           ; POSTAL CODE                               179 thru   187                          
+        FRA_COUNTRY               ,A2           ; COUNTRY CODE                              188 thru   189                          
+        FRA_COMPANY               ,A8           ; COMPANY CODE                              190 thru   197                          
+        FRA_COMP_SEQ              ,D5           ; COMPANY SEQUENCE                          198 thru   202                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO830_ADR_KEY             ,A45          ; PRIMARY SORT KEY                                                                  
+                                  ,A157         ; PRIMARY KEY POSITIONING                                                           

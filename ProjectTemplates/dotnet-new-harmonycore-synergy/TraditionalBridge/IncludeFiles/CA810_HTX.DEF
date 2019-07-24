@@ -1,0 +1,26 @@
+;CA810_HTX.DEF                                                                                                                      
+;                                                                                                                                   
+;       INVOICE HEADER LEVEL TAX                                                                                                    
+;       DATE : 03-DEC-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   185                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA810_HTX                                                                                                                   
+        CATH_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        CATH_SUPPLIER             ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CATH_INV_NO               ,A30          ; INVOICE NUMBER                             18 thru    47                          
+        CATH_DEST                 ,A15          ; DESTINATION CODE                           48 thru    62                          
+        CATH_TAX_CODE             ,A2           ; TAX TYPE CODE                              63 thru    64                          
+        CATH_TAX_AMT              ,D18          ; TAX AMOUNT                                 65 thru    82                          
+        CATH_PERCENT              ,D10          ; TAX PERCENTAGE                             83 thru    92                          
+        CATH_JUR_CD_QL            ,A2           ; TAX JURISDICTION CODE QL                   93 thru    94                          
+        CATH_JUR_CODE             ,A10          ; JURISDICTION CODE                          95 thru   104                          
+        CATH_EXEMPT_CD            ,A1           ; TAX EXEMPTION CODE                        105 thru   105                          
+        CATH_REL_CODE             ,A1           ; RELATIONSHIP CODE                         106 thru   106                          
+        CATH_BASIS_PCT            ,D9           ; DOLLAR BASIS FOR PERCENT                  107 thru   115                          
+        CATH_TAX_ID               ,A20          ; TAX IDENTIFICATION NUMBER                 116 thru   135                          
+        CATH_ASSIGN_ID            ,A20          ; ASSIGNED IDENTIFICATION                   136 thru   155                          
+        CATH_INTRCHG_ID           ,A15          ; RECEIVE INTERCHANGE ID CODE               156 thru   170                          
+        CATH_GROUP_ID             ,A15          ; GROUP RECEIVE ID                          171 thru   185                          
+                                                                                                                                    
+                                                                                                                                    

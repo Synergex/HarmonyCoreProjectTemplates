@@ -1,0 +1,26 @@
+;CA832_LDT.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRICE CATALOG LEAD DATE/TIME                                                                                                
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   211                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA832_LDT                                                                                                                   
+        L832_SEQN_1               ,D6           ; SEQUENCE NUMBER 1                           1 thru     6                          
+        L832_SEQN_2               ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        L832_SEQN_3               ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        L832_SEQN_4               ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        L832_GS_ID                ,A17          ; RECEIVER ID                                25 thru    41                          
+        L832_ISA_ID               ,A17          ; ISA RECEIVER ID                            42 thru    58                          
+        L832_CATALOG_NO           ,A15          ; CATALOG NUMBER                             59 thru    73                          
+        L832_PLAN_NO              ,A12          ; RESPONSE PLAN NUMBER                       74 thru    85                          
+        L832_TIME_CODE            ,A2           ; LEAD TIME CODE                             86 thru    87                          
+        L832_QUANTITY             ,D15          ; LEAD TIME QUANTITY                         88 thru   102                          
+        L832_PERIOD               ,A2           ; UNIT OF TIME PERIOD/INTERVAL              103 thru   104                          
+        L832_DATE                 ,D8           ; DATE                                      105 thru   112                          
+        L832_FILLER               ,A99          ; FILLER                                    113 thru   211                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA832_LDT_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A187         ; PRIMARY KEY POSITIONING                                                           

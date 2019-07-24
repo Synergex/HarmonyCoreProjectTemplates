@@ -1,0 +1,36 @@
+;CA850_MSC5.DEF                                                                                                                     
+;                                                                                                                                   
+;       MISCELLANEOUS; TD5 & TD1                                                                                                    
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   257                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_MSC5                                                                                                                  
+        M850_D_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        M850_D_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        M850_D_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        M850_D_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 37 thru    39                          
+        M850_D_SEG_TYPE           ,A3           ; SEGMENT TYPE                               40 thru    42                          
+        M850_D_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        M850_D_SEQ_CODE           ,A2           ; ROUTING SEQUENCE CODE                      49 thru    50                          
+        M850_D_ID_QL              ,A2           ; ROUTING ID QUALIFIER                       51 thru    52                          
+        M850_D_CARR_ID            ,A17          ; ROUTING ID CODE                            53 thru    69                          
+        M850_D_MTHD               ,A2           ; ROUTING METHOD                             70 thru    71                          
+        M850_D_ROUTE              ,A35          ; ROUTE                                      72 thru   106                          
+        M850_D_LOC_QL             ,A2           ; ROUTING LOCATION QUALIFIER                107 thru   108                          
+        M850_D_TIME_QL            ,A2           ; TRANSIT TIME DIRECTION QL                 109 thru   110                          
+        M850_D_TIME               ,D4           ; TRANSIT TIME                              111 thru   114                          
+        M850_TD1_PK_COD           ,A5           ; PACKAGING CODE                            115 thru   119                          
+        M850_TD1_LADING           ,D7           ; LADING QUANTITY                           120 thru   126                          
+        M850_TD1_CC_QL            ,A1           ; COMMODITY CODE QUALIFIER                  127 thru   127                          
+        M850_TD1_COMM_C           ,A10          ; COMMODITY CODE                            128 thru   137                          
+        M850_TD1_LDESC            ,A25          ; LADING DESCRIPTION                        138 thru   162                          
+        M850_TD1_WT_QL            ,A2           ; WEIGHT QUALIFIER                          163 thru   164                          
+        M850_TD1_WT               ,D8           ; WEIGHT                                    165 thru   172                          
+        M850_TD1_UOFM             ,A2           ; WEIGHT UNIT OF MEASURE                    173 thru   174                          
+        M850_D_FILLER             ,A83          ; FILLER                                    175 thru   257                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_MSC5_KEY            ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A209         ; PRIMARY KEY POSITIONING                                                           

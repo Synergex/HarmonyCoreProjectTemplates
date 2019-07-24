@@ -1,0 +1,41 @@
+RECORD BCPMPT_XRF 
+; 
+; BCPMPT_XRF - Bar Code Scanner Special Fields Prompts 
+; 
+;	File Organization: ISAM		Record Size: 97
+; 
+;	Primary Key --> BCW_KEY0  
+; 
+;-------------------------------------------------------------------------------
+; 
+;	MODIFIED	PROGRAMMER	DESCRIPTION 
+;	--------	----------	----------- 
+;	20-Sep-90	G. Scibilia	Creation
+; 
+;-------------------------------------------------------------------------------
+;			------- Record Definition ------- 
+;-------------------------------------------------------------------------------
+	BCP_TP_DESIG	,A2	; Trading Partner Designator from CARaS 
+	BCP_PROMPT1	,A8	; Prompt to display on scanner (Shipper Ref #)
+	BCP_LABEL_CODE1	,A1	; Label code for field 
+				;	ie: A - RAN # 
+	BCP_PROMPT2	,A8	; Prompt to display on scanner (Part Cont)
+	BCP_LABEL_CODE2	,A1	; Label code for field 
+				;	ie: A - RAN # 
+	BCP_PROMPT3	,A8	; Prompt to display on scanner
+				; 	(Returnable Cont #)
+	BCP_LABEL_CODE3	,A1	; Label code for field 
+				;	ie: A - RAN # 
+	BCP_PROMPT4	,A8	; Prompt to display on scanner 
+	BCP_LABEL_CODE4	,A1	; Label code for field 
+				;	ie: A - RAN # 
+	BCP_PROMPT5	,A8	; Prompt to display on scanner 
+	BCP_LABEL_CODE5	,A1	; Label code for field 
+				;	ie: A - RAN # 
+			,A50 
+
+;-------------------------------------------------------------------------------
+;			------- Key Definitions ------ 
+;-------------------------------------------------------------------------------
+RECORD,X 
+	BCP_KEY0	,A2	;Primary Key 

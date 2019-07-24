@@ -1,0 +1,24 @@
+;FO856_CSN.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD ASN CONTAINTER/SERIAL NO                                                                                               
+;       DATE : 23-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   177                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO856_CSN                                                                                                                   
+        FC_TRANS_ID               ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        FC_DEST_CODE              ,A15          ; DESTINATION CODE                           16 thru    30                          
+        FC_ASN_NO                 ,A30          ; FORD ASN NUMBER                            31 thru    60                          
+        FC_CUST_PART              ,A30          ; CUSTOMER PART                              61 thru    90                          
+        FC_CONTAINER              ,A5           ; CONTAINER TYPE                             91 thru    95                          
+        FC_UNITS_PER              ,D7           ; UNITS PER CONTAINER                        96 thru   102                          
+        FC_INPUT_SEQ              ,D5           ; INPUT SEQUENCE NUMBER                     103 thru   107                          
+        FC_INPUT_SEQ2             ,D5           ; SECONDARY INPUT SEQUENCE                  108 thru   112                          
+        FC_OUR_PART               ,A30          ; CARAS PART NUMBER                         113 thru   142                          
+        FC_LOADS                  ,D5           ; NUMBER OF CONTAINERS                      143 thru   147                          
+        FC_SERIAL                 ,A30          ; SERIAL NUMBER                             148 thru   177                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO856_CSN_KEY             ,A102         ; PRIMARY SORT KEY                                                                  
+                                  ,A75          ; PRIMARY KEY POSITIONING                                                           

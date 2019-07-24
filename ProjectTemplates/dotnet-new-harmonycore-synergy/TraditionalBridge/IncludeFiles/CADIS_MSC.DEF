@@ -1,0 +1,24 @@
+;CADIS_MSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       AVIDIS MISC FILE                                                                                                            
+;       DATE : 28-JUN-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   287                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADIS_MSC                                                                                                                   
+        DIM_UNB_CTL               ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DIM_UNG_CTL               ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DIM_UNH_CTL               ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DIM_HDR_LINE              ,D6           ; HEADER LINE NUMBER                         43 thru    48                          
+        DIM_CSG_LINE              ,D6           ; CONSIGNEE LINE NUMBER                      49 thru    54                          
+        DIM_DTL_LINE              ,D6           ; DETAIL LINE                                55 thru    60                          
+        DIM_DND_LINE              ,D6           ; DETAIL LINE                                55 thru    60                          
+        DIM_LINE                  ,D6           ; LINE NUMBER                                61 thru    66                          
+        DIM_COMP                  ,A8           ; COMPANY CODE                               67 thru    74                          
+        DIM_SEG_TYPE              ,A3           ; SEGMEN TYPE                                75 thru    77                          
+        DIM_FTX_TEXT              ,03A70        ; FTX TEXT                                   78 thru   287                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CADIS_MSC_KEY             ,A72          ; PRIMARY SORT KEY                                                                  
+                                  ,A221         ; PRIMARY KEY POSITIONING                                                           

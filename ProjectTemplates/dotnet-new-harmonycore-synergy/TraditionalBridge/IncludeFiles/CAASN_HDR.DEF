@@ -1,0 +1,39 @@
+                                                                                                                                    
+RECORD CAASN_HDR                                                                                                                    
+    H856_TP_DESIG   , A2     ; TRADING PARTNER                    1 THRU     2                                                      
+    H856_SHIP_ID    , A30    ; SHIPMENT ID                        3 THRU    32                                                      
+    H856_PURPOSE    , A2     ; ASN PURPOSE CODE                  33 THRU    34                                                      
+    H856_DEPTH      , D2     ; LEVEL                             35 THRU    36                                                      
+    H856_HL_PARENT  , A28    ; PARENT ID                         37 THRU    64                                                      
+    H856_LVL1_SEQ   , A3     ; LEVEL 1 SEQUENCE                  65 THRU    67                                                      
+    H856_LVL2_SEQ   , A3     ; ASN LOOP LEVEL 2 SEQUENCE         68 THRU    70                                                      
+    H856_LVL3_SEQ   , A3     ; ASN LOOP LEVEL 3 SEQUENCE         71 THRU    73                                                      
+    H856_LVL4_SEQ   , A3     ; LOOP LEVEL 4 SEQUENCE             74 THRU    76                                                      
+    H856_LVL5_SEQ   , A3     ; LOOP LEVEL 5 SEQUENCE             77 THRU    79                                                      
+    H856_LVL6_SEQ   , A3     ; SORT CONTROL SEQUENCE             80 THRU    82                                                      
+    H856_HL_ID      , A12    ; HL ID NUMBER                      83 THRU    94                                                      
+    H856_SEG_TYPE   , A3     ; SEGMENT TYPE                      95 THRU    97                                                      
+    H856_SEQ_NO     , D4     ; SEQUENCE NUMBER                   98 THRU   101                                                      
+    H856_ASN_DATE   , D6     ; ASN CREATION DATE                102 THRU   107                                                      
+    H856_ASN_TIME   , D8     ; ASN CREATION TIME                108 THRU   115                                                      
+    H856_STRUCTURE  , A4     ; HIERARCHICAL STRUCTURE CODE      116 THRU   119                                                      
+    H856_TYPE       , A2     ; TRANSACTION TYPE CODE            120 THRU   121                                                      
+    H856_STATUS     , A3     ; STATUS CODE                      122 THRU   124                                                      
+    H856_SHIP_DATE  , D6     ; SHIPMENT DATE                    125 THRU   130                                                      
+    H856_SHIP_TIME  , D4     ; SHIPMENT TIME                    131 THRU   134                                                      
+    H856_DELIV_DATE , D6     ; DELIVERY DATE                    135 THRU   140                                                      
+    H856_DELIV_TIME , D4     ; DELIVERY TIME                    141 THRU   144                                                      
+    H856_DATE_QL1   , A3     ; DTM DATE QUALIFIER               145 THRU   147                                                      
+    H856_DATE_1     , D6     ; DTM DATE                         148 THRU   153                                                      
+    H856_TIME_1     , D8     ; DTM TIME                         154 THRU   161                                                      
+    H856_DATE_QL2   , A3     ; DTM DATE QUALIFIER               162 THRU   164                                                      
+    H856_DATE_2     , D6     ; DTM DATE                         165 THRU   170                                                      
+    H856_TIME_2     , D8     ; DTM TIME                         171 THRU   178                                                      
+    H856_SUPP_ABBRV , A5     ; SUPPLIER ABBREVIATION            179 THRU   183                                                      
+    H856_XMIT_DATE  , D6     ; DATE ASN WAS SENT                184 THRU   189                                                      
+    H856_XMIT_TIME  , D8     ; TIME ASN WAS SENT                190 THRU   197                                                      
+                                                                                                                                    
+RECORD ,X                                                                                                                           
+    CAASN_HDR_KEY       ,A101                                                                                                       
+                        ,A96                                                                                                        
+                                                                                                                                    

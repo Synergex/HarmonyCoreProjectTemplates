@@ -1,0 +1,25 @@
+.ifndef RCPROXY_API_VAR
+.define RCPROXY_API_VAR
+		;Function Specifier Definitions
+         
+	.define RCPROXY_INIT		1
+	.define RCPROXY_OPEN		2
+	.define RCPROXY_SEND		3
+	.define RCPROXY_WRITE		4
+	.define RCPROXY_READ		5
+	.define RCPROXY_CLOSE		6
+	.define RCPROXY_LOGGING		7
+         
+         
+		;RCPROXY_API Parameterized Macro Definitions
+         
+	.define rcp_init (rcproxyblock)  rcproxy_api (RCPROXY_INIT,rcproxyblock)
+	.define rcp_open (rcproxyblock, gr_rcp_open) rcproxy_api (RCPROXY_OPEN, rcproxyblock, gr_rcp_open)
+	.define rcp_send (rcproxyblock, gr_rcp_send) rcproxy_api(RCPROXY_SEND, rcproxyblock,gr_rcp_send)
+	.define rcp_write (rcproxyblock) rcproxy_api (RCPROXY_WRITE, rcproxyblock)
+	.define rcp_read(rcproxyblock, gr_rcp_read) rcproxy_api(RCPROXY_READ, rcproxyblock, gr_rcp_read)
+	.define rcp_close (rcproxyblock) rcproxy_api(RCPROXY_CLOSE, rcproxyblock)
+	.define rcp_logging (rcproxyblock,state) rcproxy_api(RCPROXY_LOGGING, rcproxyblock, state)
+.endc
+external function
+  	rcproxy_api      ,i       

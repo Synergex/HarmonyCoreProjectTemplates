@@ -1,0 +1,28 @@
+;CH850_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 850/860 ADDRESS                                                                                                    
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   243                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH850_ADR                                                                                                                   
+        CHA_ID_TYPE               ,A3           ; P/O ID TYPE (850 OR 860)                    1 thru     3                          
+        CHA_PONO                  ,A12          ; P/O NUMBER                                  4 thru    15                          
+        CHA_PO_TYPE               ,A2           ; P/O TYPE                                   16 thru    17                          
+        CHA_PO_PURPOSE            ,A2           ; P/O PURPOSE                                18 thru    19                          
+        CHA_TYPE                  ,A2           ; N1-N4 TYPE                                 20 thru    21                          
+        CHA_CODE                  ,A15          ; FIELD1 CODE FOR NAME1 ONLY                 22 thru    36                          
+        CHA_NAME1                 ,A35          ; NAME #1                                    37 thru    71                          
+        CHA_NAME2                 ,A35          ; NAME #2                                    72 thru   106                          
+        CHA_NAME3                 ,A35          ; NAME #3                                   107 thru   141                          
+        CHA_ADDR1                 ,A35          ; ADDRESS LINE 1                            142 thru   176                          
+        CHA_ADDR2                 ,A35          ; ADDRESS LINE 2                            177 thru   211                          
+        CHA_CITY                  ,A19          ; CITY                                      212 thru   230                          
+        CHA_STATE                 ,A2           ; STATE                                     231 thru   232                          
+        CHA_ZIP                   ,A9           ; ZIP CODE                                  233 thru   241                          
+        CHA_COUNTRY               ,A2           ; COUNTRY                                   242 thru   243                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH850_ADR_KEY             ,A36          ; PRIMARY SORT KEY                                                                  
+                                  ,A207         ; PRIMARY KEY POSITIONING                                                           

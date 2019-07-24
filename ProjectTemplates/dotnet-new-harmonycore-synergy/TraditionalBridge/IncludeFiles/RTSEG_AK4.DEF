@@ -1,0 +1,15 @@
+;RTSEG_AK4.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ACKNOWLEDGEMENT AK4 SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    92                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_AK4                                                                                                                   
+        AK4_SEG                   ,A3           ; AK4 SEGMENT IDENTIFIER                      1 thru     3                          
+        AK4_01                    ,A2           ; EI POSITION IN SEGMENT                      4 thru     5                          
+        AK4_02                    ,A4           ; DATA ELEMENT REFERENCE NUMBER               6 thru     9                          
+        AK4_03                    ,A3           ; DATA ELEMENT SYNTAX ERROR CODE             10 thru    12                          
+        AK4_04                    ,A80          ; COPY OF BAD DATA ELEMENT                   13 thru    92                          
+                                                                                                                                    
+                                                                                                                                    

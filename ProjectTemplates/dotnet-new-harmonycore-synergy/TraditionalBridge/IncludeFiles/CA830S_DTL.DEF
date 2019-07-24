@@ -1,0 +1,36 @@
+;CA830S_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       SENDING MATERIAL RELEASE DTL                                                                                                
+;       DATE : 21-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   654                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA830S_DTL                                                                                                                  
+        D830S_INTER_ID            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        D830S_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        D830S_HDR_LINE            ,D6           ; HEADER LINE                                31 thru    36                          
+        D830S_DTL_LINE            ,D6           ; DETAIL LINE NUMBER                         37 thru    42                          
+        D830S_SLN_LINE            ,D6           ; SLN SEQUENCE                               43 thru    48                          
+        D830S_ADR_LINE            ,D6           ; ADDRESS LINE                               49 thru    54                          
+        D830S_SDP_LINE            ,D6           ; SDP SEQUENCE                               55 thru    60                          
+        D830S_REQ_LINE            ,D6           ; FST SEQUENCE                               61 thru    66                          
+        D830S_SHP_LINE            ,D6           ; SHP SEQUENCE                               67 thru    72                          
+        D830S_KEY_FILL            ,D18          ; FILLER                                     73 thru    90                          
+        D830S_LINE                ,A20          ; P.O. LINE NUMBER                           91 thru   110                          
+        D830S_CUST_PART           ,A30          ; CUSTOMER PART                             111 thru   140                          
+        D830S_OUR_PART            ,A30          ; OUR PART NUMBER                           141 thru   170                          
+        D830S_UOFM                ,A2           ; UNIT OF MEASURE                           171 thru   172                          
+        D830S_PROD_QL1            ,A2           ; PRODUCT ID QUALIFIER                      173 thru   174                          
+        D830S_PROD_ID1            ,A30          ; PRODUCT IDENTIFICATION                    175 thru   204                          
+        D830S_PROD_QL2            ,A2           ; PRODUCT ID QUALIFIER                      205 thru   206                          
+        D830S_PROD_ID2            ,A30          ; PRODUCT ID                                207 thru   236                          
+        D830S_PO_NO               ,A22          ; PURCHASE ORDER NUMBER                     237 thru   258                          
+        D830S_FILLER1             ,A99          ; FILLER                                    259 thru   357                          
+        D830S_FILLER2             ,A99          ; FILLER                                    358 thru   456                          
+        D830S_FILLER3             ,A99          ; FILLER                                    457 thru   555                          
+        D830S_FILLER4             ,A99          ; FILLER                                    556 thru   654                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA830S_DTL_KEY            ,A90          ; PRIMARY SORT KEY                                                                  
+                                  ,A564         ; PRIMARY KEY POSITIONING                                                           

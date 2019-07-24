@@ -1,0 +1,69 @@
+;CAR856_MS1.DEF                                                                                                                     
+;                                                                                                                                   
+;       ITA,MAN,PER,FOB,MEA,PKG,PWK                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   640                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_MS1                                                                                                                  
+        MR8561_SHIP_ID            ,A30          ; SHIPMENT ID NO                              1 thru    30                          
+        MR8561_PRC_DTM            ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        MR8561_HL_ID              ,A12          ; HIERARCHICAL STRUCT HL ID CODE             43 thru    54                          
+        MR8561_ADR_LOOP           ,D3           ; ADDRESS LOOP SEQUENCE NO                   55 thru    57                          
+        MR8561_CLD_LOOP           ,D3           ; CLD LOOP SEQUENCE NO                       58 thru    60                          
+        MR8561_SORT_CTL           ,A4           ; SORT CONTROL FOR SEGMENTS                  61 thru    64                          
+        MR8561_SEG_ID             ,A3           ; SEGMENT ID                                 65 thru    67                          
+        MR8561_SEQ_NO             ,D6           ; SEQUENCE OF REPEATED SEGMENT               68 thru    73                          
+        MR8561_QUAL               ,A2           ; MAN QUALIFIER                              74 thru    75                          
+        MR8561_DESC1              ,A80          ; PID,PKG,PWK,MAN#,PER_NAME                  76 thru   155                          
+        MR8561_PER_FUNC           ,A2           ; CONTACT FUNCTION CODE                     156 thru   157                          
+        MR8561_PER_QL             ,A2           ; COMMUNICATION NO QUALIFIER                158 thru   159                          
+        MR8561_PHONE              ,A25          ; COMMUNICATION PHONE NUMBER                160 thru   184                          
+        MR8561_FB_METH            ,A2           ; FOB SHIPMENT METHOD OF PAYMENT            185 thru   186                          
+        MR8561_FB_LOCQ1           ,A2           ; FOB LOCATION QUALIFIER #1                 187 thru   188                          
+        MR8561_FB_TT_QL           ,A2           ; FOB TRANSPORTATION TERM QUALIF            189 thru   190                          
+        MR8561_FB_TT_CD           ,A3           ; FOB TRANSPORTATION TERMS CODE             191 thru   193                          
+        MR8561_FB_LOCQ2           ,A2           ; FOB LOCATION QUALIFER #2                  194 thru   195                          
+        MR8561_FB_DESC2           ,A80          ; FOB DESCRIPTION #2                        196 thru   275                          
+        MR8561_FB_RISK            ,A2           ; FOB RISK OF LOSS QUALIFIER                276 thru   277                          
+        MR8561_DESC3              ,A80          ; FOB DESCRIPTION 3                         278 thru   357                          
+        MR8561_ME_REFID           ,A2           ; MEA REFERENCE ID CODE                     358 thru   359                          
+        MR8561_ME_QUAL            ,A3           ; MEA MEASUERMENT QUALIFIER                 360 thru   362                          
+        MR8561_ME_VALUE           ,A10          ; MEASUREMENT VALUE                         363 thru   372                          
+        MR8561_ME_UOM             ,A2           ; MEASUREMENT VALUE UNIT OF MEAS            373 thru   374                          
+        MR8561_ME_MINI            ,A10          ; MEASUREMENT RANGE MINIMUM                 375 thru   384                          
+        MR8561_ME_MAXI            ,A10          ; MEASUREMENT RANGE MAXIMUM                 385 thru   394                          
+        MR8561_ME_SIGN            ,A2           ; MEASURE SIGN CODE                         395 thru   396                          
+        MR8561_ME_ATTRI           ,A2           ; MEASUREMENT ATTRIBUTE CODE                397 thru   398                          
+        MR8561_ME_SURF            ,A2           ; MEASUREMENT SURFACE/LAYER POS             399 thru   400                          
+        MR8561_PKG_DTYP           ,A1           ; PKG ITEM DESCRIPTION TYPE                 401 thru   401                          
+        MR8561_PKG_CHAR           ,A5           ; PKG CHARACTERISTICS CODE                  402 thru   406                          
+        MR8561_PKG_AGEN           ,A2           ; PKG AGENCY QUALIFIER CODE                 407 thru   408                          
+        MR8561_PKG_DCOD           ,A7           ; PKG PACKAGING DESCR CODE                  409 thru   415                          
+        MR8561_PWK_TCOD           ,A2           ; PWK REPORT TYPE CODE                      416 thru   417                          
+        MR8561_PWK_TRCD           ,A2           ; PWK REPORT TRANS CODE                     418 thru   419                          
+        MR8561_PWK_COPY           ,D2           ; PWK REPORT COPIES NEEDED                  420 thru   421                          
+        MR8561_PWK_ENTI           ,A2           ; PWK ENTITY ID CODE                        422 thru   423                          
+        MR8561_PWK_IDQL           ,A2           ; PWK ID CODE QUALIFIER                     424 thru   425                          
+        MR8561_PWK_IDCD           ,A17          ; PWK ID CODE                               426 thru   442                          
+        MR8561_PWK_ACTN           ,A2           ; PWK PAPER/REPORT ACTION CODE              443 thru   444                          
+        MR8561_AC_IND             ,A1           ; ITA ALLOWANCE/CHARGE INDICATOR            445 thru   445                          
+        MR8561_AC_AGNCY           ,A2           ; ITA AGENCY QUALIFIER CODE                 446 thru   447                          
+        MR8561_AC_SSCOD           ,A10          ; ITA SPECIAL SERVICES CODE                 448 thru   457                          
+        MR8561_AC_METH            ,A2           ; ITA METHOD OF HANDLING CODE               458 thru   459                          
+        MR8561_AC_NUM             ,A16          ; ITA ALLOW/CHARGE REF NUMBER               460 thru   475                          
+        MR8561_AC_RATE            ,D12          ; ITA ALLOW/CHARGE RATE 7.5                 476 thru   487                          
+        MR8561_AC_TAMT            ,D9           ; ITA ALLOW/CHARGE TOTAL AMT 7.2            488 thru   496                          
+        MR8561_AC_PCTQL           ,A1           ; ITA ALLOW/CHARGE PERCENT QUAL             497 thru   497                          
+        MR8561_AC_PCT             ,D8           ; ITA ALLOW/CHARGE PERCENT 4.4              498 thru   505                          
+        MR8561_AC_QTY             ,D15          ; ITA ALLOW/CHARGE QTY 10.5                 506 thru   520                          
+        MR8561_AC_UOM             ,A2           ; ITA ALLOW/CHARGE UNIT OF MEAS             521 thru   522                          
+        MR8561_AC_FQTY            ,D15          ; ITA A/C FREE GOODS QTY 10.5               523 thru   537                          
+        MR8561_AC_SPCRG           ,A3           ; ITA SPECIAL CHARGE CODE                   538 thru   540                          
+        MR8561_FILLER             ,A50          ; FILLER                                    541 thru   590                          
+        MR8561_FILLER2            ,A50          ; FILLER                                    591 thru   640                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_MS1_KEY            ,A73          ; PRIMARY SORT KEY                                                                  
+                                  ,A567         ; PRIMARY KEY POSITIONING                                                           

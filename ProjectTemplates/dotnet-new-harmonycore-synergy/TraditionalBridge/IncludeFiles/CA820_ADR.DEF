@@ -1,0 +1,32 @@
+;CA820_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       REMITTANCE ADVISE ADDRESS                                                                                                   
+;       DATE : 18-FEB-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   303                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA820_ADR                                                                                                                   
+        A820_HDR_LINE             ,D5           ; HEADER LINE SEQUENCE                        1 thru     5                          
+        A820_DTL_LINE             ,D5           ; DETAIL LINE SEQUENCE                        6 thru    10                          
+        A820_ADR_LINE             ,D5           ; ADDRESS LINE SEQUENCE                      11 thru    15                          
+        A820_NAME_LOC             ,A2           ; PHYSICAL LOCATION CODE                     16 thru    17                          
+        A820_NAME                 ,A35          ; FREE-FORM NAME                             18 thru    52                          
+        A820_CODE_TYPE            ,A2           ; CODE IDENTIFICATION                        53 thru    54                          
+        A820_CODE                 ,A17          ; PARTY'S IDENTIFICATION CODE                55 thru    71                          
+        A820_NAME_SUPP            ,A35          ; SUPPLEMENTARY NAME                         72 thru   106                          
+        A820_NAME_SUPP2           ,A35          ; ANOTHER SUPPLEMENTARY NAME                107 thru   141                          
+        A820_ADDRESS              ,A35          ; ADDRESS INFORMATION                       142 thru   176                          
+        A820_ADDR_SUPP            ,A35          ; SUPPLEMENTARY ADDRESS                     177 thru   211                          
+        A820_CITY                 ,A19          ; SENDER'S CITY                             212 thru   230                          
+        A820_STATE                ,A2           ; SEMDER'S STATE                            231 thru   232                          
+        A820_ZIP                  ,A9           ; SENDER'S ZIP                              233 thru   241                          
+        A820_COUNTRY              ,A2           ; SENDER'S COUNTRY CODE                     242 thru   243                          
+        A820_CONT_CODE            ,A2           ; NAMED ENTITY'S FUNCTION                   244 thru   245                          
+        A820_CONT_NAME            ,A35          ; CONTACT'S NAME                            246 thru   280                          
+        A820_COMM_CODE            ,A2           ; COMMUNICATION CODE                        281 thru   282                          
+        A820_COMM_NO              ,A21          ; COMMUNICATION NUMBER                      283 thru   303                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA820_ADR_KEY             ,A15          ; PRIMARY SORT KEY                                                                  
+                                  ,A288         ; PRIMARY KEY POSITIONING                                                           

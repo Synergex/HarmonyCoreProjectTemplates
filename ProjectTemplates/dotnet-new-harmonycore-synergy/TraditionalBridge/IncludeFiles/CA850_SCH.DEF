@@ -1,0 +1,30 @@
+;CA850_SCH.DEF                                                                                                                      
+;                                                                                                                                   
+;       PURCHASE ORDER SCHEDULE FILE                                                                                                
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   264                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_SCH                                                                                                                   
+        S850_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        S850_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        S850_DTL_SEQ              ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        S850_SEQ_NO               ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        S850_QTY                  ,D9           ; SCHEDULE QUANTITY                          43 thru    51                          
+        S850_UOFM                 ,A2           ; UNIT OF MEASURE                            52 thru    53                          
+        S850_ENTITY_ID            ,A2           ; ENTITY ID CODE                             54 thru    55                          
+        S850_NAME                 ,A35          ; ENTITY NAME                                56 thru    90                          
+        S850_DTTM_QL              ,A3           ; DATE TIME QUALIFIER                        91 thru    93                          
+        S850_REQ_DATE             ,D8           ; SCHEDULE DATE                              94 thru   101                          
+        S850_REQ_TIME             ,D4           ; SCHEDULE TIME                             102 thru   105                          
+        S850_END_DTTM             ,A3           ; ENDING DATE TIME QUALIFIER                106 thru   108                          
+        S850_END_DATE             ,D8           ; ENDING DATE                               109 thru   116                          
+        S850_END_TIME             ,D4           ; ENDING TIME                               117 thru   120                          
+        S850_REF_NO               ,A45          ; SCHEULE REFERENCE NUMBER                  121 thru   165                          
+        S850_DELIV_INST           ,A80          ; DELIVERY INSTRUCTIONS                     166 thru   245                          
+        S850_FILLER               ,A19          ; FILLER                                    246 thru   264                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_SCH_KEY             ,A42          ; PRIMARY SORT KEY                                                                  
+                                  ,A222         ; PRIMARY KEY POSITIONING                                                           

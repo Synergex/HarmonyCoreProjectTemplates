@@ -1,0 +1,58 @@
+; GM856_HDR.DEF
+;
+;	General Motors Raw Input Header File for X12 ASN Generation.
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	12-Oct-89	T. L. Radke	Added GH_ASN_PURPOSE
+;
+;------------------------------------------------------------------
+; File Organization: Sequential | Record Size: 200	| Positions
+;------------------------------------------------------------------
+
+RECORD GM856_HDR
+	GH_INPUT_SEQ	,D5	; Input Sequence	|   1 thru 5
+	GH_ISSUE_BY	,A15	; Issued By (Div) Code	|   6 thru 20
+	GH_SHIP_TO	,A15	; Ship To Dest Code	|  21 thru 35
+	GH_ASN_NO	,D9	; ASN Number		|  36 thru 44
+
+	GH_ASN_DATE	,D6	; ASN Creation Date	|  45 thru 50
+	GH_ASN_TIME	,D4	; ASN Creation Time	|  51 thru 54
+
+	GH_SHIP_DATE	,D6	; Ship Date		|  55 thru 60
+	GH_SHIP_TIME	,D4	; Ship Time		|  61 thru 64
+
+	GH_ARRV_DATE	,D6	; Expected Arrival Date	|  65 thru 70
+	GH_ARRV_TIME	,D4	; Expected Arrival Time	|  71 thru 74
+
+	GH_GROSS_WGT	,D8	; Shipment Gross Weight	|  75 thru 82
+	GH_ROUTE_SEQ	,A1	; Route Sequence Code	|  83 thru 83
+	GH_ROUTE_CODE	,A2	; Route/Transport Code	|  84 thru 85
+
+	GH_EQUIP_CODE	,A2	; Shipping Equip Code	|  86 thru 87
+	GH_EQUIP_PRE	,A4	; Shipping Equip Prefix	|  88 thru 91
+	GH_EQUIP_NO	,A7	; Shipping Equip Number	|  92 thru 98
+
+	GH_PRO_QUAL	,A2	; Carrier Pro # Qual	|  99 thru 100
+	GH_PRO_NO	,A15	; Carrier Number	| 101 thru 115
+
+	GH_PACK_QUAL	,A2	; Packing List Qual	| 116 thru 117
+	GH_PACK_LIST	,A15	; Packing List Number	| 118 thru 132
+
+	GH_BILL_QUAL	,A2	; Bill of Lading Qual	| 133 thru 134
+	GH_BILL_NO	,A15	; Bill of Lading Number	| 135 thru 149
+
+	GH_DOCK_QUAL	,A2	; Dock Code Qualifier	| 150 thru 151
+	GH_DOCK_CODE	,A5	; Dock Code		| 152 thru 156
+
+	GH_TOT_LINES	,D5	; Total Line Items	| 157 thru 161
+	GH_TOT_QTY	,D8	; Total Ship Quantity	| 162 thru 169
+
+	GH_SUPP_ID	,A15	; Supplier Id		| 170 thru 184
+	GH_SUPP_QUAL	,A2	; Supplier Id Qualifer	| 185 thru 186
+	GH_ISSUE_QUAL	,A2	; Issued By Id Qualifier| 187 thru 188
+	GH_SHIP_QUAL	,A2	; Ship To Id Qualifier	| 189 thru 190
+
+	GH_TELE_PROC	,A3	; Div Teleprocessing Id	| 191 thru 193
+	GH_ASN_PURPOSE	,A2	; ASN purpose		| 194 thru 195
+			,A5	; Filler		| 196 thru 200

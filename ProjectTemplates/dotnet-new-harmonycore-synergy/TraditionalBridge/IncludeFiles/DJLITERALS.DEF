@@ -1,0 +1,74 @@
+; djliterals.def
+; 
+;	+--------------------------------------------------------------------+
+;	|								     |
+;       |      		    Copyright, September 1996   		     |
+;       |                     Radley Corporation			     |
+;	|								     |
+;	+--------------------------------------------------------------------+
+;	Document Journal literal definitions
+;	Created for Document Journal functions
+;
+;-----------------------------------------------------------------
+;
+;	DATE	   	PROGRAMMER	MODIFICATIONS
+;	----	   	----------	-------------
+;	05-Sep-1996	F. Kline	Creation
+;	06-Oct-2005	L. Warpup	#55230: Added DJRT_SPREADSHEET.
+;
+;-------------------------------------------------------------------------------
+;
+
+LITERAL DJ_LITERALS
+;-------------------------------------------------------------------------------
+; Document Journal Record Type Literals
+	DJRT_NETWORK		,A2,'10' ; Valid for DJ1_RT
+
+		; The following are valid for DJ3_RT
+	DJRT_APPLICATION	,A2,'60'
+	DJRT_EDI		,A2,'62'
+	DJRT_EDI_MULTIPLE	,A2,'63' ; Multiple EDI files combined into
+					 ; single file
+	DJRT_NON_STD_EDI	,A2,'64'
+	DJRT_REPORT		,A2,'70'
+	DJRT_SPREADSHEET	,A2,'71'
+	DJRT_INTEGRATION	,A2,'72'
+
+;-------------------------------------------------------------------------------
+; Document Journal enevelope standard literals
+	DJL_X12			,A1,'X'
+	DJL_ODETTE		,A1,'O'
+	DJL_EDIFACT		,A1,'E'
+	DJL_UCS			,A1,'U'
+	DJL_XML			,A1,'M'
+	DJL_OTHER		,A1,'?'
+	DJL_VDA			,A1,'V'
+	DJL_TRADACOM		,A1,'T'
+
+;-------------------------------------------------------------------------------
+; Document Journal record selected literals
+	DJSEL_YES		,D1,1
+	DJSEL_NO		,D1,5
+
+;-------------------------------------------------------------------------------
+; Document Journal Odometer Designator Literals
+	DJL_TRANS_ODOMETER	,D1,1
+	DJL_JOB_ODOMETER	,D1,2
+
+;-------------------------------------------------------------------------------
+; Document Journal %dj_select context literals
+	DJL_INITIALIZE		,I2,1
+	DJL_CONTINUE		,I2,2
+
+;-------------------------------------------------------------------------------
+; Document journal communication status variables
+	DJL_NOT_TRANSMITTED	,I2,0
+	DJL_COMM_SUCCESS	,I2,1
+	DJL_COMM_FAILURE	,I2,2
+
+;-------------------------------------------------------------------------------
+; Document journal acknowledgment status
+	DJL_NOT_ACKNOWLEDGED	,I2,0
+	DJL_ACCEPTED		,I2,1
+	DJL_ACCEPT_ERRORS	,I2,2
+	DJL_REJECTED		,I2,3

@@ -1,0 +1,60 @@
+                                                                                                                                    
+RECORD CAASN_FILA                                                                                                                   
+    A856_TP_DESIG   , A2     ; TRADING PARTNER                    1 THRU     2                                                      
+    A856_SHIP_ID    , A30    ; SHIPMENT ID                        3 THRU    32                                                      
+    A856_PURPOSE    , A2     ; ASN PURPOSE CODE                  33 THRU    34                                                      
+    A856_DEPTH      , D2     ; LEVEL                             35 THRU    36                                                      
+    A856_HL_PARENT  , A28    ; PARENT ID                         37 THRU    64                                                      
+    A856_LVL1_SEQ   , A3     ; LEVEL 1 SEQUENCE                  65 THRU    67                                                      
+    A856_LVL2_SEQ   , A3     ; ASN LOOP LEVEL 2 SEQUENCE         68 THRU    70                                                      
+    A856_LVL3_SEQ   , A3     ; ASN LOOP LEVEL 3 SEQUENCE         71 THRU    73                                                      
+    A856_LVL4_SEQ   , A3     ; LOOP LEVEL 4 SEQUENCE             74 THRU    76                                                      
+    A856_LVL5_SEQ   , A3     ; LOOP LEVEL 5 SEQUENCE             77 THRU    79                                                      
+    A856_LVL6_SEQ   , A3     ; SORT CONTROL SEQUENCE             80 THRU    82                                                      
+    A856_HL_ID      , A12    ; HL ID NUMBER                      83 THRU    94                                                      
+    A856_SEG_TYPE   , A3     ; SEGMENT TYPE                      95 THRU    97                                                      
+    A856_SEQ_NO     , D4     ; SORT SEQUENCE NUMBER              98 THRU   101                                                      
+    A856_DTM_QL     , A3     ; DATE/TIME QUALIFIER              102 THRU   104                                                      
+    A856_DTM_DATE   , D6     ; ASN DTM SEGMENT DATE             105 THRU   110                                                      
+    A856_DTM_TIME   , D8     ; ASN DTM SEGMENT TIME             111 THRU   118                                                      
+    A856_DTM_CODE   , A2     ; DATE/TIME CODE                   119 THRU   120                                                      
+    A856_DTM_FORMAT , A3     ; DATE/TIME FORMAT QUALIFIER       121 THRU   123                                                      
+    A856_DTM_PERIOD , A35    ; DATE/TIME PERIOD                 124 THRU   158                                                      
+    A856_REF_QL     , A2     ; REFERENCE NUMBER QUALIFIER       159 THRU   160                                                      
+    A856_REF_NO     , A30    ; REFERENCE NUMBER                 161 THRU   190                                                      
+    A856_REF_DESC   , A80    ; REFERENCE NUMBER DESCRIPTION     191 THRU   270                                                      
+    A856_PRF_PO_NO  , A22    ; PURCHASE ORDER NUMBER            271 THRU   292                                                      
+    A856_PRF_RELNO  , A30    ; RELEASE NUMBER                   293 THRU   322                                                      
+    A856_PRF_CHGSEQ , A8     ; CHANGE SEQUENCE NUMBER           323 THRU   330                                                      
+    A856_PRF_PODATE , D6     ; PURCHASE ORDER DATE              331 THRU   336                                                      
+    A856_PRF_PO_LIN , A11    ; PURCHASE ORDER LINE NUMBER       337 THRU   347                                                      
+    A856_PRF_CONTR  , A30    ; CONTRACT NUMBER                  348 THRU   377                                                      
+    A856_PRF_PO_TYP , A2     ; PURCHASE ORDER TYPE CODE         378 THRU   379                                                      
+    A856_PWK_TYPE   , A2     ; PAPERWORK TYPE                   380 THRU   381                                                      
+    A856_PWK_TRANS  , A2     ; TRANSMISSION CODE                382 THRU   383                                                      
+    A856_PWK_COPIES , D2     ; COPIES NEEDED                    384 THRU   385                                                      
+    A856_PWK_ENTITY , A2     ; ENTITY ID CODE                   386 THRU   387                                                      
+    A856_PWK_ID_QL  , A2     ; ID CODE QUALIFIER                388 THRU   389                                                      
+    A856_PWK_ID     , A17    ; ID CODE                          390 THRU   406                                                      
+    A856_PWK_DESC   , A80    ; DESCRIPTION                      407 THRU   486                                                      
+    A856_ETD_REASON , A2     ; EXCESS TRANSPORTATION REASON     487 THRU   488                                                      
+    A856_ETD_RESP   , A1     ; RESPONSIBILITY CODE              489 THRU   489                                                      
+    A856_ETD_REF_QL , A2     ; REFERENCE NUMBER QUALIFIER       490 THRU   491                                                      
+    A856_ETD_REF_NO , A30    ; REFERENCE NUMBER                 492 THRU   521                                                      
+    A856_ETD_FRGT   , A2     ; FREIGHT PAYMENT RESPONSIBILITY   522 THRU   523                                                      
+    A856_CUR_ENTITY , A2     ; CURRENCY ENTITY ID               524 THRU   525                                                      
+    A856_CUR_CODE   , A3     ; CURRENCY CODE                    526 THRU   528                                                      
+    A856_CUR_EX_RT  , D6     ; CURRENCY EXCHANGE RATE           529 THRU   534                                                      
+    A856_CUR2_CODE  , A3     ; CURRENCY CODE 2                  535 THRU   537                                                      
+    A856_CUR2_ENT   , A2     ; CURRENCY ENTITY CODE 2           538 THRU   539                                                      
+    A856_CUR_EX_CD  , A3     ; CURRENCY MARKET/EXCHANGE CODE    540 THRU   542                                                      
+    A856_CUR_DTM    , A3     ; DATE/TIME QUALIFIER              543 THRU   545                                                      
+    A856_CUR_DATE   , D6     ; CURRENCY DATE                    546 THRU   551                                                      
+    A856_CUR_TIME   , D8     ; CURRENCY TIME                    552 THRU   559                                                      
+    A856_NTE_FORM   , A3     ; NOTE DESCRIPTOR                  560 THRU   562                                                      
+    A856_NTE        , A60    ; NOTES                            563 THRU   622                                                      
+                                                                                                                                    
+RECORD ,X                                                                                                                           
+    CAASN_FILA_KEY      ,A101                                                                                                       
+                        ,A521                                                                                                       
+                                                                                                                                    

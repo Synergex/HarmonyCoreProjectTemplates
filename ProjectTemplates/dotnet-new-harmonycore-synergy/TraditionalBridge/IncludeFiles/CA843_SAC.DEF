@@ -1,0 +1,41 @@
+;CA843_SAC.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE ALLOW/CHARGE                                                                                              
+;       DATE : 10-JAN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   409                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_SAC                                                                                                                   
+        IQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        IQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        IQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        IQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        IQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        IQT_SCH_SEQ               ,D6           ; SCHEDULE SEQ NO                            31 thru    36                          
+        IQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        IQT_PDD_SEQ               ,D6           ; PRICING DATA SEQUENCE NUMBER               43 thru    48                          
+        IQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        IQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        IQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        IQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        IQT_QT_REF                ,A45          ; QUOTE REFERENCE NUMBER                     88 thru   132                          
+        IQT_CNTRL_DT              ,D8           ; CONTROL DATE                              133 thru   140                          
+        IQT_OUR_PART              ,A30          ; OUR PART NUMBER                           141 thru   170                          
+        IQT_SEQ                   ,D6           ; SEQUENCE NUMBER                           171 thru   176                          
+        IQT_ALLOW_CHRGE           ,A1           ; ALLOWANCE/CHARGE INDICATOR                177 thru   177                          
+        IQT_SSS                   ,A10          ; SPECIAL SERVICES CODE                     178 thru   187                          
+        IQT_METH_HANDLE           ,A2           ; METHOD OF HANDLING                        188 thru   189                          
+        IQT_AC_RATE               ,D9           ; ALLOWANCE/CHARGE RATE                     190 thru   198                          
+        IQT_AC_AMOUNT             ,D9           ; ALLOWANCE/CHARGE TOTAL AMOUNT             199 thru   207                          
+        IQT_AC_PER_QL             ,A1           ; ALLOWANCE/CHARGE PERCENT QUAL             208 thru   208                          
+        IQT_AC_PERCENT            ,D6           ; ALLOWANCE/CHARGE PERCENT                  209 thru   214                          
+        IQT_AC_QTY                ,D10          ; ALLOWANCE/CHARGE QUANTITY                 215 thru   224                          
+        IQT_AC_UOFM               ,A2           ; ALLOWANCE/CHARGE UNIT OF MEAS             225 thru   226                          
+        IQT_AC_DESC               ,A80          ; ALLOWANCE/CHARGE DESCRIPTION              227 thru   306                          
+        IQT_SPEC_CHARGE           ,A4           ; SPECIAL CHARGE CODE                       307 thru   310                          
+        IQT_FILLER                ,A99          ; FILLER                                    311 thru   409                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_SAC_KEY             ,A12          ; PRIMARY SORT KEY                                                                  
+                                  ,A397         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,15 @@
+RECORD
+	wmain_col       ,i4
+	winput_col      ,i4
+	wedit_col       ,i4
+	wsel_col        ,i4
+	wfind_col	,i4
+	wtext_col	,i4
+	wscr_col	,i4
+	wlogin_chn      ,i4
+	wtrans_chn      ,i4
+	wrpt_chn        ,i4
+	wtp_chn		,i4
+	wtp_chn2	,i4
+	wtbl_chn	,i4
+	ws_var          ,i4

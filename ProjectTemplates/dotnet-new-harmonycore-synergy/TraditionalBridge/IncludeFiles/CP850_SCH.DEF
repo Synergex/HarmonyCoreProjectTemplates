@@ -1,0 +1,22 @@
+;CP850_SCH.DEF                                                                                                                      
+;                                                                                                                                   
+;       CATERPILLAR P/O SCHEDULE FILE                                                                                               
+;       DATE : 17-SEP-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    65                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CP850_SCH                                                                                                                   
+        CPS_PONO                  ,A12          ; P/O NUMBER                                  1 thru    12                          
+        CPS_PO_TYPE               ,A2           ; P/O TYPE                                   13 thru    14                          
+        CPS_PO_PURPOSE            ,D2           ; P/O PURPOSE                                15 thru    16                          
+        CPS_PARTNO                ,A22          ; CUSTOMER PART NUMBER                       17 thru    38                          
+        CPS_SCH_TYPE              ,A3           ; SCHEDULE TYPE                              39 thru    41                          
+        CPS_SHIP_UOM              ,A2           ; SHIPMENT UNIT OF MEASURE                   42 thru    43                          
+        CPS_SHIP_DATE             ,D6           ; SHIPMENT DATE                              44 thru    49                          
+        CPS_DEL_DATE              ,D6           ; DELIVERY DATE                              50 thru    55                          
+        CPS_SHIP_QTY              ,D10          ; SHIPMENT/DELIVERY QUANTITY                 56 thru    65                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CP850_SCH_KEY             ,A38          ; PRIMARY SORT KEY                                                                  
+                                  ,A27          ; PRIMARY KEY POSITIONING                                                           

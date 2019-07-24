@@ -1,0 +1,9 @@
+.ifndef RCPROXY_DEF
+.define RCPROXY_DEF
+		;Proxy error type
+         
+	.define RCPROXY$RCPROXY		1	; RCPROXY error
+	.define RCPROXY$SYNSOCK		2	; Synergy Socket error
+	.define RCPROXY$HTTP		3	; HTTP error
+	.define RCPROXY$FTP		4	; FTP error
+.endc

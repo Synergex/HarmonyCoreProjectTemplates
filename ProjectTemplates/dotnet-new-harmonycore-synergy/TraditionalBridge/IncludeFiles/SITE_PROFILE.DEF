@@ -1,0 +1,2 @@
+	.include 'SITE_PROFILE' repository, record='site_profile'
+	.include 'SITE_PROFILE_KEY1' repository, record='spf_key1'

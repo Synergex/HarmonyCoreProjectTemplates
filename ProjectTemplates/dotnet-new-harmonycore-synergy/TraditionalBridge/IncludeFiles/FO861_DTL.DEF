@@ -1,0 +1,44 @@
+; FO861_DTL.DEF
+;
+;	FORD CMMS X12 RECEIVING ADVICE DETAIL FILE 
+;
+;		DATE: 04-NOV-88
+;
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 108		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;
+;	24-Sep-1993	B. Sparks	Added the following:
+;	FAD_RET_QTY	,D9		; Quantity Returned
+;	FAD_RET_UOFM	,A2		; Returned Qty U of M
+;	FAD_CUM_ADJ	,D9		; Cum Adjustment Qty
+;	FAD_CUM_UOFM	,A2		; Cum Adj U of M
+;	Expanded FAD_REERENCE to 30 characters
+;	Filler		,A30
+;	02-Dec-93	T. Bunker		Expand part numbers to 30.									|
+;						Expand record size from 147 to 155
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 155		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;									|
+RECORD FO861_DTL
+	FAD_REFERENCE	,A30		; Ford Reference Number		|	  1 thru 30
+	FAD_ASN_NO	,A11		; ASN Number			|	 31 thru 41
+	FAD_PART_NO	,A30		; Ford Part Number		|	 42 thru 63
+
+	FAD_RECV_QTY	,D8		; Quantity Received		|	 64 thru 71
+	FAD_RECV_UOFM	,A2		; Received Unit of Measure	|	 72 thru 73
+
+	FAD_QUEST_QTY	,D8		; Quantity in Question		|	 74 thru 81
+	FAD_QUEST_UOFM	,A2		; In Question Unit of Measure	|	 82 thru 83
+	FAD_QUEST_CODE	,A2		; In Question Condition Code	|	 84 thru 85
+
+	FAD_ASN_QTY	,D8		; Quantity on the ASN 		|	 86 thru 93
+	FAD_ASN_UOFM	,A2		; Unit of Measure on the ASN	|	 94 thru 95
+
+	FAD_RET_QTY	,D9		; Quantity Returned		|	 96 thru 104
+	FAD_RET_UOFM	,A2		; Returned qty U of M		|	 105 thru 106
+
+	FAD_CUM_ADJ	,D9		; Cum Adjustment QTY		|	 107 thru 115
+	FAD_CUM_UOFM	,A2		; Cum Adj. U of M		|	 116 thru 117
+			,A30		; Filler			|	 118 thru 147

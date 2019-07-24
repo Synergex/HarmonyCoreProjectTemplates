@@ -1,0 +1,26 @@
+;AB860_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       ALLEN-BRADLEY PO CHANGE DETAIL                                                                                              
+;       DATE : 11-AUG-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   136                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  AB860_DTL                                                                                                                   
+        ABCD_GS_CTL               ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        ABCD_HDR_LINE             ,D6           ; HEADER LINE NUMBER                         10 thru    15                          
+        ABCD_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                         16 thru    21                          
+        ABCD_PO_LINE              ,A6           ; PURCHASE ORDER LINE NUMBER                 22 thru    27                          
+        ABCD_CHG_TYPE             ,A2           ; CHANGE TYPE                                28 thru    29                          
+        ABCD_DEST_ID              ,A17          ; DESTINATION ID                             30 thru    46                          
+        ABCD_QTY                  ,D10          ; NEW TOTAL ORDER QUANTITY                   47 thru    56                          
+        ABCD_QTY_REMAIN           ,D10          ; BALANCE DUE ON P.O.                        57 thru    66                          
+        ABCD_UOFM                 ,A2           ; UNIT OF MEASURE                            67 thru    68                          
+        ABCD_PRICE                ,D14          ; UNIT PRICE                                 69 thru    82                          
+        ABCD_PRICE_BASE           ,A2           ; PRICE BASIS CODE                           83 thru    84                          
+        ABCD_PART_NO              ,A22          ; PART NUMBER                                85 thru   106                          
+        ABCD_EC_LVL               ,A30          ; ENGINEERING CHANGE LEVEL                  107 thru   136                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        AB860_DTL_KEY             ,A21          ; PRIMARY SORT KEY                                                                  
+                                  ,A115         ; PRIMARY KEY POSITIONING                                                           

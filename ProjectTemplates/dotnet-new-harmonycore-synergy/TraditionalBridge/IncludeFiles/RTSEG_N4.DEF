@@ -1,0 +1,15 @@
+;RTSEG_N4.DEF                                                                                                                       
+;                                                                                                                                   
+;       RETAIL N4 SEGMENT FILE                                                                                                      
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    35                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_N4                                                                                                                    
+        N4_SEG                    ,A3           ; RECORD TYPE - N4                            1 thru     3                          
+        N4_01                     ,A2           ; CITY/STATE/ZIP QUALIFIER                    4 thru     5                          
+        N4_02                     ,A19          ; CITY                                        6 thru    24                          
+        N4_03                     ,A2           ; STATE                                      25 thru    26                          
+        N4_04                     ,A9           ; ZIP CODE                                   27 thru    35                          
+                                                                                                                                    
+                                                                                                                                    

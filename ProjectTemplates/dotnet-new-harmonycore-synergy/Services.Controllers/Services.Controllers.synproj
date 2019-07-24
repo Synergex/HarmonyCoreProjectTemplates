@@ -7,6 +7,7 @@
     <Name>Services.Controllers</Name>
     <ProjectGuid>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</ProjectGuid>
     <EnableCommonProperties>True</EnableCommonProperties>
+    <Prefer32Bit>False</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
@@ -44,9 +45,17 @@
     <Compile Include="ItemsController.dbl" />
     <Compile Include="OrderItemsController.dbl" />
     <Compile Include="OrdersController.dbl" />
+    <Compile Include="TraditionalBridgeController.dbl" />
+    <Compile Include="TraditionalBridgeService.dbl" />
     <Compile Include="VendorsController.dbl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.synproj">
+      <Name>Repository</Name>
+      <Project>{cc6c33fb-c46c-4484-972c-c454743f8add}</Project>
+      <Private>True</Private>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Models\Services.Models.synproj">
       <Name>Services.Models</Name>
       <Project>{74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0}</Project>

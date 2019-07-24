@@ -1,0 +1,31 @@
+; NIASN_DTL.DEF
+;
+;	Nissan Advance Shipping Notice (ASN) Detail File.
+;
+;	File Organization: Isam		Record Size: 128
+;
+;	Primary Key: Shipment Id, and RAN.
+;
+;-------------------------------------------------------------------------------
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	10-Nov-1988	Gene Scibilia	Creation
+;	03-Dec-93	T. Bunker	Expand part numbers to 30.
+;					Expand record from 100 to 128.
+;-------------------------------------------------------------------------------
+;
+
+RECORD NIASN_DTL
+	NID_SHIP_ID	,D9	; Advanced Shipping Notice Number
+	NID_RAN_NO	,A8	; Release Authorization Number
+	NID_OUR_PART	,A30	; CARaS Item Number
+	NID_CUST_PART	,A30	; Nissan Item Number
+	NID_SHIP_QTY	,D8	; Quantity Shipped
+	NID_UOFM	,A2	; Unit of Measure
+			,A41	; Filler
+RECORD, X
+	NID_KEY0	,A17	; Primary Key 
+
+RECORD NID_KEY1
+	K1_NID_RAN_NO	,A8	; Release Authorization Number

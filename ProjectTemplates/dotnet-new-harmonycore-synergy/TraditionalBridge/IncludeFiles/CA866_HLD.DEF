@@ -1,0 +1,49 @@
+; CA866_HLD.DEF
+;
+;	CARaS Sequential Parts Delivery Holding File
+;
+;	File Organization: Isam 		Record Size: 256
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	30-Oct-91	B. Schmelter	Creation
+;
+;	06-Jan-93	A. Sparks	Made VIN_NO part of Key_0
+;
+;	16-Nov-93	T. Bunker	Increase part number to 30.  Add 93 
+;					bytes of filler
+;-------------------------------------------------------------------------------
+;
+;
+RECORD CA866_HLD
+	H866_TP		,A2	; Trading Partner
+	H866_DEST_CD	,A15	; Ship To Abbrev Code
+	H866_JOB_SEQ	,A7	; Job Sequence Number
+	H866_C_PART	,A30	; Customer Part Number
+	H866_VIN_NO	,A17	; Vehicle Indentification Number
+	H866_DEL_DATE	,D6	; Delivery Date
+	H866_REF_NO	,A9	; Reference Number
+	H866_PROC_DATE	,D6	; TP Process Date
+	H866_JOB_NO	,A3	; Job Number
+	H866_QTY	,D3	; Quantity
+	H866_DOCK_CODE	,A8	; Dock Name
+	H866_SH_FROM_CD	,A15	; Ship From Code
+	H866_SUPP_CD	,A15	; Supplier Code
+				;
+	H866_INV_NO	,D9	; Invoice number
+	H866_INV_QTY	,D3	; Invoice qty
+			,A108	; Filler
+
+;-------------------------------------------------------------------------------
+;	-------- Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD,X
+	;
+	; No Duplicates, No Changes Allowed.
+	;
+	CA866_HLD_KEY0	,A71
+

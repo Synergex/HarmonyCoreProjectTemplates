@@ -1,0 +1,58 @@
+;CP856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       CATERPILLAR 856 DETAIL FILE                                                                                                 
+;       DATE : 26-JAN-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   833                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CP856_DTL                                                                                                                   
+        CPD_SUPP_ID               ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        CPD_DEST_CODE             ,A15          ; DESTINATION CODE                           16 thru    30                          
+        CPD_ASN_NO                ,A30          ; ASN NUMBER                                 31 thru    60                          
+        CPD_PACK_LIST             ,A30          ; PACKING LIST                               61 thru    90                          
+        CPD_CUST_PART             ,A30          ; CUSTOMER'S PART NUMBER                     91 thru   120                          
+        CPD_SHIP_REF              ,A30          ; SHIP REFERENCE NUMBER                     121 thru   150                          
+        CPD_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     151 thru   172                          
+        CPD_ENG_CHG               ,A30          ; ENGINEERING CHANGE LEVEL                  173 thru   202                          
+        CPD_ENG_CHG_QL            ,A2           ; ENGINEERING CHANGE LEVEL QUAL             203 thru   204                          
+        CPD_SHIP_QTY              ,D8           ; QUANTITY SHIPPED                          205 thru   212                          
+        CPD_SHIP_UOFM             ,A2           ; QUANTITY SHIPPED UNIT OF MEAS             213 thru   214                          
+        CPD_PO_DATE               ,D8           ; PURCHASE ORDER DATE                       215 thru   222                          
+        CPD_SLN_QTY               ,D15          ; SUB LINE DETAIL QUANTITY                  223 thru   237                          
+        CPD_SLN_UOFM              ,A2           ; SUB LINE DETAIL UNIT OF MEAS              238 thru   239                          
+        CPD_SLN_PRICE             ,D15          ; SUB LINE DETAIL PRICE                     240 thru   254                          
+        CPD_PID_DESC              ,A30          ; PID DESCRIPTION                           255 thru   284                          
+        CPD_HEAT_CD               ,A30          ; HEAT CODE                                 285 thru   314                          
+        CPD_LOT_NUMBER            ,A30          ; FORGER CODE                               315 thru   344                          
+        CPD_RELNO                 ,A30          ; RELEASE NUMBER                            345 thru   374                          
+        CPD_MAT_SPEC_QL           ,A2           ; MATERIAL SPEC QUAL                        375 thru   376                          
+        CPD_MAT_SPEC_CD           ,A30          ; MATERIAL SPEC CODE                        377 thru   406                          
+        CPD_CUST_ORD_NO           ,A30          ; CUSTOMER ORDER NUMBER                     407 thru   436                          
+        CPD_ORIG_PART             ,A30          ; ORIGINAL TP PART NUMBER                   437 thru   466                          
+        CPD_PROD_ID_QL1           ,A2           ; PROD ID QUALFIER 1                        467 thru   468                          
+        CPD_PROD_ID1              ,A30          ; PRODUCT ID1                               469 thru   498                          
+        CPD_PROD_ID_QL2           ,A2           ; PRODUCT ID QUALIFIER 2                    499 thru   500                          
+        CPD_PROD_ID2              ,A30          ; PRODUCT ID2                               501 thru   530                          
+        CPD_PROD_ID_QL3           ,A2           ; PRODUCT ID QUALIFIER 3                    531 thru   532                          
+        CPD_PROD_ID3              ,A30          ; PRODUCT ID3                               533 thru   562                          
+        CPD_PROD_ID_QL4           ,A2           ; PRODUCT ID QUALIFIER 4                    563 thru   564                          
+        CPD_PROD_ID4              ,A30          ; PRODUCT ID4                               565 thru   594                          
+        CPD_PROD_ID_QL5           ,A2           ; PRODUCT ID QUALIFIER 5                    595 thru   596                          
+        CPD_PROD_ID5              ,A30          ; PRODUCT ID5                               597 thru   626                          
+        CPD_PROD_ID_QL6           ,A2           ; PRODUCTION ID QUALIFIER 6                 627 thru   628                          
+        CPD_PROD_ID6              ,A30          ; PRODUCTION ID6                            629 thru   658                          
+        CPD_REL_NO                ,A30          ; RELEASE NUMBER                            659 thru   688                          
+        CPD_PO_LINE               ,A11          ; PO LINE NUMBER                            689 thru   699                          
+        CPD_PID_EX_DESC           ,A80          ; PID EXPANDED DESCRIPTION                  700 thru   779                          
+        CPD_GROSS_WGT             ,D10          ; GROSS WEIGHT                              780 thru   789                          
+        CPD_TARE_WGT              ,D10          ; TARE WEIGHT                               790 thru   799                          
+        CPD_HEIGHT                ,A10          ; PHISICAL DIM - HEIGHT                     800 thru   809                          
+        CPD_LENGTH                ,A10          ; PHISICAL DIM - LENGTH                     810 thru   819                          
+        CPD_WIDTH                 ,A10          ; PHISICAL DIM -WIDTH                       820 thru   829                          
+        CPD_UOFM_WGT              ,A2           ; WEIGHT UNIT OF MEASURE                    830 thru   831                          
+        CPD_UOFM_DIM              ,A2           ; DIMENSION UNIT OF MEASURE                 832 thru   833                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CP856_DTL_KEY             ,A150         ; PRIMARY SORT KEY                                                                  
+                                  ,A683         ; PRIMARY KEY POSITIONING                                                           

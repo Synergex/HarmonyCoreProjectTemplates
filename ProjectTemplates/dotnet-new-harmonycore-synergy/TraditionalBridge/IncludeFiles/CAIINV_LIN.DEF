@@ -1,0 +1,25 @@
+;CAIINV_LIN.DEF                                                                                                                     
+;                                                                                                                                   
+;       INBOUND INVOIC LINE ITEM                                                                                                    
+;       DATE : 11-AUG-03                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   270                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAIINV_LIN                                                                                                                  
+        IIM_LIN_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        IIM_LIN_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        IIM_LIN_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        IIM_LIN_HDR_LIN           ,D6           ; HEADER LINE NUMBER                         43 thru    48                          
+        IIM_LIN_LINE              ,D6           ; LINE ITEM LINE NUMBER                      49 thru    54                          
+        IIM_LIN_LINE_NO           ,A6           ; LINE ITEM NUMBER                           55 thru    60                          
+        IIM_LIN_ITEM              ,A35          ; ITEM NUMBER                                61 thru    95                          
+        IIM_LIN_ITEM_QL           ,A3           ; ITEM NUMBER QUALIFIER                      96 thru    98                          
+        IIM_LIN_CODE_QL           ,A3           ; CODE LIST QUALIFIER                        99 thru   101                          
+        IIM_LIN_PO_NO             ,A35          ; PURCHASE ORDER NO                         102 thru   136                          
+        IIM_LIN_INV_NO            ,A35          ; INVOICE NUMBER                            137 thru   171                          
+        IIM_LIN_FILLER2           ,A99          ; FILLER 2                                  172 thru   270                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAIINV_LIN_KEY            ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A216         ; PRIMARY KEY POSITIONING                                                           

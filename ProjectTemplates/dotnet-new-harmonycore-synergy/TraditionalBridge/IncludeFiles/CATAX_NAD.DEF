@@ -1,0 +1,35 @@
+;CATAX_NAD.DEF                                                                                                                      
+;                                                                                                                                   
+;       TAXCOM NAME AND ADDRESS                                                                                                     
+;       DATE : 02-FEB-09                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   716                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATAX_NAD                                                                                                                   
+        TAX_NAD_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        TAX_NAD_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        TAX_NAD_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        TAX_NAD_HDR_LIN           ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        TAX_NAD_DTL_LIN           ,D6           ; DETAIL LINE NUMBER                         49 thru    54                          
+        TAX_NAD_LINE              ,D6           ; NAME AND ADDRESS LINE                      55 thru    60                          
+        TAX_NAD_COMP              ,A8           ; COMPANY                                    61 thru    68                          
+        TAX_NAD_ID                ,A35          ; NAME AND ADDRESS ID                        69 thru   103                          
+        TAX_NAD_TYPE              ,A3           ; NAME AND ADDRESS TYPE                     104 thru   106                          
+        TAX_NAD_CODE_QL           ,A3           ; CODE LIST QUALIFIER                       107 thru   109                          
+        TAX_NAD_RESP              ,A3           ; CODE LIST RESPONSIBLE AGENCY              110 thru   112                          
+        TAX_NAD_NAMEADR           ,05A35        ; NAME AND ADDRESS                          113 thru   287                          
+        TAX_NAD_NAME              ,05A35        ; NAME                                      288 thru   462                          
+        TAX_NAD_NAME_FM           ,A3           ; NAME FORMAT                               463 thru   465                          
+        TAX_NAD_STREET            ,04A35        ; STREET NUMBER                             466 thru   605                          
+        TAX_NAD_CITY              ,A35          ; CITY                                      606 thru   640                          
+        TAX_NAD_ST_PROV           ,A9           ; COUNTRY SUB-CODE                          641 thru   649                          
+        TAX_NAD_POSTAL            ,A9           ; POSTAL CODE                               650 thru   658                          
+        TAX_NAD_CNTRY             ,A3           ; COUNTRY CODE                              659 thru   661                          
+        TAX_NAD_CTA_FUN           ,A3           ; CTA CONTACT FUNCTION                      662 thru   664                          
+        TAX_NAD_CTA_ID            ,A17          ; CTA DEPARTMENT OR EMPOYEE ID              665 thru   681                          
+        TAX_NAD_CTA_NAM           ,A35          ; CTA DEPARTMENT OR EMPLOYEE                682 thru   716                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATAX_NAD_KEY             ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A656         ; PRIMARY KEY POSITIONING                                                           

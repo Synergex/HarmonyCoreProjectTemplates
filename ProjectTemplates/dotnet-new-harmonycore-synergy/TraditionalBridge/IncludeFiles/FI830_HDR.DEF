@@ -1,0 +1,41 @@
+;FI830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FI MATERIAL RELEASE HEADER                                                                                                  
+;       DATE : 15-FEB-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   288                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FI830_HDR                                                                                                                   
+        FIH_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        FIH_TP_PART               ,A22          ; FINDLAY PART NUMBER                        16 thru    37                          
+        FIH_DEST                  ,A15          ; DESTINATION/SHIP TO                        38 thru    52                          
+        FIH_ISSUE_BY              ,A15          ; ISSUER/DIVISION                            53 thru    67                          
+        FIH_REL_NO                ,A30          ; RELEASE NUMBER                             68 thru    97                          
+        FIH_REL_DATE              ,D6           ; RELEASE DATE                               98 thru   103                          
+        FIH_PURPOSE               ,A2           ; PURPOSE                                   104 thru   105                          
+        FIH_FCST_TYPE             ,A2           ; FORECAST TYPE                             106 thru   107                          
+        FIH_DEL_TM_CODE           ,A1           ; DELIVERY TIME CODE                        108 thru   108                          
+        FIH_QTY_QL                ,A1           ; QUANTITY QUALIFIER                        109 thru   109                          
+        FIH_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     110 thru   131                          
+        FIH_HORIZ_START           ,D6           ; HORIZON START DATE                        132 thru   137                          
+        FIH_HORIZ_END             ,D6           ; HORIZON END DATE                          138 thru   143                          
+        FIH_SHIP_PTN              ,A1           ; SHIP PATTERN                              144 thru   144                          
+        FIH_ISSUE_NAME            ,A30          ; ISSUER NAME                               145 thru   174                          
+        FIH_SUPP_NAME             ,A30          ; SUPPLIER NAME                             175 thru   204                          
+        FIH_LST_QTY               ,D10          ; LAST QTY SENT                             205 thru   214                          
+        FIH_LST_DATE              ,D6           ; LAST DATE SENT                            215 thru   220                          
+        FIH_UOFM                  ,A2           ; UNIT OF MEASURE                           221 thru   222                          
+        FIH_FAB_QTY               ,D10          ; FAB QUANTITY                              223 thru   232                          
+        FIH_FAB_END               ,D6           ; FAB DATE                                  233 thru   238                          
+        FIH_FAB_START             ,D6           ; FAB START DATE                            239 thru   244                          
+        FIH_RAW_QTY               ,D10          ; RAW AMOUNT                                245 thru   254                          
+        FIH_RAW_END               ,D6           ; RAW DATE                                  255 thru   260                          
+        FIH_RAW_START             ,D6           ; RAW START DATE                            261 thru   266                          
+        FIH_PREV_CUM              ,D10          ; PREVIOUS CUM                              267 thru   276                          
+        FIH_CUM_END               ,D6           ; PREVIOUS CUM END DATE                     277 thru   282                          
+        FIH_CUM_START             ,D6           ; CUM START DATE                            283 thru   288                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FI830_HDR_KEY             ,A103         ; PRIMARY SORT KEY                                                                  
+                                  ,A185         ; PRIMARY KEY POSITIONING                                                           

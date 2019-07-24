@@ -1,0 +1,20 @@
+;FR830_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       FREIGHTLINER RELEASE NOTES                                                                                                  
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   161                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FR830_NTE                                                                                                                   
+        FRN_REL_NO                ,A30          ; RELEASE NUMBER                              1 thru    30                          
+        FRN_REL_DATE              ,D8           ; RELEASE DATE                               31 thru    38                          
+        FRN_DEST_CODE             ,A15          ; DESTINATION CODE                           39 thru    53                          
+        FRN_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       54 thru    75                          
+        FRN_REL_SEQ_NO            ,D3           ; RELEASE SEQUENCE NUMBER                    76 thru    78                          
+        FRN_REF_CODE              ,A3           ; REFERENCE CODE                             79 thru    81                          
+        FRN_NOTE                  ,A80          ; NOTE                                       82 thru   161                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FR830_NTE_KEY             ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A83          ; PRIMARY KEY POSITIONING                                                           

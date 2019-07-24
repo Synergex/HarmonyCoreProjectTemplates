@@ -1,0 +1,75 @@
+;RT856_ITM.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ASN ITEM LEVEL                                                                                                       
+;       DATE : 08-NOV-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   617                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT856_ITM                                                                                                                   
+        RTI_MATCH1                ,D6           ; MATCHES TO SHIPMENT LEVEL                   1 thru     6                          
+        RTI_MATCH2                ,D6           ; MATCH TO ORDER LEVEL                        7 thru    12                          
+        RTI_MATCH3                ,D6           ; MATCH FIELD FOR ITEM LEVEL                 13 thru    18                          
+        RTI_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                 19 thru    20                          
+        RTI_SUPPLIER              ,A15          ; SUPPLIER ID CODE                           21 thru    35                          
+        RTI_SHIPPER               ,D9           ; SHIPPER NUMBER                             36 thru    44                          
+        RTI_DEST                  ,A15          ; DESTINATION CODE                           45 thru    59                          
+        RTI_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                      60 thru    81                          
+        RTI_CONT_ID               ,A25          ; MASTER CONTAINER MARKS/NUMBERS             82 thru   106                          
+        RTI_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                      107 thru   128                          
+        RTI_SHIP_REF              ,A20          ; SHIPPING REFERENCE                        129 thru   148                          
+        RTI_MARKS_NUM             ,A25          ; MARKS AND NUMBERS                         149 thru   173                          
+        RTI_CUST_QUAL             ,A2           ; CUSTOMER PART NUMBER QUALIFIER            174 thru   175                          
+        RTI_OUR_PART              ,A15          ; OUR PART NUMBER                           176 thru   190                          
+        RTI_OUR_QUAL              ,A2           ; OUR PART NUMBER QUALIFIER                 191 thru   192                          
+        RTI_UPC_CODE              ,A12          ; UPC CODE                                  193 thru   204                          
+        RTI_UPC_QUAL              ,A2           ; UPC CODE QUALIFIER                        205 thru   206                          
+        RTI_PART_DESC             ,A30          ; PART DESCRIPTION                          207 thru   236                          
+        RTI_POLN                  ,A6           ; PURCHASE ORDER LINE NUMBER                237 thru   242                          
+        RTI_PO_DATE               ,D6           ; PURCHASE ORDER DATE                       243 thru   248                          
+        RTI_INVOICE_NO            ,D9           ; INVOICE NUMBER                            249 thru   257                          
+        RTI_DEST_ABBRV            ,A5           ; DESTINATION ABBRV                         258 thru   262                          
+        RTI_BILL_ABBRV            ,A5           ; BILL TO ABBRV                             263 thru   267                          
+        RTI_CONFIG_CODE           ,A1           ; CONFIGURATION CODE                        268 thru   268                          
+        RTI_SO_STATUS             ,A2           ; SHIP/ORDER STATUS CODE                    269 thru   270                          
+        RTI_SHP_QTY               ,D10          ; QUANTITY SHIPPED (UNITS)                  271 thru   280                          
+        RTI_UOFM_SHP              ,A2           ; UNIT OF MEASURE SHIPPED                   281 thru   282                          
+        RTI_CANCEL_QTY            ,D8           ; UNSHIPPED QTY TO BE CANCELLED             283 thru   290                          
+        RTI_ORD_QTY               ,D10          ; QUANTITY ORDERED                          291 thru   300                          
+        RTI_UOFM_ORD              ,A2           ; UNIT OF MEASURE ORDERED                   301 thru   302                          
+        RTI_PACK_CODE             ,A5           ; PACKAGING CODE                            303 thru   307                          
+        RTI_NO_LOADS              ,D5           ; NUMBER OF LOADS                           308 thru   312                          
+        RTI_NO_CASES              ,D8           ; CASES SHIPPED                             313 thru   320                          
+        RTI_CASE_QUAL             ,A2           ; CASE QUALIFIER                            321 thru   322                          
+        RTI_PACK                  ,D6           ; NUMBER OF INNER CARTONS                   323 thru   328                          
+        RTI_PACK_SIZE             ,D6           ; UNITS PER INNER CARTON                    329 thru   334                          
+        RTI_PACK_UOFM             ,A2           ; PACK SIZE UNIT OF MEASURE                 335 thru   336                          
+        RTI_YTD_CUM_QTY           ,D9           ; YTD SHIPPED                               337 thru   345                          
+        RTI_BASIS_CODE            ,A2           ; UNIT PRICE BASIS CODE                     346 thru   347                          
+        RTI_UNIT_PRICE            ,D10          ; PRICE PER UNIT (5.5)                      348 thru   357                          
+        RTI_RETAIL                ,D10          ; RETAIL PRICE (8.2)                        358 thru   367                          
+        RTI_NET_WGT               ,D8           ; NET WEIGHT - ITEM TOTAL (7.1)             368 thru   375                          
+        RTI_GROSS_WGT             ,D8           ; TOTAL GROSS WGT FOR ITEM (7.1)            376 thru   383                          
+        RTI_WGT_UOFM              ,A2           ; WEIGHT UNIT OF MEASSURE                   384 thru   385                          
+        RTI_CTN_GRS_WGT           ,D8           ; CARTON GROSS WEIGHT (6.2)                 386 thru   393                          
+        RTI_PROD_QL1              ,A2           ; PROD QUALIFIER FOR PROD_ID1               394 thru   395                          
+        RTI_PROD_ID1              ,A22          ; PRODUCT ID - USUALLY CUST PART            396 thru   417                          
+        RTI_PROD_QL2              ,A2           ; PRODUCT QUALIFIER 2                       418 thru   419                          
+        RTI_PROD_ID2              ,A22          ; 2NDARY PRODUCT ID (COLOR/SIZE)            420 thru   441                          
+        RTI_CUBE                  ,D10          ; GROSS VOLUME PER PACK (8.2)               442 thru   451                          
+        RTI_CUBE_QL               ,A2           ; CUBE QUALIFIER (IE.CF,CC,CI..)            452 thru   453                          
+        RTI_TOT_CUBE              ,D10          ; TOTAL CUBE FOR ITEM (8.2)                 454 thru   463                          
+        RTI_TOT_CUBE_QL           ,A2           ; TOTAL CUBE FOR ITEM QUALIFIER             464 thru   465                          
+        RTI_CTN_LENGTH            ,D4           ; CARTON DIMENSION LENGTH (3.1)             466 thru   469                          
+        RTI_CTN_WIDTH             ,D4           ; CARTON DIMENSION WIDTH (3.1)              470 thru   473                          
+        RTI_CTN_HEIGHT            ,D4           ; CARTON DIMENSION HEIGHT (3.1)             474 thru   477                          
+        RTI_CTN_DIM_UOM           ,A2           ; CARTON DIMENSION UNIT OF MEAS             478 thru   479                          
+        RTI_HL_ID                 ,D6           ; HIERARCHICAL LEVEL ID NUMBER              480 thru   485                          
+        RTI_HL_PARENT             ,D6           ; HIER LEVEL PARENT ID (ORDER)              486 thru   491                          
+        RTI_INTRCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE              492 thru   506                          
+        RTI_GROUP_ID              ,A12          ; GROUP RECEIVER ID NUMBER                  507 thru   518                          
+        RTI_FILLER                ,A99          ; FILLER                                    519 thru   617                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT856_ITM_KEY             ,A18          ; PRIMARY SORT KEY                                                                  
+                                  ,A599         ; PRIMARY KEY POSITIONING                                                           

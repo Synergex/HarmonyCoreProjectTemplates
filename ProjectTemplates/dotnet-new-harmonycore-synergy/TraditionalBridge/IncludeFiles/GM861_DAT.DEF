@@ -1,0 +1,58 @@
+RECORD GM861_DAT
+; GM861_DAT.DEF - GM MATERIAL ADJUSTMENT HEADER RECORD
+;RECORD LENGTH = 80
+;
+	AVNDNO	,A9	   	;Vendor Number
+	APLANT	,A9		;Receiving Plant Code
+	ADOCK	,A1		;Dock Code
+	ACTSRC	,A9		;Controlling Source
+	ASHPID	,A9		;Shipment Identification Number
+	ATIMED	,A9		;Shipment Control Reference Number
+	AMODE	,A1		;Mode of Transport
+	ATRUCK	,A10		;Car / Truck Number
+	AWGHT	,D6		;Weight
+	APACK	,D4		;Packing Units
+	ADATE	,D5		;Shipment Date
+		,A4		;Filler
+	ATRANS	,A1		;Transaction Code
+	ACTION	,A1		;Action Code
+	ADIVID	,A1		;Division Id
+	ARECID	,A1		;Record Id
+RECORD	,X
+; GM MATERIL ADJUSTMENT DETAIL RECORD.
+;
+	DVNDNO	,A9	   	;Vendor Number
+	DPLANT	,A9		;Receiving Plant Code
+	DDOCK	,A1		;Dock Code
+	DCTSRC	,A9		;Controlling Source
+	DSHPID	,A9		;Shipment Identification Number
+	DPRTNO	,D8		;Part Number
+	DQTYSH	,D8		;Quantity Shipped
+	DQTYDF	,D8		;Quantity Over / Short
+	DOCNBR	,A9		;Document Number
+	DCONFM	,A1		;Confirmation Code
+	DACTIN	,A1		;Action Code
+		,A4		;Filler
+	DTRANS	,A1		;Transaction Code
+	DMODEL	,A1		;Model Year
+	DIVISN	,A1		;Division Id
+	DRECID	,A1		;Record Id
+RECORD	,X
+;		Redefine numeric as alpha on non quanity or date fields
+	DVNDNO_X	,A9	   	;Vendor Number
+	DPLANT_X	,A9		;Receiving Plant Code
+	DDOCK_X		,A1		;Dock Code
+	DCTSRC_X	,A9		;Controlling Source
+	DSHPID_X	,A9		;Shipment Identification Number
+	DPRTNO_X	,A8		;Part Number
+	DQTYSH_X	,D8		;Quantity Shipped
+	DQTYDF_X	,D8		;Quantity Over / Short
+	DOCNBR_X	,A9		;Document Number
+	DCONFM_X	,A1		;Confirmation Code
+	DACTIN_X	,A1		;Action Code
+			,A4		;Filler
+	DTRANS_X	,A1		;Transaction Code
+	DMODEL_X	,A1		;Model Year
+	DIVISN_X	,A1		;Division Id
+	DRECID_X	,A1		;Record Id
+

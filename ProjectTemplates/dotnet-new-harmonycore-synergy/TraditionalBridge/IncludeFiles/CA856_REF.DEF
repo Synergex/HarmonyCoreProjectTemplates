@@ -1,0 +1,47 @@
+;CA856_REF.DEF                                                                                                                      
+;                                                                                                                                   
+;       ASN ITEM-SPECIFIC REFERENCE NO                                                                                              
+;       DATE : 15-MAR-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   682                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA856_REF                                                                                                                   
+        F856_SEQ1                 ,D6           ; INPUT SEQUENCE LEVEL 1                      1 thru     6                          
+        F856_SEQ2                 ,D6           ; INPUT SEQUENCE LEVEL 2                      7 thru    12                          
+        F856_SEQ3                 ,D6           ; INPUT SEQUENCE LEVEL 3                     13 thru    18                          
+        F856_SEQ4                 ,D6           ; INPUT SEQUENCE LEVEL 4                     19 thru    24                          
+        F856_SEQ5                 ,D6           ; INPUT SEQUENCE LEVEL 5                     25 thru    30                          
+        F856_SEQ6                 ,D6           ; INPUT SEQUENCE LEVEL 6                     31 thru    36                          
+        F856_SEQ7                 ,D6           ; INPUT SEQUENCE LEVEL 7                     37 thru    42                          
+        F856_SEQ8                 ,D6           ; INPUT SEQUENCE LEVEL 8                     43 thru    48                          
+        F856_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                 49 thru    50                          
+        F856_TELE_PROC            ,A3           ; DIVISION TELEPROCESSING ID -GM             51 thru    53                          
+        F856_ISS_BY_KEY           ,A15          ; ISSUE BY KEYFIELD (GM)                     54 thru    68                          
+        F856_DEST_KEY             ,A15          ; DESTINATION KEYFIELD (GM)                  69 thru    83                          
+        F856_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                    84 thru    98                          
+        F856_GROUP_ID             ,A15          ; GROUP ID                                   99 thru   113                          
+        F856_ASN_NO               ,A30          ; SHIPMENT ASN/ID NUMBER                    114 thru   143                          
+        F856_PO_NO                ,A22          ; PURCHASE ORDER NO (KEY)                   144 thru   165                          
+        F856_MST_SERIAL           ,A30          ; MASTER CONTAINER SERIAL NUMBER            166 thru   195                          
+        F856_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                      196 thru   225                          
+        F856_SHIP_REF             ,A30          ; SHIP REFERENCE NO                         226 thru   255                          
+        F856_MODEL_YR             ,A2           ; MODEL YEAR                                256 thru   257                          
+        F856_SORT_FLD             ,D6           ; SORT FIELD FROM DSN FILE                  258 thru   263                          
+        F856_SERIAL_NO            ,A30          ; DETAIL CONTAINER SERIAL NO                264 thru   293                          
+        F856_KEY_REF              ,A40          ; ALTERNATE KEY REFERENCE NO                294 thru   333                          
+        F856_PART_SNO             ,A40          ; COMPONENT SERIAL NUMBER                   334 thru   373                          
+        F856_VIN                  ,A40          ; VIHECLE ID NUMBER                         374 thru   413                          
+        F856_JOB_SEQ              ,A40          ; JOB SEQUENCE NUMBER                       414 thru   453                          
+        F856_HEAT_CODE            ,A40          ; HEAT CODE                                 454 thru   493                          
+        F856_HEAT_DATE            ,D8           ; HEAT DATE                                 494 thru   501                          
+        F856_LINESET              ,A40          ; LINE SET RANGE                            502 thru   541                          
+        F856_LOT_NUMBER           ,A30          ; LOT NUMBER                                542 thru   571                          
+        F856_LOT_QTY              ,D7           ; LOT QUANTITY                              572 thru   578                          
+        F856_PACK_CODE            ,A5           ; PACKAGING CODE                            579 thru   583                          
+        F856_UNITS_PER            ,D10          ; UNITS PER CONTAINER                       584 thru   593                          
+        F856_FILLER               ,A89          ; FILLER                                    594 thru   682                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA856_REF_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A634         ; PRIMARY KEY POSITIONING                                                           

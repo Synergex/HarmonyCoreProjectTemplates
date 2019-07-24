@@ -1,0 +1,47 @@
+;CAR856_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       CARAS RECEIVED A.S.N. HEADER                                                                                                
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   233                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_HDR                                                                                                                  
+        HR856_SHIP_ID             ,A30          ; SHIPMENT IDENTIFICATION NO                  1 thru    30                          
+        HR856_PRC_DTM             ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        HR856_PURPOSE             ,A2           ; TRANS SET PURPOSE CODE                     43 thru    44                          
+        HR856_CRE_DATE            ,D8           ; CREATION DATE OF ASN                       45 thru    52                          
+        HR856_CRE_TIME            ,D6           ; CREATION TIME OF ASN                       53 thru    58                          
+        HR856_HL_STRUCT           ,A4           ; HIERARCHIAL STRUCTURE CODE                 59 thru    62                          
+        HR856_ISA01               ,A2           ; ISA AUTH INFO QUALIFIER                    63 thru    64                          
+        HR856_ISA02               ,A10          ; ISA AUTH INFORMATION                       65 thru    74                          
+        HR856_ISA03               ,A2           ; ISA SECURITY INFO QUALIFIER                75 thru    76                          
+        HR856_ISA04               ,A10          ; ISA SECURITY INFORMATION                   77 thru    86                          
+        HR856_ISA05               ,A2           ; ISA INTERCHANGE SENDER ID QUAL             87 thru    88                          
+        HR856_ISA06               ,A15          ; ISA INTERCHANGE SENDER ID                  89 thru   103                          
+        HR856_ISA07               ,A2           ; ISA INTERCHANGE RECEIVER ID QL            104 thru   105                          
+        HR856_ISA08               ,A15          ; ISA INTERCHANGE RECEIVER ID               106 thru   120                          
+        HR856_ISA09               ,D8           ; ISA INTERCHANGE DATE                      121 thru   128                          
+        HR856_ISA10               ,A4           ; ISA INTERCHANGE TIME                      129 thru   132                          
+        HR856_ISA11               ,A1           ; ISA INTERCHANGE CONTROL ID                133 thru   133                          
+        HR856_ISA12               ,A5           ; ISA INTERCHANGE VERSION NO                134 thru   138                          
+        HR856_ISA13               ,D9           ; ISA INTERCHANGE CONTROL NO                139 thru   147                          
+        HR856_ISA14               ,A1           ; ISA ACKNOWLEDGEMENT REQUESTED             148 thru   148                          
+        HR856_ISA15               ,A1           ; ISA TEST INDICATOR                        149 thru   149                          
+        HR856_ISA16               ,A1           ; ISA SUBELEMENT SEPARATOR                  150 thru   150                          
+        HR856_ELEM_SEP            ,A1           ; ELEMENT SEPARATOR                         151 thru   151                          
+        HR856_SEG_TERM            ,A1           ; SEGMENT TERMINATOR                        152 thru   152                          
+        HR856_GS01                ,A2           ; GS FUNCTIONAL ID CODE                     153 thru   154                          
+        HR856_GS02                ,A15          ; APPLICATION SENDERS CODE                  155 thru   169                          
+        HR856_GS03                ,A15          ; APPLICATION RECEIVERS CODE                170 thru   184                          
+        HR856_GS04                ,D8           ; GS DATE                                   185 thru   192                          
+        HR856_GS05                ,D6           ; GS SEGMENT TIME                           193 thru   198                          
+        HR856_GS06                ,D9           ; GS GROUP CONTROL NUMBER                   199 thru   207                          
+        HR856_GS07                ,A2           ; GS RESPONSIBLE AGENCY CODE                208 thru   209                          
+        HR856_GS08                ,A12          ; GS VERSION/REL IND. ID CODE               210 thru   221                          
+        HR856_ST01                ,A3           ; ST TRANS SET ID CODE                      222 thru   224                          
+        HR856_ST02                ,A9           ; ST TRANSACTION SET CONTROL NO             225 thru   233                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_HDR_KEY            ,A42          ; PRIMARY SORT KEY                                                                  
+                                  ,A191         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,128 @@
+RECORD CASHIP_HST
+;
+; CASHIP_HST.DEF - CARaS Shipping History
+;
+;	Structure:	ISAM
+;	Record Length:	384
+;
+;	26-AUG-1992	Bill Schmelter	Changed shs_cont_qty from 3 to 4 
+;					digits (occurs 2)
+;					Expanded record length from 177 to 220
+;
+;	16-Dec-1992	W. Chunn	Added the Pay-As-Built fields needed for
+;					Chrysler.  Used to match payments to
+;					actual shipments made.
+;       04-NOV-93       T. Bunker       FILE EXPANSION.  Add 80 bytes of filler
+;	22-Nov-92	B. Sparks	Added SCAC Code and AETC # to filler
+;	02-DEC-93	T. Bunker	Expand part number to 30.
+;					Expand record size to 384.
+;	24-JAN-95	B. Grimes	Added SHS_USER_DEF and SHS_USER_DEF2.
+;	30-NOV-95	Robert Smoko	Add SHS_SALES_ORD_NO for integration use
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------			Position
+;-------------------------------------------------------------------------------
+	SHS_TP_DESIG	,A2	; trading partner designator		|001-002
+	SHS_OUR_PART	,A30	; our item number			|003-032
+	SHS_PO_KEY	,A22	; PO in key. Only loaded if TP needs	|033-054
+				;   PO in key (see flag CASYST_PAR file)|
+	SHS_DIV_ABBRV	,A5	; division abbreviation			|055-059
+	SHS_MY		,A1	; model year				|060-060
+	SHS_DEST_ABBRV	,A5	; destination abbreviation		|061-065
+	SHS_SHIPDT	,D6	; ship date (YYMMDD)			|066-071
+	SHS_SHIP_NO	,D9	; shipment #				|072-080
+	SHS_TYPE	,A1	; record type				|081-081
+				;   ' ' = Shipment			|
+				;   'A' = Adjustment			|
+	SHS_PO		,A22	; P.O. #				|082-103
+	SHS_ADJ_DATE	,D6	; date of adjustment			|104-109
+	SHS_SHIP_QTY	,D7	; quantity shipped or adjustment qty	|110-116
+	SHS_CARR_NAME	,A15	; carrier description			|117-131
+	SHS_PRICE	,D10	; selling price (XX,XXX.XXXXX)		|132-141
+	SHS_CONTAINER	,[2]A5	; container type			|142-151
+	SHS_CONT_QTY	,[2]D4	; container quantity			|152-159
+	SHS_BTO_ABBRV	,A5	; Bill To Abbrev (consigned destination)|160-164
+	SHS_SHP_DESC	,A30	; Ship Reference Description		|165-194
+	SHS_PAB_QTY	,D7	; Pay-As-Built Qty from Chrysler	|195-201
+	SHS_PAB_INVOICE	,D6	; Pay-As-Build Invoice Nbr from Chrysler|202-207
+	SHS_SCAC_CODE	,A10	; SCAC Code				|208-217
+	SHS_AETC_NO	,A10	; AETC #				|218-227
+	SHS_USER_DEF	,A15	; USER DEFINED HEADER FIELD		|228-242
+	SHS_USER_DEF2	,A15	; USER DEFINED DETAIL FIELD		|243-257
+	SHS_SALES_ORD_NO,A10	; Sales Order Number for shipment	|258-267
+			,A117	; Filler				|268-384
+	;
+	;   Record redefine for adjustment record types
+	;
+RECORD, X
+			,A116	; same as above  (up to & incl. adj qty)
+	SHS_ADJ_DESC	,A30	; adjustment description
+			,A238	; filler
+;-------------------------------------------------------------------------------
+;              ------- Key Definitions ------
+;-------------------------------------------------------------------------------
+RECORD, X
+	;	Duplicates, No Changes
+	;
+	SHS_KEY0	,A81	; primary key
+			,A303
+RECORD, X
+	SHS_KEY_P	,A65	
+
+RECORD SHS_KEY1
+	K1_SHS_TP_DESIG		,A%SIZE(SHS_TP_DESIG)
+	K1_SHS_DEST_ABBRV	,A%SIZE(SHS_DEST_ABBRV)
+	K1_SHS_SHIPDT		,D%SIZE(SHS_SHIPDT)
+	K1_SHS_SHIP_NO		,D%SIZE(SHS_SHIP_NO)
+	K1_SHS_OUR_PART		,A%SIZE(SHS_OUR_PART)
+	K1_SHS_TYPE		,A%SIZE(SHS_TYPE)
+
+RECORD SHS_KEY2
+	K2_SHS_TP_DESIG		,A%SIZE(SHS_TP_DESIG)
+	K2_SHS_SHIPDT		,D%SIZE(SHS_SHIPDT)
+	K2_SHS_DEST_ABBRV	,A%SIZE(SHS_DEST_ABBRV)
+	K2_SHS_SHIP_NO		,D%SIZE(SHS_SHIP_NO)
+	K2_SHS_OUR_PART		,A%SIZE(SHS_OUR_PART)
+	K2_SHS_TYPE		,A%SIZE(SHS_TYPE)
+
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Defintion -------
+;-------------------------------------------------------------------------------
+.IFDEF CASHIP_HST_ALT
+RECORD A_CASHIP_HST
+			,A%SIZE(CASHIP_HST)
+RECORD, X
+	A_SHS_TP_DESIG		,A2	; trading partner designator
+	A_SHS_OUR_PART		,A30	; our item number
+	A_SHS_PO_KEY		,A22	; PO in key.
+	A_SHS_DIV_ABBRV		,A5	; division abbreviation
+	A_SHS_MY		,A1	; model year
+	A_SHS_DEST_ABBRV	,A5	; destination abbreviation
+	A_SHS_SHIPDT		,D6	; ship date (YYMMDD)
+	A_SHS_SHIP_NO		,D9	; shipment #
+	A_SHS_TYPE		,A1	; record type
+	A_SHS_PO		,A22	; P.O. #
+	A_SHS_ADJ_DATE		,D6	; date of adjustment
+	A_SHS_SHIP_QTY		,D7	; quantity shipped or adjustment qty
+	A_SHS_CARR_NAME		,A15	; carrier description
+	A_SHS_PRICE		,D10	; selling price (XX,XXX.XXXXX)
+	A_SHS_CONTAINER		,[2]A5	; container type
+	A_SHS_CONT_QTY		,[2]D4	; container quantity
+	A_SHS_BTO_ABBRV		,A5	; Bill To Abbrev (consigned destination)
+	A_SHS_SHP_DESC		,A30	; Ship Reference Description
+	A_SHS_PAB_QTY		,D7	; Pay-As-Built Qty from Chrysler
+	A_SHS_PAB_INVOICE	,D6	; Pay-As-Build Invoice from Chrysler
+	A_SHS_SCAC_CODE		,A10	; SCAC Code				
+	A_SHS_AETC_NO		,A10	; AETC #				
+	A_SHS_USER_DEF		,A15
+	A_SHS_USER_DEF2		,A15
+	A_SHS_SALES_ORD_NO	,A10	; Sales Order Number for shipment
+				,A117	; Filler
+RECORD, X
+	;	Duplicates, No Changes
+	;
+	A_SHS_KEY0		,A81	; primary key
+				,A303
+RECORD, X
+	A_SHS_KEY_P		,A65	
+.ENDC

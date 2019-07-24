@@ -1,0 +1,18 @@
+external function
+	reuchknet		,i
+
+record reuchknet_flags
+	nf_network		,a10
+	nf_prefix		,a10
+	nf_data_split		,d3
+	nf_rec_net_or_tp_only	,a1
+	nf_rec_tp_2nd_screen	,d1
+	nf_rec_net_2nd_screen	,d1
+	nf_rec_skip_997		,[14]d1
+
+literal ; Used for nf_data_split.  Add values together to combine splits.
+	BA_TP		,d1	,1	; Break at Trading Partner change
+	BA_SR_ICHG	,d1	,2	; Break at Sending/Receiving Interchange change
+	BA_NET_CLASS	,d1	,4	; Break at Network Class change
+	BA_TRANS_SET	,d1	,8	; Break at Transaction Set change
+	BA_STANDARD	,d2	,16	; Break at Standard (X12,EDIFACT,etc.) change

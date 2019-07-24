@@ -1,0 +1,66 @@
+;NC830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       NISSAN (CARSON) 830 HEADER                                                                                                  
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   174                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NC830_HDR                                                                                                                   
+        NCH_SHIP_FROM             ,A17          ; SHIP FROM ID                                1 thru    17                          
+        NCH_REL_NO                ,A30          ; RELEASE NUMBER                             18 thru    47                          
+        NCH_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                       48 thru    77                          
+        NCH_REL_DATE              ,D8           ; RELEASE DATE                               78 thru    85                          
+        NCH_PURPOSE               ,A2           ; PURPOSE                                    86 thru    87                          
+        NCH_FCT_QUAL              ,A2           ; FORECAST QUALIFIER CODE                    88 thru    89                          
+        NCH_QTY_TYPE              ,A1           ; QUANTITY TYPE                              90 thru    90                          
+        NCH_START_DATE            ,D8           ; START DATE                                 91 thru    98                          
+        NCH_END_DATE              ,D8           ; END DATE                                   99 thru   106                          
+        NCH_BILL_TO               ,A17          ; BILL TO ID                                107 thru   123                          
+        NCH_SUPP                  ,A17          ; SUPPLIER ID                               124 thru   140                          
+        NCH_CUM_YTD               ,D10          ; CUM QTY SHIP TO DATE                      141 thru   150                          
+        NCH_LAST_SHIP             ,D8           ; LAST SHIP DATE                            151 thru   158                          
+        NCH_PART_UOFM             ,A2           ; PART UNIT OF MEASURE                      159 thru   160                          
+        NCH_PART_PRICE            ,D14          ; PART PRICE                                161 thru   174                          
+        NCH_PROD_DESC             ,A80          ; PRODUCT/ITEM DESCRIPTION                  175 thru   254                          
+        NCH_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     255 thru   276                          
+                                                                                                                                            
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NC830_HDR_KEY             ,A85          ; PRIMARY SORT KEY                                                                  
+                                  ,A89          ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF XX830_HDR_WORK
+RECORD  NC830_HDR_WORK                                                    
+	NCH_COMP_W                  ,A8
+	NCH_SEQN_W                  ,D5
+        NCH_SHIP_FROM_W             ,A17          ; SHIP FROM ID            
+        NCH_REL_NO_W                ,A30          ; RELEASE NUMBER          
+        NCH_CUST_PART_W             ,A30          ; CUSTOMER PART NUMBER    
+        NCH_REL_DATE_W              ,D8           ; RELEASE DATE            
+        NCH_PURPOSE_W               ,A2           ; PURPOSE                 
+        NCH_FCT_QUAL_W              ,A2           ; FORECAST QUALIFIER CODE 
+        NCH_QTY_TYPE_W              ,A1           ; QUANTITY TYPE           
+        NCH_START_DATE_W            ,D8           ; START DATE              
+        NCH_END_DATE_W              ,D8           ; END DATE                
+        NCH_BILL_TO_W               ,A17          ; BILL TO ID              
+        NCH_SUPP_W                  ,A17          ; SUPPLIER ID             
+        NCH_CUM_YTD_W               ,D10          ; CUM QTY SHIP TO DATE      
+        NCH_LAST_SHIP_W             ,D8           ; LAST SHIP DATE            
+        NCH_PART_UOFM_W             ,A2           ; PART UNIT OF MEASURE      
+        NCH_PART_PRICE_W            ,D14          ; PART PRICE                
+        NCH_PROD_DESC_W             ,A80          ; PRODUCT/ITEM DESCRIPTION  
+        NCH_PO_NO_W                 ,A22          ; PURCHASE ORDER NUMBER     
+	NCH_PCNT_W		    ,D3.2
+
+RECORD	,X
+				,A8
+				,D5
+	NC830U_HDR		,A%SIZE(NC830_HDR)
+.ENDC
+
+.IFDEF XX830_HDR_TOTALS
+RECORD NC830_HDR_TOTALS
+	NCH_CUM_YTD_T		,D10
+	NCH_PCNT_T		,D3.2
+.ENDC
+

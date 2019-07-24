@@ -1,0 +1,51 @@
+; CASCAN_TRX.DEF
+;
+;	CARaS Scan Transaction File Definition.
+;
+;	File Organization: Sequential.
+;	Record Size: Variable - Maximum Length 100 bytes.
+;
+;	Date: 10-Jan-90
+;
+RECORD CASCAN_TRX
+	CST_REC_TYPE	,A2	; Record Type - a Space & the Field Designator.
+				; ---------------------------------------------
+				; " A" = ASN/Shipper Number
+				; " P" = Part Number
+				; " C" = Container
+				; " S" = Label Serial Number
+				; " M" = Master Label Serial Number
+				; " Q" = Quantity
+
+	CST_FIELD	,A22	; Field.
+			,A76	; Filler
+;
+;-------------------------------------------------------------------------------
+;--- Redefinitions of Non-Key Portion of Record. -------------------------------
+;-------------------------------------------------------------------------------
+;
+
+RECORD, X
+			,A2	; Record Type = " A" - ASN/Shipper Number.
+	CST_SHIP_ID	,D9	; CARaS ASN/Shipper Number.
+			,A89	; Filler.
+RECORD, X
+			,A2	; Record Type = " P" - Part Number.
+	CST_PART_NO	,A22	; Customer Part Number on AIAG Shipping Label.
+			,A76	; Filler.
+RECORD, X
+			,A2	; Record Type = " C" - Container Code.
+	CST_CONT	,A5	; Container Code.
+			,A93	; Filler.
+RECORD, X
+			,A2	; Record Type = " M" - Master Serial Number.
+	CST_MAST_SNO	,A15	; Master Serial Number from AIAG Shipping Label.
+			,A83	; Filler.
+RECORD, X
+			,A2	; Record Type = " S" - Shipping Serial Number.
+	CST_SHIP_SNO	,A15	; Serial Number from AIAG Shipping Label.
+			,A83	; Filler.
+RECORD, X
+			,A2	; Record Type = " Q" - Quantity.
+	CST_UNITS_PER	,D7	; Quantity (Units per this Container).
+			,A93	; Filler.

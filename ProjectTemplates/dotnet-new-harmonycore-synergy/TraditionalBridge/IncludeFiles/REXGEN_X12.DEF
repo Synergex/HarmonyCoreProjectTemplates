@@ -1,0 +1,90 @@
+; REXGEN_X12.DEF
+;
+;-------------------------------------------------------------------------------
+;			THE X12 TRANSACTION SET GENERATOR FILE
+;-------------------------------------------------------------------------------
+;		FILE ORGANIZATION: ISAM		KEY: GS_KEY (POS: 1 THRU 8)
+;
+;		RECORD SIZE: 356		No Dupicates Allowed.
+;-------------------------------------------------------------------------------
+;
+RECORD REXGEN_X12
+	GS_SEQUENCE	,D3	; Generation Sequence
+	GS_SEGMENT	,A3	; Segment Identifier
+	GS_ELEMENT	,D2	; Element Number
+	GS_LOOP_LEVEL	,D2	; Loop Level
+	GS_READ_FLAG	,D1	; Read Flags  (? how are we going to use this ?)
+	GS_SEG_DESC	,A30	; Segment Description
+	
+	GS_MAN_SEGMENT	,D1	; Mandatory Switch if On Output 
+				; Segment must be generated.
+
+	GS_MAX_SEG_OCC	,D6	; Maximum Occurences for segment.
+
+	GS_MAN_ELEMENT	,D1	; Mandatory Switch if on output
+				; Element must be generated.
+	
+	GS_PAIRED_ELEM	,D1	; On = element is conditional to another
+				; element
+
+	GS_COND_ELEM	,D2	; Conditional Element to which current element
+				; is dependent.
+
+	GS_IN_DESIG	,D1	; Input Designator
+
+	GS_TEXT		,A60	; Output Text instead of Retrieved Data
+
+	GS_INCR_FLAG	,D1	; Incremented Flag, if On the Element
+				; will contain an internally controlled
+				; incremented counter. 
+					
+	GS_INCR_CLEAR	,A3	; The Segment Identifier that when it is
+				; encountered will cause the incremented
+				; counter to be cleared.
+
+	GS_INPUT_START	,D3	; Starting position of input
+	GS_INPUT_LEN	,D2	; Length of the input field
+	GS_INPUT_TYPE	,A2	; Input type
+	GS_INPUT_DECML	,D2	; Input decimal positions in input field
+
+	GS_OUT_MAX	,D2	; Output Maximum Length
+	GS_OUT_MIN	,D2	; Output Minimum Length
+	GS_OUT_TYPE	,A2	; Output Data Type
+	GS_OUT_DECML	,D2	; Output Decimal Positions
+
+	GS_ELEM_DESC	,A20	; The Element Description
+
+	GS_OLD_KEY_DEPTH,D2	; Secondary Key Length.
+	GS_MATCH	,D1	; Buffer Designator to match key against
+	GS_SUB_ELEM	,D1	; Indicates this is Sub-Element.
+	GS_EXIT_POINTER	,D2	; Pointer to the Next Loop in the Loop Starter
+				; Arrary after exiting a 'Sub-Loop'.
+
+	GS_FIELD_NAME	,A15	; Flat file field name associated with
+				; this element
+
+	GS_CALC_HASH	,D1	; 1 = YES, calculate hash totals flag
+
+	GS_HASH_SEG	,A3	; If non-blank clear field at designated
+				; segment type after depositing total.
+	GS_HASH_ELEM	,D2	; ELEMENT POSITION TO DEPOSIT HASH TOTAL
+
+	GS_EDI_ELEMENT	,D3	; AIAG element number
+
+	GS_START_POS	,D5	; Same as GS_INPUT_START only D5 instead of D3
+
+	GS_KEY_DEPTH	,D3
+			,A164	; Filler
+RECORD, X
+	GS_KEY0		,A8		; Primary Key (Seq, Seg Id, Element #)
+			,A348		; Filler
+
+RECORD, X
+	GS_KEY1		,A3		; SEQUENCE KEY (DUPLICATES)
+			,A353
+
+RECORD, X
+			,A3
+	GS_KEY2		,A3		; SEGMENT KEY
+			,A350
+

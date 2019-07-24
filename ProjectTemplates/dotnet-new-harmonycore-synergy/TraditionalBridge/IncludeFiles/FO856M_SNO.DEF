@@ -1,0 +1,33 @@
+; FO856M_SNO.DEF
+;
+;	FORD CMMS PRIMARY METALS ASN SERIAL NUMBER FILE  
+;	USED AS RAW INPUT FOR X12 ASN GENERATION.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	02-Aug-1989	W. Chunn	Original
+;	02-Dec-93	T. Bunker	Expand part number to 30
+;					Expand record to 143
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 128		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;									|
+RECORD FO856M_SNO
+	FS_INPUT_SEQ	,D5		; Input Sequence Number.	|	  1 thru 5
+	FS_INPUT_SEQ2	,D5		; Secondary Input Sequence.	|	  6 thru 10
+	FS_TRANS_ID	,A15		; Transmitted Id (Recv Id)	|	 11 thru 25
+	FS_DEST_CODE	,A15		; Destination Code		|        26 thru 40
+	FS_ASN_NO	,A9		; ASN Number			|	 41 thru 49
+	FS_OUR_PART	,A30		; CARaS Part Number		|	 50 thru 79
+	FS_CONTAINER	,A5		; Container Type		|	 80 thru 84
+
+	FS_THEO_WEIGHT	,D8		; Theoretical Weight		|	 85 thru 92
+	FS_ACTUAL_WEIGHT,D8		; Actual Weight			|	 93 thru 100
+	FS_HEAT_CODE	,A16		; Heat Code 			|	101 thru 116
+	FS_SERIAL	,A15		; Serial Number			|	117 thru 131
+
+			,A12		; Filler			|	117 thru 143

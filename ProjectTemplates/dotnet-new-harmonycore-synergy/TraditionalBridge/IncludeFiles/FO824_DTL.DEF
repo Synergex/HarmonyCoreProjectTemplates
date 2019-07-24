@@ -1,0 +1,25 @@
+;FO824_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 824 DETAIL FILE                                                                                                        
+;       DATE : 05-DEC-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   492                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO824_DTL                                                                                                                   
+        FOD_ACK_NO                ,A30          ; ACKNOWLEDGEMENT NUMBER                      1 thru    30                          
+        FOD_SEQ_ID                ,A4           ; SEQUENCE IN ERROR                          31 thru    34                          
+        FOD_SEQ_POS               ,D9           ; SEGMENT POSITION                           35 thru    43                          
+        FOD_ELM_POS               ,D2           ; ELEMENT POSITION                           44 thru    45                          
+        FOD_ACK_REF               ,A30          ; ACKNOWLEDGEMENT REFERENCE NO.              46 thru    75                          
+        FOD_ERR_CODE              ,A3           ; ERROR CODE                                 76 thru    78                          
+        FOD_ELM_REF               ,A4           ; ELEMENT REFERENCE                          79 thru    82                          
+        FOD_ELM_ID                ,A50          ; ELEMENT ID DESCRIPTION                     83 thru   132                          
+        FOD_ERROR_MSG             ,A80          ; ERROR MESSAGE                             133 thru   212                          
+        FOD_BAD_DATA              ,A99          ; COPY OF BAD DATA                          213 thru   311                          
+        FOD_DES_DATA              ,A99          ; DESIRED DATA VALUE                        312 thru   410                          
+        FOD_REF_DESC              ,A80          ; ACKNOWLEDGEMENT REF. DESC.                411 thru   490                          
+	FOD_REF_QUAL              ,A2           ; REFERENCE QUALIFIER                       491 thru   492
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO824_DTL_KEY             ,A75          ; PRIMARY SORT KEY                                                                  
+                                  ,A417         ; PRIMARY KEY POSITIONING                                                           

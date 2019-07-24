@@ -1,0 +1,77 @@
+;DS862_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       DIAMOND STAR 862 DETAIL FILE                                                                                                
+;       DATE : 29-JUN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   669                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  DS862_DTL                                                                                                                   
+        DRD_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        DRD_RELNO                 ,A10          ; RELEASE NUMBER                             16 thru    25                          
+        DRD_RELDAT                ,D8           ; RELEASE DATE                               26 thru    33                          
+        DRD_LINE_SEQ              ,A6           ; LINE SEQUENCE NUMBER                       34 thru    39                          
+        DRD_PARTNO                ,A30          ; PART NUMBER                                40 thru    69                          
+        DRD_DEST_ID               ,A15          ; DESTINATION - SHIP TO                      70 thru    84                          
+        DRD_ISSUE_BY              ,A15          ; ISSUE BY                                   85 thru    99                          
+        DRD_RAN                   ,A7           ; RAN NUMBER                                100 thru   106                          
+        DRD_SHIP_DATE             ,D8           ; SHIP DATE                                 107 thru   114                          
+        DRD_SHIP_TIME             ,D4           ; SHIP TIME                                 115 thru   118                          
+        DRD_QTY                   ,D10          ; QUANTITY                                  119 thru   128                          
+        DRD_FCST_QL               ,A1           ; FORECAST QUALIFIER                        129 thru   129                          
+        DRD_FCST_QL_TIM           ,A1           ; FORECAST TIMING QUALIFIER                 130 thru   130                          
+        DRD_JIT_QTY               ,24D10        ; JIT QUANTITY                              131 thru   370                          
+        DRD_JIT_TIME              ,24D4         ; JIT TIME                                  371 thru   466                          
+        DRD_JIT_RAN               ,24A7         ; RAN NUMBER FOR CURRENT JIT                467 thru   634                          
+	DRD_SUPP_NAME		  ,A35		; SUPPLIER NAME				    635 thru   669
+	DRD_DOCK_CD               ,24A7    	; DOCK CODE                                 670 thru   837
+	DRD_LINE_FEED             ,24A7         ; LINE FEED                                 838 thru  1005
+	DRD_CONT_ID               ,24A7         ; CONTAINER ID                             1006 thru  1173
+	DRD_GROUP_CD              ,24A7         ; GROUP CODE                               1174 thru  1341
+	DRD_PO_NO                 ,24A15        ; PURCHASE ORDER NO                        1342 thru  1701
+	DRD_PS_NO                 ,24A7         ; PRODUCTION/SERVICE PART                  1702 thru  1869
+	DRD_STOCK_LOC             ,24A7         ; STOCK LOCATION                           1870 thru  2037
+
+RECORD  ,X                                                                                                                          
+        DS862_DTL_KEY             ,A118         ; PRIMARY SORT KEY                                                                  
+                                  ,A516         ; PRIMARY KEY POSITIONING                                                           
+.IFDEF XX862_DTL_WORK
+RECORD  DS862_DTL_WORK                                                                                                                   
+	DRD_COMP_W		    ,A8
+	DRD_SEQN_W		    ,D5
+        DRD_SUPP_ID_W               ,A%SIZE(DRD_SUPP_ID)
+        DRD_RELNO_W                 ,A%SIZE(DRD_RELNO)
+        DRD_RELDAT_W                ,D%SIZE(DRD_RELDAT)
+        DRD_LINE_SEQ_W              ,A%SIZE(DRD_LINE_SEQ)
+        DRD_PARTNO_W                ,A%SIZE(DRD_PARTNO)
+        DRD_DEST_ID_W               ,A%SIZE(DRD_DEST_ID)
+        DRD_ISSUE_BY_W              ,A%SIZE(DRD_ISSUE_BY)
+        DRD_RAN_W                   ,A%SIZE(DRD_RAN)
+        DRD_SHIP_DATE_W             ,D%SIZE(DRD_SHIP_DATE)
+        DRD_SHIP_TIME_W             ,D%SIZE(DRD_SHIP_TIME)
+        DRD_QTY_W                   ,D%SIZE(DRD_QTY)
+        DRD_FCST_QL_W               ,A%SIZE(DRD_FCST_QL)
+        DRD_FCST_QL_TIM_W           ,A%SIZE(DRD_FCST_QL_TIM)
+        DRD_JIT_QTY_W               ,24D10
+        DRD_JIT_TIME_W              ,24D4
+	DRD_JIT_RAN_W		    ,24A7
+	DRD_SUPP_NAME_W		    ,A35
+        DRD_DOCK_CD_W               ,24A7
+        DRD_LINE_FEED_W             ,24A7
+        DRD_CONT_ID_W               ,24A7
+        DRD_GROUP_ID_W              ,24A7
+        DRD_PO_NO_W                 ,24A15
+        DRD_PS_NO_W                 ,24A7
+        DRD_STOCK_LOC_W             ,24A7
+
+RECORD	,X
+			,A8
+			,D5
+	DS862U_DTL	,A%SIZE(DS862_DTL)
+.ENDC
+
+.IFDEF XX862_DTL_TOTALS
+RECORD DS862_DTL_TOTALS
+
+	DRD_QTY_T	,D10
+	DRD_JIT_QTY_T	,24D10
+.ENDC

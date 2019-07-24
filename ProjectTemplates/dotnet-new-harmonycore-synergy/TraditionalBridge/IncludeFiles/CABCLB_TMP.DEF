@@ -1,0 +1,20 @@
+; Structure     : CABCLB_TMP                                
+; File Type     : USER DEFINED                              
+; Creation Date : 09-JUN-99, 08:01:04                       
+; Description   : Temporary file for label gen              
+;      Record Size    : 105                                 
+;      # of Files     : 0                                   
+;      # of Fields    : 4                                   
+;      # of Keys      : 0                                   
+;      # of Relations : 0                                   
+                                                            
+                                                            
+record                                                      
+  BCTMP_LABEL      ,A30  ; (1,30) Temp file label name                          
+                                                                                
+  BCTMP_DESC       ,A35  ; (31,65) Temp label file label description            
+                                                                                
+  BCTMP_PRINT_TYPE ,A20  ; (66,85) Temp label file printer type                 
+                                                                                
+  BCTMP_PRINTER    ,A20  ; (86,105) Temp label file printer queue               
+                                                                                

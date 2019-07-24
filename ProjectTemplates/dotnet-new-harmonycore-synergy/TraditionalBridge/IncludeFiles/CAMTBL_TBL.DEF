@@ -1,0 +1,45 @@
+RECORD CAMANL_TBL
+;
+; CAMANL_TBL.DEF - MANUAL RELEASE ENTRY PROFILE TABLE.
+;
+;      Structure:  ISAM
+;  Record Length:  50  
+;    
+; ------------------------------------------------------------------------------
+;                  ------- Record Definition -------
+; ------------------------------------------------------------------------------
+	CAM_TP_DESIG		,A2	; Trading Partner Designator
+	CAM_DIV_ABBRV		,A5	; Division Abbreviation
+	CAM_DEST_ABBRV		,A5	; Destination Abbreviation
+	CAM_PONUM_SIG		,D1	; PO Significant flag 
+	CAM_MODYR_SIG		,D1	; Model Year Significant flag
+	CAM_SHIP_SIG		,D1	; Ship Reference Significant flag
+	CAM_SHIP_TEXT		,A10	; Ship Reference Text
+
+	CAM_BUILD_FLAG		,D1	; Flags which field to use to Build Cums
+					; --------------------------------------
+					; 0 = Not Applicable - Not Building Cums
+					; 1 = Prev Cum Req used to Build Cums
+					; 2 = TP YTD CUM used to Build Cums
+
+	CAM_FORCST_BY		,D1	; 1 = Division 
+					; 2 = Destination	
+
+	CAM_JITS_TYPE		,A1	; (Q) Quantity or (C) Cum
+	CAM_JITS_SPAN		,D2	; Days Between Shipments
+					;
+	CAM_FIRM_TYPE		,A1	; (Q) Quantity or (C) Cum
+	CAM_FIRM_SPAN		,D2	; Days Between Shipments
+					;
+	CAM_FORCST_TYPE		,A1	; (Q) Quantity or (C) Cum
+	CAM_FORCST_SPAN		,D2	; Days Between Forecasts		
+				,A14
+
+; ------------------------------------------------------------------------------
+;               ------- Key Definition ------
+; ------------------------------------------------------------------------------
+
+RECORD CAM_KEY0	,X	
+	K0_CAM_TP_DESIG		,A%SIZE(CAM_TP_DESIG)
+	K0_CAM_DIV_ABBRV	,A%SIZE(CAM_DIV_ABBRV)
+	K0_CAM_DEST_ABBRV	,A%SIZE(CAM_DEST_ABBRV)

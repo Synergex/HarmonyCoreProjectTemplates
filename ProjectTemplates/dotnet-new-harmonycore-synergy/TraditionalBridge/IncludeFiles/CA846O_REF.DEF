@@ -1,0 +1,23 @@
+;CA846O_REF.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND INVENTORY ADVICE REF                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    99                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA846O_REF                                                                                                                  
+        R846O_INTRCHANG           ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        R846O_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        R846O_HDR_SEQ             ,D6           ; HEADER SEQUENCE NUMBER                     31 thru    36                          
+        R846O_DTL_SEQ             ,D6           ; DETAIL SEQUENCE NUMBER                     37 thru    42                          
+        R846O_QTY_SEQ             ,D6           ; QUANTITY SEQUENCE NUMBER                   43 thru    48                          
+        R846O_REF_SEQ             ,D6           ; REFERENCE LOOP SEQ NUMBER                  49 thru    54                          
+        R846O_ADR_SEQ             ,D6           ; ADDRESS SEQUENCE NUMBER                    55 thru    60                          
+        R846O_SEQ_NUM             ,D6           ; REFERENCE SEQUENCE NUMBER                  61 thru    66                          
+        R846O_REF_QL              ,A3           ; REFERENCE QUALIFIER                        67 thru    69                          
+        R846O_REFNO               ,A30          ; REFERENCE NUMBER                           70 thru    99                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA846O_REF_KEY            ,A66          ; PRIMARY SORT KEY                                                                  
+                                  ,A33          ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,32 @@
+;CH824_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       APPLICATION ADVICE HEADER                                                                                                   
+;       DATE : 05-APR-90                                                                                                            
+;	Revised: 12-DEC-1991 for version 002040
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   156                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH824_HDR                                                                                                                   
+        CHAH_CTL_NO               ,A15          ; CHRYSLER CONTROL NUMBER                     1 thru    15                          
+        CHAH_SHIP_FROM            ,A7           ; SHIP FROM CODE                             16 thru    22                          
+        CHAH_SUPPL_ID             ,A7           ; SUPPLIER ID CODE                           23 thru    29                          
+        CHAH_SHIP_TO              ,A7           ; SHIP TO CODE                               30 thru    36                          
+        CHAH_DEST_ID              ,A7           ; DESTINATION ID                             37 thru    43                          
+        CHAH_ASN_NO               ,A11          ; ASN NUMBER                                 44 thru    54                          
+        CHAH_CRE_DATE             ,D6           ; CHRYSLER CREATION DATE                     55 thru    60                          
+        CHAH_CRE_TIME             ,D4           ; CHRYSLER CREATION TIME                     61 thru    64                          
+        CHAH_SHIP_DATE            ,D6           ; ASN SHIP DATE                              65 thru    70                          
+        CHAH_PROC_DATE            ,D6           ; CHRYSLER PROCESS DATE                      71 thru    76                          
+        CHAH_PROC_TIME            ,D4           ; CHRYSLER PROCESS TIME                      77 thru    80                          
+        CHAH_PARTNO               ,A22          ; CHRYSLER PART NUMBER                       81 thru   102                          
+        CHAH_AR_CODE              ,A2           ; ACCEPT/REJECT CODE                        103 thru   104                          
+        CHAH_BILL_TO              ,A7           ; BILL TO CODE                              105 thru   111                          
+        CHAH_TIME_ZONE            ,A2           ; TIME ZONE CODE                            112 thru   113                          
+        CHAH_YTD_CUM              ,D10          ; CHRYSLER YTD CUM                          114 thru   123                          
+        CHAH_BILL_LAD             ,A15          ; BILL OF LADING NUMBER                     124 thru   138                          
+        CHAH_PACK_SLIP            ,A15          ; PACKING SLIP                              139 thru   153                          
+	CHAH_TRANS_SET            ,D3           ; TRANSACTION SET REPORTING ON              154 thru   156
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH824_HDR_KEY             ,A104         ; PRIMARY SORT KEY                                                                  
+                                  ,A52          ; PRIMARY KEY POSITIONING                                                           

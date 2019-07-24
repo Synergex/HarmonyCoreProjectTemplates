@@ -1,0 +1,6 @@
+.include 'RENI' repository, record='reni'
+
+literal ; Used for ni_no_data_received_status
+	NI_NDRS_FAILURE	,d1	,0
+	NI_NDRS_WARNING	,d1	,1
+	NI_NDRS_SUCCESS	,d1	,2

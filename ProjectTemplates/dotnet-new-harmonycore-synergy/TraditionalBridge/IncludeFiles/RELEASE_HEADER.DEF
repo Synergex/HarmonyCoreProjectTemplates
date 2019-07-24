@@ -1,0 +1,3 @@
+	.include 'RELEASE_HEADER' repository, record='release_header'
+	.include 'RELEASE_HEADER_KEY1' repository, record='remh_key1'
+	.include 'RELEASE_HEADER_KEY2' repository, record='remh_key2'

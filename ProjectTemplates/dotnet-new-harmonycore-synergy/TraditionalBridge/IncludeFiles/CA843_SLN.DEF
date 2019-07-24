@@ -1,0 +1,56 @@
+;CA843_SLN.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE SUBLINE ITEM                                                                                              
+;       DATE : 25-MAR-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   783                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_SLN                                                                                                                   
+        NQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        NQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        NQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        NQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        NQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        NQT_SCH_SEQ               ,D6           ; SCHEDULE SEQ NO                            31 thru    36                          
+        NQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        NQT_PDD_SEQ               ,D6           ; PRICING DATA SEQUENCE NUMBER               43 thru    48                          
+        NQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        NQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        NQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        NQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        NQT_ASSIGN_ID1            ,A20          ; ASSIGNED ID                                88 thru   107                          
+        NQT_ASSIGN_ID2            ,A20          ; ASSIGNED ID                               108 thru   127                          
+        NQT_REL_CODE1             ,A1           ; RELEATIONSHIP CODE                        128 thru   128                          
+        NQT_QTY                   ,D15          ; QUANTITY                                  129 thru   143                          
+        NQT_UOFM                  ,A2           ; UNIT OF MEASUREMENT                       144 thru   145                          
+        NQT_PRICE                 ,D17          ; UNIT PRICE                                146 thru   162                          
+        NQT_PRICE_BASIS           ,A1           ; PRICE BASIS                               163 thru   163                          
+        NQT_REL_CODE2             ,A2           ; RELATIONSHIP CODE                         164 thru   165                          
+        NQT_PROD_QL1              ,A2           ; PRODUCT QUALIFIER 1                       166 thru   167                          
+        NQT_PROD_QL2              ,A2           ; PRODUCT QUALIFIER 2                       168 thru   169                          
+        NQT_PROD_QL3              ,A2           ; PRODUCT QUALIFIER 3                       170 thru   171                          
+        NQT_PROD_QL4              ,A2           ; PRODUCT QUALIFIER 4                       172 thru   173                          
+        NQT_PROD_QL5              ,A2           ; PRODUCT QUALIFIER 5                       174 thru   175                          
+        NQT_PROD_QL6              ,A2           ; PRODUCT QUALIFIER 6                       176 thru   177                          
+        NQT_PROD_QL7              ,A2           ; PRODUCT QUALIFIER 7                       178 thru   179                          
+        NQT_PROD_QL8              ,A2           ; PRODUCT QUALIFIER 8                       180 thru   181                          
+        NQT_PROD_QL9              ,A2           ; PRODUCT QUALIFIER 9                       182 thru   183                          
+        NQT_PROD_QL10             ,A2           ; PRODUCT QUALIFIER 10                      184 thru   185                          
+        NQT_PROD_CODE1            ,A40          ; PRODUCT CODE 1                            186 thru   225                          
+        NQT_PROD_CODE2            ,A40          ; PRODUCT CODE 2                            226 thru   265                          
+        NQT_PROD_CODE3            ,A40          ; PRODUCT CODE 3                            266 thru   305                          
+        NQT_PROD_CODE4            ,A40          ; PRODUCT CODE 4                            306 thru   345                          
+        NQT_PROD_CODE5            ,A40          ; PRODUCT CODE 5                            346 thru   385                          
+        NQT_PROD_CODE6            ,A40          ; PRODUCT CODE 6                            386 thru   425                          
+        NQT_PROD_CODE7            ,A40          ; PRODUCT CODE 7                            426 thru   465                          
+        NQT_PROD_CODE8            ,A40          ; PRODUCT CODE 8                            466 thru   505                          
+        NQT_PROD_CODE9            ,A40          ; PRODUCT CODE 9                            506 thru   545                          
+        NQT_PROD_CODE10           ,A40          ; PRODUCT CODE 10                           546 thru   585                          
+        NQT_DESCRIPTION           ,A80          ; ITEM DESCRIPTION                          586 thru   665                          
+        NQT_DESCRIPT_2            ,A80          ; ITEM DESCRIPTION                          666 thru   745                          
+        NQT_FILLER2               ,A38          ; FILLER                                    746 thru   783                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_SLN_KEY             ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A729         ; PRIMARY KEY POSITIONING                                                           

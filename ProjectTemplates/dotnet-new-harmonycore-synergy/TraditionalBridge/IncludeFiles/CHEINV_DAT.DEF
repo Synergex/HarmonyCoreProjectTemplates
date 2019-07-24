@@ -1,0 +1,15 @@
+; CHEINV_DAT.DEF
+;
+;	This File will contain the Next Chrysler Electronic Invoice Number.
+;
+; 	File Organization: Indexed (Isam)
+;	    Record Length: 148
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+
+RECORD 	CHEINV_DAT
+	CD_TP_DESIG		,A2	; Trading Partner Designator.
+	CD_TP_NEXT_NO		,D7	; Next Number (i.e. Next Invoice Number)
+				,A139	; Filler

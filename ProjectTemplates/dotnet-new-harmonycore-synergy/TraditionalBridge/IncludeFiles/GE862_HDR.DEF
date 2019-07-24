@@ -1,0 +1,44 @@
+;GE862_HDR.DEF
+;
+;	GE APPLIANCES SHIPPING SCHEDULE HEADER
+;	DATE : 08-APR-92
+;	File Organization : ISAM
+;	Record Size :   376                                                 Field Positions
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GE862_HDR
+	GEH_XXX			,A16
+	GEH_SUPPLIER		,A5		; SUPPLIER ID CODE		1 thru   17	(SUPPLIER - ID CODE [N104])
+	GEH_ISSUED_BY		,A12		; ISSUED BY CODE 		18 thru  32	(ALWAYS = 'GEAPPLIANCES')
+	GEH_RELD_DATE		,D6		; SCHEDULE DATE		        80 thru  85	(SCHEDULE DATE - [BSS03])  
+	GEH_REL_NO		,A10 		; RELEASE NUMBER		33 thru  62	(RELEASE# [BSS07])
+	GEH_CUST_PART		,A22		; CUSTOMER PART NUMBER
+	GEH_SHIP_TO		,A15 		; SHIP TO/DESTINATION CODE	63 thru  79	(SHIP TO - ID CODE [N104]  
+	GEH_SHIPTO_NAME		,A35		; SHIP TO NAME		       133 thru 167	(SHIP TO - [N102])
+
+	GEH_PURPOSE		,A2		; PURPOSE CODE			86 thru  87	(PURPOSE - [BSS01])
+	GEH_REL_REF		,A30		; RELEASE REFERENCE NUMBER	88 thru 117	(REFERENCE NUMBER - [BSS02])
+	GEH_FCST_QTY_QL		,A2		; FORECAST QUALIFIER           118 thru 119	(SCHEDULE TYPE - [BSS04]) 
+	GEH_QTY_TYPE		,A1		; (FORECAST)QUANTITY TYPE      120 thru 120	(QUANTITY TYPE - [BSS11])  
+	GEH_ST_HORZ_DAT		,D6		; HORIZON START DATE	       121 thru 126	(HORIZ START DATE - [BSS05])  
+	GEH_EN_HORZ_DAT		,D6		; HORIZON END DATE	       127 thru 132	(HORIZ END DATE - [BSS06]) 
+	GEH_SUPP_NAME		,A35		; SHIP FROM NAME	       168 thru 202	(SHIP FROM - [N102])
+	GEH_SUPP_ADD1		,A35		; SHIP FROM ADDRESS #1	       203 thru 237	(SHIP FROM ADD#1 - [N301])
+	GEH_SUPP_ADD2		,A35		; SHIP FROM ADDRESS #2	       238 thru 272	(SHIP FROM ADD#2 - [N302])
+	GEH_SUPP_CITY		,A19		; SHIP FROM CITY	       273 thru 291	(SHIP FROM CITY - [N401])
+	GEH_SUPP_STATE		,A2		; SHIP FROM STATE	       292 thru 293	(SHIP FROM STATE - [N402])
+	GEH_SUPP_ZIP		,A9		; SHIP FROM ZIP CODE	       294 thru 302	(SHIP FROM ZIP CODE - [N403])
+
+; ********************************************************CUMULATIVE DATA********************************************************
+	GEH_CUM_QL		,A2		; CUM QUANTITY QUALIFIER       303 thru 304	(QUANTITY QUALIFIER - [SHP01])
+	GEH_CUM_YTD_QTY		,D15		; CUM FISCAL YTD QUANTITY      305 thru 319	(FISCAL YTD QTY - [SHP02])
+	GEH_CUM_START_DAT	,D6		; 1ST DAY OF FISCAL YEAR       320 thru 325	(FIRST FISCAL DATE - [SHP04])
+	GEH_CUM_THRU_DAT	,D6		; DATE OF LAST RECEIPT         326 thru 331	(LAST RECIEPT DATE - [SHP06])
+; *******************************************************************************************************************************
+
+; *******************************************************LAST RECEIPT DATA*******************************************************
+	GEH_QTY_QL		,2A2		; DISCRETE QTY QUALIFIER       332 thru 335	(DISCRETE QUALIFIER - [SHP01])
+	GEH_LST_REC_QTY		,2D15		; DISCRETE QTY LAST REC.       336 thru 365	(DISCRETE QTY - [SHP02])
+	GEH_LST_REC_DAT		,2D6		; DISCRETE DATE OF LAST REC    366 thru 376	(DISCRETE LAST REC/DATE [SHP04])
+; *******************************************************************************************************************************
+RECORD, X
+	GE862_HDR_KEY0		,A86		;PRIMARY KEY

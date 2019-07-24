@@ -1,0 +1,58 @@
+;RT856_ORD.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ASN ORDER LEVEL                                                                                                      
+;       DATE : 08-NOV-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   633                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT856_ORD                                                                                                                   
+        RTO_MATCH1                ,D6           ; MATCHES TO SHIPMENT LEVEL                   1 thru     6                          
+        RTO_MATCH2                ,D6           ; ORDER LEVEL MATCH FIELD                     7 thru    12                          
+        RTO_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                 13 thru    14                          
+        RTO_SUPPLIER              ,A15          ; SUPPLIER ID CODE                           15 thru    29                          
+        RTO_SHIPPER               ,D9           ; SHIPPER NUMBER                             30 thru    38                          
+        RTO_DEST                  ,A15          ; DESTINATION CODE                           39 thru    53                          
+        RTO_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                      54 thru    75                          
+        RTO_PO_DATE               ,D6           ; PURCHASE ORDER DATE                        76 thru    81                          
+        RTO_RELNO                 ,A9           ; RELEASE NUMBER                             82 thru    90                          
+        RTO_CNG_SEQ_NO            ,A15          ; CHANGE ORDER SEQUENCE NO                   91 thru   105                          
+        RTO_TOT_CONT              ,D10          ; TOTAL CONTAINERS FOR THE ORDER            106 thru   115                          
+        RTO_DEST_QL               ,A2           ; DESTINATION CODE QUALIFIER                116 thru   117                          
+        RTO_DEST_NAME             ,A25          ; DESTINATION NAME                          118 thru   142                          
+        RTO_DEST_ADD1             ,A25          ; DESTINATION ADDRESS LINE 1                143 thru   167                          
+        RTO_DEST_ADD2             ,A25          ; DESTINATION ADDRESS LINE 1                168 thru   192                          
+        RTO_DEST_CITY             ,A15          ; DESTINATION CITY                          193 thru   207                          
+        RTO_DEST_ST               ,A2           ; DESTINATION STATE                         208 thru   209                          
+        RTO_DEST_ZIP              ,A10          ; DESTINATION ZIP CODE                      210 thru   219                          
+        RTO_BILLTO_QL             ,A2           ; BILL TO CODE QUALIFIER                    220 thru   221                          
+        RTO_BILLTO_NAME           ,A35          ; BILL TO NAME                              222 thru   256                          
+        RTO_BILLTO_CODE           ,A17          ; BILL TO CODE                              257 thru   273                          
+        RTO_BILLTO_ADD1           ,A25          ; BILL TO ADDRESS 1                         274 thru   298                          
+        RTO_BILLTO_ADD2           ,A25          ; BILL TO ADDRESS LINE 2                    299 thru   323                          
+        RTO_BILLTO_CITY           ,A15          ; BILL TO CITY                              324 thru   338                          
+        RTO_BILLTO_ST             ,A2           ; BILL TO STATE                             339 thru   340                          
+        RTO_BILLTO_ZIP            ,A10          ; BILL TO ZIP CODE                          341 thru   350                          
+        RTO_SO_STATUS             ,A2           ; SHIPMENT ORDER STATUS CODE                351 thru   352                          
+        RTO_DEPT_NO               ,A8           ; DEPARTMENT NUMBER                         353 thru   360                          
+        RTO_SALES_DIV             ,A15          ; SALES DIVISION/REGION                     361 thru   375                          
+        RTO_SHIP_TRKNO            ,A15          ; PREASSIGNED SHIPMENT TRACKING#            376 thru   390                          
+        RTO_NO_OF_LOADS           ,D5           ; NUMBER OF LOADS                           391 thru   395                          
+        RTO_NO_OF_UNITS           ,D10          ; NUMBER OF UNITS SHIPPED                   396 thru   405                          
+        RTO_PKG_CODE              ,A5           ; PACKAGING CODE (CLD03)                    406 thru   410                          
+        RTO_CUST_NAM_QL           ,A2           ; CUSTOMER NAME QUALIFIER                   411 thru   412                          
+        RTO_CUST_NAME             ,A35          ; CUSTOMER NAME IF CUSTOM ORDER             413 thru   447                          
+        RTO_NET_WGT               ,D8           ; NET WEIGHT OF THE ORDER                   448 thru   455                          
+        RTO_GROSS_WGT             ,D8           ; GROSS WET OF ORDER                        456 thru   463                          
+        RTO_WGT_UOFM              ,A2           ; UNIT OF MEAS FOR NET/GROSS WGT            464 thru   465                          
+        RTO_MARK_FOR_ID           ,A15          ; MARK FOR ID CODE                          466 thru   480                          
+        RTO_HL_ID                 ,D6           ; HIERARCHICAL LEVEL ID CODE                481 thru   486                          
+        RTO_HL_PARENT             ,D6           ; HIERARCHICAL PARENT ID (SHIP)             487 thru   492                          
+        RTO_INTRCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE              493 thru   507                          
+        RTO_GROUP_ID              ,A12          ; GROUP RECEIVER ID NUMBER                  508 thru   519                          
+        RTO_PROMO_EVENT           ,A15          ; PROMOTIONAL EVENT/DEAL NO                 520 thru   534                          
+        RTO_FILLER                ,A99          ; FILLER FOR FUTURE USE                     535 thru   633                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT856_ORD_KEY             ,A12          ; PRIMARY SORT KEY                                                                  
+                                  ,A621         ; PRIMARY KEY POSITIONING                                                           

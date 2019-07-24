@@ -1,0 +1,33 @@
+;CA855_TAX.DEF                                                                                                                      
+;                                                                                                                                   
+;       COMMON PO ACKNOWLEDGEMENT TAX                                                                                               
+;       DATE : 24-JAN-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   286                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA855_TAX                                                                                                                   
+        T855_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        T855_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        T855_GROUP_ID             ,A15          ; GROUP RECEIVER ID CODE                     18 thru    32                          
+        T855_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        T855_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        T855_PO_LINE              ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        T855_CUST_PART            ,A30          ; CUSTOMER PART                              83 thru   112                          
+        T855_KEY_FILL             ,A18          ; KEY FILLER                                113 thru   130                          
+        T855_ID                   ,A20          ; TAX ID                                    131 thru   150                          
+        T855_LOC_QL1              ,A2           ; TAX LOCATION QUALIFIER                    151 thru   152                          
+        T855_LOC_QL2              ,A2           ; TAX LOCATION QUALIFIER 2                  153 thru   154                          
+        T855_LOC_QL3              ,A2           ; TAX LOCATION QUALIFIER 3                  155 thru   156                          
+        T855_LOC_QL4              ,A2           ; TAX LOCATION QUALIFIER 4                  157 thru   158                          
+        T855_LOC_QL5              ,A2           ; TAX LOCATION QUALIFIER 5                  159 thru   160                          
+        T855_LOC_ID1              ,A25          ; TAX LOCATION ID                           161 thru   185                          
+        T855_LOC_ID2              ,A25          ; TAX LOCATION ID2                          186 thru   210                          
+        T855_LOC_ID3              ,A25          ; TAX LOCATION ID 3                         211 thru   235                          
+        T855_LOC_ID4              ,A25          ; TAX LOCATION ID 4                         236 thru   260                          
+        T855_LOC_ID5              ,A25          ; TAX LOCATION ID 5                         261 thru   285                          
+        T855_EXEMPT               ,A1           ; TAX EXEMPTION STATUS                      286 thru   286                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA855_TAX_KEY             ,A130         ; PRIMARY SORT KEY                                                                  
+                                  ,A156         ; PRIMARY KEY POSITIONING                                                           

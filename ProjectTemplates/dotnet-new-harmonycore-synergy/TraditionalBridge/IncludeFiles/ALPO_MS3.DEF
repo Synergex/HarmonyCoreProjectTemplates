@@ -1,0 +1,71 @@
+;ALPO_MS3.DEF                                                                                                                       
+;                                                                                                                                   
+;       ALLIED-SIGNAL MISCELLANOUS 3                                                                                                
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   900                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  ALPO_MS3                                                                                                                    
+        M850_3_GS_CTL             ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        M850_3_PO_NO              ,A22          ; P.O. NUMBER                                10 thru    31                          
+        M850_3_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        32 thru    39                          
+        M850_3_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     40 thru    45                          
+        M850_3_ADR_SEQ            ,D6           ; ADDRESS SEQUENCE                           46 thru    51                          
+        M850_3_N9_SEQ             ,D6           ; N9 SEQUENCE NUMBER                         52 thru    57                          
+        M850_3_PID_SEQ            ,D6           ; PID SEQUENCE NUMBER                        58 thru    63                          
+        M850_3_PKG_SEQ            ,D6           ; PKG SEQUENCE NUMBER                        64 thru    69                          
+        M850_3_SLN_SEQ            ,D6           ; SLN SEQUENCE NUMBER                        70 thru    75                          
+        M850_3_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 76 thru    78                          
+        M850_3_SEG_TYPE           ,A3           ; SEGMENT TYPE                               79 thru    81                          
+        M850_3_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            82 thru    87                          
+        M850_ITD_TERM             ,A2           ; TERM TYPE                                  88 thru    89                          
+        M850_ITD_BASIS            ,A2           ; TERMS BASIS CODE                           90 thru    91                          
+        M850_ITD_DISC             ,D6           ; DISCOUNT PERCENTAGE                        92 thru    97                          
+        M850_ITD_DUE              ,D8           ; DISCOUNT DUE DATE                          98 thru   105                          
+        M850_ITD_DAY              ,D3           ; DAYS DISCOUNT APPLICABLE                  106 thru   108                          
+        M850_ITD_NDUE             ,D8           ; NET DUE DATE                              109 thru   116                          
+        M850_ITD_NDAY             ,D3           ; NET DAYS DUE                              117 thru   119                          
+        M850_ITD_AMT              ,D10          ; DISCOUNT AMOUNT                           120 thru   129                          
+        M850_ITD_DEFDT            ,D8           ; DISCOUNT DEFERRED DUE DATE                130 thru   137                          
+        M850_ITD_DEFAMT           ,D10          ; DEFERRRED AMOUNT DUE                      138 thru   147                          
+        M850_ITD_PAY_PC           ,D5           ; PAYMENT PERCENTAGE                        148 thru   152                          
+        M850_ITD_NOTE             ,A80          ; NOTES & ITA13 DESCR                       153 thru   232                          
+        M850_ITD_DAY_MT           ,D2           ; DAY OF MONTH FOR DISCOUNT                 233 thru   234                          
+        M850_ITD_PAYMTH           ,A1           ; PAYMENT METHOD                            235 thru   235                          
+        M850_ITD_PERC             ,D15          ; PERCENTAGE                                236 thru   250                          
+        M850_ITA_A_C              ,A1           ; ALLOWANCE OR CHANGE INDICATOR             251 thru   251                          
+        M850_SAC_AC_TYP           ,A4           ; SERVICE,PROMOTION,ALLOW,CHRG              252 thru   255                          
+        M850_ITA_AGENCY           ,A2           ; AGENCY QUALIFIER CODE                     256 thru   257                          
+        M850_ITA_SSS              ,A10          ; SPECIAL SERVICES CODE                     258 thru   267                          
+        M850_ITA_MTHD             ,A2           ; METHOD OF HANDLING                        268 thru   269                          
+        M850_ITA_AC_NO            ,A16          ; ALLOWANCE OR CHARGE NUMBER                270 thru   285                          
+        M850_ITA_RATE             ,D9           ; A/C RATE                                  286 thru   294                          
+        M850_ITA_AMT              ,D9           ; ALLOWANCE OR CHARGE TOTAL                 295 thru   303                          
+        M850_ITA_PERCQL           ,A1           ; A/C PERCENT QUALIFIER                     304 thru   304                          
+        M850_ITA_PERC             ,D6           ; A/C PERCENTAGE                            305 thru   310                          
+        M850_ITA_QTY              ,D10          ; A/C QUANTITY                              311 thru   320                          
+        M850_ITA_UOM              ,A2           ; A/C UNIT OF MEAS CODE                     321 thru   322                          
+        M850_ITA_QTY2             ,D15          ; QUANTITY OF FREE GOODS                    323 thru   337                          
+        M850_SAC_REFNO            ,A30          ; REFERENCE NUMBER                          338 thru   367                          
+        M850_ITA_CRG_CD           ,A3           ; A/C SPECIAL CHARGE CODE                   368 thru   370                          
+        M850_SAC_OPTNO            ,A30          ; OPTION NUMBER                             371 thru   400                          
+        M850_CTP_CLASS            ,A2           ; CLASS OF TRADE CODE                       401 thru   402                          
+        M850_CTP_ID               ,A3           ; PRICE IDENTIFIER CODE                     403 thru   405                          
+        M850_CTP_PRICE            ,D14          ; UNIT PRICE                                406 thru   419                          
+        M850_CTP_UOFM             ,A2           ; UNIT OF MEASURE                           420 thru   421                          
+        M850_CTP_QL               ,A3           ; PRICE MULTIPLIER QUALIFIER                422 thru   424                          
+        M850_CTP_MULT             ,D10          ; PRICE MULTIPLIER                          425 thru   434                          
+        M850_CTP_DOLLAR           ,D15          ; MONETARY AMOUNT                           435 thru   449                          
+        M850_CTP_BASE             ,A2           ; BASIS OF UNIT PRICE                       450 thru   451                          
+        M850_CTP_QTY              ,D15          ; QUANTITY                                  452 thru   466                          
+        M850_3_DESC               ,A80          ; DESCRIPTION                               467 thru   546                          
+        M850_SDQ_UOFM             ,A2           ; UNIT OF MEASURE                           547 thru   548                          
+        M850_SDQ_ID_QL            ,A2           ; ID CODE QUAL                              549 thru   550                          
+        M850_SDQ_ID               ,10A17        ; ID CODE                                   551 thru   720                          
+        M850_SDQ_QTY              ,10D15        ; ID QUANTITY                               721 thru   870                          
+        M850_SDQ_LOC_ID           ,A30          ; LOCATION ID                               871 thru   900                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        ALPO_MS3_KEY              ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A813         ; PRIMARY KEY POSITIONING                                                           

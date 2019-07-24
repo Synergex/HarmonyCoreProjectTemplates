@@ -1,0 +1,31 @@
+; CAXDB_CTL.DEF
+;
+;	CARaS Trading Partner Transaction Processing Control File.
+;
+;	Date: 01-SEP-95
+;
+;	File Organization: Indexed (Isam)	Record Size: 128
+;
+;-------------------------------------------------------------------------------
+; Date	      	Programmer    	Modification
+; ----------  	----------    	------------------------------------------------
+; 01-SEP-95	M. Collins	Creation
+;-------------------------------------------------------------------------------
+
+RECORD CAXDB_CTL
+	XDC_TP_DESIG	,A2	; Trading Partner
+	XDC_TX_SET	,A3	; Transaction Set
+	XDC_IN_OR_OUT	,A1	; O=outgoing, I=incoming 
+	XDC_PRINT	,D1	; Print Report? (0=no,1=yes)
+	XDC_UPDATE	,D1	; Update Files? (0=no,1=yes)
+	XDC_EXPORT	,D1	; Export Data? (0=no,1=yes)
+	XDC_SPLIT	,D1	; Split Data? (0=no,1=yes)
+	XDC_PRINTER	,A4	; Priner Que (if XDC_PRINT is on, need the
+				; printer to use.
+	XDC_SUM_DET	,D1	; Summary or Detail Report (if available:
+				; 0=detail,1=summary)
+			,A113	; Filler 
+	
+RECORD, X
+	XDC_KEY0	,A6	; Primary Key = Trading Partner / Transaction
+

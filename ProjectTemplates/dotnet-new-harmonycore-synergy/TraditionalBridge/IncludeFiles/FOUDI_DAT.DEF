@@ -1,0 +1,47 @@
+; FOUDI_DAT.DEF
+;
+;	Ford CMMS UDI/Scan File Definition.
+;
+;	File Organization: Sequential.
+;	Record Size: Variable - Maximum Length 100 bytes.
+;
+;	Date: 11-Apr-89
+;
+RECORD FOUDI_DAT
+	FOU_REC_TYPE	,A2	; Record Type - a Space & the Field Designator.
+				; ---------------------------------------------
+				; " A" = ASN/Shipper Number
+				; " P" = Part Number
+				; " C" = Container
+				; " S" = Label Serial Number
+				; " M" = Master Label Serial Number
+				; " Q" = Quantity
+
+	FOU_FIELD	,A22	; Field.
+			,A76	; Filler
+;
+;-------------------------------------------------------------------------------
+;--- Redefinitions of Non-Key Portion of Record. -------------------------------
+;-------------------------------------------------------------------------------
+;
+
+RECORD, X
+			,A2	; Record Type = " A" - ASN/Shipper Number.
+	FOU_SHIP_ID	,D9	; CARaS ASN/Shipper Number.
+			,A89	; Filler.
+RECORD, X
+			,A2	; Record Type = " P" - Part Number.
+	FOU_PART_NO	,A22	; Ford Part Number on AIAG Shipping Label.
+			,A76	; Filler.
+RECORD, X
+			,A2	; Record Type = " C" - Container Code.
+	FOU_CONT	,A5	; Container Code.
+			,A93	; Filler.
+RECORD, X
+			,A2	; Record Types " S" or " M" - Serail Numbers.
+	FOU_SERIAL	,A15	; Serial Number from AIAG Shipping Label.
+			,A83	; Filler.
+RECORD, X
+			,A2	; Record Type = " Q" - Quantity.
+	FOU_QTY		,D7	; Quantity (Units per this Container).
+			,A93	; Filler.

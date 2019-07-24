@@ -1,0 +1,28 @@
+;FO863_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 863 PART DETAIL FILE                                                                                                   
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   174                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO863_DTL                                                                                                                   
+        FOD_RECV_ID               ,A5           ; RECEIVING PARTY ID                          1 thru     5                          
+        FOD_REPORT_NO             ,D9           ; REPORT NUMBER                               6 thru    14                          
+        FOD_PART_NO1              ,A22          ; CUSTOMER PART NUMBER                       15 thru    36                          
+        FOD_PART_QUAL1            ,A2           ; CUSTOMER PART QUALIFIER                    37 thru    38                          
+        FOD_PART_NO2              ,A22          ; CUSTOMER REPLACEMENT PART NO               39 thru    60                          
+        FOD_PART_QUAL2            ,A2           ; REPLACEMENT PART QUALIFIER                 61 thru    62                          
+        FOD_SORT_PCT              ,A2           ; 100% SORTING                               63 thru    64                          
+        FOD_OPT_CPK               ,A2           ; OPTIMUM CPK VALUE                          65 thru    66                          
+        FOD_CONT_IMPRV            ,A2           ; CONTINU IMPROVING                          67 thru    68                          
+        FOD_IN_CONTROL            ,A2           ; IN CONTROL                                 69 thru    70                          
+        FOD_CTLPLN_DATE           ,D8           ; CONTROL PLAN DATE                          71 thru    78                          
+        FOD_SGNOFF_DATE           ,D8           ; FEASIBILITY SIGNOFF DATE                   79 thru    86                          
+        FOD_EFFANA_DATE           ,D8           ; FAILURE MODE EFF ANALYSIS DATE             87 thru    94                          
+        FOD_BLUEPT_DATE           ,D8           ; BLUE PRINT DATE                            95 thru   102                          
+        FOD_ISIR_DATE             ,D8           ; INITIAL SAMPLE INSPEC. DATE               103 thru   110                          
+        FOD_MODEL_YEAR            ,A4           ; MODEL YEAR FOR ISIR REPORT                111 thru   114                          
+        FOD_PCI_NO                ,A30          ; PRODUCT CHANGE ID NUMBER                  115 thru   144                          
+        FOD_ISIR_NO               ,A30          ; ISIR REPORT NUMBER                        145 thru   174                          
+                                                                                                                                    
+                                                                                                                                    

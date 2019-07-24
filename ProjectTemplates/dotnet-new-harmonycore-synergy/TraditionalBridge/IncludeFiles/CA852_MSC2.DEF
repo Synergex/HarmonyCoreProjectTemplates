@@ -1,0 +1,46 @@
+; Structure     : CA852_MSC2                                
+; File Type     : ASCII                                     
+; Creation Date : 01-MAY-06, 13:36:01                       
+; Description   : Product Activity Misc 2 Flat File         
+;      Record Size    : 224                                 
+;      # of Files     : 0                                   
+;      # of Fields    : 33                                  
+;      # of Keys      : 0                                   
+;      # of Relations : 0                                   
+                                                            
+                                                            
+RECORD CA852_MSC2                                           
+  M852_2_TP_DESIG ,A2       ; (1,2) Trading Partner Designator             1 THR
+  M852_2_GS_CTL   ,D9       ; (3,11) GS CONTROL NUMBER                     3 THR
+  M852_2_HDR_LINE ,D6       ; (12,17) HEADER LINE NUMBER                  12 THR
+  M852_2_DTL_LINE ,D6       ; (18,23) DETAIL LINE NUMBER                  18 THR
+  M852_2_ADR_LINE ,D6       ; (24,29) ADR LINE NUMBER                     24 THR
+  M852_2_ZA_LINE  ,D6       ; (30,35) ZA LINE NUMBER                      30 THR
+  M852_2_SEG_TYPE ,A3       ; (36,38) SEGMENT TYPE                        36 THR
+  M852_2_SEQ_NO   ,D6       ; (39,44) SEQUENCE NUMBER                     39 THR
+  M852_DTM_DT_QL  ,A3       ; (45,47) DATE/TIME QUALIFIER                 45 THR
+  M852_DTM_DATE   ,D8       ; (48,55) Standard Date Field                 48 THR
+  M852_DTM_TIME   ,D6       ; (56,61) TIME OF DAY                         56 THR
+  M852_DTM_TIMECD ,A2       ; (62,63) TIME CODE                           62 THR
+  M852_DTM_CENT   ,D2       ; (64,65) CENTURY                             64 THR
+  M852_DTM_PERFMT ,A4       ; (66,69) PERIOD FORMAT                       66 THR
+  M852_DTM_PERIOD ,A10      ; (70,79) PERIOD                              70 THR
+  M852_CTP_CLASS  ,A2       ; (80,81) CLASS OF TRADE CODE                 80 THR
+  M852_CTP_ID     ,A3       ; (82,84) PRICE IDENTIFIER CODE               82 THR
+  M852_CTP_PRICE  ,D14      ; (85,98) UNIT PRICE                          85 THR
+  M852_CTP_QTY    ,D15      ; (99,113) QUANTITY                           99 THR
+  M852_CTP_UOFM   ,A2       ; (114,115) UNIT OF MEASURE                  114 THR
+  M852_CTP_QL     ,A3       ; (116,118) PRICE MULTIPLIER QUALIFIER       116 THR
+  M852_CTP_MULT   ,D10      ; (119,128) PRICE MULTIPLIER                 119 THR
+  M852_CTP_DOLLAR ,D15      ; (129,143) MONETARY AMOUNT                  129 THR
+  M852_CTP_BASE   ,A2       ; (144,145) BASIS OF UNIT PRICE              144 THR
+  M852_AMT_AMTQL  ,A2       ; (146,147) AMOUNT QUALIFIER CODE            146 THR
+  M852_AMT_TOTAMT ,D15      ; (148,162) TOTAL MONETARY AMOUNT            148 THR
+  M852_QTY_QL     ,A3       ; (163,165) QUANTITY QUALIFIER               163 THR
+  M852_QTY_QTY    ,D15      ; (166,180) QUANTITY                         166 THR
+  M852_QTY_UOFM   ,A2       ; (181,182) UNIT OF MEASURE                  181 THR
+  M852_QTY_TEXT   ,A30      ; (183,212) MESSAGE TEXT                     183 THR
+  M852_QTY_BUOFM  ,A2       ; (213,214) BASIS UNIT OF MEASURE            213 THR
+  M852_QTY_BMULT  ,D10      ; (215,224) BASIS MULTIPLIER                 215 THR
+  CA852_MSC2_KEY   ,A44  @M852_2_TP_DESIG                                       
+                            ; (1,44) Primary Key                                

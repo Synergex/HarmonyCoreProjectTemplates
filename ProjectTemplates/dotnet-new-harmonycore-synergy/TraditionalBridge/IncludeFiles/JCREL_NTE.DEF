@@ -1,0 +1,25 @@
+;JCREL_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       JOHNSON CONTROLS NOTE RECORD                                                                                                
+;       DATE : 10-APR-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   208                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  JCREL_NTE                                                                                                                   
+        JCN_COMP                  ,A8           ; RESERVED FOR SPLIT (COMPANY                 1 thru     8                          
+        JCN_SEQN                  ,D5           ; RESERVED FOR SPLIT (SEQUENCE)               9 thru    13                          
+        JCN_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER             14 thru    27                          
+        JCN_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER              28 thru    41                          
+        JCN_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM              42 thru    55                          
+        JCN_SUPP_ID               ,A15          ; SUPPLIER ID                                56 thru    70                          
+        JCN_REL_DT                ,D8           ; RELEASE DATE                               71 thru    78                          
+        JCN_TP_PART               ,A30          ; TP PART (BLANK IF HEADER NOTE)             79 thru   108                          
+        JCN_DEST_CODE             ,A15          ; DESTINATION CODE                          109 thru   123                          
+        JCN_PO                    ,A22          ; PURCHASE ORDER NUMBER                     124 thru   145                          
+        JCN_NOTE                  ,A60          ; NOTE (HEADER AND/OR DETAIL)               146 thru   205                          
+        JCN_PCNT                  ,D3           ; RESERVED FOR SPLIT (PERCENT)              206 thru   208                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        JCREL_NTE_KEY             ,A145         ; PRIMARY SORT KEY                                                                  
+                                  ,A63          ; PRIMARY KEY POSITIONING                                                           

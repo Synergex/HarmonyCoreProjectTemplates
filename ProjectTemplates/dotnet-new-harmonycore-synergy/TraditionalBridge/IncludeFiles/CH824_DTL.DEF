@@ -1,0 +1,31 @@
+;CH824_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       APPLICATION ADVICE HEADER                                                                                                   
+;       DATE : 05-APR-90                                                                                                            
+;	Revised: 12-DEC-1991  for version 002040
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   326                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH824_DTL                                                                                                                   
+        CHAD_CTL_NO               ,A15          ; CHRYSLER CONTROL NUMBER                     1 thru    15                          
+        CHAD_SHIP_FROM            ,A7           ; SHIP FROM CODE                             16 thru    22                          
+        CHAD_SUPPL_ID             ,A7           ; SUPPLIER ID CODE                           23 thru    29                          
+        CHAD_SHIP_TO              ,A7           ; SHIP TO CODE                               30 thru    36                          
+        CHAD_DEST_ID              ,A7           ; DESTINATION IDE                            37 thru    43                          
+        CHAD_ASN_NO               ,A11          ; ASN NUMBER                                 44 thru    54                          
+        CHAD_CRE_DATE             ,D6           ; CHRYSLER CREATION DATE                     55 thru    60                          
+        CHAD_CRE_TIME             ,D4           ; CHRYSLER CREATION TIME                     61 thru    64                          
+        CHAD_SHIP_DATE            ,D6           ; ASN SHIP DATE                              65 thru    70                          
+        CHAD_PROC_DATE            ,D6           ; CHRYSLER PROCESS DATE                      71 thru    76                          
+        CHAD_PROC_TIME            ,D4           ; CHRYSLER PROCESS TIME                      77 thru    80                          
+        CHAD_PARTNO               ,A22          ; CUSTOMER PART NUMBER                       81 thru   102                          
+        CHAD_AR_CODE              ,A2           ; ACCEPT/REJECT CODE                        103 thru   104                          
+        CHAD_APPL_ERR             ,A3           ; CHRYSLER APPLICATION CODE ERR             105 thru   107                          
+        CHAD_APPL_TXT             ,A60          ; DIAS ERROR CODE TEXT                      108 thru   167                          
+        CHAD_NOTE                 ,A60          ; DIAS/CHAMPS MESSAGE                       168 thru   227                          
+        CHAD_BAD_ELEM             ,A99          ; COPY OF BAD ELEMENT                       228 thru   326                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH824_DTL_KEY             ,A104         ; PRIMARY SORT KEY                                                                  
+                                  ,A222         ; PRIMARY KEY POSITIONING                                                           

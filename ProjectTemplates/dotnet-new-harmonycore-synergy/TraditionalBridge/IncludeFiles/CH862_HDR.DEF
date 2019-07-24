@@ -1,0 +1,62 @@
+;CH862_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER SHIP SCHEDULE HDR                                                                                                  
+;       DATE : 18-NOV-08                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   585                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH862_HDR                                                                                                                   
+        CHSH_SUPP_ID              ,A7           ; SUPPLIER CODE                               1 thru     7                          
+        CHSH_PARTNO               ,A30          ; PART NUMBER                                 8 thru    37                          
+        CHSH_REFNO                ,A10          ; RELEASE/REFERENCE NUMBER                   38 thru    47                          
+        CHSH_RELDAT               ,D8           ; RELEASE DATE                               48 thru    55                          
+        CHSH_DEST_ID              ,A7           ; DESTINATION CODE                           56 thru    62                          
+        CHSH_ISSUE_BY             ,A7           ; ISSUED BY                                  63 thru    69                          
+        CHSH_DOCK                 ,A5           ; DOCK CODE                                  70 thru    74                          
+        CHSH_LINE_FEED            ,A8           ; LINE FEED                                  75 thru    82                          
+        CHSH_PURPOSE              ,A2           ; PURPOSE CODE                               83 thru    84                          
+        CHSH_DELIV_CODE           ,A2           ; DELIVERY CODE                              85 thru    86                          
+        CHSH_HORIZ_ST             ,D8           ; HORIZON START DATE                         87 thru    94                          
+        CHSH_HORIZ_END            ,D8           ; HORIZON END DATE                           95 thru   102                          
+        CHSH_UOFM                 ,A2           ; UNIT OF MEASURE                           103 thru   104                          
+        CHSH_TRANSIT              ,D4           ; TIME INTRANSIT                            105 thru   108                          
+        CHSH_NOTE                 ,A1           ; PART NOTE                                 109 thru   109                          
+        CHSH_PREV_FROM            ,D8           ; PREVIOUS YTD CUM FROM DATE                110 thru   117                          
+        CHSH_PREV_THRU            ,D8           ; PREVIOUS YTD CUM THRU DATE                118 thru   125                          
+        CHSH_PREV_REQ             ,D8           ; PREVIOUS YTD CUM QUANTITY                 126 thru   133                          
+        CHSH_ADJ_DATE             ,D8           ; ADJUSTMENT DATE                           134 thru   141                          
+        CHSH_ADJ_TIME             ,D4           ; ADJUSTMENT TIME                           142 thru   145                          
+        CHSH_ADJ_QTY              ,D8           ; ADJUSTMENT QUANTITY                       146 thru   153                          
+        CHSH_SHIP_FROM            ,D8           ; CUMULATIVE SHIPPED SINCE DATE             154 thru   161                          
+        CHSH_SHIP_THRU            ,D8           ; CUMULATIVE SHIPPED THRU DATE              162 thru   169                          
+        CHSH_SHIP_QTY             ,D8           ; CUMULATIVE QUANTITY SHIPPED               170 thru   177                          
+        CHSH_LSHIP_DATE           ,D8           ; LAST SHIP DATE                            178 thru   185                          
+        CHSH_LSHIP_QTY            ,D8           ; LAST SHIPPED QUANTITY                     186 thru   193                          
+        CHSH_DROP_POINT           ,A8           ; SHIPMENT DROP POINT                       194 thru   201                          
+        CHSH_CONT_NAME            ,06A19        ; CONTACT NAME (6 LINES)                    202 thru   315                          
+        CHSH_CONT_PHONE           ,06A10        ; CONTACT PHONE (6 LINES)                   316 thru   375                          
+        CHSH_TRANS_CD             ,A2           ; TRANSPORTATION CODE                       376 thru   377                          
+        CHSH_SCAC                 ,A4           ; CARRIER SCAC CODE                         378 thru   381                          
+        CHSH_RT_CODE              ,A35          ; ROUTING DESC CODE                         382 thru   416                          
+        CHSH_DEL_ZONE             ,A2           ; DELIVERY TIME ZONE                        417 thru   418                          
+        CHSH_APP_FLG              ,A1           ; APPLICATION FLAG                          419 thru   419                          
+        CHSH_ISA_DT               ,D8           ; INTERCHANGE DATE                          420 thru   427                          
+        CHSH_ISA_TM               ,D4           ; INTERCHANGE TIME                          428 thru   431                          
+        CHSH_TRANSNUM             ,A5           ; DOCUMENT JOURNAL TRANSMISSION             432 thru   436                          
+        CHSH_FILSEQNUM            ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            437 thru   440                          
+        CHSH_HCNTRLNUM            ,A14          ; ENVELOPE HEADER CONTROL NUMBER            441 thru   454                          
+        CHSH_GCNTRLNUM            ,A14          ; ENVELOPE GROUP CONTROL NUMBER             455 thru   468                          
+        CHSH_DCNTRLNUM            ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             469 thru   482                          
+        CHSH_SF_ID                ,A7           ; SHIP FROM ID                              483 thru   489                          
+        CHSH_COMPANY              ,A8           ; COMPANY_CODE                              490 thru   497                          
+        CHSH_COMP_SEQ             ,D5           ; SPLIT COMPANY SEQUENCE                    498 thru   502                          
+        CHSH_COMP_PERC            ,D5           ; COMPANY PERCENTAGE                        503 thru   507                          
+        CHSH_HDR_LINE             ,D6           ; HEADER LINE NUMBER                        508 thru   513                          
+        CHSH_INT_ID               ,A35          ; INTERCHANGE ID                            514 thru   548                          
+        CHSH_GROUP_ID             ,A35          ; GROUP INTERCHANGE ID                      549 thru   583                          
+        CHSH_INTR_QL              ,A2           ; INTERCHANGE QUALIFIER                     584 thru   585                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH862_HDR_KEY             ,A82          ; PRIMARY SORT KEY                                                                  
+                                  ,A503         ; PRIMARY KEY POSITIONING                                                           

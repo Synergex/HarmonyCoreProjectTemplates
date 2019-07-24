@@ -1,0 +1,25 @@
+;FO850_PRC.DEF                                                                                                                    
+;                                                                                                                                   
+;       FORD NON-PRODUCTION 850 PRICES                                                                                              
+;       DATE : 14-FEB-91                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   223                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO850_PRC                                                                                                                 
+        FOP_ID_CODE               ,A17          ; IDENTIFICATION CODE                         1 thru    17                          
+        FOP_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                      18 thru    39                          
+        FOP_RELEASE_NO            ,A30          ; RELEASE NUMBER                             40 thru    69                          
+        FOP_LINE_NO               ,A6           ; P.O. LINE NUMBER                           70 thru    75                          
+        FOP_ITEM_NO               ,A30          ; ITEM/PRODUCT NUMBER                        76 thru   105                          
+        FOP_REASON_CODE           ,A3           ; PRICE REASON CODE                         106 thru   108                          
+        FOP_DATE                  ,D6           ; PRICE DATE                                109 thru   114                          
+        FOP_PRICE_CODE            ,A3           ; PRICE CODE                                115 thru   117                          
+        FOP_UNIT_PRICE            ,D14          ; PRICE PER UNIT                            118 thru   131                          
+        FOP_QUANTITY              ,D10          ; PRICE QUANTITY                            132 thru   141                          
+        FOP_QTY_UOFM              ,A2           ; QUANTITY UNIT OF MEASURE                  142 thru   143                          
+        FOP_DESCRIPTION           ,A80          ; PRICE DESCRIPTION                         144 thru   223                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO850_PRC_KEY           ,A105         ; PRIMARY SORT KEY                                                                  
+                                  ,A118         ; PRIMARY KEY POSITIONING                                                           

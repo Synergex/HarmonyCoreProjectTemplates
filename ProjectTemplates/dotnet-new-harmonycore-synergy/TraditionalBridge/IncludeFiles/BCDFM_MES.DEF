@@ -1,0 +1,52 @@
+;
+; BCDFM_MSG.DEF -
+; 	DFM  Message structure . Used with DFM QUEUE function calls
+;
+;  NOTE: DEF:BCDFM_LIT.DEF must be include source program before this DEF.
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	------------
+;	13-Sep-1992	F. Kline  	Original
+;					Modified from DFM_TOOLS:DFM_H.C
+;-------------------------------------------------------------------------------
+;/*==========================================================================*/
+;/*                              MESSAGE STRUCTURE                           */
+;/*==========================================================================*/
+
+;               /*--------------------------------------*/
+;               /*  Notation for ascii fields:          */
+;               /*    LJ    left justified              */
+;               /*    RJ    right justified             */
+;               /*    SF    space filled                */
+;               /*    LZ    leading zeros               */
+;               /*    NT    null terminated             */
+;               /*    DF    delimiter filled            */
+;               /*--------------------------------------*/
+	;/*--------------------------------------*/
+	;/*      Message Packet Header           */
+	;/*--------------------------------------*/
+	GROUP	HDR
+		MSG_NUM		,A	MSG_NUM_SIZE  ;/* message number  LZ */
+		DATE		,A	DATETIME_SIZE ;/* date and time field*/
+		BATCHFLAG	,A1	              ;/* (B)atch or 
+						      ;   (I)nteractive     */
+		SYSMSGFLAG	,A1		      ;/* (S)ystem or (D)ata*/
+		RESERVED	,A	RESERV_SIZE  ;/* reserved for
+						      ;   future use      */
+		SRCNETID	,A	NODE_SIZE     ;/* source node 
+						      ;   identifier LJ,SF */
+		SRCAPID		,A	NAME_SIZE     ;/* source logical name
+						      ;    LJ,SF */
+		DESTNETID	,A	NODE_SIZE     ;/* dest node identifier
+						      ;    LJ,SF */
+		DESTAPID	,A	NAME_SIZE     ;/* dest logical name
+						      ;    LJ,SF */
+	ENDGROUP
+	GROUP	HEADER	,X
+			,A	HEADER_SIZE
+	ENDGROUP
+;	/*--------------------------------------*/
+;	/*        Message Packet                */
+;	/*--------------------------------------*/
+ 	MESSAGE  		,A	MAX_DATA_SIZE ;/* message data    LJ */

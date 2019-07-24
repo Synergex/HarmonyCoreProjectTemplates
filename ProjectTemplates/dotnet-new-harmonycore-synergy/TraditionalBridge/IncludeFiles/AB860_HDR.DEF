@@ -1,0 +1,22 @@
+;AB860_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PURCHASE ORDER CHANGE HEADER                                                                                                
+;       DATE : 11-AUG-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   221                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  AB860_HDR                                                                                                                   
+        ABCH_GS_CTL               ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        ABCH_HDR_LINE             ,D6           ; HEADER LINE NUMBER                         10 thru    15                          
+        ABCH_PURPOSE              ,A2           ; PURPOSE CODE                               16 thru    17                          
+        ABCH_ORDER_TYPE           ,A2           ; PURCHASE ORDER CHANGE TYPE                 18 thru    19                          
+        ABCH_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      20 thru    41                          
+        ABCH_PO_DATE              ,D6           ; PURCHASE ORDER DATE                        42 thru    47                          
+        ABCH_CONT_FUNCT           ,03A2         ; CONTACT FUNCTION CODE                      48 thru    53                          
+        ABCH_CONTACT              ,03A35        ; CONTACT NAME                               54 thru   158                          
+        ABCH_CONT_PHONE           ,03A21        ; CONTACT'S PHONE NUMBER                    159 thru   221                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        AB860_HDR_KEY             ,A15          ; PRIMARY SORT KEY                                                                  
+                                  ,A206         ; PRIMARY KEY POSITIONING                                                           

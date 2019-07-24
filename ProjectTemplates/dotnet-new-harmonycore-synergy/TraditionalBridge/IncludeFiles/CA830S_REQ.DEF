@@ -1,0 +1,33 @@
+;CA830S_REQ.DEF                                                                                                                     
+;                                                                                                                                   
+;       MATERIAL RELEASE REQUIREMENTS                                                                                               
+;       DATE : 21-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   256                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA830S_REQ                                                                                                                  
+        R830S_INTER_ID            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        R830S_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        R830S_HDR_LINE            ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        R830S_DTL_LINE            ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        R830S_SLN_LINE            ,D6           ; SLN SEQUENCE                               43 thru    48                          
+        R830S_ADR_LINE            ,D6           ; ADDRESS SEQUENCE                           49 thru    54                          
+        R830S_SDP_LINE            ,D6           ; SDP SEQUENCE                               55 thru    60                          
+        R830S_REQ_LINE            ,D6           ; REQUIREMENTS SEQUENCE                      61 thru    66                          
+        R830S_SHP_LINE            ,D6           ; SHP SEQUENCE                               67 thru    72                          
+        R830S_KEY_FILL            ,D18          ; KEY FILLER                                 73 thru    90                          
+        R830S_QTY                 ,D10          ; QUANTITY                                   91 thru   100                          
+        R830S_FCST_QL             ,A1           ; FORECAST QUALIFIER                        101 thru   101                          
+        R830S_FCST_TIM            ,A1           ; FORECAST TIMING QUALIFIER                 102 thru   102                          
+        R830S_REQ_DATE            ,D8           ; REQUIREMENT DATE                          103 thru   110                          
+        R830S_END_DATE            ,D8           ; REQUIREMENT END DATE                      111 thru   118                          
+        R830S_DTM_QL              ,A3           ; DATE/TIME QUALIFIER                       119 thru   121                          
+        R830S_REQ_TIME            ,D4           ; REQUIREMENT TIME                          122 thru   125                          
+        R830S_REF_QL              ,A2           ; REQUIREMENT REFERENCE QUAL                126 thru   127                          
+        R830S_REF_NO              ,A30          ; REFERENCE NUMBER                          128 thru   157                          
+        R830S_FILLER              ,A99          ; FILLER                                    158 thru   256                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA830S_REQ_KEY            ,A90          ; PRIMARY SORT KEY                                                                  
+                                  ,A166         ; PRIMARY KEY POSITIONING                                                           

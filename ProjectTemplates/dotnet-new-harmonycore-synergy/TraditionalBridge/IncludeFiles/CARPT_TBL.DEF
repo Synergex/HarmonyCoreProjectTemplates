@@ -1,0 +1,32 @@
+RECORD CARPT_TBL
+;
+; CARPT_TBL - CARaS TP, Module & Transaction set Table
+;
+;	This table will contain an entry for every TP and report that can be
+;	printed automatically during a transmit/receive  process.  It is then
+;	used to check the CAXDB_CTL file to get the printer to use.
+;
+; 	STRUCTURE = ISAM
+;	RECORD LENGTH = 128
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+	CRT_TP_DESIG	,A2	; Trading Partner
+	CRT_MODULE	,A15	; Report Module
+	
+	CRT_TRANS_SET	,A3	; Transaction Set the Report prints
+	CRT_IN_OR_OUT	,A1	; I=incoming (receive) O=outgoing (transmit)
+			,A107	; Filler
+;-------------------------------------------------------------------------------
+;              ------- Key Definitions ------
+;-------------------------------------------------------------------------------
+RECORD	,X
+	;
+	; No Duplicates, No Changes
+	;
+	CRT_KEY0	,A17	;TP / Module
+
+RECORD	CRT_KEY1			;alternate key
+	K1_CRT_TP_DESIG		,A2	;Trading Partner
+	K1_CRT_TRANS_SET	,A3	;Transaction Set

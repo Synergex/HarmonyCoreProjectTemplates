@@ -1,0 +1,26 @@
+;RT852_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL PROD ACTIVITY DETAIL                                                                                                 
+;       DATE : 14-APR-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   152                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT852_DTL                                                                                                                   
+        D852_DATE1                ,D6           ; REPORT DATE OR STARTING DATE                1 thru     6                          
+        D852_DATE2                ,D6           ; ENDING DATE RANGE                           7 thru    12                          
+        D852_LOC_ID               ,A15          ; REPORTING LOCATION ID CODE                 13 thru    27                          
+        D852_OUR_PART             ,A15          ; OUR PART NUMBER                            28 thru    42                          
+        D852_PROD_ID1             ,A30          ; FIRST PRODUCT ID OF LIN SEG                43 thru    72                          
+        D852_ACTV_DATE            ,D6           ; ACTIVITY DATE                              73 thru    78                          
+        D852_ACT_DTM_QL           ,A3           ; ACTIVITY DATE&TIME QUALIFIER               79 thru    81                          
+        D852_ACTV_CODE            ,A2           ; ACTIVITY CODE QUALIFIER                    82 thru    83                          
+        D852_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                       84 thru   113                          
+        D852_UPC                  ,A12          ; UNIFORM PRICE CODE                        114 thru   125                          
+        D852_VENDOR_ID            ,A15          ; VENDOR ID CODE                            126 thru   140                          
+        D852_ACTV_QTY             ,D10          ; ACTIVITY QUANTITY                         141 thru   150                          
+        D852_ACTV_UM              ,A2           ; ACTIVITY UNIT OF MEASURE                  151 thru   152                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT852_DTL_KEY             ,A83          ; PRIMARY SORT KEY                                                                  
+                                  ,A69          ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,43 @@
+;CATS_MS2.DEF                                                                                                                       
+;                                                                                                                                   
+;       TECHNICAL SPECS MISCELLANEOUS2                                                                                              
+;       DATE : 15-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   869                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATS_MS2                                                                                                                    
+        TSM2_SPI_REF              ,A30          ; SPI REFERENCE   NUMBER                      1 thru    30                          
+        TSM2_SEQ_NO1              ,D6           ; SEQUENCE NUMBER                            31 thru    36                          
+        TSM2_SEQ_NO2              ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        TSM2_SEQ_NO3              ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        TSM2_SEQ_NO4              ,D6           ; SEQUENCE NUMBER                            49 thru    54                          
+        TSM2_SEQ_NO5              ,D6           ; SEQUENCE NUMBER                            55 thru    60                          
+        TSM2_SEQ_NO6              ,D6           ; SEQUENCE NUMBER                            61 thru    66                          
+        TSM2_SEQ_NO7              ,D6           ; SEQUENCE NUMBER                            67 thru    72                          
+        TSM2_SEQ_NO8              ,D6           ; SEQUENCE NUMBER                            73 thru    78                          
+        TSM2_MEA_REF_ID           ,A2           ; MEASUREMENT REFERENCE ID                   79 thru    80                          
+        TSM2_MEA_QL               ,A3           ; MEASUREMENT QUALIFIER                      81 thru    83                          
+        TSM2_MEA_VALUE            ,D15          ; MEASUREMENT VALUE                          84 thru    98                          
+        TSM2_MEA_UOFM             ,A2           ; MEASUREMENT UNIT OF MEASURE                99 thru   100                          
+        TSM2_UIT_COST             ,D15          ; UIT UNIT COST                             101 thru   115                          
+        TSM2_UIT_BASIS            ,A2           ; UIT COST BASIS                            116 thru   117                          
+        TSM2_UIT_UOFM             ,A2           ; UIT UNIT OF MEASUREMENT                   118 thru   119                          
+        TSM2_PKD_CODE             ,A5           ; PACKAGING CODE                            120 thru   124                          
+        TSM2_PKD_OWNER            ,A1           ; OWNERSHIP CODE                            125 thru   125                          
+        TSM2_QTY_QTY              ,D15          ; QUANTITY                                  126 thru   140                          
+        TSM2_QTY_QL               ,A2           ; QUANTITY QUALIFIER                        141 thru   142                          
+        TSM2_INTERCHANG           ,A17          ; INTERCHANGE ID                            143 thru   159                          
+        TSM2_GROUP_ID             ,A17          ; GROUP ID                                  160 thru   176                          
+        TSM2_STATUS               ,A1           ; STATUS CODE                               177 thru   177                          
+        TSM2_FILLER1              ,A98          ; FILLER                                    178 thru   275                          
+        TSM2_FILLER2              ,A99          ; FILLER                                    276 thru   374                          
+        TSM2_FILLER3              ,A99          ; FILLER                                    375 thru   473                          
+        TSM2_FILLER4              ,A99          ; FILLER                                    474 thru   572                          
+        TSM2_FILLER5              ,A99          ; FILLER                                    573 thru   671                          
+        TSM2_FILLER6              ,A99          ; FILLER                                    672 thru   770                          
+        TSM2_FILLER7              ,A99          ; FILLER                                    771 thru   869                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATS_MS2_KEY              ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A791         ; PRIMARY KEY POSITIONING                                                           

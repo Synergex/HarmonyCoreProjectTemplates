@@ -1,0 +1,38 @@
+; TO997_SEG.DEF
+;
+;	Functional Acknowledgment Detail - Segment Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	21-DEC-92	T. Bunker	Original
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD TO997_SEG
+	TAS_SUPPL_ID	,A15	; Supplier ID			|   1 thru 15
+	TAS_DEST_CODE	,A15	; Destination Code		|  16 thru 30
+	TAS_GROUP_ID	,A2	; Functional Group Identifier	|  31 thru 32
+	TAS_DATA_INT	,D9	; Data Interchange Control #	|  33 thru 41
+	TAS_TRANS_TYPE	,A3	; Transaction Set Identifier	|  42 thru 44
+	TAS_TRANS_CTL	,D9	; Trasnaction Set Control #	|  45 thru 53
+	TAS_SEGMENT	,A3	; Segment Identifier		|  54 thru 56
+	TAS_LOOP_ID	,A4	; Loop Identifier		|  57 thru 60
+
+	TAS_NOTE_1	,A3	; Segment Note Code-1		|  61 thru 63
+	TAS_NOTE_2	,A3	; Segment Note Code-2		|  64 thru 66
+	TAS_NOTE_3	,A3	; Segment Note Code-3		|  67 thru 69
+	TAS_NOTE_4	,A3	; Segment Note Code-4		|  70 thru 72
+	TAS_NOTE_5	,A3	; Segment Note Code-5		|  73 thru 75
+			,A25	; Filler			|  76 thru 100
+
+RECORD TAS_KEY, X
+	K_TAS_SUPPL_ID	        ,A%SIZE(TAS_SUPPL_ID)
+	K_TAS_DEST_CODE	        ,A%SIZE(TAS_DEST_CODE)
+	K_TAS_GROUP_ID		,A%SIZE(TAS_GROUP_ID)
+	K_TAS_DATA_INT		,D%SIZE(TAS_DATA_INT)
+	K_TAS_TRANS_TYPE	,A%SIZE(TAS_TRANS_TYPE)
+	K_TAS_TRANS_CTL		,D%SIZE(TAS_TRANS_CTL)
+	K_TAS_SEGMENT		,A%SIZE(TAS_SEGMENT)
+	K_TAS_LOOP_ID		,D%SIZE(TAS_LOOP_ID)
+

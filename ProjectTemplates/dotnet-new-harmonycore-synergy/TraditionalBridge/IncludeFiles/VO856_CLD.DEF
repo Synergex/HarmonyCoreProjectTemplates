@@ -1,0 +1,23 @@
+;VO856_CLD.DEF                                                                                                                      
+;                                                                                                                                   
+;       ASN LOAD DETAIL                                                                                                             
+;       DATE : 30-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   237                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  VO856_CLD                                                                                                                   
+        VOL_ASN_NO                ,A30          ; ASN/SHIPPER NUMBER                          1 thru    30                          
+        VOL_CUST_PART             ,A30          ; CUSTOMER PART NO                           31 thru    60                          
+        VOL_PO_NO                 ,A22          ; PO NUMBER                                  61 thru    82                          
+        VOL_SEQ                   ,D6           ; SEQUENCE NUMBER                            83 thru    88                          
+        VOL_LOAD                  ,D5           ; NUMBER OF LOADS                            89 thru    93                          
+        VOL_UNITS                 ,D10          ; NUMBER OF UNITS IN PACKAGE                 94 thru   103                          
+        VOL_PACKAGE               ,A5           ; PACKAGING CODE                            104 thru   108                          
+        VOL_INTRCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID                   109 thru   123                          
+        VOL_GROUP_ID              ,A15          ; GROUP ID                                  124 thru   138                          
+        VOL_FILLER                ,A99          ; FILLER                                    139 thru   237                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        VO856_CLD_KEY             ,A88          ; PRIMARY SORT KEY                                                                  
+                                  ,A149         ; PRIMARY KEY POSITIONING                                                           

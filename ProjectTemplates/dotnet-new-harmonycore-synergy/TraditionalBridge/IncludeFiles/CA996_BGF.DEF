@@ -1,0 +1,23 @@
+;CA996_BGF.DEF                                                                                                                      
+;                                                                                                                                   
+;       FILE TRANSFER FILE (997)                                                                                                    
+;       DATE : 03-JUN-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   254                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA996_BGF                                                                                                                   
+        F996_ISA_CTL              ,D9           ; ISA CONTROL NUMBER                          1 thru     9                          
+        F996_GS_CTL               ,D9           ; GS CONTROL NUMBER                          10 thru    18                          
+        F996_ST_CTL               ,D9           ; ST CONTROL NUMBER                          19 thru    27                          
+        F996_LINE_NO              ,D6           ; LINE NUMBER                                28 thru    33                          
+        F996_REF_ID_QL            ,A3           ; REFERENCE ID QUALIFIER                     34 thru    36                          
+        F996_REF_ID               ,A30          ; REFERENCE IDENTIFICATION                   37 thru    66                          
+        F996_FIX_FORMAT           ,A80          ; FIXED FORMAT INFORMATION                   67 thru   146                          
+        F996_TRANSNUM             ,A5           ; DOCUMENT JOURNAL TRANSMISSION             147 thru   151                          
+        F996_FILSEQNUM            ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            152 thru   155                          
+        F996_FILLER               ,A99          ; FILLER                                    156 thru   254                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA996_BGF_KEY             ,A9           ; PRIMARY SORT KEY                                                                  
+                                  ,A245         ; PRIMARY KEY POSITIONING                                                           

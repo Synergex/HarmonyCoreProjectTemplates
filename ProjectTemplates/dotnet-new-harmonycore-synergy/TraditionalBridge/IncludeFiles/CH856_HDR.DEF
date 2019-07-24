@@ -1,0 +1,50 @@
+;CH856_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 856 HEADER FILE                                                                                                    
+;       DATE : 19-MAY-11                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   640                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH856_HDR                                                                                                                   
+        CH_SEQ_1                  ,D5           ; INPUT SEQUENCE NUMBER 1                     1 thru     5                          
+        CH_ASN_NO                 ,A30          ; ASN NUMBER                                  6 thru    35                          
+        CH_ASN_DATE               ,D8           ; ASN DATE                                   36 thru    43                          
+        CH_ASN_TIME               ,D4           ; ASN TIME                                   44 thru    47                          
+        CH_ASN_PURPOSE            ,A2           ; PURPOSE CODE                               48 thru    49                          
+        CH_SHIP_DATE              ,D8           ; SHIP DATE                                  50 thru    57                          
+        CH_SHIP_TIME              ,D4           ; SHIP TIME                                  58 thru    61                          
+        CH_TIME_ZONE              ,A2           ; DATE/TIME CODE (DTM)                       62 thru    63                          
+        CH_GROSS_WGT              ,D8           ; SHIPMENT GROSS WEIGHT                      64 thru    71                          
+        CH_NET_WGT                ,D8           ; SHIPMENT NET WEIGHT                        72 thru    79                          
+        CH_WEIGHT_TYPE            ,A2           ; WEIGHT QUALIFIER                           80 thru    81                          
+        CH_CONT_CODE              ,A5           ; CONTAINER CODES                            82 thru    86                          
+        CH_CONT_QTY               ,D7           ; NUMBER OF SHIPPING CONTAINERS              87 thru    93                          
+        CH_CARRIER                ,A4           ; PICKUP CARRIER SCAC CODE                   94 thru    97                          
+        CH_TRANS_MODE             ,A2           ; TRANSPORTATION MODE                        98 thru    99                          
+        CH_POOL_QUAL              ,A2           ; LOCATION CODE QUALIFIER                   100 thru   101                          
+        CH_POOL_LOC               ,A7           ; POOL LOCATION CODE                        102 thru   108                          
+        CH_EQUIP_CODE             ,A2           ; EQUIPMENT CODE                            109 thru   110                          
+        CH_EQUIP_PRE              ,A4           ; EQUIPMENT PREFIX                          111 thru   114                          
+        CH_OEQUIP_NO              ,A7           ; OLD EQUIPMENT NUMBER                      115 thru   121                          
+        CH_BILL_NO                ,A30          ; BILL OF LADING NUMBER                     122 thru   151                          
+        CH_PACK_SLIP              ,A30          ; PACKING SLIP NUMBER                       152 thru   181                          
+        CH_MAST_BL                ,A30          ; MASTER SHIPPER/BOL NUMBER                 182 thru   211                          
+        CH_FREIGHT_NO             ,A30          ; CARRIER REFERENCE NUMBER                  212 thru   241                          
+        CH_AIR_BILL               ,A30          ; AIR BILL NUMBER                           242 thru   271                          
+        CH_RESP_CODE              ,A1           ; AETC RESPONSIBILITY CODE                  272 thru   272                          
+        CH_AETC_NO                ,A30          ; AUTHORIZED EXCESS TRANS COST #            273 thru   302                          
+        CH_SUPPL_ID               ,A35          ; SUPPLIER ID CODE                          303 thru   337                          
+        CH_SHIP_FROM              ,A35          ; SHIP FROM LOCATION CODE                   338 thru   372                          
+        CH_SHIP_TO                ,A35          ; SHIP TO LOCATION COCDE                    373 thru   407                          
+        CH_DEST_CODE              ,A35          ; DESTINATION CODE                          408 thru   442                          
+        CH_BILL_TO                ,A35          ; BILL TO CODE                              443 thru   477                          
+        CH_DOCK_CODE              ,A30          ; DOCK CODE                                 478 thru   507                          
+        CH_ROUTE                  ,A35          ; ROUTING                                   508 thru   542                          
+        CH_TOTAL_HL               ,D5           ; TOTAL HL FOR CTT                          543 thru   547                          
+        CH_EQUIP_NO               ,A10          ; NEW EQUIPMENT NUMBER                      548 thru   557                          
+        CH_FILLER                 ,A83          ; FILLER                                    558 thru   640                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH856_HDR_KEY             ,A5           ; PRIMARY SORT KEY                                                                  
+                                  ,A635         ; PRIMARY KEY POSITIONING                                                           

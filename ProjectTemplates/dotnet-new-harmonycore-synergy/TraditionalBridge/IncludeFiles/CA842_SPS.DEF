@@ -1,0 +1,24 @@
+;CA842_SPS.DEF                                                                                                                      
+;                                                                                                                                   
+;       NONCONFORMANCE REPORT SAMPLING                                                                                              
+;       DATE : 18-AUG-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    98                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA842_SPS                                                                                                                   
+        S842_ISA_CTL              ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        S842_GS_CTL               ,A14          ; GROUP CONTROL                              15 thru    28                          
+        S842_ST_CTL               ,A14          ; DOCUMENT CONTROL                           29 thru    42                          
+        S842_HL_LIN               ,D6           ; HL SEQUENCE                                43 thru    48                          
+        S842_SPS_LIN              ,D6           ; SAMPLING SEQUENCE                          49 thru    54                          
+        S842_POP_SIZE             ,D9           ; POPULATION SIZE                            55 thru    63                          
+        S842_SAMP_SIZE            ,D9           ; SAMPLE SIZE                                64 thru    72                          
+        S842_SUBGROUP             ,D9           ; SUBGROUP SIZE                              73 thru    81                          
+        S842_CONF_LIMIT           ,A5           ; CONFIDENCE LIMIT                           82 thru    86                          
+        S842_UOFM                 ,A3           ; UNIT OF MEASURE                            87 thru    89                          
+        S842_FREQ                 ,D9           ; SAMPLE FREQUENCY                           90 thru    98                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA842_SPS_KEY             ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A44          ; PRIMARY KEY POSITIONING                                                           

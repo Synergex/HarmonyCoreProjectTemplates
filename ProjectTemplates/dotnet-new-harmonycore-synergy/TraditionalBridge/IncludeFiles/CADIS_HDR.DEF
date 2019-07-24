@@ -1,0 +1,42 @@
+;CADIS_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       AVIDIS HEADER                                                                                                               
+;       DATE : 28-JUN-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   386                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADIS_HDR                                                                                                                   
+        DIH_UNB_CTL              ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DIH_UNG_CTL               ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DIH_UNH_CTL               ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DIH_HDR_LINE              ,D6           ; HEADER LINE NUMBER                         43 thru    48                          
+        DIH_COMP                  ,A8           ; COMPANY CODE FOR SPLITS                    49 thru    56                          
+        DIH_DOC_DATE              ,D8           ; DOCUMENT DATE                              57 thru    64                          
+        DIH_DOC_TIME              ,D4           ; DOCUMENT TIME                              65 thru    68                          
+        DIH_EFF_FROM              ,D8           ; EFFECTIVE FROM DATE                        69 thru    76                          
+        DIH_EFF_TO                ,D8           ; EFFECTIVE TO DATE                          77 thru    84                          
+        DIH_REL_TYPE              ,D1           ; RELEASE TYPE CODE                          85 thru    85                          
+        DIH_DOC_ID                ,A35          ; DOCUMENT ID NUMBER                         86 thru   120                          
+        DIH_REL_FREQ              ,A2           ; RELEASE FREQUENCY                         121 thru   122                          
+        DIH_AUTH                  ,A35          ; AUTHENTICATION                            123 thru   157                          
+        DIH_UNB_SENDER            ,A35          ; SENDER ID FROM UNB SEGMENT                158 thru   192                          
+        DIH_UNG_SENDER            ,A35          ; SENDER ID FROM UNG SEGMENT                193 thru   227                          
+        DIH_UNB_RECEIVE           ,A35          ; RECEIVER ID FROM UNB SEGMENT              228 thru   262                          
+        DIH_UNG_RECEIVE           ,A35          ; RECEIVER ID FROM UNG SEGMENT              263 thru   297                          
+        DIH_UNB_DATE              ,D6           ; DATE FROM UNB SEGMENT                     298 thru   303                          
+        DIH_UNB_TIME              ,D4           ; TIME FROM UNB SEGMENT                     304 thru   307                          
+        DIH_UNG_DATE              ,D6           ; DATE FROM UNG SEGMENT                     308 thru   313                          
+        DIH_UNG_TIME              ,D4           ; TIME FROM UNG SEGMENT                     314 thru   317                          
+        DIH_TRANSNUM              ,A5           ; TRANSMISSION NUMBER                       318 thru   322                          
+        DIH_FILESEQNUM            ,D4           ; FILE SEQUENCE NUMBER                      323 thru   326                          
+        DIH_UNH_VERSION           ,A3           ; UNH VERSION NUMBER                        327 thru   329                          
+        DIH_UNH_RELEASE           ,A3           ; UNH RELEASE NUMBER                        330 thru   332                          
+        DIH_LAST_REL              ,A35          ; LAST RELEASE NUMBER                       333 thru   367                          
+        DIH_LAST_RELDT            ,D8           ; LAST RELEASE DATE                         368 thru   375                          
+        DIH_DATA_TYPE             ,D1           ; VDA OR ODETTE DATA                        376 thru   376                          
+        DIH_SCHED_TYPE            ,A10          ; SCHEDULE TYPE                             377 thru   386                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CADIS_HDR_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A338         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,43 @@
+;CA141_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT SERVICE RESPONSE - HDR                                                                                              
+;       DATE : 11-NOV-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   240                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA141_HDR                                                                                                                   
+        H141_SEQN_1               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        H141_SEQN_2               ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        H141_SEQN_3               ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        H141_SEQN_4               ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        H141_PURPOSE              ,A2           ; PURPOSE CODE                               25 thru    26                          
+        H141_REFNO                ,A30          ; REFERENCE NUMBER                           27 thru    56                          
+        H141_DATE                 ,D8           ; TRANSACTION CREATE DATE                    57 thru    64                          
+        H141_TIME                 ,A4           ; TRANSACTION CREATE TIME                    65 thru    68                          
+        H141_TIME_CD              ,A2           ; TIME CODE                                  69 thru    70                          
+        H141_REFNO_2              ,A30          ; REFERENCE NUMBER 2                         71 thru   100                          
+        H141_TRANS_TYPE           ,A2           ; TRANSACTION TYPE CODE                     101 thru   102                          
+        H141_ACTION               ,A2           ; ACTION CODE                               103 thru   104                          
+        H141_QTY_QL               ,A2           ; QUANTITY QUALIFIER                        105 thru   106                          
+        H141_QUANTITY             ,D15          ; QUANTITY                                  107 thru   121                          
+        H141_UOFM                 ,A2           ; UNIT/BASIS 0F MEASUREMENT                 122 thru   123                          
+        H141_TOTAL_INV            ,D15          ; TOTAL INVOICE AMOUNT                      124 thru   138                          
+        H141_SUB_DIS              ,D10          ; AMOUNT SUBJECT TO DISCOUNT                139 thru   148                          
+        H141_DISC_DUE             ,D10          ; DISCOUNT AMOUNT DUE                       149 thru   158                          
+        H141_DISC_AMT             ,D10          ; TERMS DISCOUNT AMOUNT                     159 thru   168                          
+        H141_ENT_CD_1             ,A2           ; ENTITY IDENTIFIER CODE 1                  169 thru   170                          
+        H141_CUR_CD_1             ,A3           ; CURRENCY CODE 1                           171 thru   173                          
+        H141_EXC_RATE             ,D10          ; EXCHANGE RATE                             174 thru   183                          
+        H141_ENT_CD_2             ,A2           ; ENTITY IDENTIFIER CODE 2                  184 thru   185                          
+        H141_CUR_CD_2             ,A3           ; CURRENCY CODE 2                           186 thru   188                          
+        H141_EXC_CODE             ,A3           ; CURRENCY MARKET/EXCHANGE CODE             189 thru   191                          
+        H141_DT_QL                ,A3           ; DATE/TIME QUALIFIER                       192 thru   194                          
+        H141_CUR_DATE             ,D8           ; DATE                                      195 thru   202                          
+        H141_CUR_TIME             ,A4           ; TIME                                      203 thru   206                          
+        H141_INCHG_ID             ,A17          ; INTERCHANGE ID                            207 thru   223                          
+        H141_GROUP_ID             ,A17          ; GROUP ID                                  224 thru   240                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA141_HDR_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A216         ; PRIMARY KEY POSITIONING                                                           

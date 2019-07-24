@@ -1,0 +1,17 @@
+;CA140_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT REGISTRATION - DETAIL                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    27                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA140_DTL                                                                                                                   
+        D140_GS_CONTROL           ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        D140_HDR_SEQN             ,D6           ; HEADER SEQUENCE NUMBER                     10 thru    15                          
+        D140_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     16 thru    21                          
+        D140_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                         22 thru    27                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA140_DTL_KEY             ,A21          ; PRIMARY SORT KEY                                                                  
+                                  ,A6           ; PRIMARY KEY POSITIONING                                                           

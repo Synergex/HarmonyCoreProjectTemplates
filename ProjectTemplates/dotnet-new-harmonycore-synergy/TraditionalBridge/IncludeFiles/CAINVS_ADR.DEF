@@ -1,0 +1,36 @@
+;CAINVS_ADR.DEF                                                                                                                     
+;                                                                                                                                   
+;       INVENTORY REPORT ADDRESS                                                                                                    
+;       DATE : 14-APR-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   457                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAINVS_ADR                                                                                                                  
+        INVAS_SEQ1                ,D6           ; SEQUENCE 1                                  1 thru     6                          
+        INVAS_SEQ2                ,D6           ; SEQUENCE 2                                  7 thru    12                          
+        INVAS_SEQ3                ,D6           ; SEQUENCE 3                                 13 thru    18                          
+        INVAS_SEQ4                ,D6           ; SEQUENCE 4                                 19 thru    24                          
+        INVAS_SEQ5                ,D6           ; SEQUENCE 5                                 25 thru    30                          
+        INVAS_SEQ6                ,D6           ; SEQUENCE 6                                 31 thru    36                          
+        INVAS_TELE_PROC           ,A5           ; GM COMMUNICATIONS CODE                     37 thru    41                          
+        INVAS_INTR_ID             ,A35          ; INTERCHANGE ID                             42 thru    76                          
+        INVAS_GROUP_ID            ,A35          ; GROUP ID                                   77 thru   111                          
+        INVAS_REF_NO              ,A35          ; REFERENCE NUMBER                          112 thru   146                          
+        INVAS_VERSION             ,A9           ; VERSION                                   147 thru   155                          
+        INVAS_REVISION            ,A6           ; REVISION LEVEL                            156 thru   161                          
+        INVAS_PURPOSE             ,A3           ; PURPOSE CODE                              162 thru   164                          
+        INVAS_DTL_LINE            ,A20          ; DETAIL LINE NUMBER                        165 thru   184                          
+        INVAS_TYPE                ,A3           ; ADDRESS TYPE                              185 thru   187                          
+        INVAS_NAME1               ,A35          ; ADDRESS/NAME                              188 thru   222                          
+        INVAS_NAME2               ,A35          ; ADDRESS/NAME                              223 thru   257                          
+        INVAS_NAME3               ,A35          ; ADDRESS/NAME                              258 thru   292                          
+        INVAS_NAME4               ,A35          ; ADDRESS/NAME                              293 thru   327                          
+        INVAS_NAME5               ,A35          ; ADDRESS/NAME                              328 thru   362                          
+        INVAS_CITY                ,A30          ; CITY                                      363 thru   392                          
+        INVAS_STATE               ,A9           ; STATE/PROVIINCE                           393 thru   401                          
+        INVAS_POSTAL              ,A15          ; POSTAL CODE                               402 thru   416                          
+        INVAS_COUNTRY             ,A3           ; COUNTRY CODE                              417 thru   419                          
+        INVAS_CODE                ,A35          ; ADDRESS CODE                              420 thru   454                          
+        INVAS_RESP                ,A3           ; RESPONSIBLITY CODE                        455 thru   457                          
+                                                                                                                                    
+                                                                                                                                    

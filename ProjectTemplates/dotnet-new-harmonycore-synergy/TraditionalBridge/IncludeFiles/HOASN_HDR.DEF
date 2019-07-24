@@ -1,0 +1,92 @@
+; HOASN_HDR.DEF
+;
+;	Honda Maintainable ASN Header File
+;
+;-------------------------------------------------------------------------------
+;--- CARaS Modification Log ----------------------------------------------------
+;-------------------------------------------------------------------------------
+;
+;	Modified	Programmer	Description
+;	---------	----------	------------
+;	18-Sept-89	J. Rheingans	Original
+;
+;-------------------------------------------------------------------------------
+; File Organization: Indexed	| Record Size: 160
+;-------------------------------------------------------------------------------
+
+RECORD HOASN_HDR
+	HOH_SHIP_ID	,D9	; Shipment (ASN/Shipper) Id Number
+	HOH_DEST_ABBRV	,A5	; Destination/Plant Abbreviation
+	HOH_SUPP_ABBRV	,A5	; Supplier Abbreviation
+
+	HOH_ASN_DATE	,D6	; Date ASN was created
+	HOH_ASN_TIME	,D4	; Time ASN was created
+	HOH_SHIP_DATE	,D6	; Date Shipped
+	HOH_SHIP_TIME	,D4	; Time Shipped
+
+	HOH_SCAC	,A4	; Carrier SCAC Code
+	HOH_TRANS_MODE	,A2	; Transportation Mode
+	HOH_EQUIP_CODE	,A2	; Shipping Equipment Code
+	HOH_EQUIP_NO	,A7	; Shipping Equipment/Trailer Number
+	
+	HOH_AUTH_NO	,A15	; Authorization Number
+	HOH_BILL_NO	,A15	; Bill of Lading Number
+	HOH_REL_NO	,A15	; Release Number
+
+	HOH_TRANS_DATE	,D6	; Date transmitted
+	HOH_TRANS_TIME	,D4	; Time transmitted
+	HOH_TRANS_CTL	,D9	; Interchange Control Number used when sent
+
+	HOH_PURPOSE	,D2	; ASN Purpose
+				; -----------
+				; "00" = Original
+				; "01" = Cancel (Entire ASN)
+				;
+	HOH_SHIP_SEQ_NO	,D15	; Shipment sequence number
+			,A25	; Filler
+;-------------------------------------------------------------------------------
+;	-------- Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD HOH_KEY0
+	;
+	; Allow Duplicates, No Changes Allowed.
+	;
+	K0_HOH_SHIP_ID		,D%SIZE(HOH_SHIP_ID)	; Shipment Id 
+
+RECORD HOH_KEY1
+	;
+	; No Duplicates, No Changes Allowed.
+	;
+	K1_HOH_SHIP_ID		,D%SIZE(HOH_SHIP_ID)	; Shipment Id
+	K1_HOH_DEST_ABBRV	,A%SIZE(HOH_DEST_ABBRV)	; Dest/Plant Abbrv
+
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Defintion -------
+;-------------------------------------------------------------------------------
+
+.IFDEF HOASN_HDR_ALT
+RECORD A_HOASN_HDR
+			,A%SIZE(HOASN_HDR)
+RECORD,X
+	A_HOH_SHIP_ID		,D9	; Shipment (ASN/Shipper) Id Number
+	A_HOH_DEST_ABBRV	,A5	; Destination Abbreviation
+	A_HOH_SUPP_ABBRV	,A5	; Supplier Abbreviation
+	A_HOH_ASN_DATE		,D6	; Date ASN was created
+	A_HOH_ASN_TIME		,D4	; Time ASN was created
+	A_HOH_SHIP_DATE		,D6	; Date Shipped
+	A_HOH_SHIP_TIME		,D4	; Time Shipped
+	A_HOH_SCAC		,A4	; Carrier SCAC Code
+	A_HOH_TRANS_MODE	,A2	; Transportation Mode
+	A_HOH_EQUIP_CODE	,A2	; Shipping Equipment Code
+	A_HOH_EQUIP_NO		,A7	; Shipping Equipment/Trailer Number
+	A_HOH_AUTH_NO		,A15	; Authorization Number
+	A_HOH_BILL_NO		,A15	; Bill of Lading Number
+	A_HOH_REL_NO		,A15	; Release Number
+	A_HOH_TRANS_DATE	,D6	; Date transmitted
+	A_HOH_TRANS_TIME	,A4	; Time transmitted
+	A_HOH_TRANS_CTL		,D9	; Interchange Control Number
+	A_HOH_PURPOSE		,D2	; ASN Purpose
+	A_HOH_SHIP_SEQ_NO	,D15	; Shipment Sequence Number
+				,A25	; Filler
+.ENDC

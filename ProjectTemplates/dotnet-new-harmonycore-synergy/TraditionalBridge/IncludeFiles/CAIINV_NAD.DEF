@@ -1,0 +1,30 @@
+;CAIINV_NAD.DEF                                                                                                                     
+;                                                                                                                                   
+;       INBOUND INVOIC ADDRESS FILE                                                                                                 
+;       DATE : 29-JUL-03                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   746                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAIINV_NAD                                                                                                                  
+        IIM_NAD_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        IIM_NAD_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        IIM_NAD_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        IIM_NAD_HDR_LIN           ,D6           ; HEADER LINE NUMBER                         43 thru    48                          
+        IIM_NAD_LIN_LIN           ,D6           ; LINE ITEM LINE NUMBER                      49 thru    54                          
+        IIM_NAD_LINE              ,D6           ; NAD LINE NUMBER                            55 thru    60                          
+        IIM_NAD_ID_QL             ,A3           ; ID/PARTY QUALIFIER                         61 thru    63                          
+        IIM_NAD_ID_CODE           ,A35          ; ID CODE                                    64 thru    98                          
+        IIM_NAD_CODE_QL           ,A3           ; ID CODE QUALIFIER                          99 thru   101                          
+        IIM_NAD_NAME1             ,05A35        ; NAME AND ADDRESS 1                        102 thru   276                          
+        IIM_NAD_NAME2             ,05A35        ; NAME AND ADDRESS 2                        277 thru   451                          
+        IIM_NAD_STREET            ,04A35        ; STREET AND NUMBER/PO BOX                  452 thru   591                          
+        IIM_NAD_CITY              ,A35          ; CITY NAME                                 592 thru   626                          
+        IIM_NAD_COUNTRY           ,A3           ; COUNTRY ID                                627 thru   629                          
+        IIM_NAD_POSTAL            ,A9           ; POSTAL/ZIP CODE                           630 thru   638                          
+        IIM_NAD_STATE             ,A9           ; STATE                                     639 thru   647                          
+        IIM_NAD_FILLER2           ,A99          ; NAD FILLER 2                              648 thru   746                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAIINV_NAD_KEY            ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A686         ; PRIMARY KEY POSITIONING                                                           

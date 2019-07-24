@@ -1,0 +1,47 @@
+;CAAA_MSC.DEF                                                                                                                       
+;                                                                                                                                   
+;       REF,PER,DTM,AMT,QTY                                                                                                         
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   864                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAAA_MSC                                                                                                                    
+        AAM_HDR_SEQ               ,D6           ; HEADER SEQUENCE                             1 thru     6                          
+        AAM_DTL_SEQ               ,D6           ; DETAIL SEQUENCE                             7 thru    12                          
+        AAM_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE                           13 thru    18                          
+        AAM_MSC_SEQ               ,D6           ; MISCELLANEOUS SEQUENCE                     19 thru    24                          
+        AAM_REF_REF_QL            ,A2           ; REFERENCE NUMBER QUALIFIER                 25 thru    26                          
+        AAM_REF_REF_NO            ,A30          ; REFERENCE NUMBER                           27 thru    56                          
+        AAM_REF_DESC              ,A80          ; REFERENCE DESCRIPTION                      57 thru   136                          
+        AAM_PER_FUNCT             ,A2           ; CONTACT FUNCTION                          137 thru   138                          
+        AAM_PER_NAME              ,A35          ; NAME                                      139 thru   173                          
+        AAM_PER_COM_QL1           ,A2           ; COMMUNICATIONS QUALIFIER 1                174 thru   175                          
+        AAM_PER_COM_ID1           ,A80          ; COMMUNICATION ID 1                        176 thru   255                          
+        AAM_PER_COM_QL2           ,A2           ; COMMUNICATIONS QUALIFIER 2                256 thru   257                          
+        AAM_PER_COM_ID2           ,A80          ; COMMUNICATIONS ID 2                       258 thru   337                          
+        AAM_PER_COM_QL3           ,A2           ; COMMUNICATIONS QUALIFIER 3                338 thru   339                          
+        AAM_PER_COM_ID3           ,A80          ; COMMUNICATIONS ID 3                       340 thru   419                          
+        AAM_PER_INQUIRY           ,A20          ; CONTACT INQUIRY                           420 thru   439                          
+        AAM_DTM_DATE_QL           ,A3           ; DATE/TIME QUALIFIER                       440 thru   442                          
+        AAM_DTM_DATE              ,D8           ; DATE                                      443 thru   450                          
+        AAM_DTM_TIME              ,D8           ; TIME                                      451 thru   458                          
+        AAM_DTM_TIME_CD           ,A2           ; TIME CODE                                 459 thru   460                          
+        AAM_DTM_CENTURY           ,D2           ; CENTURY                                   461 thru   462                          
+        AAM_DTM_FRMT_QL           ,A3           ; DATE/TIME FORMAT QUALIFIER                463 thru   465                          
+        AAM_DTM_PERIOD            ,A35          ; DATE/TIME PERIOD                          466 thru   500                          
+        AAM_AMT_AMT_QL            ,A2           ; AMOUNT QUALIFIER                          501 thru   502                          
+        AAM_AMT_AMOUNT            ,D15          ; MONETARY AMOUNT                           503 thru   517                          
+        AAM_AMT_FLAG              ,A1           ; CREDIT/DEBIT FLAG CODE                    518 thru   518                          
+        AAM_QTY_QTY_QL            ,A2           ; QUANTITY QUALIFIER                        519 thru   520                          
+        AAM_QTY_QTY               ,D15          ; QUANTITY                                  521 thru   535                          
+        AAM_QTY_BASIS             ,A2           ; BASIS CODE                                536 thru   537                          
+        AAM_INTERCHANGE           ,A15          ; INTERCHANGE ID                            538 thru   552                          
+        AAM_GROUP                 ,A15          ; GROUP ID                                  553 thru   567                          
+        AAM_FILLER1               ,A99          ; FILLER                                    568 thru   666                          
+        AAM_FILLER2               ,A99          ; FILLER                                    667 thru   765                          
+        AAM_FILLER3               ,A99          ; FILLER                                    766 thru   864                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAAA_MSC_KEY              ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A840         ; PRIMARY KEY POSITIONING                                                           

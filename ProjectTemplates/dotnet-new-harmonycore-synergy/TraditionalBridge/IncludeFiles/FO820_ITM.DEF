@@ -1,0 +1,29 @@
+;FO820_ITM.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD REMITTANCE ADVICE ITEM                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   241                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO820_ITM                                                                                                                   
+        FRI_UCCS_CODE             ,A15          ; SUPPLIER UCCS CODE                          1 thru    15                          
+        FRI_CHECK_NO              ,A9           ; CHECK NUMBER                               16 thru    24                          
+        FRI_CHECK_DATE            ,D8           ; CHECK DATE                                 25 thru    32                          
+        FRI_TRANS_REF             ,A30          ; TRANSACTION REFERENCE NUMBER               33 thru    62                          
+        FRI_PACK_INV              ,A11          ; PACKING LIST / INVOICE NUMBER              63 thru    73                          
+        FRI_REF_TYPE              ,A1           ; 'I'=INVOICE#, 'P'=PACKING LIST             74 thru    74                          
+        FRI_PART_NO               ,A30          ; FORD PART NUMBER                           75 thru   104                          
+        FRI_INV_QTY               ,D9           ; INVOICED QUANTITY                         105 thru   113                          
+        FRI_UOFM                  ,A2           ; UNIT OF MEASURE                           114 thru   115                          
+        FRI_UNIT_PRICE            ,D12          ; UNIT PRICE                                116 thru   127                          
+        FRI_ADJ_REASON            ,A2           ; ADJUSTMENT REASON CODE                    128 thru   129                          
+        FRI_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     130 thru   151                          
+        FRI_PO_SUFFIX             ,A2           ; PURCHASE ORDER NUMBER SUFFIX              152 thru   153                          
+        FRI_PLANT_NO              ,A20          ; PLANT NUMBER                              154 thru   173                          
+        FRI_REF_DATE              ,D8           ; INVOICE DATE/PACKING LIST DATE            174 thru   181                          
+        FRI_NTE                   ,A60          ; HOLDS PAY NOTE PRIOR PRICE                182 thru   241                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO820_ITM_KEY             ,A104         ; PRIMARY SORT KEY                                                                  
+                                  ,A137         ; PRIMARY KEY POSITIONING                                                           

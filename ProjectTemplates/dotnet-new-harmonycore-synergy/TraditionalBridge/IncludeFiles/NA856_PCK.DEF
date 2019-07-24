@@ -1,0 +1,18 @@
+;NA856_PCK.DEF                                                                                                                      
+;                                                                                                                                   
+;       NAVISTAR 856 PACK                                                                                                           
+;       DATE : 03-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   117                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NA856_PCK                                                                                                                   
+        NAP_DEST_CODE             ,A15          ; DESTINATION CODE                            1 thru    15                          
+        NAP_ASN_NO                ,A30          ; ASN/SHIPPER NUMBER                         16 thru    45                          
+        NAP_CONT_CODE             ,A5           ; CONTAINER CODE                             46 thru    50                          
+        NAP_CONT_QTY              ,D5           ; CONTAINER QUANTITY                         51 thru    55                          
+        NAP_COMM_CODE             ,A2           ; COMMODITY CODE                             56 thru    57                          
+        NAP_INTRCHG_ID            ,A15          ; RECEIVE INTERCHANGE ID CODE                58 thru    72                          
+        NAP_GROUP_ID              ,A15          ; GROUP SEGMENT ID                           73 thru    87                          
+        NAP_PART_DESC             ,A30          ; PART DESCRIPTION                           88 thru   117                          
+                                                                                                                                    
+                                                                                                                                    

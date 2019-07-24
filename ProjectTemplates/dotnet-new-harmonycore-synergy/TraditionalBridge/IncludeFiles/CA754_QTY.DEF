@@ -1,0 +1,29 @@
+;CA754_QTY.DEF                                                                                                                      
+;                                                                                                                                   
+;       ROUTING INSTRUCTIONS QUANTITIE                                                                                              
+;       DATE : 27-SEP-10                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   168                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA754_QTY                                                                                                                   
+        Q754_ISA_CTL              ,A14          ; ISA CONTROL NUMBER                          1 thru    14                          
+        Q754_GS_CTL               ,A14          ; GROUP CONTROL NUMBER                       15 thru    28                          
+        Q754_HDR_LINE             ,D6           ; HEADER LINE                                29 thru    34                          
+        Q754_DTL_LINE             ,D6           ; DETAIL LINE                                35 thru    40                          
+        Q754_QTY_LINE             ,D6           ; QUANTITY LINE NUMBER                       41 thru    46                          
+        Q754_QTY_QL               ,A10          ; QUANTITY QUALIFIER                         47 thru    56                          
+        Q754_QTY                  ,D15          ; QUANTITY                                   57 thru    71                          
+        Q754_QTY_UOFM             ,A10          ; UNIT OF MEASURE                            72 thru    81                          
+        Q754_AT9_LENGTH           ,D15          ; EQUIPMENT LENGTH                           82 thru    96                          
+        Q754_AT9_HEIGHT           ,D15          ; EQUIPMENT HEIGHT                           97 thru   111                          
+        Q754_AT9_WIDTH            ,D15          ; EQUIPMENT WIDTH                           112 thru   126                          
+        Q754_AT9_WT_QL            ,A10          ; WEIGHT QUALIFIER                          127 thru   136                          
+        Q754_AT9_WT_UN            ,A1           ; WEIGHT UNIT CODE                          137 thru   137                          
+        Q754_AT9_WEIGHT           ,D15          ; WEIGHT                                    138 thru   152                          
+        Q754_AT9_VOL_UN           ,A1           ; VOLUME UNIT                               153 thru   153                          
+        Q754_AT9_VOLUME           ,D15          ; VOLUME                                    154 thru   168                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA754_QTY_KEY             ,A46          ; PRIMARY SORT KEY                                                                  
+                                  ,A122         ; PRIMARY KEY POSITIONING                                                           

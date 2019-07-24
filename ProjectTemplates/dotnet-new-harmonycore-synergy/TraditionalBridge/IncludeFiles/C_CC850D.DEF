@@ -1,0 +1,67 @@
+
+; C_CC850D.DEF
+;
+;	CARaS X12 Purchase Order (850) Detail File.
+;
+;	Date		Analyst		Modification
+;	-----------	---------------	--------------------------------------
+;	04-May-1993	W. Chunn	Created from revised CA850_MST def.
+;-----------------------------------------------------------------------------
+; File Organization: Sequential	| Record Size: 900		|  Positions
+;-----------------------------------------------------------------------------
+;
+RECORD C_CC850D
+			;----- Primary Key Information -------------
+	D850_TP_DESIG	,A2	; Trading Partner Desig		|   1 thru 2
+	D850_PO_NO	,A22	; Purchase order number 	|   3 thru 24
+	D850_PO_DATE	,D6	; Purchase order date		|  25 thru 30
+	D850_ACK_FLAG	,D1	; 0 = Original PO record	|  31 thru 31
+				; 1 = Acknowledgement		|
+	D850_REC_TYPE	,D3	; 100 = Header			|  32 thru 34
+				; 200 = Address			|
+				; 300 = Detail			|
+				; 400 = Note			|
+	D850_SEQ_NO	,D6	; Seq. No for uniqueness	|  35 thru 40
+	D850_DIV_ABBRV	,A5	; Division Abbrv		|  41 thru 45
+	D850_DEST_ABBRV	,A5	; Destination Abbrv		|  46 thru 50
+	D850_SUPP_ID	,A15	; Vendor/Supp ID Number		|  51 thru 65
+	D850_TRX_SET	,A3	; Transaction Set		|  66 thru 68
+			,A32	; Filler                       	|  78 thru 100
+		;----- END Primary Key Information -------------
+	D850_INS_DATE	,D6	; Date record inserted   	| 101 thru 106
+				; into this file.		|
+	D850_INS_TIME	,D4	; Time record inserted into file| 107 thru 110
+	D850_EXP_DATE	,D6	; For PO records, date		| 111 thru 116
+				; exported to exp file.		|
+		;----- Information Common To All Records -------------
+	D850_DIV_ID	,A15	; Division			| 117 thru 131
+	D850_DEST_ID	,A15	; Destination			| 132 thru 146
+	D850_BAD_PART	,D1	;				| 147 thru 147
+	D850_BAD_DIV	,D1	;				| 148 thru 148
+	D850_BAD_DEST	,D1	;				| 149 thru 149
+	D850_COMPANY	,A8	;				| 150 thru 157
+	D850_RED_AREA	,A743	; Redefinition area.  		| 159 thru 900
+		;----- END Information Common To All Records -----------
+			;
+		;----- Detail Record Type 300 -------------
+	D850_PO_LINE	,A6	; Purchase order line
+        D850_TP_PART    ,A30    ; Customer Part Number
+        D850_OUR_PART   ,A15    ; Our Part Number
+        D850_QTY        ,D9     ; Quantity
+        D850_UOFM       ,A2     ; Unit of Measure                
+        D850_PRICE      ,D14    ; Price  (9v5)
+        D850_PRICE_BASE ,A2     ; Price Base Qualifier
+        D850_DESC       ,A35    ; Part Description
+        D850_VEND_NO    ,A30    ; Vendor Number
+        D850_TIME_QL    ,A3     ; Date & Time Qualifier
+        D850_REQ_DATE   ,D6     ; Required Date
+        D850_REQ_TIME   ,D4     ; Requirement Time
+        D850_TOT_QTY    ,D9     ; Total Quantity Ordered
+        D850_PROD_SER_QL,10A2   ; Product Service Qualifier
+        D850_PROD_ID    ,10A30  ; Product Identification
+        D850_ORDER_NO   ,A15    ; TP Order/Sequence Number
+        D850_END_REQDT  ,D6     ; Ending Requirement Date
+        D850_DOCK       ,A7     ; Dock Code
+        D850_STD_PACK   ,D9     ; Standard Pack
+			,A221	; filler
+

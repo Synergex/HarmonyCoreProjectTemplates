@@ -1,0 +1,19 @@
+;FO820_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 820 DETAIL NOTES                                                                                                       
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   113                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO820_NTE                                                                                                                   
+        FRN_UCCS_CODE             ,A15          ; SUPPLIER UCCS CODE                          1 thru    15                          
+        FRN_CHECK_NO              ,A9           ; CHECK NUMBER                               16 thru    24                          
+        FRN_CHECK_DATE            ,D8           ; CHECK DATE                                 25 thru    32                          
+        FRN_TRANS_REF             ,A15          ; TRANSACTION REFERENCE NUMBER               33 thru    47                          
+        FRN_SEQ                   ,D6           ; NOTE SEQUENCE NUMBER                       48 thru    53                          
+        FRN_NOTES                 ,A60          ; NOTES                                      54 thru   113                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO820_NTE_KEY             ,A53          ; PRIMARY SORT KEY                                                                  
+                                  ,A60          ; PRIMARY KEY POSITIONING                                                           

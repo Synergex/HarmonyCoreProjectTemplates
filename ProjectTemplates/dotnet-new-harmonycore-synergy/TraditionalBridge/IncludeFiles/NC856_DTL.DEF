@@ -1,0 +1,18 @@
+;NC856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NISSAN (CARSON) 856 DETAIL                                                                                                  
+;       DATE : 02-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   141                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NC856_DTL                                                                                                                   
+        NCD_INTER_ID              ,A15          ; INTERCHANGE ID CODE                         1 thru    15                          
+        NCD_GROUP_ID              ,A15          ; GROUP ID CODE                              16 thru    30                          
+        NCD_ASN                   ,A30          ; ASN NUMBER                                 31 thru    60                          
+        NCD_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                       61 thru    90                          
+        NCD_REL_NO                ,A30          ; RELEASE NUMBER                             91 thru   120                          
+        NCD_QTY                   ,D10          ; QUANTITY SHIPPED                          121 thru   130                          
+        NCD_UOFM                  ,A2           ; QUANTITY UNIT OF MEASURE                  131 thru   132                          
+        NCD_CUM_YTD               ,D9           ; CUM YEAR TO DATE                          133 thru   141                          
+                                                                                                                                    
+                                                                                                                                    

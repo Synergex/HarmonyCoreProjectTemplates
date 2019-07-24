@@ -1,0 +1,24 @@
+;CAR856_CLD.DEF                                                                                                                     
+;                                                                                                                                   
+;       CARAS RECEIVED ASN CLD SEGMENT                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   183                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_CLD                                                                                                                  
+        CR856_SHIP_ID             ,A30          ; SHIPMENT ID NO                              1 thru    30                          
+        CR856_PRC_DTM             ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        CR856_HL_ID               ,A12          ; HIERARCHICAL STRUCT HL ID CODE             43 thru    54                          
+        CR856_CLD_LOOP            ,D3           ; LOOP SEQUENCE NO                           55 thru    57                          
+        CR856_SEG_ID              ,A3           ; SEGMENT ID                                 58 thru    60                          
+        CR856_CUST_LOAD           ,D5           ; NUMBER OF CUSTOMER LOADS                   61 thru    65                          
+        CR856_SHIP_QTY            ,D10          ; NUMBER OF UNITS SHIPPED 8.2                66 thru    75                          
+        CR856_PKG_CODE            ,A5           ; PACKAGING CODE                             76 thru    80                          
+        CR856_CLD_SIZE            ,D8           ; CLD SIZE 6.2                               81 thru    88                          
+        CR856_UOM                 ,A2           ; UNIT OF MEASURE OF THE SIZE                89 thru    90                          
+        CR856_FILLER              ,A93          ; FILLER                                     91 thru   183                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_CLD_KEY            ,A57          ; PRIMARY SORT KEY                                                                  
+                                  ,A126         ; PRIMARY KEY POSITIONING                                                           

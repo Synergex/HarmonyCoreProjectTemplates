@@ -1,0 +1,30 @@
+RECORD SPD_BROAD_DAT
+;
+; CHSPD_BRD.DEF - CHRYSLER SPD BROADCAST RAW DATA FILE
+;
+;		STRUCTURE:	SEQUENTIAL
+;		RECORD LEN:	277
+;
+;-------------------------------------------------------------------------------
+;		--------- Record Definition ----------
+;-------------------------------------------------------------------------------
+
+	SB_VON		,A8	; Vehicle Order Number
+	SB_VIN		,A8	; Vehicle Identification Nbr, Last 8
+	SB_BRD_SEQ_NBR	,D7	; Broadcast Sequence Number
+	SB_DATE		,D5	; Broadcast Date (YYDDD)
+	SB_TIME		,D6	; Broadcast Time (HHMMSS)
+	SB_STATUS	,A1	; Status (F=Frame, T=Trim)
+	SB_BODY_MODEL	,A6	; Body Model
+	SB_TRIM_CODE	,A4	; Trim Code
+	SB_NBR_CODES	,D2	; Number of Matrix Entrys
+	SB_MATRIX_CODE	,35A6	; Matrix of Build Codes
+			,A20
+
+RECORD, X
+
+	SB_REC_TYPE	,A3	; Record Id
+			,A44
+	SB_MATRIX_CODES	,A210
+			,A20
+

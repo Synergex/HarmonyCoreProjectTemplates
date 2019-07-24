@@ -1,0 +1,158 @@
+COMMON	CALCOMMON
+;
+; Contents of local common used by CARaS
+;
+; 	RECORD LEN: 	252
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	------------
+;	09-Jun-88	Laura Cole	Original
+;
+;	27-Nov-88	J. Rheingans	Added the Supplier Abbreviation Field
+;					LCC_SUPP_ABBRV.
+;
+;	07-Dec-88	Kevin Turner	Added Default TP.  LCC_DEF_TP.
+;
+;	17-Jul-89	Bill Schmelter  Added Industry Desig. LCC_IND_DESIG
+;	15-SEP-92	M. Farneth	Added LCC_MENU_SECTION
+;	05-OCT-92	M. Farneth	Added LCC_INSTALL_ID
+;	18-FEB-93	T. Bunker	Added LCC_EXP_COM
+;
+;	12-OCT-93	R. Smoko	Removed EXP_COM per T.B. and added
+;					generic 3rd party COMPANY_TO_MAP_TO 
+;					field and flags for each CARaS company.
+;
+;	08-FEB-94	T. Bunker	Added LCC_CURRENT_MENU, and 
+;					LCC_EXPORT_PREV
+;	09-Feb-94	B. Sparks	Added LCC_BATCH_MODE and 
+;					LCC_SUBMIT_BATCH to filler
+;	27-Apr-94	M. Farneth	Added LCC_DEF_TP_DESIG
+;	05-May-94	T. Bunker	Re-use LCC_EXP_COM for P.O. export.
+;					Change from alpha to decimal
+;	10-Feb-97	T. Bunker	Expand dates to 8 characters
+;-------------------------------------------------------------------------------
+;
+; the first 252 bytes of local common is reserved for values from core common
+;
+	LCC_TP_NAME		,A15	; Trading partner name
+	LCC_COMP_CODE		,A8	; Company code
+	LCC_USER_PASSWORD	,A9	; User Password - encrypted
+				,A4	; Filler
+	LCC_SECURITY		,D1	; CARaS Security
+					; 0 = Disabled
+					; 1 = Enabled
+	GROUP LCC_CURRENT_MODULE	,A	; Current program module
+		TP_DESIG	,A2	; Trading partner designator
+		NAME		,A13
+				,A68
+	ENDGROUP
+
+.IFDEF MAIN
+	GROUP	LCC_EXTERNAL_FUNCTION	,X
+.ENDC
+.IFDEF SUBROUTINE
+	GROUP	LCC_EXTERNAL_FUNCTION
+.ENDC
+		ID		,A2	; Redfines LCC_CURRENT_MODULE.TP_DESIG.
+					; Must be "$$" to identify that
+					; the next function to be performed is 
+					; external to any of the CARaS drivers.
+		RUN_TYPE	,A1	; Method in wich function is to
+					; be invoked. Valid values are:
+					;	RUN_CODE_RUN
+					; 	    Invoked by DIBOL
+					;           STOP. If first non-blank
+					;           character in name is
+					;	    an "@" then the command
+					;           file will be executed;
+					;	    If first non-blank character
+					;           in name is a "$" then
+					;           the DCL command will
+					; 	    be executed; otherwise
+					; 	    the program will be
+					;	    run.
+					;	RUN_CODE_SPAWN
+					;           Invoked by LIB$SPAWN.
+					;	RUN_CODE_SPAWN_WAIT
+					;           Invoked by LIB$SPAWN
+					;           with wait qualifier
+		NAME		,A80	; 
+	ENDGROUP
+	LCC_DEF_PRINTER		,A4	; Default printer for this session
+	LCC_SUBMIT_DATE		,D8	; Batch Submit Date
+	LCC_SUBMIT_TIME		,D4	; Batch Submit Time
+	LCC_BATCH_BUILD		,D1	; Batch Build Flag
+	LCC_SUPP_ABBRV		,A5	; Supplier Abbreviation.
+	LCC_DEF_TP		,A10	; Default TP code set by UTPCODE
+	LCC_IND_DESIG		,A2	; Industry Designator 
+	LCC_IND_TP		,A2	; Industry Selected Trading Partner
+	LCC_MENU_SELECTION	,A4	; Logical menu option selected
+	LCC_INSTALL_ID		,A5	; Customer installation id.
+	LCC_COMP_TO_MAP_TO	,A20	; 3rd Party Company to map to.
+	LCC_COMP_TO_MAP_F1	,A1	; 3rd Party Company Interface flag.
+	LCC_COMP_TO_MAP_F2	,A1	; 3rd Party Company Interface flag.
+	LCC_COMP_TO_MAP_F3	,A1	; 3rd Party Company Interface flag.
+	LCC_COMP_TO_MAP_F4	,A1	; 3rd Party Company Interface flag.
+	LCC_COMP_TO_MAP_F5	,A1	; 3rd Party Company Interface flag.
+	LCC_EXP_COM		,D1	; Seperate P.O. export from release
+	LCC_CURRENT_MENU	,A10	; Current menu selection(v6.0)
+	LCC_EXPORT_PREV		,D1	; Ability to not export previous 
+					; requirements.
+	LCC_BATCH_MODE		,D1	; Indicates Universal Batch Mode
+	LCC_SUBMIT_BATCH	,D1	; Tells CALOGN_SUB to submit batch
+	LCC_DEF_TP_DESIG	,A2	; Default TP DESIG set by UTPCODE
+				,A46	; Unused
+;
+; now are local fields for screen use
+;
+	LC_SCROPT		,A1	; D = MCBA dibol screens,
+					; C = MCBA cobol screens
+	LC_TERMTYP		,D1	; terminal type
+
+
+	LC_TRANS_FLAG		,D1	; Transfer code indicator
+					;   True = User wants to enter
+					;	a transfer code
+	LC_SPOOL_PATH		,A80
+
+	LC_COMPANY_NAME		,A50	; Company long name
+	LC_COMPANY_DISPLAY	,A30	; Company display name
+	LC_SECURITY		,I4	; Valid values are:
+					;   SECR_NONE
+					;   SECR_READ
+					;   SECR_MODIFY
+					;   SECR_EXTEND
+					; Values increase from SECR_NONE to
+					; to SECR_EXTEND
+
+	LC_XRETURN_MODULE	,A%SIZE(LCC_CURRENT_MODULE)
+					; CARaS module to return to upon
+					; completion of an external function.
+	LC_CARASDATA_NAME	,A256	; Name under which the CARASDATA file
+					; opened.
+	LC_DISPLAY_LOGO		,D1	; Switch to indicate redisplay of
+					; CARaS logo
+	LCC_PROC_MODE		,I4	; Process mode
+					; Mode Values are:
+					;	JPI$K_OTHER
+					;	JPI$K_NETWORK
+					;	JPI$K_BATCH
+					;	JPI$K_INTERACTIVE
+	LC_BATCH_PRINT		,D1	; Switch to indicate if a report
+					; should be printed from batch
+
+.IFDEF MAIN
+COMMON	,X
+	CACORE_COMMON			,A252
+.ENDC
+.IFDEF SUBROUTINE
+COMMON
+	CACORE_COMMON			,A252
+.ENDC
+.IFDEF CACORE_COMMON_ALT
+RECORD	A_CACORE_COMMON
+					,A%SIZE(CACORE_COMMON)
+.ENDC

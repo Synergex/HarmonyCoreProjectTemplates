@@ -1,0 +1,32 @@
+;TW856_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       TRW ASN HEADER FILER                                                                                                        
+;       DATE : 15-MAY-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   141                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  TW856_HDR                                                                                                                   
+        TWH_SHIPPER               ,D9           ; SHIPPER NUMBER                              1 thru     9                          
+        TWH_PURPOSE               ,A2           ; PURPOSE CODE                               10 thru    11                          
+        TWH_CREATE_DATE           ,D6           ; CREATION DATE                              12 thru    17                          
+        TWH_CREATE_TIME           ,D4           ; CREATION TIME                              18 thru    21                          
+        TWH_SHIP_DATE             ,D6           ; SHIP DATE                                  22 thru    27                          
+        TWH_SHIP_TIME             ,D4           ; SHIP TIME                                  28 thru    31                          
+        TWH_TIME_ZONE             ,A2           ; TIME ZONE                                  32 thru    33                          
+        TWH_SCAC                  ,A4           ; SCAC CODE                                  34 thru    37                          
+        TWH_TRANS_MODE            ,A2           ; TRANS MODE                                 38 thru    39                          
+        TWH_EQUIP_CODE            ,A2           ; EQUIPMENT CODE                             40 thru    41                          
+        TWH_EQUIP_PRE             ,A4           ; EQUIPMENT PREFIX                           42 thru    45                          
+        TWH_EQUIP_NO              ,A7           ; EQUIPMENT NUMBER                           46 thru    52                          
+        TWH_GROSS_WGT             ,D8           ; GROSS WEIGHT                               53 thru    60                          
+        TWH_FREIGHT               ,A15          ; FREIGHT BILL NUMBER                        61 thru    75                          
+        TWH_POOLED                ,A15          ; POOLED LOCATION                            76 thru    90                          
+        TWH_PAY_METHOD            ,A2           ; METHOD OF PAYMENT                          91 thru    92                          
+        TWH_SHIP_FROM             ,A30          ; SHIP FROM NAME                             93 thru   122                          
+        TWH_FROM_CODE             ,A15          ; SHIP FROM CODE                            123 thru   137                          
+        TWH_TOTAL_HLS             ,D4           ; TOTAL HIERARCHIAL LEVELS                  138 thru   141                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        TW856_HDR_KEY             ,A9           ; PRIMARY SORT KEY                                                                  
+                                  ,A132         ; PRIMARY KEY POSITIONING                                                           

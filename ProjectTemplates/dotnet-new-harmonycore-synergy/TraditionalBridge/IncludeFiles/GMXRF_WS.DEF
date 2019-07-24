@@ -1,0 +1,14 @@
+RECORD GMXRF_WS
+;
+;	This file contains working storage variables that are used as 
+;	arguments passed to the subroutine GMXRF_SUB.  This Subroutine
+;	contains the logic to read the CADSTC_XRF file and return the
+;	proper CADSTC_XRF record if found.
+;-------------------------------------------------------------------------------
+	GM_CK_TP_DESIG	,A%SIZE(DC_TP_DESIG)
+	GM_CK_DIV	,A%SIZE(DC_XRF_CODE)
+	GM_CK_DEST	,A%SIZE(DC_XRF_CODE)
+	GM_CK_DOCK	,A10
+	GM_CK_ABBRV	,A%SIZE(DC_ABBRV_1)
+	GM_XRF_RECORD	,A%SIZE(CADSTC_XRF)
+;

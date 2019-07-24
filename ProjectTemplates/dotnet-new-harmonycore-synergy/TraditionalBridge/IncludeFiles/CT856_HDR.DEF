@@ -1,0 +1,39 @@
+;CT856_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CT ASN HEADER (856)                                                                                                         
+;       DATE : 28-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   363                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CT856_HDR                                                                                                                   
+        CTHA_SUPPLIER             ,A17          ; SUPPLIER ID                                 1 thru    17                          
+        CTHA_ASN_NO               ,A30          ; ASN NUMBER                                 18 thru    47                          
+        CTHA_DEST                 ,A15          ; DESTINATION/SHIP TO                        48 thru    62                          
+        CTHA_BOL_NO               ,A30          ; BILL OF LADING NUMBER                      63 thru    92                          
+        CTHA_ASN_DATE             ,D8           ; ASN DATE                                   93 thru   100                          
+        CTHA_ASN_TM               ,D4           ; ASN TIME                                  101 thru   104                          
+        CTHA_SHIP_DATE            ,D8           ; SHIP DATE                                 105 thru   112                          
+        CTHA_SHIP_TIME            ,D4           ; SHIP TIME                                 113 thru   116                          
+        CTHA_DATE_QL              ,A3           ; SHIP DATE/TIME QL                         117 thru   119                          
+        CTHA_SCAC_QL              ,A2           ; SCAC QL                                   120 thru   121                          
+        CTHA_SCAC                 ,A10          ; SCAC CODE                                 122 thru   131                          
+        CTHA_TRANS_MTHD           ,A10          ; TRANSPORTATION METHOD                     132 thru   141                          
+        CTHA_ROUTE                ,A25          ; ROUTE                                     142 thru   166                          
+        CTHA_EQUIP_CODE           ,A2           ; EQUIPMENT CODE                            167 thru   168                          
+        CTHA_SHIP_FROM            ,A25          ; SHIP FROM NAME                            169 thru   193                          
+        CTHA_EQUIP_NO             ,A7           ; EQUIPMENT NUMBER                          194 thru   200                          
+        CTHA_ADDR1                ,A35          ; SUPPLIER ADDRESS                          201 thru   235                          
+        CTHA_ADDR2                ,A35          ; SUPPLIER ADDRESS                          236 thru   270                          
+        CTHA_CITY                 ,A30          ; SUPPLIER CITY                             271 thru   300                          
+        CTHA_STATE                ,A2           ; STATE CODE                                301 thru   302                          
+        CTHA_ZIP                  ,A15          ; SUPPLIER ZIP CODE                         303 thru   317                          
+        CTHA_INTRCHNGE            ,A15          ; INTERCHANGE ID                            318 thru   332                          
+        CTHA_GROUP                ,A15          ; GROUP ID                                  333 thru   347                          
+        CTHA_PURPOSE              ,A2           ; PURPOSE CODE                              348 thru   349                          
+        CTHA_SHIP_QTY             ,D7           ; TOTAL SHIP QUANTITY                       350 thru   356                          
+        CTHA_HL_TOT               ,D7           ; TOTAL HL SEGMENTS                         357 thru   363                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CT856_HDR_KEY             ,A47          ; PRIMARY SORT KEY                                                                  
+                                  ,A316         ; PRIMARY KEY POSITIONING                                                           

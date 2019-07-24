@@ -1,0 +1,46 @@
+;RT856_PCK.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ASN PACK LEVEL                                                                                                       
+;       DATE : 30-NOV-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   372                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT856_PCK                                                                                                                   
+        RTP_MATCH1                ,D6           ; MATCH TO SHIPMENT LEVEL                     1 thru     6                          
+        RTP_MATCH2                ,D6           ; MATCH TO ORDER LEVEL                        7 thru    12                          
+        RTP_MATCH3                ,D6           ; MATCH TO ITEM LEVEL                        13 thru    18                          
+        RTP_MATCH4                ,D6           ; PACK LEVEL MATCH FIELD                     19 thru    24                          
+        RTP_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                 25 thru    26                          
+        RTP_SUPPLIER              ,A15          ; SUPPLIER ID CODE                           27 thru    41                          
+        RTP_SHIPPER               ,D9           ; SHIPPER NUMBER                             42 thru    50                          
+        RTP_DEST                  ,A15          ; DESTINATION CODE                           51 thru    65                          
+        RTP_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                      66 thru    87                          
+        RTP_CONT_ID               ,A25          ; MASTER CONTAINER MARKS/NUMBERS             88 thru   112                          
+        RTP_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                      113 thru   134                          
+        RTP_SHIP_REF              ,A20          ; SHIP REFERENCE NUMBER                     135 thru   154                          
+        RTP_MARKS_NUM             ,A25          ; MARKS AND NUMBERS (MAN02)                 155 thru   179                          
+        RTP_MARKS_QUAL            ,A2           ; MARKS AND NUMBERS QUALIFIER               180 thru   181                          
+        RTP_PACK_CODE             ,A5           ; PACKAGING/CONTAINER CODE                  182 thru   186                          
+        RTP_PACK                  ,D6           ; NO OF RESHIPPABLE INNER PACKS             187 thru   192                          
+        RTP_PACK_SIZE             ,D6           ; NO OF UNITS IN A PACK (STD PK)            193 thru   198                          
+        RTP_PACK_UOFM             ,A2           ; PACK UNIT OF MEASURE CODE                 199 thru   200                          
+        RTP_PACK_WGT              ,D6           ; GROSS WEIGHT PER PACK                     201 thru   206                          
+        RTP_PK_WGT_UOFM           ,A2           ; PACK WEIGHT UNIT OF MEASURE               207 thru   208                          
+        RTP_PACK_LENGTH           ,D4           ; PACK DIMENSION LENGTH                     209 thru   212                          
+        RTP_PACK_WIDTH            ,D4           ; PACK DIMENSION WIDTH                      213 thru   216                          
+        RTP_PACK_HEIGHT           ,D4           ; PACK DIMENSION HEIGHT                     217 thru   220                          
+        RTP_PK_DIM_UOFM           ,A2           ; PACK DIMENSION UNIT OF MEASURE            221 thru   222                          
+        RTP_PACK_VOL              ,D10          ; GROSS VOL PER PACK (8V2)                  223 thru   232                          
+        RTP_PK_VOL_UOFM           ,A2           ; PACK VOLUME UNIT OF MEASURE               233 thru   234                          
+        RTP_HL_ID                 ,D6           ; HIERARCHICAL LEVEL ID NUMBER              235 thru   240                          
+        RTP_PARENT_ID             ,D6           ; HL LEVEL PARENT ID (ORDER)                241 thru   246                          
+        RTP_INTRCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE              247 thru   261                          
+        RTP_GROUP_ID              ,A12          ; GROUP RECEIVER ID NUMBER                  262 thru   273                          
+        RTP_MARKS_NUM2            ,A25          ; SECONDARY MARKS & NUMBERS                 274 thru   298                          
+        RTP_MARKS_QUAL2           ,A2           ; SECONDARY MARKS & NUMBERS QUAL            299 thru   300                          
+        RTP_FILLER                ,A72          ; FILLER                                    301 thru   372                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT856_PCK_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A348         ; PRIMARY KEY POSITIONING                                                           

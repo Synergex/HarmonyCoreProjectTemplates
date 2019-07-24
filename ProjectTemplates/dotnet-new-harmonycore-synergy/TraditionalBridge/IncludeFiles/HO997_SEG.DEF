@@ -1,0 +1,37 @@
+; HO997_SEG.DEF
+;
+;	Functional Acknowledgment Detail - Segment Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	29-Oct-90	J. Curl		Original
+;
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD HO997_SEG
+	HFS_GROUP_ID	,A2	; Functional Group Identifier	|   1 thru 2
+	HFS_DATA_INT	,D9	; Data Interchange Control #	|   3 thru 11
+	HFS_TRANS_TYPE	,A3	; Transaction Set Identifier	|  12 thru 14
+	HFS_TRANS_CTL	,D9	; Trasnaction Set Control #	|  15 thru 23
+	HFS_SEGMENT	,A3	; Segment Identifier		|  24 thru 26
+	HFS_SEG_POS	,D6	; Segment Position		|  27 thru 32
+	HFS_LOOP_ID	,D4	; Loop Identifier		|  33 thru 36
+
+	HFS_NOTE_1	,D3	; Segment Note Code-1		|  37 thru 39
+	HFS_NOTE_2	,D3	; Segment Note Code-2		|  40 thru 42
+	HFS_NOTE_3	,D3	; Segment Note Code-3		|  43 thru 45
+	HFS_NOTE_4	,D3	; Segment Note Code-4		|  46 thru 48
+	HFS_NOTE_5	,D3	; Segment Note Code-5		|  49 thru 51
+			,A49	; Filler			|  52 thru 100
+
+RECORD HFS_KEY, X
+	K_HFS_GROUP_ID		,A%SIZE(HFS_GROUP_ID)
+	K_HFS_DATA_INT		,D%SIZE(HFS_DATA_INT)
+	K_HFS_TRANS_TYPE	,A%SIZE(HFS_TRANS_TYPE)
+	K_HFS_TRANS_CTL		,D%SIZE(HFS_TRANS_CTL)
+	K_HFS_SEGMENT		,A%SIZE(HFS_SEGMENT)
+	K_HFS_SEG_POS		,D%SIZE(HFS_SEG_POS)
+	K_HFS_LOOP_ID		,D%SIZE(HFS_LOOP_ID)
+

@@ -1,0 +1,19 @@
+;NI856_TAR.DEF                                                                                                                      
+;                                                                                                                                   
+;       NISSAN'S 856 TARE FILE                                                                                                      
+;       DATE : 03-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    83                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NI856_TAR                                                                                                                   
+        NIT_ASN_NO                ,A30          ; ASN NUMBER                                  1 thru    30                          
+        NIT_MAST_SNO              ,A30          ; MASTER SERIAL NUMBER                       31 thru    60                          
+        NIT_TARE_QUAL             ,A1           ; TARE HIERARCHY LEVEL QUALIFIER             61 thru    61                          
+        NIT_PARENT_ID             ,D6           ; PARENT ID FOR TARE LEVEL                   62 thru    67                          
+        NIT_CHILD_CODE            ,D1           ; CHILD CODE                                 68 thru    68                          
+        NIT_CONT_CODE             ,A5           ; TARE CONTAINER CODE FOR NISMEX             69 thru    73                          
+        NIT_NUM_CONT              ,D3           ; NUMBER OF CONTAINERS / NISMEX              74 thru    76                          
+        NIT_CONT_DESC             ,A5           ; CONTAINER DESCRIPTION                      77 thru    81                          
+        NIT_SNO_QUAL              ,A2           ; MASTER SERIAL # QUALIFIER                  82 thru    83                          
+                                                                                                                                    
+                                                                                                                                    

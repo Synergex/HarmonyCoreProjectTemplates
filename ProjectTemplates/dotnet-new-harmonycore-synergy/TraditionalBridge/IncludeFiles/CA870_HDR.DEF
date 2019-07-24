@@ -1,0 +1,44 @@
+;CA870_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       ORDER STATUS HEADER                                                                                                         
+;       DATE : 11-MAR-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   660                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA870_HDR                                                                                                                   
+        H870_REFNO                ,A39          ; ORDER STATUS REFERENCE NUMBER               1 thru    39                          
+        H870_SEQ1                 ,D6           ; SEQUENCE NUMBER                            40 thru    45                          
+        H870_SEQ2                 ,D6           ; SEQUENCE NUMMBER 2                         46 thru    51                          
+        H870_SEQ3                 ,D6           ; SEQUENCE NUMBER 3                          52 thru    57                          
+        H870_SEQ4                 ,D6           ; SEQUENCE NUMBER 4                          58 thru    63                          
+        H870_SEQ5                 ,D6           ; SEQUENCE NUMBER 5                          64 thru    69                          
+        H870_SEQ6                 ,D6           ; SEQUENCE NUMBER 6                          70 thru    75                          
+        H870_SEQ7                 ,D6           ; SEQUENCE NUMEBR 7                          76 thru    81                          
+        H870_SEQ8                 ,D6           ; SEQUENCE NUMBER 8                          82 thru    87                          
+        H870_STATUS               ,A2           ; STATUS REPORT CODE                         88 thru    89                          
+        H870_ORDER_CODE           ,A2           ; ORDER/ITEM CODE                            90 thru    91                          
+        H870_CREAT_DATE           ,D8           ; CREATION DATE                              92 thru    99                          
+        H870_CREAT_TIME           ,A4           ; CREATION TIME                             100 thru   103                          
+        H870_CONT_FUNCT           ,A2           ; CONTACT FUNCTION CODE                     104 thru   105                          
+        H870_CONT_NAME            ,A35          ; CONTACT NAME                              106 thru   140                          
+        H870_COMM_QUAL            ,A2           ; COMMUNICATIONS QUALIFIER                  141 thru   142                          
+        H870_COMM_NUM             ,A25          ; COMMUNICATIONS NUMBER                     143 thru   167                          
+        H870_PROD_DATE            ,A2           ; PRODUCT/DATE CODE                         168 thru   169                          
+        H870_LOC_CODE             ,A2           ; LOCATION CODE                             170 thru   171                          
+        H870_REFNO_2              ,A30          ; REFERENCE NUMEBR (BSR08)                  172 thru   201                          
+        H870_REQST_DATE           ,D8           ; DATE REPORT REQUESTED (BSR09)             202 thru   209                          
+        H870_GS_ID                ,A17          ; GS CONTROL NUMBER                         210 thru   226                          
+        H870_INTER_ID             ,A17          ; INTERCHANGE ID                            227 thru   243                          
+        H870_NO_LINES             ,D6           ; NUMBER OF LINES                           244 thru   249                          
+        H870_NTE_REF_CD           ,A3           ; REFERENCE NUMBER QUAL                     250 thru   252                          
+        H870_NTE_DESC             ,A80          ; DESCRIPTION                               253 thru   332                          
+        H870_PONO                 ,A22          ; PURCHASE ORDER NUMBER                     333 thru   354                          
+        H870_FILLER1              ,A77          ; FILLER                                    355 thru   431                          
+        H870_FILLER2              ,A99          ; FILLER                                    432 thru   530                          
+        H870_FILLER3              ,A99          ; FILLER                                    531 thru   629                          
+        H870_FILLER4              ,A31          ; FILLER                                    630 thru   660                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA870_HDR_KEY             ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A573         ; PRIMARY KEY POSITIONING                                                           

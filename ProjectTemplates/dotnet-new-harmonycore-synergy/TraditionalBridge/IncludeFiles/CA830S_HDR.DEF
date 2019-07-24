@@ -1,0 +1,39 @@
+;CA830S_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       SENDING MATERIAL RELEASE HDR                                                                                                
+;       DATE : 21-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   449                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA830S_HDR                                                                                                                  
+        H830S_INTER_ID            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        H830S_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        H830S_HDR_LINE            ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        H830S_DTL_LINE            ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        H830S_SLN_LINE            ,D6           ; SLN SEQUENCE                               43 thru    48                          
+        H830S_ADR_LINE            ,D6           ; ADDRESS SEQUENCE                           49 thru    54                          
+        H830S_SDP_LINE            ,D6           ; SDP SEQUENCE                               55 thru    60                          
+        H830S_REQ_LINE            ,D6           ; REQUIREMENT SEQUENCE                       61 thru    66                          
+        H830S_SHP_LINE            ,D6           ; SHP SEQUENCE                               67 thru    72                          
+        H830S_KEY_FILL            ,D18          ; KEY FILLER                                 73 thru    90                          
+        H830S_RELDT               ,D8           ; RELEASE DATE                               91 thru    98                          
+        H830S_RELNO               ,A30          ; RELEASE NUMBER                             99 thru   128                          
+        H830S_PURPOSE             ,A2           ; PURPOSE CODE                              129 thru   130                          
+        H830S_REFNO               ,A30          ; REFERENCE NUMBER                          131 thru   160                          
+        H830S_CONTR_NO            ,A30          ; CONTRACT NUMBER                           161 thru   190                          
+        H830S_PO_NO               ,A22          ; PURCHASE ORDER NUMBER                     191 thru   212                          
+        H830S_FCST_TYPE           ,A2           ; FORECAST TYPE QUALIFIER                   213 thru   214                          
+        H830S_QTY_TYPE            ,A1           ; FORECAST QUANTITY QUALIFIER               215 thru   215                          
+        H830S_HORIZ_ST            ,D8           ; HORIZON START DATE                        216 thru   223                          
+        H830S_HORIZ_END           ,D8           ; HORIZON END                               224 thru   231                          
+        H830S_ACTION              ,A2           ; ACTION CODE                               232 thru   233                          
+        H830S_CREATE_DT           ,D8           ; CREATE DATE                               234 thru   241                          
+        H830S_CREATE_TM           ,D4           ; CREATE TIME                               242 thru   245                          
+        H830S_NO_LINES            ,D6           ; NUMBER OF LINE ITEMS                      246 thru   251                          
+        H830S_FILLER              ,A99          ; FILLER                                    252 thru   350                          
+        H830S_FILLER2             ,A99          ; FILLER                                    351 thru   449                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA830S_HDR_KEY            ,A90          ; PRIMARY SORT KEY                                                                  
+                                  ,A359         ; PRIMARY KEY POSITIONING                                                           

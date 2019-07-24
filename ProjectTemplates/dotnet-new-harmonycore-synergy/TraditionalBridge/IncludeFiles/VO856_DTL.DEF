@@ -1,0 +1,26 @@
+;VO856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       VOLVO WHITE 856 DETAIL FILE                                                                                                 
+;       DATE : 30-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   318                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  VO856_DTL                                                                                                                   
+        VOD_ASN_NO                ,A30          ; ASN/SHIPPER NUMBER                          1 thru    30                          
+        VOD_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                       31 thru    60                          
+        VOD_PO_NO                 ,A22          ; PO NUMBER                                  61 thru    82                          
+        VOD_SHIP_QTY              ,D7           ; QUANTITY SHIPPED                           83 thru    89                          
+        VOD_SHIP_UOFM             ,A2           ; QUANITITY SHIPPED UNIT OF MEAS             90 thru    91                          
+        VOD_PO_DATE               ,D8           ; PURCHASE ORDER DATE                        92 thru    99                          
+        VOD_INTR_ID               ,A15          ; RECEIVE INTERCHANGE ID                    100 thru   114                          
+        VOD_GROUP_ID              ,A15          ; RECEIVER GROUP ID                         115 thru   129                          
+        VOD_REL_NO                ,A30          ; RELEASE NUMBER                            130 thru   159                          
+        VOD_OUR_PART              ,A30          ; SUPPLIER'S PART NUMBER                    160 thru   189                          
+        VOD_RET_PART              ,A30          ; RETURNABLE CONTAINER NUMBER               190 thru   219                          
+        VOD_UPS_NO                ,A30          ; UPS TRACKING NUMBER                       220 thru   249                          
+        VOD_FILLER                ,A69          ; FILLER                                    250 thru   318                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+                                  ,A296         ; PRIMARY KEY POSITIONING                                                           
+        VO856_DTL_KEY             ,A22          ; PRIMARY SORT KEY                                                                  

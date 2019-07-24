@@ -1,0 +1,30 @@
+;CAPRIC_LIN.DEF                                                                                                                     
+;                                                                                                                                   
+;       PRICE SALES CATALOG LINE ITEM                                                                                               
+;       DATE : 24-AUG-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   388                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAPRIC_LIN                                                                                                                  
+        PRIL_SEQ1                 ,D6           ; SEQUENCE NUMBER 1                           1 thru     6                          
+        PRIL_SEQ2                 ,D6           ; SEQUENCE 2                                  7 thru    12                          
+        PRIL_SEQ3                 ,D6           ; SEQUENCE 3                                 13 thru    18                          
+        PRIL_SEQ4                 ,D6           ; SEQUENCE 4                                 19 thru    24                          
+        PRIL_SEQ5                 ,D6           ; SEQUENCE 5                                 25 thru    30                          
+        PRIL_SEQ6                 ,D6           ; SEQUENCE 6                                 31 thru    36                          
+        PRIL_TELE_PROC            ,A5           ; GM COMMUNICATIONS CODE                     37 thru    41                          
+        PRIL_INTRCHG_ID           ,A35          ; INTERCHANGE ID (UNB)                       42 thru    76                          
+        PRIL_GROUP_ID             ,A35          ; GROUP ID (UNG)                             77 thru   111                          
+        PRIL_PROD_GROUP           ,A3           ; PRODUCT GROUP (PGI)                       112 thru   114                          
+        PRIL_MAST_KEY             ,A75          ; 832 MASTER FILE KEY                       115 thru   189                          
+        PRIL_ITEM_NO              ,A35          ; ITEM NUMBER                               190 thru   224                          
+        PRIL_ITEM_QL              ,A3           ; ITEM NUMBER QUALIFIER                     225 thru   227                          
+        PRIL_OUR_PART             ,A35          ; OUR PART NUMBER                           228 thru   262                          
+        PRIL_OUR_QL               ,A3           ; OUR PART NUMBER QUALIFIER                 263 thru   265                          
+        PRIL_ITEM_DESC            ,A35          ; ITEM DESCRIPTION                          266 thru   300                          
+        PRIL_MIN_QTY              ,D15          ; MINIMUM SHIP QUANTITY                     301 thru   315                          
+        PRIL_UOFM                 ,A3           ; QUANTITY UNIT OF MEASURE                  316 thru   318                          
+        PRIL_EFF_DATE             ,A35          ; EFFECTIVE DATE                            319 thru   353                          
+        PRIL_EXP_DATE             ,A35          ; EXPIRATION DATE                           354 thru   388                          
+                                                                                                                                    
+                                                                                                                                    

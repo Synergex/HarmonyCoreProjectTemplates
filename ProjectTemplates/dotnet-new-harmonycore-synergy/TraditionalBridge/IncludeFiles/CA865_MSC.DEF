@@ -1,0 +1,47 @@
+;CA865_MSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       PO CHANGE ACK. MISC                                                                                                         
+;       DATE : 10-MAR-94                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   467                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA865_MSC                                                                                                                   
+        T865_TP_DESIG             ,A2           ; TRADING PARTNER DESIG                       1 thru     2                          
+        T865_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        T865_GROUP_ID             ,A12          ; GROUP RECEIVER ID CODE                     18 thru    29                          
+        T865_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      30 thru    51                          
+        T865_PO_DATE              ,D6           ; PURCHASE ORDER DATE                        52 thru    57                          
+        M865_FORM                 ,A2           ; IDENTIFIES TYPE OF NOTE                    58 thru    59                          
+        M865_DESC                 ,A80          ; NOTE OR DESCRIPTION                        60 thru   139                          
+        M865_REFNO                ,A30          ; MISCELLANEOUS REFERENCE NUMBER            140 thru   169                          
+        M865_TERM                 ,A2           ; TERMS CODE                                170 thru   171                          
+        M865_BASIS                ,A2           ; TERMS BASIS CODE                          172 thru   173                          
+        M865_DISC                 ,D6           ; DISCOUNT PERCENTAGE                       174 thru   179                          
+        M865_DISC_DUE             ,D6           ; DISCOUNT DUE DATE                         180 thru   185                          
+        M865_DISC_DAY             ,D3           ; DAYS DISCOUNT VALID                       186 thru   188                          
+        M865_NET_DUE              ,D6           ; NET DUE DATE                              189 thru   194                          
+        M865_NET_DAYS             ,D3           ; DAYS NET DUE                              195 thru   197                          
+        M865_DISC_AMT             ,D10          ; DISCOUNT AMOUNT                           198 thru   207                          
+        M865_NOTE                 ,A80          ; NOTE/DESC                                 208 thru   287                          
+        M865_PAY_MTHD             ,A1           ; PAYMENT METHOD                            288 thru   288                          
+        M865_ID                   ,A20          ; TAX ID                                    289 thru   308                          
+        M865_LOC_QL1              ,A2           ; TAX LOCATION QUALIFIER                    309 thru   310                          
+        M865_LOC_QL2              ,A2           ; TAX LOCATION QUALIFIER 2                  311 thru   312                          
+        M865_LOC_QL3              ,A2           ; TAX LOCATION QUALIFIER 3                  313 thru   314                          
+        M865_LOC_QL4              ,A2           ; TAX LOCATION QUALIFIER 4                  315 thru   316                          
+        M865_LOC_ID1              ,A25          ; TAX LOCATION ID                           317 thru   341                          
+        M865_LOC_ID2              ,A25          ; TAX LOCATION ID2                          342 thru   366                          
+        M865_LOC_ID3              ,A25          ; TAX LOCATION ID 3                         367 thru   391                          
+        M865_LOC_ID4              ,A25          ; TAX LOCATION ID 4                         392 thru   416                          
+        M865_LOC_ID5              ,A25          ; TAX LOCATION ID 5                         417 thru   441                          
+        M865_EXEMPT               ,A1           ; TAX EXEMPTION STATUS                      442 thru   442                          
+        M865_SEQ_CODE             ,A2           ; ROUTING SEQUENCE CODE                     443 thru   444                          
+        M865_ID_QL                ,A2           ; CARRIER ID QUALIFIER                      445 thru   446                          
+        M865_CARR_ID              ,A17          ; CARRIER ID                                447 thru   463                          
+        M865_MTHD                 ,A2           ; ROUTING METHOD                            464 thru   465                          
+        M865_D_LOC_QL             ,A2           ; ROUTING LOCATION QUALIFIER                466 thru   467                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA865_MSC_KEY             ,A57          ; PRIMARY SORT KEY                                                                  
+                                  ,A410         ; PRIMARY KEY POSITIONING                                                           

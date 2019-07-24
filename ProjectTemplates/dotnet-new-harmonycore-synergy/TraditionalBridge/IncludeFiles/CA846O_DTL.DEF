@@ -1,0 +1,51 @@
+;CA846O_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND INVENTORY ADVICE DTL                                                                                               
+;       DATE : 22-MAR-11                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   628                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA846O_DTL                                                                                                                  
+        D846O_INTRCHANG           ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        D846O_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        D846O_HDR_SEQ             ,D6           ; HEADER SEQUENCE NUMBER                     31 thru    36                          
+        D846O_DTL_SEQ             ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        D846O_SEQ_NUM             ,A20          ; SEQUENCE NUMBER                            43 thru    62                          
+        D846O_TP_PART             ,A40          ; TRADING PARTNER PART                       63 thru   102                          
+        D846O_OUR_PART            ,A40          ; OUR PART NUMBER                           103 thru   142                          
+        D846O_PROD_QL1            ,A2           ; PRODUCT/SERVICE ID QL 1                   143 thru   144                          
+        D846O_PROD_ID1            ,A40          ; PRODUCT/SERVICE ID 1                      145 thru   184                          
+        D846O_PROD_QL2            ,A2           ; PRODUCT/SERVICE QL 2                      185 thru   186                          
+        D846O_PROD_ID2            ,A40          ; PRODUCT/SERVICE ID2                       187 thru   226                          
+        D846O_PROD_QL3            ,A2           ; PRODUCT/SERVICE QL3                       227 thru   228                          
+        D846O_PROD_ID3            ,A40          ; PRODUCT/SERVICE ID 3                      229 thru   268                          
+        D846O_PROD_QL4            ,A2           ; PRODUCT/SERVICE QL4                       269 thru   270                          
+        D846O_PROD_ID4            ,A40          ; PRODUCT/SERVICE ID 4                      271 thru   310                          
+        D846O_PROD_QL5            ,A2           ; PRODUCT/SERVICE QL 5                      311 thru   312                          
+        D846O_PROD_ID5            ,A40          ; PRODUCT/SERVICE ID 5                      313 thru   352                          
+        D846O_PROD_QL6            ,A2           ; PRODUCT/SERVICE QL6                       353 thru   354                          
+        D846O_PROD_ID6            ,A40          ; PRODUCT/SERVICE ID 6                      355 thru   394                          
+        D846O_PROD_QL7            ,A2           ; PRODUCT/SERVICE QL7                       395 thru   396                          
+        D846O_PROD_ID7            ,A40          ; PRODUCT/SERVICE ID 7                      397 thru   436                          
+        D846O_PROD_QL8            ,A2           ; PRODUCT/SERVICE QL8                       437 thru   438                          
+        D846O_PROD_ID8            ,A40          ; PRODUCT/SERVICE ID 8                      439 thru   478                          
+        D846O_PROD_QL9            ,A2           ; PRODUCT/SERVICE QL9                       479 thru   480                          
+        D846O_PROD_ID9            ,A40          ; PRODUCT/SERVICE ID 9                      481 thru   520                          
+        D846O_PROD_QL10           ,A2           ; PRODUCT/SERVICE QL10                      521 thru   522                          
+        D846O_PROD_ID10           ,A40          ; PRODUCT/SERVICE ID10                      523 thru   562                          
+        D846O_CNT_DATE            ,D8           ; COUNT DATE                                563 thru   570                          
+        D846O_CNT_TIME            ,D8           ; COUNT TIME                                571 thru   578                          
+        D846O_CNT_CENT            ,D2           ; COUNT DATE CENTURY                        579 thru   580                          
+        D846O_REC_DATE            ,D8           ; LAST SHIPMENT RECEIVED DATE               581 thru   588                          
+        D846O_REC_TIME            ,D8           ; LAST SHIPMENT RECEIVED TIME               589 thru   596                          
+        D846O_REC_CENT            ,D2           ; LAST SHIPMENT RECEIVED CENTURY            597 thru   598                          
+        D846O_SHIP_DATE           ,D8           ; LAST SHIPMENT SENT DATE                   599 thru   606                          
+        D846O_SHIP_TIME           ,D8           ; LAST SHIPMENT SENT TIME                   607 thru   614                          
+        D846O_SHIP_CENT           ,D2           ; LAST SHIPMENT SENT CENTURY                615 thru   616                          
+        D846O_UN_PRICE            ,D10          ; UNINT PRICE                               617 thru   626                          
+        D846O_TIME_ZONE           ,A2           ; SUPPLIER TIME ZONE                        627 thru   628                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA846O_DTL_KEY            ,A42          ; PRIMARY SORT KEY                                                                  
+                                  ,A586         ; PRIMARY KEY POSITIONING                                                           

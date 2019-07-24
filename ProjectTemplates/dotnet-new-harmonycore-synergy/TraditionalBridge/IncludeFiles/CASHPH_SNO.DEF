@@ -1,0 +1,41 @@
+RECORD CASHPH_SNO
+;
+; CASHPH_SNO - CARaS Shipping History Serial Number/Container file.
+;
+;	Structure:	ISAM
+;	Record Size:	300
+;
+;	Date		Progammer	Modification
+;	---------	-----------	-------------
+;	13-Jan-95	B. Grimes	Initial Version
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+	SNO_TP_DESIG	,A2	; trading partner designator		
+	SNO_OUR_PART	,A30	; our item number			
+	SNO_PO_KEY	,A22	; PO in key. Only loaded if TP needs	
+				;   PO in key (see flag CASYST_PAR file)
+	SNO_DIV_ABBRV	,A5	; division abbreviation			
+	SNO_MY		,A1	; model year				
+	SNO_DEST_ABBRV	,A5	; destination abbreviation		
+	SNO_SHIPDT	,D6	; ship date (YYMMDD)			
+	SNO_SHIP_NO	,D9	; shipment #				
+	SNO_TYPE	,A1	; record type				
+				;   ' ' = Shipment			
+				;   'A' = Adjustment			
+	SNO_TARE_SERIAL	,A15	; Tare / Master Serial Label
+	SNO_TARE_CONT	,A5	; Tare / Master ContainerCode
+	SNO_DETAIL_CONT	,A5	; Detail Container Code	
+	SNO_UNITS_PER	,D7	; Units Per Container
+	SNO_RET_CONT	,A15	; Returnable Container Serial Number	
+	SNO_SERIAL_NO	,A15	; Serial Number
+	FILLER		,A157	; Filler
+;
+;-------------------------------------------------------------------------------
+;--- Key Definition
+;-------------------------------------------------------------------------------
+;
+RECORD, X
+	;	Duplicates, No Changes
+	;
+	SNO_KEY0	,A81	; primary key

@@ -1,0 +1,34 @@
+;CA857_ITM.DEF                                                                                                                      
+;                                                                                                                                   
+;       857 ITEM LEVEL                                                                                                              
+;       DATE : 27-OCT-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   512                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA857_ITM                                                                                                                   
+        I857_SEQ1                 ,D6           ; INPUT SEQUENCE 1                            1 thru     6                          
+        I857_SEQ2                 ,D6           ; INPUT SEQUENCE 2                            7 thru    12                          
+        I857_SEQ3                 ,D6           ; INPUT SEQUENCE 3                           13 thru    18                          
+        I857_INTRCHG_ID           ,A15          ; INTERCHANGE ID                             19 thru    33                          
+        I857_GROUP_ID             ,A15          ; GROUP ID                                   34 thru    48                          
+        I857_TP_DESIG             ,A2           ; TP DESIGNATOR                              49 thru    50                          
+        I857_INVOICE_NO           ,A30          ; INVOICE NUMBER                             51 thru    80                          
+        I857_PO_NO                ,A30          ; PURCHASE ORDER NUMBER                      81 thru   110                          
+        I857_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                      111 thru   140                          
+        I857_SHIP_REF             ,A30          ; SHIP REFERENCE                            141 thru   170                          
+        I857_CUST_PT_QL           ,A2           ; CUSTOMER PART NUMBER QUALIFIER            171 thru   172                          
+        I857_OUR_PART             ,A30          ; OUR PART NUMBER                           173 thru   202                          
+        I857_OUR_PT_QL            ,A2           ; OUR PART NUMBER QUALIFIER                 203 thru   204                          
+        I857_SHIP_QTY             ,D10          ; QUANTITY SHIPPED                          205 thru   214                          
+        I857_SHP_QTY_UM           ,A2           ; SHIP QUANTITY UNIT OF MEASURE             215 thru   216                          
+        I857_RETAIL               ,D14          ; EXTENDED PRICE                            217 thru   230                          
+        I857_HL_ID_NO             ,D6           ; HIERARCHY LEVEL ID NUMBER                 231 thru   236                          
+        I857_HL_PARENT            ,D6           ; HIERARCHY PARENT ID                       237 thru   242                          
+        I857_FILLER_1             ,A99          ; FILLER                                    243 thru   341                          
+        I857_FILLER_2             ,A99          ; FILLER                                    342 thru   440                          
+        I857_FILLER_3             ,A72          ; FILLER                                    441 thru   512                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA857_ITM_KEY             ,A18          ; PRIMARY SORT KEY                                                                  
+                                  ,A494         ; PRIMARY KEY POSITIONING                                                           

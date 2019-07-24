@@ -1,0 +1,2 @@
+	.include 'RELEASE_REQUIREMENT' repository, record='release_requirement'
+	.include 'RELEASE_REQUIREMENT_KEY2' repository, record='remr_key2'

@@ -1,0 +1,21 @@
+        .include "RPSLIB:ddinfo.def"
+GLOBAL DATA SECTION GLOBAL_VALS
+	.INCLUDE 'GLOBAL_VALS' DICTIONARY,RECORD="global_vals"
+        record wgbl_dcs
+                        ,a%size(dcs)
+	record ,x
+		wgbl_dcs_error         ,d2     ; Non-zero = error (See .defines above)
+		wgbl_dcs_mchn_r        ,i4     ; Main repository channel
+		wgbl_dcs_tchn_r        ,i4     ; Repository text channel       
+		wgbl_dcs_sname         ,a30    ; Current structure name
+		wgbl_dcs_sid           ,a4     ; Current structure ID
+		wgbl_dcs_flname        ,a30    ; Current file name
+		wgbl_dcs_tname         ,a30    ; Current template name
+		wgbl_dcs_fname         ,a30    ; Current field name
+		wgbl_dcs_aid		,a4	; Current alias' aliased structure ID
+		wgbl_dcs_kname		,a30	; Current key name
+		wgbl_dcs_grpid		,a4	; Current group ID (0 if group = AC_STR)
+		wgbl_dcs_filler    	,a26    ; Room to grow		
+	
+	.include 'DEF:CAPRNT_PAR.DEF'
+ENDGLOBAL

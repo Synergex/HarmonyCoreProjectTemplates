@@ -1,0 +1,46 @@
+;CA850_MSCP.DEF                                                                                                                     
+;                                                                                                                                   
+;       MISC:PER,PWK,PO3,IT8                                                                                                        
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   604                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_MSCP                                                                                                                  
+        M850_P_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        M850_P_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        M850_P_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        M850_P_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 37 thru    39                          
+        M850_P_SEG_TYPE           ,A3           ; SEGMENT TYPE                               40 thru    42                          
+        M850_P_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        M850_P_FUNCT              ,A2           ; CONTACT FUNCTION CODE                      49 thru    50                          
+        M850_P_CONTACT            ,A35          ; CONTACT NAME                               51 thru    85                          
+        M850_P_PHONE_QL           ,A2           ; CONTACT PHONE NUMBER QUALIFIER             86 thru    87                          
+        M850_P_PHONE_NO           ,A21          ; PHONE NUMBER                               88 thru   108                          
+        M850_PWK_TYPE             ,A2           ; FILLER                                    109 thru   110                          
+        M850_PWK_TRANS            ,A2           ; TRANSMISSION CODE                         111 thru   112                          
+        M850_PWK_COPIES           ,D2           ; COPIES NEEDED                             113 thru   114                          
+        M850_PWK_ORG_ID           ,A2           ; ORGANIZATION ID                           115 thru   116                          
+        M850_PWK_ID_QL            ,A2           ; IDENTIFICATINO CODE QUALIFIER             117 thru   118                          
+        M850_PWK_ID               ,A17          ; ID CODE                                   119 thru   135                          
+        M850_PWK_DESC             ,A80          ; PAPERWORK DESCRIPTION & PO3_08            136 thru   215                          
+        M850_PO3_REASON           ,A2           ; PO3 CHANGE REASON CODE                    216 thru   217                          
+        M850_PO3_DATE             ,D8           ; DATE                                      218 thru   225                          
+        M850_PO3_PRI_CD           ,A3           ; PRICE ID CODE                             226 thru   228                          
+        M850_PO3_PRICE            ,D14          ; UNIT PRICE                                229 thru   242                          
+        M850_PO3_BASIS            ,A2           ; BASIS UNIT PRICE CODE                     243 thru   244                          
+        M850_PO3_QTY              ,D10          ; PO3 QUANTITY                              245 thru   254                          
+        M850_PO3_UOM              ,A2           ; PO3 UNIT OF MEASUREMENT                   255 thru   256                          
+        M850_IT8_BO               ,A1           ; BACK ORDER CODE                           257 thru   257                          
+        M850_IT8_AGENCY           ,A2           ; AGENCY QUALIFIER                          258 thru   259                          
+        M850_IT8_SUB              ,A2           ; PRODUCT SUBSTITUTION CODE                 260 thru   261                          
+        M850_IT8_ID_QL            ,04A2         ; PRODUCT/SERVICE ID QUAL                   262 thru   269                          
+        M850_IT8_ID               ,04A30        ; PRODUCT/SERVICE ID                        270 thru   389                          
+        M850_P_ADDR_QL            ,A2           ; FILLER                                    390 thru   391                          
+        M850_P_FILLER1            ,A15          ; FILLER                                    392 thru   406                          
+        M850_P_FILLER3            ,A99          ; FILLER                                    407 thru   505                          
+        M850_P_FILLER4            ,A99          ; FILLER                                    506 thru   604                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_MSCP_KEY            ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A556         ; PRIMARY KEY POSITIONING                                                           

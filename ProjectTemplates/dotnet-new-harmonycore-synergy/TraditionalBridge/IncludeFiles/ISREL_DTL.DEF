@@ -1,0 +1,25 @@
+;ISREL_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       ISUZU GENERIC RELEASE DETAIL
+;       DATE : 24-MAY-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    92                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  ISREL_DTL                                                                                                                   
+        RLD_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        RLD_RELDT                 ,D6           ; RELEASE DATE                               16 thru    21                          
+        RLD_TP_PART               ,A22          ; TRADING PARTNER PART                       22 thru    43                          
+        RLD_DEST_CODE             ,A15          ; DESTINATION CODE                           44 thru    58                          
+        RLD_REQDT                 ,D6           ; REQUIRED DATE                              59 thru    64                          
+        RLD_REQ_TIME              ,D4           ; REQUIRED TIME                              65 thru    68                          
+        RLD_CUM_QTY               ,D9           ; REQUIRED QUANTITY                          69 thru    77                          
+        RLD_DELIV_NO              ,A10          ; DELIVERY ORDER NUMBER                      78 thru    87                          
+        ISD_TYPE_1                ,A1           ; FORECAST QUALIFIER                         88 thru    88                          
+        ISD_TYPE_2                ,A1           ; FORECAST QUALIFIER                         89 thru    89                          
+        ISD_DATE_QUAL             ,A3           ; DATE QUALIFIER                             90 thru    92                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RLD_KEY1                  ,A68          ; PRIMARY SORT KEY                                                                  
+RECORD  ,X                                                                                                                          
+        RLD_KEY0                  ,A58          ; MATCHES KEY OF HEADER

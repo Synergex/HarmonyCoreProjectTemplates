@@ -1,0 +1,21 @@
+;RECDESADV_DTL.DEF                                                                                                                  
+;                                                                                                                                   
+;       RECEIVED DESPATCH ADVICE DTL                                                                                                
+;       DATE : 16-DEC-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    81                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RECDESADV_DTL                                                                                                               
+        DES_DTL_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DES_DTL_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DES_DTL_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DES_DTL_HDR_LIN           ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        DES_DTL_LINE              ,D6           ; GENERAL SEPARATOR LINE                     49 thru    54                          
+        DES_DTL_ID                ,A12          ; LINE ID                                    55 thru    66                          
+        DES_DTL_PARENT            ,A12          ; PARENT ID                                  67 thru    78                          
+        DES_DTL_PACK_LV           ,A3           ; PACK LEVEL                                 79 thru    81                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RECDESADV_DTL_KEY         ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A27          ; PRIMARY KEY POSITIONING                                                           

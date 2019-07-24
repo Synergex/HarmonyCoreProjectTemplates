@@ -1,0 +1,27 @@
+;CA843_MSG.DEF                                                                                                                      
+;                                                                                                                                   
+;       MESSAGE SEGMENT                                                                                                             
+;       DATE : 22-SEP-95                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   715                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_MSG                                                                                                                   
+        MQT_TP_DESIG              ,A2           ; TRADING PARTNER CODE                        1 thru     2                          
+        MQT_PURPOSE               ,A2           ; PURPOSE CODE                                3 thru     4                          
+        MQT_QT_REF                ,A45          ; QUOTE REFERENCE                             5 thru    49                          
+        MQT_CNTRL_DT              ,D6           ; CONTROL DATE                               50 thru    55                          
+        MQT_SORT_FIELD            ,A30          ; OUR PART/DATE                              56 thru    85                          
+        MQT_SEQ                   ,D6           ; N9 REFERENCE SEQUENCE NUMBER               86 thru    91                          
+        MQT_TEXT1                 ,A99          ; MESSAGE TEXT ONE                           92 thru   190                          
+        MQT_TEXT2                 ,A99          ; MESSAGE TEXT TWO                          191 thru   289                          
+        MQT_TEXT3                 ,A99          ; MESSAGE TEXT THREE                        290 thru   388                          
+        MQT_INTR_ID               ,A15          ; INTERCHANGE ID                            389 thru   403                          
+        MQT_GROUP_ID              ,A15          ; GROUP ID                                  404 thru   418                          
+        MQT_FILLER1               ,A99          ; FILLER                                    419 thru   517                          
+        NQT_FILLER2               ,A99          ; FILLER                                    518 thru   616                          
+        NQT_FILLER3               ,A99          ; FILLER                                    617 thru   715                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_MSG_KEY             ,A91          ; PRIMARY SORT KEY                                                                  
+                                  ,A624         ; PRIMARY KEY POSITIONING                                                           

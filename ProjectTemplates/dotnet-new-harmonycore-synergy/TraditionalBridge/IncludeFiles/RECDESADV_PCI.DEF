@@ -1,0 +1,27 @@
+;RECDESADV_PCI.DEF                                                                                                                  
+;                                                                                                                                   
+;       RECEIVED DESPATCH ADVICE PCI                                                                                                
+;       DATE : 16-DEC-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   443                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RECDESADV_PCI                                                                                                               
+        DES_PCI_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DES_PCI_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DES_PCI_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DES_PCI_HDR_LIN           ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        DES_PCI_DTL_LIN           ,D6           ; DETAIL LINE NUMBER                         49 thru    54                          
+        DES_PCI_LIN_LIN           ,D6           ; LIN LINE NUMBER                            55 thru    60                          
+        DES_PCI_PAC_LIN           ,D6           ; PAC LINE NUMBER                            61 thru    66                          
+        DES_PCI_NAD_LIN           ,D6           ; NAD LINE NUMBER                            67 thru    72                          
+        DES_PCI_LOC_LIN           ,D6           ; LOC LINE NUMBER                            73 thru    78                          
+        DES_PCI_LINE              ,D6           ; PCI LINE NUMBER                            79 thru    84                          
+        DES_PCI_INSTR             ,A3           ; MARKING INSTRUCTIONS                       85 thru    87                          
+        DES_PCI_MARKS             ,10A35        ; MARKS AND LABELS                           88 thru   437                          
+        DES_PCI_STATUS            ,A3           ; CONTAINER/PACKAGE STATUS                  438 thru   440                          
+        DES_PCI_TYPE              ,A3           ; TYPE OF MARKING                           441 thru   443                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RECDESADV_PCI_KEY         ,A84          ; PRIMARY SORT KEY                                                                  
+                                  ,A359         ; PRIMARY KEY POSITIONING                                                           

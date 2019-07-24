@@ -1,0 +1,59 @@
+; FO856M_HDR.DEF
+;
+;	FORD CMMS PRIMARY METALS RAW INPUT HEADER FILE FOR X12 ASN GENERATION.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	02-Aug-1989	W. Chunn	Original
+;	09-Oct-1989	W. Chunn	Added Unit of Measure (FH_UOFM)
+;
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 256		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;									|
+RECORD FO856M_HDR
+	FH_INPUT_SEQ	,D5		; Input Sequence Number.	|	  1 thru 5
+	FH_TRANS_ID	,A15		; Transmit Identification Number|	  6 thru 20
+	FH_DEST_CODE	,A15		; Destination Code (Ship To)	|	 21 thru 35
+	FH_ASN_NO	,A9		; ASN Number			|	 36 thru 44
+	FH_ASN_DATE	,D6		; ASN Date, Format: MMDDYY	|	 45 thru 50
+	FH_ASN_TIME	,D4		; ASN Time, Format: HHMM	|	 51 thru 54
+	FH_ASN_PURPOSE	,A2		; ASN Purpose			|	 55 thru 56
+
+	FH_SA_QUAL	,A3		; Ship/Arrival Qualifier	|	 57 thru 59
+	FH_SA_DATE	,D6		; Ship/Arrival Date: MMDDYY	|	 60 thru 65
+	FH_SA_TIME	,D4		; Ship/Arrival Time: HHMM	|	 66 thru 69
+
+	FH_GROSS_WGT	,D8		; Gross Weight			|	 70 thru 77
+	FH_NET_WGT	,D8		; Net Weight 			|	 78 thru 85
+
+	FH_CARRIER	,A12		; Carrier Code			|	 86 thru 97
+	FH_ROUTE_MODE	,A2		; Routing Mode			|	 98 thru 99
+
+	FH_LOC_CODE	,A2		; Special Location Code		|	100 thru 101
+	FH_LOCATION	,A15		; Speical Location		|	102 thru 116
+
+	FH_EQUIP_CODE	,A2		; Shipping Equipment Code	|	117 thru 118
+	FH_EQUIP_PRE	,A4		; Shipping Equipment Prefix	|	119 thru 122
+	FH_CONVEYANCE	,A7		; Conveyance Number		|	123 thru 129
+
+	FH_FROM_CODE	,A15		; Ship From Code		|	130 thru 144
+
+	FH_OTHER_CODE	,A15		; Other Id Code			|	145 thru 159
+	FH_OTHER_QUAL	,A2		; Other ID Qualifier		|	160 thru 161
+
+	FH_SHIP_BILL	,A11		; Shipper/Bill of Lading Number	|	162 thru 172
+	FH_PACK_SLIP	,A11		; Packing Slip Number		|	173 thru 183
+
+	FH_REF_QUAL	,A2		; Additional Reference Qualifier|	184 thru 185
+	FH_REFERENCE	,A16		; Additional Reference Number	|	186 thru 201
+
+	FH_TOT_QTY	,D8		; Total Quantity Shipped	|	202 thru 209
+	FH_TOT_HL	,D5		; Total Number of Hierarchical  |	210 thru 214
+					;  Levels			|
+	FH_UOFM		,A2		; Unit of Measure		|	215 thru 216
+			,A40		; Filler			|	217 thru 256

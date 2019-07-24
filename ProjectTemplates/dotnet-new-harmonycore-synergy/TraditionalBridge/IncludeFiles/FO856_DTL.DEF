@@ -1,0 +1,36 @@
+;FO856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD ASN DETAIL                                                                                                             
+;       DATE : 23-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   311                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO856_DTL                                                                                                                   
+        FD_TRANS_ID               ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        FD_DEST_CODE              ,A15          ; DESTINATION ID                             16 thru    30                          
+        FD_ASN_NO                 ,A30          ; ASN NUMBER                                 31 thru    60                          
+        FD_CUST_PART              ,A30          ; CUSTOMER PART                              61 thru    90                          
+        FD_INPUT_SEQ              ,D5           ; INPUT SEQUENCE NUMBER                      91 thru    95                          
+        FD_INPUT_SEQ2             ,D5           ; SECONDARY INPUT SEQUENCE                   96 thru   100                          
+        FD_OUR_PART               ,A30          ; CARAS PART NUMBER                         101 thru   130                          
+        FD_PO_NUM                 ,A22          ; FORD PURCHASE ORDER NUMBER                131 thru   152                          
+        FD_PO_DATE                ,D8           ; PURCHASE ORDER DATE                       153 thru   160                          
+        FD_UOFM                   ,A2           ; UNIT OF MEASURE                           161 thru   162                          
+        FD_SHIP_QTY               ,D7           ; SHIPMENT QUANTITY                         163 thru   169                          
+        FD_YTD_CUM                ,D8           ; YEAR TO DATE CUM                          170 thru   177                          
+        FD_PART_QUAL              ,A2           ; PART NUMBER QUALIFIER                     178 thru   179                          
+        FD_REF_QUAL               ,A2           ; DETAIL REFERENCE # QUALIFIER              180 thru   181                          
+        FD_REFERENCE              ,A30          ; REFERENCE NUMBER                          182 thru   211                          
+        FD_DD_QUAL                ,A2           ; DEALER DIRECT REF QUAL                    212 thru   213                          
+        FD_DD_REFNO               ,A30          ; DEALER DIRECT REFERENCE NUMBER            214 thru   243                          
+        FD_PRICE                  ,A10          ; PRICE - INTERNATIONAL                     244 thru   253                          
+        FD_INT_QTY                ,D8           ; QUANTITY - INTERNATIONAL                  254 thru   261                          
+        FD_HL_ID                  ,D6           ; HL ID                                     262 thru   267                          
+        FD_ASN_PURPOSE            ,A2           ; PURPOSE CODE                              268 thru   269                          
+        FD_ASN_TYPE               ,A5           ; ASN TYPE                                  270 thru   274                          
+        FD_FILLER                 ,A37          ; FILLER                                    275 thru   311                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO856_DTL_KEY             ,A90          ; PRIMARY SORT KEY                                                                  
+                                  ,A221         ; PRIMARY KEY POSITIONING                                                           

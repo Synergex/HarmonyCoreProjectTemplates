@@ -1,0 +1,20 @@
+;CA847O_NTE.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND MATERIAL CLAIM NOTES                                                                                               
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   131                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA847O_NTE                                                                                                                  
+        N847O_INTERCHG            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        N847O_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        N847O_HDR_SEQ             ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        N847O_DTL_SEQ             ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        N847O_NTE_SEQ             ,D6           ; NOTE SEQUENCE                              43 thru    48                          
+        N847O_NTE_CODE            ,A3           ; NOTE REFERENCE CODE                        49 thru    51                          
+        N847O_NOTE                ,A80          ; FREE FORM MESSAGE                          52 thru   131                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+                                  ,A98          ; PRIMARY KEY POSITIONING                                                           
+        CA847O_NTE_KEY            ,A33          ; PRIMARY SORT KEY                                                                  

@@ -1,0 +1,30 @@
+;CATS_PKD.DEF                                                                                                                       
+;                                                                                                                                   
+;       TECHNICAL SPECS PACKAGING                                                                                                   
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   415                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATS_PKD                                                                                                                    
+        TSK_SPI_REF_NO            ,A30          ; SPI REFERENCE NUMBER                        1 thru    30                          
+        TSK_SEQ_NO1               ,D6           ; SEQUENCE NUMBER                            31 thru    36                          
+        TSK_SEQ_NO2               ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        TSK_SEQ_NO3               ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        TSK_SEQ_NO4               ,D6           ; SEQUENCE NUMBER                            49 thru    54                          
+        TSK_SEQ_NO5               ,D6           ; SEQUENCE NUMBER                            55 thru    60                          
+        TSK_SEQ_NO6               ,D6           ; SEQUENCE NUMBER                            61 thru    66                          
+        TSK_SEQ_NO7               ,D6           ; SEQUENCE NUMBER                            67 thru    72                          
+        TSK_SEQ_NO8               ,D6           ; SEQUENCE NUMBER                            73 thru    78                          
+        TSK_PACK_CODE             ,A5           ; PACKAGING CODE                             79 thru    83                          
+        TSK_OWNER                 ,A1           ; OWNERSHIP CODE                             84 thru    84                          
+        TSK_INTERCHANGE           ,A17          ; INTERCHANGE ID                             85 thru   101                          
+        TSK_GROUP_ID              ,A17          ; GROUP ID                                  102 thru   118                          
+        TSK_STATUS                ,A1           ; STATUS                                    119 thru   119                          
+        TSK_FILLER1               ,A98          ; FILLER                                    120 thru   217                          
+        TSK_FILLER2               ,A99          ; FILLER                                    218 thru   316                          
+        TSK_FILLER3               ,A99          ; FILLER                                    317 thru   415                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATS_PKD_KEY              ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A337         ; PRIMARY KEY POSITIONING                                                           

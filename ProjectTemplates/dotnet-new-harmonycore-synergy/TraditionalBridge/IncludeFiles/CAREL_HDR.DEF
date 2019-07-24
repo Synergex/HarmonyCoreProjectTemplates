@@ -1,0 +1,143 @@
+RECORD CAREL_HDR
+;
+;   CAREL_HDR	- Generic Release Header File.
+;
+;	22-Sep-92	M. Farneth	Added color code.
+;	01-DEC-93	T. Bunker	Expand part number to 30.
+;       25-Jul-94       B. Grimes       Added RLH_ST_ID to hold ST02.
+;------------------------------------------------------------------------------
+; FILE ORGANIZATION: Sequential  | RECORD SIZE: 536 		|  POSITIONS
+;------------------------------------------------------------------------------
+			,A16	; Reserved for split. 		|   1 thru 16
+				;  See alternate buffer.	|
+
+	RLH_SUPP_ID	,A15	; Supplier Id.			|  17 thru 31   
+	RLH_RELDT	,D6	; Release date			|  32 thru 37 
+	RLH_RELNO	,A10	; Release Number                |  38 thru 47
+	RLH_PURPOSE	,D2	; Purpose                       |  48 thru 49
+				;				|
+	RLH_TP_PART	,A30	; Trading Partner Part          |  50 thru 79
+	RLH_PO_KEY	,A22	; P.O. Key Value. 		|  80 thru 101
+	RLH_DIV_CODE	,A15	; Division Code                 | 102 thru 116
+	RLH_MY		,A1	; Model Year                    | 117 thru 117
+	RLH_DEST_CODE	,A15	; Destination Code              | 118 thru 132
+				;				|
+	RLH_ISSUER	,A20	; Issuer or Release Analyst	| 133 thru 152
+	RLH_HORIZ_START	,D6	; Horizon Start Date            | 153 thru 158
+	RLH_HORIZ_END	,D6	; Horizon End Date		| 159 thru 164
+	RLH_DATE_QUAL	,A2	; Qualifies requirement dates:	| 165 thru 166
+				;	'SH' - Shipment Dates   |
+				;	'DL' - Delivery Dates   |
+	RLH_PO		,A22	; Purchase order Number         | 167 thru 188
+	RLH_SHIP_CODE	,A2	; Ship Code                     | 189 thru 190
+	RLH_DOCK	,A5	; Dock Code                     | 191 thru 195
+	RLH_PRIOR_REQ	,D9	; Trading Partner's CUM/QTY Req | 196 thru 204
+				;  prior to this release.	|
+	RLH_PRIOR_DATE	,D6	; Date associated with 		| 205 thru 210
+				;  RLH_PRIOR_QTY		|
+	RLH_BASE_CUM	,D9	; Base CUM, a CUM that is used 	| 211 thru 219
+				;  to build CUM requirements 	|
+				;  when given qty reqmts.	|
+	RLH_CUM_RECV	,D9	; Trading Partner's CUM received| 220 thru 228
+	RLH_LAST_SHDT	,D6	; Last Ship Date                | 229 thru 234
+	RLH_LAST_SHQT	,D9	; Last Ship Quantity            | 235 thru 243
+	RLH_DIV_FCST	,D1	; forecast by part/div or 	| 244 thru 244
+				;   part/dest:			|
+				;      0 = Part/Dest            |
+				;      1 = Part/Div             |
+	RLH_PLANT_LOC	,A5	; Plant Location.		| 245 thru 249
+				;   i.e. assembly location	|
+				;	 line feed		|
+	RLH_SHIP_TO_CODE,A15	; Ship to location Code. 	| 250 thru 264
+				;  (only if different than	|
+				;	  the destination)	|
+	RLH_PART_DESCR	,A30	; Part Descr. transmitted. 	| 265 thru 294
+				;   Not from CAPART_MST		|
+	RLH_LOT_SIZE	,D7	; Lot Size, i.e. TP orders in 	| 295 thru 301
+				;   muliples of this		|
+	RLH_STD_PACK	,D7	; Standard Pack Qty or Qty per 	| 302 thru 308
+				;   container			|
+	RLH_UOFM	,A2	; Unit of Measure		| 309 thru 310
+	RLH_CARRIER	,A5	; Carrier Code on release.	| 311 thru 315
+	RLH_TRANS_MODE	,A2	; Transport Mode on release.	| 316 thru 317
+	RLH_CONTAINER	,A10	; Container Type		| 318 thru 327
+	RLH_NUM1	,D6	; Misc. Numeric			| 328 thru 333
+	RLH_ALPHA1	,A10	; Misc. Alpha			| 334 thru 343
+	RLH_NUM2	,D4	; Misc Numeric			| 344 thru 347
+	RLH_COLOR_CODE	,A8	; Color code			| 348 thru 355
+	RLH_ST_ID       ,A9     ; ST02                          | 356 thru 364
+	RLH_FILLER1	,A172	;				| 365 thru 536
+
+RECORD,X
+			,A16
+	RLH_KEY1	,A116	; sort key - RLH_SUPP_ID thru RLH_DEST_CODE
+
+RECORD,X
+			,A16
+	RLH_KEY0	,A33	; partial key - RLH_SUPP_ID thru RLH_PURPOSE
+;------------------------------------------------------------------------------
+;                 ----- Alternate Record Definition -----
+;------------------------------------------------------------------------------
+.IFDEF CAREL_HDR_ALT
+
+RECORD A_CAREL_HDR
+				,A%SIZE(CAREL_HDR)
+RECORD	,X
+	A_RLH_COMPANY		,A8	; CARaS Company to Split to.
+	A_RLH_SPLIT_SEQ		,D5	; Split sequence number.
+	A_RLH_SPLIT_PCT		,D3.2	; Total split percent accumulator
+	A_RLH_SUPP_ID		,A15	   
+	A_RLH_RELDT		,D6	 
+	A_RLH_RELNO		,A10	
+	A_RLH_PURPOSE		,D2	
+	A_RLH_TP_PART		,A30	
+	A_RLH_PO_KEY		,A22	
+	A_RLH_DIV_CODE		,A15	
+	A_RLH_MY		,A1	
+	A_RLH_DEST_CODE		,A15	
+	A_RLH_ISSUER		,A20	
+	A_RLH_HORIZ_START	,D6		
+	A_RLH_HORIZ_END		,D6	
+	A_RLH_DATE_QUAL		,A2	
+	A_RLH_PO		,A22
+	A_RLH_SHIP_CODE		,A2	
+	A_RLH_DOCK		,A5	
+	A_RLH_PRIOR_REQ		,D9	
+	A_RLH_PRIOR_DATE	,D6	
+	A_RLH_BASE_CUM		,D9	
+	A_RLH_CUM_RECV		,D9
+	A_RLH_LAST_SHDT		,D6	
+	A_RLH_LAST_SHQT		,D9	
+	A_RLH_DIV_FCST		,D1	
+	A_RLH_PLANT_LOC		,A5	
+	A_RLH_SHIP_TO_CODE	,A15	
+	A_RLH_PART_DESCR	,A30	
+	A_RLH_LOT_SIZE		,D7	
+	A_RLH_STD_PACK		,D7	
+	A_RLH_UOFM		,A2	
+	A_RLH_CARRIER		,A5	
+	A_RLH_TRANS_MODE	,A2	
+	A_RLH_CONTAINER		,A10	
+	A_RLH_NUM1		,D6	
+	A_RLH_ALPHA1		,A10	
+	A_RLH_NUM2		,D4
+	A_RLH_COLOR_CODE	,A8
+	A_RLH_ST_ID             ,A9
+	A_RLH_FILLER1	        ,A172
+.ENDC
+
+.IFDEF CAREL_HDR_TOTALS
+;------------------------------------------------------------------------------
+;             ----- Split Working Totals Record Definition -----
+;------------------------------------------------------------------------------
+;
+;	The quantity fields accumulate the total quantities that have been
+;	split to multiple companies.  This buffer is not written to any file.
+;
+
+RECORD T_CAREL_HDR
+	T_RLH_PRIOR_REQ		,D9
+	T_RLH_BASE_CUM		,D9
+	T_RLH_CUM_RECV		,D9
+	T_RLH_SPLIT_PCT		,D3.2
+.ENDC

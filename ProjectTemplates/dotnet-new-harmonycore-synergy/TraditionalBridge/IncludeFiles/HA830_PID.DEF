@@ -1,0 +1,18 @@
+;HA830_PID.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 830 PID SEGMENT                                                                                                     
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   106                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA830_PID                                                                                                                   
+        HA830PDP1SEQ_NO           ,D5           ; PARENT LEVEL 1 SEQUENCE NO                  1 thru     5                          
+        HA830PDP2SEQ_NO           ,D5           ; PARENT LEVEL 2 SEQUENCE NO                  6 thru    10                          
+        HA830PDP3SEQ_NO           ,D5           ; PARENT LEVEL 3 SEQUENCE NO                 11 thru    15                          
+        HA830_PID_COLAT           ,A2           ; RECORD TYPE COLLATING SEQ - 42             16 thru    17                          
+        HA830_PID_REC             ,A3           ; RECORD TYPE - PID                          18 thru    20                          
+        HA830PID_SEQ_NO           ,D5           ; PID SEQUENCE NO                            21 thru    25                          
+        HA830_PID_01              ,A1           ; ITEM DESCRIPTION TYPE                      26 thru    26                          
+        HA830_PID_05              ,A80          ; ITEM DESCRIPTION                           27 thru   106                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,12 @@
+;CH830_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 830 NOTES                                                                                                          
+;       DATE : 20-MAY-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   311                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH830_NTE                                                                                                                   
+        CHN_RELNO                 ,A5           ; RELEASE NUMBER                              1 thru     5                          
+        CHN_NOTES                 ,06A51        ; NOTES                                       6 thru   311                          
+                                                                                                                                    
+                                                                                                                                    

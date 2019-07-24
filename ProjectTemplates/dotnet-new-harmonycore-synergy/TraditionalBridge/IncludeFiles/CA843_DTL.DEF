@@ -1,0 +1,71 @@
+;CA843_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE DETAIL                                                                                                    
+;       DATE : 09-JUL-01                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1112                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_DTL                                                                                                                   
+        DQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        DQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        DQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        DQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        DQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        DQT_SCH_SEQ               ,D6           ; SCHEDULE SEQ NO                            31 thru    36                          
+        DQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        DQT_PDD_SEQ               ,D6           ; PRICING DATA SEQUENCE NUMBER               43 thru    48                          
+        DQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        DQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        DQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        DQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        DQT_ASSIGNED_ID           ,A20          ; ASSIGN ID                                  88 thru   107                          
+        DQT_QTY                   ,D9           ; QUANTITY ORDERED                          108 thru   116                          
+        DQT_PACK                  ,D6           ; PRODUCT PACK QUANTITY                     117 thru   122                          
+        DQT_UOFM                  ,A2           ; UNIT OF MEASUREMENT                       123 thru   124                          
+        DQT_UNIT_PRICE            ,D17          ; UNIT PRICE                                125 thru   141                          
+        DQT_PO3_PRICE             ,D15          ; UNIT PRICE BASED ON QUANTITY              142 thru   156                          
+        DQT_CHANGE_CODE           ,A2           ; REASON FOR CHANGE                         157 thru   158                          
+        DQT_PRICE_QL              ,A3           ; PRICE QUALIFIER                           159 thru   161                          
+        DQT_MIN_QTY               ,D10          ; MINIMUM ORDER QUANTITY                    162 thru   171                          
+        DQT_PROD_DESC             ,A80          ; PRODUCT DESCRIPTION                       172 thru   251                          
+        DQT_PRICE_CODE            ,A2           ; PRICE CODE                                252 thru   253                          
+        DQT_PROD_QL1              ,A2           ; PRODUCT QUALIFIER 1                       254 thru   255                          
+        DQT_PROD_QL2              ,A2           ; PRODUCT QUALIFIER 2                       256 thru   257                          
+        DQT_PROD_QL3              ,A2           ; PRODUCT QUALIFIER 3                       258 thru   259                          
+        DQT_PROD_QL4              ,A2           ; PRODUCT QUALIFIER 4                       260 thru   261                          
+        DQT_PROD_QL5              ,A2           ; PRODUCT QUALIFIER 5                       262 thru   263                          
+        DQT_PROD_QL6              ,A2           ; PRODUCT QUALIFIER 6                       264 thru   265                          
+        DQT_PROD_QL7              ,A2           ; PRODUCT QUALIFIER 7                       266 thru   267                          
+        DQT_PROD_QL8              ,A2           ; PRODUCT QUALIFIER 8                       268 thru   269                          
+        DQT_PROD_QL9              ,A2           ; PRODUCT QUALIFIER 9                       270 thru   271                          
+        DQT_PROD_QL10             ,A2           ; PRODUCT QUALIFIER 10                      272 thru   273                          
+        DQT_PROD_QL11             ,A2           ; PRODUCT QUALIFIER 11                      274 thru   275                          
+        DQT_PROD_CODE1            ,A40          ; PRODUCT CODE 1                            276 thru   315                          
+        DQT_PROD_CODE2            ,A40          ; PRODUCT CODE 2                            316 thru   355                          
+        DQT_PROD_CODE3            ,A40          ; PRODUCT CODE 3                            356 thru   395                          
+        DQT_PROD_CODE4            ,A40          ; PRODUCT CODE 4                            396 thru   435                          
+        DQT_PROD_CODE5            ,A40          ; PRODUCT CODE 5                            436 thru   475                          
+        DQT_PROD_CODE6            ,A40          ; PRODUCT CODE 6                            476 thru   515                          
+        DQT_PROD_CODE7            ,A40          ; PRODUCT CODE 7                            516 thru   555                          
+        DQT_PROD_CODE8            ,A40          ; PRODUCT CODE 8                            556 thru   595                          
+        DQT_PROD_CODE9            ,A40          ; PRODUCT CODE 9                            596 thru   635                          
+        DQT_PROD_CODE10           ,A40          ; PRODUCT CODE 10                           636 thru   675                          
+        DQT_PROD_CODE11           ,A40          ; PRODUCT CODE 11                           676 thru   715                          
+        DQT_GMEA_QL               ,A3           ; MEASUREMENT QUALIFIER                     716 thru   718                          
+        DQT_GMEA_VALUE            ,D15          ; WEIGHT OR MEASUREMENT VALUE               719 thru   733                          
+        DQT_GMEA_UOFM             ,A2           ; WEIGHT UNIT OF MEASUREMENT                734 thru   735                          
+        DQT_NMEA_QL               ,A3           ; NET MEASURE QUALIFIER                     736 thru   738                          
+        DQT_NMEA_VALUE            ,D15          ; NET WT OR MEA VALUE                       739 thru   753                          
+        DQT_NMEA_UOFM             ,A2           ; NET WT/MEA UNIT OF MEASUREMENT            754 thru   755                          
+        DQT_HAN_CST               ,D15          ; HANDLING COST                             756 thru   770                          
+        DQT_OTH_CST               ,D15          ; OTHER COST                                771 thru   785                          
+        DQT_SET_CST               ,D15          ; SETUP COST                                786 thru   800                          
+        DQT_MIN_AMOUNT            ,D15          ; MINIMUM ORDER AMOUNT                      801 thru   815                          
+        DQT_MSG1                  ,A99          ; MESSAGE FIELD 1                           816 thru   914                          
+        DQT_MSG2                  ,A99          ; MESSAGE FIELD 2                           915 thru  1013                          
+        DQT_MSG3                  ,A99          ; MESSAGE FIELD 3                          1014 thru  1112                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_DTL_KEY             ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A1058        ; PRIMARY KEY POSITIONING                                                           

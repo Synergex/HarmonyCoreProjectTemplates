@@ -1,0 +1,41 @@
+;CA865_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PO CHANGE ACK. HEADER FILE                                                                                                  
+;       DATE : 18-JUL-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   498                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA865_HDR                                                                                                                   
+        H865_TP_DESIG             ,A2           ; TRADING PARTNER DESIG                       1 thru     2                          
+        H865_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        H865_GROUP_ID             ,A15          ; GROUP RECEIVER ID CODE                     18 thru    32                          
+        H865_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        H865_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        H865_TX_PURPOSE           ,A2           ; TRANSACTION SET PURPOSE                    63 thru    64                          
+        H865_AK_PURPOSE           ,A2           ; ACKNOWLEDGEMENT PURPOSE CODE               65 thru    66                          
+        H865_AK_DATE              ,D8           ; ACK CREATION DATE                          67 thru    74                          
+        H865_RELNO                ,A30          ; RELEASE NUMBER                             75 thru   104                          
+        H865_REQ_REFNO            ,A45          ; REQUEST REFERENCE NUMBER                  105 thru   149                          
+        H865_CONTRACT             ,A30          ; CONTRACT NUMBER                           150 thru   179                          
+        H865_REFNO                ,A30          ; REFERENCE NUMBER                          180 thru   209                          
+        H865_PAY_METHOD           ,A2           ; PAYMENT METHOD                            210 thru   211                          
+        H865_TITLE_PASS           ,A2           ; TITLE PASSED QUALIFIER                    212 thru   213                          
+        H865_FOB_DESC             ,A80          ; F.O.B. DESCRIPTION                        214 thru   293                          
+        H865_ACK_CNT              ,D6           ; ACK SEGMENT COUNT                         294 thru   299                          
+        H865_DTL_CNT              ,D6           ; DETAIL RECORD COUNT (PO1)                 300 thru   305                          
+        H865_CUR_ORG_ID           ,A2           ; CURRENCY ORGANIZATION ID                  306 thru   307                          
+        H865_CUR_CODE             ,A3           ; CURRENCY CODE                             308 thru   310                          
+        H865_PO_SEQ_NO            ,A8           ; P.O. CHANGE SEQUENCE NUMBER               311 thru   318                          
+        H865_AUTHORIZED           ,A35          ; AUTHORIZED BY                             319 thru   353                          
+        H865_TOT_AMT              ,D15          ; AMT TOTAL                                 354 thru   368                          
+        H865_PO_TYPE              ,A2           ; PURCHASE ORDER TYPE                       369 thru   370                          
+        H865_CHG_DATE             ,D8           ; P.O. CHANGE DATE                          371 thru   378                          
+        H865_FOB_LC_QL2           ,A2           ; LOCATION QUALIFIER                        379 thru   380                          
+        H865_FOB_DESC2            ,A80          ; DESCRIPTION                               381 thru   460                          
+        H865_ACT_PO_NO            ,A22          ; ACTUAL PO NUMBER                          461 thru   482                          
+        H865_FILLER               ,A16          ; FILLER                                    483 thru   498                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA865_HDR_KEY             ,A62          ; PRIMARY SORT KEY                                                                  
+                                  ,A436         ; PRIMARY KEY POSITIONING                                                           

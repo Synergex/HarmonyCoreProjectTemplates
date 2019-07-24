@@ -1,0 +1,112 @@
+; CASINT_DTL.DEF - CARaS Shipper Interface Transaction Detail File
+;
+;	File Organization: Sequential		Record Size: 803
+;
+;-------------------------------------------------------------------------------
+
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+
+RECORD CASINT_DTL
+	STD_TRX_TYPE	,D1	; Transaction Type.
+				; -----------------
+				; 1 = Incoming (Input to CARaS System).
+				; 2 = Outgoing (Output from CARaS System).
+
+	STD_COMPNY_CODE	,A8	; CARaS Company/Database Code
+	STD_TP_DESIG	,A2	; Trading Partner Designator
+	STD_SHIP_NO	,D9	; Shipper Number
+	STD_OUR_PART	,A30	; Our/CARaS Item Number
+
+	STD_CUST_PART	,A30	; Trading Partner Part Number
+
+	STD_SHIP_QTY	,D7	; Quantity Shipped
+	STD_UOFM	,A2	; Unit of Measure
+
+	STD_CONTAINER1	,A10	; Container Type 1 Code (CARaS Table #103)
+	STD_CONT_DESC1	,A30	; Container 1: Description
+	STD_CONT_QTY1	,D4	; Container 1: # of Containers
+	STD_NET_WGHT1	,D6	; Container 1: Net Weight
+	STD_TARE1	,D5	; Container 1: Tare Weight
+
+	STD_CONTAINER2	,A10	; Container Type 2 Code (CARaS Table #103)
+	STD_CONT_DESC2	,A30	; Container 2: Description
+	STD_CONT_QTY2	,D4	; Container 2: # of Containers
+	STD_NET_WGHT2	,D6	; Container 2: Net Weight
+	STD_TARE2	,D5	; Container 2: Tare Weight
+
+	STD_PART_DESC	,A30	; Part Description
+	STD_PART_WGHT	,D10	; Part Weight, Format: XXXXX.XXXXX (implied dec)
+	STD_STNRD_PACK	,D6	; Standard Pack Quantity
+	STD_PO_NO	,A22	; Purchase Order #
+	STD_PO_DATE	,D6	; Purchase Order Date, Format: YYMMDD
+
+	STD_COMM_CODE	,A16	; Commodity Code
+	STD_PRICE	,D10	; Selling Price (XX,XXX.XXXXX)
+	STD_BOOK	,A5	; Book number (Ford)
+	STD_MY		,A1	; Model Year (GM)
+	STD_YTD_CUM	,D9	; Year-To-Date Quantity Shipped
+
+	STD_REF_NO	,A20	; Miscellaneous Reference Number (i.e. Delivery
+				; Order Number, Release Authorization Number,
+				; Lot Number etc.)
+				;
+	STD_STATUS	,A1	; Line Item Status
+				; ----------------
+				; H = Hold Transaction (Do Not Post)
+				; N = Not Posted
+				; P = Posted
+
+	STD_ENTRY_DATE	,D6	; Date Entered, Format: YYMMDD
+	STD_ENTRY_TIME	,D4	; Time Entered, Format: HHMM
+	STD_USER_DEF1	,A15	; User Defined Field
+	STD_SKANBAN	,A10	; Starting KANBAN #
+	STD_EKANBAN	,A10	; Ending KANBAN #
+	STD_SCN		,A9	; Shipment control #(GM)
+	STD_RC_FLAG	,D1	; Part Returnable Container Flag
+	STD_EC_LVL_OLD	,A6	; Engineering change level
+	STD_REL_DATE	,D6	; Release Date
+	STD_LINE_FEED	,A8	; Line feed location
+	STD_SHPNO	,A30	; ANSI Standard length shipper number
+	STD_SALES_ORD_NO,A10	; Sales Order Number for shipment
+	GROUP STD_REQ_ID     ,A    ; Requirement ID
+	    STD_REQ_ID_COMP ,A8     ; Current company
+	    STD_REQ_ID_TP   ,A2     ; Current TP
+	    STD_REQ_ID_OD   ,A15    ; Odometer
+	    STD_REQ_ID_SO   ,A1     ; Source(1-part/dest,2-prod com,3-po master)
+	    STD_REQ_FILLER  ,A4
+	ENDGROUP
+
+	STD_REL_NUM	,A10	; Release Number
+			,A20	; Reserved for release # expansion
+        		,D15    ; Filler
+        STD_QTY_ORD_UOFM,A2     ; Quantity Ordered Unit of measure
+        STD_PREV_QTY    ,D15    ; Quantity before modification
+        STD_REQ_QTY     ,D15    ; Ordered quantity
+        		,A2     ; Filler
+        STD_WEIGHT_TYPE ,A2     ; Weight Qualifier
+        STD_PURPOSE     ,A2     ; Purpose Code
+        STD_DOCK_CODE   ,A30    ; Dock Code
+	STD_EC_LVL	,A30	; Engineering Change Level
+        STD_PACK_SLIP   ,A30    ; Packing Slip Number
+        STD_CONTRACT    ,A30    ; Contract Number
+        STD_LOT_NUMBER  ,A30    ; Lot Number
+        STD_HEAT_CODE   ,A30    ; Heat Code
+        STD_SEAL_NUMBER ,A30    ; Seal Number
+        STD_INVOICE     ,A30    ; Invoice Number
+        STD_DRAWING_REV ,A30    ; Drawing Revision
+        STD_PROCESS_CODE,A30    ; Processing Code
+	STD_CHASSIS_NO	,A30	; Chassis Number 			
+	STD_JOB_SEQ   	,A30	; Job Sequence   			 
+	STD_PROJECT_NO	,A30	; Project Number
+	STD_AUTH_NO	,A30	; Authorization Number
+	STD_PO_NO_LIN	,A11	; PO Line Number
+	STD_UCC_SERIAL	,A20	; UCC Serial Number
+	STD_UCC_MASTER	,A20	; UCC Master Serial Number
+	STD_LOAD_TYPE	,A1	; Load Type P - Pallet or C - Carton
+	STD_CNTRY_ORIGIN,A5	; Country of origin
+
+RECORD	,X
+	STD_KEY0	,A50
+

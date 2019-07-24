@@ -1,0 +1,3 @@
+        .include 'SHIPPER_CONTAINERS' repository, record='SHIPPER_CONTAINERS'
+        .include 'SHIPPER_CONTAINERS_KEY1' repository, record='WSHC_KEY1'
+        .include 'SHIPPER_CONTAINERS_KEY2' repository, record='WSHC_KEY2'

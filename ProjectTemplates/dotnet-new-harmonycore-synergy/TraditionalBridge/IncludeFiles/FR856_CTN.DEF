@@ -1,0 +1,18 @@
+;FR856_CTN.DEF                                                                                                                      
+;                                                                                                                                   
+;       FREIGHTLINER ASN CONTAINERS                                                                                                 
+;       DATE : 22-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    72                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FR856_CTN                                                                                                                   
+        CTN_ASN_NO                ,A30          ; ASN NUMBER                                  1 thru    30                          
+        CTN_CONT_CODE             ,A5           ; CONTAINER CODE                             31 thru    35                          
+        CTN_CONT_QTY              ,D7           ; CONTAINER COUNT                            36 thru    42                          
+        CTN_INTR_ID               ,A15          ; INTERCHANGE ID                             43 thru    57                          
+        CTN_GROUP_ID              ,A15          ; GROUP ID                                   58 thru    72                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FR856_CTN_KEY             ,A35          ; PRIMARY SORT KEY                                                                  
+                                  ,A37          ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,19 @@
+.define usr_key(arg) ^m(usr_struct[arg].usr_key0,usr_handle)
+.define usr_ship_ref(arg) ^m(usr_struct[arg].usr_deliv_no,usr_handle)
+.define usr_qty(arg) ^m(usr_struct[arg].usr_remain_qty,usr_handle)
+.define usr_d_qty(arg) ^m(usr_struct[arg].usr_remain_d_qty,usr_handle)
+
+record match_key
+	mk_tp_desig		,a2
+	mk_our_part		,a30
+	mk_po_no		,a22
+	mk_div_abbrv		,a5
+	mk_my			,a1
+	mk_dest_abbrv		,a5
+	
+structure usr_struct
+	usr_key0		,a%size(match_key)
+	usr_deliv_no		,a30
+	usr_remain_qty		,d15
+	usr_remain_d_qty	,d15
+

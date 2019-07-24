@@ -1,0 +1,29 @@
+	.INCLUDE 'GM830C_HDR' DICTIONARY,RECORD='GM830C_HDR'
+.IFDEF XX830_HDR_WORK
+	.INCLUDE 'GM830C_HDR_WORK' DICTIONARY,RECORD='GM830C_HDR_WORK'
+RECORD, X
+				,A8	; Company Code.
+				,D5	; Sequence Number.
+	GM830C_HDU		,A%SIZE(GM830C_HDR)	; Unsplit Header.
+.ENDC
+
+.IFDEF XX830_HDR_TOTALS
+RECORD GM830C_HDR_TOTALS
+;
+;	GM X12 MATERIAL RELEASE HEADER - SPLIT PROCESSING
+;	WORKING STORAGE BUFFER OF QUANTITY FIELDS.
+;
+;	The Quantity Fields accumulate the Total Quantities
+;	that have been Split to the Multiple Companies.
+;
+;	** Note: This Buffer is not Written to any File.
+;
+	GMH_FAB_QTY_T	,D%SIZE(GMH_FAB_QTY)	; Fab Quantity.
+	GMH_RAW_QTY_T	,D%SIZE(GMH_RAW_QTY)	; Raw Quantity.
+	GMH_PREV_CUM_T	,D%SIZE(GMH_PREV_CUM)	; Previous Cum Required.
+	GMH_PREV_QTY_T	,D%SIZE(GMH_PREV_QTY)	; Previous Qty Required.
+	GMH_RECV_QTY_T	,D%SIZE(GMH_RECV_QTY)	; Last Received Quantity.
+	GMH_SHIP_QTY_T	,D%SIZE(GMH_SHIP_QTY)	; Last Ship Quantity.
+	GMH_LAST_YTD_T	,D%SIZE(GMH_LAST_YTD)	; Last Received YTD Quantity.
+	GMH_PERCNT_T	,D3.2			; Percent of Total Split.
+.ENDC

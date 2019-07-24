@@ -1,0 +1,52 @@
+;NA830_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NAVISTAR MAT'L RELEASE DETAIL                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   112                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NA830_DTL                                                                                                                   
+        NRD_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        NRD_ISSUED_BY             ,A15          ; ISSUED BY CODE                             16 thru    30                          
+        NRD_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   31 thru    45                          
+        NRD_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       46 thru    67                          
+        NRD_REL_NO                ,A19          ; RELEASE NUMBER                             68 thru    86                          
+        NRD_REQ_TYPE              ,A2           ; REQUIREMENT TYPE                           87 thru    88                          
+        NRD_REQ_DATE              ,D8           ; REQUIREMENT DATE                           89 thru    96                          
+        NRD_REQ_QTY               ,D8           ; REQUIREMENT QUANTITY                       97 thru   104                          
+        NRD_END_DATE              ,D8           ; REQUIREMENT END DATE                      105 thru   112                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NA830_DTL_KEY             ,A96          ; PRIMARY SORT KEY                                                                  
+                                  ,A16          ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF XX830_DTL_WORK
+RECORD NA830_DTL_WORK
+	NRD_COMP_W		  ,A8		; COMPANY CODE
+	NRD_SEQN_W		  ,D5		; SEQUENCE NUMBER
+        NRD_SUPPLIER_W              ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        NRD_ISSUED_BY_W             ,A15          ; ISSUED BY CODE                             16 thru    30                          
+        NRD_SHIP_TO_W               ,A15          ; SHIP TO/DESTINATION CODE                   31 thru    45                          
+        NRD_CUST_PART_W             ,A22          ; CUSTOMER PART NUMBER                       46 thru    67                          
+        NRD_REL_NO_W                ,A19          ; RELEASE NUMBER                             68 thru    86                          
+        NRD_REQ_TYPE_W              ,A2           ; REQUIREMENT TYPE                           87 thru    88                          
+        NRD_REQ_DATE_W              ,D8           ; REQUIREMENT DATE                           89 thru    96                          
+        NRD_REQ_QTY_W               ,D8           ; REQUIREMENT QUANTITY                       97 thru   104                          
+        NRD_END_DATE_W              ,D8           ; REQUIREMENT END DATE                      105 thru   112                          
+RECORD,	X
+				,A13
+	NA830U_DTL		  ,A%SIZE(NA830_DTL)
+.ENDC
+
+.IFDEF XX830_DTL_TOTALS
+RECORD NA830_DTL_TOTALS
+;
+;	Navistar Release Requirements - Split Processing.
+;	Working Storage Buffer of Quantity Fields.
+;
+;	The quantity fields accumulate the total quantities thet have been
+;	split to multiple companies.  This buffer is not written to any file.
+;
+	NRD_REQ_QTY_T		  ,D8		; QUANTITY REQUIRED
+.ENDC

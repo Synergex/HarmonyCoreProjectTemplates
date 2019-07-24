@@ -1,0 +1,35 @@
+	webtalk_server		,a128	; Server name or IP address- required
+	webtalk_hostport	,a5	; host port number
+	webtalk_data_in		,a1024
+group	webtalk_scale_input ,x
+		scale_id		,d1	; optional
+		scale_command		,d1	; scale command mnemonic
+endgroup
+	; The following	fields are set within %webtalk_api
+group webtalk_return_fields
+	webtalk_err_type	,i4	; Error	Type
+	webtalk_verb		,a15	; Last webtalk verb issued
+	webtalk_rtn_code	,d3	; webtalk return code
+	webtalk_rtn_msg1	,a128	; webtalk_api return message
+	webtalk_rtn_msg2	,a128	; webtalk_api return message
+	
+endgroup
+	webtalk_data_out	,a1024
+group	webtalk_scale_output	,x
+		scale_qty		,d18
+		scale_weight		,d18
+endgroup
+.include "DEF:WSOCKBLOCK.DEF"
+group	webtalk_3030_scale_output	
+					,a6
+		scale_gross		,d9
+					,a6
+		scale_net		,d9
+					,a6
+		scale_tare		,d9
+					,a6
+		scale_cnt		,d8
+					,a10
+		scale_unit_wt		,d9
+					,a964
+endgroup

@@ -1,0 +1,134 @@
+; FOCPK_DTL - Ford CPK Detail File.
+;
+;	File Organization: Isam 		Record Size: 286
+;
+;	Primary Key --> CPD_KEY0
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	08-Aug-90	T. L. Radke	Original
+;
+;	19-Dec-90	C. Neely	Modifications
+;
+;	02-Dec-93	T. Bunker	Expand part numbers to 30.
+;					Expand record size from 256 to 286
+;-------------------------------------------------------------------------------
+;                       Record Definition 
+;-------------------------------------------------------------------------------
+RECORD FOCPK_DTL
+	CPD_REPORT_NO		,D9		; Report Number
+	CPD_OUR_PART		,A30		; Our Part Number
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CP" - Original Part.
+						; 
+	CPD_SORT_PCT		,D1		; 100 % Sorting.      Yes or No.
+	CPD_OPT_CPK		,D1		; Optimum CPK value.  Yes or No.
+	CPD_CONT_IMPRV		,D1		; Continue Improving. Yes or No.
+	CPD_IN_CONTROL		,D1		; In Control.         Yes or No.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CP" - Original Part
+						; or "CR" - Replacement Part.
+						;
+	CPD_CTLPLN_DATE		,D6		; Control Plan Date.
+	CPD_SGNOFF_DATE		,D6		; Feasibility signoff date.
+	CPD_EFFANA_DATE		,D6		; Failure mode effective analysis Date.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CR" - Replacement Part.
+						
+	CPD_RPL_OUR_PART	,A30		; Replacement Our Part.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE = "PF" - Initial Sample Inspection Report.
+						; 
+	CPD_BLUEPRT_DATE	,D6		; Blue Print Date
+	CPD_ISIR_DATE		,D6		; ISIR Approval Date.
+	CPD_MODEL_YEAR		,D4		; Model Year for Report
+	CPD_PCI_NO		,A30		; Product Change Information No.
+	CPD_ISIR_NO		,A30		; ISIR Report No.
+	CPD_RECV_ABBRV		,A5		; Receiver Abbreviation
+	CPD_REF_TYPE		,A2		; Reference Type
+				,A112		
+
+;
+;-------------------------------------------------------------------------------
+; Primary Key - Allow Duplicates 
+;-------------------------------------------------------------------------------
+RECORD CPD_KEY0
+	K0_CPD_REPORT_NO	,D9		; Report Number
+	K0_CPD_OUR_PART		,A30		; Our Part Number
+;
+;-------------------------------------------------------------------------------
+; Alternate Key 1 - No Duplicates 
+;-------------------------------------------------------------------------------
+RECORD CPD_KEY1
+	K1_CPD_REPORT_NO	,D9		; Report Number
+	K1_CPD_RECV_ABBRV	,A5		; Receiver Abbreviation
+	K1_CPD_REF_TYPE		,A2		; Reference Type
+	K1_CPD_OUR_PART		,A30		; Our Part Number
+;
+;-------------------------------------------------------------------------------
+; 		Alternate Record Definition
+;-------------------------------------------------------------------------------
+;
+.IFDEF FOCPK_DTL_ALT
+
+RECORD A_FOCPK_DTL
+	A_CPD_REPORT_NO		,D9		; Report Number
+	A_CPD_OUR_PART		,A30		; Our Part Number
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CP" - Original Part.
+						; 
+	A_CPD_SORT_PCT		,D1		; 100 % Sorting.      Yes or No.
+	A_CPD_OPT_CPK		,D1		; Optimum CPK value.  Yes or No.
+	A_CPD_CONT_IMPRV	,D1		; Continue Improving. Yes or No.
+	A_CPD_IN_CONTROL	,D1		; In Control.         Yes or No.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CP" - Original Part
+						; or "CR" - Replacement Part.
+						;
+	A_CPD_CTLPLN_DATE	,D6		; Control Plan Date.
+	A_CPD_SGNOFF_DATE	,D6		; Feasibility signoff date.
+	A_CPD_EFFANA_DATE	,D6		; Failure mode effective analysis Date.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE is "CR" - Replacement Part.
+						
+	A_CPD_RPL_OUR_PART	,A30		; Replacement Our Part.
+						;
+						; The Following Fields apply if 
+						; CPH_REF_TYPE = "PF" - Initial Sample Inspection Report.
+						; 
+	A_CPD_BLUEPRT_DATE	,D6		; Blue Print Date
+	A_CPD_ISIR_DATE		,D6		; ISIR Approval Date.
+	A_CPD_MODEL_YEAR	,D4		; Model Year for Report
+	A_CPD_PCI_NO		,A30		; Product Change Information No.
+	A_CPD_ISIR_NO		,A30		; ISIR Report No.
+	A_CPD_RECV_ABBRV	,A5		; Receiver Abbreviation
+	A_CPD_REF_TYPE		,A2		; Reference Type	
+				,A112		
+
+;
+;-------------------------------------------------------------------------------
+; Primary Key - Allow Duplicates 
+;-------------------------------------------------------------------------------
+RECORD A_CPD_KEY0
+	A_K0_CPD_REPORT_NO	,D9		; Report Number
+	A_K0_CPD_OUR_PART	,A30		; Our Part Number
+;
+;-------------------------------------------------------------------------------
+; Alternate Key 1 - No Duplicates 
+;-------------------------------------------------------------------------------
+RECORD A_CPD_KEY1
+	A_K1_CPD_REPORT_NO	,D9		; Report Number
+	A_K1_CPD_RECV_ABBRV	,A5		; Receiver Abbreviation
+	A_K1_CPD_REF_TYPE	,A2		; Reference Type
+	A_K1_CPD_OUR_PART	,A30		; Our Part Number
+
+.ENDC

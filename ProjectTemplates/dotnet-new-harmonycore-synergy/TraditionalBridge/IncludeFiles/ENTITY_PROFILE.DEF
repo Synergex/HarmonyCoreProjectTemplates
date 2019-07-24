@@ -1,0 +1,2 @@
+	.include 'ENTITY_PROFILE' repository, record='entity_profile'
+	.include 'ENTITY_PROFILE_KEY1' repository, record='ep_key1'

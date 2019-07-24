@@ -1,0 +1,26 @@
+;CA855_REF.DEF                                                                                                                      
+;                                                                                                                                   
+;       PURCHASE ORDER ACK REFERENCE #                                                                                              
+;       DATE : 08-JUL-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   218                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA855_REF                                                                                                                   
+        R855_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        R855_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        R855_GROUP_ID             ,A15          ; GROUP RECEIVER ID CODE                     18 thru    32                          
+        R855_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        R855_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        R855_PO_LINE              ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        R855_SLN_SEQ              ,D6           ; SLN CONTROL SEQ NO                         83 thru    88                          
+        R855_ADR_SEQ              ,D6           ; ADDRESS CONTROL SEQ NO                     89 thru    94                          
+        R855_REF_SEQ              ,D6           ; REF SEQUENCE NUMBER                        95 thru   100                          
+        R855_KEY_FILL             ,A6           ; KEY FILLER                                101 thru   106                          
+        R855_REF_QL               ,A2           ; REFERENCE NUMBER QUALIFIER                107 thru   108                          
+        R855_REF_NO               ,A30          ; REFERENCE NUMBER                          109 thru   138                          
+        R855_DESC                 ,A80          ; REFERENCE NUMBER DESCRIPTION              139 thru   218                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA855_REF_KEY             ,A106         ; PRIMARY SORT KEY                                                                  
+                                  ,A112         ; PRIMARY KEY POSITIONING                                                           

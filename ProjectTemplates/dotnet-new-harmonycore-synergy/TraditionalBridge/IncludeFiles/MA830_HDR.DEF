@@ -1,0 +1,130 @@
+;MA830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       MAZDA MATERIAL RELEASE HEADER                                                                                               
+;       DATE : 09-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   339                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  MA830_HDR                                                                                                                   
+        MHR_GS_CTL                ,A14          ; GROUP CONTROL                               1 thru    14                          
+        MHR_ST_CTL                ,A14          ; ST CONTROL                                 15 thru    28                          
+        MHR_SEQ_NUM               ,D6           ; HEADER SEQUENCE                            29 thru    34                          
+        MHR_SUPP_ID               ,A15          ; SUPPLIER IDENTIFICATION                    35 thru    49                          
+        MHR_PLANT_CODE            ,A2           ; SUPPLIER PLANT CODE                        50 thru    51                          
+        MHR_PARTNO                ,A30          ; MAZDA PART NUMBER                          52 thru    81                          
+        MHR_PO_NUM                ,A22          ; PURCHASE ORDER NUMBER                      82 thru   103                          
+        MHR_PROCEDURE             ,A5           ; PROCEDURE CODE                            104 thru   108                          
+        MHR_UOFM                  ,A2           ; UNIT OF MEASURE                           109 thru   110                          
+        MHR_ISSUE_DATE            ,D8           ; MATERIAL RELEASE ISSUE DATE               111 thru   118                          
+        MHR_ISSUE_BY              ,A15          ; MATERIAL RELEASE ISSUED BY                119 thru   133                          
+        MHR_PURPOSE               ,A2           ; PURPOSE CODE                              134 thru   135                          
+        MHR_START_DATE            ,D8           ; HORIZON START DATE                        136 thru   143                          
+        MHR_END_DATE              ,D8           ; HORIZON END DATE                          144 thru   151                          
+        MHR_BUYER_CODE            ,A5           ; BUYER CODE                                152 thru   156                          
+        MHR_NOTE                  ,A80          ; NOTES                                     157 thru   236                          
+        MHR_SUB_ELEM              ,A1           ; SUB ELEMENT SEPARATOR                     237 thru   237                          
+        MHR_PLANNED_QTY           ,03D8         ; PLANNED QUANTITY                          238 thru   261                          
+        MHR_PLAN_DATE1            ,03D8         ; PLANNED FROM DATE                         262 thru   285                          
+        MHR_PLAN_DATE2            ,03D8         ; PLANNED THRU DATE                         286 thru   309                          
+        MHR_PREV_QTY              ,D8           ; PREVIOUS WEEK'S FIRM QUANTITY             310 thru   317                          
+        MHR_FAB_QTY               ,D8           ; FABRICATION QUANTITY                      318 thru   325                          
+        MHR_RAW_QTY               ,D8           ; RAW MATERIAL QUANTITY                     326 thru   333                          
+        MHR_CUM_START             ,D8           ; CUM START DATE                            334 thru   341                          
+        MHR_CUM_ADJUST            ,D8           ; CUM ADJUSTMENT QUANTITY                   342 thru   349                          
+        MHR_CUM_RECV              ,D8           ; CUM QUANTITY RECEIVED                     350 thru   357                          
+        MHR_CUM_FROM              ,D8           ; CUM FROM DATE                             358 thru   365                          
+        MHR_CUM_THRU              ,D8           ; CUM THRU DATE                             366 thru   373                          
+        MHR_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             374 thru   378                          
+        MHR_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            379 thru   382                          
+        MHR_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            383 thru   396                          
+        MHR_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             397 thru   410                          
+        MHR_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             411 thru   424                          
+        MHR_QTY_TYPE              ,A1           ; QUANTITY TYPE                             425 thru   425                          
+        MHR_SCHED_TYPE            ,A2           ; SCHEDULE TYPE                             426 thru   427                          
+        MHR_SHIP_TO               ,A17          ; SHIP TO CODE                              428 thru   444                          
+        MHR_SHIP_FROM             ,A17          ; SHIP FROM CODE                            445 thru   461                          
+        MHR_I_CONSIGNEE           ,A17          ; INTERMEDIATE CONSIGNEE CODE               462 thru   478                          
+        MHR_EXPEDITOR             ,A35          ; EXPEDITOR NAME                            479 thru   513                          
+        MHR_EXPED_PHONE           ,A21          ; EXPEDITOR PHONE NUMBER                    514 thru   534                          
+        MHR_EC_LVL                ,A30          ; ENG CHANGE LEVEL                          535 thru   564                          
+        MHR_LST_SHIPPER           ,A30          ; LAST SHIPPER REFERENCE                    565 thru   594                          
+        MHR_REL_REF_NO            ,A30          ; RELEASE / REFERENCE NUMBER                595 thru   624                          
+        MHR_BILL_TO               ,A17          ; BILL TO CODE                              625 thru   641                          
+        MHR_ATH_QL                ,A2           ; ATH QUALIFIER                             642 thru   643                          
+        MHR_RECV_DATE             ,D8           ; RECEIVED DATE                             644 thru   651                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        MA830_HDR_KEY             ,A103         ; PRIMARY SORT KEY                                                                  
+                                  ,A548         ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF XX830_HDR_WORK
+RECORD MA830_HDR_WORK
+        MHR_COMP_W                  ,A8     ; Company Code
+        MHR_SEQN_W                  ,D5     ; Sequence Number
+        MHR_GS_CTL_W                ,A14          ; GROUP CONTROL                               1 thru    14                          
+        MHR_ST_CTL_W                ,A14          ; ST CONTROL                                 15 thru    28                          
+        MHR_SEQ_NUM_W               ,D6           ; HEADER SEQUENCE                            29 thru    34                          
+        MHR_SUPP_ID_W               ,A15    ; SUPPLIER IDENTIFICATION        
+        MHR_PLANT_CODE_W            ,A2     ; SUPPLIER PLANT CODE            
+        MHR_PARTNO_W                ,A30    ; MAZDA PART NUMBER              
+        MHR_PO_NUM_W                ,A22    ; PURCHASE ORDER NUMBER          
+        MHR_PROCEDURE_W             ,A5     ; PROCEDURE CODE                 
+        MHR_UOFM_W                  ,A2     ; UNIT OF MEASURE                
+        MHR_ISSUE_DATE_W            ,D8     ; MATERIAL RELEASE ISSUE DATE    
+        MHR_ISSUE_BY_W              ,A15    ; MATERIAL RELEASE ISSUED BY     
+        MHR_PURPOSE_W               ,A2     ; PURPOSE CODE                   
+        MHR_START_DATE_W            ,D8     ; HORIZON START DATE             
+        MHR_END_DATE_W              ,D8     ; HORIZON END DATE               
+        MHR_BUYER_CODE_W            ,A5     ; BUYER CODE                     
+        MHR_NOTE_W                  ,A80    ; NOTES                          
+        MHR_SUB_ELEM_W              ,A1     ; SUB ELEMENT SEPARATOR          
+        MHR_PLANNED_QTY_W           ,03D8   ; PLANNED QUANTITY               
+        MHR_PLAN_DATE1_W            ,03D8   ; PLANNED FROM DATE              
+        MHR_PLAN_DATE2_W            ,03D8   ; PLANNED THRU DATE              
+        MHR_PREV_QTY_W              ,D8     ; PREVIOUS WEEK'S FIRM QUANTITY  
+        MHR_FAB_QTY_W               ,D8     ; FABRICATION QUANTITY           
+        MHR_RAW_QTY_W               ,D8     ; RAW MATERIAL QUANTITY          
+        MHR_CUM_START_W             ,D8     ; CUM START DATE                 
+        MHR_CUM_ADJUST_W            ,D8     ; CUM ADJUSTMENT QUANTITY        
+        MHR_CUM_RECV_W              ,D8     ; CUM QUANTITY RECEIVED          
+        MHR_CUM_FROM_W              ,D8     ; CUM FROM DATE                  
+        MHR_CUM_THRU_W              ,D8     ; CUM THRU DATE                  
+        MHR_TRANSNUM_W              ,A5           ; DOCUMENT JOURNAL TRANSMISSION 
+        MHR_FILSEQNUM_W             ,D4           ; DOCUMENT JOURNAL FILE SEQUENC 
+        MHR_HCNTRLNUM_W             ,A14          ; ENVELOPE HEADER CONTROL NUMBE 
+        MHR_GCNTRLNUM_W             ,A14          ; ENVELOPE GROUP CONTROL NUMBER 
+        MHR_DCNTRLNUM_W             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM 
+        MHR_QTY_TYPE_W              ,A1     ; QUANTITY TYPE
+        MHR_SCHED_TYPE_W            ,A2     ; SCHEDULE TYPE
+        MHR_SHIP_TO_W               ,A17    ; SHIP TO_CODE
+        MHR_SHIP_FROM_W             ,A17    ; SHIP FROM CODE
+        MHR_I_CONSIGNEE_W           ,A17    ; INTERMEDIATE CONSIGNEE CODE
+        MHR_EXPEDITOR_W             ,A35    ; EXPEDITOR NAME
+        MHR_EXPED_PHONE_W           ,A21    ; EXPEDITOR PHONE NUMBER
+        MHR_EC_LVL_W                ,A30    ; ENG CHANGE LEVEL
+        MHR_LST_SHIPPER_W           ,A30    ; LAST SHIPPER REFERENCE
+        MHR_REL_REF_NO_W            ,A30    ; RELEASE / REFERENCE NUMBER
+        MHR_BILL_TO_W               ,A17    ; BILL TO CODE
+        MHR_ATH_QL_W                ,A2     ; ATH QUALIFIER
+        MHR_RECV_DATE               ,D8     ; RECEIVE DATE 
+        MHR_PCNT_W                  ,D3.2   ; Percent of total split
+
+RECORD, X
+                        ,A8     ; Company Code
+                        ,D5     ; Sequence Number
+        MA830U_HDR      ,A%SIZE(MA830_HDR)      ; Unsplit Header
+                                                          
+.ENDC
+
+.IFDEF XX830_HDR_TOTALS
+RECORD MA830_HDR_TOTALS
+
+	MHR_PLANNED_QTY_T       ,[3]D8  ; Planned Quantity
+	MHR_PREV_QTY_T          ,D8     ; Previous Week's Firm Quantity
+	MHR_FAB_QTY_T           ,D8     ; Fabrication Quantity
+	MHR_RAW_QTY_T           ,D8     ; Raw Material Quantity
+	MHR_CUM_ADJUST_T        ,D8     ; Cum Adjustment Quantity
+	MHR_CUM_RECV_T          ,D8     ; Cum Quantity Received
+	MHR_PCNT_T      ,D3.2   ; Percent of total split
+.ENDC

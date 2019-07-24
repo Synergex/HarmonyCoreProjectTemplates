@@ -1,0 +1,28 @@
+;CA855_DTM.DEF                                                                                                                      
+;                                                                                                                                   
+;       P.O. ACKNOWLEDGEMENT DTM SEG                                                                                                
+;       DATE : 24-JAN-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   187                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA855_DTM                                                                                                                   
+        DT855_TP_DESIG            ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        DT855_INCHG_ID            ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        DT855_GROUP_ID            ,A15          ; RECEIVER GROUP ID CODE                     18 thru    32                          
+        DT855_PO_NO               ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        DT855_PO_DATE             ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        DT855_PO_LINE             ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        DT855_CUST_PART           ,A30          ; CUSTOMER PART NUMBER                       83 thru   112                          
+        DT855_DATE_QL             ,A3           ; DATE/TIME QUALIFIER                       113 thru   115                          
+        DT855_KEY_FILL            ,A18          ; KEY FILLER                                116 thru   133                          
+        DT855_DATE                ,D8           ; DATE                                      134 thru   141                          
+        DT855_TIME                ,A4           ; TIME                                      142 thru   145                          
+        DT855_TIME_CODE           ,A2           ; TIME CODE                                 146 thru   147                          
+        DT855_CENTURY             ,D2           ; CENTURY                                   148 thru   149                          
+        DT855_PERIOD_QL           ,A3           ; DATE TIME PERIOD FORMAT QUAL              150 thru   152                          
+        DT855_PERIOD              ,A35          ; DATE TIME PERIOD                          153 thru   187                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA855_DTM_KEY             ,A133         ; PRIMARY SORT KEY                                                                  
+                                  ,A54          ; PRIMARY KEY POSITIONING                                                           

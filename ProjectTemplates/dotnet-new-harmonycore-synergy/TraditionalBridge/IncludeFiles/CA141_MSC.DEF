@@ -1,0 +1,21 @@
+;CA141_MSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT SERVICE RESPONSE - MSC                                                                                              
+;       DATE : 28-MAR-95                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   145                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA141_MSC                                                                                                                   
+        M141_GS_CONTROL           ,D9           ; GS CONTROL NUMMBER                          1 thru     9                          
+        M141_HDR_SEQN             ,D6           ; HEADER SEQUENCE NUMBER                     10 thru    15                          
+        M141_ADR_SEQN             ,D6           ; QDDRESS SEQUENCE NUMMBER                   16 thru    21                          
+        M141_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     22 thru    27                          
+        M141_MSC_SEQN             ,D6           ; MISCELLANEOUS SEQUENCE NUMBER              28 thru    33                          
+        M141_REF_QL               ,A2           ; REFERENCE NUMBER QUALIFIER                 34 thru    35                          
+        M141_REF_NO               ,A30          ; REFERENCE NUMBER                           36 thru    65                          
+        M141_REF_DESC             ,A80          ; REFERENCE DESCRIPTION                      66 thru   145                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA141_MSC_KEY             ,A27          ; PRIMARY SORT KEY                                                                  
+                                  ,A118         ; PRIMARY KEY POSITIONING                                                           

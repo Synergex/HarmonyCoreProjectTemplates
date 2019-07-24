@@ -1,0 +1,19 @@
+.ifndef WEBTALK_API_VAR
+.define WEBTALK_API_VAR
+		;Function Specifier Definitions
+         
+	.define WEBTALK_INIT		1
+	.define WEBTALK_WRITE		2
+	.define WEBTALK_READ		3
+	.define WEBTALK_CLOSE		4
+         
+         
+		;WEBTALK_API Parameterized Macro Definitions
+         
+	.define wt_init  (webtalkblock)              webtalk_api (WEBTALK_INIT,webtalkblock)
+	.define wt_write (webtalkblock, gr_wr_write) webtalk_api (WEBTALK_WRITE, webtalkblock, gr_wt_write)
+	.define wt_read  (webtalkblock, gr_wt_read)  webtalk_api(WEBTALK_READ, webtalkblock, gr_wt_read)
+	.define wt_close (webtalkblock)              webtalk_api(WEBTALK_CLOSE, webtalkblock)
+.endc
+external function
+  	webtalk_api      ,i       

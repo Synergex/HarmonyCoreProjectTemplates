@@ -1,0 +1,44 @@
+;SC830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       STEELCASE MAT'L RELEASE HEADER                                                                                              
+;       DATE : 03-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   294                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  SC830_HDR                                                                                                                   
+        SRH_REL_DATE              ,D8           ; RELEASE DATE                                1 thru     8                          
+        SRH_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                        9 thru    30                          
+        SRH_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   31 thru    45                          
+        SRH_REL_NO                ,A30          ; RELEASE NUMBER                             46 thru    75                          
+        SRH_PURPOSE               ,A2           ; PURPOSE CODE                               76 thru    77                          
+        SRH_FRCST_TYPE            ,A2           ; FORECAST TYPE                              78 thru    79                          
+        SRH_QTY_TYPE              ,A1           ; QUANTITY TYPE                              80 thru    80                          
+        SRH_START_DATE            ,D8           ; HORIZON START DATE                         81 thru    88                          
+        SRH_END_DATE              ,D8           ; HORIZON END DATE                           89 thru    96                          
+        SRH_DELIV_DATE            ,D8           ; DELIVERY DATE                              97 thru   104                          
+        SRH_RAW_DATE              ,D8           ; AUTHORIZE RAW DATE                        105 thru   112                          
+        SRH_RECV_QTY              ,D8           ; LAST RECEIVE QUANTITY                     113 thru   120                          
+        SRH_ONHAND_QTY            ,D8           ; ON-HAND QUANTITY                          121 thru   128                          
+        SRH_ONHOLD_QTY            ,D8           ; ON-HOLD QUANTITY                          129 thru   136                          
+        SRH_ISSUED_QTY            ,D8           ; LAST ISSUED QUANTITY                      137 thru   144                          
+        SRH_USAGE_QTY             ,D8           ; AVERAGE USAGE QUANTITY                    145 thru   152                          
+        SRH_UOFM                  ,A2           ; UNIT OF MEASURE                           153 thru   154                          
+        SRH_PART_DESCR            ,A30          ; PART DESCRIPTION                          155 thru   184                          
+        SRH_BUYER_NAME            ,A30          ; BUYER'S NAME                              185 thru   214                          
+        SRH_SHIP_CODE             ,A2           ; SHIP CODE                                 215 thru   216                          
+        SRH_TIME_CODE             ,A1           ; TIME CODE                                 217 thru   217                          
+        SRH_ENG_LEVEL             ,A15          ; ENGINEERING CHANGE LEVEL                  218 thru   232                          
+        SRH_ROUTE_SEQ             ,A2           ; ROUTE SEQUENCE CODE                       233 thru   234                          
+        SRH_TRANS_MODE            ,A2           ; TRANSPORTATION MODE                       235 thru   236                          
+        SRH_TRANSIT               ,A2           ; TRANSIT CODE                              237 thru   238                          
+        SRH_DOOR_DOCK             ,A5           ; DOOR/DOCK NUMBER TO DELIVER TO            239 thru   243                          
+        SRH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             244 thru   248                          
+        SRH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            249 thru   252                          
+        SRH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            253 thru   266                          
+        SRH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             267 thru   280                          
+        SRH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             281 thru   294                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        SC830_HDR_KEY             ,A30          ; PRIMARY SORT KEY                                                                  
+                                  ,A264         ; PRIMARY KEY POSITIONING                                                           

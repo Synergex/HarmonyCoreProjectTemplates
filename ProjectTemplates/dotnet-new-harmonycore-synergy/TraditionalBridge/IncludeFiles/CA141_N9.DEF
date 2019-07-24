@@ -1,0 +1,25 @@
+;CA141_N9.DEF                                                                                                                       
+;                                                                                                                                   
+;       PRODUCT SERVICE RESPONSE - N9                                                                                               
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   149                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA141_N9                                                                                                                    
+        N141_SEQN_1               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        N141_SEQN_2               ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        N141_SEQN_3               ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        N141_SEQN_4               ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        N141_REF_QL               ,A2           ; REFERENCE NUMBER QUALIFIER                 25 thru    26                          
+        N141_REFNO                ,A30          ; REFERENCE NUMBER                           27 thru    56                          
+        N141_DESC                 ,A45          ; DESCRIPTION                                57 thru   101                          
+        N141_DATE                 ,D8           ; DATE                                      102 thru   109                          
+        N141_TIME                 ,A4           ; TIME                                      110 thru   113                          
+        N141_TIME_CODE            ,A2           ; TIME CODE                                 114 thru   115                          
+        N141_INCHG_ID             ,A17          ; INTERCHANGE ID                            116 thru   132                          
+        N141_GROUP_ID             ,A17          ; GROUP ID                                  133 thru   149                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA141_N9_KEY              ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A125         ; PRIMARY KEY POSITIONING                                                           

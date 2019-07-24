@@ -1,0 +1,30 @@
+;CH810T_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       CHRYSLER INVOICE DETAIL                                                                                                     
+;       DATE : 20-MAR-08                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   312                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH810T_DTL                                                                                                                  
+        CRD_INV_NO                ,A12          ; INVOICE NUMBER                              1 thru    12                          
+        CRD_TP_PART               ,A30          ; CHRYSLER PART NUMBER                       13 thru    42                          
+        CRD_PO                    ,A22          ; PURCHASE ORDER NUMBER                      43 thru    64                          
+        CRD_DESC                  ,A80          ; PART DESCRIPTION                           65 thru   144                          
+        CRD_COIL_ID               ,A30          ; COIL ID NUMBER                            145 thru   174                          
+        CRD_QTY                   ,D9           ; QUANTITY                                  175 thru   183                          
+        CRD_QTY_UOFM              ,A2           ; UNIT OF MEASURE FOR QUANTITY              184 thru   185                          
+        CRD_THEO_WT               ,D15          ; THEORETICAL WEIGHT                        186 thru   200                          
+        CRD_THEOWT_UOFM           ,A2           ; THEORETICAL WEIGHT UOFM                   201 thru   202                          
+        CRD_NET_WT                ,D15          ; ACTUAL WEIGHT                             203 thru   217                          
+        CRD_NETWT_UOFM            ,A2           ; NET WEIGHT UNIT OF MEASURE                218 thru   219                          
+        CRD_UNIT_PRICE            ,D14          ; UNIT PRICE                                220 thru   233                          
+        CRD_PRICE_BASIS           ,A2           ; UNIT PRICE BASIS                          234 thru   235                          
+        CRD_LOT_ID                ,A30          ; LOT NUMBER                                236 thru   265                          
+        CRD_BALE_ID               ,A30          ; BALE ID                                   266 thru   295                          
+        CRD_LENGTH                ,D15          ; LENGTH                                    296 thru   310                          
+        CRD_LENGTH_UOFM           ,A2           ; LENGTH UNIT OF MEASURE                    311 thru   312                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH810T_DTL_KEY            ,A12          ; PRIMARY SORT KEY                                                                  
+                                  ,A300         ; PRIMARY KEY POSITIONING                                                           

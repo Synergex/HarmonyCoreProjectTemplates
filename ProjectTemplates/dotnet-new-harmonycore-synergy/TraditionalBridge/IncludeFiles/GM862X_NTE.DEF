@@ -1,0 +1,27 @@
+;GM862X_NTE.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE X12 862 NOTES                                                                                                  
+;       DATE : 18-MAY-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   184                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM862X_NTE                                                                                                                  
+        XSN_SUPP_CODE             ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        XSN_ISSUE_CODE            ,A15          ; ISSUED BY/DIVISION CODE                    16 thru    30                          
+        XSN_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       31 thru    52                          
+        XSN_MODEL_YEAR            ,A4           ; MODEL YEAR                                 53 thru    56                          
+        XSN_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   57 thru    71                          
+        XSN_REL_NO                ,A8           ; RELEASE NUMBER                             72 thru    79                          
+        XSN_KANBAN_CODE           ,A1           ; KANBAN CODE                                80 thru    80                          
+        XSN_SKANBAN               ,A10          ; STARTING KANBAN NUMBER                     81 thru    90                          
+        XSN_ISSUE_DATE            ,D8           ; ISSUE DATE                                 91 thru    98                          
+        XSN_FILLER_1              ,A14          ; KEY FILLER                                 99 thru   112                          
+        XSN_NOTE_TYPE             ,A3           ; TYPE OF NOTE MESSAGE                      113 thru   115                          
+        XSN_SEQ_NUM               ,D3           ; SEQUENCE NUMBER                           116 thru   118                          
+        XSN_NOTE_MSG              ,A60          ; RELEASE NOTE MESSAGE                      119 thru   178                          
+        XSN_BSS_SEQ               ,D6           ; BSS SEQUENCE NUMBER                       179 thru   184                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM862X_NTE_KEY            ,A112         ; PRIMARY SORT KEY                                                                  
+                                  ,A72          ; PRIMARY KEY POSITIONING                                                           

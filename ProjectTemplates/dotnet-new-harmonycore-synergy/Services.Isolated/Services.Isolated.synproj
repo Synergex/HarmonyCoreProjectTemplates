@@ -7,6 +7,7 @@
     <Name>Services.Isolated</Name>
     <ProjectGuid>{74d56bb7-0a25-477e-8070-0100c0839700}</ProjectGuid>
     <EnableCommonProperties>True</EnableCommonProperties>
+    <Prefer32Bit>False</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
@@ -19,6 +20,12 @@
     <Compile Include="IsolatedMethods.dbl" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.synproj">
+      <Name>Repository</Name>
+      <Project>{cc6c33fb-c46c-4484-972c-c454743f8add}</Project>
+      <Private>True</Private>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Controllers\Services.Controllers.synproj">
       <Name>Services.Controllers</Name>
       <Project>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</Project>

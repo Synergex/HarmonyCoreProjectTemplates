@@ -1,0 +1,22 @@
+;CAR856_REF.DEF                                                                                                                     
+;                                                                                                                                   
+;       COMMON CARAS ASN REF SEG                                                                                                    
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   175                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_REF                                                                                                                  
+        RR856_SHIP_ID             ,A30          ; SHIPMENT ID NO                              1 thru    30                          
+        RR856_PRC_DTM             ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        RR856_HL_ID               ,A12          ; HIERARCHICAL STRUCT HL ID CODE             43 thru    54                          
+        RR856_ADR_LOOP            ,D3           ; ADDRESS LOOP SEQUENCE NO                   55 thru    57                          
+        RR856_CLD_LOOP            ,D3           ; CLD LOOP SEQUENCE NO                       58 thru    60                          
+        RR856_SEG_ID              ,A3           ; SEGMENT ID                                 61 thru    63                          
+        RR856_REF_QL              ,A2           ; REF QUALIFIER                              64 thru    65                          
+        RR856_REF_NO              ,A30          ; REFERENCE NO                               66 thru    95                          
+        RR856_REF_DESC            ,A80          ; REF DESCRIPTION FIELD                      96 thru   175                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_REF_KEY            ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A115         ; PRIMARY KEY POSITIONING                                                           

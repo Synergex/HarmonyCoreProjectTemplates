@@ -1,0 +1,32 @@
+;CA870_DTM.DEF                                                                                                                      
+;                                                                                                                                   
+;       ORDER STATUS DATE/TIME                                                                                                      
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   514                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA870_DTM                                                                                                                   
+        DT870_REFNO               ,A39          ; REFERENCE NUMBER                            1 thru    39                          
+        DT870_SEQ1                ,D6           ; SEQUENCE NUMBER 1                          40 thru    45                          
+        DT870_SEQ2                ,D6           ; SEQUENCE NUMBER 2                          46 thru    51                          
+        DT870_SEQ3                ,D6           ; SEQUENCE NUMBER 3                          52 thru    57                          
+        DT870_SEQ4                ,D6           ; SEQUENCE NUMBER 4                          58 thru    63                          
+        DT870_SEQ5                ,D6           ; SEQUENCE NUMBER 5                          64 thru    69                          
+        DT870_SEQ6                ,D6           ; SEQUENCE NUMBER 6                          70 thru    75                          
+        DT870_SEQ7                ,D6           ; SEQUENCE NUMBER 7                          76 thru    81                          
+        DT870_SEQ8                ,D6           ; SEQUENCE NUMBER 8                          82 thru    87                          
+        DT870_DTTM_QL             ,A3           ; DATE/TIME QUALIFIER                        88 thru    90                          
+        DT870_DATE                ,D8           ; DATE                                       91 thru    98                          
+        DT870_TIME                ,A4           ; TIME                                       99 thru   102                          
+        DT870_TIME_CODE           ,A2           ; TIME CODE                                 103 thru   104                          
+        DT870_GS_ID               ,A17          ; GS CONTROL NUMBER                         105 thru   121                          
+        DT870_INTER_ID            ,A17          ; INTERCHANGE ID                            122 thru   138                          
+        DT870_FILLER1             ,A99          ; FILLER                                    139 thru   237                          
+        DT870_FILLER2             ,A99          ; FILLER                                    238 thru   336                          
+        DT870_FILLER3             ,A99          ; FILLER                                    337 thru   435                          
+        DT870_FILLER4             ,A79          ; FILLER                                    436 thru   514                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA870_DTM_KEY             ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A427         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,22 @@
+;CA141_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT SERVICE RESPONSE - DTL                                                                                              
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    81                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA141_DTL                                                                                                                   
+        D141_SEQN_1               ,D6           ; SEQUENCE NUMBER 1                           1 thru     6                          
+        D141_SEQN_2               ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        D141_SEQN_3               ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        D141_SEQN_4               ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        D141_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                         25 thru    30                          
+        D141_AMT_QL_CD            ,A2           ; AMOUNT QUALIFIER CODE                      31 thru    32                          
+        D141_AMOUNT               ,D15          ; MONETARY AMOUNT                            33 thru    47                          
+        D141_INCHG_ID             ,A17          ; INTERCHANGE ID                             48 thru    64                          
+        D141_GROUP_ID             ,A17          ; GROUP ID                                   65 thru    81                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA141_DTL_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A57          ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,20 @@
+;RTSEG_AK9.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ACKNOWLEDGEMENT AK9 SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    37                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_AK9                                                                                                                   
+        AK9_SEG                   ,A3           ; AK9 SEGMENT IDENTIFIER                      1 thru     3                          
+        AK9_01                    ,A1           ; FUNCTIONAL GROUP ACK CODE                   4 thru     4                          
+        AK9_02                    ,A6           ; NUMBER OF INCL SETS                         5 thru    10                          
+        AK9_03                    ,A6           ; NO. RECEIVE SETS                           11 thru    16                          
+        AK9_04                    ,A6           ; NUMBER OF ACCEPT SETS                      17 thru    22                          
+        AK9_05                    ,A3           ; FUNCT GROUP SYNTAX ERROR CODE              23 thru    25                          
+        AK9_06                    ,A3           ; FUNCT GROUP SYNTAX ERROR CODE              26 thru    28                          
+        AK9_07                    ,A3           ; FUNCT GROUP SYNTAX ERROR CODE              29 thru    31                          
+        AK9_08                    ,A3           ; FUNCT GROUP SYNTAX ERROR CODE              32 thru    34                          
+        AK9_09                    ,A3           ; FUNCT GROUP SYNTAX ERROR CODE              35 thru    37                          
+                                                                                                                                    
+                                                                                                                                    

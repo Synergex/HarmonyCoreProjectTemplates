@@ -1,0 +1,47 @@
+;CH864_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER TEXT HEADER FILE                                                                                                   
+;       DATE : 18-JAN-91                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   780                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH864_HDR                                                                                                                   
+        CHH_SUPPLIER              ,D15          ; SUPPLIER ID                                 1 thru    15                          
+        CHH_FROM_ID               ,A35          ; FROM ID                                    16 thru    50                          
+        CHH_MESSAGE_REF           ,A30          ; MESSAGE REFERENCE                          51 thru    80                          
+        CHH_SUBJECT               ,A80          ; DESC OF TOPIC                              81 thru   160                          
+        CHH_PURPOSE               ,D2           ; TRANSACTION SET PURPOSE                   161 thru   162                          
+        CHH_EFFECT_DATE           ,D6           ; EFFECTIVE DATE                            163 thru   168                          
+        CHH_EFFECT_TIME           ,D4           ; EFFECTIVE TIME                            169 thru   172                          
+        CHH_PUBL_DATE             ,D6           ; PUBLICATION DATE                          173 thru   178                          
+        CHH_PUBL_TIME             ,D4           ; PUBLICATION TIME                          179 thru   182                          
+        CHH_FROM_NAME1            ,A35          ; FROM NAME 1                               183 thru   217                          
+        CHH_FROM_NAME2            ,A35          ; FROM NAME OR DEPT                         218 thru   252                          
+        CHH_FROM_ADDR1            ,A35          ; FROM ADDRESS 1                            253 thru   287                          
+        CHH_FROM_ADDR2            ,A35          ; FROM ADDRESS 2                            288 thru   322                          
+        CHH_FROM_CITY             ,A19          ; FROM CITY                                 323 thru   341                          
+        CHH_FROM_STATE            ,A2           ; FROM STATE                                342 thru   343                          
+        CHH_FROM_ZIP              ,A9           ; FROM ZIP                                  344 thru   352                          
+        CHH_TO_ID                 ,A35          ; TO NAME OR ID                             353 thru   387                          
+        CHH_TO_NAME1              ,A35          ; TO NAME 1                                 388 thru   422                          
+        CHH_TO_NAME2              ,A35          ; TO NAME OR DEPT                           423 thru   457                          
+        CHH_TO_ADDR1              ,A35          ; TO ADDRESS 1                              458 thru   492                          
+        CHH_TO_ADDR2              ,A35          ; TO ADDRESS 2                              493 thru   527                          
+        CHH_TO_CITY               ,A19          ; TO CITY                                   528 thru   546                          
+        CHH_TO_STATE              ,A2           ; TO STATE                                  547 thru   548                          
+        CHH_TO_ZIP                ,A9           ; TO ZIP                                    549 thru   557                          
+        CHH_CONTCT_TYPE           ,03A2         ; CONTACT TYPE                              558 thru   563                          
+        CHH_CONTCT_NAME           ,03A35        ; CONTACT NAME                              564 thru   668                          
+        CHH_COMM_TYPE             ,03A2         ; TYPE OF EQUIPMENT                         669 thru   674                          
+        CHH_COMM_NO               ,D10          ; PHONE # OR FAX #                          675 thru   684                          
+        CHH_PAGE_WIDTH            ,D3           ; WIDTH OF THE FORM NEEDED                  685 thru   687                          
+        CHH_PAGE_LENGTH           ,D3           ; LENGTH OF THE FORM NEEDED                 688 thru   690                          
+        CHH_MESAGE_DESC           ,A80          ; MESSAGE DESC                              691 thru   770                          
+        CHH_MESAGE_CTR            ,D6           ; MESSAGE NUMBER                            771 thru   776                          
+	CHH_FROM_COUNTRY	  ,A2		; FROM COUNTRY CODE			    777 thru   778
+	CHH_TO_COUNTRY	 	  ,A2		; TO COUNTRY CODE			    779 thru   780
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH864_HDR_KEY             ,A80          ; PRIMARY SORT KEY                                                                  
+                                  ,A700         ; PRIMARY KEY POSITIONING                                                           

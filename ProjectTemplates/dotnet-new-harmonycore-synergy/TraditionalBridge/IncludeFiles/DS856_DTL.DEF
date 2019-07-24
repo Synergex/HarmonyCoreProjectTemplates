@@ -1,0 +1,28 @@
+;DS856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       DIAMOND STAR ASN DETAILS                                                                                                    
+;       DATE : 26-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   238                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  DS856_DTL                                                                                                                   
+        DDW_INTR_ID               ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        DDW_GROUP_ID              ,A15          ; GROUP ID                                   16 thru    30                          
+        DDW_DEST_CODE             ,A15          ; DESTINATION CODE                           31 thru    45                          
+        DDW_ASN_NO                ,A30          ; ASN NUMBER                                 46 thru    75                          
+        DDW_TP_PART               ,A30          ; TRADING PARTNER PART                       76 thru   105                          
+        DDW_RAN_NO                ,A30          ; RELEASE AUTHORIZATION #                   106 thru   135                          
+        DDW_LINE_FEED             ,A30          ; LINE FEED LOCATION                        136 thru   165                          
+        DDW_LOT_QUAL              ,A2           ; LOT NUMBER QUALIFIER                      166 thru   167                          
+        DDW_LOT_NUMBER            ,A10          ; LOT NUMBER                                168 thru   177                          
+        DDW_SHIP_QTY              ,D8           ; SHIPMENT QUANTITY                         178 thru   185                          
+        DDW_RC_QUAL               ,A2           ; RETURNABLE CONTAINER QUALIFIER            186 thru   187                          
+        DDW_RC_TYPE               ,A6           ; RETURNABLE CONTAINER TYPE                 188 thru   193                          
+        DDW_RC_QTY                ,D5           ; RETURNABLE CONTAINER QUANTITY             194 thru   198                          
+        DDW_RC_CONT               ,A30          ; RETURNABLE CONTAINER                      199 thru   228                          
+        FILLER                    ,A10          ; FILLER                                    229 thru   238                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        DS856_DTL_KEY             ,A135         ; PRIMARY SORT KEY                                                                  
+                                  ,A103         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,87 @@
+;;*****************************************************************************
+;;
+;; Title:       TraditionalBridgeService.dbl
+;;
+;; Description: Exposes example traditional Synergy routines via Traditional
+;;              Bridge JSON-RPC calls.
+;;
+;;*****************************************************************************
+
+import Harmony.Core
+import Harmony.Core.Context
+import Harmony.Core.Interface
+import Harmony.Core.EF.Extensions
+import Harmony.OData
+import Harmony.OData.Adapter
+import System.Threading.Tasks
+import System
+import System.Collections.Generic
+import System.Text
+import Services
+import Services.Models
+import Microsoft.AspNetCore.Mvc
+import Microsoft.AspNet.OData
+import Microsoft.AspNetCore.Authorization
+import Newtonsoft.Json.Linq
+import System.Linq
+
+import Services.Controllers
+import Services.Models
+
+namespace Services.Controllers
+
+    public partial class TraditionalBridgeService extends DynamicCallProvider
+
+        ;;; <summary>
+        ;;; Constructor
+        ;;; </summary>
+        public method TraditionalBridgeService
+            connection, @IDynamicCallConnection
+            endparams
+            parent(connection)
+        proc
+            
+        endmethod
+
+        ;;; <summary>
+        ;;; Add two numbers together
+        ;;; </summary>
+        ;;; <param name="aLogicalName">Logical name to retrieve</param>
+        ;;; <returns>The value of the logical name, or an empty string if the logical name does not exist</returns>
+        public async method AddTwoNumbers, @Task<decimal>
+            required in aNumber1, decimal
+            required in aNumber2, decimal
+        proc
+            data sum, decimal
+            data resultTuple = await CallMethod("AddTwoNumbers",aNumber1,aNumber2,sum)
+            data returnToken = (decimal)(resultTuple.Item2[3]) ;;Item1 = return value, Item2 = array of parameters
+            mreturn returnToken
+        endmethod
+
+        ;;; <summary>
+        ;;; 
+        ;;; </summary>
+        ;;; <returns></returns>
+        public async method GetEnvironment, @Task<string>
+        proc
+            data resultTuple = await CallMethod("GetEnvironment")
+            data returnToken = (@JToken)(resultTuple.Item1) ;Item1 is the return value, a string in this case
+            mreturn returnToken.ToObject<string>()
+        endmethod
+
+        ;;; <summary>
+        ;;; Get the value of a logical name in the Traditional Synergy environment
+        ;;; </summary>
+        ;;; <param name="aLogicalName">Logical name to retrieve</param>
+        ;;; <returns>The value of the logical name, or an empty string if the logical name does not exist</returns>
+        public async method GetLogicalName, @Task<string>
+            required in aLogicalName, string
+        proc
+            data resultTuple = await CallMethod("GetLogicalName",aLogicalName)
+            data returnToken = (@JToken)(resultTuple.Item1) ;Item1 is the return value, a string in this case
+            mreturn returnToken.ToObject<string>()
+        endmethod
+
+    endclass
+
+endnamespace

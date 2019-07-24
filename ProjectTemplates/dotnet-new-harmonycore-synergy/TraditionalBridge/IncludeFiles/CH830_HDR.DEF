@@ -1,0 +1,166 @@
+;CH830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 830 HEADER                                                                                                         
+;       DATE : 18-NOV-08                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   967                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH830_HDR                                                                                                                   
+        CHH_SUPPLIER              ,A7           ; SUPPLIER ID                                 1 thru     7                          
+        CHH_PART_NO               ,A30          ; TRADING PARTNER PART                        8 thru    37                          
+        CHH_RELEASE               ,A4           ; RELEASE NUMBER                             38 thru    41                          
+        CHH_SHIP_TO               ,A7           ; SHIP TO ID                                 42 thru    48                          
+        CHH_DEST                  ,A7           ; UTLITIMATE DESTINTATION CODE               49 thru    55                          
+        CHH_PROGRAM               ,A1           ; PROGRAM NUMBER(MODEL YEAR)                 56 thru    56                          
+        CHH_RELNO                 ,A5           ; RELEASE NUMBER                             57 thru    61                          
+        CHH_PONO                  ,A13          ; PURCHASE ORDER                             62 thru    74                          
+        CHH_ISSUE_BY              ,A7           ; ISSUE BY CODE                              75 thru    81                          
+        CHH_SD_BASE               ,A2           ; SHIP/DELIVERY BASE                         82 thru    83                          
+        CHH_START_DATE            ,D8           ; HORIZON START DATE                         84 thru    91                          
+        CHH_END_DATE              ,D8           ; HORIZON END DATE                           92 thru    99                          
+        CHH_ISSUE_DATE            ,D8           ; ISSUE DATE                                100 thru   107                          
+        CHH_PART_NOTE             ,A32          ; PART RELEASE NOTE                         108 thru   139                          
+        CHH_CONTROL               ,A12          ; PRODUCTION CONTROL DEPT                   140 thru   151                          
+        CHH_UOFM                  ,A2           ; UNIT OF MEASURE                           152 thru   153                          
+        CHH_EC_LEVEL              ,A13          ; ENGINEERING CHANGE                        154 thru   166                          
+        CHH_CONTRACT              ,A8           ; CONTRACT NUMBER                           167 thru   174                          
+        CHH_CUST_ORD              ,A10          ; CUSTOMER ORDER NUMBER                     175 thru   184                          
+        CHH_CONTACT               ,A19          ; CONTACT NAME                              185 thru   203                          
+        CHH_PHONE                 ,A10          ; CONTACT PHONE                             204 thru   213                          
+        CHH_DOCK_CODE             ,A8           ; DOCK CODE                                 214 thru   221                          
+        CHH_SHIP_CODE             ,A1           ; SHIP CODE                                 222 thru   222                          
+        CHH_SHIFT                 ,A1           ; SHIFT CODE                                223 thru   223                          
+        CHH_PREV_CUM              ,D8           ; PREVIOUS CUM AMOUNT                       224 thru   231                          
+        CHH_CUM_START             ,D8           ; CUM START DATE                            232 thru   239                          
+        CHH_AUTH_FAB              ,D8           ; AUTHORIZED FABRICATION AMOUNT             240 thru   247                          
+        CHH_AUTH_RAW              ,D8           ; AUTHORIZED RAW AMOUNT                     248 thru   255                          
+        CHH_LAST_QTY              ,D8           ; LAST SHIPPED QUANTITY                     256 thru   263                          
+        CHH_LAST_DATE             ,D8           ; LAST SHIPPED DATE                         264 thru   271                          
+        CHH_YTD_CUM               ,D8           ; YEAR TO DATE CUMULATIVE QTY               272 thru   279                          
+        CHH_VENDOR_PART           ,A15          ; VENDOR PART NUMBER                        280 thru   294                          
+        CHH_DUAL_SERIES           ,D1           ; DUAL SERIES FLAG                          295 thru   295                          
+        CHH_BILL_TO               ,A7           ; BILL TO ID                                296 thru   302                          
+        CHH_SHIP_FROM             ,A7           ; SHIP FROM ID                              303 thru   309                          
+        CHH_BILL_NAME             ,03A35        ; BILL TO NAME                              310 thru   414                          
+        CHH_BILL_ADDR             ,02A35        ; BILL TO ADDRESS                           415 thru   484                          
+        CHH_BILL_CITY             ,A19          ; BILL TO CITY                              485 thru   503                          
+        CHH_BILL_STATE            ,A2           ; BILL TO STATE                             504 thru   505                          
+        CHH_BILL_ZIP              ,A9           ; BILL TO ZIP CODE                          506 thru   514                          
+        CHH_SHIP_NAME             ,03A35        ; SHIP TO NAME                              515 thru   619                          
+        CHH_SHIP_ADDR             ,02A35        ; SHIP TO ADDRESS                           620 thru   689                          
+        CHH_SHIP_CITY             ,A19          ; SHIP TO CITY                              690 thru   708                          
+        CHH_SHIP_STATE            ,A2           ; SHIP TO STATE                             709 thru   710                          
+        CHH_SHIP_ZIP              ,A9           ; SHIP TO ZIP                               711 thru   719                          
+        CHH_DUAL_RELNO            ,A5           ; DUAL SERIES RELEASE NUMBER                720 thru   724                          
+        CHH_LINE_FEED             ,A8           ; LINE FEED                                 725 thru   732                          
+        CHH_DROP_POINT            ,A8           ; DROP POINT                                733 thru   740                          
+        CHH_RESERVED              ,A16          ; RESERVED SPACE FOR SPLIT FIELD            741 thru   756                          
+        CHH_APP_FLG               ,A1           ; APPLICATION FLAG(Y IF 99)                 757 thru   757                          
+        CHH_ISA_DT                ,D8           ; INTERCHANGE CREATE DATE                   758 thru   765                          
+        CHH_ISA_TM                ,D4           ; INTERCHANGE CREATE TIME                   766 thru   769                          
+        CHH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANS NUMBER             770 thru   774                          
+        CHH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE NUMBER              775 thru   778                          
+        CHH_HCNTRLNUM             ,A14          ; INTERCHANGE CONTROL NUMBER                779 thru   792                          
+        CHH_GCNTRLNUM             ,A14          ; GROUP CONTROL NUMBER                      793 thru   806                          
+        CHH_DCNTRLNUM             ,A14          ; DOCUMENT CONTROL NUMBER                   807 thru   820                          
+        CHH_COMPANY               ,A8           ; COMPANY CODE                              821 thru   828                          
+        CHH_COMP_SEQ              ,D5           ; SPLIT SEQUENCE NUMBER                     829 thru   833                          
+        CHH_COMP_PERC             ,D5           ; COMPANY PERCENTAGE                        834 thru   838                          
+        CHH_SHIP_TO2              ,A7           ; FOR LIN WIHTOUT N1 ST                     839 thru   845                          
+        CHH_AUTH_FAB_DT           ,D8           ; AUTHORIZED FAB START DATE                 846 thru   853                          
+        CHH_AUTH_RAW_DT           ,D8           ; AUTHORIZED RAW START DATE                 854 thru   861                          
+        CHH_ROUTE_CD              ,A2           ; ROUTING SEQUENCE CODE                     862 thru   863                          
+        CHH_T_ID_QL               ,A2           ; SCAC CODE QUALIFIER                       864 thru   865                          
+        CHH_T_ID                  ,A17          ; SCAC CODE                                 866 thru   882                          
+        CHH_T_MTHD                ,A2           ; TRANSPORTATION METHOD                     883 thru   884                          
+        CHH_BILL_CNTRY            ,A2           ; BILL TO COUNTRY                           885 thru   886                          
+        CHH_SHIP_CNTRY            ,A2           ; SHIP TO COUNTRY                           887 thru   888                          
+        CHH_SHIP_TO3              ,A7           ; SHIP TO FROM N1*ST                        889 thru   895                          
+        CHH_INT_ID                ,A35          ; INTERCHANGE ID                            896 thru   930                          
+        CHH_GROUP_ID              ,A35          ; GROUP ID                                  931 thru   965                          
+        CHH_INTR_QL               ,A2           ; INTERCHANGE QUALIFIER                     966 thru   967                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH830_HDR_KEY             ,A55          ; PRIMARY SORT KEY                                                                  
+                                  ,A912         ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF CH830_HDR_ALT
+RECORD A_CH830_HDR                                                                                                                   
+        A_CHH_SUPPLIER              ,A7           ; SUPPLIER ID                                 1 thru     7                          
+        A_CHH_PART_NO               ,A30          ; TRADING PARTNER PART                        8 thru    37                          
+        A_CHH_RELEASE               ,A4           ; RELEASE NUMBER                             38 thru    41                          
+        A_CHH_SHIP_TO               ,A7           ; SHIP TO ID                                 42 thru    48                          
+        A_CHH_DEST                  ,A7           ; UTLITIMATE DESTINTATION CODE               49 thru    55                          
+        A_CHH_PROGRAM               ,A1           ; PROGRAM NUMBER(MODEL YEAR)                 56 thru    56                          
+        A_CHH_RELNO                 ,A5           ; RELEASE NUMBER                             57 thru    61                          
+        A_CHH_PONO                  ,A13          ; PURCHASE ORDER                             62 thru    74                          
+        A_CHH_ISSUE_BY              ,A7           ; ISSUE BY CODE                              75 thru    81                          
+        A_CHH_SD_BASE               ,A2           ; SHIP/DELIVERY BASE                         82 thru    83                          
+        A_CHH_START_DATE            ,D8           ; HORIZON START DATE                         84 thru    91                          
+        A_CHH_END_DATE              ,D8           ; HORIZON END DATE                           92 thru    99                          
+        A_CHH_ISSUE_DATE            ,D8           ; ISSUE DATE                                100 thru   107                          
+        A_CHH_PART_NOTE             ,A32          ; PART RELEASE NOTE                         108 thru   139                          
+        A_CHH_CONTROL               ,A12          ; PRODUCTION CONTROL DEPT                   140 thru   151                          
+        A_CHH_UOFM                  ,A2           ; UNIT OF MEASURE                           152 thru   153                          
+        A_CHH_EC_LEVEL              ,A13          ; ENGINEERING CHANGE                        154 thru   166                          
+        A_CHH_CONTRACT              ,A8           ; CONTRACT NUMBER                           167 thru   174                          
+        A_CHH_CUST_ORD              ,A10          ; CUSTOMER ORDER NUMBER                     175 thru   184                          
+        A_CHH_CONTACT               ,A19          ; CONTACT NAME                              185 thru   203                          
+        A_CHH_PHONE                 ,A10          ; CONTACT PHONE                             204 thru   213                          
+        A_CHH_DOCK_CODE             ,A8           ; DOCK CODE                                 214 thru   221                          
+        A_CHH_SHIP_CODE             ,A1           ; SHIP CODE                                 222 thru   222                          
+        A_CHH_SHIFT                 ,A1           ; SHIFT CODE                                223 thru   223                          
+        A_CHH_PREV_CUM              ,D8           ; PREVIOUS CUM AMOUNT                       224 thru   231                          
+        A_CHH_CUM_START             ,D8           ; CUM START DATE                            232 thru   239                          
+        A_CHH_AUTH_FAB              ,D8           ; AUTHORIZED FABRICATION AMOUNT             240 thru   247                          
+        A_CHH_AUTH_RAW              ,D8           ; AUTHORIZED RAW AMOUNT                     248 thru   255                          
+        A_CHH_LAST_QTY              ,D8           ; LAST SHIPPED QUANTITY                     256 thru   263                          
+        A_CHH_LAST_DATE             ,D8           ; LAST SHIPPED DATE                         264 thru   271                          
+        A_CHH_YTD_CUM               ,D8           ; YEAR TO DATE CUMULATIVE QTY               272 thru   279                          
+        A_CHH_VENDOR_PART           ,A15          ; VENDOR PART NUMBER                        280 thru   294                          
+        A_CHH_DUAL_SERIES           ,D1           ; DUAL SERIES FLAG                          295 thru   295                          
+        A_CHH_BILL_TO               ,A7           ; BILL TO ID                                296 thru   302                          
+        A_CHH_SHIP_FROM             ,A7           ; SHIP FROM ID                              303 thru   309                          
+        A_CHH_BILL_NAME             ,03A35        ; BILL TO NAME                              310 thru   414                          
+        A_CHH_BILL_ADDR             ,02A35        ; BILL TO ADDRESS                           415 thru   484                          
+        A_CHH_BILL_CITY             ,A19          ; BILL TO CITY                              485 thru   503                          
+        A_CHH_BILL_STATE            ,A2           ; BILL TO STATE                             504 thru   505                          
+        A_CHH_BILL_ZIP              ,A9           ; BILL TO ZIP CODE                          506 thru   514                          
+        A_CHH_SHIP_NAME             ,03A35        ; SHIP TO NAME                              515 thru   619                          
+        A_CHH_SHIP_ADDR             ,02A35        ; SHIP TO ADDRESS                           620 thru   689                          
+        A_CHH_SHIP_CITY             ,A19          ; SHIP TO CITY                              690 thru   708                          
+        A_CHH_SHIP_STATE            ,A2           ; SHIP TO STATE                             709 thru   710                          
+        A_CHH_SHIP_ZIP              ,A9           ; SHIP TO ZIP                               711 thru   719                          
+        A_CHH_DUAL_RELNO            ,A5           ; DUAL SERIES RELEASE NUMBER                720 thru   724                          
+        A_CHH_LINE_FEED             ,A8           ; LINE FEED                                 725 thru   732                          
+        A_CHH_DROP_POINT            ,A8           ; DROP POINT                                733 thru   740                          
+        A_CHH_RESERVED              ,A16          ; RESERVED SPACE FOR SPLIT FIELD            741 thru   756                          
+        A_CHH_APP_FLG               ,A1           ; APPLICATION FLAG(Y IF 99)                 757 thru   757                          
+        A_CHH_ISA_DT                ,D8           ; INTERCHANGE CREATE DATE                   758 thru   765                          
+        A_CHH_ISA_TM                ,D4           ; INTERCHANGE CREATE TIME                   766 thru   769                          
+        A_CHH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANS NUMBER             770 thru   774                          
+        A_CHH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE NUMBER              775 thru   778                          
+        A_CHH_HCNTRLNUM             ,A14          ; INTERCHANGE CONTROL NUMBER                779 thru   792                          
+        A_CHH_GCNTRLNUM             ,A14          ; GROUP CONTROL NUMBER                      793 thru   806                          
+        A_CHH_DCNTRLNUM             ,A14          ; DOCUMENT CONTROL NUMBER                   807 thru   820                          
+        A_CHH_COMPANY               ,A8           ; COMPANY CODE                              821 thru   828                          
+        A_CHH_COMP_SEQ              ,D5           ; COMPANY SPLIT SEQUENCE                    829 thru   833                          
+        A_CHH_COMP_PERC             ,D5           ; COMPANY PERCENTAGE                        834 thru   838                          
+        A_CHH_SHIP_TO2              ,A7           ; FOR LIN WIHTOUT N1 ST                     839 thru   845                          
+        A_CHH_AUTH_FAB_DT           ,D8           ; AUTHORIZED FAB START DATE                 846 thru   853                          
+        A_CHH_AUTH_RAW_DT           ,D8           ; AUTHORIZED RAW START DATE                 854 thru   861                          
+        A_CHH_ROUTE_CD              ,A2           ; ROUTING SEQUENCE CODE                     862 thru   863                          
+        A_CHH_T_ID_QL               ,A2           ; SCAC CODE QUALIFIER                       864 thru   865                          
+        A_CHH_T_ID                  ,A17          ; SCAC CODE                                 866 thru   882                          
+        A_CHH_T_MTHD                ,A2           ; TRANSPORTATION METHOD                     883 thru   884                          
+        A_CHH_BILL_CNTRY            ,A2           ; BILL TO COUNTRY                           885 thru   886                        
+        A_CHH_SHIP_CNTRY            ,A2           ; SHIP TO COUNTRY                           887 thru   888                        
+	A_CHH_SHIP_TO3              ,A7           ; SHIP TO FROM N1*ST                        889 thru   895     
+        A_CHH_INT_ID                ,A35          ; INTERCHANGE ID                            896 thru   930                          
+        A_CHH_GROUP_ID              ,A35          ; GROUP ID                                  931 thru   965                          
+        A_CHH_INTR_QL               ,A2           ; INTERCHANGE QUALIFIER                     966 thru   967                          
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        A_CH830_HDR_KEY             ,A55          ; PRIMARY SORT KEY                                                                  
+.ENDC

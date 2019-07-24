@@ -1,0 +1,22 @@
+;CA847O_ADR.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND MATERIAL CLAIM ADDRES                                                                                              
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   107                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA847O_ADR                                                                                                                  
+        A847O_INTERCHG            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        A847O_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        A847O_HDR_SEQ             ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        A847O_DTL_SEQ             ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        A847O_ADR_SEQ             ,D6           ; ADDRESS SEQUENCE                           43 thru    48                          
+        A847O_ENTITY_ID           ,A2           ; ENTITY ID CODE                             49 thru    50                          
+        A847O_NAME                ,A35          ; NAME                                       51 thru    85                          
+        A847O_ID_CD_QL            ,A2           ; ID CODE QUALIFER                           86 thru    87                          
+        A847O_ID_CODE             ,A20          ; ID CODE                                    88 thru   107                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+                                  ,A74          ; PRIMARY KEY POSITIONING                                                           
+        CA847O_ADR_KEY            ,A33          ; PRIMARY SORT KEY                                                                  

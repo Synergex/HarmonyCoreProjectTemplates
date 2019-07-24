@@ -1,0 +1,30 @@
+;CH856_ALC.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 856 ALLOWANCE/CHARGES                                                                                              
+;       DATE : 25-APR-12                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   290                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH856_ALC                                                                                                                   
+        CAC_SEQ_1                 ,D5           ; INPUT SEQUENCE #1                           1 thru     5                          
+        CAC_SEQ_2                 ,D5           ; INPUT SEQUENCE #2                           6 thru    10                          
+        CAC_SEQ_3                 ,D5           ; INPUT SEQUENCE #3                          11 thru    15                          
+        CAC_ASN_NO                ,A30          ; ASN NUMBER                                 16 thru    45                          
+        CAC_INDICATOR             ,A1           ; ALLOWANCE OR CHARGE INDICATOR              46 thru    46                          
+        CAC_METH_HAND             ,A2           ; METHOD OF HANDLING                         47 thru    48                          
+        CAC_AMOUNT                ,D9           ; ALLOW/CHARGE AMOUNT                        49 thru    57                          
+        CAC_DESC                  ,A80          ; ALLOW/CHARGE DESCRIPTION                   58 thru   137                          
+        CAC_SPEC_CHARGE           ,A3           ; ALLOW/CHARGE SPECIAL CHARGE CD            138 thru   140                          
+        CAC_NUMBER                ,A16          ; ALLOW/CHARGE NUMBER                       141 thru   156                          
+        CAC_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                      157 thru   186                          
+        CAC_RAN                   ,A30          ; RAN NUMBER /SHIP REFERENCE                187 thru   216                          
+        CAC_DEST_CODE             ,A7           ; DESTINATION CODE                          217 thru   223                          
+        CAC_PART_QUAL             ,A2           ; PART QUALIFIER                            224 thru   225                          
+        CAC_TARE_SNO              ,A30          ; SERIAL NUMBER                             226 thru   255                          
+        CAC_SORT_FLD              ,D5           ; SORT FIELD                                256 thru   260                          
+        CAC_PACK_SLIP             ,A30          ; PACK SLIP FOR SORT                        261 thru   290                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH856_ALC_KEY             ,A15          ; PRIMARY SORT KEY                                                                  
+                                  ,A275         ; PRIMARY KEY POSITIONING                                                           

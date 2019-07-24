@@ -1,0 +1,51 @@
+;CH853_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER ROUTINE/CARRIER INST                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    77                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH853_HDR                                                                                                                   
+        CRCH_NO                   ,A16          ; UNIQUE CHRYSLER ASSIGNED #                  1 thru    16                          
+        CRCH_DATE                 ,D8           ; TRANSACTION DATE                           17 thru    24                          
+        CRCH_TIME                 ,D4           ; TRANSACTION GENERATION TIME                25 thru    28                          
+        CRCH_EFF_DATE             ,D8           ; EFFECTIVE DATE                             29 thru    36                          
+        CRCH_SUP_DATE             ,D8           ; SUPERSEDED DATE                            37 thru    44                          
+        CRCH_PURPOSE              ,A2           ; PURPOSE                                    45 thru    46                          
+        CRCH_SUPP_CODE            ,A15          ; SUPPLIER CODE                              47 thru    61                          
+        CRCH_SPLIT                ,A16          ; RESERVED FOR SPLIT PROCESSING              62 thru    77                          
+        CRCH_TRANSNUM             ,A5           ; DOCUMENT JOURNAL TRANSMISSION              78 thru    82                          
+        CRCH_FILSEQNUM            ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE             83 thru    86                          
+        CRCH_HCNTRLNUM            ,A14          ; ENVELOPE HEADER CONTROL NUMBER             87 thru   100                          
+        CRCH_GCNTRLNUM            ,A14          ; ENVELOPE GROUP CONTROL NUMBER             101 thru   114                          
+        CRCH_DCNTRLNUM            ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             115 thru   128                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH853_HDR_KEY             ,A16          ; PRIMARY SORT KEY                                                                  
+                                  ,A61          ; PRIMARY KEY POSITIONING                                                           
+.IFDEF	CH853_HDR_ALT
+
+RECORD 	A_CH853_HDR
+				  ,A%SIZE(CH853_HDR)
+RECORD	,X
+        A_CRCH_NO                 ,A16          ; UNIQUE CHRYSLER ASSIGNED #                  1 thru    16                          
+        A_CRCH_DATE               ,D8           ; TRANSACTION DATE                           17 thru    22                          
+        A_CRCH_TIME               ,D4           ; TRANSACTION GENERATION TIME                23 thru    26                          
+        A_CRCH_EFF_DATE           ,D8           ; EFFECTIVE DATE                             27 thru    32                          
+        A_CRCH_SUP_DATE           ,D8           ; SUPERSEDED DATE                            33 thru    38                          
+        A_CRCH_PURPOSE            ,A2           ; PURPOSE                                    39 thru    40                          
+	A_CRCH_SUPP_CODE	  ,A15		; SUPPLIER CODE				     41 thru    55
+						  ;
+					          ; THE FOLLOWING FIELDS ARE USED 
+						  ; FOR SPLIT PROCESSING	
+					          ;
+	A_CRCH_COMPANY		,A8	  	; COMPANY TO SPLIT TO			     56 thru    63
+	A_CRCH_SEQNUM		,D5	  	; SEQUENCE NUMBER			     64 thru    68
+	A_CRCH_PERCENT		,D3.2	  	; COMPANY PERCENT TOTAL       		     69 thru    71
+        A_CRCH_TRANSNUM             ,A5           ; DOCUMENT JOURNAL TRANSMISSION              78 thru    82                          
+        A_CRCH_FILSEQNUM            ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE             83 thru    86                          
+        A_CRCH_HCNTRLNUM            ,A14          ; ENVELOPE HEADER CONTROL NUMBER             87 thru   100                          
+        A_CRCH_GCNTRLNUM            ,A14          ; ENVELOPE GROUP CONTROL NUMBER             101 thru   114                          
+        A_CRCH_DCNTRLNUM            ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             115 thru   128                          
+.ENDC

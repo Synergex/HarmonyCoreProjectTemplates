@@ -1,0 +1,12 @@
+;RTSEG_MSG.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL MSG SEGMENT FILE                                                                                                     
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    83                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_MSG                                                                                                                   
+        MSG_SEG                   ,A3           ; RECORD TYPE - MSG                           1 thru     3                          
+        MSG_01                    ,A80          ; MESSAGE                                     4 thru    83                          
+                                                                                                                                    
+                                                                                                                                    

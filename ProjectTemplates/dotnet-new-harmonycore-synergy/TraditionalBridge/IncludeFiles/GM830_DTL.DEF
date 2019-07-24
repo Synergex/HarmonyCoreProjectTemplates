@@ -1,0 +1,89 @@
+RECORD GM830_DTL
+;
+; GM830_DTL.DEF	- GM MATERIAL RELEASE DETAIL	(New)
+;
+; 	STRUCTURE: 	SEQUENTIAL
+; 	RECORD LEN: 	120
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+;
+	SRCTLS		,D5		; CONTROLLING SOURCE
+	SRRELN		,A3		; RELEASE NUMBER
+	SRPART		,A8		; CUSTOMER PART NUMBER
+	SRYEAR		,A1		; MODEL YEAR
+	SRDSTC		,D5		; DESTINATION CODE
+	SRDOCK		,A1		; DOCK CODE
+					;
+	SRPONO		,A9		; PURCHASE ORDER NUMBER
+	SRSHIP		,A1		; SHIP CODE
+	SRCUMQ		,D9		; CYTD REQUIRED THRU PRIOR WEEK
+	SRCMNC		,D7		; CYTD REQ NET CHANGE
+	SRSHPQ		,D9		; CYTD SHIPMENTS
+	SRSPNC		,D7		; CYTD SHIP NET CHANGE
+	SRLAST		,D8		; LAST SHIP DATE (MMDDY)
+	SRWKQU		,4D7		; WEEK QUANTITIES
+			,A19		; FILLER
+RECORD	,X
+	KEYSR	,	A23		; KEY (ctl srce,rel#,part,my,dest,dock)
+
+.IFDEF XX830_DTL_WORK
+RECORD GM830_DTL_WORK
+;
+; 			GM MATERIAL RELEASE DETAIL - SPLIT PROCESSING 
+;			TEMPORARY WORK FILE
+;
+;			Field defined in the record are identical to 
+;			to GM830_DTL with the exception of the additional
+;			fields in this record of SRCOMP_W and SRSEQN_W.
+;
+;
+; 	STRUCTURE: 	SEQUENTIAL
+; 	RECORD LEN: 	133
+;	SORT KEY:	SRCOMP_W, SRSEQN_W
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+;
+	SRCOMP_W	,A8		; COMPANY CODE
+	SRSEQN_W	,D5		; SEQUENCE NUMBER
+	SRCTLS_W	,D5		; CONTROLLING SOURCE
+	SRRELN_W	,A3		; RELEASE NUMBER
+	SRPART_W	,A8		; CUSTOMER PART NUMBER
+	SRYEAR_W	,A1		; MODEL YEAR
+	SRDSTC_W	,D5		; DESTINATION CODE
+	SRDOCK_W	,A1		; DOCK CODE
+	SRPONO_W	,A9		; PURCHASE ORDER NUMBER
+	SRSHIP_W	,A1		; SHIP CODE
+	SRCUMQ_W	,D9		; CYTD REQUIRED THRU PRIOR WEEK
+	SRCMNC_W	,D7		; CYTD REQ NET CHANGE
+	SRSHPQ_W	,D9		; CYTD SHIPMENTS
+	SRSPNC_W	,D7		; CYTD SHIP NET CHANGE
+	SRLAST_W	,D8		; LAST SHIP DATE (MMDDY)
+	SRWKQU_W	,4D7		; WEEK QUANTITIES
+			,A19		; FILLER
+RECORD	,X
+			,A8		; COMPANY CODE
+			,D5		; SEQUENCE NUMBER
+	GM830U_DTL	,A%SIZE(GM830_DTL) ; UNSPLIT DETAIL
+.ENDC
+
+
+.IFDEF XX830_DTL_TOTALS
+RECORD GM830_DTL_TOTALS
+;
+;			GM MATERIAL RELEASE DETAIL - SPLIT PROCESSING 
+;			WORKING STORAGE BUFFER OF QUANTITY FIELDS.
+;			
+;			The quantity fields accumlate the total quantities
+;			that have been split to the multiple companies.
+;			This buffer is not written to any file.
+;
+	SRCUMQ_T	,D9		; CYTD REQUIRED THRU PRIOR WEEK
+	SRCMNC_T	,D7		; CYTD REQ NET CHANGE
+	SRSHPQ_T	,D9		; CYTD SHIPMENTS
+	SRSPNC_T	,D7		; CYTD SHIP NET CHANGE
+	SRWKQU_T	,4D7		; WEEK QUANTITIES
+.ENDC

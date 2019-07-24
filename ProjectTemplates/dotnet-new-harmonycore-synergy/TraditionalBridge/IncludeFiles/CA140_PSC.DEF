@@ -1,0 +1,21 @@
+;CA140_PSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT REGISTRATION - PSC SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    45                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA140_PSC                                                                                                                   
+        P140_GS_CONTROL           ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        P140_HDR_SEQN             ,D6           ; HEADER SEQUENCE NUMBER                     10 thru    15                          
+        P140_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     16 thru    21                          
+        P140_LIN_SEQN             ,D6           ; LIN SEGMENT SEQUENCE NUMBER                22 thru    27                          
+        P140_SLN_SEQN             ,D6           ; SLN SEGMENT SEQUENCE NUMBER                28 thru    33                          
+        P140_PSC_SEQN             ,D6           ; PSC SEGMENT SEQUENCE NUMBER                34 thru    39                          
+        P140_STATUS_CD            ,A2           ; CONTRACT STATUS CODE                       40 thru    41                          
+        P140_TYPE_CODE            ,A4           ; TYPE OF PRODUCT SERVICE CODE               42 thru    45                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA140_PSC_KEY             ,A39          ; PRIMARY SORT KEY                                                                  
+                                  ,A6           ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,57 @@
+;CAS861_ADR.DEF                                                                                                                     
+;                                                                                                                                   
+;       SEND RECEIVING ADVICE ADDRESS                                                                                               
+;       DATE : 24-JAN-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1010                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAS861_ADR                                                                                                                  
+        AS861_SEQ1                ,D6           ; INPUT SEQUENCE 1                            1 thru     6                          
+        AS861_SEQ2                ,D6           ; INPUT MATCH SEQUENCE #2                     7 thru    12                          
+        AS861_TP_DESIG            ,A2           ; TRADING PARTNER DESIGNATOR                 13 thru    14                          
+        AS861_INTCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                    15 thru    29                          
+        AS861_GROUP_ID            ,A15          ; RECEIVER GROUP ID                          30 thru    44                          
+        AS861_RCVADV_NO           ,A30          ; RECEIVING ADVICE NO                        45 thru    74                          
+        AS861_ADR_LOOP            ,D3           ; ADDRESS N1 LOOP SEQUENCE NO                75 thru    77                          
+        AS861_REC_SEQ             ,D3           ; RECORD SEQUENCE (SEGMENT)                  78 thru    80                          
+        AS861_SORT_SEQ            ,D6           ; SORT SEQUENCE                              81 thru    86                          
+        AS861_ENTITY_ID           ,A2           ; N1 ENTITY IDENTIFIER                       87 thru    88                          
+        AS861_NAME                ,A35          ; NAME OF ENTITY                             89 thru   123                          
+        AS861_ID_CD_QL            ,A2           ; ID CODE QUALIFIER                         124 thru   125                          
+        AS861_ID_CODE             ,A17          ; ID CODE                                   126 thru   142                          
+        AS861_NAME2               ,A35          ; SECONDARY NAME (N2 SEG)                   143 thru   177                          
+        AS861_NAME3               ,A35          ; SECONDARY NAME (N2 SEG)                   178 thru   212                          
+        AS861_NAME4               ,A35          ; N201 SECONDARY NAME                       213 thru   247                          
+        AS861_NAME5               ,A35          ; N202 - SECONDARY NAME                     248 thru   282                          
+        AS861_ADDR1               ,A35          ; ADDRESS 1                                 283 thru   317                          
+        AS861_ADDR2               ,A35          ; ADDRESS LINE 2                            318 thru   352                          
+        AS861_ADDR3               ,A35          ; ADDRESS LINE 3                            353 thru   387                          
+        AS861_ADDR4               ,A35          ; ADDRESS LINE 4                            388 thru   422                          
+        AS861_CITY                ,A19          ; CITY                                      423 thru   441                          
+        AS861_STATE               ,A2           ; ADDRESS STATE                             442 thru   443                          
+        AS861_ZIP                 ,A9           ; ADDRESS POSTAL CODE                       444 thru   452                          
+        AS861_CTRY_CD             ,A2           ; ADDRESS COUNTRY CODE                      453 thru   454                          
+        AS861_LOC_QL              ,A2           ; ADDRESS LOCATION QUALIFIER                455 thru   456                          
+        AS861_LOC_ID              ,A25          ; ADDRESS LOCATION ID                       457 thru   481                          
+        AS861_REF_QL              ,A2           ; REFERENCE SEG QUALIFIER                   482 thru   483                          
+        AS861_REF_NO              ,A30          ; REFERENCE NO                              484 thru   513                          
+        AS861_REF_DESC            ,A80          ; REFERENCE DESCRIPTION                     514 thru   593                          
+        AS861_PER_FUNCT           ,A2           ; PER SEG CONTACT FUNCTION CODE             594 thru   595                          
+        AS861_PER_NAME            ,A35          ; PER SEG NAME                              596 thru   630                          
+        AS861_PER_COMQL           ,A2           ; PER SEG COMMUNICATION QUAL                631 thru   632                          
+        AS861_PER_COMM            ,A25          ; PER SEG COMMUNICATIONS NUMBER             633 thru   657                          
+        AS861_FOB_PMETH           ,A2           ; FOB SHIPMENT PAYMENT METHOD               658 thru   659                          
+        AS861_FOB_LOCQL           ,A2           ; FOB LOCATION QUALIFIER#1                  660 thru   661                          
+        AS861_FOB_DESC1           ,A80          ; FOB DESCRIPTION #1 (FOB03)                662 thru   741                          
+        AS861_FOB_TT_QL           ,A2           ; FOV TRANPORT TERMS QUAL CODE              742 thru   743                          
+        AS861_FOB_TT_CD           ,A3           ; FOB TRANSPORT TERMS CODE                  744 thru   746                          
+        AS861_FOB_LOCQ2           ,A2           ; FOB LOCATION QUAL #2 (FOB06)              747 thru   748                          
+        AS861_FOB_DESC2           ,A80          ; FOB DESCRIPTION #2 (FOB07)                749 thru   828                          
+        AS861_FOB_RISK            ,A3           ; FOB RISK OF LOSS QUALIFIER                829 thru   831                          
+        AS861_FOB_DESC3           ,A80          ; FOB DESCRIPTION 3 (FOB09)                 832 thru   911                          
+        AS861_FILLER              ,A99          ; FILLER                                    912 thru  1010                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAS861_ADR_KEY            ,A14          ; PRIMARY SORT KEY                                                                  
+                                  ,A996         ; PRIMARY KEY POSITIONING                                                           

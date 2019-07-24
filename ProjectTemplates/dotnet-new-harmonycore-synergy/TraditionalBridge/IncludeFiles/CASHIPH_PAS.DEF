@@ -1,0 +1,7 @@
+RECORD CASHIPH_PAS
+	IN_ACTION	,A1	;'O'pen, 'C'lose, 'A'dd, 'D'elete
+	IN_TP		,A2	; TP
+	IN_SHIPPER	,D9	; Shipper # to process
+	OUT_STATUS	,D1	; 0 - successful
+				; 1 - error
+

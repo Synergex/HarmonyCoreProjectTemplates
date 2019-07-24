@@ -1,0 +1,150 @@
+RECORD CARADV_HDR
+;
+; CARADV_HDR - CARaS Receiving Advice Header file
+;
+;	15-Mar-1994	Bill Schmelter	Creation
+;	20-Jun-1994	Bill Schmelter	Changed RCVADV_NO from d9 to A30
+;
+;-------------------------------------------------------------------------------
+;	Record Length: 1024	Organization: Indexed		| Positions
+;-------------------------------------------------------------------------------
+				;				|
+	RADH_TP_DESIG	,A2	; Trading Partner Designator	| 001 thru 002
+	RADH_RCVADV_NO	,A30	; Receiving Advice ID Number	| 003 thru 032
+				;				|
+	RADH_CONSL_ABRV	,A5	; Consolidator Abbreviation	| 033 thru 037
+	RADH_CONSL_IDQL	,A2	; Ship To ID Code Qual		| 038 thru 039
+	RADH_CONSL_ID	,A17	; Ship To ID Code		| 040 thru 056
+				;				|
+	RADH_RCV_DATE	,D6	; Date Received			| 057 thru 062
+	RADH_RCV_TIME	,D4	; Time Received			| 063 thru 066 
+	RADH_RCV_TCODE	,A2	; Receive Time Code (#623)	| 067 thru 068
+				;				|
+	;----From Received ASN information ---------------------|
+	RADH_SID	,A30	; Shipment Identification No	| 069 thru 098
+	RADH_SUPP_ID	,A17	; Orig ASN Supplier ID Code	| 099 thru 115
+	RADH_SHPFR_ID	,A17	; Ship From ID Code		| 132 thru 132
+				;				|
+	RADH_SUPP_ABRV	,A5	; Orig ASN Supplier Abbr	| 133 thru 137
+	RADH_SUPP_IDQL	,A2	; Orig ASN Supplier ID Code Qual| 138 thru 139
+				;				|
+	RADH_SHPFR_ABRV	,A5	; Ship From Abbr		| 140 thru 144
+	RADH_SHPFR_IDQL	,A2	; Ship From ID Code Qual	| 145 thru 146
+				;				|
+	RADH_SHPTO_ABRV	,A5	; Ship to Abbr			| 147 thru 151
+	RADH_SHPTO_ID	,A17	; Ship To ID Code		| 152 thru 168
+	RADH_SHPTO_IDQL	,A2	; Ship To ID Code Qual		| 169 thru 170
+				;				|
+	RADH_SHIP_DATE	,D6	; ASN Shipment Date		| 171 thru 176
+	RADH_SHIP_TIME	,D4	; ASN Shipment Time		| 177 thru 180
+	RADH_SHIP_TCODE	,A2	; Shipment Time Code (#623)	| 181 thru 182
+				;				|
+	RADH_RTE_SEQ	,A2	; Routing Sequence Code (T#133) | 183 thru 184
+	RADH_RTE_TMETH	,A2	; Transportation Method (T#91)	| 185 thru 186
+	RADH_CARR_IDQL	,A2	; Carrier Id Code Qual (T#66)	| 187 thru 188
+	RADH_CARR_ID	,A17	; Generally, SCAC Code		| 189 thru 205
+				;				|
+	RADH_EQUIP_CODE	,A2	; ASN Equipment Code (T#40)	| 206 thru 207
+	RADH_EQUIP_PRFX	,A4	; ASN Equipment Prefix		| 208 thru 211
+	RADH_EQUIP_NO	,A10	; ASN Equipment Number 		| 212 thru 221
+				;				|
+	RADH_TRK_BOL	,A30	; Truckers BOL#			| 222 thru 251
+	RADH_MBOL_NO	,A30	; As Received Master BOL#	| 252 thru 281
+	RADH_SEAL_NO	,A30	; Truck/Railcar Seal Number	| 282 thru 311
+	RADH_CARR_REFNO	,A30	; Carriers Pro/Invoice/Ref No	| 312 thru 341
+	RADH_ASN_MBOL	,A30	; ASN Master BOL#		| 342 thru 371
+				;				|
+	RADH_TRANS_DATE	,D6	; Transmission Date		| 372 thru 377
+	RADH_TRANS_TIME	,D4	; Transmission Time		| 378 thru 381
+	RADH_TRANS_ICN	,D9	; Interchange Ctl No		| 382 thru 390
+	RADH_TRANS_GSN	,D9	; Group Control No		| 391 thru 399
+	RADH_TRANS_STN	,A9	; Set Control No		| 400 thru 409
+	RADH_TRANS_PURP	,A2	; Transmitted Purpose		| 410 thru 411
+				;				|
+	RADH_PURPOSE	,A2	; Transaction Set Purpose	| 412 thru 413	
+	RADH_ORIG_ASN	,A30	; Suppliers Original ASN No	| 414 thru 443
+			,A582	; Filler			| 444 thru 1024
+;
+;-------------------------------------------------------------------------------
+;              ------ Key Definitions ------
+;-------------------------------------------------------------------------------
+; Primary Key - Allows Dups, No Changes
+;
+RECORD RADH_KEY0		,X				
+	K0_RADH_TP_DESIG		,A%SIZE(RADH_TP_DESIG)
+	K0_RADH_RCVADV_NO		,A%SIZE(RADH_RCVADV_NO)
+
+; ------------------------------------------------------------------------------
+; Alternate Record Definition --------------------------------------------------
+; ------------------------------------------------------------------------------
+
+.IFDEF CARADV_HDR_ALT
+
+RECORD A_CARADV_HDR			;
+	A_RADH_TP_DESIG		,A2	; Trading Partner Designator
+	A_RADH_RCVADV_NO	,A30	; Receiving Advice ID Number
+	A_RADH_CONSL_ABRV	,A5	; Consolidator Abbreviation
+					;
+	A_RADH_CONSL_IDQL	,A2	; Ship To ID Code Qual
+	A_RADH_CONSL_ID		,A17	; Ship To ID Code
+					;
+	A_RADH_RCV_DATE		,D6	; Date Received
+	A_RADH_RCV_TIME		,D4	; Time Received
+	A_RADH_RCV_TCODE	,A2	; Receive Time Code (#623)
+					;
+	;----From Original ASN information ---------------------|
+	A_RADH_SID		,A30	; Shipment Identification No
+	A_RADH_SUPP_IDQL	,A2	; Orig ASN Supplier ID Code Qual
+					;
+	A_RADH_SUPP_ABRV	,A5	; Orig ASN Supplier Abbr
+	A_RADH_SUPP_ID		,A17	; Orig ASN Supplier ID Code
+	A_RADH_SHPFR_ID		,A17	; Ship From ID Code
+					;
+	A_RADH_SHPFR_ABRV	,A5	; Ship From Abbr
+	A_RADH_SHPFR_IDQL	,A2	; Ship From ID Code Qual
+					;
+	A_RADH_SHPTO_ABRV	,A5	; Ship to Abbr
+	A_RADH_SHPTO_ID		,A17	; Ship To ID Code
+	A_RADH_SHPTO_IDQL	,A2	; Ship To ID Code Qual
+					;
+	A_RADH_SHIP_DATE	,D6	; ASN Shipment Date
+	A_RADH_SHIP_TIME	,D4	; ASN Shipment Time
+	A_RADH_SHIP_TCODE	,A2	; Shipment Time Code (#623)
+					;
+	A_RADH_RTE_SEQ		,A2	; Routing Sequence Code (T#133)
+	A_RADH_RTE_TMETH	,A2	; Transportation Method (T#91)
+	A_RADH_CARR_IDQL	,A2	; Carrier Id Code Qual (T#66)
+	A_RADH_CARR_ID		,A17	; Generally, SCAC Code
+					;
+	A_RADH_EQUIP_CODE	,A2	; ASN Equipment Code (T#40)
+	A_RADH_EQUIP_PRFX	,A4	; ASN Equipment Prefix
+	A_RADH_EQUIP_NO		,A10	; ASN Equipment Number
+					;
+	A_RADH_TRK_BOL		,A30	; Truckers BOL#
+	A_RADH_MBOL_NO		,A30	; As Received Master BOL#
+	A_RADH_SEAL_NO		,A30	; Truck/Railcar Seal Number
+	A_RADH_CARR_REFNO	,A30	; Carriers Pro/Invoice/Ref No
+	A_RADH_ASN_MBOL		,A30	; ASN Master BOL#
+					;
+	A_RADH_TRANS_DATE	,D6	; Transmission Date
+	A_RADH_TRANS_TIME	,D4	; Transmission Time
+	A_RADH_TRANS_ICN	,D9	; Interchange Ctl No
+	A_RADH_TRANS_GSN	,D9	; Group Control No
+	A_RADH_TRANS_STN	,A9	; Set Control No
+	A_RADH_TRANS_PURP	,A2	; Transmitted Purpose
+					;
+	A_RADH_PURPOSE		,A2	; Transaction Set Purpose
+	A_RADH_ORIG_ASN		,A30	; Suppliers Original ASN No
+				,A582	; Filler
+					;
+;
+;-------------------------------------------------------------------------------
+;              ------ Key Definitions ------
+;-------------------------------------------------------------------------------
+; Primary Key - Allows Dups, No Changes	
+;
+RECORD A_RADH_KEY0		,X				
+	A_K0_RADH_TP_DESIG		,A%SIZE(A_RADH_TP_DESIG)
+	A_K0_RADH_RCVADV_NO		,A%SIZE(A_RADH_RCVADV_NO)
+
+.ENDC

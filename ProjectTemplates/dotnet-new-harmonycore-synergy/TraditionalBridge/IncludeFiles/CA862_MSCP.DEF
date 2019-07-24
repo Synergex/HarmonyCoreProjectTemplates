@@ -1,0 +1,28 @@
+;CA862_MSCP.DEF                                                                                                                     
+;                                                                                                                                   
+;       COMMON SHIP SCHEDULE MISC                                                                                                   
+;       DATE : 26-APR-95                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   294                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA862_MSCP                                                                                                                  
+        M862_P_GS_CTL             ,D9           ; GS INTERCHANGE CONTROL                      1 thru     9                          
+        M862_P_HDR_LINE           ,D6           ; HEADER_LINE                                10 thru    15                          
+        M862_P_DTL_LINE           ,D6           ; DETAIL LINE NUMBER                         16 thru    21                          
+        M862_P_ADR_LINE           ,D6           ; ADDRESS LINE NUMBER                        22 thru    27                          
+        M862_P_FST_LINE           ,D6           ; FST LINE NUMBER                            28 thru    33                          
+        M862_P_JIT_LINE           ,D6           ; JIT LINE NUMBER                            34 thru    39                          
+        M862_P_SHP_LINE           ,D6           ; SHP LINE NUMBER                            40 thru    45                          
+        M862_P_SEG_TYPE           ,A3           ; SEGMENT TYPE                               46 thru    48                          
+        M862_P_SRT_FLD            ,D10          ; SORT FIELD                                 49 thru    58                          
+        M862_P_FUNCT              ,A2           ; CONTACT FUNCTION CODE                      59 thru    60                          
+        M862_P_NAME               ,A35          ; CONTACT NAME                               61 thru    95                          
+        M862_P_PHONE_QL           ,A2           ; PHONE NUMBER QUALIFIER                     96 thru    97                          
+        M862_P_PHONE              ,A21          ; PHONE NUMBER                               98 thru   118                          
+        M862_P_FILLER             ,A99          ; FILLER                                    119 thru   217                          
+        M862_P_FILLER2            ,A77          ; FILLER                                    218 thru   294                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA862_MSCP_KEY            ,A58          ; PRIMARY SORT KEY                                                                  
+                                  ,A236         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,7 @@
+.ifndef SMTP_DEF
+.define SMTP_DEF
+		;SMTP error type
+        .define SMTP$MAIL	1	; smtpmail function error 
+	.define SMTP$SMTP       2	; SMTP error
+	.define SMTP$SYNSOCK	3	; Synergy Socket error
+.endc

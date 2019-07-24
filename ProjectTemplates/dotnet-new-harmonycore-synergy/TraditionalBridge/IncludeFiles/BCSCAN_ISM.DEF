@@ -1,0 +1,79 @@
+RECORD BCSCAN_ISM 
+; 
+; BCSCAN_ISM - Bar Code Internal Scanner and Transfer file. 
+; 
+;	File Organization: ISAM		Record Size: 256
+; 
+;-------------------------------------------------------------------------------
+; 
+;	MODIFIED	PROGRAMMER	DESCRIPTION 
+;	--------	----------	----------- 
+;	20-Sep-90	G. Scibilia	Creation 
+; 
+;	16-Nov-93	T. Bunker	Increase part number to 30.  Add 50
+;					bytes of filler.
+;-------------------------------------------------------------------------------
+;			------- Record Definition ------- 
+;-------------------------------------------------------------------------------
+	BCI_SEQ		,D4	; Seq number to hold original entry sequence.
+	BCI_GROUP	,D4	; Sequence number for master/detail groups
+				; Starts with 1 and incr each time a non S is
+				; found or an S with an action not equal to 1.
+	BCI_POS		,D2	; Position within group
+				;	1 = master or mixed
+				;	2 = serial number
+	BCI_FUNCT	,D1	; Function Codes 
+				;	1 = Build Tares 
+				;	2 = Ship Tares 
+	BCI_ACTION	,D1	; Action Codes (Valid for Function Codes 1 & 2) 
+				;	1 = Add 
+				;	2 = Delete 
+				;	3 = Status 
+				;	4 = Complete (shipper function only)
+				;	5 = Post (Post from hold file only)
+	BCI_SHIP_NO	,D9	; Caras Shipper Number 
+	BCI_SNO		,A10	; AIAG Serial Number         - Type "G,M,S,m" 
+				; including identifier m = No master, loose box 
+	BCI_PART_NO	,A30	; Part Number                - Type "P" 
+	BCI_VEN_NO	,A9	; Vendor/Supplier Code       - Type "V" 
+	BCI_QTY		,D6	; Quantity                   - Type "Q" 
+	BCI_CONT_CODE	,A5	; AIAG Container Code 
+	BCI_TP_DEF1	,A15	; TP Specific defined field 1 (Ship Ref #)
+	BCI_TP_DEF2	,A15	; TP Specific defined field 2 (Part Cont)
+	BCI_TP_DEF3	,A15	; TP Specific defined field 3 (Ret Cont Code)
+	BCI_TP_DEF4	,A15	; TP Specific defined field 4
+	BCI_TP_DEF5	,A15	; TP Specific defined field 5
+	BCI_USER_DEF1	,A15	; User Defined Field 1 
+	BCI_USER_DEF2	,A15	; User Defined Field 2 
+	BCI_TP_DESIG	,D2	; CARaS Trading Partner Code 
+	BCI_COMPANY	,A8	; CARaS Company Code
+	BCI_F_A_ERR	,D1	; Function or Action code invalid
+	BCI_CPY_ERR	,D1	; Invalid company code
+	BCI_TP_ERR	,D1	; Invalid TP code
+	BCI_PART_ERR	,D1	; Part number invalid flag
+	BCI_PART_DIFF	,D1	; Multiple part number on "M" tare unit
+	BCI_VEN_ERR	,D1	; Invalid or missing vendor number
+	BCI_VEN_DIFF	,D1	; Multiple vendor number on tare unit
+	BCI_CONT_ERR	,D1	; Invalid container code
+	BCI_QTY_ERR	,D1	; Quantity on master does not match details
+	BCI_PART_PROB	,D1	; Invalid part number on a detail
+			,A50
+;-------------------------------------------------------------------------------
+;			------- Key Definitions ------
+;-------------------------------------------------------------------------------
+RECORD,X
+	BCI_KEY0	,A4	;Primary Key
+				;	BCI_SEQ
+				;	BCI_TP_DESIG
+				;	BCI_PART_NO
+				;	BCI_M_SNO
+				;	BCI_SNO
+
+RECORD BCI_KEY1
+	KEY1_BCI_GROUP	,D4	; Sequence number for master/detail groups]
+				; Starts with 1 and incr each time a non S is
+				; found or an S with an action not equal to 1.
+	KEY1_BCI_POS	,D2	; Position within group
+				;	1 = master or mixed
+				;	2 = serial number
+	KEY1_BCI_SEQ	,D4	; Seq number to hold original entry sequence.

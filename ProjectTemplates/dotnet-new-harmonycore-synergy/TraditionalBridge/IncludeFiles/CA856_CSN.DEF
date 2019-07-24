@@ -1,0 +1,31 @@
+;CA856_CSN.DEF                                                                                                                      
+;                                                                                                                                   
+;       ASN CONTAINER/SERIAL NO                                                                                                     
+;       DATE : 18-FEB-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   238                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA856_CSN                                                                                                                   
+        C856_SEQ1                 ,D8           ; INPUT SEQUENCE LEVEL 1                      1 thru     8                          
+        C856_SEQ2                 ,D8           ; INPUT SEQUENCE LEVEL 2                      9 thru    16                          
+        C856_SEQ3                 ,D8           ; INPUT SEQUENCE LEVEL 3                     17 thru    24                          
+        C856_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                 25 thru    26                          
+        C856_ISS_BY_KEY           ,A15          ; ISSUE BY KEY FIELD (GM)                    27 thru    41                          
+        C856_DEST_KEY             ,A15          ; DESTINATION KEY FIELD (GM)                 42 thru    56                          
+        C856_TELE_PROC            ,A3           ; TELEPROCESSING ID (GM)                     57 thru    59                          
+        C856_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                    60 thru    74                          
+        C856_GROUP_ID             ,A12          ; GROUP ID                                   75 thru    86                          
+        C856_ASN_NO               ,A11          ; SHIPMENT ASN/ID NUMBER                     87 thru    97                          
+        C856_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                       98 thru   127                          
+        C856_SHIP_REF             ,A20          ; SHIP REF NO                               128 thru   147                          
+        C856_MODEL_YR             ,A2           ; MODEL YEAR                                148 thru   149                          
+        C856_CONT_TYPE            ,A5           ; CONTAINER TYPE                            150 thru   154                          
+        C856_UNITS_PER            ,D7           ; NUMBER OF UNITS PER CONTAINER             155 thru   161                          
+        C856_UNT_PER_UM           ,A2           ; CONTAINER UNIT OF MEASURE                 162 thru   163                          
+        C856_SERIAL_NO            ,A25          ; CONTAINER SERIAL NUMBER                   164 thru   188                          
+        C856_FILLER               ,A50          ; FILLER                                    189 thru   238                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA856_CSN_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A214         ; PRIMARY KEY POSITIONING                                                           

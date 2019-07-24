@@ -1,0 +1,37 @@
+; TO997_ELM.DEF
+;
+;	Functional Acknowledgment Detail - Element Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	21-DEC-92	T. Bunker	Original
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 200		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD TO997_ELM
+	TAE_SUPPL_ID	,A15	; Supplier ID			|   1 thru 15
+	TAE_DEST_CODE	,A15	; Destination Code		|  16 thru 30
+	TAE_GROUP_ID	,A2	; Functional Group Identifier	|  31 thru 32
+	TAE_DATA_INT	,D9	; Data Interchange Control #	|  33 thru 41
+	TAE_TRANS_TYPE	,A3	; Transaction Set Identifier	|  42 thru 44
+	TAE_TRANS_CTL	,D9	; Trasnaction Set Control #	|  45 thru 53
+	TAE_SEGMENT	,A3	; Segment Identifier		|  54 thru 56
+	TAE_LOOP_ID	,A4	; Loop Identifier		|  57 thru 60
+	TAE_ELEM_POS	,D2	; Element Position in Segment	|  61 thru 62
+
+	TAE_ELEM_REF	,D4	; Element Reference # 		|  63 thru 66
+	TAE_NOTE_CODE	,A3	; Element Note Code		|  67 thru 69
+	TAE_COPY_ELEM	,A80	; Copy of the Bad Element       |  70 thru 149
+			,A51	; Filler			| 150 thru 200
+
+RECORD TAE_KEY, X
+	K_TAE_SUPPL_ID	        ,A%SIZE(TAE_SUPPL_ID)
+	K_TAE_DEST_CODE	        ,A%SIZE(TAE_DEST_CODE)
+	K_TAE_GROUP_ID		,A%SIZE(TAE_GROUP_ID)
+	K_TAE_DATA_INT		,D%SIZE(TAE_DATA_INT)
+	K_TAE_TRANS_TYPE	,A%SIZE(TAE_TRANS_TYPE)
+	K_TAE_TRANS_CTL		,D%SIZE(TAE_TRANS_CTL)
+	K_TAE_SEGMENT		,A%SIZE(TAE_SEGMENT)
+	K_TAE_LOOP_ID		,D%SIZE(TAE_LOOP_ID)
+	K_TAE_ELEM_POS		,D%SIZE(TAE_ELEM_POS)

@@ -1,0 +1,48 @@
+; AOASN_SNO.DEF
+;
+;	A.O. SMITH CTX Variable Length (X12) Advance Shipping Notice (ASN) 
+;	Serial Number (from the Bar Coded Shipping Label) File.
+;
+;	File Organization: Isam 		Record Size: 128
+;
+;	Primary Key --> AOS_KEY0 (Positions 1 thru 66)
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	13-MAY-92	T. Morbach	Original
+;	01-Dec-93	T. Bunker	Expand part numbers to 30.
+;					Expand record size from 100 to 128
+;-------------------------------------------------------------------------------
+;
+;
+RECORD AOASN_SNO
+	AOS_SHIP_ID	,D9	; Shipment Id / ASN Number
+	AOS_DEST_ABBRV	,A5	; Destination Abbreviation
+	AOS_SHIP_TO	,A5	; Ship To Abbreviation.
+	AOS_OUR_PART	,A30	; CARaS Part Number
+	AOS_MAST_SNO	,A15	; Master/Tare Serial Number
+	AOS_CONT_CODE	,A5	; Container Type (X12 Table # 103)
+	AOS_UNITS_PER	,D7	; Number of Units per Container
+	AOS_SERIAL_NO	,A15	; Container Serial Number
+			,A37	; Filler
+RECORD AOS_KEY0, X
+	;
+	; Primary Key, No Duplicates No Changes (Length:76, Pos:0)
+	;
+	K0_AOS_SHIP_ID		,D%SIZE(AOS_SHIP_ID)
+	K0_AOS_DEST_ABBRV	,A%SIZE(AOS_DEST_ABBRV)
+	K0_AOS_SHIP_TO		,A%SIZE(AOS_SHIP_TO)
+	K0_AOS_OUR_PART		,A%SIZE(AOS_OUR_PART)
+	K0_AOS_MAST_SNO		,A%SIZE(AOS_MAST_SNO)
+	K0_AOS_CONT_CODE	,A%SIZE(AOS_CONT_CODE)
+	K0_AOS_UNITS_PER	,D%SIZE(AOS_UNITS_PER)
+	K0_AOS_SERIAL_NO	,A%SIZE(AOS_SERIAL_NO)
+
+RECORD AOK_KEY1
+	;
+	; Serial Number as an Alternate Key, No Duplicates, No Changes.
+	;
+	K1_AOS_SERIAL_NO	,A%SIZE(AOS_SERIAL_NO)
+

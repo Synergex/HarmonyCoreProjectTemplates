@@ -1,0 +1,25 @@
+;CH820_ALC.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 820 ALLOW/CHARGE FILE                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   185                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH820_ALC                                                                                                                   
+        CHL_KEY_SEQ               ,D9           ; SEQ NO TO TIE DTLS TO HDR                   1 thru     9                          
+        CHL_SUPP_CODE             ,A15          ; SUPPLIER CODE                              10 thru    24                          
+        CHL_CHECK_NO              ,A30          ; CHECK NUMBER OR DEBIT DATE                 25 thru    54                          
+        CHL_EE_ISS_DATE           ,D8           ; REMITTANCE ISSUE DATE                      55 thru    62                          
+        CHL_KEY_2_SEQ             ,D9           ; KEY BETWEEN NON HEADER RECORDS             63 thru    71                          
+        CHL_AC_FLAG               ,A1           ; ALLOW/CHARGE INDICATOR                     72 thru    72                          
+        CHL_PART_NO               ,A15          ; PART NUMBER                                73 thru    87                          
+        CHL_HAND_METH             ,D2           ; CHRYLSER HANDLING METHOD                   88 thru    89                          
+        CHL_AC_NO                 ,A4           ; ALLOWANCE / CHARGE NUMBER                  90 thru    93                          
+        CHL_TOT_AMT               ,D9           ; ALLOW/CHARGE TOTAL AMOUNT                  94 thru   102                          
+        CHL_DESC                  ,A80          ; ALLOW/CHARGE DESCRIPTION                  103 thru   182                          
+        CHL_CHARGE_CODE           ,A3           ; SPECIAL CHARGE CODE                       183 thru   185                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH820_ALC_KEY             ,A71          ; PRIMARY SORT KEY                                                                  
+                                  ,A114         ; PRIMARY KEY POSITIONING                                                           

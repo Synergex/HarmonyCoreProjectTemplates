@@ -1,0 +1,27 @@
+;RTSEG_ISA.DEF                                                                                                                      
+;                                                                                                                                   
+;       INTERCHANGE HEADER SEGMENT                                                                                                  
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    91                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_ISA                                                                                                                   
+        ISA_SEG                   ,A3           ; ISA SEGMENT IDENTIFIER                      1 thru     3                          
+        ISA_01                    ,A2           ; AUTH INFO QUALIFIER                         4 thru     5                          
+        ISA_02                    ,A10          ; AUTH INFORMATION                            6 thru    15                          
+        ISA_03                    ,A2           ; SEC INFO QUALIFIER                         16 thru    17                          
+        ISA_04                    ,A10          ; SECURITY INFORMATION                       18 thru    27                          
+        ISA_05                    ,A2           ; INTERCHANGE ID QUALIFIER                   28 thru    29                          
+        ISA_06                    ,A15          ; INTERCHANGE SENDER ID                      30 thru    44                          
+        ISA_07                    ,A2           ; INTERCHANGE ID QUALIFIER                   45 thru    46                          
+        ISA_08                    ,A15          ; INTERCHANGE RECEIVER ID                    47 thru    61                          
+        ISA_09                    ,D8           ; INTERCHANGE DATE                           62 thru    69                          
+        ISA_10                    ,A4           ; INTERCHANGE TIME                           70 thru    73                          
+        ISA_11                    ,A1           ; INTERCHANGE CONTROL ID                     74 thru    74                          
+        ISA_12                    ,A5           ; INTERCHANGE VERSION NUMBER                 75 thru    79                          
+        ISA_13                    ,A9           ; INTERCHANGE CONTROL NUMBER                 80 thru    88                          
+        ISA_14                    ,A1           ; ACKNOWLEDGEMENT REQUESTED                  89 thru    89                          
+        ISA_15                    ,A1           ; TEST INDICATOR                             90 thru    90                          
+        ISA_16                    ,A1           ; SUBELEMENT SEPARATOR                       91 thru    91                          
+                                                                                                                                    
+                                                                                                                                    

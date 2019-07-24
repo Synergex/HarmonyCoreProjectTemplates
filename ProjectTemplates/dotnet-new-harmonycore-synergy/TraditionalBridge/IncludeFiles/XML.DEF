@@ -1,0 +1,19 @@
+.include 'XML_MANAGER' repository, record='xml_manager'
+.include 'XML_BRANCH' repository, structure='xml_branch'
+
+external function
+	xml_branch		,i
+	xml_flush		,i
+	xml_free		,i
+	xml_init		,i
+	xml_leaf		,i
+	xml_remove_reserved	,a
+
+literal
+	XML_SPACING			,a80	,'                                                                                '
+
+.ifndef XML_DEFINED
+.define XML_DEFINED
+
+.define XML_LEVEL_INCREMENT	5
+.endc

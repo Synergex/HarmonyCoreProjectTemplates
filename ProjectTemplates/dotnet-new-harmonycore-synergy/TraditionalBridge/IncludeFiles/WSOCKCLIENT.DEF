@@ -1,0 +1,23 @@
+.ifndef WSC_DEF
+.define WSC_DEF
+external function
+  	wsockclient       ,i       
+		;Function Specifier Definitions
+         
+	.define WSCF_CONNECT        1
+	.define WSCF_CLOSE          2
+	.define WSCF_RECV           3
+	.define WSCF_SEND           4
+	.define WSCF_ERROR          5
+         
+		;Radley Sockets Error Definitions
+	.define WSC_INTERUPT        32770   
+         
+		;Client Sockets Parameterized Macro Definitions
+         
+	.define wsc_connect(sockaddr)       wsockclient(WSCF_CONNECT,sockaddr)
+	.define wsc_close(sockaddr)         wsockclient(WSCF_CLOSE, sockaddr)
+	.define wsc_recv(sockaddr, buffer, byte_count)  wsockclient(WSCF_RECV, sockaddr, buffer, byte_count)
+	.define wsc_send(sockaddr, buffer)  wsockclient(WSCF_SEND, sockaddr, buffer)
+	.define wsc_send_w_len(sockaddr, buffer, byte_count)  wsockclient(WSCF_SEND, sockaddr, buffer, , byte_count)
+.endc

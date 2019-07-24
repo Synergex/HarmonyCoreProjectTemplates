@@ -1,0 +1,52 @@
+;FO856_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD ASN HEADER                                                                                                             
+;       DATE : 25-SEP-12                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   413                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO856_HDR                                                                                                                   
+        FH_TRANS_ID               ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        FH_DEST_CODE              ,A15          ; DESTINATION CODE                           16 thru    30                          
+        FH_ASN_NO                 ,A30          ; ASN NUMBER                                 31 thru    60                          
+        FH_INPUT_SEQ              ,D5           ; INPUT SEQUENCE NUMBER                      61 thru    65                          
+        FH_ASN_DATE               ,D8           ; ASN DATE                                   66 thru    73                          
+        FH_ASN_TIME               ,D4           ; ASN TIME                                   74 thru    77                          
+        FH_ASN_PURPOSE            ,A2           ; ASN PURPOSE CODE                           78 thru    79                          
+        FH_SA_QUAL                ,A3           ; SHIP/ARRIVAL QUALIFIER                     80 thru    82                          
+        FH_SA_DATE                ,D8           ; SHIP/ARRIVAL DATE                          83 thru    90                          
+        FH_SA_TIME                ,D4           ; SHIP/ARRIVAL TIME                          91 thru    94                          
+        FH_NET_WGT                ,D8           ; NET WEIGHT                                 95 thru   102                          
+        FH_CARRIER                ,A12          ; CARRIER CODE                              103 thru   114                          
+        FH_ROUTE_MODE             ,A2           ; ROUTING MODE                              115 thru   116                          
+        FH_LOC_CODE               ,A2           ; SPECIAL LOCATION CODE                     117 thru   118                          
+        FH_LOCATION               ,A15          ; SPECIAL LOCATION                          119 thru   133                          
+        FH_EQUIP_CODE             ,A2           ; EQUIPMENT CODE                            134 thru   135                          
+        FH_EQUIP_PRE              ,A4           ; EQUIPMENT PREFIX                          136 thru   139                          
+        FH_CONVEYANCE             ,A7           ; CONVEYANCE NUMBER                         140 thru   146                          
+        FH_PACK_SLIP              ,A30          ; PACKING SLIP NUMBER                       147 thru   176                          
+        FH_SHIP_BILL              ,A30          ; SHIPPER/BILL OF LADING NUMBER             177 thru   206                          
+        FH_REF_QUAL               ,A2           ; ADDITIONAL REFERENCE QUAL                 207 thru   208                          
+        FH_REFERENCE              ,A30          ; ADDITIONAL REFERENCE NUMBER               209 thru   238                          
+        FH_FROM_CODE              ,A15          ; SHIP FROM ID                              239 thru   253                          
+        FH_OTHER_CODE             ,A15          ; OTHER ID CODE                             254 thru   268                          
+        FH_OTHER_QUAL             ,A2           ; OTHER ID QUALIFIER                        269 thru   270                          
+        FH_TOT_QTY                ,D8           ; TOTAL QUANTITY SHIPPED                    271 thru   278                          
+        FH_TOT_LINES              ,D5           ; TOTAL LIN SEGS                            279 thru   283                          
+        FH_GROSS_WGT              ,D8           ; GROSS WEIGTH                              284 thru   291                          
+        FH_TRANS_TERMS            ,A6           ; TRANS TERMS CODE                          292 thru   297                          
+        FH_PAY_METH               ,A2           ; PAYMENT METHOD CODE                       298 thru   299                          
+        FH_TITLE_PASS             ,A2           ; TITLE PASSAGE CODE                        300 thru   301                          
+        FH_DEST_ABBRV             ,A5           ; DESTINATION ABBREVIATON                   302 thru   306                          
+        FH_DELIV_QUAL             ,A3           ; DELIVERY DATE/TIME QUALIFIER              307 thru   309                          
+        FH_DELIV_DATE             ,D8           ; DELIVERY DATE                             310 thru   317                          
+        FH_DELIV_TIME             ,D4           ; DELIVERY TIME                             318 thru   321                          
+        FH_CARRIER_REF            ,A30          ; CARRIER REFERENCE NUMBER                  322 thru   351                          
+        FH_CARR_REF_QL            ,A2           ; CARRIER REFERENCE QUALIFIER               352 thru   353                          
+        FH_SEAL_NO                ,A30          ; SEAL NUMBER                               354 thru   383                          
+        FH_INVOICE                ,A30          ; INVOICE NUMBER                            384 thru   413                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO856_HDR_KEY             ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A353         ; PRIMARY KEY POSITIONING                                                           

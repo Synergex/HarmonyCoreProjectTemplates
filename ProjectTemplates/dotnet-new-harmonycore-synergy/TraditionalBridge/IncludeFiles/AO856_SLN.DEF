@@ -1,0 +1,20 @@
+;AO856_SLN.DEF                                                                                                                      
+;                                                                                                                                   
+;       A.O. SMITH 856 SEAL NO. FILE                                                                                              
+;       DATE : 13-MAY-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    61                                                               Field Positions                           
+;
+;	01-JUN-94	John Sawyer III	Added CN_TRANS_ID and CN_GROUP_ID.
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  AO856_SLN                                                                                                                   
+        CN_INPUT_SEQ_1            ,D5           ; INPUT SEQUENCE NO. 1                        1 thru     5                          
+        CN_ASN_NO                 ,A11          ; ASN NUMBER                                  6 thru    16                          
+        CN_SEAL_NO                ,A15          ; SEAL NUMBER                                17 thru    31                          
+        CN_TRANS_ID               ,A15          ; INTERCHANGE ID                             32 thru    46                          
+        CN_GROUP_ID               ,A15          ; GROUP ID                                   47 thru    61                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        AO856_SLN_KEY             ,A5           ; PRIMARY SORT KEY                                                                  
+                                  ,A56          ; PRIMARY KEY POSITIONING                                                           

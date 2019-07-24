@@ -1,0 +1,13 @@
+;RTSEG_AK1.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL ACKNOWLEDGEMENT AK1 SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    15                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_AK1                                                                                                                   
+        AK1_SEG                   ,A4           ; AK1 SEGMENT IDENTIFIER                      1 thru     4                          
+        AK1_01                    ,A2           ; FUNCTIONAL ID CODE                          5 thru     6                          
+        AK1_02                    ,A9           ; GROUP CONTROL NUMBER                        7 thru    15                          
+                                                                                                                                    
+                                                                                                                                    

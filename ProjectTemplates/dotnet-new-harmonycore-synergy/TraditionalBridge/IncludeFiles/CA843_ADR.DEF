@@ -1,0 +1,50 @@
+;CA843_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE ADDRESS                                                                                                   
+;       DATE : 10-JAN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   676                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_ADR                                                                                                                   
+        AQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        AQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        AQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        AQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        AQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        AQT_SCH_SEQ               ,D6           ; SCHEDULE SEQ NO                            31 thru    36                          
+        AQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        AQT_PDD_SEQ               ,D6           ; PRICING DATE SEQUENCE NUMBER               43 thru    48                          
+        AQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        AQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        AQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        AQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        AQT_N1_ENT_CDE1           ,A2           ; ENTITY ID CODE                             88 thru    89                          
+        AQT_N1_NAME               ,A35          ; N1 SEGMENT NAME                            90 thru   124                          
+        AQT_N1_ID_QL              ,A2           ; ID CODE QUALIFIER                         125 thru   126                          
+        AQT_N1_ID_CODE            ,A20          ; ID CODE                                   127 thru   146                          
+        AQT_N1_REL_CODE           ,A2           ; RELATIONSHIP CODE                         147 thru   148                          
+        AQT_N1_ENT_CDE2           ,A2           ; ENTITY CODE                               149 thru   150                          
+        AQT_N2_NAME1              ,A35          ; NAME                                      151 thru   185                          
+        AQT_N2_NAME2              ,A35          ; NAME                                      186 thru   220                          
+        AQT_N2_NAME3              ,A35          ; NAME                                      221 thru   255                          
+        AQT_N2_NAME4              ,A35          ; NAME                                      256 thru   290                          
+        AQT_N3_ADDRESS1           ,A35          ; ADDRESS                                   291 thru   325                          
+        AQT_N3_ADDRESS2           ,A35          ; ADDRESS                                   326 thru   360                          
+        AQT_N3_ADDRESS3           ,A35          ; ADDRESS                                   361 thru   395                          
+        AQT_N3_ADDRESS4           ,A35          ; ADDRESS                                   396 thru   430                          
+        AQT_N4_CITY               ,A30          ; CITY                                      431 thru   460                          
+        AQT_N4_STATE              ,A2           ; STATE/PROVINCE                            461 thru   462                          
+        AQT_N4_ZIP                ,A15          ; ZIP CODE                                  463 thru   477                          
+        AQT_N4_COUNTRY            ,A2           ; COUNTRY CODE                              478 thru   479                          
+        AQT_N4_LOC_QL             ,A2           ; LOCATION QUALIFIER                        480 thru   481                          
+        AQT_N4_LOC_ID             ,A30          ; LOCATION ID                               482 thru   511                          
+        AQT_PER_NAME              ,A35          ; CONTACT NAME                              512 thru   546                          
+        AQT_PER_COM_NO1           ,A20          ; CONTACT PHONE NUMBER                      547 thru   566                          
+        AQT_PER_FUNCTN            ,A2           ; CONTACT PERSON FUNCTION                   567 thru   568                          
+        AQT_FILLER1               ,A9           ; FILLER                                    569 thru   577                          
+        AQT_FILLER2               ,A99          ; FILLER                                    578 thru   676                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_ADR_KEY             ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A622         ; PRIMARY KEY POSITIONING                                                           

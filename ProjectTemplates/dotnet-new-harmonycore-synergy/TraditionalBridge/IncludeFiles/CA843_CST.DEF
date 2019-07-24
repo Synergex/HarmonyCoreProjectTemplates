@@ -1,0 +1,31 @@
+;CA843_CST.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE COST ANALYSI                                                                                              
+;       DATE : 10-JAN-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   320                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_CST                                                                                                                   
+        CQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        CQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        CQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        CQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        CQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        CQT_SCH_SEQ               ,D6           ; SCHEDULE SEQUENCE NO                       31 thru    36                          
+        CQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        CQT_PDD_SEQ               ,D6           ; PRICING DATA SEQUENCE NUMBER               43 thru    48                          
+        CQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        CQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        CQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        CQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        CQT_COST_CODE             ,A3           ; COST CODE                                  88 thru    90                          
+        CQT_COST_AMOUNT           ,D15          ; MONETARY AMOUNT                            91 thru   105                          
+        CQT_UOFM                  ,A2           ; UNIT OF MEASUREMENT                       106 thru   107                          
+        CQT_QTY                   ,D15          ; QUANTITY                                  108 thru   122                          
+        CQT_FILLER1               ,A99          ; FILLER                                    123 thru   221                          
+        CQT_FILLER2               ,A99          ; FILLER                                    222 thru   320                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_CST_KEY             ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A266         ; PRIMARY KEY POSITIONING                                                           

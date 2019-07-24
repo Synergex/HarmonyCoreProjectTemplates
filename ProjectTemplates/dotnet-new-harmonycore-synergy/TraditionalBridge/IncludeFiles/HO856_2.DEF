@@ -1,0 +1,26 @@
+; HO856_2.DEF
+;
+;	HONDA X12 ASN GENERATION INPUT FILE # 2 - The Shipping Container File.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	18-Sept-89	J. Rheingans	Original
+;
+;-------------------------------------------------------------------------------
+; File Organization: Sequential	| Record Size: 100		| Start Position
+;-------------------------------------------------------------------------------
+RECORD HO856_2
+	H2_INPUT_SEQ	,D5	; Generation Input Sequence	|   1 thru 5
+	H2_PLANT_DUNS	,A15	; Honda Plant's Duns Number	|   6 thru 20
+	H2_PLANT_ID	,A15	; Plant Identification		|  21 thru 35
+	H2_ASN_NO	,A9	; ASN Number			|  36 thru 44
+	H2_CONT_CODE	,A5	; Shipping Container Code	|  45 thru 49
+	H2_CONT_QTY	,D8	; Number of Containers		|  50 thru 57
+			,A43	; Filler			|  58 thru 100
+RECORD 	,X
+			,D5
+	H856_2_KEY	,A44

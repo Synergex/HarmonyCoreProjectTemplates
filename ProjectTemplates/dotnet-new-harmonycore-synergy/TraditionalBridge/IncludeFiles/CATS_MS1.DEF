@@ -1,0 +1,51 @@
+;CATS_MS1.DEF                                                                                                                       
+;                                                                                                                                   
+;       TECHNICAL SPECS MISCELLANEOUS1                                                                                              
+;       DATE : 15-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1171                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATS_MS1                                                                                                                    
+        TSM1_SPI_REF              ,A30          ; SPI REFERENCE NUMBER                        1 thru    30                          
+        TSM1_SEQ_NO1              ,D6           ; SEQUENCE NUMBER                            31 thru    36                          
+        TSM1_SEQ_NO2              ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        TSM1_SEQ_NO3              ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        TSM1_SEQ_NO4              ,D6           ; SEQUENCE NUMBER                            49 thru    54                          
+        TSM1_SEQ_NO5              ,D6           ; SEQUENCE NUMBER                            55 thru    60                          
+        TSM1_SEQ_NO6              ,D6           ; SEQUENCE NUMBER                            61 thru    66                          
+        TSM1_SEQ_NO7              ,D6           ; SEQUENCE NUMBER                            67 thru    72                          
+        TSM1_SEQ_NO8              ,D6           ; SEQUENCE NUMBER                            73 thru    78                          
+        TSM1_SEC_LVL              ,A2           ; SECURITY LEVEL                             79 thru    80                          
+        TSM1_SPI_REF_QL           ,A2           ; SPI REFERENCE NUMBER QUALIFIER             81 thru    82                          
+        TSM1_SPI_ENTITY           ,A80          ; ENTITY ID                                  83 thru   162                          
+        TSM1_SPI_RPT              ,A2           ; REPORT TYPE                               163 thru   164                          
+        TSM1_SPI_STATUS           ,A1           ; STATUS CODE                               165 thru   165                          
+        TSM1_LIN_LINE             ,A20          ; LINE NUMBER                               166 thru   185                          
+        TSM1_LIN_QL1              ,A2           ; PRODUCT QUALIFIER                         186 thru   187                          
+        TSM1_LIN_ID1              ,A30          ; PRODUCT ID                                188 thru   217                          
+        TSM1_LIN_QL2              ,A2           ; PRODUCT QUALIFIER                         218 thru   219                          
+        TSM1_LIN_ID2              ,A30          ; PRODUCT ID 2                              220 thru   249                          
+        TSM1_LIN_QL3              ,A2           ; PRODUCT QUALIFIER 3                       250 thru   251                          
+        TSM1_LIN_ID3              ,A30          ; PRODUCT ID                                252 thru   281                          
+        TSM1_LIN_QL4              ,A2           ; PRODUCT QUALIFIER                         282 thru   283                          
+        TSM1_LIN_ID4              ,A30          ; PRODUCT ID                                284 thru   313                          
+        TSM1_LIN_QL5              ,A2           ; PRODUCT QUALIFIER 5                       314 thru   315                          
+        TSM1_LIN_ID5              ,A30          ; PRODUCT ID 5                              316 thru   345                          
+        TSM1_INTERCHANG           ,A17          ; INTERCHANGE ID                            346 thru   362                          
+        TSM1_GROUP_ID             ,A17          ; GROUP ID                                  363 thru   379                          
+        TSM1_PID_COST             ,D15          ; UNIT COST                                 380 thru   394                          
+        TSM1_PID_CHAR             ,A3           ; CHARACTERISTIC CODE                       395 thru   397                          
+        TSM1_PID_DESC             ,A80          ; DESCRIPTION                               398 thru   477                          
+        TSM1_STATUS               ,A1           ; STATUS CODE                               478 thru   478                          
+        TSM1_FILLER1              ,A99          ; FILLER                                    479 thru   577                          
+        TSM1_FILLER2              ,A99          ; FILLER                                    578 thru   676                          
+        TSM1_FILLER3              ,A99          ; FILLER                                    677 thru   775                          
+        TSM1_FILLER4              ,A99          ; FILLER                                    776 thru   874                          
+        TSM1_FILLER5              ,A99          ; FILLER                                    875 thru   973                          
+        TSM1_FILLER6              ,A99          ; FILLER                                    974 thru  1072                          
+        TSM1_FILLER7              ,A99          ; FILLER                                   1073 thru  1171                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATS_MS1_KEY              ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A1093        ; PRIMARY KEY POSITIONING                                                           

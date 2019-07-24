@@ -1,0 +1,40 @@
+;CH810T_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       CHRYSLER INVOICE                                                                                                            
+;       DATE : 21-MAR-08                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   229                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH810T_HDR                                                                                                                  
+        CRH_INV_NO                ,A12          ; INVOICE NUMBER                              1 thru    12                          
+        CRH_INV_DATE              ,D8           ; INVOICE DATE                               13 thru    20                          
+        CRH_SHIP_DATE             ,D8           ; SHIPMENT DATE                              21 thru    28                          
+        CRH_CUST_NO               ,A16          ; CHRYSLER'S CUSTOMER NUMBER                 29 thru    44                          
+        CRH_BOL_NO                ,A16          ; BILL OF LADING NUMBER                      45 thru    60                          
+        CRH_SUPP_INV              ,A16          ; SUPPLIER INVOICE NUMBER                    61 thru    76                          
+        CRH_SHIP_ORD              ,A16          ; SHIPPER NUMBER                             77 thru    92                          
+        CRH_CURR_CODE             ,A3           ; CURRENCY CODE                              93 thru    95                          
+        CRH_DISC_PCT              ,D4           ; DISCOUNT PERCENTAGE                        96 thru    99                          
+        CRH_DISC_DAY              ,D2           ; DAY DISCOUNTED PAYMENT IS DUE             100 thru   101                          
+        CRH_NET_DAY               ,D2           ; DAY NET PAYMENT IS DUE                    102 thru   103                          
+        CRH_INV_TOT               ,D10          ; INVOICE TOTAL AMOUNT                      104 thru   113                          
+        CRH_DISC_AMT              ,D10          ; DISCOUNTABLE AMOUNT                       114 thru   123                          
+        CRH_QTY                   ,D10          ; TOTAL QUANTITY INVOICED                   124 thru   133                          
+        CRH_QTY_UOFM              ,A2           ; UNIT OF MEASURE FOR QUANTITY              134 thru   135                          
+        CRH_WT                    ,D15          ; TOTAL WEIGHT SHIPPED                      136 thru   150                          
+        CRH_WT_UOFM               ,A2           ; UNIT OF MEASURE FOR THE WEIGHT            151 thru   152                          
+        CRH_ALLOW_CHG             ,A1           ; ALLOWANCE OR CHARGE                       153 thru   153                          
+        CRH_MTHD_HDL              ,A2           ; METHOD OF HANDLING ALLOW/CHRG             154 thru   155                          
+        CRH_ALL_AMT               ,D9           ; TOTAL ALLOW/CHRG FOR THIS INV.            156 thru   164                          
+        CRH_LIC_NO                ,A12          ; GST LICENSE NUMBER - NON-USA              165 thru   176                          
+        CRH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             177 thru   181                          
+        CRH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            182 thru   185                          
+        CRH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            186 thru   199                          
+        CRH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             200 thru   213                          
+        CRH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             214 thru   227                          
+        CRH_INV_TYPE              ,A2           ; INVOICE TYPE                              228 thru   229                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH810T_HDR_KEY            ,A12          ; PRIMARY SORT KEY                                                                  
+                                  ,A217         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,44 @@
+;CH862_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER SHIP SCHEDULE DTL                                                                                                  
+;       DATE : 17-NOV-05                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1008                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH862_DTL                                                                                                                   
+        CHSD_SUPP_ID              ,A7           ; SUPPLIER CODE                               1 thru     7                          
+        CHSD_PARTNO               ,A30          ; PART NUMBER                                 8 thru    37                          
+        CHSD_REFNO                ,A10          ; RELEASE/REFERENCE NUMBER                   38 thru    47                          
+        CHSD_RELDAT               ,D8           ; RELEASE DATE                               48 thru    55                          
+        CHSD_DEST_ID              ,A7           ; DESTINATION CODE                           56 thru    62                          
+        CHSD_ISSUE_BY             ,A7           ; ISSUED BY CODE                             63 thru    69                          
+        CHSD_DOCK                 ,A5           ; DOCK CODE                                  70 thru    74                          
+        CHSD_LINE_FEED            ,A8           ; ASSEMBY LINE FEED LOCATION                 75 thru    82                          
+        CHSD_PURPOSE              ,A2           ; PURPOSE CODE                               83 thru    84                          
+        CHSD_REQ_TYPE             ,D2           ; REQUIREMENT TYPE                           85 thru    86                          
+        CHSD_REQ_DATE             ,D8           ; REQUIREMENT DATE                           87 thru    94                          
+        CHSD_REQ_TIME             ,D4           ; REUIREMENT TIME                            95 thru    98                          
+        CHSD_RAN                  ,A20          ; RELEASE AUTHORIZATION NUMBER               99 thru   118                          
+        CHSD_MY                   ,A2           ; MODEL YEAR                                119 thru   120                          
+        CHSD_REQ_PRD              ,A1           ; REQUIREMENT PERIOD                        121 thru   121                          
+        CHSD_REQ_CODE             ,A1           ; REQUIREMENT CODE                          122 thru   122                          
+        CHSD_THRU_DATE            ,D8           ; REQUIREMENT THRU DATE                     123 thru   130                          
+        CHSD_REQ_QTY              ,D8           ; CUMULATIVE QUANTITY REQUIRED              131 thru   138                          
+        CHSD_JIT_TIME             ,25D4         ; JIT SCHEDULE TIMES (14 LINES)             139 thru   238                          
+        CHSD_JIT_QTY              ,25D8         ; JIT SCHEDULE QTY (14 LINES)               239 thru   438                          
+        CHSD_JIT_RAN              ,25A20        ; JIT RELEASE AUTHORIZATION                 439 thru   938                          
+        CHSD_DEL_DATE             ,D8           ; DELIVERY DATE                             939 thru   946                          
+        CHSD_DEL_TIME             ,D4           ; DELIVERY TIME                             947 thru   950                          
+        CHSD_COMPANY              ,A8           ; COMPANY CODE                              951 thru   958                          
+        CHSD_COMP_SEQ             ,D5           ; SPLIT COMPANY SEQUENCE                    959 thru   963                          
+        CHSD_COMP_PERC            ,D5           ; COMPANY PERCENTAGE                        964 thru   968                          
+        CHSD_SF_ID                ,A7           ; SHIP FROM ID                              969 thru   975                          
+        CHSD_PLANT_EXT            ,A7           ; PLANT EXTENSION                           976 thru   982                          
+        CHSD_HDR_LINE             ,D6           ; HEADER LINE NUMBER                        983 thru   988                          
+        CHSD_GCNTRLNUM            ,A14          ; ENVELOPE GROUP CONTROL NUMBER             989 thru  1002                          
+        CHSD_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                       1003 thru  1008                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH862_DTL_KEY             ,A120         ; PRIMARY SORT KEY                                                                  
+                                  ,A888         ; PRIMARY KEY POSITIONING                                                           

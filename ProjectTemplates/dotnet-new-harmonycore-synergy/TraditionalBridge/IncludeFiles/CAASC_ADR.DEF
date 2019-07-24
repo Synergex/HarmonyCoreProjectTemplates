@@ -1,0 +1,44 @@
+; CAASC_ADR.DEF
+;
+;	Consolidators Advance Shipping Notice (ASC) Address File.
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	15-Mar-94	Bill Schmelter	Original
+;
+;-------------------------------------------------------------------------------
+;       Organization: Isam              Record Size: 768               Positions
+;-------------------------------------------------------------------------------
+RECORD CAASC_ADR		;
+	ASCA_TP_DESIG	,A2	; Trading Partner Designator	       | 001-002
+	ASCA_SID	,A30	; Original Shipment Id Number	       | 003-032
+	ASCA_SID_SEQ	,D2	; Sequence No Tie Breaker for dups     | 033-034
+	ASCA_SUPP_IDCD	,A17	; Original Supplier ID code	       | 035-051
+	ASCA_SHFR_IDCD	,A17	; Original Supplier Ship From ID code  | 052-068
+	ASCA_DEST_IDCD	,A17	; Final Destination ID code	       | 069-085
+	ASCA_SHTO_IDCD	,A17	; Ship To ID code		       | 086-102
+	ASCA_CUST_PART	,A30	; Customer Part No		       | 103-132
+	ASCA_PART_SEQ	,D6	; Part Sequence No (0 if hdr level)    | 133-138
+				;
+	ASCA_ENTITY_ID	,A2	; Entity ID			       | 139-140
+	ASCA_ID_CODE	,A17	; Entity ID Code		       | 141-157
+				;				       |
+	ASCA_NAME	,A35	; Name Of Entity (N1)		       | 158-192
+	ASCA_ID_CDQL	,A2	; ID Code Qualifier                    | 193-194
+				;				       |
+	ASCA_N2_NAME	,4A35	; Secondary Name (N2)		       | 195-334
+	ASCA_ADDR	,4A35	; Address (N3)			       | 335-474
+				;				       |
+	ASCA_CITY	,A19	; City				       | 475-493
+	ASCA_STATE	,A2	; Address State			       | 494-495
+	ASCA_ZIP	,A9	; Address Postal Code		       | 496-504
+	ASCA_CTRY_CD	,A2	; Address Country Code		       | 505-506
+	ASCA_LOC_QL	,A2	; Address Location Qualifier	       | 507-508
+	ASCA_LOC_ID	,A25	; Address Location ID		       | 509-533
+			,A235	; Filler			       | 534-768
+				;
+RECORD,X
+	ASCA_KEY0	,A138
+;

@@ -1,0 +1,20 @@
+;GM866_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCTION SEQUENCE ADDRESS                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    77                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM866_ADR                                                                                                                   
+        A866_GS_CTL               ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        A866_HDR_SEQ              ,D6           ; HEADER LINE SEQUENCE                       10 thru    15                          
+        A866_ADR_SEQ              ,D6           ; ADDRESS LINE SEQUENCE                      16 thru    21                          
+        A866_ENT_CODE             ,A2           ; ENTITY ID CODE                             22 thru    23                          
+        A866_NAME                 ,A35          ; NAME                                       24 thru    58                          
+        A866_ID_QL                ,A2           ; ID CODE QUALIFIER                          59 thru    60                          
+        A866_ID_CODE              ,A17          ; ID CODE                                    61 thru    77                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM866_ADR_KEY             ,A21          ; PRIMARY SORT KEY                                                                  
+                                  ,A56          ; PRIMARY KEY POSITIONING                                                           

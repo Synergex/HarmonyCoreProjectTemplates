@@ -1,0 +1,18 @@
+;FO863_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD 863 HEADER FILE                                                                                                        
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    99                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO863_HDR                                                                                                                   
+        FOH_RECV_ID               ,A5           ; RECEIVING PARTY ID CODE                     1 thru     5                          
+        FOH_REPORT_NO             ,D9           ; REPORT NUMBER                               6 thru    14                          
+        FOH_REF_TYPE              ,A2           ; REPORT REFERENCE TYPE                      15 thru    16                          
+        FOH_SUPP_ID               ,A5           ; SUPPLIER ID CODE                           17 thru    21                          
+        FOH_CPK_DATE              ,D8           ; CPK TEST DATE                              22 thru    29                          
+        FOH_PURPOSE               ,A2           ; PURPOSE CODE                               30 thru    31                          
+        FOH_RPT_DATE              ,D8           ; REPORT DATE                                32 thru    39                          
+        FOH_RPT_DESCR             ,A60          ; REPORT DESCRIPTION                         40 thru    99                          
+                                                                                                                                    
+                                                                                                                                    

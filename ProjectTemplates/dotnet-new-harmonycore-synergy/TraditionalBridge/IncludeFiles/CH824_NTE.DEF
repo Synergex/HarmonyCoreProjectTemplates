@@ -1,0 +1,24 @@
+;CH824_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       APPLICATION ADVICE NOTE FILE                                                                                                
+;       DATE : 28-MAR-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   277                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH824_NTE                                                                                                                   
+        CHAN_CTL_NO               ,A15          ; CHRYSLER CONTROL NUMBER                     1 thru    15                          
+        CHAN_SHIP_FROM            ,A7           ; SHIP FROM CODE                             16 thru    22                          
+        CHAN_SUPPL_ID             ,A7           ; SUPPLIER ID CODE                           23 thru    29                          
+        CHAN_SHIP_TO              ,A7           ; SHIP TO CODE                               30 thru    36                          
+        CHAN_DEST_ID              ,A7           ; DESTINATION ID                             37 thru    43                          
+        CHAN_ASN_NO               ,A9           ; ASN NUMBER                                 44 thru    52                          
+        CHAN_PARTNO               ,A22          ; CUSTOMER PART NUMBER                       53 thru    74                          
+        CHAN_APPL_ERR             ,A3           ; CHRYSLER APPLICATION ERROR CD              75 thru    77                          
+        CHAN_APPL_TXT             ,A60          ; DIAS ERROR CODE TEXT                       78 thru   137                          
+        CHAN_NOTE                 ,A60          ; DIAS/CHAMPS MESSAGE                       138 thru   197                          
+        CHAN_BAD_ELEM             ,A80          ; COPY OF BAD ELEMENT                       198 thru   277                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH824_NTE_KEY             ,A77          ; PRIMARY SORT KEY                                                                  
+                                  ,A200         ; PRIMARY KEY POSITIONING                                                           

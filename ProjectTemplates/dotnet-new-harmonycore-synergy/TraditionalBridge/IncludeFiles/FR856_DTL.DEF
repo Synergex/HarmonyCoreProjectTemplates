@@ -1,0 +1,28 @@
+;FR856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FREIGHTLINER ASN DETAIL FILE                                                                                                
+;       DATE : 19-JUL-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   253                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FR856_DTL                                                                                                                   
+        DTL_ASN_NO                ,A30          ; ASN/SHIPPER NUMBER                          1 thru    30                          
+        DTL_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                       31 thru    60                          
+        DTL_SHIP_QTY              ,D7           ; QUANTITY SHIPPED                           61 thru    67                          
+        DTL_SHIP_UOFM             ,A2           ; QUANITITY SHIPPED UNIT OF MEAS             68 thru    69                          
+        DTL_PO_NO                 ,A22          ; PURCHASE ORDER NO.                         70 thru    91                          
+        DTL_PO_LINE_NO            ,A20          ; PURCHASE ORDER LINE NUMBER                 92 thru   111                          
+        DTL_PO_DATE               ,D8           ; PURCHASE ORDER DATE                       112 thru   119                          
+        DTL_CUM_SHIPPED           ,D9           ; CUM SHIPPED INCLUDING THIS SHI            120 thru   128                          
+        DTL_INTR_ID               ,A15          ; RECEIVE INTERCHANGE ID                    129 thru   143                          
+        DTL_GROUP_ID              ,A15          ; RECEIVER GROUP ID                         144 thru   158                          
+        DTL_LINE_NO               ,D6           ; DETAIL LINE NUMBER                        159 thru   164                          
+        DTL_CONT_QTY              ,D7           ; DETAIL CONTAINER QUANTITY                 165 thru   171                          
+        DTL_UNITS_PER             ,D10          ; UNITS PER CONTAINER                       172 thru   181                          
+        DTL_CONT_CODE             ,A5           ; CONTAINER CODE                            182 thru   186                          
+        DTL_CONT_UOFM             ,A2           ; UNIT OF MEASURE FOR CONT QTY              187 thru   188                          
+        DTL_PACK_SLIP             ,A30          ; PACK SLIP NUMBER                          189 thru   218                          
+        DTL_OUR_PART              ,A30          ; OUR PART NUMBER                           219 thru   248                          
+        DTL_COUNTRY_ORG           ,A5           ; COUNTRY OF ORIGIN                         249 thru   253                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,16 @@
+;CH856_SLN.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 856 SUB-LINE FILE                                                                                                  
+;       DATE : 08-MAY-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    50                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH856_SLN                                                                                                                   
+        CN_INPUT_SEQ_1            ,D5           ; INPUT SEQUENCE NUMBER 1                     1 thru     5                          
+        CN_ASN_NO                 ,A30          ; ASN NUMBER                                  6 thru    35                          
+        CN_SEAL_NO                ,A15          ; SEAL NUMBER                                36 thru    50                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH856_SLN_KEY             ,A5           ; PRIMARY SORT KEY                                                                  
+                                  ,A45          ; PRIMARY KEY POSITIONING                                                           

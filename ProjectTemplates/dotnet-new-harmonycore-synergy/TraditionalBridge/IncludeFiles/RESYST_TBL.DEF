@@ -1,0 +1,89 @@
+; RESYST_TBL.DEF
+;
+; RESYST_TBL.DAT - System Wide Trading Partner database.
+;
+;	This file will contain misc. information for each Trading Partner
+;	installed on the system.  This data will be common for all 
+;	databases, and will reside in a system directory
+;
+; 	STRUCTURE = ISAM
+;	RECORD LENGTH = 230
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	31-Jan-90	T. L. Radke	Added group_id as a key.
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+RECORD 	RESYST_TBL
+	ST_DESIG	,A4	; Trading Partner Designator (assign by Radley)
+	ST_REC_TYPE	,A1	; 1 = Trading Partner  2 = Group level
+
+	ST_TP_CODE	,A10	;
+	ST_TP_NAME	,A30	;
+	ST_MULTI_FLAG	,D1	;
+
+	ST_GROUP_CODE	,A10	;
+	ST_GROUP_NAME	,A30	;
+	ST_GROUP_ID	,A12	;
+
+	ST_BATCH_SEND	,D1	; 1 = YES
+	ST_SEND_TIME	,D4	; HH:MM Format
+
+	ST_BATCH_RECV	,D1	; 1 = YES
+	ST_RECV_TIME	,D4	; HH:MM Format
+
+			,A122	; Filler
+;-------------------------------------------------------------------------------
+;              ------- Key Definitions ------
+;-------------------------------------------------------------------------------
+	;
+	; Key	Field		Length
+	;  0    ST_DESIG	  2	Duplicates, No changes
+	;
+	;  1	ST_TP_CODE_KEY	 10	Duplicates, No changes
+	;
+	;  2    ST_GROUP_KEY     10	Duplicates, No changes
+	;
+	;  3	ST_GROUP_ID	 12	Duplicates.
+;--------------------------------------------------------------------------
+
+RECORD	,X
+	ST_DESIG_KEY	,A4		; PRIMARY KEY
+
+RECORD  ,X
+			,A5
+	ST_TP_CODE_KEY	,A10
+
+RECORD	,X
+			,A46
+	ST_GROUP_KEY	,A10
+
+RECORD	,X
+			,A86
+	ST_GRP_ID_KEY	,A12
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Defintion -------
+;-------------------------------------------------------------------------------
+.IFDEF RESYST_TBL_ALT
+RECORD 	A_RESYST_TBL
+			,A230
+RECORD	,X
+	A_ST_DESIG	,A4
+	A_ST_REC_TYPE	,A1	
+	A_ST_TP_CODE	,A10	
+	A_ST_TP_NAME	,A30
+	A_ST_MULTI_FLAG	,D1
+	A_ST_GROUP_CODE	,A10
+	A_ST_GROUP_NAME	,A30
+	A_ST_GROUP_ID	,A12
+			,A132
+
+RECORD  ,X
+			,A5
+	A_ST_TP_CODE_KEY,A10
+RECORD	,X
+			,A86
+	A_ST_GRP_ID_KEY	,A12
+
+.ENDC

@@ -1,0 +1,50 @@
+;CP850_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CATERPILLAR P/O HEADER FILE                                                                                                 
+;       DATE : 18-SEP-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   994                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CP850_HDR                                                                                                                   
+        CPH_PONO                  ,A12          ; P/O NUMBER                                  1 thru    12                          
+        CPH_PO_TYPE               ,A2           ; P/O TYPE                                   13 thru    14                          
+        CPH_PO_PURPOSE            ,D2           ; P/O PURPOSE                                15 thru    16                          
+        CPH_CURRENCY              ,A3           ; CURRENCY                                   17 thru    19                          
+        CPH_FOB_LOC               ,03A80        ; F.O.B. LOCATION                            20 thru   259                          
+        CPH_FOB_TERM              ,03A6         ; F.O.B. TERMS                              260 thru   277                          
+        CPH_PO_DATE               ,D6           ; P/O DATE                                  278 thru   283                          
+        CPH_WEIGHT                ,D10          ; WEIGHT                                    284 thru   293                          
+        CPH_WEIGHT_TYPE           ,A2           ; WEIGHT TYPE                               294 thru   295                          
+        CPH_DISC_PCT              ,D6           ; TERM DISCOUNT PERCENT                     296 thru   301                          
+        CPH_DISC_DATE             ,D6           ; TERM DISCOUNT DATE                        302 thru   307                          
+        CPH_DISC_DESC             ,A80          ; TERM DISCOUNT DESCRIPTION                 308 thru   387                          
+        CPH_DEST_NAME             ,A35          ; DESTINATION NAME                          388 thru   422                          
+        CPH_DEST_NAME2            ,A25          ; DESTINATION NAME - 2                      423 thru   447                          
+        CPH_SHIP_NAME1            ,A35          ; SHIP TO NAME - 1                          448 thru   482                          
+        CPH_SUPPLR_NAME           ,A35          ; SUPPLIER NAME                             483 thru   517                          
+        CPH_SUPPLR_NAM2           ,A25          ; SUPPLIER NAME - 2                         518 thru   542                          
+        CPH_BUYER_NAME            ,A35          ; BUYERS NAME                               543 thru   577                          
+        CPH_BUYER_NAME2           ,A25          ; BUYER NAME - 2                            578 thru   602                          
+        CPH_DEST_CODE             ,A15          ; DESTINATION CODE                          603 thru   617                          
+        CPH_SHIP_CODE             ,A15          ; SHIP TO CODE                              618 thru   632                          
+        CPH_SUPP_CODE             ,A15          ; SUPPLIER CODE                             633 thru   647                          
+        CPH_BUYER_CODE            ,A15          ; BUYER CODE                                648 thru   662                          
+        CPH_SHIP_NAME2            ,A25          ; SHIP TO NAME - 2                          663 thru   687                          
+        CPH_SHIP_ADDR             ,A35          ; SHIP TO ADDRESS                           688 thru   722                          
+        CPH_SHIP_CITY             ,A19          ; SHIP TO CITY                              723 thru   741                          
+        CPH_SHIP_STATE            ,A2           ; SHIP TO STATE                             742 thru   743                          
+        CPH_SHIP_ZIP              ,A9           ; SHIP TO ZIP CODE                          744 thru   752                          
+        CPH_SHIP_COUNTY           ,A2           ; SHIP TO COUNTRY                           753 thru   754                          
+        CPH_CARRIER1              ,A35          ; PRIMARY CARRIER                           755 thru   789                          
+        CPH_SHIP_PT1              ,A25          ; PRIMARY SHIP POINT                        790 thru   814                          
+        CPH_CARRIER2              ,A35          ; SECONDARY CARRIER                         815 thru   849                          
+        CPH_SHIP_PT2              ,A25          ; SECONDARY SHIP POINT                      850 thru   874                          
+        CPH_CARRIER3              ,A35          ; THIRD CARRIER                             875 thru   909                          
+        CPH_SHIP_PT3              ,A25          ; THIRD SHIP POINT                          910 thru   934                          
+        CPH_CARRIER4              ,A35          ; FOURTH CARRIER                            935 thru   969                          
+        CPH_SHIP_PT4              ,A25          ; FOURTH SHIP POINT                         970 thru   994                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CP850_HDR_KEY             ,A16          ; PRIMARY SORT KEY                                                                  
+                                  ,A978         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,104 @@
+; FOCPK_HDR - Ford CPK Header File.
+;
+;	File Organization: Isam 		Record Size: 1024
+;
+;	Primary Key --> CPH_KEY0
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	08-Aug-90	T. L. Radke	Original
+;
+;	19-Dec-90	C. Neely	Modifications
+;
+;-------------------------------------------------------------------------------
+;                        Record Definition 
+;-------------------------------------------------------------------------------
+RECORD FOCPK_HDR
+	CPH_REPORT_NO	,D9		; Report Number
+	CPH_RECV_ABBRV	,A5		; Receiver Abbreviation
+					;
+	CPH_REF_TYPE	,A2		; Report Reference Type
+					; CP = Original Part
+					; CR = Replacement Part
+					; PF = Initial Sample Inspection Report
+					;
+	CPH_SUPP_ABBRV	,A5		; Supplier Abbreviation
+	CPH_CPK_DATE	,D6		; CPK Test Date.  Only needed if 
+					; the Report Reference is "CP".
+	CPH_RPT_DESCR	,A60		; Report Description
+	CPH_TRANS_DATE	,D6		; Transmitted Date
+	CPH_TRANS_TIME	,D4		; Transmitted Time
+	CPH_TRANS_CTL	,D9		; Transmitted ICS #
+	CPH_NOTES	,12A60		; Note Array
+			,A198
+
+;-------------------------------------------------------------------------------
+; Primary Key - Allow Duplicates
+; ------------------------------------------------------------------------------
+RECORD CPH_KEY0
+	K0_CPH_REPORT_NO   	,D9	; Report Number
+
+;-------------------------------------------------------------------------------
+; Alternate Key 1 - No Duplicates
+; ------------------------------------------------------------------------------
+RECORD CPH_KEY1
+	K1_CPH_REPORT_NO	,D9	; Report Number
+	K1_CPH_RECV_ABBRV	,A5	; Receiver Abbreviation
+	K1_CPH_REF_TYPE		,A2	; Reference Type
+
+;-------------------------------------------------------------------------------
+; Alternate Key 2 - No Duplicates
+; ------------------------------------------------------------------------------
+RECORD CPH_KEY2
+	K2_CPH_RECV_ABBRV	,A5	; Receiver Abbreviation
+	K2_CPH_REPORT_NO   	,D9	; Report Number
+
+
+
+;-------------------------------------------------------------------------------
+; 			Alternate Record Definition 
+; ------------------------------------------------------------------------------
+.IFDEF FOCPK_HDR_ALT
+
+RECORD A_FOCPK_HDR
+	A_CPH_REPORT_NO		,D9		; Report Number
+	A_CPH_RECV_ABBRV	,A5		; Receiver Abbreviation
+						;
+	A_CPH_REF_TYPE		,A2		; Report Reference Type
+						; CP = Original Part
+						; CR = Replacement Part
+						; PF = Initial Sample Inspection Report
+						;
+	A_CPH_SUPP_ABBRV	,A5		; Supplier Abbreviation
+	A_CPH_CPK_DATE		,D6		; CPK Test Date.  Only needed if 
+						; the Report Reference is "CP".
+	A_CPH_RPT_DESCR		,A60		; Report Description
+	A_CPH_TRANS_DATE	,D6		; Transmitted Date
+	A_CPH_TRANS_TIME	,D4		; Transmitted Time
+	A_CPH_TRANS_CTL		,D9		; Transmitted ICS #
+	A_CPH_NOTES		,12A60		; Note Array
+				,A198
+
+;-------------------------------------------------------------------------------
+; Primary Key - Allow Duplicates
+; ------------------------------------------------------------------------------
+RECORD A_CPH_KEY0
+	A_K0_CPH_REPORT_NO   	,D9		; Report Number
+
+;-------------------------------------------------------------------------------
+; Alternate Key 1 - No Duplicates
+; ------------------------------------------------------------------------------
+RECORD A_CPH_KEY1
+	A_K1_CPH_REPORT_NO	,D9		; Report Number
+	A_K1_CPH_RECV_ABBRV	,A5		; Receiver Abbreviation
+	A_K1_CPH_REF_TYPE	,A2		; Reference Type
+
+;-------------------------------------------------------------------------------
+; Alternate Key 2 - No Duplicates
+; ------------------------------------------------------------------------------
+RECORD A_CPH_KEY2
+	A_K2_CPH_RECV_ABBRV	,A5		; Receiver Abbreviation
+	A_K2_CPH_REPORT_NO   	,D9		; Report Number
+.ENDC

@@ -1,0 +1,19 @@
+;CA140_LIN.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT REGISTRATION - LIN SEG                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   347                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA140_LIN                                                                                                                   
+        L140_GS_CONTROL           ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        L140_HDR_SEQN             ,D6           ; HEADER SEQUENCE NUMBER                     10 thru    15                          
+        L140_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     16 thru    21                          
+        L140_LIN_SEQN             ,D6           ; LIN SEGMENT SEQUENCE NUMBER                22 thru    27                          
+        L140_PROD_ID_QL           ,10A2         ; PRODUCT/SERVICE ID QUALIFIER               28 thru    47                          
+        L140_PROD_ID              ,10A30        ; PRODUCT/SERVICE ID CODE                    48 thru   347                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA140_LIN_KEY             ,A27          ; PRIMARY SORT KEY                                                                  
+                                  ,A320         ; PRIMARY KEY POSITIONING                                                           

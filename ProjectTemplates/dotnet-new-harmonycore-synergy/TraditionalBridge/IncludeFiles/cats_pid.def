@@ -1,0 +1,42 @@
+;CATS_PID.DEF                                                                                                                       
+;                                                                                                                                   
+;       CARAS TECHNICAL SPECS PID FILE                                                                                              
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   577                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATS_PID                                                                                                                    
+        TSP_SPI_REF_NO            ,A30          ; SPI REFERENCE NUMBER                        1 thru    30                          
+        TSP_SEQ_NO1               ,D6           ; SEQUENCE NUMBER                            31 thru    36                          
+        TSP_SEQ_NO2               ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        TSP_SEQ_NO3               ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        TSP_SEQ_NO4               ,D6           ; SEQUENCE NUMBER                            49 thru    54                          
+        TSP_SEQ_NO5               ,D6           ; SEQUENCE NUMBER                            55 thru    60                          
+        TSP_SEQ_NO6               ,D6           ; SEQUENCE NUMBER                            61 thru    66                          
+        TSP_SEQ_NO7               ,D6           ; SEQUENCE NUMBER                            67 thru    72                          
+        TSP_SEQ_NO8               ,D6           ; SEQUENCE NUMBER                            73 thru    78                          
+        TSP_TYPE                  ,A1           ; PID TYPE                                   79 thru    79                          
+        TSP_CHAR                  ,A3           ; CHARACTERISTICS CODE                       80 thru    82                          
+        TSP_AGENCY                ,A2           ; AGENCY CODE                                83 thru    84                          
+        TSP_CODE                  ,A12          ; PRODUCT DESCRIPTION CODE                   85 thru    96                          
+        TSP_DESC                  ,A80          ; DESCRIPTION                                97 thru   176                          
+        TSP_SURF                  ,A2           ; SURFACE/LAYER/POSITION CODE               177 thru   178                          
+        TSP_SUB                   ,A15          ; SOURCE SUBQUALIFIER                       179 thru   193                          
+        TSP_COND                  ,A1           ; CONDITION RESPONSE                        194 thru   194                          
+        TSP_PACK_CODE             ,A5           ; PACKAGING CODE                            195 thru   199                          
+        TSP_OWNER                 ,A1           ; OWNERSHIP CODE                            200 thru   200                          
+        TSP_QTY                   ,D15          ; QUANTITY                                  201 thru   215                          
+        TSP_IN_TRANSIT            ,D15          ; IN TRANSIT QUANTITY                       216 thru   230                          
+        TSP_PRICE                 ,D14          ; COST                                      231 thru   244                          
+        TSP_PRICE_BASIS           ,A2           ; COST BASIS                                245 thru   246                          
+        TSP_INTERCHANGE           ,A17          ; INTERCHANGE ID                            247 thru   263                          
+        TSP_GROUP_ID              ,A17          ; GROUP ID                                  264 thru   280                          
+        TSP_STATUS                ,A1           ; STATUS                                    281 thru   281                          
+        TSP_FILLER1               ,A98          ; FILLER                                    282 thru   379                          
+        TSP_FILLER2               ,A99          ; FILLER                                    380 thru   478                          
+        TSP_FILLER3               ,A99          ; FILLER                                    479 thru   577                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATS_PID_KEY              ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A499         ; PRIMARY KEY POSITIONING                                                           

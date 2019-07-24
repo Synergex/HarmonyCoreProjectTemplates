@@ -1,0 +1,17 @@
+;HA830_UIT.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 830 UNIT DETAIL SEG                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    27                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA830_UIT                                                                                                                   
+        HA830UTP1SEQ_NO           ,D5           ; PARENT LEVEL 1 SEQUNECE NO                  1 thru     5                          
+        HA830UTP2SEQ_NO           ,D5           ; PARENT LEVEL 2 SEQUENCE NO                  6 thru    10                          
+        HA830UTP3SEQ_NO           ,D5           ; PARENT LEVEL 3 SEQUENCE NO                 11 thru    15                          
+        HA830_UIT_COLAT           ,A2           ; RECORD TYPE COLLATING SEQ - 41             16 thru    17                          
+        HA830_UIT_REC             ,A3           ; RECORD TYPE - UIT                          18 thru    20                          
+        HA830UIT_SEQ_NO           ,D5           ; UIT SEQUENCE NO                            21 thru    25                          
+        HA830_UIT_01              ,A2           ; UNIT OF MEASURE                            26 thru    27                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,38 @@
+;CARREQ_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       ROUTING REQUEST DETAIL                                                                                                      
+;       DATE : 23-OCT-10                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   625                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CARREQ_DTL                                                                                                                  
+        SRRD_ISA_ID               ,A35          ; INTERCHANGE ID                              1 thru    35                          
+        SRRD_GROUP_ID             ,A35          ; GROUP ID                                   36 thru    70                          
+        SRRD_REQUEST_NO           ,A35          ; REQUEST NUMBER                             71 thru   105                          
+        SRRD_LINE_NO              ,D6           ; LINE NUMBER                               106 thru   111                          
+        SRRD_SHIP_TO              ,A5           ; SHIP TO ABBREVIATION                      112 thru   116                          
+        SRRD_CONTROL_NO           ,A35          ; REQUEST CONTROL NUMBER                    117 thru   151                          
+        SRRD_SHIP_DATE            ,D8           ; READY TO SHIP DATE                        152 thru   159                          
+        SRRD_SHIP_TIME            ,D4           ; READY TO SHIP TIME                        160 thru   163                          
+        SRRD_ST_NAME              ,A35          ; SHIP TO NAME                              164 thru   198                          
+        SRRD_ST_ADDR1             ,A35          ; ADDRESS                                   199 thru   233                          
+        SRRD_ST_ADDR2             ,A35          ; ADDRESS                                   234 thru   268                          
+        SRRD_ST_CITY              ,A35          ; CITY                                      269 thru   303                          
+        SRRD_ST_STATE             ,A10          ; STATE/PROVINCE                            304 thru   313                          
+        SRRD_ST_ZIP               ,A15          ; POSTAL CODE                               314 thru   328                          
+        SRRD_ST_COUNTRY           ,A10          ; COUNTRY CODE                              329 thru   338                          
+        SRRD_ST_ID_CODE           ,A35          ; ID CODE                                   339 thru   373                          
+        SRRD_ST_ID_QL             ,A10          ; ID QUALIFIER                              374 thru   383                          
+        SRRD_QUANTITY             ,D15          ; QUANTITY                                  384 thru   398                          
+        SRRD_PACK_FORM            ,A10          ; PACKAGING FORM                            399 thru   408                          
+        SRRD_LAST_DATE            ,D8           ; LATEST PICK-UP DATE                       409 thru   416                          
+        SRRD_LAST_TIME            ,D4           ; LAST PICK-UP TIME                         417 thru   420                          
+        SRRD_NOTE                 ,A80          ; NOTE                                      421 thru   500                          
+        SRRD_OTHER_REF            ,A35          ; ALTERNATE REFERENCE                       501 thru   535                          
+        SRRD_OTHER_QL             ,A10          ; OTHER REFERENCE QUALIFIER                 536 thru   545                          
+        SRRD_OTHER_NOTE           ,A80          ; OTHER REFERENCE DESCRIPTION               546 thru   625                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CARREQ_DTL_KEY            ,A111         ; PRIMARY SORT KEY                                                                  
+                                  ,A514         ; PRIMARY KEY POSITIONING                                                           

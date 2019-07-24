@@ -1,0 +1,58 @@
+;CA850_MSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       REF,NTE,SSS,MEA,PID,PKG,FOB                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   604                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_MSC                                                                                                                   
+        M850_M_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        M850_M_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        M850_M_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        M850_M_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 37 thru    39                          
+        M850_M_SEG_TYPE           ,A3           ; SEGMENT TYPE                               40 thru    42                          
+        M850_M_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        M850_M_FORM               ,A3           ; DESCRIPTION FORM                           49 thru    51                          
+        M850_M_DESC               ,A80          ; ITEM DESCRIPTION                           52 thru   131                          
+        M850_M_REF_NO             ,A30          ; REFERENCE NUMBER                          132 thru   161                          
+        M850_MEA_REF_ID           ,A2           ; MEASUREMENT REF ID                        162 thru   163                          
+        M850_MEA_DIM_QL           ,A3           ; DIMENSION QUALIFIER                       164 thru   166                          
+        M850_MEA_VALUE            ,D10          ; MEASUREMENT VALUE                         167 thru   176                          
+        M850_MEA_CODE             ,A2           ; MEASUREMENT CODE                          177 thru   178                          
+        M850_MEA_MIN              ,D10          ; RANGE MINIMUM                             179 thru   188                          
+        M850_MEA_MAX              ,D10          ; RANGE MAXIMUM                             189 thru   198                          
+        M850_PID_CHAR             ,A3           ; CHARACTERISTIC CODE                       199 thru   201                          
+        M850_PID_ITM_QL           ,A2           ; ITEM DESCRIPTION QUALIFIER                202 thru   203                          
+        M850_PID_DESC             ,A12          ; PRODUCT DESCRIPTION CODE                  204 thru   215                          
+        M850_PID_SURFAC           ,A2           ; SURFACE INDICATOR                         216 thru   217                          
+        M850_PKG_CHAR             ,A5           ; CHARACTERISTICS CODE                      218 thru   222                          
+        M850_PKG_ITM_QL           ,A2           ; ITEM DESCRIPTION QUALIFIER                223 thru   224                          
+        M850_PKG_CODE             ,A7           ; PACKAGING DESCRIPTION CODE                225 thru   231                          
+        M850_SSS_AC               ,A1           ; A/C INDICATOR                             232 thru   232                          
+        M850_SSS_AGENCY           ,A2           ; AGENCY CODE                               233 thru   234                          
+        M850_SSS_CODE             ,A10          ; SPECIAL SERVICES CODE                     235 thru   244                          
+        M850_SSS_MARKS            ,A45          ; SPEC SERVICES MARKS & NUMBERS             245 thru   289                          
+        M850_SSS_RATE             ,D9           ; SPEC SERVICES A/C RATE (6.3)              290 thru   298                          
+        M850_SSS_AMT              ,D9           ; SPECIAL SERVICES TOT AMT (7.2)            299 thru   307                          
+        M850_SSS_QTY              ,D15          ; SPECIAL SERVICES QTY (10.5)               308 thru   322                          
+        M850_FB_MTH_PAY           ,A2           ; FOB METHOD OF PAYMENT                     323 thru   324                          
+        M850_FB_LOC_QL1           ,A2           ; FOB LOCATION QUAL 1 (FOB02)               325 thru   326                          
+        M850_FB_TTRM_QL           ,A2           ; FOB TRANSPORTATION TERMS QUAL             327 thru   328                          
+        M850_FB_TTRM_CD           ,A3           ; FOB TRANSPORTAION TERMS CODE              329 thru   331                          
+        M850_FB_LOC_QL2           ,A2           ; 2ND LOCATION QUALIFIER (FOBO6)            332 thru   333                          
+        M850_FB_RISK_LS           ,A2           ; FOB RISK OF LOSS QUALIFIER                334 thru   335                          
+        M850_M_DESC2              ,A80          ; DESCRIPTION 2 (FOB07)                     336 thru   415                          
+        M850_M_DESC3              ,A80          ; 3RD DESCRIPTION (FOB09)                   416 thru   495                          
+        M850_DTM_QL               ,A3           ; DATE/TIME QUALIFIER                       496 thru   498                          
+        M850_DTM_DATE             ,D8           ; DATE                                      499 thru   506                          
+        M850_DTM_TIME             ,D8           ; TIME                                      507 thru   514                          
+        M850_DTM_CODE             ,A2           ; TIME CODE                                 515 thru   516                          
+        M850_DTM_CENTRY           ,A2           ; CENTURY                                   517 thru   518                          
+        M850_DTM_PRD_QL           ,A3           ; DATE/TIME PERIOD FORMAT QUAL              519 thru   521                          
+        M850_DTM_PERIOD           ,A35          ; DATE/TIME PERIOD                          522 thru   556                          
+        M850_M_FILLER             ,A48          ; FILLER                                    557 thru   604                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_MSC_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A556         ; PRIMARY KEY POSITIONING                                                           

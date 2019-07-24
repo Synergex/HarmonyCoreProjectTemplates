@@ -1,0 +1,24 @@
+;IS862_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       ISUZU 862 RELEASE DETAIL                                                                                                    
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    96                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  IS862_DTL                                                                                                                   
+        RLD_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        RLD_RELDT                 ,D8           ; RELEASE DATE                               16 thru    23                          
+        RLD_TP_PART               ,A22          ; TRADING PARTNER PART                       24 thru    45                          
+        RLD_DEST_CODE             ,A15          ; DESTINATION CODE                           46 thru    60                          
+        RLD_REQDT                 ,D8           ; REQUIRED DATE                              61 thru    68                          
+        RLD_REQ_TIME              ,D4           ; REQUIRED TIME                              69 thru    72                          
+        RLD_CUM_QTY               ,D9           ; REQUIRED QUANTITY                          73 thru    81                          
+        RLD_DELIV_NO              ,A10          ; DELIVERY ORDER NUMBER                      82 thru    91                          
+        ISD_TYPE_1                ,A1           ; NOT USED                                   92 thru    92                          
+        ISD_TYPE_2                ,A1           ; NOT USED                                   93 thru    93                          
+        ISD_DATE_QUAL             ,A3           ; NOT USED                                   94 thru    96                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        IS862_DTL_KEY             ,A72          ; PRIMARY SORT KEY                                                                  
+                                  ,A24          ; PRIMARY KEY POSITIONING                                                           

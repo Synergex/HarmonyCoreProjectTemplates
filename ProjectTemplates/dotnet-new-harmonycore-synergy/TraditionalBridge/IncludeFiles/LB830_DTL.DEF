@@ -1,0 +1,20 @@
+;LB830_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       LIGON BROTHERS 830 DETAIL FILE                                                                                              
+;       DATE : 21-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    84                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  LB830_DTL                                                                                                                   
+        LBD_SUPPL_ID              ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        LBD_REL_NO                ,A6           ; RELEASE NUMBER                             16 thru    21                          
+        LBD_SHIP_TO               ,A15          ; SHIP TO LOCATION CODE                      22 thru    36                          
+        LBD_CUST_PART             ,A30          ; CUSTOMER PART                              37 thru    66                          
+        LBD_REQ_TYPE              ,A2           ; REQUIREMENT/FORECAST TYPE                  67 thru    68                          
+        LBD_DATE_1                ,D8           ; FORECAST DATE                              69 thru    76                          
+        LBD_REQ_QTY               ,D8           ; QUANTITY/CUM REQUIRED                      77 thru    84                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        LB830_DTL_KEY             ,A76          ; PRIMARY SORT KEY                                                                  
+                                  ,A8           ; PRIMARY KEY POSITIONING                                                           

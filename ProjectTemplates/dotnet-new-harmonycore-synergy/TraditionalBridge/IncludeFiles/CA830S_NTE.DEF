@@ -1,0 +1,27 @@
+;CA830S_NTE.DEF                                                                                                                     
+;                                                                                                                                   
+;       MATERIAL RELEASE NOTES                                                                                                      
+;       DATE : 21-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   278                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA830S_NTE                                                                                                                  
+        N830S_INTER_ID            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        N830S_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        N830S_HDR_LINE            ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        N830S_DTL_LINE            ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        N830S_SLN_LINE            ,D6           ; SLN SEQUENCE                               43 thru    48                          
+        N830S_ADR_LINE            ,D6           ; ADDRESS SEQUENCE                           49 thru    54                          
+        N830S_SDP_LINE            ,D6           ; SDP SEQUENCE                               55 thru    60                          
+        N830S_REQ_LINE            ,D6           ; REQUIREMENTS SEQUENCE                      61 thru    66                          
+        N830S_SHP_LINE            ,D6           ; SHP SEQUENCE                               67 thru    72                          
+        N830S_KEY_FILL            ,D18          ; KEY FILLER                                 73 thru    90                          
+        N830S_NTE_LINE            ,D6           ; NOTE SEQUENCE NUMBER                       91 thru    96                          
+        N830S_NTE_FORM            ,A3           ; NOTE QUALIFIER                             97 thru    99                          
+        N830S_NTE                 ,A80          ; NOTE                                      100 thru   179                          
+        N830S_FILLER              ,A99          ; FILLER                                    180 thru   278                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA830S_NTE_KEY            ,A96          ; PRIMARY SORT KEY                                                                  
+                                  ,A182         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,40 @@
+; FORACK_HDR.DEF
+;
+;	Functional Acknowledgment Header -- Functional Group Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	09-Jul-89	J. Rheingans	Original
+;
+;	01-Jun-90	Rich Mae	Added Supplier ID, Destination Code,
+;					Generated Date, and Generated Time.
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD FORACK_HDR
+	FAH_SUPPL_ID	,A15	; Supplier ID			|   1 thru 15
+	FAH_DEST_CODE	,A15	; Destination Code		|  16 thru 30
+	FAH_GROUP_ID	,A2	; Functional Group Identifier	|  31 thru 32
+	FAH_DATA_INT	,D9	; Data Interchange Control #	|  33 thru 41
+
+	FAH_ACK_CODE	,A1	; Acknowledgement Code		|  42 thru 42
+	FAH_INCLUDED	,D6	; Number of Trans Sets Included	|  43 thru 48
+	FAH_RECVD	,D6	; Number of Trans Sets Received	|  49 thru 54
+	FAH_ACCEPTED	,D6	; Number of Trans Set Accepted	|  55 thru 60
+
+	FAH_NOTE_1	,A3	; Group Note Code-1		|  61 thru 63
+	FAH_NOTE_2	,A3	; Group Note Code-2		|  64 thru 66
+	FAH_NOTE_3	,A3	; Group Note Code-3		|  67 thru 69
+	FAH_NOTE_4	,A3	; Group Note Code-4		|  70 thru 72
+	FAH_NOTE_5	,A3	; Group Note Code-5		|  73 thru 75
+	
+	FAH_GEN_DATE	,D6	; Date Generated		|  76 thru 81
+	FAH_GEN_TIME	,D4	; Time Generated		|  82 thru 85
+			,A15	; Filler			|  86 thru 100
+
+RECORD FAH_KEY, X
+	K_FAH_SUPPL_ID	,A%SIZE(FAH_SUPPL_ID)
+	K_FAH_DEST_CODE	,A%SIZE(FAH_DEST_CODE)
+	K_FAH_GROUP_ID	,A%SIZE(FAH_GROUP_ID)
+	K_FAH_DATA_INT	,D%SIZE(FAH_DATA_INT)

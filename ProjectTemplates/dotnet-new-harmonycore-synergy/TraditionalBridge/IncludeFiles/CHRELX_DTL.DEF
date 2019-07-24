@@ -1,0 +1,30 @@
+; CHRELX_DTL.DEF
+;
+;	Chrysler X12 Release Detail File.
+;
+;------------------------------------------------------------------
+; File Organization: Sequential | Record Size: 100	| Positions
+;------------------------------------------------------------------
+
+RECORD CHRELX_DTL
+	CDX_SUPPLIER	,A7	; Supplier Id Code	|   1 thru 7
+	CDX_CUST_PART	,A10	; Chrysler Part Number	|   8 thru 17
+	CDX_RELNO	,A6	; Release/Program No.	|  18 thru 23
+	CDX_PONUM	,A8	; Purchase Order Number	|  24 thru 31
+	CDX_DEST	,A5	; Destination Code	|  32 thru 36
+	CDX_DOCK	,A10	; Dock Code/Text	|  37 thru 46
+	CDX_BASE_CUM	,D8	; Base Cum		|  47 thru 54
+	CDX_LAST_QTY	,D8	; Last Ship Quantity	|  55 thru 62
+	CDX_LAST_DATE	,D6	; Last Ship Date	|  63 thru 68
+	CDX_DIAS_YTD	,D8	; DIAS YTD Ship Qty	|  69 thru 76
+	CDX_CUM_START	,D6	; Cum Start Date	|  77 thru 82
+	CDX_SHIP_CODE	,A1	; Ship Code		|  83 thru 83
+	CDX_SHIFT_CODE	,A1	; Shift Code		|  84 thru 84
+			,A16	; Filler		|  85 thru 100
+RECORD CDX_KEY, X
+	K_CDX_SUPPLIER	,A%SIZE(CDX_SUPPLIER)
+	K_CDX_CUST_PART	,A%SIZE(CDX_CUST_PART)
+	K_CDX_RELNO	,A%SIZE(CDX_RELNO)
+	K_CDX_PONUM	,A%SIZE(CDX_PONUM)
+	K_CDX_DEST	,A%SIZE(CDX_DEST)
+

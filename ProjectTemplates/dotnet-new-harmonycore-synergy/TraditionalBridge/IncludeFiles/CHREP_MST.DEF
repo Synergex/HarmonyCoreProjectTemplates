@@ -1,0 +1,27 @@
+RECORD REPLACE_MASTER
+;
+;	CHREP_MST.DEF - CHRYSLER REPLACEMENT PART MASTER FILE
+;
+;		STRUCTURE:	INDEXED
+;		KEY 0:		RM_PLANT, RM_PART_NUMBER, RM_SEQ_NBR  
+;					No Duplicates allowed
+;		RECORD LEN:	62
+;
+;-------------------------------------------------------------------------------
+;		----------- Record Definition ---------
+;-------------------------------------------------------------------------------
+
+	RM_PLANT	,D5	; Plant Identificatin
+	RM_PART_NUMBER	,A8	; Part Number
+	RM_SEQ_NBR	,D7	; Broadcast Sequence Number
+	RM_VIN		,A8	; Vehicle Identification Number, Last 8
+	RM_SHIP_QTY	,D2	; Shipment Quantity
+	RM_PO_NBR	,A22	; Purchase Order Number
+	RM_SHIP_DATE	,D6	; Shipment Date (YYMMDD)
+	RM_AR_POSTED	,A1	; A/R Posting Indicator
+	RM_IM_POSTED	,A1	; I/M Posting Indicator
+			,A2	; Filler
+
+RECORD, X
+	RM_KEY0		,A20	; Primary Key
+			,A42	; Filler

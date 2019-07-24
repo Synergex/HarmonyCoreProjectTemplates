@@ -1,0 +1,73 @@
+;CA857_SHP.DEF                                                                                                                      
+;                                                                                                                                   
+;       857 SHIPMENT LEVEL                                                                                                          
+;       DATE : 27-OCT-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1070                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA857_SHP                                                                                                                   
+        S857_SEQ1                 ,D6           ; INPUT SEQUENCE 1                            1 thru     6                          
+        S857_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                     7 thru    21                          
+        S857_GROUP_ID             ,A15          ; RECEIVER GROUP ID                          22 thru    36                          
+        S857_TP_DESIG             ,A2           ; TP DESIGNATOR                              37 thru    38                          
+        S857_INVOICE_NO           ,A30          ; INVOICE NUMBER                             39 thru    68                          
+        S857_INV_DATE             ,D8           ; INVOICE DATE                               69 thru    76                          
+        S857_INV_TIME             ,A4           ; INVOICE TIME                               77 thru    80                          
+        S857_PURPOSE_CD           ,A2           ; PURPOSE CODE                               81 thru    82                          
+        S857_SUPPLIER             ,A15          ; SUPPLIER CODE                              83 thru    97                          
+        S857_SUPP_NAME            ,A35          ; SUPPLIER NAME                              98 thru   132                          
+        S857_CURRENCY             ,A3           ; CURRENCY CODE                             133 thru   135                          
+        S857_PO_NO                ,A30          ; PURCHASE ORDER NUMBER                     136 thru   165                          
+        S857_PO_DATE              ,D8           ; PURCHASE ORDER DATE                       166 thru   173                          
+        S857_SF_ID_CODE           ,A15          ; SHIP FROM CODE                            174 thru   188                          
+        S857_SF_CODE_QL           ,A2           ; SHIP FROM CODE QUALIFIER                  189 thru   190                          
+        S857_SF_NAME              ,A35          ; SHIP FROM NAME                            191 thru   225                          
+        S857_SF_ADDR1             ,A35          ; SHIP FROM ADDRESS LINE 1                  226 thru   260                          
+        S857_SF_ADDR2             ,A35          ; SHIP FROM ADDRESS LINE 2                  261 thru   295                          
+        S857_SF_CITY              ,A30          ; SHIP FROM CITY                            296 thru   325                          
+        S857_SF_STATE             ,A2           ; SHIP FROM STATE                           326 thru   327                          
+        S857_SF_ZIP               ,A15          ; SHIP FROM ZIP                             328 thru   342                          
+        S857_SF_ABBRV             ,A5           ; SHIP FROM ABBREV                          343 thru   347                          
+        S857_ST_ID_CODE           ,A15          ; SHIP TO ID CODE                           348 thru   362                          
+        S857_ST_CODE_QL           ,A2           ; SHIP TO CODE QUALIFIER                    363 thru   364                          
+        S857_ST_NAME              ,A35          ; SHIP TO NAME                              365 thru   399                          
+        S857_ST_ADDR1             ,A35          ; SHIP TO ADDRESS LINE 1                    400 thru   434                          
+        S857_ST_ADDR2             ,A35          ; SHIP TO ADDRESSS LINE 2                   435 thru   469                          
+        S857_ST_CITY              ,A30          ; SHIP TO CITY                              470 thru   499                          
+        S857_ST_STATE             ,A2           ; SHIP TO STATE                             500 thru   501                          
+        S857_ST_ZIP               ,A15          ; SHIP TO ZIP CODE                          502 thru   516                          
+        S857_ST_ABBRV             ,A5           ; SHIP TO ABBREV                            517 thru   521                          
+        S857_SHIP_DATE            ,D8           ; SHIP DATE                                 522 thru   529                          
+        S857_LADING_QTY           ,D8           ; TOTAL # OF LOADS                          530 thru   537                          
+        S857_LOADS_UOFM           ,A2           ; TOT LOADS UNIT OF MEASURE                 538 thru   539                          
+        S857_EQUIP_CODE           ,A2           ; EQUIPMENT CODE                            540 thru   541                          
+        S857_EQUIP_PRFX           ,A4           ; EQUIPMENT CODE PREFIX                     542 thru   545                          
+        S857_EQUIP_NO             ,A10          ; EQUIPMENT NUMBER                          546 thru   555                          
+        S857_SCAC                 ,A5           ; SCAC CODE                                 556 thru   560                          
+        S857_CARRIER              ,A35          ; CARRIER NAME                              561 thru   595                          
+        S857_CAR_REF_QL           ,A2           ; CARRIER REFERENCE QUALIFIER               596 thru   597                          
+        S857_CARR_REFNO           ,A30          ; CARRIER REFERENCE NUMBER                  598 thru   627                          
+        S857_TRANS_MODE           ,A2           ; TRANSPORTATION MODE                       628 thru   629                          
+        S857_ROUT_CMT             ,A35          ; ROUTING COMMENT                           630 thru   664                          
+        S857_HANDL_CD             ,A2           ; SPECIAL HANDLING CODE                     665 thru   666                          
+        S857_BIL_REF_QL           ,A2           ; BILL OF LADING REFERENCE QUAL             667 thru   668                          
+        S857_BOL_NO               ,A30          ; BILL OF LADING NUMBER                     669 thru   698                          
+        S857_METH_PAYCD           ,A2           ; METHOD OF PAYMENT CODE                    699 thru   700                          
+        S857_PACK_LIST            ,A30          ; PACKING LIST NUMBER                       701 thru   730                          
+        S857_CONTACT              ,A35          ; CONTACT NAME                              731 thru   765                          
+        S857_PHONE_QL             ,A2           ; CONTACT PHONE QUAL                        766 thru   767                          
+        S857_PHONE_NO             ,A35          ; CONTACT PHONE NUMBER                      768 thru   802                          
+        S857_GROSS_WGT            ,D10          ; GROSS WEIGHT OF SHIPMENT                  803 thru   812                          
+        S857_NET_WGT              ,D10          ; NET WEIGHT OF SHIPMENT                    813 thru   822                          
+        S857_TARE_WGT             ,D10          ; TARE WEIGHT OF SHIPMENT                   823 thru   832                          
+        S857_WEIGHT_UM            ,A2           ; GROSS WGT UOFM                            833 thru   834                          
+        S857_TOT_UNITS            ,D10          ; TOTAL UNITS FOR SHIPMENT                  835 thru   844                          
+        S857_TOT_HL               ,D6           ; TOTAL NUMBER OF HL SEGMENTS               845 thru   850                          
+        S857_FILLER_1             ,A99          ; FILLER                                    851 thru   949                          
+        S857_FILLER_2             ,A99          ; FILLER                                    950 thru  1048                          
+        S857_FILLER_3             ,A22          ; FILLER                                   1049 thru  1070                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA857_SHP_KEY             ,A6           ; PRIMARY SORT KEY                                                                  
+                                  ,A1064        ; PRIMARY KEY POSITIONING                                                           

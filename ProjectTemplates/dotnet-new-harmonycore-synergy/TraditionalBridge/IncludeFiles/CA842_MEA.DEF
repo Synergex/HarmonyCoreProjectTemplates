@@ -1,0 +1,30 @@
+;CA842_MEA.DEF                                                                                                                      
+;                                                                                                                                   
+;       NONCONFORMANCE REPORT MEASURE                                                                                               
+;       DATE : 18-AUG-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   144                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA842_MEA                                                                                                                   
+        M842_ISA_CTL              ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        M842_GS_CTL               ,A14          ; GROUP CONTROL                              15 thru    28                          
+        M842_ST_CTL               ,A14          ; DOCUMENT CONTROL                           29 thru    42                          
+        M842_HL_LIN               ,D6           ; HL SEQUENCE                                43 thru    48                          
+        M842_SPS_LIN              ,D6           ; SAMPLING SEQUENCE                          49 thru    54                          
+        M842_NCD_LIN              ,D6           ; NONCONFORMANCE SEQUENCE                    55 thru    60                          
+        M842_MEA_LIN              ,D6           ; MEASUREMENT SEQUENCE                       61 thru    66                          
+        M842_MEA_CODE             ,A2           ; MEASUREMENT REFERENCE CODE                 67 thru    68                          
+        M842_MEA_QL               ,A3           ; MEASUREMENT QUALIFIER                      69 thru    71                          
+        M842_VALUE                ,A20          ; MEASUREMENT VALUE                          72 thru    91                          
+        M842_UOFM                 ,A3           ; UNIT OF MEASURE                            92 thru    94                          
+        M842_RANGE_MIN            ,A20          ; MINIMUM VALUE                              95 thru   114                          
+        M842_RANGE_MAX            ,A20          ; RANGE MAXIMUM                             115 thru   134                          
+        M842_SIG_CODE             ,A2           ; SIGNIFICANCE CODE                         135 thru   136                          
+        M842_ATTR_CODE            ,A2           ; ATTRIBUTE CODE                            137 thru   138                          
+        M842_SURFACE              ,A2           ; SURFACE/LAYER CODE                        139 thru   140                          
+        M842_METHOD               ,A4           ; MEASUREMENT METHOD OR DEVICE              141 thru   144                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA842_MEA_KEY             ,A66          ; PRIMARY SORT KEY                                                                  
+                                  ,A78          ; PRIMARY KEY POSITIONING                                                           

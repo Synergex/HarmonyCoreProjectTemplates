@@ -1,0 +1,21 @@
+;HA830_RDTL.DEF                                                                                                                  
+;                                                                                                                                   
+;       HAWORTH REF NO, DETAIL LEVEL                                                                                                
+;       DATE : 14-JAN-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    57                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA830_RDTL                                                                                                               
+        HA830RFP1SEQ_NO           ,D5           ; PARENT LEVEL 1 SEQUENCE NO                  1 thru     5                          
+        HA830RFP2SEQ_NO           ,D5           ; PARENT LEVEL 2 SEQUNCE NO                   6 thru    10                          
+        HA830RFP3SEQ_NO           ,D5           ; PARENT LEVEL 3 SEQUENCE NO                 11 thru    15                          
+        HA830_REF_COLAT           ,A2           ; RECORD TYPE COLLATING SEQ - 43             16 thru    17                          
+        HA830_REF_REC             ,A3           ; RECORD TYPE - REF                          18 thru    20                          
+        HA830REF_SEQ_NO           ,D5           ; REF SEQUENCE NO                            21 thru    25                          
+        HA830_REF_01              ,A2           ; REFERENCE NUMBER QUALIFIER                 26 thru    27                          
+        HA830_REF_02              ,A30          ; REFERENCE NUMBER                           28 thru    57                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        HA830_RDTL_KEY         ,A25          ; PRIMARY SORT KEY                                                                  
+                                  ,A32          ; PRIMARY KEY POSITIONING                                                           

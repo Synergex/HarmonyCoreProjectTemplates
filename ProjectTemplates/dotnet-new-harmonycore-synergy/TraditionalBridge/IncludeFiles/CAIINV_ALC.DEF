@@ -1,0 +1,24 @@
+;CAIINV_ALC.DEF                                                                                                                     
+;                                                                                                                                   
+;       INBOUND INVOIC ALC FILE                                                                                                     
+;       DATE : 23-JAN-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   238                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAIINV_ALC                                                                                                                  
+        IIM_ALC_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        IIM_ALC_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        IIM_ALC_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        IIM_ALC_HDR_LIN           ,D6           ; HEADER LINE NUMBER                         43 thru    48                          
+        IIM_ALC_LIN_LIN           ,D6           ; LINE ITEM LINE NUMBER                      49 thru    54                          
+        IIM_ALC_LINE              ,D6           ; ALC LINE NUMBER                            55 thru    60                          
+        IIM_ALC_QUAL              ,A3           ; ALLOWANCE/CHARGE QUALIFIER                 61 thru    63                          
+        IIM_ALC_SS_ID             ,A3           ; SPECIAL SERVICE ID                         64 thru    66                          
+        IIM_ALC_RESP_CD           ,A3           ; RESPONSIBILITY AGENCY CODE                 67 thru    69                          
+        IIM_ALC_SS_DESC           ,02A35        ; SPECIAL SERVICE DESCRIPTION                70 thru   139                          
+        IIM_ALC_FILLER            ,A99          ; ALC FILLER                                140 thru   238                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAIINV_ALC_KEY            ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A178         ; PRIMARY KEY POSITIONING                                                           

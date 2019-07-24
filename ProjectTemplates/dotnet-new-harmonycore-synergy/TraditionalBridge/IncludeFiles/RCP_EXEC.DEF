@@ -1,0 +1,5 @@
+	executable	,a255
+	cmdline		,a512
+	wrkdir		,a255
+	timeout		,a7
+	return_status	,a6

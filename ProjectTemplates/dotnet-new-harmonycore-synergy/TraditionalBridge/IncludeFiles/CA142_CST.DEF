@@ -1,0 +1,33 @@
+;Custom Layout for 142 Export - Hitachi and Nissan
+;
+;-------------------------------------------------------------------------------
+RECORD	CA142_CST
+	NI_CLAIM_NO	,A30	; N902 Reference Number
+	NI_EDP_DATE	,A45	; BGN02 Reference Number
+	NI_VIN_NUM	,A30	; LIN05 Service ID (Veh Iden Number)
+	NI_ENG_NUM	,A30	; LIN05 Service ID (Engine Number)
+	NI_PROD_DATE	,D8	; DTM02 (qual=094 Production Date)
+	NI_SOLD_DATE	,D8	; DTM02 (qual=006 Sold Date)
+	NI_REP_DATE	,D8	; DTM02 (qual=214 Repair Date)
+	NI_MILEAGE	,D15	; QTY02 Mileage
+	NI_SYMPTOM	,A6	; PRR04 Symptom Code (if PRR04 = alpha)
+	NI_PNC_NUM	,A30	; LIN11 Service ID (Part Number Code)
+	NI_TROUBLE	,D6	; PRR04 Trouble Code (if PRR04 = numeric)
+	GROUP NI_VEND_OP	,[6]A	
+		NI_OP_NUM	,A30    ; REP03 Service ID (Operation Number)
+		NI_OP_HOURS	,D10 	; IT102 Quantity Invoiced
+	ENDGROUP
+	NI_PART_NO	,A30	; REP03 Service ID (Company Part Number)
+	NI_PART_QTY	,D10	; IT102 Quantity Invoiced
+	NI_PART_COST	,D14	; IT104 Unit Price
+	NI_DIST_PARTS	,D9	; SSS06 Total Parts Charge (qual=pp)
+	NI_DIST_LABOR	,D9	; SSS06 Total Labor Charge (qual=zz)
+	NI_DIST_SUBLET	,D9	; SSS06 Total Sublet Charge (qual=sh)
+	NI_LIAB_PART	,D9	; SSS05 Charge Rate Parts (qual=pp)
+	NI_LIAB_LABOR	,D9 	; SSS05 Charge Rate Labor (qual=zz)
+	NI_LIAB_SUBLET	,D9	; SSS05 Charge Rate Sublet (qual=sh)
+	NI_VEND_PART	,D15	; SSS08 Quantity Parts (qual=pp)
+	NI_VEND_LABOR	,D15	; SSS08 Quantity Labor (qual=zz)
+	NI_VEND_SUBLET	,D15	; SSS08 Quantity Sublet (qual=sh)
+	NI_VEND_TOTAL	,D15	; AMT02 Total Claim Charge
+	

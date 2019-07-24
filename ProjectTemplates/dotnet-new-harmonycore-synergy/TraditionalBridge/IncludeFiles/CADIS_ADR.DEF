@@ -1,0 +1,40 @@
+;CADIS_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       AVIDIS ADDRESS                                                                                                              
+;       DATE : 29-JUN-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   878                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADIS_ADR                                                                                                                   
+        DIA_UNB_CTL               ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DIA_UNG_CTL               ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DIA_UNH_CTL               ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DIA_HDR_LINE              ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        DIA_CSG_LINE              ,D6           ; CONSIGNEE LINE NUMBER                      49 thru    54                          
+        DIA_DTL_LINE              ,D6           ; DETAIL LINE NUMBER                         55 thru    60                          
+        DIA_LINE                  ,D6           ; NAME AND ADDRESS LINE                      61 thru    66                          
+        DIA__COMP                 ,A8           ; COMPANY CODE FOR SPLITS                    67 thru    74                          
+        DIA_ID                    ,A35          ; NAME AND ADDRESS ID                        75 thru   109                          
+        DIA_TYPE                  ,A3           ; NAME AND ADDRESS TYPE                     110 thru   112                          
+        DIA_NAME                  ,A35          ; PARTY NAME                                113 thru   147                          
+        DIA_NAMEADR               ,04A35        ; NAME AND ADDRESS LINE                     148 thru   287                          
+        DIA_INTERNAL_ID           ,A17          ; INTERNAL ID FOR TP                        288 thru   304                          
+        DIA_SECOND_ID             ,A17          ; DEPARTMENT OR EMPLOYEE ID                 305 thru   321                          
+        DIA_SECOND_ADDR           ,04A35        ; NAME AND ADDRESS                          322 thru   461                          
+        DIA_SECOND_NAME           ,A35          ; SECOND ADDRESS NAME                       462 thru   496                          
+        DIA_CONTACT               ,A35          ; CONTACT NAME                              497 thru   531                          
+        DIA_PHONE                 ,04A17        ; CONTACT PHONE                             532 thru   599                          
+        DIA_PHONE_EXT             ,A17          ; PHONE EXTENSION                           600 thru   616                          
+        DIA_TELEX                 ,A17          ; TELEX NUMBER                              617 thru   633                          
+        DIA_FAX                   ,A17          ; FAX NUMBER                                634 thru   650                          
+        DIA_TELETEX               ,A17          ; TELETEX NUMBER                            651 thru   667                          
+        DIA_COUNTRY               ,A2           ; COUNTRY CODE                              668 thru   669                          
+        DIA_THIRD_ID              ,A17          ; THID DEPARTMENT/EMPLOYEE ID               670 thru   686                          
+        DIA_THIRD_NAME            ,A35          ; ACCOUNTING NAME                           687 thru   721                          
+        DIA_THIRD_ADDR            ,04A35        ; NAME AND ADDRESS                          722 thru   861                          
+        DIA_VAT_REG               ,A17          ; VAT REGISTRATION NUMBER                   862 thru   878                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CADIS_ADR_KEY             ,A66          ; PRIMARY SORT KEY                                                                  
+                                  ,A812         ; PRIMARY KEY POSITIONING                                                           

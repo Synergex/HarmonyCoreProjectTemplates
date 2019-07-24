@@ -1,0 +1,35 @@
+;CA140_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT REGISTRATION - ADDRESS                                                                                              
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   376                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA140_ADR                                                                                                                   
+        A140_GS_CONTROL           ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        A140_HDR_SEQN             ,D6           ; HEADER SEQUQENCE NUMBER                    10 thru    15                          
+        A140_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     16 thru    21                          
+        A140_LIN_SEQN             ,D6           ; LIN SEGMENT SEQUENCE NUMBER                22 thru    27                          
+        A140_SLN_SEQN             ,D6           ; SLN SEGMENT SEQUENCE NUMBER                28 thru    33                          
+        A140_ADR_SEQN             ,D6           ; ADDRESS SEQUENCE NUMBER                    34 thru    39                          
+        A140_ENTITY_CD            ,A2           ; ENTITY ID CODE                             40 thru    41                          
+        A140_NAME                 ,A35          ; NAME                                       42 thru    76                          
+        A140_ID_CD_QL             ,A2           ; ID CODE QUALIFIER                          77 thru    78                          
+        A140_ID_CODE              ,A17          ; ID CODE                                    79 thru    95                          
+        A140_N2_NAME              ,02A35        ; N2 SEGMENT NAME                            96 thru   165                          
+        A140_ADDRESS              ,02A35        ; N3 SEGMENT ADDRESS                        166 thru   235                          
+        A140_CITY                 ,A30          ; CITY NAME                                 236 thru   265                          
+        A140_STATE                ,A2           ; STATE OR PROVINCE CODE                    266 thru   267                          
+        A140_ZIP_CODE             ,A15          ; POSTAL ZIP CODE                           268 thru   282                          
+        A140_COUNTRY              ,A3           ; COUNTRY CODE                              283 thru   285                          
+        A140_FUNCT_CD             ,A2           ; CONTACT FUNCTION CODE                     286 thru   287                          
+        A140_PER_NAME             ,A35          ; NAME FROM PER SEGMENT                     288 thru   322                          
+        A140_COM_QL_1             ,A2           ; COMM NUMBER QUALIFIER                     323 thru   324                          
+        A140_COM_NUM_1            ,A25          ; COM NUMBER                                325 thru   349                          
+        A140_COM_QL_2             ,A2           ; COM QUALIFIER 2                           350 thru   351                          
+        A140_COM_NUM_2            ,A25          ; COM NUMBER 2                              352 thru   376                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA140_ADR_KEY             ,A39          ; PRIMARY SORT KEY                                                                  
+                                  ,A337         ; PRIMARY KEY POSITIONING                                                           

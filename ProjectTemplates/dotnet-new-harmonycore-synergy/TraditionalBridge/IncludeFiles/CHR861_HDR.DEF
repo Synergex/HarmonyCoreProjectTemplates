@@ -1,0 +1,31 @@
+;CHR861_HDR.DEF                                                                                                                   
+;                                                                                                                                   
+;       CHRYSLER REC. ADVICE HEADER                                                                                                 
+;       DATE : 02-FEB-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   161                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CHR861_HDR                                                                                                                
+        CHRH_REF_NO1              ,D15          ; REFERENCE NUMBER                            1 thru    15                          
+        CHRH_CRE_DATE             ,D6           ; TRANSACTION CREATION DATE                  16 thru    21                          
+        CHRH_PURPOSE              ,D2           ; TRANSACTION PURPOSE (SB 00)                22 thru    23                          
+        CHRH_SHIP_NO1             ,D9           ; SHIPPER NUMBER                             24 thru    32                          
+        CHRH_CARR_NO              ,A15          ; CARRIER NUMBER                             33 thru    47                          
+        CHRH_BOL_NO               ,A15          ; BILL OF LADING NUMBER                      48 thru    62                          
+        CHRH_PACK_NO              ,A15          ; PACKING SLIP NUMBER                        63 thru    77                          
+        CHRH_DOC_NO               ,A15          ; DOCK NUMBER                                78 thru    92                          
+        CHRH_SEAL_NO              ,A15          ; SEAL NUMBER                                93 thru   107                          
+        CHRH_PROC_DATE            ,D6           ; RECV. DISC. PROCESSING DATE               108 thru   113                          
+        CHRH_SHIP_DATE            ,D6           ; SHIP DATE                                 114 thru   119                          
+        CHRH_REC_DATE             ,D6           ; RECEIVING DATE                            120 thru   125                          
+        CHRH_PROC_TIME            ,D4           ; RECV. DISC. PROCESSING TIME               126 thru   129                          
+        CHRH_PROC_TZ              ,A2           ; RECV. DISC. PROCESSING TIME Z             130 thru   131                          
+        CHRH_CARR_NAME            ,A17          ; CARRIER NAME                              132 thru   148                          
+        CHRH_EQUIP_CODE           ,A2           ; EQUIPMENT CODE                            149 thru   150                          
+        CHRH_EQUIP_PFIX           ,A4           ; EQUIPMENT PREFIX                          151 thru   154                          
+        CHRH_EQUIP_NO             ,D7           ; EQUIPMENT NUMBER                          155 thru   161                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CHR861_HDR_KEY          ,A15          ; PRIMARY SORT KEY                                                                  
+                                  ,A146         ; PRIMARY KEY POSITIONING                                                           

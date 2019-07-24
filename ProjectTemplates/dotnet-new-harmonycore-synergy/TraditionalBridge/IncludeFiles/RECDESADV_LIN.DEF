@@ -1,0 +1,27 @@
+;RECDESADV_LIN.DEF                                                                                                                  
+;                                                                                                                                   
+;       RECEIVED DESPATCH ADVICE LIN                                                                                                
+;       DATE : 17-DEC-04                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   121                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RECDESADV_LIN                                                                                                               
+        DES_LIN_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DES_LIN_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DES_LIN_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DES_LIN_HDR_LIN           ,D6           ; BGM LINE NUMBER                            43 thru    48                          
+        DES_LIN_DTL_LIN           ,D6           ; DETAIL LINE NUMBER                         49 thru    54                          
+        DES_LIN_LINE              ,D6           ; LIN LINE NUMBER                            55 thru    60                          
+        DES_LIN_LINE_NO           ,A6           ; LINE ITEM NUMBER                           61 thru    66                          
+        DES_LIN_ACTION            ,A3           ; ACTION REQUEST/NOTIFICATION                67 thru    69                          
+        DES_LIN_ITEM              ,A35          ; ITEM NUMBER                                70 thru   104                          
+        DES_LIN_ITEM_QL           ,A3           ; ITEM QUALIFIER                            105 thru   107                          
+        DES_LIN_SUB_LIN           ,A3           ; SUB-LINE INDICATOR                        108 thru   110                          
+        DES_LIN_SUB_NO            ,A6           ; LINE ITEM NUMBER                          111 thru   116                          
+        DES_LIN_CONF_LV           ,D2           ; CONFIGURATION LEVEL                       117 thru   118                          
+        DES_LIN_CONFIG            ,A3           ; CONFIGURATION                             119 thru   121                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RECDESADV_LIN_KEY         ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A61          ; PRIMARY KEY POSITIONING                                                           

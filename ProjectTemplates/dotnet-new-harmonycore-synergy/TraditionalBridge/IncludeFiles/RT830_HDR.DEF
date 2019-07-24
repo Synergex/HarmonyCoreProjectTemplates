@@ -1,0 +1,34 @@
+;RT830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL PLAN SCHED HEADER                                                                                                    
+;       DATE : 04-MAY-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   202                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RT830_HDR                                                                                                                   
+        H830_VENDOR_ID            ,A15          ; VENDOR ID                                   1 thru    15                          
+        H830_PS_DATE              ,D6           ; PLAN SCHED RUN/RELEASE DATE                16 thru    21                          
+        H830_RELNO                ,A10          ; RELEASE NUMBER                             22 thru    31                          
+        H830_PS_REFNO             ,A10          ; PLAN SCHED REFERENCE NO                    32 thru    41                          
+        H830_PROD_ID1             ,A30          ; PRODUCT IDENTIFIER NO 1                    42 thru    71                          
+        H830_SCHED_TYPE           ,A2           ; SCHEDULE TYPE QUALIFIER                    72 thru    73                          
+        H830_QTY_QUAL             ,A1           ; SCHED QUANTITY QUALIFIER                   74 thru    74                          
+        H830_HORIZ_ST             ,D6           ; SCHED HORIZON START DATE                   75 thru    80                          
+        H830_HORIZ_END            ,D6           ; SCHED HORIZON END DATE                     81 thru    86                          
+        H830_TX_PURPOSE           ,A2           ; TRANSACTION SET PURPOSE                    87 thru    88                          
+        H830_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                       89 thru   118                          
+        H830_UPC                  ,A12          ; UPC NUMBER                                119 thru   130                          
+        H830_UOFM                 ,A2           ; UNIT OF MEASURE                           131 thru   132                          
+        H830_PRICE                ,D10          ; PRICE                                     133 thru   142                          
+        H830_PRICE_UNIT           ,A2           ; BASE OF PRICE UNIT                        143 thru   144                          
+        H830_ISA05                ,A2           ; SENDER ID QUALIFIER                       145 thru   146                          
+        H830_ISA06                ,A15          ; SENDER ID CODE                            147 thru   161                          
+        H830_ISA07                ,A2           ; RECEIVER ID QUALIFIER                     162 thru   163                          
+        H830_ISA08                ,A15          ; RECEIVERS ID CODE                         164 thru   178                          
+        H830_GS02                 ,A12          ; GROUP SENDER ID                           179 thru   190                          
+        H830_GS03                 ,A12          ; GROUP RECEIVER ID                         191 thru   202                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        RT830_HDR_KEY             ,A71          ; PRIMARY SORT KEY                                                                  
+                                  ,A131         ; PRIMARY KEY POSITIONING                                                           

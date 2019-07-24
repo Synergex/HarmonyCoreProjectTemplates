@@ -1,0 +1,33 @@
+; CH810_MSC.DEF
+;
+;	Chrysler Input Miscellaneous (Allowances/Charges) File for 
+;	X12 Generation.
+;
+;	Date: 13-Feb-89
+;
+;-------------------------------------------------------------------------------
+; Date	      	Programmer    Modification
+; ----------  	----------    -------------------------------------------------
+; 8/11/93	R. Greene    	Added fields CM_NUMBER, CM_DESCR, CM_SPEC_CHRG.
+;				Increased record size from 100 to 129.
+; 
+; 8/17/95	M. Collins	Expanded part number to 30 characters.  
+;				Increased record length to 150.
+;-------------------------------------------------------------------------------
+; File Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD CH810_MSC
+	CM_SEQ_NO	,D5	; Input Sequence Number		|   1 thru 5
+	CM_SEQ_NO2	,D5	; Secondary Input Sequence	|   6 thru 10
+
+	CM_SUPP_ID	,A4	; Supplier Id Code		|  11 thru 14
+	CM_INV_NO	,D7	; Invoice Number		|  15 thru 21
+	CM_PART_NO	,A30	; Part Number			|  22 thru 51
+
+	CM_QUAL		,A1	; Allowance/Charge Qualifier	|  52 thru 52
+	CM_CODE		,A2	; Allowance/Charge Code		|  53 thru 54
+	CM_AMOUNT	,D9	; Allowance/Charge Amount	|  55 thru 63
+	CM_NUMBER	,A4	; Allowance/Charge Number       |  64 thru 67
+	CM_DESCR	,A80	; Description                   |  68 thru 147
+	CM_SPEC_CHRG	,A3	; Special Charge Code           |  148 thru 150

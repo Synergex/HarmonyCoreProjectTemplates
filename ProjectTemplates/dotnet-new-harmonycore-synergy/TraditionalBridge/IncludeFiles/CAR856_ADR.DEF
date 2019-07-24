@@ -1,0 +1,29 @@
+;CAR856_ADR.DEF                                                                                                                     
+;                                                                                                                                   
+;       CARAS COMMON ASN ADDRESS FILE                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   551                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_ADR                                                                                                                  
+        AR856_SHIP_ID             ,A30          ; SHIPMENT ID NO                              1 thru    30                          
+        AR856_PRC_DTM             ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        AR856_HL_ID               ,A12          ; HIERARCHICAL STRUCT HL ID CODE             43 thru    54                          
+        AR856_ADR_LOOP            ,D3           ; ADRESS LOOP LEVEL                          55 thru    57                          
+        AR856_ADDR_QL             ,A2           ; ADDRESS QUALIFIER                          58 thru    59                          
+        AR856_ID_QL               ,A2           ; ID CODE QUALIFIER                          60 thru    61                          
+        AR856_ID_CODE             ,A17          ; ADDRESS ID CODE                            62 thru    78                          
+        AR856_NAME                ,05A35        ; NAME                                       79 thru   253                          
+        AR856_ADDR                ,04A35        ; ADDRESS                                   254 thru   393                          
+        AR856_CITY                ,A19          ; CITY                                      394 thru   412                          
+        AR856_STATE               ,A2           ; STATE CODE                                413 thru   414                          
+        AR856_ZIP                 ,A9           ; ZIP CODE                                  415 thru   423                          
+        AR856_CTRY                ,A2           ; COUNTRY CODE                              424 thru   425                          
+        AR856_LOC_QL              ,A2           ; LOCATION QUALIFIER                        426 thru   427                          
+        AR856_LOC_ID              ,A25          ; LOCATION ID                               428 thru   452                          
+        AR856_FILLER              ,A99          ; FILLER                                    453 thru   551                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_ADR_KEY            ,A59          ; PRIMARY SORT KEY                                                                  
+                                  ,A492         ; PRIMARY KEY POSITIONING                                                           

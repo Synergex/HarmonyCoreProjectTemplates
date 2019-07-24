@@ -1,0 +1,106 @@
+; RERECV_TBL.DEF
+;
+;	Flat File layout description for OUTPUT of X12 Translation transaction
+;	sets. This is a generic description and is not directly tied
+;	into any particular Transaction dictionary, that is it can be
+;	referenced by multiple dictionaries.
+;
+;	STRUCTURE = ISAM
+;	RECORD LENGTH = 292
+;
+;--------------------------------------------
+;	---- RECORD DESCRIPTION ----
+;--------------------------------------------
+RECORD 	RERECV_TBL
+	RC_LAYOUT_NAME 		,A15		; File Layout Name
+	RC_FIELD_NO    		,D3		; Field Number
+
+	RC_DESCRIPTION 		,A30		; Description used for reference
+
+	RC_FIELD_NAME  		,A15		; Field Name
+	RC_FIELD_DESCR 		,A30		; Field description
+	RC_MANDATORY   		,A1		; Mandatory field - M,C,O or blank
+	RC_MIN_LENGTH  		,D2		; Minimum field length
+	RC_MAX_LENGTH  		,D2		; Maximum field length
+	RC_DATA_TYPE   		,A1		; Valid data type
+			       			; A = alphanumeric
+			       			; N = numeric
+			       			; R = real
+	RC_DECIMAL_POS		,D2		; Decimal position
+	RC_SAVED_FIELD		,D1		; Carry-over field 1 = yes/0 = no
+	RC_ARRAY_SIZE		,D2		; If this is an array, how big?
+	RC_KEY_FIELD		,D1		; 1 = yes/ 0 = no, keys must be
+						; contiguous
+	RC_FILE_TYPE		,A1		; I = ISAM
+						; R = RELATIVE
+						; S = SEQUENTIAL
+						; NOT USED AT THIS TIME
+	RC_START_POS		,D5		; Starting position for this
+						; data element
+	RC_CALC_FLAG		,D1		; 1 = Recalculate all field's
+						; starting positions for this
+						; record layout
+				,A180		;Filler
+;
+; ----	KEY DEFINITIONS ----
+;
+RECORD	,X
+	RECV_KEY0	 	,A18		; NO DUPLICATES
+				,A274		; PRIMARY KEY 0
+
+RECORD	,X
+	RECV_KEY1		,A15		; DUPLICATES
+				,A277
+
+RECORD	,X
+	RC_LAYOUT_1		,A15
+				,A33
+	RC_FIELD_KEY1		,A15		; NO DUPLICATES
+				,A229
+
+RECORD	,X
+	SEG_SERCH_RKEY		,A63
+
+;-------------------------------------------------------------------------------
+
+.IFDEF RERECV_TBL_ALT
+ 
+RECORD 	
+	A_RERECV_TBL		,A%SIZE(RERECV_TBL)
+
+RECORD	,X
+	A_RC_LAYOUT_NAME 	,A15
+	A_RC_FIELD_NO    	,D3
+	A_RC_DESCRIPTION 	,A30		
+	A_RC_FIELD_NAME  	,A15		
+	A_RC_FIELD_DESCR 	,A30		
+	A_RC_MANDATORY   	,A1
+	A_RC_MIN_LENGTH  	,D2		
+	A_RC_MAX_LENGTH  	,D2		
+	A_RC_DATA_TYPE   	,A1
+	A_RC_DECIMAL_POS	,D2		
+	A_RC_SAVED_FIELD	,D1		
+	A_RC_ARRAY_SIZE		,D2		
+	A_RC_KEY_FIELD		,D1		
+	A_RC_FILE_TYPE		,A1
+	A_RC_START_POS		,D5
+	A_RC_CALC_FLAG		,D1
+				,A180
+;
+; ----	KEY DEFINITIONS ----
+;
+RECORD	,X
+	A_RECV_KEY0	 	,A18		; NO DUPLICATES
+				,A274		; PRIMARY KEY 0
+
+RECORD	,X
+	A_RECV_KEY1		,A15		; DUPLICATES
+				,A277
+
+RECORD	,X
+	A_RC_LAYOUT_1		,A15
+				,A33
+	A_RC_FIELD_KEY1		,A15		; NO DUPLICATES
+				,A229
+
+.ENDC

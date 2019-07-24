@@ -1,0 +1,52 @@
+;SIREL_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       SUBARU-ISUZU 830/862 HEADER                                                                                                 
+;       DATE : 19-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   307                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  SIREL_HDR                                                                                                                   
+        RLH_COMP                  ,A8           ; RESERVED FOR SPLIT (COMPANY)                1 thru     8                          
+        RLH_SEQN                  ,D5           ; RESERVED FOR SPLIT (SEQUENCE)               9 thru    13                          
+        RLH_SUPP_ID               ,A15          ; SUPPLIER ID                                14 thru    28                          
+        RLH_RELDT                 ,D8           ; RELEASE DATE                               29 thru    36                          
+        RLH_TP_PART               ,A22          ; TRADING PARTNER PART                       37 thru    58                          
+        RLH_DEST_CODE             ,A15          ; DESTINATION CODE                           59 thru    73                          
+        RLH_PURPOSE               ,D2           ; PURPOSE                                    74 thru    75                          
+        RLH_RELEASE_NO            ,A16          ; RELNO=10 DIGITS + CREATION DAT             76 thru    91                          
+        RLH_HORIZ_START           ,D8           ; HORIZON START DATE                         92 thru    99                          
+        RLH_HORIZ_END             ,D8           ; HORIZON END DATE                          100 thru   107                          
+        RLH_PO                    ,A22          ; PURCHASE ORDER NUMBER                     108 thru   129                          
+        RLH_DOCK                  ,A5           ; DOCK CODE                                 130 thru   134                          
+        RLH_PART_DESCR            ,A30          ; PART DESCRIPTION                          135 thru   164                          
+        RLH_UOFM                  ,A2           ; UNIT OF MEASURE                           165 thru   166                          
+        RLH_TRANS_MODE            ,A2           ; TRANSPORT MODE ON RELEASE                 167 thru   168                          
+        RLH_LINE_FEED             ,A6           ; NO USED                                   169 thru   174                          
+        RLH_STG_LOC               ,A6           ; STORAGE LOCATION                          175 thru   180                          
+        SIH_SUPP_TYPE             ,A10          ; REFERENCE NUMBER                          181 thru   190                          
+        SIH_SHIP_FROM             ,A2           ; DEPOT CODE                                191 thru   192                          
+        SIH_FOB                   ,A2           ; SHIP METHOD OF PAYMENT                    193 thru   194                          
+        SIH_PROC_CODE             ,A1           ; PROCESS CODE                              195 thru   195                          
+        SIH_PROD_GRP              ,A3           ; PRODUCT GROUP                             196 thru   198                          
+        SIH_FAB_DATE              ,D8           ; FAB FORECST DATE                          199 thru   206                          
+        SIH_RAW_DATE              ,D8           ; RAW FORECAST DATE                         207 thru   214                          
+        SIH_TRANS_TIME            ,D4           ; LEAD/TRANSIT TIME (SEE QUAL)              215 thru   218                          
+        SIH_LIST_NUM              ,A10          ; NOT USED                                  219 thru   228                          
+        SIH_TRANSIT_QL            ,A2           ; TRANSIT TIME QUALIFIER                    229 thru   230                          
+        SIH_FIT_LOC               ,A6           ; FITTING LOCATION                          231 thru   236                          
+        SIH_FCST_QL               ,A2           ; FORECAST QUALIFIER                        237 thru   238                          
+        SIH_FCST_QTY_QL           ,A1           ; FORECAST QUANTITY QUALIFIER               239 thru   239                          
+        SIH_CONTACT_FN            ,A2           ; CONTACT FUNCTION CODE                     240 thru   241                          
+        SIH_CONTACT_NM            ,A2           ; CONTACT NAME                              242 thru   243                          
+        RLH_PCNT                  ,D3           ; RESERVED FOR SPLIT (PERCENT)              244 thru   246                          
+        SIH_ENG_CHNG              ,A10          ; ENGINEERING CHANGE LEVEL                  247 thru   256                          
+        SIH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             257 thru   261                          
+        SIH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            262 thru   265                          
+        SIH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            266 thru   279                          
+        SIH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             280 thru   293                          
+        SIH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             294 thru   307                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        SIREL_HDR_KEY             ,A73          ; PRIMARY SORT KEY                                                                  
+                                  ,A234         ; PRIMARY KEY POSITIONING                                                           

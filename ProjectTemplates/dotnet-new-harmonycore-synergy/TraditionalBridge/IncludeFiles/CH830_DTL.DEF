@@ -1,0 +1,72 @@
+;CH830_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 830 DETAIL                                                                                                         
+;       DATE : 18-DEC-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   176                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH830_DTL                                                                                                                   
+        CHD_SUPPLIER              ,A7           ; SUPPLIER CODE                               1 thru     7                          
+        CHD_PART_NO               ,A30          ; TRADING PARTNER PART                        8 thru    37                          
+        CHD_RELEASE               ,A4           ; RELEASE NUMBER                             38 thru    41                          
+        CHD_SHIP_TO               ,A7           ; SHIP TO CODE                               42 thru    48                          
+        CHD_DEST                  ,A7           ; DESTINATION CODE                           49 thru    55                          
+        CHD_REQ_TYPE              ,D2           ; REQUIREMENT TYPE                           56 thru    57                          
+        CHD_REQ_DATE              ,D8           ; REQUIREMENT DATE                           58 thru    65                          
+        CHD_PROGRAM               ,A1           ; PROGRAM NUMBER(MODEL YEAR)                 66 thru    66                          
+        CHD_RELNO                 ,A5           ; RELEASE NUMBER                             67 thru    71                          
+        CHD_PONO                  ,A13          ; PURCHASE ORDER NUMBER                      72 thru    84                          
+        CHD_REQ_QTY               ,D8           ; REQUIRED QUANTITY                          85 thru    92                          
+        CHD_THRU_DATE             ,D8           ; REQUIREMENT END DATE                       93 thru   100                          
+        CHD_DUAL_RELNO            ,A6           ; DUAL SERIES RELEASE NUMBER                101 thru   106                          
+        CHD_SHIP_CODE             ,A1           ; SHIP CODE                                 107 thru   107                          
+        CHD_SHIFT_CODE            ,A1           ; SHIFT CODE                                108 thru   108                          
+        CHD_TIMING_QL             ,A1           ; FORECAST TIMING QUALIFIER                 109 thru   109                          
+        CHD_RESEREVED             ,A13          ; RESERVED SPACE FOR SPLIT FIELD            110 thru   122                          
+        CHD_FCST_QL               ,A1           ; FORECAST QUALIFIER                        123 thru   123                          
+        CHD_FILLER                ,A6           ; FILLER                                    124 thru   129                          
+        CHD_DOCK_CODE             ,A8           ; DOCK CODE                                 130 thru   137                          
+        CHD_COMPANY               ,A8           ; COMPANY CODE                              138 thru   145                          
+        CHD_COMP_SEQ              ,D5           ; SPLIT COMPANY SEQUENCE                    146 thru   150                          
+        CHD_COMP_PERC             ,D5           ; COMPANY PERCENTAGE                        151 thru   155                          
+        CHD_SHIP_FROM             ,A7           ; SHIP FROM ID                              156 thru   162                          
+        CHD_SHIP_TO2              ,A7           ; FOR LIN WITHOUT N1 ST                     163 thru   169                          
+        CHD_SHIP_TO3              ,A7           ; SHIP TO FROM N1*ST                        170 thru   176                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH830_DTL_KEY             ,A57          ; PRIMARY SORT KEY                                                                  
+                                  ,A119         ; PRIMARY KEY POSITIONING                                                           
+.IFDEF CH830_DTL_ALT
+RECORD A_CH830_DTL                                                                                                                   
+        A_CHD_SUPPLIER              ,A7           ; SUPPLIER CODE                               1 thru     7                          
+        A_CHD_PART_NO               ,A30          ; TRADING PARTNER PART                        8 thru    37                          
+        A_CHD_RELEASE               ,A4           ; RELEASE NUMBER                             38 thru    41                          
+        A_CHD_SHIP_TO               ,A7           ; SHIP TO CODE                               42 thru    48                          
+        A_CHD_DEST                  ,A7           ; DESTINATION CODE                           49 thru    55                          
+        A_CHD_REQ_TYPE              ,D2           ; REQUIREMENT TYPE                           56 thru    57                          
+        A_CHD_REQ_DATE              ,D8           ; REQUIREMENT DATE                           58 thru    65                          
+        A_CHD_PROGRAM               ,A1           ; PROGRAM NUMBER(MODEL YEAR)                 66 thru    66                          
+        A_CHD_RELNO                 ,A5           ; RELEASE NUMBER                             67 thru    71                          
+        A_CHD_PONO                  ,A13          ; PURCHASE ORDER NUMBER                      72 thru    84                          
+        A_CHD_REQ_QTY               ,D8           ; REQUIRED QUANTITY                          85 thru    92                          
+        A_CHD_THRU_DATE             ,D8           ; REQUIREMENT END DATE                       93 thru   100                          
+        A_CHD_DUAL_RELNO            ,A6           ; DUAL SERIES RELEASE NUMBER                101 thru   106                          
+        A_CHD_SHIP_CODE             ,A1           ; SHIP CODE                                 107 thru   107                          
+        A_CHD_SHIFT_CODE            ,A1           ; SHIFT CODE                                108 thru   108                          
+        A_CHD_TIMING_QL             ,A1           ; FORECAST TIMING QUALIFIER                 109 thru   109                          
+        A_CHD_RESEREVED             ,A13          ; RESERVED SPACE FOR SPLIT FIELD            110 thru   122                          
+        A_CHD_FCST_QL               ,A1           ; FORECAST QUALIFIER                        123 thru   123                          
+        A_CHD_FILLER                ,A6           ; FILLER                                    124 thru   129                          
+        A_CHD_DOCK_CODE             ,A8           ; DOCK CODE                                 130 thru   137                          
+        A_CHD_COMPANY               ,A8           ; COMPANY CODE                              138 thru   145                          
+        A_CHD_COMP_SEQ              ,D5           ; SPLIT COMPANY SEQUENCE                    146 thru   150                          
+        A_CHD_COMP_PERC             ,D5           ; COMPANY PERCENTAGE                        151 thru   155                          
+        A_CHD_SHIP_FROM             ,A7           ; SHIP FROM ID                              156 thru   162                          
+        A_CHD_SHIP_TO2              ,A7           ; FOR LIN WIHTOUT N1 ST                     839 thru   845                          
+	A_CHD_SHIP_TO3              ,A7           ; SHIP TO FROM N1*ST                        170 thru   176                          
+
+RECORD  ,X                                                                                                                          
+        A_CH830_DTL_KEY             ,A57          ; PRIMARY SORT KEY                                                                  
+                                  ,A100          ; PRIMARY KEY POSITIONING                                                           
+.ENDC

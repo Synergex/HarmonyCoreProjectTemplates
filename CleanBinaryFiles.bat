@@ -21,6 +21,9 @@ if exist Services.Isolated\obj\. rd /s /q Services.Isolated\obj
 if exist Services.Models\.intellisense\. rd /s /q Services.Models\.intellisense
 if exist Services.Models\bin\. rd /s /q Services.Models\bin
 if exist Services.Models\obj\. rd /s /q Services.Models\obj
+if exist TraditionalBridge\.intellisense\. rd /s /q TraditionalBridge\.intellisense
+if exist TraditionalBridge\bin\. rd /s /q TraditionalBridge\bin
+if exist TraditionalBridge\obj\. rd /s /q TraditionalBridge\obj
 
 if exist SampleData\customers.ism del /q SampleData\customers.ism > nul
 if exist SampleData\customers.is1 del /q SampleData\customers.is1 > nul

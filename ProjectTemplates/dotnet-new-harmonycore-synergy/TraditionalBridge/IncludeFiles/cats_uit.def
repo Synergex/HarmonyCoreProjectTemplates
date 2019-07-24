@@ -1,0 +1,31 @@
+;CATS_UIT.DEF                                                                                                                       
+;                                                                                                                                   
+;       TECHNICAL SPECS UIT FILE                                                                                                    
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   427                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CATS_UIT                                                                                                                    
+        TSU_SPI_REF_NO            ,A30          ; SPI REFERENCE NUMBER                        1 thru    30                          
+        TSU_SEQ_NO1               ,D6           ; SEQUENCE NUMBER                            31 thru    36                          
+        TSU_SEQ_NO2               ,D6           ; SEQUENCE NUMBER                            37 thru    42                          
+        TSU_SEQ_NO3               ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        TSU_SEQ_NO4               ,D6           ; SEQUENCE NUMBER                            49 thru    54                          
+        TSU_SEQ_NO5               ,D6           ; SEQUENCE NUMBER                            55 thru    60                          
+        TSU_SEQ_NO6               ,D6           ; SEQUENCE NUMBER                            61 thru    66                          
+        TSU_SEQ_NO7               ,D6           ; SEQUENCE NUMBER                            67 thru    72                          
+        TSU_SEQ_NO8               ,D6           ; SEQUENCE NUMBER                            73 thru    78                          
+        TSU_UOFM                  ,A2           ; UNIT OF MEASURE                            79 thru    80                          
+        TSU_UNIT_PRICE            ,D14          ; UNIT PRICE                                 81 thru    94                          
+        TSU_BASIS                 ,A2           ; PRICE BASIS                                95 thru    96                          
+        TSU_INTERCHANGE           ,A17          ; INTERCHANGE ID                             97 thru   113                          
+        TSU_GROUP_ID              ,A17          ; GROUP ID                                  114 thru   130                          
+        TSU_STATUS                ,A1           ; STATUS                                    131 thru   131                          
+        TSU_FILLER1               ,A98          ; FILLER                                    132 thru   229                          
+        TSU_FILLER2               ,A99          ; FILLER                                    230 thru   328                          
+        TSU_FILLER3               ,A99          ; FILLER                                    329 thru   427                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CATS_UIT_KEY              ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A349         ; PRIMARY KEY POSITIONING                                                           

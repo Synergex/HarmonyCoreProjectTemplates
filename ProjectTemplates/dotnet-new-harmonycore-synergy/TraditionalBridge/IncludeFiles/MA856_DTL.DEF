@@ -1,0 +1,19 @@
+;MA856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       MAZDA ASN DETAIL FILE                                                                                                       
+;       DATE : 10-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    79                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  MA856_DTL                                                                                                                   
+        MDW_INPUT_SEQ             ,D5           ; INPUT SEQUENCE                              1 thru     5                          
+        MDW_DEST_CODE             ,A15          ; DESTINATION CODE                            6 thru    20                          
+        MDW_ASN_NO                ,A6           ; ASN NUMBER                                 21 thru    26                          
+        MDW_SHIP_QTY              ,A7           ; SHIP QUANTITY                              27 thru    33                          
+        MDW_UOFM                  ,A2           ; UNIT OF MEASURE                            34 thru    35                          
+        MDW_DO_NO                 ,A8           ; DELIVERY ORDER NUMBER                      36 thru    43                          
+        MDW_RECV_ID               ,A15          ; INTERCHANGE RECEIVER ID                    44 thru    58                          
+        MDW_GROUP_ID              ,A15          ; GROUP RECEIVER ID                          59 thru    73                          
+        MDW_HL_ID                 ,D6           ; HIERARCHICAL ID NUMBER                     74 thru    79                          
+                                                                                                                                    
+                                                                                                                                    

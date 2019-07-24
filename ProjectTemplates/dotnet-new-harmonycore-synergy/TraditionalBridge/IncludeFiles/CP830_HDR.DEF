@@ -1,0 +1,52 @@
+;CP830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CATERPILLAR MAT. RELEASE HDR.                                                                                               
+;       DATE : 08-OCT-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   519                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CP830_HDR                                                                                                                   
+        CPH_RELNO                 ,D4           ; RELEASE NUMBER                              1 thru     4                          
+        CPH_PONO                  ,A12          ; PURCHASE ORDER NUMBER                       5 thru    16                          
+        CPH_DEST                  ,A15          ; DESTINATION                                17 thru    31                          
+        CPH_PARTNO                ,A22          ; PART NUMBER                                32 thru    53                          
+        CPH_ENG_LVL               ,A15          ; ENGINEER CHANGE LEVEL                      54 thru    68                          
+        CPH_PART_DESC             ,A30          ; PART DESCRIPTION                           69 thru    98                          
+        CPH_UOM                   ,A2           ; UNIT OF MESASURE                           99 thru   100                          
+        CPH_WEIGHT                ,D10          ; MEASUREMENT WEIGHT VALUE                  101 thru   110                          
+        CPH_WEIGHT_TYPE           ,A2           ; UNIT OF MEASURE TYPE                      111 thru   112                          
+        CPH_RAW_FROMDTE           ,D6           ; RAW FROM DATE                             113 thru   118                          
+        CPH_RAW_THRUDTE           ,D6           ; RAW THRU DATE                             119 thru   124                          
+        CPH_FAB_FROMDTE           ,D6           ; FAB FROM DATE                             125 thru   130                          
+        CPH_FAB_THRUDTE           ,D6           ; FAB THRU DATE                             131 thru   136                          
+        CPH_DELSHP_BASE           ,A2           ; DELIVERY/SHIPMENT BASED                   137 thru   138                          
+        CPH_CONTACT               ,A35          ; CONTACT PERSON                            139 thru   173                          
+        CPH_LAST_QTY              ,D10          ; LAST QUANTITY SHIPPED                     174 thru   183                          
+        CPH_YTD_CUMS              ,D10          ; YEAR TO DATE CUMS                         184 thru   193                          
+        CPH_PO_DATE               ,D6           ; PURCHASE ORDER DATE                       194 thru   199                          
+        CPH_LST_REC_DTE           ,D6           ; LAST RECEIVE DATE                         200 thru   205                          
+        CPH_STR_CUM_DTE           ,D6           ; CUM START DATE                            206 thru   211                          
+        CPH_SHP_DEL_PAT           ,A1           ; SHIPMENT/DELIVERY PATTERN                 212 thru   212                          
+        CPH_DEL_PAT_TIM           ,A1           ; DELIVERY PATTERN TIME                     213 thru   213                          
+        CPH_QTY_QUAL              ,A1           ; QUANTITY QUALIFIER                        214 thru   214                          
+        CPH_SHP_TO_CODE           ,A15          ; SHIP TO CODE                              215 thru   229                          
+        CPH_SUPPLR_CODE           ,A15          ; SUPPLIER CODE                             230 thru   244                          
+        CPH_SHP_FR_CODE           ,A15          ; SHIP FROM CODE                            245 thru   259                          
+        CPH_DEST_NAME             ,A35          ; DESTINATION NAME                          260 thru   294                          
+        CPH_SHP_TO_NAME           ,A35          ; SHIP TO NAME                              295 thru   329                          
+        CPH_SHP_TO_NAM2           ,A35          ; SHIP TO NAME - 2                          330 thru   364                          
+        CPH_SUPPLR_NAME           ,A35          ; SUPPLIER NAME                             365 thru   399                          
+        CPH_SHP_FR_NAME           ,A35          ; SHIP FROM NAME                            400 thru   434                          
+        CPH_SHP_TO_ADDR           ,A35          ; SHIP TO ADDRESS                           435 thru   469                          
+        CPH_SHP_TO_CITY           ,A19          ; SHIP TO CITY                              470 thru   488                          
+        CPH_SHP_TO_STAT           ,A2           ; SHIP TO STATE                             489 thru   490                          
+        CPH_SHP_TO_POST           ,A9           ; SHIP TO POSTAL                            491 thru   499                          
+        CPH_SHP_TO_COUN           ,A2           ; SHIP TO COUNTRY                           500 thru   501                          
+        CPH_START_HORIZ           ,D6           ; HORIZON START DATE                        502 thru   507                          
+        CPH_LAST_HORIZ            ,D6           ; LAST HORIZON DATE                         508 thru   513                          
+        CPH_GEN_DATE              ,D6           ; GENERATED FORECAST DATE                   514 thru   519                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CP830_HDR_KEY             ,A53          ; PRIMARY SORT KEY                                                                  
+                                  ,A466         ; PRIMARY KEY POSITIONING                                                           

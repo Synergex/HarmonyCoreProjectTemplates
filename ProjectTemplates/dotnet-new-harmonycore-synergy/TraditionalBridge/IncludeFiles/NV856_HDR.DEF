@@ -1,0 +1,44 @@
+;NV856_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       NVG ASN HEADER                                                                                                              
+;       DATE : 28-APR-03                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   401                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NV856_HDR                                                                                                                   
+        NVHA_SUPP_ID              ,A17          ; SUPPLIER ID                                 1 thru    17                          
+        NVHA_ASN_NO               ,A30          ; ASN NUMBER                                 18 thru    47                          
+        NVHA_BOL_NO               ,A30          ; BILL OF LADING                             48 thru    77                          
+        NVHA_PK_SLIP              ,A30          ; PACKING SLIP                               78 thru   107                          
+        NVHA_ASN_DATE             ,D8           ; ASN DATE                                  108 thru   115                          
+        NVHA_ASN_TIME             ,D4           ; ASN TIME                                  116 thru   119                          
+        NVHA_SHIP_DATE            ,D8           ; SHIP DATE                                 120 thru   127                          
+        NVHA_SHIP_TIME            ,D4           ; SHIP TIME                                 128 thru   131                          
+        NVHA_TIME_ZONE            ,A2           ; TIME ZONE SHIPPED IN                      132 thru   133                          
+        NVHA_FRT_BILL             ,A30          ; FREIGHT BILL                              134 thru   163                          
+        NVHA_AIRBILL              ,A30          ; AIRBILL NUMBER                            164 thru   193                          
+        NVHA_MBOL                 ,A30          ; MASTER BILL OF LADING                     194 thru   223                          
+        NVHA_CARR_CODE            ,A4           ; CARRIER CODE                              224 thru   227                          
+        NVHA_TRANS_MTHD           ,A2           ; TRANSPORTATION METHOD                     228 thru   229                          
+        NVHA_POOL_QL              ,A2           ; LOCATION QUALIFIER                        230 thru   231                          
+        NVHA_POOL_LOC             ,A7           ; POOL LOCATION                             232 thru   238                          
+        NVHA_EQUIP_CODE           ,A2           ; EQUIPMENT CODE                            239 thru   240                          
+        NVHA_EQUIP_PRE            ,A4           ; EQUIPMENT PREFIX                          241 thru   244                          
+        NVHA_EQUIP_NO             ,A10          ; EQUIPMENT NUMBER                          245 thru   254                          
+        NVHA_SF_ID                ,A17          ; SHIP FROM ID                              255 thru   271                          
+        NVHA_DEST                 ,A17          ; DESTINATION                               272 thru   288                          
+        NVHA_RES_CODE             ,A1           ; RESPONSIBILITY CODE                       289 thru   289                          
+        NVHA_AETC                 ,A30          ; AETC NUMBER                               290 thru   319                          
+        NVHA_SEAL_NO              ,A30          ; SEAL NUMBER                               320 thru   349                          
+        NVHA_GROSS                ,D8           ; GROSS WEIGHT                              350 thru   357                          
+        NVHA_GROSS_UOFM           ,A2           ; UOFM FOR GROSS WEIGHT                     358 thru   359                          
+        NVHA_NET                  ,D8           ; NET WEIGHT                                360 thru   367                          
+        NVHA_NET_UOFM             ,A2           ; UOFM FOR NET WEIGHT                       368 thru   369                          
+        NVHA_INTERCHNGE           ,A15          ; INTERCHANGE ID                            370 thru   384                          
+        NVHA_GROUP                ,A15          ; GROUP ID                                  385 thru   399                          
+        NVHA_PURPOSE              ,A2           ; PURPOSE CODE                              400 thru   401                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NV856_HDR_KEY             ,A47          ; PRIMARY SORT KEY                                                                  
+                                  ,A354         ; PRIMARY KEY POSITIONING                                                           

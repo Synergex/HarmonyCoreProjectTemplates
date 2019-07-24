@@ -1,0 +1,28 @@
+;CH850_SCH.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 850 SCHEDULE                                                                                                       
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   215                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH850_SCH                                                                                                                   
+        CHS_ID_TYPE               ,A3           ; P/O ID TYPE (850 OR 860)                    1 thru     3                          
+        CHS_PONO                  ,A12          ; P/O NUMBER                                  4 thru    15                          
+        CHS_PO_TYPE               ,A2           ; P/O PURPOSE                                16 thru    17                          
+        CHS_PO_PURPOSE            ,A2           ; P/O PURPOSE                                18 thru    19                          
+        CHS_PO_LINE               ,D6           ; P/O LINE NUMBER                            20 thru    25                          
+        CHS_PARTNO                ,A30          ; PART NUMBER                                26 thru    55                          
+        CHS_DATE                  ,D8           ; DATE                                       56 thru    63                          
+        CHS_QTY                   ,D10          ; QUANTITY                                   64 thru    73                          
+        CHS_UOM                   ,A2           ; UNIT OF MEASURE                            74 thru    75                          
+        CHS_TIME                  ,D4           ; TIME REQUIRED                              76 thru    79                          
+        CHS_NAME                  ,A35          ; NAME OF SHIP TO LOCATION                   80 thru   114                          
+        CHS_DESCR                 ,A80          ; DESCR OF SCHEDULED SHIPMENT               115 thru   194                          
+        CHS_PROMISE_DAT           ,D8           ; PROMISED DATE                             195 thru   202                          
+        CHS_COMPANY               ,A8           ; COMPANY                                   203 thru   210                          
+        CHS_SEQNUM                ,D5           ; SEQUENCE NUMBER                           211 thru   215                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH850_SCH_KEY             ,A73          ; PRIMARY SORT KEY                                                                  
+                                  ,A142         ; PRIMARY KEY POSITIONING                                                           

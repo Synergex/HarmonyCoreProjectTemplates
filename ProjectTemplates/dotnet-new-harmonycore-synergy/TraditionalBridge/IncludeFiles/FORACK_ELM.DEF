@@ -1,0 +1,39 @@
+; FORACK_ELM.DEF
+;
+;	Functional Acknowledgment Detail - Element Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	09-Jul-89	J. Rheingans	Original
+;
+;	01-Jun-90	Rich Mae	Added Supplier ID and Destination Code.
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 200		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD FORACK_ELM
+	FAE_SUPPL_ID	,A15	; Supplier ID			|   1 thru 15
+	FAE_DEST_CODE	,A15	; Destination Code		|  16 thru 30
+	FAE_GROUP_ID	,A2	; Functional Group Identifier	|  31 thru 32
+	FAE_DATA_INT	,D9	; Data Interchange Control #	|  33 thru 41
+	FAE_TRANS_TYPE	,A3	; Transaction Set Identifier	|  42 thru 44
+	FAE_TRANS_CTL	,D9	; Trasnaction Set Control #	|  45 thru 53
+	FAE_SEGMENT	,A3	; Segment Identifier		|  54 thru 56
+	FAE_LOOP_ID	,A4	; Loop Identifier		|  57 thru 60
+	FAE_ELEM_POS	,D2	; Element Position in Segment	|  61 thru 62
+
+	FAE_ELEM_REF	,D4	; Element Reference # 		|  63 thru 66
+	FAE_NOTE_CODE	,A3	; Element Note Code		|  67 thru 69
+	FAE_COPY_ELEM	,A80	; Copy of the Bad Element       |  70 thru 149
+			,A51	; Filler			| 150 thru 200
+
+RECORD FAE_KEY, X
+	K_FAE_SUPPL_ID	        ,A%SIZE(FAE_SUPPL_ID)
+	K_FAE_DEST_CODE	        ,A%SIZE(FAE_DEST_CODE)
+	K_FAE_GROUP_ID		,A%SIZE(FAE_GROUP_ID)
+	K_FAE_DATA_INT		,D%SIZE(FAE_DATA_INT)
+	K_FAE_TRANS_TYPE	,A%SIZE(FAE_TRANS_TYPE)
+	K_FAE_TRANS_CTL		,D%SIZE(FAE_TRANS_CTL)
+	K_FAE_SEGMENT		,A%SIZE(FAE_SEGMENT)
+	K_FAE_LOOP_ID		,D%SIZE(FAE_LOOP_ID)
+	K_FAE_ELEM_POS		,D%SIZE(FAE_ELEM_POS)

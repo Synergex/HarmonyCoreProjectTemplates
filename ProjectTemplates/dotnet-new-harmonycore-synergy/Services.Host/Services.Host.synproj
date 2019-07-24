@@ -8,6 +8,7 @@
     <Name>Services.Host</Name>
     <EnableCommonProperties>True</EnableCommonProperties>
     <ProjectGuid>{51a1b4ab-cea6-4b90-a6ee-4d32c2282848}</ProjectGuid>
+    <Prefer32Bit>False</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel">

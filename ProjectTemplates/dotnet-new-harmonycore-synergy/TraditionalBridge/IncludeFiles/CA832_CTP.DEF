@@ -1,0 +1,36 @@
+;CA832_CTP.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRICE/SALES CATALOG PRICING                                                                                                 
+;       DATE : 27-SEP-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   210                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA832_CTP                                                                                                                   
+        C832_DEST_ABBRV           ,A5           ; DESTINATION ABBREVIATION                    1 thru     5                          
+        C832_CAT_NUM              ,A15          ; CATALOG NUMBER                              6 thru    20                          
+        C832_CAT_VER              ,A15          ; CATALOG VERSION                            21 thru    35                          
+        C832_CAT_PURP             ,A2           ; CATALOG PURPOSE                            36 thru    37                          
+        C832_TP_PART              ,A30          ; TRADING PARTNERS PART                      38 thru    67                          
+        C832_DTL_SEQ              ,D6           ; DETAIL SEQUENCE                            68 thru    73                          
+        C832_ADR_SEQ              ,D6           ; ADDRESS SEQUENCE                           74 thru    79                          
+        C832_CTP_SEQ              ,D6           ; CTP SEQUENCE                               80 thru    85                          
+        C832_PKL_SEQ              ,D6           ; PKL SEQUENCE                               86 thru    91                          
+        C832_LFG_SEQ              ,D6           ; LFG SEQUENCE                               92 thru    97                          
+        C832_TRANS_ID             ,A17          ; INTERCHANGE ID                             98 thru   114                          
+        C832_GROUP_ID             ,A17          ; GROUP ID                                  115 thru   131                          
+        C832_CLS_TRD_CD           ,A2           ; CLASS OF TRADE CODE                       132 thru   133                          
+        C832_PRICE_IDCD           ,A3           ; PRICE ID CODE                             134 thru   136                          
+        C832_UNIT_PRICE           ,D15          ; UNIT PRICE                                137 thru   151                          
+        C832_CTP_QTY              ,D15          ; QUANTITY                                  152 thru   166                          
+        C832_CTP_UOM              ,A2           ; UNIT OF MEASURE                           167 thru   168                          
+        C832_PRC_MLT_QL           ,A3           ; PRICE MULTIPLIER QUALIFIER                169 thru   171                          
+        C832_MLT                  ,D10          ; MULTIPLIER                                172 thru   181                          
+        C832_MONT_AMT             ,D15          ; MONETARY AMOUNT                           182 thru   196                          
+        C832_BAS_PRC_CD           ,A2           ; BASE PRICE CODE                           197 thru   198                          
+        C832_COND_VAL             ,A10          ; CONDITION VALUE                           199 thru   208                          
+        C832_MLT_PRE_QT           ,D2           ; MULTIPLE PRICE QUANTITY                   209 thru   210                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA832_CTP_KEY             ,A131         ; PRIMARY SORT KEY                                                                  
+                                  ,A79          ; PRIMARY KEY POSITIONING                                                           

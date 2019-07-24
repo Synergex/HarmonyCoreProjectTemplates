@@ -1,0 +1,16 @@
+;VT_ATTRIBUTES
+.ifndef VT_ATTRIBUTES
+	.define VT_ATTRIBUTES
+	.define	VT_REVERSE,	1
+	.define VT_BOLD,	2
+	.define VT_BLINK, 	3
+	.define VT_NORMAL,	4
+	.define VT_CLEAR_SCR,	5
+	.define VT_BELL,	6
+	.define VT_BELL_2,	7
+	.define VT_BELL_3,	8
+.endc
+literal
+	esc		,a1,%char(27)
+	csi		,a2,%char(27)+'['
+	bel		,a1,%char(7)

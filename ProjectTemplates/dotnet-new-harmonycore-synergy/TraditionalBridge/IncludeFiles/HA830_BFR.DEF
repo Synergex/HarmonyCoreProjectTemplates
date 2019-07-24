@@ -1,0 +1,22 @@
+;HA830_BFR.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 830 BFR SEGMENT                                                                                                     
+;       DATE : 17-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    84                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA830_BFR                                                                                                                   
+        HA830BFR_SEQ_NO           ,D5           ; BFR SEQUENCE NO                             1 thru     5                          
+        HA830_BFR_FILL            ,A10          ; FILLER                                      6 thru    15                          
+        HA830_BFR_COLAT           ,A2           ; RECORD TYPE COLATING SEQ - 10              16 thru    17                          
+        HA830_BFR_REC             ,A3           ; RECORD TYPE - BFR                          18 thru    20                          
+        HA830_BFR_FILLA           ,A5           ; FILLER                                     21 thru    25                          
+        HA830_BFR_01              ,A2           ; TRANS SET PURPOSE                          26 thru    27                          
+        HA830_BFR_02              ,A30          ; REFERENCE NUMBER                           28 thru    57                          
+        HA830_BFR_04              ,A2           ; FORECAST TYPE QUALIFIER                    58 thru    59                          
+        HA830_BFR_05              ,A1           ; FORECAST QUANTITY QUALIFIER                60 thru    60                          
+        HA830_BFR_06              ,D8           ; HORIZON START DATE                         61 thru    68                          
+        HA830_BFR_07              ,D8           ; HORIZON END DATE                           69 thru    76                          
+        HA830_BFR_08              ,D8           ; RELEASE ISSUE DATE                         77 thru    84                          
+                                                                                                                                    
+                                                                                                                                    

@@ -1,0 +1,34 @@
+;CA850_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CARAS PURCHASE ORDER ADDRESS                                                                                                
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   724                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_ADR                                                                                                                   
+        A850_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        A850_PO_DATE              ,D8           ; PURCHASE ORDER CREATION DATE               23 thru    30                          
+        A850_DTL_SEQ              ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        A850_AVAIL                ,A24          ; AVAILABLE                                  37 thru    60                          
+        A850_ORGANIZ_QL           ,A2           ; ORGANIZATION QUALIFIER                     61 thru    62                          
+        A850_ID_CODE_QL           ,A2           ; ID CODE QUALIFIER                          63 thru    64                          
+        A850_ID_CODE              ,A17          ; IDENTIFICATION CODE                        65 thru    81                          
+        A850_N1_NAME              ,A35          ; NAME FROM N1 SEGMENT                       82 thru   116                          
+        A850_N2_NAME              ,04A35        ; NAME FROM N2 SEGMENT                      117 thru   256                          
+        A850_N3_ADDRESS           ,04A35        ; ADDRESS FROM N3 SEGMENT                   257 thru   396                          
+        A850_CITY                 ,A30          ; CITY                                      397 thru   426                          
+        A850_STATE                ,A2           ; STATE                                     427 thru   428                          
+        A850_ZIP                  ,A15          ; ZIP CODE                                  429 thru   443                          
+        A850_CTRY                 ,A2           ; COUNTRY CODE                              444 thru   445                          
+        A850_FUNCT                ,03A2         ; CONTACT FUNCTION CODE                     446 thru   451                          
+        A850_CONT_NAME            ,03A35        ; CONTACT NAME                              452 thru   556                          
+        A850_PHONE_QL             ,03A2         ; PHONE NUMBER QUALIFIER                    557 thru   562                          
+        A850_PHONE_NO             ,03A21        ; PHONE NUMBER                              563 thru   625                          
+        A850_LOC_QL               ,A2           ; ADDR LOCATION QUAL (N4_05)                626 thru   627                          
+        A850_LOC_ID               ,A25          ; ADDRESS LOCATION ID (N4_06)               628 thru   652                          
+        A850_FILLER               ,A72          ; FILLER                                    653 thru   724                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_ADR_KEY             ,A36          ; PRIMARY SORT KEY                                                                  
+                                  ,A688         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,33 @@
+;CA842_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       NONCONFORMANCE REPORT ADDRESS                                                                                               
+;       DATE : 18-AUG-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   506                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA842_ADR                                                                                                                   
+        A842_ISA_CTL              ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        A842_GS_CTL               ,A14          ; GROUP CONTROL                              15 thru    28                          
+        A842_ST_CTL               ,A14          ; DOCUMENT CONTROL                           29 thru    42                          
+        A842_HL_LIN               ,D6           ; HL SEQUENCE                                43 thru    48                          
+        A842_SPS_LIN              ,D6           ; SAMPLE SEQUENCE                            49 thru    54                          
+        A842_NCD_LIN              ,D6           ; NONCONFORMANCE SEQUENCE                    55 thru    60                          
+        A842_MEA_LIN              ,D6           ; MEASUREMENT SEQUENCE                       61 thru    66                          
+        A842_NCA_LIN              ,D6           ; ACTION SEQUENCE                            67 thru    72                          
+        A842_EFI_LIN              ,D6           ; EFI SEQUENCE                               73 thru    78                          
+        A842_PWK_LIN              ,D6           ; PAPERWORK SEQUENCE                         79 thru    84                          
+        A842_ADR_LIN              ,D6           ; ADDRESS SEQUENCE                           85 thru    90                          
+        A842_TYPE                 ,A2           ; ENTITY TYPE                                91 thru    92                          
+        A842_NAME                 ,05A35        ; NAME                                       93 thru   267                          
+        A842_ID_QL                ,A2           ; ID QUALIFIER                              268 thru   269                          
+        A842_ID                   ,A35          ; ADDRESS ID                                270 thru   304                          
+        A842_ADDRESS              ,04A35        ; ADDRESS                                   305 thru   444                          
+        A842_CITY                 ,A35          ; CITY                                      445 thru   479                          
+        A842_STATE_PROV           ,A2           ; STATE/PROVINCE                            480 thru   481                          
+        A842_POSTAL               ,A15          ; ZIP CODE                                  482 thru   496                          
+        A842_COUNTRY              ,A10          ; COUNTRY CODE                              497 thru   506                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA842_ADR_KEY             ,A90          ; PRIMARY SORT KEY                                                                  
+                                  ,A416         ; PRIMARY KEY POSITIONING                                                           

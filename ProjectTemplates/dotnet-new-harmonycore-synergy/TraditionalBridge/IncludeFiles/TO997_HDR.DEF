@@ -1,0 +1,37 @@
+; TO997_HDR.DEF
+;
+;	Functional Acknowledgment Header -- Functional Group Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	21-Dec-92	T. Bunker	Original
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD TO997_HDR
+	TAH_SUPPL_ID	,A15	; Supplier ID			|   1 thru 15
+	TAH_DEST_CODE	,A15	; Destination Code		|  16 thru 30
+	TAH_GROUP_ID	,A2	; Functional Group Identifier	|  31 thru 32
+	TAH_DATA_INT	,D9	; Data Interchange Control #	|  33 thru 41
+
+	TAH_ACK_CODE	,A1	; Acknowledgement Code		|  42 thru 42
+	TAH_INCLUDED	,D6	; Number of Trans Sets Included	|  43 thru 48
+	TAH_RECVD	,D6	; Number of Trans Sets Received	|  49 thru 54
+	TAH_ACCEPTED	,D6	; Number of Trans Set Accepted	|  55 thru 60
+
+	TAH_NOTE_1	,A3	; Group Note Code-1		|  61 thru 63
+	TAH_NOTE_2	,A3	; Group Note Code-2		|  64 thru 66
+	TAH_NOTE_3	,A3	; Group Note Code-3		|  67 thru 69
+	TAH_NOTE_4	,A3	; Group Note Code-4		|  70 thru 72
+	TAH_NOTE_5	,A3	; Group Note Code-5		|  73 thru 75
+	
+	TAH_GEN_DATE	,D6	; Date Generated		|  76 thru 81
+	TAH_GEN_TIME	,D4	; Time Generated		|  82 thru 85
+			,A15	; Filler			|  86 thru 100
+
+RECORD TAH_KEY, X
+	K_TAH_SUPPL_ID	,A%SIZE(TAH_SUPPL_ID)
+	K_TAH_DEST_CODE	,A%SIZE(TAH_DEST_CODE)
+	K_TAH_GROUP_ID	,A%SIZE(TAH_GROUP_ID)
+	K_TAH_DATA_INT	,D%SIZE(TAH_DATA_INT)

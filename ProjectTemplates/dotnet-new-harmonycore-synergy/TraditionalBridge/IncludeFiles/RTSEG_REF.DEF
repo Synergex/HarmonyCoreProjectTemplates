@@ -1,0 +1,13 @@
+;RTSEG_REF.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL REF SEGMENT FILE                                                                                                     
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    35                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_REF                                                                                                                   
+        REF_SEG                   ,A3           ; RECORD TYPE - REF                           1 thru     3                          
+        REF_01                    ,A2           ; REFERENCE NUMBER QUALIFIER                  4 thru     5                          
+        REF_02                    ,A30          ; REFERENCE NUMBER                            6 thru    35                          
+                                                                                                                                    
+                                                                                                                                    

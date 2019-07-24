@@ -1,0 +1,24 @@
+;NI856_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NISSAN 856 DETAIL FILE                                                                                                      
+;       DATE : 04-AUG-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   197                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NI856_DTL                                                                                                                   
+        NID_ASN_NO                ,A30          ; ASN NUMBER                                  1 thru    30                          
+        NID_MAST_SNO              ,A30          ; MASTER SERIAL NUMBER                       31 thru    60                          
+        NID_TARE_CONT             ,A5           ; TARE CONTAINER CODE                        61 thru    65                          
+        NID_CUST_PART             ,A30          ; CUSTOMER PART NUMBER                       66 thru    95                          
+        NID_RAN_NO                ,A30          ; NISSAN RAN NUMBER                          96 thru   125                          
+        NID_SHIP_QTY              ,D8           ; SHIPPED QUANTITY                          126 thru   133                          
+        NID_SHIP_UOFM             ,A2           ; SHIPPED QTY UNIT OF MEASURE               134 thru   135                          
+        NID_CHILD_CODE            ,A1           ; CHILD_CODE                                136 thru   136                          
+        NID_CONT_QTY              ,D6           ; NUMBER OF CONTAINERS SHIPPED              137 thru   142                          
+        NID_QTY_PER_CNT           ,D8           ; QUANTITY PER CONTAINER                    143 thru   150                          
+        NID_QTY_PER_UM            ,A2           ; QTY PER CONTAINER UNIT OF MEAS            151 thru   152                          
+        NID_PARENT_ID             ,D6           ; PARENT ID                                 153 thru   158                          
+        NID_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     159 thru   180                          
+        NID_PRICE                 ,D17          ; UNIT PRICE OF PART                        181 thru   197                          
+                                                                                                                                    
+                                                                                                                                    

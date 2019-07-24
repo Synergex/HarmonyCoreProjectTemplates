@@ -1,0 +1,162 @@
+;CA856_ITM.DEF                                                                                                                      
+;                                                                                                                                   
+;       ASN - ITEM LEVEL                                                                                                            
+;       DATE : 04-APR-14                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  2123                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA856_ITM                                                                                                                   
+        I856_SEQ1                 ,D6           ; INPUT SEQ LEVEL 1                           1 thru     6                          
+        I856_SEQ2                 ,D6           ; INPUT SEQUENCE LEVEL 2                      7 thru    12                          
+        I856_SEQ3                 ,D6           ; INPUT SEQUENCE LEVEL 3                     13 thru    18                          
+        I856_SEQ4                 ,D6           ; INPUT SEQUENCE LEVEL 4                     19 thru    24                          
+        I856_SEQ5                 ,D6           ; INPUT SEQUENCE LEVEL 5                     25 thru    30                          
+        I856_SEQ6                 ,D6           ; INPUT SEQUENCE LEVEL 6                     31 thru    36                          
+        I856_SEQ7                 ,D6           ; INPUT SEQUENCE LEVEL 7                     37 thru    42                          
+        I856_SEQ8                 ,D6           ; INPUT SEQUENCE LEVEL 8                     43 thru    48                          
+        I856_TP_DESIG             ,A2           ; TRADING PARTNER  DESIGNATOR                49 thru    50                          
+        I856_TELE_PROC            ,A3           ; TELEPROCESSING ID (GM)                     51 thru    53                          
+        I856_ISS_BY_KEY           ,A15          ; ISSUE BY KEY FIELD (GM)                    54 thru    68                          
+        I856_DEST_KEY             ,A15          ; DESTINATION KEY (GM)                       69 thru    83                          
+        I856_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID CODE               84 thru    98                          
+        I856_GROUP_ID             ,A15          ; RECEIVER GROUP ID CODE                     99 thru   113                          
+        I856_ASN_NO               ,A30          ; ASN NUMBER                                114 thru   143                          
+        I856_PO_NO                ,A22          ; PURCHASE ORDER NO (KEY)                   144 thru   165                          
+        I856_MST_SERIAL           ,A30          ; MASTER CONTAINER MARKS/NUMBERS            166 thru   195                          
+        I856_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                      196 thru   225                          
+        I856_SHIP_REF             ,A30          ; SHIPPING REFERENCE                        226 thru   255                          
+        I856_MODEL_YR             ,A2           ; MODEL YEAR                                256 thru   257                          
+        I856_CUST_PT_QL           ,A2           ; CUSTOMER PART NUMBER QUALIFIER            258 thru   259                          
+        I856_OUR_PART             ,A30          ; OUR PART NUMBER                           260 thru   289                          
+        I856_OUR_PT_QL            ,A2           ; OUR PART NUMBER QUALIFIER                 290 thru   291                          
+        I856_UPC_CODE             ,A12          ; UPC CODE                                  292 thru   303                          
+        I856_UPC_CD_QL            ,A2           ; UPC CODE QUALIFIER                        304 thru   305                          
+        I856_PART_DESC            ,A30          ; PART DESCRIPTION                          306 thru   335                          
+        I856_IPO_NO               ,A22          ; ITEM PURCHASE ORD NO (NONKEY)             336 thru   357                          
+        I856_IPO_LINE             ,A20          ; ITEM PURCHASE ORDER LINE NO               358 thru   377                          
+        I856_IPO_DATE             ,D8           ; ITEM PURCHASE ORDER DATE                  378 thru   385                          
+        I856_RELNO                ,A30          ; RELEASE NUMBER                            386 thru   415                          
+        I856_INVOICE_NO           ,A30          ; INVOICE NUMBER                            416 thru   445                          
+        I856_DEST_ID              ,A15          ; FINAL DESTINATION ID CODE                 446 thru   460                          
+        I856_DEST_ABBRV           ,A5           ; DESTINATION ABBRV                         461 thru   465                          
+        I856_BT_ABBRV             ,A5           ; BILL TO ABBRV                             466 thru   470                          
+        I856_CONFIG_CD            ,A1           ; CONFIGURATION CODE                        471 thru   471                          
+        I856_SHIP_STAT            ,A2           ; SHIP/ORDER STATUS CODE                    472 thru   473                          
+        I856_SHIP_QTY             ,D10          ; QUANTITY SHIPPED (UNITS)                  474 thru   483                          
+        I856_SHP_QTY_UM           ,A2           ; UNIT OF MEAS FOR QTY SHIPPED              484 thru   485                          
+        I856_CANCEL_QTY           ,D8           ; UNSHIPPED QTY TO BE CANCELLED             486 thru   493                          
+        I856_ORD_QTY              ,D10          ; QUANTITY ORDERED                          494 thru   503                          
+        I856_ORD_QTY_UM           ,A2           ; UNIT OF MEAS FOR ORDER QTY                504 thru   505                          
+        I856_PACK_CODE            ,A5           ; PACKAGING CODE                            506 thru   510                          
+        I856_TOT_LOADS            ,D5           ; NUMBER OF LOADS FOR THIS ITEM             511 thru   515                          
+        I856_NO_CASES             ,D8           ; CASES/BOXES OF ITEM SHIPPED               516 thru   523                          
+        I856_CASE_CD_QL           ,A2           ; CASE QUALIFIER                            524 thru   525                          
+        I856_INN_PACK             ,D6           ; NUMBER OF INNER CARTONS                   526 thru   531                          
+        I856_INN_PK_SIZ           ,D6           ; UNITS PER INNER CARTON                    532 thru   537                          
+        I856_STD_PK_QTY           ,D8           ; STANDARD PACK QTY PER BOX/CONT            538 thru   545                          
+        I856_STD_PK_UM            ,A2           ; STD PACK SIZE UNIT OF MEAS                546 thru   547                          
+        I856_CUM_QTY              ,D9           ; YTD CUMULATIVE QTY SHIPPED                548 thru   556                          
+        I856_BASIS_CODE           ,A2           ; UNIT PRICE BASIS CODE                     557 thru   558                          
+        I856_UNIT_PRICE           ,D10          ; PRICE PER UNIT (5.5)                      559 thru   568                          
+        I856_RETAIL               ,D10          ; RETAIL PRICE (8.2)                        569 thru   578                          
+        I856_NET_WGT              ,D8           ; NET WEIGHT - ITEM TOTAL (7.1)             579 thru   586                          
+        I856_GROSS_WGT            ,D8           ; TOTAL GROSS WGT FOR ITEM (7.1)            587 thru   594                          
+        I856_WGT_UOFM             ,A2           ; WEIGHT UNIT OF MEASSURE                   595 thru   596                          
+        I856_CT_GRS_WGT           ,D8           ; CARTON GROSS WEIGHT (6.2)                 597 thru   604                          
+        I856_PROD_ID1             ,A30          ; PRODUCT ID1                               605 thru   634                          
+        I856_PROD_ID2             ,A30          ; PRODUCT ID2                               635 thru   664                          
+        I856_PROD_ID3             ,A30          ; PRODUCT ID3                               665 thru   694                          
+        I856_PROD_ID4             ,A30          ; PRODUCT ID4                               695 thru   724                          
+        I856_PROD_ID5             ,A30          ; PRODUCT IDENIFIER 5                       725 thru   754                          
+        I856_PROD_QL1             ,A2           ; PRODUCT ID1 QUALIFER                      755 thru   756                          
+        I856_PROD_QL2             ,A2           ; PRODUCT IDENTIFER 2                       757 thru   758                          
+        I856_PROD_QL3             ,A2           ; PRODUCT ID3 QUALIFER                      759 thru   760                          
+        I856_PROD_QL4             ,A2           ; PRODUCT ID 4 QUALIFIER                    761 thru   762                          
+        I856_PROD_QL5             ,A2           ; PRODUCT ID5 QUALIFIER                     763 thru   764                          
+        I856_PK_VOLUME            ,D10          ; GROSS VOLUME PER PACK (8.2)               765 thru   774                          
+        I856_PK_VOL_QL            ,A2           ; CUBE QUALIFIER (IE.CF,CC,CI..)            775 thru   776                          
+        I856_ITM_VOL              ,D10          ; TOTAL CUBE FOR ITEM (8.2)                 777 thru   786                          
+        I856_ITM_VOL_QL           ,A2           ; TOTAL CUBE FOR ITEM QUALIFIER             787 thru   788                          
+        I856_CTN_LEN              ,D4           ; CARTON DIMENSION LENGTH (3.1)             789 thru   792                          
+        I856_CTN_WID              ,D4           ; CARTON DIMENSION WIDTH (3.1)              793 thru   796                          
+        I856_CTN_HGT              ,D4           ; CARTON DIMENSION HEIGHT (3.1)             797 thru   800                          
+        I856_CTN_DIM_UM           ,A2           ; CARTON DIMENSION UNIT OF MEAS             801 thru   802                          
+        I856_HL_ID_NO             ,D6           ; HIERARCHICAL LEVEL ID NUMBER              803 thru   808                          
+        I856_HL_PARENT            ,D6           ; HIER LEVEL PARENT ID (ORDER)              809 thru   814                          
+        I856_DIV_ABBRV            ,A5           ; DIVISION ABBRV                            815 thru   819                          
+        I856_TP_DEF_QL            ,A3           ; TP SPECIFIC DEFINED QUALIFIER             820 thru   822                          
+        I856_TP_DEF               ,A30          ; TP SPECIFIC DEFINED                       823 thru   852                          
+        I856_PACK_LIST            ,A30          ; PACKING LIST NUMBER                       853 thru   882                          
+        I856_SORT_FLD             ,D6           ; SORT FIELD                                883 thru   888                          
+        I856_SHIP_DATE            ,D8           ; SHIPMENT DATE                             889 thru   896                          
+        I856_AUTH_NO              ,A30          ; AUTHORIZATION NUMBER                      897 thru   926                          
+        I856_CHASSIS_NO           ,A30          ; CHASSIS NUMBER                            927 thru   956                          
+        I856_JOB_SEQ              ,A30          ; JOB SEQUENCE NUMBER                       957 thru   986                          
+        I856_LINE_FEED            ,A30          ; LINE FEED                                 987 thru  1016                          
+        I856_HEAT_CODE            ,A30          ; HEAT CODE                                1017 thru  1046                          
+        I856_LOT_NO               ,A30          ; LOT NUMBER                               1047 thru  1076                          
+        I856_DOCK                 ,A30          ; FILLER                                   1077 thru  1106                          
+        I856_EC_LVL               ,A30          ; EC LEVEL                                 1107 thru  1136                          
+        I856_CTRY_ORGIN           ,A5           ; COUNTRY OF ORIGIN CODE                   1137 thru  1141                          
+        I856_MY_NONKEY            ,A4           ; MODEL YEAR - WHEN NOT MY SIGN            1142 thru  1145                          
+        I856_FILLER3              ,A18          ; FILLER                                   1146 thru  1163                          
+        I856_HL_ID_NO2            ,D6           ; HL ORDER LEVEL ID                        1164 thru  1169                          
+        I856_HL_PARENT2           ,D6           ; HL ORDER LEVEL PARENT ID                 1170 thru  1175                          
+        I856_HL_ID3               ,D6           ; HL ITEM LEVEL ID                         1176 thru  1181                          
+        I856_ETD_REASON           ,A2           ; REASON CODE                              1182 thru  1183                          
+        I856_ETD_RESP             ,A1           ; RESPONSIBILITY CODE                      1184 thru  1184                          
+        I856_ETD_REFNO            ,A30          ; REFERENCE NUMBER QUALIFIER               1185 thru  1214                          
+        I856_RET_CONT             ,A30          ; RETURNABLE CONTAINTER NUMBER             1215 thru  1244                          
+        I856_DR_REVNO             ,A30          ; DRAWING REVISION NUMBER                  1245 thru  1274                          
+        I856_CONTRACT             ,A30          ; CONTRACT NUMBER                          1275 thru  1304                          
+        I856_DROP_CODE            ,A30          ; DROP CODE                                1305 thru  1334                          
+        I856_OVERSEAS             ,D1           ; INTERNATIONAL SHIPMENT                   1335 thru  1335                          
+        I856_SHIP_TIME            ,D4           ; SHIPMENT TIME                            1336 thru  1339                          
+        I856_SHIP_TM_QL           ,A2           ; SHIPMENT TIME QUALIFIER                  1340 thru  1341                          
+        I856_SF_SUP_ID1           ,A15          ; SHIP FROM SUPPLIER ID                    1342 thru  1356                          
+        I856_TP_LOT_NO            ,A30          ; TRADING PARTNER LOT NUMBER               1357 thru  1386                          
+        I856_COMM_CODE            ,A16          ; COMMODITY CODE                           1387 thru  1402                          
+        I856_MULT_PO              ,D1           ; MULTIPLE POS ON SHIPPER FLAG             1403 thru  1403                          
+        I856_MULT_PK              ,D1           ; MULTIPLE PACK LISTS FLAG                 1404 thru  1404                          
+        I856_ORIG_CNTRY           ,A30          ; FTC CODES/COUNTRY OF ORIGIN              1405 thru  1434                          
+        I856_REQ_DATE             ,D8           ; REQUIRED DATE                            1435 thru  1442                          
+        I856_CATALOG_NO           ,A30          ; CATALOG NUMBER                           1443 thru  1472                          
+        I856_PACK_LEVEL           ,D1           ; FLAG FOR PACK LEVEL (NITCO)              1473 thru  1473                          
+        I856_OSEAS_RC             ,A30          ; OVERSEAS RETURNABLE CONTAINER            1474 thru  1503                          
+        I856_CUST_REF             ,A30          ; CUSTOMER REFERENCE NUMBER                1504 thru  1533                          
+        I856_ORDER_NO             ,A30          ; ORDER NUMBER                             1534 thru  1563                          
+        I856_PLANT_NO             ,A30          ; PLANT NUMBER                             1564 thru  1593                          
+        I856_RCK_TYP_NO           ,A30          ; RACK TYPE NUMBER                         1594 thru  1623                          
+        I856_PROM_QTY             ,D10          ; PROMISED QUANTITY                        1624 thru  1633                          
+        I856_PROM_DATE            ,D8           ; PROMISED DATE                            1634 thru  1641                          
+        I856_KANBAN_NO            ,A30          ; KANBAN NUMBER                            1642 thru  1671                          
+        I856_REQ_RELNO            ,A30          ; REQUIREMENT RELEASE NUMBER               1672 thru  1701                          
+        I856_LINE_SEQNO           ,A30          ; LINE SEQUENCE NUMBER                     1702 thru  1731                          
+        I856_SERIAL_NO            ,A50          ; ITEM LEVEL SERIAL NUMBER                 1732 thru  1781                          
+        I856_CARD_TYPE            ,A4           ; CARD TYPE CODE                           1782 thru  1785                          
+        I856_CARD_TY_DS           ,A30          ; SPECIAL CHARGES CARD TYPE DESC           1786 thru  1815                          
+        I856_DELIV_DATE           ,D8           ; DELIVERY DATE                            1816 thru  1823                          
+        I856_DELIV_TIME           ,D4           ; DELIVERY TIME                            1824 thru  1827                          
+        I856_ST_NAME              ,A35          ; SHIP TO NAME                             1828 thru  1862                          
+        I856_CHILD_CD             ,A1           ; HIERARCHICAL CHILD CODE                  1863 thru  1863                          
+        I856_WAREHOUSE            ,A30          ; WAREHOUSE CODE                           1864 thru  1893                          
+        I856_EQUIP_COST           ,D10          ; EQUIPMENT COST                           1894 thru  1903                          
+        I856_LABOR_COST           ,D10          ; LABOR COST                               1904 thru  1913                          
+        I856_MAT_COST             ,D10          ; MATERIAL COST                            1914 thru  1923                          
+        I856_SUB_COST             ,D10          ; SUB-CONTRACTED COST                      1924 thru  1933                          
+        I856_SHPTO_ABBR           ,A5           ; SHIP TO ABBREV                           1934 thru  1938                          
+        I856_MULT_SHPTO           ,D1           ; FLAG FOR MULT SHIP TO                    1939 thru  1939                          
+        I856_REQ_TIME             ,D4           ; REQUIREMENT TIME                         1940 thru  1943                          
+        I856_INV_DATE             ,D8           ; INVOICE DATE                             1944 thru  1951                          
+        I856_ULT_PART             ,A30          ; ULTIMATE PART NUMBER                     1952 thru  1981                          
+        I856_HEAT_DATE            ,D8           ; HEAT DATE                                1982 thru  1989                          
+        I856_RSRVD_LINE           ,A35          ; RESERVED LINE FEED                       1990 thru  2024                          
+        I856_D_SHP_QTY            ,D15          ; SHIP QTY WITH DECIMAL                    2025 thru  2039                          
+        I856_D_NET_WGT            ,D15          ; NET WEIGHT WITH DECIMAL                  2040 thru  2054                          
+        I856_UNIT_PRC15           ,D15          ; PRICE PER UNIT (10.5)                    2055 thru  2069                          
+        I856_FILLER               ,A54          ; FILLER                                   2070 thru  2123                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA856_ITM_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A2075        ; PRIMARY KEY POSITIONING                                                           

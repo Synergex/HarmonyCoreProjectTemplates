@@ -1,0 +1,116 @@
+;ALPO_MS1.DEF                                                                                                                       
+;                                                                                                                                   
+;       ALLIED-SIGNAL MISCELLANEOUS 1                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1111                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  ALPO_MS1                                                                                                                    
+        M850_1_GS_CTL             ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        M850_1_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                      10 thru    31                          
+        M850_1_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        32 thru    39                          
+        M850_1_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     40 thru    45                          
+        M850_1_ADR_SEQ            ,D6           ; ADDRESS FILE SEQUENECE NUMBER              46 thru    51                          
+        M850_1_N9_SEQ             ,D6           ; N9 SEQUENCE NUMBER                         52 thru    57                          
+        M850_1_PID_SEQ            ,D6           ; PID SEQUENCE NUMBER                        58 thru    63                          
+        M850_1_PKG_SEQ            ,D6           ; PKG SEQUENCE NUMBER                        64 thru    69                          
+        M850_1_SLN_SEQ            ,D6           ; SUBLINE ITEM SEQUENCE                      70 thru    75                          
+        M850_1_SORT_CTL           ,A3           ; SORT SEQUENCE FOR REPORTING                76 thru    78                          
+        M850_1_SEG_TYPE           ,A3           ; SEGMENT TYPE                               79 thru    81                          
+        M850_1_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            82 thru    87                          
+        M850_NTE_FORM             ,A3           ; DESCRIPTION FORM                           88 thru    90                          
+        M850_1_DESC               ,A80          ; ITEM DESCRIPTION                           91 thru   170                          
+        M850_REF_QL               ,A2           ; REFERENCE NUMBER QUALIFIER                171 thru   172                          
+        M850_REF_NO               ,A30          ; REFERENCE NUMBER                          173 thru   202                          
+        M850_MEA_REF_ID           ,A2           ; MEASUREMENT REF ID                        203 thru   204                          
+        M850_MEA_DIM_QL           ,A3           ; DIMENSION QUALIFIER                       205 thru   207                          
+        M850_MEA_VALUE            ,D10          ; MEASUREMENT VALUE                         208 thru   217                          
+        M850_MEA_UOFM             ,A2           ; UNIT OF MEASURE                           218 thru   219                          
+        M850_MEA_MIN              ,D10          ; RANGE MINIMUM                             220 thru   229                          
+        M850_MEA_MTHD             ,A4           ; MEASUREMENT MEHTOD OF DEVICE              230 thru   233                          
+        M850_MEA_MAX              ,D10          ; RANGE MAXIMUM                             234 thru   243                          
+        M850_MEA_SIG              ,A2           ; SIGNIFICANCE CODE                         244 thru   245                          
+        M850_MEA_ATTR             ,A2           ; ATTRIBUTE CODE                            246 thru   247                          
+        M850_MEA_SURFAC           ,A2           ; SURFACE/LAYER CODE                        248 thru   249                          
+        M850_PID_CHAR             ,A3           ; CHARACTERISTIC CODE                       250 thru   252                          
+        M850_PID_AGENCY           ,A2           ; AGENCY CODE                               253 thru   254                          
+        M850_PID_ITM_QL           ,A2           ; ITEM DESCRIPTION QUALIFIER                255 thru   256                          
+        M850_PID_DESC             ,A12          ; PRODUCT DESCRIPTION CODE                  257 thru   268                          
+        M850_PID_SUB              ,A15          ; SUBSTITUTION CODE                         269 thru   283                          
+        M850_PID_COND             ,A1           ; CONDITION VALUE                           284 thru   284                          
+        M850_PID_SURFAC           ,A2           ; SURFACE INDICATOR                         285 thru   286                          
+        M850_PKG_CHAR             ,A5           ; CHARACTERISTICS CODE                      287 thru   291                          
+        M850_PKG_TYPE             ,A1           ; PACKAGING FORM                            292 thru   292                          
+        M850_PKG_AGENCY           ,A2           ; AGENCY QUALIFIER                          293 thru   294                          
+        M850_PKG_ITM_QL           ,A2           ; ITEM DESCRIPTION QUALIFIER                295 thru   296                          
+        M850_PKG_CODE             ,A7           ; PACKAGING DESCRIPTION CODE                297 thru   303                          
+        M850_SSS_AC               ,A1           ; A/C INDICATOR                             304 thru   304                          
+        M850_SSS_AGENCY           ,A2           ; AGENCY CODE                               305 thru   306                          
+        M850_SSS_CODE             ,A10          ; SPECIAL SERVICES CODE                     307 thru   316                          
+        M850_SSS_MARKS            ,A45          ; SPEC SERVICES MARKS & NUMBERS             317 thru   361                          
+        M850_SSS_RATE             ,D9           ; SPEC SERVICES A/C RATE (6.3)              362 thru   370                          
+        M850_SSS_AMT              ,D9           ; SPECIAL SERVICES TOT AMT (7.2)            371 thru   379                          
+        M850_SSS_QTY              ,D15          ; SPECIAL SERVICES QTY (10.5)               380 thru   394                          
+        M850_FB_MTH_PAY           ,A2           ; FOB METHOD OF PAYMENT                     395 thru   396                          
+        M850_FB_LOC_QL1           ,A2           ; FOB LOCATION QUAL 1 (FOB02)               397 thru   398                          
+        M850_FB_TTRM_QL           ,A2           ; FOB TRANSPORTATION TERMS QUAL             399 thru   400                          
+        M850_FB_TTRM_CD           ,A3           ; FOB TRANSPORTAION TERMS CODE              401 thru   403                          
+        M850_FB_LOC_QL2           ,A2           ; 2ND LOCATION QUALIFIER (FOBO6)            404 thru   405                          
+        M850_FB_RISK_LS           ,A2           ; FOB RISK OF LOSS QUALIFIER                406 thru   407                          
+        M850_1_DESC2              ,A80          ; DESCRIPTION 2 (FOB07)                     408 thru   487                          
+        M850_1_DESC3              ,A80          ; 3RD DESCRIPTION (FOB09)                   488 thru   567                          
+        M850_CUR_ORGAN            ,02A2         ; CURRENCY ORGANIZATION                     568 thru   571                          
+        M850_CUR_EX_CD            ,A3           ; CURRENCY EXCHANGE CODE                    572 thru   574                          
+        M850_CUR_CODE             ,02A3         ; CURRENCY CODE                             575 thru   580                          
+        M850_CUR_EX_RT            ,D6           ; CURRENCY EXCHANGE RATE                    581 thru   586                          
+        M850_CUR_DTM_QL           ,05A3         ; CURRENCY DATE/TIME QUALIFIER              587 thru   601                          
+        M850_CUR_DATE             ,05D8         ; CURRENCY DATE                             602 thru   641                          
+        M850_CUR_TIME             ,05D8         ; CURRENCY TIME                             642 thru   681                          
+        M850_CSH_REQ              ,A2           ; SALES REQUIRMENT CODE                     682 thru   683                          
+        M850_CSH_ACTION           ,A1           ; DO NOT EXCEED ACTION CODE                 684 thru   684                          
+        M850_CSH_AMT              ,D9           ; DO NOT EXCEED AMOUNT                      685 thru   693                          
+        M850_CSH_ACCT             ,A35          ; ACCOUNT NUMBER                            694 thru   728                          
+        M850_CSH_INV_DT           ,D8           ; INVOICE DATE                              729 thru   736                          
+        M850_CSH_AGENCY           ,A2           ; AGENCY CODE                               737 thru   738                          
+        M850_CSH_SSS              ,A10          ; SPECIAL SERVICES CODE                     739 thru   748                          
+        M850_CSH_SUB              ,A2           ; PRODUCT/SERVICE SUBSTITUTION              749 thru   750                          
+        M850_CSH_PERC             ,D10          ; PERCENT                                   751 thru   760                          
+        M850_DIS_TERMS            ,A3           ; TERMS TYPE                                761 thru   763                          
+        M850_DIS_BASE             ,A2           ; DISCOUNT BASE QUALIFIER                   764 thru   765                          
+        M850_DIS_VALUE            ,D10          ; BASE VALUE                                766 thru   775                          
+        M850_DIS_CONTRL           ,A3           ; DISCOUNT CONTROL LIMIT QUAL               776 thru   778                          
+        M850_DIS_LOW              ,D10          ; LOWER DISCOUNT CONTROL LIMIT              779 thru   788                          
+        M850_DIS_UPPER            ,D10          ; UPPER DISCOUNT CONTROL LIMIT              789 thru   798                          
+        M850_DTM_QL               ,A3           ; DATE/TIME QUALIFIER                       799 thru   801                          
+        M850_DTM_DATE             ,D8           ; DATE                                      802 thru   809                          
+        M850_DTM_TIME             ,D8           ; TIME                                      810 thru   817                          
+        M850_DTM_TM_CD            ,A2           ; TIME CODE                                 818 thru   819                          
+        M850_DTM_CENT             ,D2           ; CENTURY                                   820 thru   821                          
+        M850_DTM_FORMAT           ,A3           ; DATE TIME PERIOD FORMAT QL                822 thru   824                          
+        M850_DTM_PERIOD           ,A35          ; DATE/TIME PERIOD                          825 thru   859                          
+        M850_TD1_PACK             ,A5           ; PACKAGING CODE                            860 thru   864                          
+        M850_TD1_LADQTY           ,D7           ; LADING QUANTITY                           865 thru   871                          
+        M850_TD1_COMMQL           ,A1           ; COMMODITY CODE QUALIFIER                  872 thru   872                          
+        M850_TD1_COMM             ,A16          ; COMMODITY CODE                            873 thru   888                          
+        M850_TD1_WT_QL            ,A2           ; WEIGHT QUALIFIER                          889 thru   890                          
+        M850_TD1_WEIGHT           ,D10          ; WEIGHT                                    891 thru   900                          
+        M850_TD1_UOFM             ,A2           ; UNIT OF MEASURE                           901 thru   902                          
+        M850_TD5_RT_SEQ           ,A2           ; ROUTING SEQUENCE CODE                     903 thru   904                          
+        M850_TD5_ID_QL            ,A2           ; ID CODE QUALIFIER                         905 thru   906                          
+        M850_TD5_ID               ,A17          ; ID CODE                                   907 thru   923                          
+        M850_TD5_MTHD             ,A2           ; TRANSPORTATION METHOD/TYPE                924 thru   925                          
+        M850_TD5_ROUTE            ,A35          ; ROUTING                                   926 thru   960                          
+        M850_TD5_STATUS           ,A2           ; SHIPMENT/ORDER STATUS CODE                961 thru   962                          
+        M850_TD5_LOC_QL           ,A2           ; LOCATION QUALIFIER                        963 thru   964                          
+        M850_TD5_LOC_ID           ,A30          ; LOCATION ID                               965 thru   994                          
+        M850_TD5_DIRECT           ,A2           ; DIRECTION CODE                            995 thru   996                          
+        M850_TD5_TM_DIR           ,A2           ; TRANSIT TIME DIRECTION QUAL               997 thru   998                          
+        M850_TD5_TIME             ,D4           ; TRANSIT TIME                              999 thru  1002                          
+        M850_TD5_LEVEL            ,A2           ; SERVICE LEVEL CODE                       1003 thru  1004                          
+        M850_COMP_CODE            ,A8           ; COMPANY CODE FOR SPLIT                   1005 thru  1012                          
+        M850_1_FILLER             ,A99          ;                                          1013 thru  1111                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        ALPO_MS1_KEY              ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A1024        ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,32 @@
+;WM810_ALL.DEF                                                                                                                      
+;                                                                                                                                   
+;       WALMART INVOICE ALLOWANCE FILE                                                                                              
+;       DATE : 11-DEC-91                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   197                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  WM810_ALL                                                                                                                   
+        CAA_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        CAA_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CAA_INV_NO                ,D9           ; INVOICE NUMBER                             18 thru    26                          
+        CAA_CUST_PART             ,A22          ; TRADING PARTNER - PART NUMBER              27 thru    48                          
+        CAA_SHIP_REF              ,A15          ; SHIPPING REFERENCE                         49 thru    63                          
+        CAA_DEST                  ,A15          ; DESTINATION CODE                           64 thru    78                          
+        CAA_A_OR_C                ,A1           ; ALLOWANCE / CHARGE TYPE                    79 thru    79                          
+        CAA_AC_CODE               ,A2           ; ALLOWANCE / CHARGE CODE                    80 thru    81                          
+        CAA_AC_SERVICE            ,A10          ; ALLOWANCE / CHARGE SS CODE                 82 thru    91                          
+        CAA_AC_DESC               ,A30          ; ALLOWANCE / CHARGE DESC                    92 thru   121                          
+        CAA_AC_QTY                ,D10          ; ALLOWANCE / CHARGE QTY                    122 thru   131                          
+        CAA_AC_PRICE              ,D10          ; ALLOWANCE / CHARGE PRICE                  132 thru   141                          
+        CAA_AC_UOFM               ,A2           ; ALLOWANCE / CHARGE UOFM                   142 thru   143                          
+        CAA_AC_PCT_CODE           ,A2           ; ALLOWANCE / CHARGE PCT CODE               144 thru   145                          
+        CAA_AC_PCT                ,D5           ; ALLOWANCE / CHARGE PERCENT                146 thru   150                          
+        CAA_AC_AMOUNT             ,D10          ; ALLOWANCE / CHARGE TOTAL                  151 thru   160                          
+        CAA_AC_PCT_AMT            ,D10          ; ALLOWANCE / CHARGE % TOTAL                161 thru   170                          
+        CAA_INTRCHG_ID            ,A15          ; RECEIVE INTERCHANGE ID CODE               171 thru   185                          
+        CAA_GROUP_ID              ,A12          ; GROUP RECEIVE ID                          186 thru   197                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        WM810_ALL_KEY             ,A63          ; PRIMARY SORT KEY                                                                  
+                                  ,A134         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,5 @@
+        .include 'INVENTORY_INFO' repository, record='inventory_info'
+        .include 'INVENTORY_INFO_KEY1' repository, record='II_KEY1'
+.ifdef alt_inventory_info
+        .include 'INVENTORY_INFO_ALT' repository, record='a_inventory_info'
+.endc

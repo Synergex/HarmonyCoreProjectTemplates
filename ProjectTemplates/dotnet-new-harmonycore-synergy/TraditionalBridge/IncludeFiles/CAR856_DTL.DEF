@@ -1,0 +1,64 @@
+;CAR856_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       CARAS RECEIVED A.S.N DETAIL                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1030                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAR856_DTL                                                                                                                  
+        DR856_SHIP_ID             ,A30          ; SHIPMENT IDENTIFICATION NO                  1 thru    30                          
+        DR856_PRC_DTM             ,A12          ; PROCESS DATE/TIME YYMMDDHHMMSS             31 thru    42                          
+        DR856_HL_ID               ,A12          ; HIERARCHARCY ID NO                         43 thru    54                          
+        DR856_HL_PARENT           ,A12          ; HIERARARCHICAL PARENT ID                   55 thru    66                          
+        DR856_LEVEL_CD            ,A2           ; HIERARCHICAL LEVEL CODE                    67 thru    68                          
+        DR856_HL_CHILD            ,A1           ; HIERARCHICAL CHILD CODE                    69 thru    69                          
+        DR856_LIN_ID              ,A11          ; ASSIGNED ID LINE NO                        70 thru    80                          
+        DR856_PRD_QL              ,15A2         ; PRODUCT/SERVICE ID QUALIFIER               81 thru   110                          
+        DR856_PRD_ID              ,15A30        ; PRODUCT/SERVICE ID                        111 thru   560                          
+        DR856_SN1_ID              ,A11          ; SN1 ASSIGNED ID                           561 thru   571                          
+        DR856_SHIP_QTY            ,D12          ; NO OF UNITS SHIPPED 10.2                  572 thru   583                          
+        DR856_SHIP_UOM            ,A2           ; SHIPPED UNITS UNIT OF MEAS                584 thru   585                          
+        DR856_SHIP_YTD            ,D12          ; QTY SHIPPED TO DATE 10.2                  586 thru   597                          
+        DR856_ORD_QTY             ,D10          ; QUANTITY ORDERED 8.2                      598 thru   607                          
+        DR856_ORD_UOM             ,A2           ; ORDER UNIT OF MEAS                        608 thru   609                          
+        DR856_RC_LD_MAK           ,A2           ; RETURNABLE CONT LOAD MAKEUP               610 thru   611                          
+        DR856_STATUS_CD           ,A2           ; LINE ITEM STATUS CODE                     612 thru   613                          
+        DR856_PO_NO               ,A22          ; PURCHASE ORDER NUMBER                     614 thru   635                          
+        DR856_REL_NO              ,A30          ; RELEASE NO                                636 thru   665                          
+        DR856_CNG_O_SEQ           ,A8           ; CHANGE ORDER SEQUENCE NO                  666 thru   673                          
+        DR856_PO_DATE             ,D8           ; PURCHASE ORDER DATE                       674 thru   681                          
+        DR856_PRF_ID              ,A11          ; PURCHASE ORDER REF ID (LINE#)             682 thru   692                          
+        DR856_CONTRACT            ,A30          ; CONTRACT NUMBER                           693 thru   722                          
+        DR856_PACK                ,D6           ; PACK                                      723 thru   728                          
+        DR856_SIZE                ,D8           ; PO4 SIZE 6.2                              729 thru   736                          
+        DR856_SIZE_UOM            ,A2           ; SIZE/PACK UNIT OF MEASURE                 737 thru   738                          
+        DR856_PACKG_CD            ,A5           ; PACKAGING CODE                            739 thru   743                          
+        DR856_WGT_QL              ,A2           ; WEIGHT QUALIFIER                          744 thru   745                          
+        DR856_PACK_GWGT           ,D9           ; GROSS WEIGHT PER PACK 7.2                 746 thru   754                          
+        DR856_WGT_UOM             ,A2           ; WEIGHT UNIT OF MEASURE                    755 thru   756                          
+        DR856_PACK_GVOL           ,D9           ; GROSS VOL PER PACK    7.2                 757 thru   765                          
+        DR856_VOL_UOM             ,A2           ; GROSS VOLUME UNIT OF MEASURE              766 thru   767                          
+        DR856_LENGTH              ,D8           ; PACK LENGTH         6.2                   768 thru   775                          
+        DR856_WIDTH               ,D8           ; PACK WIDTH  6.2                           776 thru   783                          
+        DR856_HEIGHT              ,D8           ; HEIGHT       6.2                          784 thru   791                          
+        DR856_DIM_UOM             ,A2           ; DIMENSION UNIT OF MEAS                    792 thru   793                          
+        DR856_ETD_REASN           ,A2           ; EXCESS TRAN REASON CODE                   794 thru   795                          
+        DR856_ETD_RESP            ,A1           ; EXCESS TRANSPORTATION RESP CD             796 thru   796                          
+        DR856_ETD_RF_QL           ,A2           ; EXCESS TRANSPORTATION REF QUAL            797 thru   798                          
+        DR856_ETD_REFNO           ,A30          ; EXCESS TRANSPORTATION REF NO              799 thru   828                          
+        DR856_ETD_RC              ,A2           ; EXCESS TRANSP RETURNABLE CONT             829 thru   830                          
+        DR856_CUR_ENT1            ,A2           ; CURRENCY ENTITY ID CODE #1                831 thru   832                          
+        DR856_CUR_CODE1           ,A3           ; CURRENCY CODE #1                          833 thru   835                          
+        DR856_CUR_XRATE           ,D12          ; CURRENCY EXCHANGE RATE                    836 thru   847                          
+        DR856_CUR_ENT2            ,A2           ; CURRENCY ENTITY ID CODE 2                 848 thru   849                          
+        DR856_CUR_CODE2           ,A3           ; CURRENCY CODE 2                           850 thru   852                          
+        DR856_CUR_X_COD           ,A3           ; CURRENCY MRKT/EXCHANGE CODE               853 thru   855                          
+        DR856_CUR_DT_QL           ,05A3         ; CURRENCY DATE TIME QUALIFIER              856 thru   870                          
+        DR856_CUR_DATE            ,05D8         ; CURRENCY DATE                             871 thru   910                          
+        DR856_CUR_TIME            ,05D6         ; CURRENCY TIME                             911 thru   940                          
+        DR856_FILLER              ,A90          ; FILLER                                    941 thru  1030                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAR856_DTL_KEY            ,A54          ; PRIMARY SORT KEY                                                                  
+                                  ,A976         ; PRIMARY KEY POSITIONING                                                           

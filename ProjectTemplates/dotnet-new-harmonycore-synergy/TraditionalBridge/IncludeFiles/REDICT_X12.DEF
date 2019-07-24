@@ -1,0 +1,131 @@
+; REDICT_X12.DEF
+;
+;	REDICT_X12.DAT - SYSTEM WIDE DICTIONARY AND TP I/O FILENAMES
+;			 CROSS REFERENCE TABLE.
+;
+;	This File contains the Names of the TP's X12 Receive Translation 
+;	Dictionary and associated external I/O files.
+;
+;------------------------------------------------------------------------
+;	FILE ORGINAZATION - ISAM	
+;	RECORD SIZE	  - 511
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	01-Feb-90	T. L. Radke	Added Sort Key Lengths for data files.
+;
+;	16-feb-1990	soutar		added new redefinition record
+;
+;	06-MAR-1992	soutar		added new RD_FLAT_FLAG
+;----------------------------------------------------------------------------
+RECORD	REDICT_X12
+	RD_TP_CODE	,A10	; Trading Partner Code.
+	RD_GROUP_CODE	,A10	; Group code.
+	RD_TRANS	,A3	; X12 Transaction Set.
+	RD_EDI_VERSION 	,A5	; EDI Version number
+
+	RD_GROUP_ID	,A12	; Group id number.
+
+	RD_DDNAME	,A10	; Data Dictionary File Name.
+				;   Format: AAAATTTV## where ...
+				; 	AAAA  is the Trading Partner Designator.
+				;	TTT is the X12 Transaction Set.
+				;	V   is actually "V" for Translation, 
+				;           and "G" for Generation.
+				; 	##  last two digits of edi version.
+	RD_DDESCR	,A30	; Dictionary Description.
+
+	RD_FILE_1	,A14	; 1st I/O Output file
+	RD_FILE_2	,A14	; 2nd I/O Output file
+	RD_FILE_3	,A14	; 3rd I/O Output file
+	RD_FILE_4	,A14	; 4th I/O Output file
+	RD_FILE_5	,A14	; 5th I/O Output file
+	RD_FILE_6	,A14	; 6th I/O Output file
+	RD_FILE_7	,A14	; 7th I/O Output file
+	RD_FILE_8	,A14	; 8th I/O Output file
+	RD_FILE_9	,A14	; 9th I/O Output file
+
+	RD_X12_FILE	,A14	; formatted X12 file.
+
+	RD_USR_FILE_1	,A15	; User defined flat file 1
+	RD_USR_FILE_2	,A15	; User defined flat file 2
+	RD_USR_FILE_3	,A15	; User defined flat file 3
+	RD_USR_FILE_4	,A15	; User defined flat file 4
+	RD_USR_FILE_5	,A15	; User defined flat file 5
+	RD_USR_FILE_6	,A15	; User defined flat file 6
+	RD_USR_FILE_7	,A15	; User defined flat file 7
+	RD_USR_FILE_8	,A15	; User defined flat file 8
+	RD_USR_FILE_9	,A15	; User defined flat file 9
+	RD_EDI_FILE	,A14	; File sent/received.
+
+	RD_CALC_FLAG	,D1	; Recalculate starting positions and
+				; Sort key lengths in dictionary.
+
+	RD_SORT_1	,D4	; Sort Key length for rd_file_1.
+	RD_SORT_2	,D4	; Sort Key length for rd_file_2.
+	RD_SORT_3	,D4	; Sort Key length for rd_file_3.
+	RD_SORT_4	,D4	; Sort Key length for rd_file_4.
+	RD_SORT_5	,D4	; Sort Key length for rd_file_5.
+	RD_SORT_6	,D4	; Sort Key length for rd_file_6.
+	RD_SORT_7	,D4	; Sort Key length for rd_file_7.
+	RD_SORT_8	,D4	; Sort Key length for rd_file_8.
+	RD_SORT_9	,D4	; Sort Key length for rd_file_9.
+
+	RD_ACK_FMT	,A14
+	RD_ACK_RAW	,A14
+
+	RD_SIZE_1	,D5	; Output length for rd_file_1.
+	RD_SIZE_2	,D5	; Output length for rd_file_2.
+	RD_SIZE_3	,D5	; Output length for rd_file_3.
+	RD_SIZE_4	,D5	; Output length for rd_file_4.
+	RD_SIZE_5	,D5	; Output length for rd_file_5.
+	RD_SIZE_6	,D5	; Output length for rd_file_6.
+	RD_SIZE_7	,D5	; Output length for rd_file_7.
+	RD_SIZE_8	,D5	; Output length for rd_file_8.
+	RD_SIZE_9	,D5	; Output length for rd_file_9.
+
+	RD_FLAT_FLAG	,D1
+			,A31	; Filler
+
+RECORD, X
+	RD_KEY		,A28	; Primary Key.
+			,A483
+RECORD, X
+			,A40	; Filler.
+	RD_DICT_KEY	,A10	; Alternate Key (Data Dictionary Name)
+				;  used in delete mode; duplicates allowed.
+			,A461	; Filler.
+
+;-------------------------------------------------------------------------------
+;              ------- Alternate Record Defintion -------
+;-------------------------------------------------------------------------------
+.IFDEF REDICT_X12_ALT
+RECORD 	ALT_REDICT_X12
+	A_RD_TP_CODE	,A10
+	A_RD_GROUP_CD	,A10
+	A_RD_TRANS	,A3
+	A_RD_EDI_VERS	,A5
+
+	A_RD_GROUP_ID	,A12
+
+	A_RD_DDNAME	,A10
+
+	A_RD_DDESCR	,A30
+
+			,A326
+
+	A_RD_ACK_FMT	,A14
+
+			,A91
+
+RECORD,	X
+	A_RD_KEY	,A28
+			,A483
+.ENDC
+
+.IFDEF REDICT_ALT_2
+RECORD 	,X
+			,A220
+	RD_FF_ARRAY	,A135
+			,A156
+.ENDC
+

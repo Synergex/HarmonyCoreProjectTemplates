@@ -1,0 +1,21 @@
+;CA850_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       CARAS PURCHASE ORDER NOTE FILE                                                                                              
+;       DATE : 01-JUL-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   243                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_NTE                                                                                                                   
+        N850_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        N850_PO_DATE              ,D6           ; PURCHASE ORDER DATE                        23 thru    28                          
+        N850_DIV_CODE             ,A15          ; DIVISION CODE                              29 thru    43                          
+        N850_DEST_ID              ,A15          ; DESTINATION ID                             44 thru    58                          
+        N850_NOTE_SEQ             ,D3           ; SEQ # TO KEEP NOTES IN ORDER               59 thru    61                          
+        N850_REF_CODE             ,A3           ; IDENTIFIES TYPE OF NOTE                    62 thru    64                          
+        N850_NOTE                 ,A80          ; NOTE OR DESCRIPTION                        65 thru   144                          
+        N850_FILLER               ,A99          ; FILLER                                    145 thru   243                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_NTE_KEY             ,A61          ; PRIMARY SORT KEY                                                                  
+                                  ,A182         ; PRIMARY KEY POSITIONING                                                           

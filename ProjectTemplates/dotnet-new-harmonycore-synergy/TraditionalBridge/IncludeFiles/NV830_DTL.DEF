@@ -1,0 +1,25 @@
+;NV830_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       NVG MATERIAL RELEASE DETAIL                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   108                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  NV830_DTL                                                                                                                   
+        NVD_SUPP_ID               ,A15          ; SUPPLIER                                    1 thru    15                          
+        NVD_TP_PART               ,A22          ; NVG PART NUMBER                            16 thru    37                          
+        NVD_REL_NO                ,A15          ; RELEASE NUMBER                             38 thru    52                          
+        NVD_DEST                  ,A15          ; DESTINATION CODE                           53 thru    67                          
+        NVD_REQ_TYPE              ,A1           ; REQUIREMENT TYPE                           68 thru    68                          
+        NVD_REQ_DATE              ,D8           ; REQUIREMENT DATE                           69 thru    76                          
+        NVD_PO_NO                 ,A13          ; PURCHASE ORDER NUMBER                      77 thru    89                          
+        NVD_REQ_QTY               ,D8           ; REQURIEMENT QUANTITY                       90 thru    97                          
+        NVD_THRU_DATE             ,D8           ; REQURIEMENTS THRU                          98 thru   105                          
+        NVD_SHIP_CODE             ,A1           ; SHIP CODE                                 106 thru   106                          
+        NVD_SHIFT_CODE            ,A1           ; SHIFT CODE                                107 thru   107                          
+        NVD_TIMING_QL             ,A1           ; TIMING QUALIFIER                          108 thru   108                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        NV830_DTL_KEY             ,A76          ; PRIMARY SORT KEY                                                                  
+                                  ,A32          ; PRIMARY KEY POSITIONING                                                           

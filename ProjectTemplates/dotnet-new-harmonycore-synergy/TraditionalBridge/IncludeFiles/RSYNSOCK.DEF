@@ -1,0 +1,26 @@
+.ifndef RSS_DEF
+
+    .define RSS_DEF
+
+external function
+	rsynsock	,i
+
+    ;Function Specifier Definitions
+
+    .define RSSF_CONNECT	1
+    .define RSSF_CLOSE		2
+    .define RSSF_RECV		3
+    .define RSSF_SEND		4
+    .define RSSF_ERROR		5
+
+    ;Radley Sockets Error Definitions
+    .define RSS_INTERUPT	32770	
+
+    ;Radley Sockets Parameterized Macro Definitions
+
+    .define rss_connect(sockaddr)	rsynsock(RSSF_CONNECT,sockaddr)
+    .define rss_close(sockaddr)		rsynsock(RSSF_CLOSE, sockaddr)
+    .define rss_recv(sockaddr, buffer)	rsynsock(RSSF_RECV, sockaddr, buffer)
+    .define rss_send(sockaddr, buffer)	rsynsock(RSSF_SEND, sockaddr, buffer)
+    .define rss_error(error, mnemonic) 	rsynsock(RSSF_ERROR, error, mnemonic)
+.endc

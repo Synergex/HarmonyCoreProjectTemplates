@@ -1,0 +1,13 @@
+;RTSEG_N3.DEF                                                                                                                       
+;                                                                                                                                   
+;       RETAIL N3 SEGMENT FILE                                                                                                      
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    40                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_N3                                                                                                                    
+        N3_SEG                    ,A3           ; RECORD TYPE - N3                            1 thru     3                          
+        N3_01                     ,A2           ; ADDRESS QUALIFIER                           4 thru     5                          
+        N3_02                     ,A35          ; STREET ADDRESS INFORMATION                  6 thru    40                          
+                                                                                                                                    
+                                                                                                                                    

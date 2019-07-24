@@ -1,0 +1,78 @@
+; HOASN_TAR.DEF
+;
+;	Honda Maintainable ASN Tare Level Container File
+;
+;-------------------------------------------------------------------------------
+;--- CARaS Modification Log ----------------------------------------------------
+;-------------------------------------------------------------------------------
+;
+;	Modified	Programmer	Description
+;	---------	----------	------------
+;	18-Sept-89	J. Rheingans	Original
+;
+;	13-Mar-90	Rich Mae	Added Alternate Buffer.
+;
+;	26-Jan-93	Rob Greene	Added HOT_IPP
+;	03-Dec-93	T. Bunker	Expand part number to 30.
+;					Expand record size to 128.
+;-------------------------------------------------------------------------------
+; File Organization: Indexed	| Record Size: 128
+;-------------------------------------------------------------------------------
+
+RECORD HOASN_TAR
+	HOT_SHIP_ID	,D9	; Shipment (ASN/Shipper) Id Number
+	HOT_OUR_PART	,A30	; Our/Supplier Part Number
+	HOT_KD_ORDER	,A15	; KD Order Number
+	HOT_TARE_LEVEL	,D5	; Tare Level Identifier
+
+	HOT_CONT_CODE	,A5	; Container Code	
+	HOT_REL_NO	,A15	; Release Number
+	HOT_MAST_SNO	,A15	; Master Serial Number
+	HOT_PALLET_SNO	,A15	; Pallet Serial Number
+	HOT_UNITS_PER	,D8	; Units Per Pallet
+	HOT_IPP		,A15	; Initial Production Parts (Will contain 'IPP')
+	FILLER		,A12
+
+RECORD HOT_KEY0, X
+	K0_HOT_SHIP_ID		,D%SIZE(HOT_SHIP_ID)
+	K0_HOT_OUR_PART		,A%SIZE(HOT_OUR_PART)
+	K0_HOT_KD_ORDER		,A%SIZE(HOT_KD_ORDER)
+	K0_HOT_TARE_LEVEL	,D%SIZE(HOT_TARE_LEVEL)
+
+;-------------------------------------------------------------------------------
+;	-------- Alternate Key Definitions --------
+;-------------------------------------------------------------------------------
+
+RECORD HOT_KEY1
+	K1_HOT_MAST_SNO		,A%SIZE(HOT_MAST_SNO)
+
+RECORD HOT_KEY2	
+	K2_HOT_PALLET_SNO	,A%SIZE(HOT_PALLET_SNO)
+
+;-------------------------------------------------------------------------------
+;	-------- Alternate Buffer --------
+;-------------------------------------------------------------------------------
+
+.IFDEF HOASN_TAR_ALT
+
+RECORD A_HOASN_TAR
+			,A%SIZE(HOASN_TAR)
+RECORD, X
+	A_HOT_SHIP_ID	,D9	; Shipment (ASN/Shipper) Id Number
+	A_HOT_OUR_PART	,A30	; Our/Supplier Part Number
+	A_HOT_KD_ORDER	,A15	; KD order number
+	A_HOT_TARE_LEVEL,D5	; Tare Level Identifier
+	A_HOT_CONT_CODE	,A5	; Container Code	
+	A_HOT_REL_NO	,A15	; Release Number
+	A_HOT_MAST_SNO	,A15	; Master Serial Number
+	A_HOT_PALLET_SNO,A15	; Pallet Serial Number
+	A_HOT_UNITS_PER	,D8	; Units Per Pallet
+	A_HOT_IPP	,A15	; Initial Production Parts (Will contain 'IPP')
+	FILLER		,A12
+
+RECORD A_HOT_KEY0, X
+	A_K0_HOT_SHIP_ID	,D%SIZE(A_HOT_SHIP_ID)
+	A_K0_HOT_OUR_PART	,A%SIZE(A_HOT_OUR_PART)
+	A_K0_HOT_KD_ORDER	,A%SIZE(A_HOT_KD_ORDER)
+	A_K0_HOT_TARE_LEVEL	,D%SIZE(A_HOT_TARE_LEVEL)
+.ENDC	

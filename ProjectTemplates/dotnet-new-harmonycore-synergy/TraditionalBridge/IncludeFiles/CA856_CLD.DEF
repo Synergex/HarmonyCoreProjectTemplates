@@ -1,0 +1,60 @@
+;CA856_CLD.DEF                                                                                                                      
+;                                                                                                                                   
+;       ASN - LOAD DETAIL                                                                                                           
+;       DATE : 08-NOV-13                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   683                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA856_CLD                                                                                                                   
+        C856_SEQ1                 ,D6           ; INPUT SEQ LEVEL 1                           1 thru     6                          
+        C856_SEQ2                 ,D6           ; INPUT SEQUENCE LEVEL 2                      7 thru    12                          
+        C856_SEQ3                 ,D6           ; INPUT SEQUENCE LEVEL 3                     13 thru    18                          
+        C856_SEQ4                 ,D6           ; INPUT SEQUENCE LEVEL 4                     19 thru    24                          
+        C856_SEQ5                 ,D6           ; INPUT SEQUENCE LEVEL 5                     25 thru    30                          
+        C856_SEQ6                 ,D6           ; INPUT SEQUENCE LEVEL 6                     31 thru    36                          
+        C856_SEQ7                 ,D6           ; INPUT SEQUENCE LEVEL 7                     37 thru    42                          
+        C856_SEQ8                 ,D6           ; INPUT SEQUENCE LEVEL 8                     43 thru    48                          
+        C856_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                 49 thru    50                          
+        C856_TELE_PROC            ,A3           ; DIVISION TELEPROCESSING ID -GM             51 thru    53                          
+        C856_ISS_BY_KEY           ,A15          ; ISSUE BY KEYFIELD (GM)                     54 thru    68                          
+        C856_DEST_KEY             ,A15          ; DESTINATION KEYFIELD (GM)                  69 thru    83                          
+        C856_INTRCHG_ID           ,A15          ; RECEIVER INTERCHANGE ID                    84 thru    98                          
+        C856_GROUP_ID             ,A15          ; GROUP ID                                   99 thru   113                          
+        C856_ASN_NO               ,A30          ; SHIPMENT ASN/ID NUMBER                    114 thru   143                          
+        C856_PO_NO                ,A22          ; PURCHASE ORDER NO (KEY)                   144 thru   165                          
+        C856_MST_SERIAL           ,A30          ; MASTER CONTAINER SERIAL NUMBER            166 thru   195                          
+        C856_CUST_PART            ,A30          ; CUSTOMER PART NUMBER                      196 thru   225                          
+        C856_SHIP_REF             ,A30          ; SHIP REFERENCE NO                         226 thru   255                          
+        C856_MODEL_YR             ,A2           ; MODEL YEAR                                256 thru   257                          
+        C856_CUST_LOADS           ,D5           ; NUMBER OF CUSTOMER LOADS                  258 thru   262                          
+        C856_UNTS_SHPD            ,D10          ; NUMBER OF UNITS SHIPPED                   263 thru   272                          
+        C856_PACK_CODE            ,A5           ; PACKAGING CODE                            273 thru   277                          
+        C856_SIZE                 ,D8           ; SIZE                                      278 thru   285                          
+        C856_UOFM_CODE            ,A2           ; UNIT OF MEASURE CODE                      286 thru   287                          
+        C856_LOT_NO               ,A30          ; LOT NO                                    288 thru   317                          
+        C856_CARR_REF             ,A30          ; CARRIER REF (UPS TRACE NO)                318 thru   347                          
+        C856_HL_ID_NO             ,D6           ; HL ID NUMBER                              348 thru   353                          
+        C856_HL_PARENT            ,D6           ; HL PARENT ID                              354 thru   359                          
+        C856_TAR_SERIAL           ,A30          ; TARE SERIAL NO                            360 thru   389                          
+        C856_SORT_FLD             ,D6           ; SORT FIELD FOR CLD REF                    390 thru   395                          
+        C856_TOT_LOT              ,D5           ; TOTAL LOT QTY PER DETAIL                  396 thru   400                          
+        C856_TOT_TRIGR            ,D5           ; TOTAL TRIGGERS                            401 thru   405                          
+        C856_PACK_HL_ID           ,A2           ; PACK LEVEL HL ID                          406 thru   407                          
+        C856_HL_TYPE              ,A1           ; HL LEVEL TYPE                             408 thru   408                          
+        C856_RET_CONT             ,A30          ; RETURNABLE CONTAINER PART NO              409 thru   438                          
+        C856_SP_PACK_CD           ,A30          ; SPECIAL PACK INSTRUCTION NUM              439 thru   468                          
+        C856_PACK_HL              ,D1           ; PACKAGE HL FLAG                           469 thru   469                          
+        C856_PACK_LIST            ,A30          ; PACK LIST                                 470 thru   499                          
+        C856_HEAT_CODE            ,A30          ; HEAT CODE                                 500 thru   529                          
+        C856_NET_WEIGHT           ,D15          ; NET WEIGHT                                530 thru   544                          
+        C856_WT_UOFM              ,A10          ; WEIGHT UNIT OF MEASURE                    545 thru   554                          
+        C856_GRS_WEIGHT           ,D15          ; GROSS WEIGHT                              555 thru   569                          
+        C856_TAR_QTY              ,D10          ; TARE QUNATITY                             570 thru   579                          
+        C856_TAR_CONT             ,A5           ; TARE CONT CODE                            580 thru   584                          
+        C856_D_UNTS_SHP           ,D15          ; UNITS PER CONTAINER DECIMAL               585 thru   599                          
+        C856_FILLER4              ,A84          ; FILLER                                    600 thru   683                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA856_CLD_KEY             ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A635         ; PRIMARY KEY POSITIONING                                                           

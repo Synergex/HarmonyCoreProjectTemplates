@@ -1,0 +1,45 @@
+;CAIINV_MS3.DEF                                                                                                                     
+;                                                                                                                                   
+;       INBOUND INVOIC MISC FILE 3                                                                                                  
+;       DATE : 02-JUL-12                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1011                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAIINV_MS3                                                                                                                  
+        IIM_MS3_UNB_CTL           ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        IIM_MS3_UNG_CTL           ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        IIM_MS3_UNH_CTL           ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        IIM_MS3_HDR_LIN           ,D6           ; HEADER LIN NUMBER                          43 thru    48                          
+        IIM_MS3_LIN_LIN           ,D6           ; LINE ITEM LINE NUMBER                      49 thru    54                          
+        IIM_MS3_NAD_LIN           ,D6           ; NAD LINE NUMBER                            55 thru    60                          
+        IIM_MS3_MS1_LIN           ,D6           ; MS1 LINE NUMBER                            61 thru    66                          
+        IIM_MS3_MS2_LIN           ,D6           ; MS2 LINE NUMBER                            67 thru    72                          
+        IIM_MS3_ALC_LIN           ,D6           ; ALC LINE NUMBER                            73 thru    78                          
+        IIM_MS3_FILLER1           ,A12          ; MS3 LINE NUMBER FOR FUTURE USE             79 thru    90                          
+        IIM_MS3_LINE              ,D6           ; MS3 LINE NUMBER                            91 thru    96                          
+        IIM_MS3_SEG_TYP           ,A3           ; MS3 SEGMENT TYPE                           97 thru    99                          
+        IIM_MS3_DATE_QL           ,A3           ; DTM DATE QUALIFIER                        100 thru   102                          
+        IIM_MS3_DATE              ,A35          ; DTM DATE/TIME/PERIOD                      103 thru   137                          
+        IIM_MS3_DATE_FQ           ,A3           ; DTM DATE FORMAT QUALIFIER                 138 thru   140                          
+        IIM_MS3_MEA_QL            ,A3           ; MEA MEASUREMENT QUALIFIER                 141 thru   143                          
+        IIM_MS3_MEA_CD            ,A3           ; MEA MEASUREMENT CODE                      144 thru   146                          
+        IIM_MS3_MEA_UQL           ,A3           ; MEA MEASUREMENT UNIT QUALIFIER            147 thru   149                          
+        IIM_MS3_MEA_VAL           ,D18          ; MEA MEASUREMENT VALUE                     150 thru   167                          
+        IIM_MS3_CUX_QL            ,A3           ; CURRENCY QUALIFIER                        168 thru   170                          
+        IIM_MS3_CUX_CD            ,A3           ; CURRENCY CODE                             171 thru   173                          
+        IIM_MS3_ALI_COO           ,A3           ; COUNTRY OF ORIGIN                         174 thru   176                          
+        IIM_MS3_FTX_QL            ,A3           ; TEXT SUBJECT QUALIFIER                    177 thru   179                          
+        IIM_MS3_FTX_TXT           ,05A70        ; FTX TEXT MESSAGE                          180 thru   529                          
+        IIM_MS3_LOC_QL            ,A3           ; PLACE/LOCATION QUALIFIER                  530 thru   532                          
+        IIM_MS3_LOC_ID            ,A25          ; LOCATION IDENTIFICATION                   533 thru   557                          
+        IIM_MS3_GIN_QL            ,A3           ; GIN ID NUMBER QUALIFIER                   558 thru   560                          
+        IIM_MS3_GIN_ID1           ,05A35        ; GIN IDENTITY NUMBER RANGE                 561 thru   735                          
+        IIM_MS3_GIN_ID2           ,05A35        ; GIN IDENTITY NUMBER 2                     736 thru   910                          
+        IIM_MS3_GEI_PC            ,A3           ; PROCESSING CODE                           911 thru   913                          
+        IIM_MS3_LOC_NAM           ,A35          ; LOCATION NAME                             914 thru   948                          
+        IIM_MS3_FILLER2           ,A63          ; MS3 FILLER 2                              949 thru  1011                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CAIINV_MS3_KEY            ,A78          ; PRIMARY SORT KEY                                                                  
+                                  ,A933         ; PRIMARY KEY POSITIONING                                                           

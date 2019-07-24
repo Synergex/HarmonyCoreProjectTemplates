@@ -1,0 +1,25 @@
+;CAPRIC_ALC.DEF                                                                                                                     
+;                                                                                                                                   
+;       PRICE SALES CATALOG - A/C                                                                                                   
+;       DATE : 12-AUG-98                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   198                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAPRIC_ALC                                                                                                                  
+        PRIA_SEQ1                 ,D6           ; SEQUENCE NUMBER 1                           1 thru     6                          
+        PRIA_SEQ2                 ,D6           ; SEQUENCE NUMBER 2                           7 thru    12                          
+        PRIA_SEQ3                 ,D6           ; SEQUENCE NUMBER 3                          13 thru    18                          
+        PRIA_SEQ4                 ,D6           ; SEQUENCE NUMBER 4                          19 thru    24                          
+        PRIA_SEQ5                 ,D6           ; SEQUENCE NUMBER 5                          25 thru    30                          
+        PRIA_SEQ6                 ,D6           ; SEQUENCE NUMBER 6                          31 thru    36                          
+        PRIA_TELE_PROC            ,A5           ; GM COMMUNICATIONS CODE                     37 thru    41                          
+        PRIA_INTRCHG_ID           ,A14          ; INTERCHANGE ID (UNB)                       42 thru    55                          
+        PRIA_GROUP_ID             ,A14          ; GROUP ID (UNG)                             56 thru    69                          
+        PRIA_PROD_GROUP           ,A3           ; PRODUCT GROUP (PGI)                        70 thru    72                          
+        PRIA_MAST_KEY             ,A99          ; 832 MASTER FILE KEY                        73 thru   171                          
+        PRIA_SSI                  ,A3           ; SPECIAL SERVICES ID                       172 thru   174                          
+        PRIA_MON_QL               ,A3           ; MONETARY AMOUNT TYPE QUALIFIER            175 thru   177                          
+        PRIA_AC_AMOUNT            ,A18          ; ALLOWANCE/CHARGE AMOUNT                   178 thru   195                          
+        PRIA_AC_TYPE              ,A3           ; ALLOWANCE CHARGE TYPE                     196 thru   198                          
+                                                                                                                                    
+                                                                                                                                    

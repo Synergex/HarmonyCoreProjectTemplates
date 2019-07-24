@@ -1,0 +1,50 @@
+;CA850_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CARAS PURCHASE ORDER HEADER                                                                                                 
+;       DATE : 04-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   564                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_HDR                                                                                                                   
+        H850_PO_PO_NO             ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        H850_PO_DATE              ,D8           ; PURCHASE ORDER CREATION DATE               23 thru    30                          
+        H850_PURPOSE              ,A2           ; P.O. PURPOSE                               31 thru    32                          
+        H850_PO_TYPE              ,A2           ; PURCHASE ORDER TYPE                        33 thru    34                          
+        H850_PAY_METHOD           ,A2           ; PAYMENT METHOD                             35 thru    36                          
+        H850_CONTRCT_NO           ,A30          ; CONTRACT NUMBER                            37 thru    66                          
+        H850_TRAN_RESP            ,A2           ; TRANSPORTATION RESPONSIBILTY               67 thru    68                          
+        H850_TRMS_TYPE            ,A2           ; PAYMENT TERMS                              69 thru    70                          
+        H850_TRMS_BASIS           ,A2           ; BASIS OF PAYMENT TERMS                     71 thru    72                          
+        H850_RTE_SEQ              ,A2           ; ROUTING SEQUENCE                           73 thru    74                          
+        H850_RTE_ORGCAR           ,A35          ; ROUTING ORIGIN CARRIER                     75 thru   109                          
+        H850_PO_CONT_NO           ,A30          ; PURCHASE ORDER CONTACT NO                 110 thru   139                          
+        H850_SALES_COND           ,A1           ; SALES CONDITION                           140 thru   140                          
+        H850_ROUTING              ,A35          ; PURCHASE ORDER ROUTING CODE               141 thru   175                          
+        H850_SYS_FLAG             ,A1           ; INDICATES WHAT TYPE OF RECORD             176 thru   176                          
+        H850_PKG_AGENCY           ,A2           ; PACKAGING CODES ORGANIZATION              177 thru   178                          
+        H850_PKG_DESC             ,A80          ; PACKAGING DESCRIPTION                     179 thru   258                          
+        H850_PKG_DESCCD           ,A7           ; PACKING DESC CODE                         259 thru   265                          
+        H850_SHIP_CODE            ,A2           ; SHIPPING CODES                            266 thru   267                          
+        H850_FOB_DESC             ,A80          ; FOB DESCRIPTION                           268 thru   347                          
+        H850_TITLE_PASS           ,A2           ; TITLE PASSED QUALIFIER                    348 thru   349                          
+        H850_RELNO                ,A30          ; RELEASE NUMBER                            350 thru   379                          
+        H850_REFNO                ,A30          ; REFERENCE NUMBER                          380 thru   409                          
+        H850_CUR_ORG              ,A2           ; CURRENCY ORGANIZATION                     410 thru   411                          
+        H850_CUR                  ,A3           ; CURRENCY                                  412 thru   414                          
+        H850_PO_SEQ_NO            ,A8           ; PO CHANGE NUMBER                          415 thru   422                          
+        H850_CHG_DATE             ,D8           ; PO CHANGE REQUEST DATE                    423 thru   430                          
+        H850_EFF_DATE             ,D8           ; EFFECTIVE DATE                            431 thru   438                          
+        H850_EXP_DATE             ,D8           ; EXPIRATION DATE                           439 thru   446                          
+        H850_AMT_QL               ,A2           ; TOTAL AMOUNT QUALIFIER                    447 thru   448                          
+        H850_TOT_AMT              ,D15          ; TOTAL PURCHASE ORDER AMOUNT               449 thru   463                          
+        H850_SCH_SHP_CD           ,A2           ; SCHEDULE SHIP CODE                        464 thru   465                          
+        H850_DATE_QUAL            ,A3           ; DATE QUALIFIER                            466 thru   468                          
+        H850_REQ_DATE             ,D8           ; DELIVERY REQUEST DATE                     469 thru   476                          
+        H850_SENDER_ID            ,A15          ; SENDER ID                                 477 thru   491                          
+        H850_TRMS_TYPE2           ,A3           ; EXPANDED TERMS TYPE CODE                  492 thru   494                          
+        H850_FILLER               ,A70          ; FILLER                                    495 thru   564                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_HDR_KEY             ,A30          ; PRIMARY SORT KEY                                                                  
+                                  ,A534         ; PRIMARY KEY POSITIONING                                                           

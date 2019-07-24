@@ -1,0 +1,26 @@
+;CA842_NCD.DEF                                                                                                                      
+;                                                                                                                                   
+;       NONCONFORMANCE REPORT                                                                                                       
+;       DATE : 18-AUG-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   180                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA842_NCD                                                                                                                   
+        N842_ISA_CTL              ,A14          ; INTERCHANGE CONTROL                         1 thru    14                          
+        N842_GS_CTL               ,A14          ; GROUP CONTROL                              15 thru    28                          
+        N842_ST_CTL               ,A14          ; DOCUMENT CONTROL                           29 thru    42                          
+        N842_HL_LIN               ,D6           ; HL SEQUENCE                                43 thru    48                          
+        N842_SPS_LIN              ,D6           ; SAMPLING SEQUENCE                          49 thru    54                          
+        N842_NCD_LIN              ,D6           ; NONCONFORMANCE SEQUENCE                    55 thru    60                          
+        N842_ATTR_CODE            ,A2           ; ATTRIBUTE CODE                             61 thru    62                          
+        N842_DETERMINE            ,A1           ; DETERMINATION CODE                         63 thru    63                          
+        N842_ID                   ,A20          ; ASSIGNED ID                                64 thru    83                          
+        N842_CHAR_CODE            ,A3           ; CHARACTERISTIC CODE                        84 thru    86                          
+        N842_AGENCY               ,A2           ; AGENCY CODE                                87 thru    88                          
+        N842_PROD_DESC            ,A12          ; PRODUCT DESCRIPTION CODE                   89 thru   100                          
+        N842_DESC                 ,A80          ; DESCRIPTION                               101 thru   180                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA842_NCD_KEY             ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A120         ; PRIMARY KEY POSITIONING                                                           

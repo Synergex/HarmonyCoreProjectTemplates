@@ -1,0 +1,34 @@
+;CA140_MSC.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCT REGISTRATION - MISC                                                                                                 
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   207                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA140_MSC                                                                                                                   
+        M140_GS_CONTROL           ,D9           ; GS CONTROL NUMMBER                          1 thru     9                          
+        M140_HDR_SEQN             ,D6           ; HEADER SEQUENCE NUMBER                     10 thru    15                          
+        M140_DTL_SEQN             ,D6           ; DETAIL SEQUENCE NUMBER                     16 thru    21                          
+        M140_LIN_SEQN             ,D6           ; LIN SEGMENT SEQUENCE NUMBER                22 thru    27                          
+        M140_SLN_SEQN             ,D6           ; SLN SEGMENT SEQUENCE NUMBMER               28 thru    33                          
+        M140_PSC_SEQN             ,D6           ; PSC SEGMENT SEQUENCE NUMBER                34 thru    39                          
+        M140_ADR_SEQN             ,D6           ; ADDRESS SEQUENCE NUMBER                    40 thru    45                          
+        M140_MSC_SEQN             ,D6           ; MISC FILE SEQUENCE NUMBER                  46 thru    51                          
+        M140_SEG_TYPE             ,A3           ; SEGMENT TYPE                               52 thru    54                          
+        M140_DESC                 ,A80          ; DESCRIPTION                                55 thru   134                          
+        M140_REFNO_QL             ,A2           ; REFERENCE NUMBER QUALIFIER                135 thru   136                          
+        M140_REFNO                ,A30          ; REFERENCE NUMMBER                         137 thru   166                          
+        M140_DTM_DT_QL            ,A3           ; DATE/TIME QUALIFIER                       167 thru   169                          
+        M140_DTM_DATE             ,D8           ; DTM SEGMENT DATE                          170 thru   177                          
+        M140_DTM_TIME             ,A6           ; DTM DEGMENT TIME                          178 thru   183                          
+        M140_DTM_TIM_CD           ,A2           ; DTM SEGMENT TIME CODE                     184 thru   185                          
+        M140_DTM_CENTRY           ,D2           ; DTM SEGMENT CENTURY                       186 thru   187                          
+        M140_PID_TYPE             ,A1           ; PID SEGMENT DESCRIPTION TYPE              188 thru   188                          
+        M140_QTY_QUAL             ,A2           ; QTY SEGMENT QUALIFIER                     189 thru   190                          
+        M140_QTY_QUANT            ,D15          ; QTY SEGMENT QUANTITY                      191 thru   205                          
+        M140_QTY_UOFM             ,A2           ; QTY SEGMENT UNIT OF MEASURE               206 thru   207                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA140_MSC_KEY             ,A51          ; PRIMARY SORT KEY                                                                  
+                                  ,A156         ; PRIMARY KEY POSITIONING                                                           

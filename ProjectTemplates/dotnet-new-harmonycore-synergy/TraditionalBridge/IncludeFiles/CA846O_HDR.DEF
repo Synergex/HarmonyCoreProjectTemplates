@@ -1,0 +1,31 @@
+;CA846O_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND INVENTORY ADVICE HDR                                                                                               
+;       DATE : 08-OCT-03                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   178                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA846O_HDR                                                                                                                  
+        H846O_INTRCHANG           ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        H846O_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        H846O_HDR_SEQ             ,D6           ; HEADER SEQUENCE NUMBER                     31 thru    36                          
+        H846O_DTL_SEQ             ,D6           ; DETAIL SEQUENCE NUMBER                     37 thru    42                          
+        H846O_PURPOSE             ,A2           ; PURPOSE CODE                               43 thru    44                          
+        H846O_TYPE_CODE           ,A2           ; REPORT TYPE CODE                           45 thru    46                          
+        H846O_IA_NUMBER           ,A30          ; INVENTORY ADVICE NUMBER                    47 thru    76                          
+        H846O_CRT_DATE            ,D8           ; CREATION DATE                              77 thru    84                          
+        H846O_CRT_TIME            ,D8           ; CREATION TIME                              85 thru    92                          
+        H846O_ACTION_CD           ,A2           ; ACTION CODE                                93 thru    94                          
+        H846O_TX_CRT_DT           ,D8           ; TRANSACTION CREATE DATE                    95 thru   102                          
+        H846O_TX_CRT_TM           ,D8           ; TRANSACTION CREATE TIME                   103 thru   110                          
+        H846O_TX_CRT_CC           ,D2           ; TRANSACTION CREATE DATE CENTRY            111 thru   112                          
+        H846O_NO_LINES            ,D6           ; TOTAL NUMBER OF LINES                     113 thru   118                          
+        H846O_PER_QL              ,A2           ; CONTACT QUALIFIER                         119 thru   120                          
+        H846O_PER_NAME            ,A35          ; CONTACT NAME                              121 thru   155                          
+        H846O_PER_COMQL           ,A2           ; COMMUNICATION NUMBER QUALIFIER            156 thru   157                          
+        H846O_PER_COMNO           ,A21          ; COMMUNICATIONS NUMBER                     158 thru   178                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA846O_HDR_KEY            ,A42          ; PRIMARY SORT KEY                                                                  
+                                  ,A136         ; PRIMARY KEY POSITIONING                                                           

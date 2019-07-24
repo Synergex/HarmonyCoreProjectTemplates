@@ -1,0 +1,38 @@
+; Structure     : CA852_MSC1                                
+; File Type     : ASCII                                     
+; Creation Date : 01-MAY-06, 13:35:35                       
+; Description   : Product Activity Misc Flat File           
+;      Record Size    : 293                                 
+;      # of Files     : 0                                   
+;      # of Fields    : 25                                  
+;      # of Keys      : 0                                   
+;      # of Relations : 0                                   
+                                                            
+                                                            
+RECORD CA856_MSC1                                           
+  M852_1_TP_DESIG ,A2       ; (1,2) TRADING PARTNER DESIGNATOR             1 THR
+  M852_1_GS_CTL   ,D9       ; (3,11) GS CONTROL NUMBER                     3 THR
+  M852_1_HDR_LINE ,D6       ; (12,17) HEADER LINE NUMBER                  12 THR
+  M852_1_DTL_LINE ,D6       ; (18,23) DETAIL LINE NUMBER                  18 THR
+  M852_1_ADR_LINE ,D6       ; (24,29) ADR LINE NUMBER                     24 THR
+  M852_1_ZA_LINE  ,D6       ; (30,35) ZA LINE NUMBER                      30 THR
+  M852_1_SEG_TYPE ,A3       ; (36,38) SEGMENT TYPE                        36 THR
+  M852_1_SEQ_NO   ,D6       ; (39,44) SEQUENCE NUMBER                     39 THR
+  M852_XPO_ST_PO  ,A22      ; (45,66) STARTING PURHCASE ORDER NUMBER      45 THR
+  M852_XPO_END_PO ,A22      ; (67,88) ENDING PURCHASE ORDER NUMBER        67 THR
+  M852_XPO_LOC_QL ,A2       ; (89,90) LOCATION QUALIFIER                  89 THR
+  M852_XPO_LOC_CD ,A17      ; (91,107) LOCATION TO WHICH PO APPLIES       91 THR
+  M852_PER_CODE   ,A2       ; (108,109) CONTACT FUNCTION CODE            108 THR
+  M852_PER_NAME   ,A35      ; (110,144) CONTACT NAME                     110 THR
+  M852_PER_COMQL1 ,A2       ; (145,146) COMMUNICATIONS QUALIFIER 1       145 THR
+  M852_PER_COMNO1 ,A25      ; (147,171) COMMUNICATIONS NUMBER 1          147 THR
+  M852_PER_COMQL2 ,A2       ; (172,173) COMMUNICATIONS QUALIFIER 2       172 THR
+  M852_PER_COMNO2 ,A25      ; (174,198) COMMUNICATIONS NUMBER 2          174 THR
+  M852_REF_NO_QL  ,A2       ; (199,200) REFERENCE NUMBER QUALIFIER       199 THR
+  M852_REF_NO     ,A30      ; (201,230) REFERENCE NUMBER                 201 THR
+  M852_REF_DESC   ,A45      ; (231,275) FREE-FORM DESCRIPTION            231 THR
+  M852_REF_DATE   ,D8       ; (276,283) Reference Date                   276 THR
+  M852_REF_TIME   ,D6       ; (284,289) REFERENCE NUMBER TIME            282 THR
+  M852_REF_TIMECD ,A4       ; (290,293) TIME CODE                        288 THR
+  CA852_MSC1_KEY   ,A44  @M852_1_TP_DESIG                                       
+                            ; (1,44) Primary Key                                

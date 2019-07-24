@@ -1,0 +1,34 @@
+RECORD CHCAP_TRX
+;
+;	CHCAP_TRX.DEF - CHRYSLER CORPORATE ACCOUNTS PAYABLE
+;			TRANSACTION FILE
+;			Pay As Built Data
+;
+;		STRUCTURE:	SEQUENTIAL
+;		RECORD LEN:	101
+;
+;	DATE		BY		MODIFICATION
+;	--------	-------------	----------------------------------------
+;	18-AUG-95	M. Collins	Changed to 10 character part, increase
+;					record length from 100 to 101
+;	09-JAN-95	M. Collins	Changed to reflect new PAB def from CH.
+;-------------------------------------------------------------------------------
+;		----------- Record Definition ---------
+;-------------------------------------------------------------------------------
+
+	CT_PLANT	,A5	; Plant Identificatin
+	CT_PLANT_SUF	,A2	; Plant Suffix
+	CT_VENDOR	,A5	; Vendor Code
+	CT_VENDOR_SUF	,A2	; Vendor Suffix
+	CT_PART_NBR	,A10	; Part Number
+	CT_PROD_DATE	,D6	; Production Date (YYMMDD)
+	CT_SEQ_NBR	,D7	; Broadcast Sequence Number
+	CT_INVOICE_NBR	,A7	; Invoice Number
+			,A9	; Filler
+	CT_QTY		,D2	; Quantity (xx)
+	CT_TRAN_SEQ_NBR	,D6	; Transaction Seq. #
+	CT_STATUS	,A1	; Status
+	CT_JULIAN_DATE	,D5	; Julian Date (YYDDD)
+	CT_VIN		,A8	; Vehicle Id
+			,A22	; Filler
+	CT_IDENT_TAG	,A3	; Ident Tag

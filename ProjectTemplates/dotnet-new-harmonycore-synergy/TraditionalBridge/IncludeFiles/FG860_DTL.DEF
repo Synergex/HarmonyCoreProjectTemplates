@@ -1,0 +1,27 @@
+;FG860_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       FRIGIDAIRE P.O. CHANGE DETAIL                                                                                               
+;       DATE : 01-SEP-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   152                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FG860_DTL                                                                                                                   
+        FGD_GS_CTL                ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        FGD_HDR_LINE              ,D6           ; HEADER LINE NUMBER                         10 thru    15                          
+        FGD_DTL_LINE              ,D6           ; DETAIL LINE NUMBER                         16 thru    21                          
+        FGD_ITEM_NO               ,A6           ; MISCELLANEOUS ITEM NUMBER                  22 thru    27                          
+        FGD_CHANGE_TYPE           ,A2           ; LINE ITEM CHANGE TYPE                      28 thru    29                          
+        FGD_QTY                   ,D9           ; QTY ORDERED                                30 thru    38                          
+        FGD_QTY_REMAIN            ,D9           ; QUANTITY LEFT TO RECEIVE                   39 thru    47                          
+        FGD_UOFM                  ,A2           ; UNIT OF MEASURE                            48 thru    49                          
+        FGD_UNIT_PRICE            ,D14          ; UNIT PRICE                                 50 thru    63                          
+        FGD_BUYERS_ITM            ,A15          ; BUYERS ITEM NUMBER                         64 thru    78                          
+        FGD_VC_NO                 ,A30          ; VENDORS CATALOG NUMBER                     79 thru   108                          
+        FGD_PART_DESC             ,A30          ; PART DESCRIPTION                          109 thru   138                          
+        FGD_SUPP_PART             ,A8           ; SUPPLEMENTAL PART NUMBER                  139 thru   146                          
+        FGD_DUE_DATE              ,D6           ; DOCK DUE DATE                             147 thru   152                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FG860_DTL_KEY             ,A21          ; PRIMARY SORT KEY                                                                  
+                                  ,A131         ; PRIMARY KEY POSITIONING                                                           

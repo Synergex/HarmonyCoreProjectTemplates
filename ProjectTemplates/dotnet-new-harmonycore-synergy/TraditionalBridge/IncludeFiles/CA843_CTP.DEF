@@ -1,0 +1,23 @@
+;CA843_CTP.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRICING INFORMATION                                                                                                         
+;       DATE : 06-JUL-01                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    86                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_CTP                                                                                                                   
+        BQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        BQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        BQT_CTP_SEQ               ,D6           ; PRICING INFO SEQUENCE NUMBER               13 thru    18                          
+        BQT_INTR_ID               ,A15          ; INTERCHANGE ID                             19 thru    33                          
+        BQT_GROUP_ID              ,A15          ; GROUP ID                                   34 thru    48                          
+        BQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               49 thru    51                          
+        BQT_PRICE_BREAK           ,D15          ; PRICE BREAK START QUANTITY                 52 thru    66                          
+        BQT_UNIT_PRICE            ,D14          ; UNIT PRICE                                 67 thru    80                          
+        BQT_PRICE_QL              ,A3           ; PRICE QUALIFIER CODE                       81 thru    83                          
+        BQT_UOFM                  ,A3           ; UNIT OF MEASURE                            84 thru    86                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_CTP_KEY             ,A18          ; PRIMARY SORT KEY                                                                  
+                                  ,A68          ; PRIMARY KEY POSITIONING                                                           

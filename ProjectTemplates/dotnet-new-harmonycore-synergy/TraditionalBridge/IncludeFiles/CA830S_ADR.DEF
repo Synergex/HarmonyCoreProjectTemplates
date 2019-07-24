@@ -1,0 +1,39 @@
+;CA830S_ADR.DEF                                                                                                                     
+;                                                                                                                                   
+;       OUTBOUND 830 ADDRESS                                                                                                        
+;       DATE : 21-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   502                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA830S_ADR                                                                                                                  
+        A830S_INTER_ID            ,A15          ; INTERCHANGE ID                              1 thru    15                          
+        A830S_GROUP_ID            ,A15          ; GROUP ID                                   16 thru    30                          
+        A830S_HDR_LINE            ,D6           ; HEADER SEQUENCE                            31 thru    36                          
+        A830S_DTL_LINE            ,D6           ; DETAIL SEQUENCE                            37 thru    42                          
+        A830S_SLN_LINE            ,D6           ; SLN SEQUENCE                               43 thru    48                          
+        A830S_ADR_LINE            ,D6           ; ADDRESS SEQUENCE                           49 thru    54                          
+        A830S_SDP_LINE            ,D6           ; SDP SEQUENCE                               55 thru    60                          
+        A830S_REQ_LINE            ,D6           ; REQUIREMENTS SEQUENCE                      61 thru    66                          
+        A830S_SHP_LINE            ,D6           ; SHP SEQUENCE                               67 thru    72                          
+        A830S_KEY_FILL            ,D18          ; KEY FILLER                                 73 thru    90                          
+        A830S_SRT_FLD             ,A3           ; SORT FIELD                                 91 thru    93                          
+        A830S_ADDR_QL             ,A2           ; ADDRESS QUALIFIER                          94 thru    95                          
+        A830S_ID_CODE             ,A17          ; ENTITY ID CODE                             96 thru   112                          
+        A830S_N1_NAME             ,A30          ; NAME                                      113 thru   142                          
+        A830S_ID_QL               ,A2           ; ID CODE QUALIFER                          143 thru   144                          
+        A830S_N2_NAME1            ,A35          ; NAME                                      145 thru   179                          
+        A830S_N2_NAME2            ,A35          ; NAME                                      180 thru   214                          
+        A830S_N3_ADDR1            ,A35          ; ADDRESS                                   215 thru   249                          
+        A830S_N3_ADDR2            ,A35          ; ADDRESS                                   250 thru   284                          
+        A830S_N3_ADDR3            ,A35          ; ADDRESS                                   285 thru   319                          
+        A830S_N3_ADDR4            ,A35          ; ADDRESS                                   320 thru   354                          
+        A830S_CITY                ,A30          ; CITY                                      355 thru   384                          
+        A830S_STATE               ,A2           ; STATE                                     385 thru   386                          
+        A830S_ZIP                 ,A15          ; ZIP CODE                                  387 thru   401                          
+        A830S_CTRY                ,A2           ; COUNTRY CODE                              402 thru   403                          
+        A830S_FILLER              ,A99          ; FILLER                                    404 thru   502                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA830S_ADR_KEY            ,A93          ; PRIMARY SORT KEY                                                                  
+                                  ,A409         ; PRIMARY KEY POSITIONING                                                           

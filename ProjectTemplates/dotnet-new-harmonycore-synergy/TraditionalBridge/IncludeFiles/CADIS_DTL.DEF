@@ -1,0 +1,38 @@
+;CADIS_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       AVIDIS DETAIL                                                                                                               
+;       DATE : 03-JUL-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   783                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADIS_DTL                                                                                                                   
+        DID_UNB_CTL               ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DID_UNG_CTL               ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DID_UNH_CTL               ,A14          ; UNH CONTROL                                29 thru    42                          
+        DID_HDR_LINE              ,D6           ; HEADER LINE                                43 thru    48                          
+        DID_CSG_LINE              ,D6           ; CONSIGNEE LINE                             49 thru    54                          
+        DID_LINE                  ,D6           ; DETAIL LINE                                55 thru    60                          
+        DID_COMP_CODE             ,A8           ; COMPANY CODE                               61 thru    68                          
+        DID_DIV_ID                ,A35          ; DIVISION ID                                69 thru   103                          
+        DID_SUPP_ID               ,A35          ; SUPPLIER ID                               104 thru   138                          
+        DID_DEST_ID               ,A35          ; DEST ID                                   139 thru   173                          
+        DID_CUST_PART             ,A35          ; CUSTOMER PART                             174 thru   208                          
+        DID_VEND_PART             ,A35          ; SELLER'S PART NUMBER                      209 thru   243                          
+        DID_PART_DESC             ,05A35        ; PART DESCRIPTION                          244 thru   418                          
+        DID_UOFM                  ,A3           ; UOFM                                      419 thru   421                          
+        DID_ORDER_NO              ,A17          ; ORDER OR CONTRACT NUMBER                  422 thru   438                          
+        DID_ORDER_DATE            ,D8           ; ORDER DATE                                439 thru   446                          
+        DID_CTRY_CODE             ,A2           ; COUNTRY CODE                              447 thru   448                          
+        DID_COUNTRY               ,A17          ; COUNTRY OF ORIGIN                         449 thru   465                          
+        DID_TEXT                  ,03A70        ; FREE TEXT                                 466 thru   675                          
+        DID_DESIGN_REV            ,A35          ; DESIGN REV NUMBER                         676 thru   710                          
+        DID_EC_LVL                ,A17          ; EC LEVEL CHANGE                           711 thru   727                          
+        DID_TECH_DATE             ,D8           ; TECH STATUS DATE                          728 thru   735                          
+        DID_PERC                  ,D3           ; SPLIT PERCENTAGE                          736 thru   738                          
+        DID_TOTAL_QTY             ,D10          ; QTY DELIVERED (MONTHLY TOTAL)             739 thru   748                          
+        DID_COLOR                 ,A35          ; PART COLOR                                749 thru   783                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CADIS_DTL_KEY             ,A60          ; PRIMARY SORT KEY                                                                  
+                                  ,A723         ; PRIMARY KEY POSITIONING                                                           

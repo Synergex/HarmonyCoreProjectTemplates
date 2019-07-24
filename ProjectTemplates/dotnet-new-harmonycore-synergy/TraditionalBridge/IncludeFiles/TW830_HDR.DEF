@@ -1,0 +1,49 @@
+;TW830_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       TRW RELEASE HEADER                                                                                                          
+;       DATE : 02-OCT-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   379                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  TW830_HDR                                                                                                                   
+        TWH_SUPPLIER              ,A15          ; SUPPLIER                                    1 thru    15                          
+        TWH_PONO                  ,A22          ; PO NUMBER                                  16 thru    37                          
+        TWH_RELNO                 ,A5           ; RELEASE NUMBER                             38 thru    42                          
+        TWH_CUST_PART             ,A22          ; CUSTOMER PART                              43 thru    64                          
+        TWH_SHIP_TO               ,A15          ; DESTINATION                                65 thru    79                          
+        TWH_PURPOSE               ,A2           ; TRANS PURPOSE                              80 thru    81                          
+        TWH_SHPDEL_FLAG           ,A2           ; SHIP/DELIVERY                              82 thru    83                          
+        TWH_FORCST_TYPE           ,A1           ; FORECAST TYPE                              84 thru    84                          
+        TWH_HORIZON_BGN           ,D6           ; HORIZON START DATE                         85 thru    90                          
+        TWH_HORIZON_END           ,D6           ; HORIZON END DATE                           91 thru    96                          
+        TWH_ISSUE_DATE            ,D6           ; ISSUE DATE                                 97 thru   102                          
+        TWH_MESSAGE               ,A60          ; NOTE MESSAGE                              103 thru   162                          
+        TWH_PLANT_NAME            ,A25          ; PLANT NAME                                163 thru   187                          
+        TWH_CONTACT               ,A30          ; CONTACT NAME                              188 thru   217                          
+        TWH_TELEPHONE             ,A15          ; TELEPHONE NUMBER                          218 thru   232                          
+        TWH_RREF_NO               ,A15          ; REQUEST REFERENCE NUMBER                  233 thru   247                          
+        TWH_SCAC_CODE             ,A4           ; SCAC CODE                                 248 thru   251                          
+        TWH_ROUTE_SEQ             ,A2           ; ROUTING SEQUENCE                          252 thru   253                          
+        TWH_SHPORD                ,A2           ; SHIP/ORDER STATUS                         254 thru   255                          
+        TWH_FAB_DATE              ,D6           ; FAB DATE                                  256 thru   261                          
+        TWH_RAW_DATE              ,D6           ; RAW DATE                                  262 thru   267                          
+        TWH_FAB_QTY               ,D9           ; FAB QUANTITY                              268 thru   276                          
+        TWH_RAW_QTY               ,D9           ; RAW QUANTITY                              277 thru   285                          
+        TWH_START_DATE            ,D6           ; CUM START DATE                            286 thru   291                          
+        TWH_LAST_QTY              ,D8           ; LAST QTY RECEIVED                         292 thru   299                          
+        TWH_CUM_QTY               ,D8           ; YTD CUM RECEIVED                          300 thru   307                          
+        TWH_REJECT_QTY            ,D8           ; REJECT QUANTITY                           308 thru   315                          
+        TWH_RCVD_DATE             ,D6           ; RECEIVE DATE                              316 thru   321                          
+        TWH_CUM_DATE              ,D6           ; CUM DATE                                  322 thru   327                          
+        TWH_REJECT_DATE           ,D6           ; REJECT DATE                               328 thru   333                          
+        TWH_UOFM                  ,A2           ; UNIT OF MEASURE                           334 thru   335                          
+        TWH_UNIT_PRICE            ,D10          ; UNIT PRICE                                336 thru   345                          
+        TWH_PRICE_BASIS           ,A2           ; PRICE BASIS                               346 thru   347                          
+        TWH_ITEM_DESC             ,A30          ; ITEM DESCR                                348 thru   377                          
+        TWH_SHIP_CODE             ,A1           ; SHIP CODE                                 378 thru   378                          
+        TWH_SHIFT_CODE            ,A1           ; SHIFT CODE                                379 thru   379                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        TW830_HDR_KEY             ,A79          ; PRIMARY SORT KEY                                                                  
+                                  ,A300         ; PRIMARY KEY POSITIONING                                                           

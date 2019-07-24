@@ -1,0 +1,19 @@
+;CP830_GPS.DEF                                                                                                                      
+;                                                                                                                                   
+;       CATERPILLAR MAT. RELEASE GROUP                                                                                              
+;       DATE : 08-OCT-90                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    65                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CP830_GPS                                                                                                                   
+        CPS_RELNO                 ,D4           ; RELEASE NUMBER                              1 thru     4                          
+        CPS_PONO                  ,A12          ; PURCHASE ORDER NUMBER                       5 thru    16                          
+        CPS_DEST                  ,A15          ; DESTINATION CODE                           17 thru    31                          
+        CPS_PARTNO                ,A22          ; PART NUMBER                                32 thru    53                          
+        CPS_LAST_DATE             ,D6           ; LAST SCHEDULE DATE OF HORIZON              54 thru    59                          
+        CPS_FIRST_DATE            ,D6           ; FIRST SCHEDULE DATE OF HORIZON             60 thru    65                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CP830_GPS_KEY             ,A59          ; PRIMARY SORT KEY                                                                  
+                                  ,A6           ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,25 @@
+;GM866_LIN.DEF                                                                                                                      
+;                                                                                                                                   
+;       PRODUCTION SEQUENCE LINE ITEM                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   625                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM866_LIN                                                                                                                   
+        L866_GS_CTL               ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        L866_HDR_SEQ              ,D6           ; HEADER LINE SEQUENCE                       10 thru    15                          
+        L866_DTL_SEQ              ,D6           ; DETAIL LINE SEQUENCE                       16 thru    21                          
+        L866_LIN_SEQ              ,D6           ; ITEM SEQUENCE NUMBER                       22 thru    27                          
+        L866_SEG_TYPE             ,A3           ; SEGMENT TYPE (LIN)                         28 thru    30                          
+        L866_ID_QL                ,15A2         ; PRODUCT/SERVICE ID QUALIFIER               31 thru    60                          
+        L866_ID_CODE              ,15A30        ; PRODUCT/SERVICE ID CODE                    61 thru   510                          
+        L866_QTY_QL               ,A2           ; QUANTITY QUALIFIER                        511 thru   512                          
+        L866_QTY                  ,D15          ; QUANTITY                                  513 thru   527                          
+        L866_QTY_UOFM             ,A2           ; QUANTITY UNIT OF MEASURE                  528 thru   529                          
+        L866_REF_QL               ,03A2         ; REFERENCE NUMBER QUALIFIER                530 thru   535                          
+        L866_REF_NO               ,03A30        ; REFERENCE NUMBER                          536 thru   625                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM866_LIN_KEY             ,A27          ; PRIMARY SORT KEY                                                                  
+                                  ,A598         ; PRIMARY KEY POSITIONING                                                           

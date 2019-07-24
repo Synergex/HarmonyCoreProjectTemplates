@@ -1,0 +1,34 @@
+;CH850_DTL.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 850/860 DETAIL                                                                                                     
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   293                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH850_DTL                                                                                                                   
+        CHD_ID_TYPE               ,A3           ; P/O ID TYPE (850 OR 860)                    1 thru     3                          
+        CHD_PONO                  ,A12          ; P/O NUMBER                                  4 thru    15                          
+        CHD_PO_TYPE               ,A2           ; P/O TYPE                                   16 thru    17                          
+        CHD_PO_PURPOSE            ,A2           ; P/O PURPOSE                                18 thru    19                          
+        CHD_PO_LINE               ,D6           ; P/O LINE NUMBER                            20 thru    25                          
+        CHD_PARTNO                ,A30          ; CUSTOMER PART NUMMBER                      26 thru    55                          
+        CHD_PO_QTY                ,D9           ; ORDERED QUANTITY                           56 thru    64                          
+        CHD_PO_UOM                ,A2           ; UNIT OF MEASURE                            65 thru    66                          
+        CHD_PO_PRICE              ,D14          ; UNIT PRICE                                 67 thru    80                          
+        CHD_PRICE_CODE            ,A2           ; PRICE BASIS CODE                           81 thru    82                          
+        CHD_CUST_DESC             ,A80          ; CUSTOMER PART DESCRIPTION                  83 thru   162                          
+        CHD_CHG_LIN_TYP           ,A2           ; LINE CHANGE TYPE                          163 thru   164                          
+        CHD_QTY_LFT_REC           ,D9           ; QUANTITY LEFT TO RECEIVE                  165 thru   173                          
+        CHD_MY_PCD                ,A4           ; MODEL YEAR OR PRICE DESCR                 174 thru   177                          
+        CHD_DTM_QL                ,03A3         ; DATE/TIME QUALIFIER                       178 thru   186                          
+        CHD_DATE                  ,03D8         ; SAMPLE,EFFECTIVE,TOOLING DATE             187 thru   210                          
+        CHD_DRAW_LETTER           ,A30          ; DRAWING LETTER                            211 thru   240                          
+        CHD_DCL_LAST_NO           ,A30          ; DCL LATEST CODE NUMBER                    241 thru   270                          
+        CHD_COMPANY               ,A8           ; COMPANY TO SPLIT TO                       271 thru   278                          
+        CHD_SEQNUM                ,D5           ; SEQUENCE NUMBER                           279 thru   283                          
+        CHD_ENG_CTL_NO            ,A10          ; ENGINEERING CONTROL NUMBER                284 thru   293                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH850_DTL_KEY             ,A55          ; PRIMARY SORT KEY                                                                  
+                                  ,A238         ; PRIMARY KEY POSITIONING                                                           

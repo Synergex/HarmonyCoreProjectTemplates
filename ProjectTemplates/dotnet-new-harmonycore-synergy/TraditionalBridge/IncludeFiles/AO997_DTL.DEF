@@ -1,0 +1,30 @@
+; AO997_DTL.DEF
+;
+;	Functional Acknowledgment Detail - Transaction Set Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	21-MAY-92	T. Morbach	Original
+;
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 100		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD AO997_DTL
+	CFD_GROUP_ID	,A2	; Functional Group Identifier	|   1 thru 2
+	CFD_DATA_INT	,D9	; Data Interchange Control #	|   3 thru 11
+	CFD_TRANS_TYPE	,A3	; Transaction Set Identifier	|  12 thru 14
+	CFD_TRANS_CTL	,D9	; Trasnaction Set Control #	|  15 thru 23
+
+	CFD_ACK_CODE	,A1	; Transaction Set Ack Code	|  24 thru 24
+	CFD_NOTE_1	,D3	; Transaction Set Note Code-1	|  25 thru 27
+	CFD_NOTE_2	,D3	; Transaction Set Note Code-2	|  28 thru 30
+	CFD_NOTE_3	,D3	; Transaction Set Note Code-3	|  31 thru 33
+	CFD_NOTE_4	,D3	; Transaction Set Note Code-4	|  34 thru 36
+	CFD_NOTE_5	,D3	; Transaction Set Note Code-5	|  37 thru 38
+			,A62	; Filler			|  39 thru 100
+RECORD CFD_KEY, X
+	K_CFD_GROUP_ID		,A%SIZE(CFD_GROUP_ID)
+	K_CFD_DATA_INT		,D%SIZE(CFD_DATA_INT)
+	K_CFD_TRANS_TYPE	,A%SIZE(CFD_TRANS_TYPE)
+	K_CFD_TRANS_CTL		,D%SIZE(CFD_TRANS_CTL)

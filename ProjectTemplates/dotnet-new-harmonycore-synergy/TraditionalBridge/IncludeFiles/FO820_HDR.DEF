@@ -1,0 +1,27 @@
+;FO820_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       FORD REMITTANCE ADVICE HEADER                                                                                               
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   219                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FO820_HDR                                                                                                                   
+        FRH_UCCS_CODE             ,A15          ; SUPPLIER UCCS CODE                          1 thru    15                          
+        FRH_CHECK_NO              ,A9           ; CHECK NUMBER                               16 thru    24                          
+        FRH_CHECK_DATE            ,D8           ; CHECK DATE                                 25 thru    32                          
+        FRH_PAY_METHOD            ,A3           ; PAYMENT METHOD CODE                        33 thru    35                          
+        FRH_PAY_AMOUNT            ,D15          ; PAYMENT AMOUNT                             36 thru    50                          
+        FRH_HAND_CODE             ,A1           ; TRANSACTION HANDLING CODE                  51 thru    51                          
+        FRH_ROUTE_TRANS           ,A9           ; ROUTING/TRANSIT NUMBER                     52 thru    60                          
+        FRH_ACCOUNT_NO            ,A35          ; BANK ACCOUNT NUMBER                        61 thru    95                          
+        FRH_CURRENCY              ,A3           ; CURRENCY CODE                              96 thru    98                          
+        FRH_PAYEE_NAME            ,A35          ; PAYEE NAME                                 99 thru   133                          
+        FRH_COMP_ID               ,A6           ; ORIGINATING COMPANY ID NUMBER             134 thru   139                          
+        FRH_BUYER_NAME1           ,A35          ; BUYER PARTY NAME-1                        140 thru   174                          
+        FRH_BUYER_NAME2           ,A35          ; BUYER PARTY NAME-2                        175 thru   209                          
+        FRH_AP_PHONE              ,A10          ; A/P DEPT TELEPHONE NUMBER                 210 thru   219                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FO820_HDR_KEY             ,A32          ; PRIMARY SORT KEY                                                                  
+                                  ,A187         ; PRIMARY KEY POSITIONING                                                           

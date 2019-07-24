@@ -1,0 +1,53 @@
+;CH850_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER 850/860 HEADER                                                                                                     
+;       DATE : 03-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   491                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH850_HDR                                                                                                                   
+        CHH_ID_TYPE               ,A3           ; P/O ID TYPE (850 OR 860)                    1 thru     3                          
+        CHH_PONO                  ,A12          ; P/O NUMBER                                  4 thru    15                          
+        CHH_PO_TYPE               ,A2           ; P/O TYPE                                   16 thru    17                          
+        CHH_PO_PURPOSE            ,A2           ; P/O PURPOSE                                18 thru    19                          
+        CHH_PO_RELNO              ,D6           ; P/O RELEASE NUMBER                         20 thru    25                          
+        CHH_PO_DATE               ,D8           ; P/O DATE                                   26 thru    33                          
+        CHH_ORD_SEQ               ,A8           ; ORDER SEQUENCE NUMBER                      34 thru    41                          
+        CHH_SHH_CODE              ,A3           ; SHH CODE                                   42 thru    44                          
+        CHH_SHH_DESC              ,A80          ; SHH DESCRIPTION                            45 thru   124                          
+        CHH_SHH_DATE              ,D8           ; SHH DATE                                  125 thru   132                          
+        CHH_SHH_TIME              ,D4           ; SHH TIME                                  133 thru   136                          
+        CHH_SHIP_CODE             ,A2           ; SHIP CODE                                 137 thru   138                          
+        CHH_CONTACT_COD           ,A2           ; CONTACT CODE                              139 thru   140                          
+        CHH_CONTACT               ,A35          ; CONTACT PERSON                            141 thru   175                          
+        CHH_PHONE                 ,D15          ; PHONE NUMMBER                             176 thru   190                          
+        CHH_FOB_PAY_TYP           ,A2           ; FOB PAYMENT TYPE                          191 thru   192                          
+        CHH_FOB_LOC               ,A80          ; FOB LOCATION                              193 thru   272                          
+        CHH_NOT_EXCEED            ,D9           ; NOT TO EXCEED AMOUNT                      273 thru   281                          
+        CHH_TERM_TYPE             ,A2           ; TERM TYPE                                 282 thru   283                          
+        CHH_DATE_CODE             ,A2           ; DATE CODE                                 284 thru   285                          
+        CHH_DISCOUNT              ,D6           ; DISCOUNT                                  286 thru   291                          
+        CHH_DAY_MONTH             ,D2           ; DAY OF THE MONTH                          292 thru   293                          
+        CHH_CURRENCY              ,A3           ; CURRENCY CODE                             294 thru   296                          
+        CHH_ALLOW_ID              ,A1           ; ALLOWANCE ID CODE                         297 thru   297                          
+        CHH_METHOD                ,A2           ; METHOD OF HANDLE                          298 thru   299                          
+        CHH_ALLOW_AMT             ,D9           ; ALLOWANCE AMOUNT                          300 thru   308                          
+        CHH_ALLOW_UOM             ,A2           ; ALLOWANCE UNIT OF MEASURE                 309 thru   310                          
+        CHH_ALLOW_DESC            ,A80          ; ALLOWANCE DESCRIPTION                     311 thru   390                          
+        CHH_SS_CODE               ,A10          ; SPECIAL SERVICE CODE                      391 thru   400                          
+        CHH_ALL_CNG_COD           ,A16          ; ALLOWANCE OR CHANGE CODE                  401 thru   416                          
+        CHH_SP_CHAR_COD           ,A3           ; SPECIAL CHARGE CODE                       417 thru   419                          
+        CHH_SUPPLIER              ,A5           ; SUPPLIER CODE                             420 thru   424                          
+        CHH_COMPANY               ,A8           ; COMPANY TO SPLIT TO                       425 thru   432                          
+        CHH_SEQNUM                ,D5           ; SEQUENCE NUMBER                           433 thru   437                          
+        CHH_PERCENT               ,D3           ; COMPANY PERCENT TOTAL                     438 thru   440                          
+        CHH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             441 thru   445                          
+        CHH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            446 thru   449                          
+        CHH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER            450 thru   463                          
+        CHH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             464 thru   477                          
+        CHH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             478 thru   491                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH850_HDR_KEY             ,A19          ; PRIMARY SORT KEY                                                                  
+                                  ,A472         ; PRIMARY KEY POSITIONING                                                           

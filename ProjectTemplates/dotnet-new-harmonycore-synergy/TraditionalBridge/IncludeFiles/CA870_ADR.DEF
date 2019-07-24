@@ -1,0 +1,32 @@
+;CA870_ADR.DEF                                                                                                                      
+;                                                                                                                                   
+;       ORDER STATUS ADDRESS                                                                                                        
+;       DATE : 24-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   502                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA870_ADR                                                                                                                   
+        A870_REFNO                ,A39          ; REFERENCE NUMBER                            1 thru    39                          
+        A870_SEQ1                 ,D6           ; SEQUENCE NUMBER 1                          40 thru    45                          
+        A870_SEQ2                 ,D6           ; SEQUENCE NUMBER 2                          46 thru    51                          
+        A870_SEQ3                 ,D6           ; SEQUENCE NUMBER 3                          52 thru    57                          
+        A870_SEQ4                 ,D6           ; SEQUENCE NUMBER 4                          58 thru    63                          
+        A870_SEQ5                 ,D6           ; SEQUENCE NUMBER 5                          64 thru    69                          
+        A870_SEQ6                 ,D6           ; SEQUENCE NUMBER 6                          70 thru    75                          
+        A870_SEQ7                 ,D6           ; SEQUENCE NUMBER 7                          76 thru    81                          
+        A870_SEQ8                 ,D6           ; SEQUENCE NUMBER 8                          82 thru    87                          
+        A870_ENTITY_CD            ,A2           ; ENTITY ID CODE                             88 thru    89                          
+        A870_NAME                 ,A35          ; NAME                                       90 thru   124                          
+        A870_ID_CODE_QL           ,A2           ; ID CODE QUALIFIER                         125 thru   126                          
+        A870_ID_CODE              ,A17          ; ID CODE                                   127 thru   143                          
+        A870_GS_ID                ,A17          ; GS CONTROL NUMBER                         144 thru   160                          
+        A870_INTER_ID             ,A17          ; INTERCHANGE ID                            161 thru   177                          
+        A870_FILLER1              ,A99          ; FILLER                                    178 thru   276                          
+        A870_FILLER2              ,A99          ; FILLER                                    277 thru   375                          
+        A870_FILLER3              ,A99          ; FILLER                                    376 thru   474                          
+        A870_FILLER4              ,A28          ; FILLER                                    475 thru   502                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA870_ADR_KEY             ,A87          ; PRIMARY SORT KEY                                                                  
+                                  ,A415         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,58 @@
+;GM856C_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE/ISP/SPO 856 HDR                                                                                                
+;       DATE : 20-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   647                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM856C_HDR                                                                                                                  
+        GCH_TELE_PROC             ,A3           ; DIV TELEPROCESSING ID                       1 thru     3                          
+        GCH_ISSUE_BY              ,A15          ; ISSUED BY (DIV) CODE                        4 thru    18                          
+        GCH_SHIP_TO               ,A15          ; SHIP TO DEST CODE                          19 thru    33                          
+        GCH_ASN_NO                ,A30          ; ASN NUMBER (SHIPMENT ID - SID)             34 thru    63                          
+        GCH_ASN_DATE              ,D8           ; ASN CREATION DATE                          64 thru    71                          
+        GCH_ASN_TIME              ,D4           ; ASN CREATION TIME                          72 thru    75                          
+        GCH_SHIP_DATE             ,D8           ; SHIPMENT DATE                              76 thru    83                          
+        GCH_SHIP_TIME             ,D4           ; SHIPMENT TIME                              84 thru    87                          
+        GCH_ARRV_DATE             ,D8           ; EXPECTED ARRIVAL DATE                      88 thru    95                          
+        GCH_ARRV_TIME             ,D4           ; EXPECTED ARRIVAL TIME                      96 thru    99                          
+        GCH_RQSHIP_DATE           ,D8           ; REQUESTED SHIP DATE                       100 thru   107                          
+        GCH_WEIGHT_QL1            ,A3           ; WEIGHT QUALIFIER 1                        108 thru   110                          
+        GCH_WEIGHT                ,D8           ; WEIGHT                                    111 thru   118                          
+        GCH_WEIGHT_QL2            ,A2           ; WEIGHT QUALIFIER 2                        119 thru   120                          
+        GCH_ROUTE_SEQ             ,A2           ; ROUTING SEQUENCE CODE                     121 thru   122                          
+        GCH_ROUTE_ID              ,A2           ; ROUTING/ID CODE #67                       123 thru   124                          
+        GCH_CARR_CODE             ,A17          ; STANDARD CARRIER ALPHA CODE               125 thru   141                          
+        GCH_ROUTE_MODE            ,A2           ; TRANSPORT METHOD CODE #91                 142 thru   143                          
+        GCH_ROUTE_CMT             ,A35          ; ROUTING COMMENT                           144 thru   178                          
+        GCH_EQUIP_CODE            ,A2           ; SHIPPING EQUIPMENT CODE                   179 thru   180                          
+        GCH_EQUIP_PRE             ,A4           ; EQUIPMENT PREFIX - SCAC IF ""             181 thru   184                          
+        GCH_EQUIP_NO              ,A7           ; SHIPPING EQUIPMENT NUMBER                 185 thru   191                          
+        GCH_PRO_NO_QL             ,A2           ; CARRIER PRO # QUALIFIER                   192 thru   193                          
+        GCH_PRO_NO                ,A30          ; CARRIER PRO NO                            194 thru   223                          
+        GCH_PACK_CODE             ,A5           ; THE NUMBER OF PACKS QUALIFIER             224 thru   228                          
+        GCH_PACK_QTY              ,D8           ; TOTAL NO OF PACKS (PER B.O.L.)            229 thru   236                          
+        GCH_PACK_LST              ,A30          ; PACKING LIST NUMBER                       237 thru   266                          
+        GCH_PACK_LST_QL           ,A2           ; PACKING LIST QUALIFIER                    267 thru   268                          
+        GCH_BILL_NO_QL            ,A2           ; BILL OF LADING QUALIFIER                  269 thru   270                          
+        GCH_BILL_NO               ,A30          ; BILL OF LADING NO                         271 thru   300                          
+        GCH_DOCK_QL               ,A2           ; DOCK CODE QUALIFIER                       301 thru   302                          
+        GCH_DOCK                  ,A30          ; DOCK CODE                                 303 thru   332                          
+        GCH_TOT_LINES             ,D5           ; TOTAL LINE ITEMS                          333 thru   337                          
+        GCH_TOT_QTY               ,D8           ; TOTAL SHIP QUANTITY                       338 thru   345                          
+        GCH_SUPP_ID               ,A15          ; SUPPLIER ID                               346 thru   360                          
+        GCH_SUPP_ID_QL            ,A2           ; SUPPLIER ID QUALIFIER                     361 thru   362                          
+        GCH_ISSUE_BY_QL           ,A2           ; ISSUED BY QUALIFIER                       363 thru   364                          
+        GCH_SHIP_TO_QL            ,A2           ; SHIP TO ID QUALIFIER                      365 thru   366                          
+        GCH_SHIP_FRM_QL           ,A2           ; SHIP FROM QUALIFIER                       367 thru   368                          
+        GCH_SHIP_FRM_ID           ,A15          ; SHIP FROM ID CODE                         369 thru   383                          
+        GCH_ASN_PURPOSE           ,A2           ; ASN PURPOSE                               384 thru   385                          
+        GCH_TOT_HLS               ,D7           ; TOTAL NUMBER OF HL SEGMENTS               386 thru   392                          
+        GCH_DEST_ABBRV            ,A5           ; DESTINATION ABBRVIATION                   393 thru   397                          
+        GCH_ORDER_BY              ,A15          ; ORDER BY CODE                             398 thru   412                          
+        GCH_OB_QUAL               ,A2           ; ORDER BY QUALIFIER                        413 thru   414                          
+        GCH_SUPP_NAME             ,A35          ; SUPPLIER NAME                             415 thru   449                          
+        GCH_FILLER                ,A99          ; FILLER                                    450 thru   548                          
+        GCH_FILLER1               ,A99          ; FILLER                                    549 thru   647                          
+                                                                                                                                    
+                                                                                                                                    

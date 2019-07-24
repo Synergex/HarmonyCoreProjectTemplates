@@ -1,0 +1,13 @@
+	rcproxy_server	,a128	; Proxy server name - required
+	rcproxy_host	,a128	; Destination host
+	rcproxy_hostport	,a3 ; host port number
+	rcproxy_user	,a40	; User id
+	rcproxy_password	,a40	; Password
+				; The following fields are set within %rcproxy_api
+group rcproxy_return_fields
+	rcproxy_err_type	,i4	; Error Type
+	rcproxy_verb		,a15	; Last RCPROXY verb issued
+	rcproxy_rtn_code	,d3	; rcproxy return code
+	rcproxy_rtn_msg		,a80	; rcproxy_api return message
+endgroup
+.include "DEF:WSOCKBLOCK.DEF"

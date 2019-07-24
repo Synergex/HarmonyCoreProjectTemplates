@@ -1,0 +1,41 @@
+; FO856M_DTL.DEF
+;
+;	FORD CMMS PRIMARY METALS RAW INPUT DETAIL FILE FOR X12 ASN GENERATION.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	02-Aug-1989	W. Chunn	Original
+;
+;	01-Dec-93	T. Bunker	Expand part numbers to 30.
+;					Expand record size to 188.
+;----------------------------------------------------------------------------------------------------
+;	FILE ORGANIZATION: SEQUENTIAL   |     RECORD SIZE: 188		|  	FIELD POSITIONS
+;----------------------------------------------------------------------------------------------------
+;									|
+RECORD FO856M_DTL			;				|
+	FD_INPUT_SEQ	,D5		; Input Sequence Number.	|	  1 thru 5
+	FD_INPUT_SEQ2	,D5		; Secondary Input Sequence.	|	  6 thru 10
+	FD_TRANS_ID	,A15		; Transmitted Id (Recv Id)	|	 11 thru 25
+	FD_DEST_CODE	,A15		; Destination Code		|        26 thru 40
+	FD_ASN_NO	,A9		; ASN Number			|	 41 thru 49
+
+	FD_OUR_PART	,A30		; CARaS Part Number		|	 50 thru 79
+	FD_CUST_PART	,A30		; Ford CMMS Part Number		|	 80 thru 109
+			,A2		; Filler			|	110 thru 111
+
+	FD_TOT_WEIGHT	,D8		; Total Theoretical Weight 	|	112 thru 119
+					;  Shipped			|
+	FD_YTD_CUM	,D8		; YTD Ship Weight		|	120 thru 127
+	
+	FD_PO_NUM	,A22		; Ford Purchase Order Number	|	128 thru 149
+	FD_PO_DATE	,D6		; Purchase Order Date		|	150 thru 155
+
+	FD_REF_QUAL	,A2		; Reference Qualifier		|	156 thru 157
+	FD_REFERENCE	,A11		; Reference Number/Code		|	158 thru 168
+
+	FD_UOFM		,A2		; Unit of Measure		|	169 thru 170
+			,A18		; Filler			|	171 thru 188

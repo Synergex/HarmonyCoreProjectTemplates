@@ -1,0 +1,26 @@
+; Structure     : CA852_SDQ                                 
+; File Type     : ASCII                                     
+; Creation Date : 01-MAY-06, 13:34:53                       
+; Description   : Product Activity Dest Quantity Flat File  
+;      Record Size    : 526                                 
+;      # of Files     : 0                                   
+;      # of Fields    : 13                                  
+;      # of Keys      : 0                                   
+;      # of Relations : 0                                   
+                                                            
+                                                            
+RECORD CA852_SDQ                                            
+  S852_TP_DESIG  ,A2        ; (1,2) Trading Partner Designator             1 THR
+  S852_GS_CTL    ,D9        ; (3,11) GS CONTROL NUMBER                     3 THR
+  S852_HDR_LINE  ,D6        ; (12,17) HEADER LINE NUMBER                  12 THR
+  S852_DTL_LINE  ,D6        ; (18,23) DETAIL LINE NUMBER                  18 THR
+  S852_ZA_LINE   ,D6        ; (24,29) ZA LINE NUMBER                      24 THR
+  S852_SDQ_LINE  ,D6        ; (30,35) SDQ LINE NUMBER                     30 THR
+  S852_SDQ_UOFM  ,A2        ; (36,37) UNIT OF MEASURE                     36 THR
+  S852_SDQ_ID_QL ,A2        ; (38,39) ID CODE QUAL                        38 THR
+  S852_SDQ_ID    ,[10]A17   ; (40,209) ID CODE                            40 THR
+  S852_SDQ_QTY   ,[10]D15   ; (210,359) ID QUANTITY                      210 THR
+  S852_SDQ_LOCID ,A17       ; (360,376) LOCATION ID                      360 THR
+  S852_SDQ_AQTY  ,[10]A15   ; (377,526) ALPHA ID QUANTITY                377 THR
+  CA852_SDQ_KEY   ,A35  @S852_TP_DESIG                                          
+                            ; (1,35) Primary Key                                

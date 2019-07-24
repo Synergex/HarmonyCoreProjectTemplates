@@ -1,0 +1,19 @@
+; CAGDRV_XSB.DEF 
+;
+;	Description:
+;
+;	It is used to define global data for both CAGDRV_XSB and CAGENR_XSB.
+;	Currently the maximum array size is 10. The data stored in this array
+;	is used for comparison in deciding next ISA/GS control numbers.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	4/14/1997	B. Hong		Original
+;
+;------------------------------------------------------------------------------
+;
+RECORD
+	LAST_XD_KEY0	,[10]A%SIZE(XD_KEY0)
+	LAST_ISA_CTL	,[10]D%SIZE(XD_INTR_CTL)
+	LAST_GS_CTL	,[10]D%SIZE(XD_DATA_CTL)
+

@@ -1,0 +1,118 @@
+RECORD CAREL_DTL
+;
+;   CAREL_DTL	- Generic Release Detail File.
+;
+;	22-SEP-92	M. Farneth		Added color code.
+;	01-DEC-93	T. Bunker		Expand part number to 30.
+;	15-JAN-94	T. Bunker		Added RLD_INTRA_RTE.
+;-------------------------------------------------------------------------------
+;  FILE ORGANIZATION: Sequential | RECORD SIZE: 401              |   POSITIONS
+;-------------------------------------------------------------------------------
+			,A16	; Reserved for split. 		|   1 thru 16
+				;  See alternate buffer.	|
+
+	RLD_SUPP_ID	,A15	; Supplier Id.			|  17 thru 31
+	RLD_RELDT	,D6	; Release date                  |  32 thru 37
+	RLD_RELNO	,A10	; Release Number		|  38 thru 47
+	RLD_PURPOSE	,D2	; Purpose Code			|  48 thru 49
+
+	RLD_TP_PART	,A30	; Trading Partner Part		|  50 thru 79
+	RLD_PO_KEY	,A22	; P.O. Key Value. 		|  80 thru 101 
+	RLD_DIV_CODE	,A15	; Division Code                 | 102 thru 116 
+	RLD_MY		,A1	; Model Year                    | 117 thru 117 
+	RLD_DEST_CODE	,A15	; Destination Code              | 118 thru 132 
+	RLD_REC_TYPE	,D2	; Record type:                  | 133 thru 134
+				;       10  - JIT/Daily		|
+				;	20  - Firm Requirement	|
+				;	30  - Forcast		|
+				;	40  - Authorized Fab	|
+				;	50 - Authorized Raw	|
+	RLD_REQDT	,D6	; Required Date                 | 135 thru 140
+	RLD_REQ_TIME	,D4	; Required Time                 | 141 thru 144
+				; Only if specified on release	|
+			        ; interval			|   
+	RLD_ORDER_NO	,A15	; Customer's Order Number	| 145 thru 159
+	RLD_END_REQDT	,D6	; Ending Required Date		| 160 thru 165
+				;   Only if a flexible date	|
+				;   interval.			|
+	RLD_DELIV_NO	,A15	; Delivery Number               | 166 thru 180
+	RLD_CUM_FLAG	,A1	; Flags type of required field. | 181 thru 181
+				;	C=cum, Q=qty		|
+	RLD_CUM_QTY	,D9	; Required CUM or Quantity      | 182 thru 190
+				;	(see flag above)	|
+	RLD_NUM1	,D9	; misc. numeric                 | 191 thru 199
+	RLD_NUM2	,D9	; Misc. numeric                 | 200 thru 208
+	RLD_COLOR_CODE	,A8	; Color code			| 209 thru 216
+	RLD_NUM3	,D7	; Misc numeric			| 217 thru 223
+	RLD_NUM4	,D7	; Misc numeric  		| 224 thru 230
+	RLD_ALPHA1	,A10	; Misc alpha-numeric		| 231 thru 240
+	RLD_ALPHA2	,A10	; Misc alpha-numeric		| 241 thru 250
+	RLD_ALPHA3	,A30	; Misc alpha-numeric            | 251 thru 280
+	RLD_INTRA_RTE	,A8	; Intra Route code		| 281 thru 288
+	RLD_MODEL_TYPE  ,A10	;				| 289 thru 298
+			,A103	; Filler                        | 299 thru 401 
+
+RECORD,X
+			,A16
+	RLD_KEY1	,A143	; sort key - RLD_SUPP_ID thru RLD_ORDER_NO
+
+RECORD,X
+			,A16
+	RLD_KEY0	,A116	; partial key - RLD_SUPP_ID thru RLD_DEST_CODE
+				; this key matches CAREL_HDR's RLD_KEY1
+
+;------------------------------------------------------------------------------
+;                    ----- Alternate Record Definition -----
+;------------------------------------------------------------------------------
+.IFDEF CAREL_DTL_ALT
+
+RECORD A_CAREL_DTL
+			,A%SIZE(CAREL_DTL)
+
+RECORD	,X
+	A_RLD_COMPANY		,A8	; CARaS Company to Split to.
+	A_RLD_SPLIT_SEQ		,D5	; Split sequence number.
+	A_RLD_SPLIT_PCT		,D3.2	; Total split percent accumulator
+	A_RLD_SUPP_ID		,A15	
+	A_RLD_RELDT		,D6	
+	A_RLD_RELNO		,A10	
+	A_RLD_PURPOSE		,D2
+	A_RLD_TP_PART		,A30	
+	A_RLD_PO_KEY		,A22	 
+	A_RLD_DIV_CODE		,A15	 
+	A_RLD_MY		,A1	  
+	A_RLD_DEST_CODE		,A15	 
+	A_RLD_REC_TYPE		,D2	
+	A_RLD_REQDT		,D6	
+	A_RLD_REQ_TIME		,D4	
+	A_RLD_ORDER_NO		,A15
+	A_RLD_END_REQDT		,D6
+	A_RLD_DELIV_NO		,A15
+	A_RLD_CUM_FLAG		,A1
+	A_RLD_CUM_QTY		,D9
+	A_RLD_NUM1		,D9
+	A_RLD_NUM2		,D9
+	A_RLD_COLOR_CODE	,A8
+	A_RLD_NUM3		,D7
+	A_RLD_NUM4		,D7
+	A_RLD_ALPHA1		,A10
+	A_RLD_ALPHA2		,A10
+	A_RLD_ALPHA3		,A30
+	A_RLD_INTRA_RTE		,A8
+	A_RLD_MODEL_TYPE  	,A10	
+				,A103
+.ENDC
+
+.IFDEF CAREL_DTL_TOTALS
+;------------------------------------------------------------------------------
+;             ----- Split Working Totals Record Definition -----
+;------------------------------------------------------------------------------
+;
+;	The quantity fields accumulate the total quantities that have been
+;	split to multiple companies.  This buffer is not written to any file.
+;
+
+RECORD T_CAREL_DTL
+	T_RLD_CUM_QTY		,D9
+	T_RLD_SPLIT_PCT		,D3.2
+.ENDC

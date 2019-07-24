@@ -1,0 +1,20 @@
+;GE856_SNO.DEF                                                                                                                      
+;                                                                                                                                   
+;       GE ASN SERIAL NUMBER FILE                                                                                                   
+;       DATE : 06-AUG-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   236                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GE856_SNO                                                                                                                   
+        GESA_SUPPLIER             ,A17          ; SUPPLIER ID                                 1 thru    17                          
+        GESA_ASN_NO               ,A30          ; ASN NUMBER                                 18 thru    47                          
+        GESA_TP_PART              ,A30          ; GE PART NUMBER                             48 thru    77                          
+        GESA_SNO                  ,A30          ; SERIAL NUMBER                              78 thru   107                          
+        GESA_INTRCHNGE            ,A15          ; INTERCHANGE ID                            108 thru   122                          
+        GESA_GROUP                ,A15          ; GROUP ID                                  123 thru   137                          
+        GESA_FILLER               ,A99          ; FILLER                                    138 thru   236                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GE856_SNO_KEY             ,A107         ; PRIMARY SORT KEY                                                                  
+                                  ,A129         ; PRIMARY KEY POSITIONING                                                           

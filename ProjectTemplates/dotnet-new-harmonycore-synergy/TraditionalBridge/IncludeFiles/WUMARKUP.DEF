@@ -1,0 +1,29 @@
+external function
+	wumarkup		,a
+literal	
+	WFO_BOLD		,i4, 	1
+	WFO_UNDERLINE		,i4,	2
+	WFO_ITALICS		,i4,	4
+	WFO_SHADED		,i4,	8
+	WFO_LINE		,i4,	16
+	WFO_SHADED_LIGHT	,i4,	32
+	WFO_SHADED_DARK		,i4,	64
+
+	WFO_ARRAY_MAX		,I4,	132
+	BOOKMARK_MAX		,I4,	4
+
+record	markup_array
+	wfo_cnt			,d3
+	group	wfo		,[WFO_ARRAY_MAX]a
+		start		,i4
+		length		,i4
+		attrib		,i4
+	endgroup
+	
+record	bookmark_array
+	bm_cnt			,d2
+	group	bm		,[BOOKMARK_MAX]a
+		bm_type		,a1
+		bm_value	,a80
+	endgroup
+	bm_display		,[BOOKMARK_MAX]a80

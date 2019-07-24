@@ -7,6 +7,7 @@
     <Name>Services</Name>
     <EnableCommonProperties>True</EnableCommonProperties>
     <ProjectGuid>{f9257051-cc32-4541-baf3-3dd58c1e7f61}</ProjectGuid>
+    <Prefer32Bit>False</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
@@ -46,6 +47,12 @@
     <PackageReference Include="Synergex.SynergyDE.synrnt" Version="10.3.3072" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.synproj">
+      <Name>Repository</Name>
+      <Project>{cc6c33fb-c46c-4484-972c-c454743f8add}</Project>
+      <Private>True</Private>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Controllers\Services.Controllers.synproj">
       <Name>Services.Controllers</Name>
       <Project>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</Project>

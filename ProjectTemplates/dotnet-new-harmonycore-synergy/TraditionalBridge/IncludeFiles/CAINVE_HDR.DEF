@@ -1,0 +1,62 @@
+;CAINVE_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       INVOIC EDIFACT HEADER FILE                                                                                                  
+;       DATE : 30-JAN-02                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   742                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CAINVE_HDR                                                                                                                  
+        IEH_SEQ1                  ,D6           ; SEQUENCE 1                                  1 thru     6                          
+        IEH_SEQ2                  ,D6           ; SEQUENCE 2                                  7 thru    12                          
+        IEH_SEQ3                  ,D6           ; SEQUENCE 3                                 13 thru    18                          
+        IEH_SEQ4                  ,D6           ; SEQUENCE 4                                 19 thru    24                          
+        IEH_TELE_PROC             ,A5           ; GM COMMUNICATIONS CODE                     25 thru    29                          
+        IEH_INTRCHG_ID            ,A35          ; INTERCHANGE ID                             30 thru    64                          
+        IEH_GROUP_ID              ,A35          ; GROUP ID                                   65 thru    99                          
+        IEH_INVOIC_NO             ,A30          ; INVOICE NUMBER                            100 thru   129                          
+        IEH_INV_TYPE              ,A3           ; INVOICE TYPE                              130 thru   132                          
+        IEH_PURPOSE_CD            ,A3           ; PURPOSE_CODE                              133 thru   135                          
+        IEH_INV_DATE              ,D12          ; INVOICE DATE/TIME                         136 thru   147                          
+        IEH_INV_DTM_QL            ,D3           ; INVOICE TIME                              148 thru   150                          
+        IEH_DELV_DATE             ,D12          ; DELIVERY DATE/TIME                        151 thru   162                          
+        IEH_DELV_DTM_QL           ,D3           ; DELIVERY DATE/TIME QUALIFIER              163 thru   165                          
+        IEH_BILL_TO               ,A35          ; BILL TO                                   166 thru   200                          
+        IEH_SELLER                ,A35          ; SELLER                                    201 thru   235                          
+        IEH_SHIP_FROM             ,A35          ; SHIP FROM                                 236 thru   270                          
+        IEH_SHIP_TO               ,A35          ; SHIP TO                                   271 thru   305                          
+        IEH_SUPPLIER              ,A35          ; SUPPLIER                                  306 thru   340                          
+        IEH_METHOD_PAY            ,A3           ; METHOD OF PAY                             341 thru   343                          
+        IEH_CARRIER_REF           ,A35          ; CARRIER REFERENCE NUMBER                  344 thru   378                          
+        IEH_PO_NO                 ,A35          ; PURCHASE ORDER NUMBER                     379 thru   413                          
+        IEH_PO_DATE               ,D12          ; PURCHASE ORDER DATE/TIME                  414 thru   425                          
+        IEH_PO_DTM_QL             ,D3           ; PURCHASE ORDER DATE/TIME QUAL             426 thru   428                          
+        IEH_SHIPPER               ,A35          ; SHIPPER NUMBER                            429 thru   463                          
+        IEH_SHIP_DATE             ,D12          ; SHIPPER DATE/TIME QUALIFIER               464 thru   475                          
+        IEH_SHIP_DTM_QL           ,D3           ; SHIPMENT DATE/TIME QUALIFIER              476 thru   478                          
+        IEH_CURRENCY              ,A3           ; CURRENCY CODE                             479 thru   481                          
+        IEH_TERM_TYPE             ,A3           ; TERMS TYPE                                482 thru   484                          
+        IEH_PAYMNT_DATE           ,D8           ; PAYMENT DUE DATE                          485 thru   492                          
+        IEH_TRANS_TYPE            ,A3           ; TRANSACTION TYPE                          493 thru   495                          
+        IEH_ROUTING               ,A17          ; ROUTING INFO                              496 thru   512                          
+        IEH_TRANS_MODE            ,A3           ; MODE OF TRANSPORT                         513 thru   515                          
+        IEH_SCAC                  ,A17          ; SCAC CODE                                 516 thru   532                          
+        IEH_SCAC_RESP             ,A3           ; SCAC CODE LIST RESPONSIBLE                533 thru   535                          
+        IEH_CARRIER_NM            ,A35          ; CARRIER NAME                              536 thru   570                          
+        IEH_EX_TR_REASN           ,A3           ; EXPID TRANSPORT REASON CODE               571 thru   573                          
+        IEH_EX_TR_RESP            ,A3           ; EXP TRANS RESPONIBLE PARTY                574 thru   576                          
+        IEH_EX_TR_AUTH            ,A17          ; EXPID TRANS AUTHORIZTION NO               577 thru   593                          
+        IEH_TOT_NO_CONT           ,D8           ; TOTAL NUMBER OF CONTAINERS                594 thru   601                          
+        IEH_TOT_GRS_WGT           ,D10          ; TOTAL GROSS WEIGHT                        602 thru   611                          
+        IEH_TOT_NET_WGT           ,D10          ; TOTAL NET WEIGHT                          612 thru   621                          
+        IEH_TOT_COUNT             ,D10          ; TOTAL ITEM COUNT                          622 thru   631                          
+        IEH_UOFM                  ,A3           ; UNIT OF MEASURE                           632 thru   634                          
+        IEH_TOT_LIN_SEG           ,D10          ; TOTAL LIN SEGMENTS                        635 thru   644                          
+        IEH_INVOICE_AMT           ,A18          ; INVOICE AMOUNT                            645 thru   662                          
+        IEH_DISCNT_AMT            ,A18          ; PAYMENT DISCOUNT AMOUNT                   663 thru   680                          
+        IEH_VAT_TAX_AMT           ,A18          ; VALUE ADDED TAX AMOUNT                    681 thru   698                          
+        IEH_VAT_TAX_FLG           ,A3           ; VAT TAX FUNCTION FLAG                     699 thru   701                          
+        IEH_DEST_ABBRV            ,A5           ; DESTINATION ABBREVIATION                  702 thru   706                          
+        IEH_ITM_TOT_AMT           ,A18          ; TOTAL AMOUNT FOR ALL LINE ITEM            707 thru   724                          
+        IEH_ALC_TOT_AMT           ,A18          ; TOTAL AMOUNT FOR ALLOW/CHGS               725 thru   742                          
+                                                                                                                                    
+                                                                                                                                    

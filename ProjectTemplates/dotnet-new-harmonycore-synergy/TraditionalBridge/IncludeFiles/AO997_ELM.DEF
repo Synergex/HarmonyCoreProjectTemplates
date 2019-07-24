@@ -1,0 +1,36 @@
+; AO997_ELM.DEF
+;
+;	Functional Acknowledgment Detail - Element Level Information.
+;
+;	Modified	Programmer	Description
+;	--------	----------	-----------
+;	21-MAY-92	T. Morbach	Original
+;
+;-------------------------------------------------------------------------------
+; Organization: Sequential	| Record Size: 160		| Field Position
+;-------------------------------------------------------------------------------
+
+RECORD AO997_ELM
+	CFE_GROUP_ID	,A2	; Functional Group Identifier	|   1 thru 2
+	CFE_DATA_INT	,D9	; Data Interchange Control #	|   3 thru 11
+	CFE_TRANS_TYPE	,A3	; Transaction Set Identifier	|  12 thru 14
+	CFE_TRANS_CTL	,D9	; Trasnaction Set Control #	|  15 thru 23
+	CFE_SEGMENT	,A3	; Segment Identifier		|  24 thru 26
+	CFE_SEG_POS	,D6	; Segment Position in Trans Set	|  27 thru 32
+	CFE_LOOP_ID	,D4	; Loop Identifier		|  33 thru 36
+	CFE_ELEM_POS	,D2	; Element Position in Segment	|  37 thru 38
+
+	CFE_ELEM_REF	,D4	; Element Reference # 		|  39 thru 42
+	CFE_NOTE_CODE	,D3	; Element Note Code		|  43 thru 45
+	CFE_ELEM_COPY	,A80	; Copy of Bad Element		|  46 thru 125
+			,A35	; Filler			| 126 thru 160
+
+RECORD CFE_KEY, X
+	K_CFE_GROUP_ID		,A%SIZE(CFE_GROUP_ID)
+	K_CFE_DATA_INT		,D%SIZE(CFE_DATA_INT)
+	K_CFE_TRANS_TYPE	,A%SIZE(CFE_TRANS_TYPE)
+	K_CFE_TRANS_CTL		,D%SIZE(CFE_TRANS_CTL)
+	K_CFE_SEGMENT		,A%SIZE(CFE_SEGMENT)
+	K_CFE_SEG_POS		,D%SIZE(CFE_SEG_POS)
+	K_CFE_LOOP_ID		,D%SIZE(CFE_LOOP_ID)
+	K_CFE_ELEM_POS		,D%SIZE(CFE_ELEM_POS)

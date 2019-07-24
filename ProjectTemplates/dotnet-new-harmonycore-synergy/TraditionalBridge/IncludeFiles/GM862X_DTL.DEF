@@ -1,0 +1,38 @@
+;GM862X_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE X12 862 DETAILS                                                                                                
+;       DATE : 18-MAY-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1225                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM862X_DTL                                                                                                                  
+        XSD_SUPP_CODE             ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        XSD_ISSUE_CODE            ,A15          ; ISSUED BY/DIVISION CODE                    16 thru    30                          
+        XSD_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       31 thru    52                          
+        XSD_MODEL_YEAR            ,A4           ; MODEL YEAR                                 53 thru    56                          
+        XSD_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   57 thru    71                          
+        XSD_REL_NO                ,A8           ; RELEASE NUMBER                             72 thru    79                          
+        XSD_KANBAN_CODE           ,A1           ; KANBAN CODE                                80 thru    80                          
+        XSD_SKANBAN               ,A10          ; STARTING KANBAN #                          81 thru    90                          
+        XSD_ISSUE_DATE            ,D8           ; ISSUE DATE                                 91 thru    98                          
+        XSD_FILLER_1              ,A14          ; KEY FILLER                                 99 thru   112                          
+        XSD_SHIP_DATE             ,D8           ; REQUESTED SHIP DATE                       113 thru   120                          
+        XSD_SHIP_TIME             ,D4           ; REQUESTED SHIP TIME                       121 thru   124                          
+        XSD_SHIP_ZONE             ,A2           ; REQUESTED SHIP TIME ZONE                  125 thru   126                          
+        XSD_DELIV_DATE            ,D8           ; DELIVER DATE                              127 thru   134                          
+        XSD_DELIV_TIME            ,D4           ; DELIVERY TIME                             135 thru   138                          
+        XSD_SHIP_QTY              ,D9           ; TOTAL SHIP QUANTITY                       139 thru   147                          
+        XSD_JIT_QTY               ,24D9         ; JIT SCHEDULE QUANTITY                     148 thru   363                          
+        XSD_JIT_TIME              ,24D4         ; JIT SHIP/DELIVERY TIME                    364 thru   459                          
+        XSD_FCST_QL               ,A1           ; FORECAST QUALIFIER                        460 thru   460                          
+        XSD_FCST_TM_QL            ,A1           ; FORECAST TIMING QUALIFIER                 461 thru   461                          
+        XSD_SEQ_NO                ,A5           ; SEQUENCE NUMBER                           462 thru   466                          
+        XSD_DOCK_CODE             ,A30          ; DOCK CODE                                 467 thru   496                          
+        XSD_DT_TM_QL              ,A3           ; DATE/TIME QUALIFIER                       497 thru   499                          
+        XSD_SHIPPER_ID            ,24A30        ; SID (ASN) NUMBER                          500 thru  1219                          
+        XSD_BSS_SEQ               ,D6           ; BSS SEQUENCE NUMBER                      1220 thru  1225                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM862X_DTL_KEY            ,A112         ; PRIMARY SORT KEY                                                                  
+                                  ,A1113        ; PRIMARY KEY POSITIONING                                                           

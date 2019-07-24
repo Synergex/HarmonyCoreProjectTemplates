@@ -1,0 +1,13 @@
+;RTSEG_ST.DEF                                                                                                                       
+;                                                                                                                                   
+;       TRANSACTION SET HEADER                                                                                                      
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    15                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_ST                                                                                                                    
+        ST_SEG                    ,A3           ; ST SEGMENT IDENTIFIER                       1 thru     3                          
+        ST_01                     ,A3           ; TRANSACTION SET ID CODE                     4 thru     6                          
+        ST_02                     ,A9           ; TRANSACTION SET CONTROL NUMBER              7 thru    15                          
+                                                                                                                                    
+                                                                                                                                    

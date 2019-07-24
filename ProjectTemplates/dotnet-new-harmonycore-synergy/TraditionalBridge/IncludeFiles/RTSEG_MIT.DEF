@@ -1,0 +1,12 @@
+;RTSEG_MIT.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL MIT SEGMENT FILE                                                                                                     
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    33                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_MIT                                                                                                                   
+        MIT_SEG                   ,A3           ; RECORD TYPE - MIT                           1 thru     3                          
+        MIT_01                    ,A30          ; REFERENCE NUMBER                            4 thru    33                          
+                                                                                                                                    
+                                                                                                                                    

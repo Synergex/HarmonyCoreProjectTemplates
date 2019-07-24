@@ -1,0 +1,36 @@
+	.include 'DOCUMENT_PROFILE' repository,record='document_profile'
+	.include 'DOCUMENT_PROFILE_KEY1' repository,record='dpro_key1'
+	.include 'DOCUMENT_STATUS' repository, record='document_status'
+	.include 'RETPETS' repository,record='retpets'
+
+structure cb_struct
+	cb_tp_desig		,a%size(dpro_tp_desig)
+	cb_edi_group		,a%size(dpro_group)
+	cb_transaction_id	,a%size(dpro_trans_set)
+	cb_transaction_version	,a%size(tpets_group_version)
+	cb_standard_used	,d1
+	cb_network_class	,a%size(tpets_network_class)
+	cb_terminator		,d%size(tpets_seg_term)
+	cb_separator		,d%size(tpets_elem_sep)
+	cb_sub_element		,d%size(tpets_sub_sep)
+	cb_component		,d%size(tpets_comp_sep)
+	group cb_cagenid
+	.include 'CAGENID' repository, norecord, nofields
+	endgroup
+	cb_flatfile		,a132
+	cb_edi_file		,a132
+	cb_send_file		,d1
+	cb_rje_file		,a132
+	cb_docstatus		,a%size(document_status)
+	cb_entity		,a%size(tpets_entity)
+	cb_file_ind		,d3
+	cb_update_docstatus	,d1
+	cb_translation_script	,a35
+	cb_document_number	,a35
+
+structure dje_struct
+	dje_entity	,a%size(tpets_entity)	
+	dje_isa_control	,a%size(ds_ichg_ctl)
+	dje_gs_control	,a%size(ds_grp_ctl)
+	dje_st_control	,a%size(ds_doc_ctl)
+	

@@ -1,0 +1,44 @@
+; HO856_4.DEF
+;
+;	HONDA INPUT FILE-4 FOR X12 ASN GENERATION - Item Level File.
+;
+;-------------------------------------------------------------------------------
+;--- RADLEY BUSINESS COMPUTERS MODIFICATION LOG --------------------------------
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	-----------
+;	18-Sept-89	J. Rheingans	Original
+;	28-FEB-92	M. Farneth	Added H4_IPP
+;	04-MAY-94	John Sawyer III	Added H4_CODE
+;-------------------------------------------------------------------------------
+; File Organization: Sequential	| Record Size: 200		| Start Position
+;-------------------------------------------------------------------------------
+
+RECORD HO856_4
+	H4_INPUT_SEQ	,D5	; Generation Input Sequence	|   1 thru 5
+	H4_INPUT_SEQ2	,D5	; Secondary Input Sequence	|   6 thru 10
+	H4_INPUT_SEQ3	,D5	; Third Input Sequence		|  11 thru 15
+
+	H4_PLANT_DUNS	,A15	; Honda Plant's Duns Number	|  16 thru 30
+	H4_PLANT_ID	,A15	; Plant Identification		|  31 thru 45
+	H4_ASN_NO	,A9	; ASN Number			|  46 thru 54
+	H4_PARENT_ID	,D4	; Parent Id 			|  55 thru 58
+	H4_PART_NO	,A30	; Honda Part Number		|  59 thru 88
+
+	H4_SHIP_QTY	,D8	; Quantity Shipped		|  89 thru 96
+	H4_UOFM		,A2	; Unit of Measure		|  97 thru 98
+
+	H4_LABEL_NO	,A15	; Label Serial Number		|  99 thru 113
+	H4_RC_NO	,A15	; Returnable Container Serial #	| 114 thru 128
+	
+	H4_KD_ORDER	,A15	; KD Order Number		| 129 thru 143
+	H4_REL_NO	,A15	; Release Number		| 144 thru 158
+	H4_CUST_REF	,A15	; Customer Reference Number	| 159 thru 173
+	H4_OUR_PART	,A15	; Supplier Part Number		| 174 thru 188
+	H4_IPP		,A15	; Initial Prod. Parts = 'IPP'	| 189 thru 203
+	H4_CODE		,A2	; Holds 'XX' if non-returnable	| 204 thru 205
+			,A3	; Filler			| 206 thru 208
+RECORD 	,X
+			,D15
+	H856_4_KEY	,A73

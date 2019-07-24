@@ -1,0 +1,19 @@
+;AB860_NTE.DEF                                                                                                                      
+;                                                                                                                                   
+;       ALLEN-BRADLEY PO CHANGE NOTES                                                                                               
+;       DATE : 11-AUG-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   110                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  AB860_NTE                                                                                                                   
+        ABCN_GS_CTL               ,D9           ; GS CONTROL NUMBER                           1 thru     9                          
+        ABCN_HDR_LINE             ,D6           ; HEADER LINE NUMBER                         10 thru    15                          
+        ABCN_DTL_LINE             ,D6           ; DETAIL LINE NUMBER                         16 thru    21                          
+        ABCN_NOTE_LINE            ,D6           ; NOTE LINE NUMBER                           22 thru    27                          
+        ABCN_REF_CODE             ,A3           ; NOTE REFERNCE CODE                         28 thru    30                          
+        ABCN_NOTE                 ,A80          ; NOTES                                      31 thru   110                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        AB860_NTE_KEY             ,A27          ; PRIMARY SORT KEY                                                                  
+                                  ,A83          ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,81 @@
+; RT850_REQ.DEF
+;
+;	Retail X12 Purchase Order (850) Requirements File.
+;
+;	Date		Analyst		Modification
+;	-----------	---------------	--------------------------------------
+;	17-Feb-1993	Bill Schmelter	Added RTR_QTY_UOFM
+;
+;------------------------------------------------------------------
+; File Organization: Sequential | Record Size: 128 	| Positions
+;				| Variable Length	|
+;------------------------------------------------------------------
+
+RECORD RT850_REQ
+		
+	RTR_SUPP_ID	,A15	; Supplier Id Number	|   1 thru 15
+	RTR_PO_NO	,A22	; Purchase Order Number	|  16 thru 37
+	RTR_PO_DATE	,D6	; Purchase Order Date	|  38 thru 43
+	RTR_PO_TYPE	,A2	; Purchase Order Type	|  44 thru 45
+				;
+	RTR_PO_LINE	,D6	; Purchase Order Line No|  46 thru 51
+	RTR_CUST_ITEM	,A22	; Customer Part Ordered |  52 thru 73
+	RTR_SHIP_TO	,A15	; Ship To-Destination Id|  74 thru 88
+				;
+	RTR_QTY		,D13	; Quantity Ordered 9V4	|  89 thru 101	
+	RTR_INFO_ONLY	,A1	; 'I' if info only - not| 102 thru 102
+				; an actual shipment	|
+	RTR_QTY_UOFM	,A2	; Quantity Unit of MEAS | 103 thru 104
+			,A24	; Filler		| 105 thru 128
+
+RECORD, X
+	RTR_KEY		,A88	; Sort/Compare Key.
+
+
+.IFDEF XX850_REQ_WORK
+RECORD RT850_REQ_WORK
+;
+;	Retail PO Requirements - Split Processing (Temporary Work File)
+;
+;	Fields defined in this record are identical to RT850_REQ with the 
+;	exception of the additional fields in this record of RTR_COMP_W and 
+;	RTR_SEQN_W.
+;
+;	STRUCTURE:	Sequential
+;	LENGTH:		Max 141
+;	SORT KEY:	RTR_COMP_W and RTR_SEQN_W
+;
+	RTR_COMP_W	,A8	; Company Code
+	RTR_SEQN_W	,D5	; Sequence Number
+	RTR_SUPP_ID_W	,A15	; Supplier Id Number
+	RTR_PO_NO_W	,A22	; Purchase Order Number
+	RTR_PO_DATE_W	,D6	; Purchase Order Date
+	RTR_PO_TYPE_W	,A2	; Purchase Order Type 
+				;
+	RTR_PO_LINE_W	,D6	; Purchase Order Line No
+	RTR_CUST_ITEM_W	,A22	; Customer Part Ordered
+	RTR_SHIP_TO_W	,A15	; Ship To-Destination Id
+				;
+	RTR_QTY_W	,D13	; Quantity Ordered 9V4	
+	RTR_INFO_ONLY_W	,A1	; Info Only if = 'I'
+	RTR_QTY_UOFM_W	,A2	; Quantity Unit of MEAS
+			,A24	; Filler
+
+
+RECORD, X
+			,A8	; Company Code
+			,D5	; Sequence Number
+	RT850U_REQ	,A%SIZE(RT850_REQ)  ;unsplit requirement record
+.ENDC
+
+.IFDEF XX850_REQ_TOTALS
+RECORD RT850_REQ_TOTALS
+;
+;	Retail PO Requirements - Split Processing. 
+;	Working Storage Buffer of Quantity Fields.
+;
+;	The quantity fields accumulate the total quantities that have been
+;	split to multiple companies.  This buffer is not written to any file.
+;
+	RTR_QTY_T	,D13	; Qty Required 9V4
+.ENDC

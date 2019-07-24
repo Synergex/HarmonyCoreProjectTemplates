@@ -1,0 +1,3 @@
+        .include 'INVENTORY_PROFILE' repository, record='inventory_profile'
+        .include 'INVENTORY_PROFILE_KEY1' repository, record='IPP_KEY1'
+        .include 'INVENTORY_PROFILE_KEY2' repository, record='IPP_KEY2'

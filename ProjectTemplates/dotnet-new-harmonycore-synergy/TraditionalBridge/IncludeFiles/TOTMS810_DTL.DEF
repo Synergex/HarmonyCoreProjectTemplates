@@ -1,0 +1,48 @@
+;TOTMS810_DTL.DEF                                                                                                                   
+;                                                                                                                                   
+;       TOYOTA MOTOR SALES 810 DETAIL                                                                                               
+;       DATE : 02-AUG-93                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   448                                                               Field Positions                           
+;
+;-----------------------------------------------------------------------------------------------------------------------------------
+;	03-Dec-93	T. Bunker		Expand part numbers to 30.
+;						Expand record from 362 to 448
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  TOTMS810_DTL                                                                                                                
+        CAD_TP_DESIG              ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        CAD_SUPPLIER              ,A15          ; SUPPLIER ID CODE                            3 thru    17                          
+        CAD_INV_NO                ,D9           ; INVOICE NUMBER                             18 thru    26                          
+        CAD_CUST_PART             ,A30          ; TRADING PARTNER PART NUMBER                27 thru    56                          
+        CAD_SHIP_REF              ,A15          ; SHIPPING REFERENCE                         57 thru    71                          
+        CAD_DEST                  ,A15          ; DESTINATION CODE                           72 thru    86                          
+        CAD_OUR_PART              ,A30          ; OUR PART NUMBER                            87 thru   116                          
+        CAD_PART_DESC             ,A30          ; PART DESCRIPTION                          117 thru   146                          
+        CAD_PONUM                 ,A22          ; P/O NUMBER                                147 thru   168                          
+        CAD_POLN                  ,A6           ; P/O LINE NUMBER                           169 thru   174                          
+        CAD_RELNO                 ,A9           ; RELEASE NUMBER                            175 thru   183                          
+        CAD_SO_STATUS             ,A2           ; SHIP / ORDER STATUS                       184 thru   185                          
+        CAD_INV_QTY               ,D10          ; QUANTITY INVOICED                         186 thru   195                          
+        CAD_PRICE                 ,D10          ; UNIT PRICE                                196 thru   205                          
+        CAD_UOFM                  ,A2           ; UNIT OF MEASURE                           206 thru   207                          
+        CAD_BASIS_CODE            ,A2           ; UNIT PRICE BASIS CODE                     208 thru   209                          
+        CAD_RETAIL                ,D10          ; RETAIL PRICE                              210 thru   219                          
+        CAD_USER_DEF1             ,A22          ; USER DEFINED FIELD                        220 thru   241                          
+        CAD_NET_WGT               ,D8           ; SHIPMENT - NET WEIGHT                     242 thru   249                          
+        CAD_GROSS_WGT             ,D8           ; SHIPMENT - GROSS WEIGHT                   250 thru   257                          
+        CAD_SUB_TO_TERM           ,D1           ; SUBJECT TO TERMS FLAG                     258 thru   258                          
+        CAD_SUB_TO_DISC           ,D1           ; SUBJECT TO DISCOUNT FLAG                  259 thru   259                          
+        CAD_DISC_PERCNT           ,D5           ; LINE ITEM - DISCOUNT PERCENT              260 thru   264                          
+        CAD_DISC_AMOUNT           ,D10          ; LINE ITEM - DISCOUNT AMOUNT               265 thru   274                          
+        CAD_ITEM_AMOUNT           ,D10          ; LINE ITEM - EXTENDED AMOUNT               275 thru   284                          
+        CAD_TERM_AMOUNT           ,D10          ; LINE ITEM - TERMS AMOUNT                  285 thru   294                          
+        CAD_DEFERRED              ,D10          ; LINE_ITEM - DEFERRED AMOUNT               295 thru   304                          
+        CAD_ITEM_LINES            ,D6           ; TOTAL OF LINE ITEMS                       305 thru   310                          
+        CAD_PROD_QL1              ,A2           ; QUALIFIER FOR PROD ID1                    311 thru   312                          
+        CAD_PROD_ID1              ,A22          ; PRODUCT IDENTIFIER 1                      313 thru   334                          
+        CAD_PROD_QL2              ,A2           ; QUALIFIER FOR PRODUCT ID2                 335 thru   336                          
+        CAD_PROD_ID2              ,A22          ; SECONDARY PRODUCT IDENTIFIER              337 thru   358                          
+        CAD_INTRCHG_ID            ,A15          ; RECEIVE INTERCHANGE ID CODE               359 thru   373                          
+        CAD_GROUP_ID              ,A12          ; GROUP RECEIVE ID #                        374 thru   385                          
+				  ,A63		; FILLER				    386 thru   448
+                                                                                                                                    

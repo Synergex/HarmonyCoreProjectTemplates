@@ -1,0 +1,28 @@
+; RT869_DTL.DEF
+;
+;	Retail X12 Order Status Inquiry (869) Detail File.
+;
+;--------------------------------------------------------------------
+; File Organization: Sequential | Record Size: 200	|  Positions
+;		    		| Variable Length	|
+;--------------------------------------------------------------------
+
+RECORD RT869_DTL
+		;----- Sort Key Information -------------
+	RTD869_SUPP_ID	,A15	; Vendor ID Number	|   1 thru 15
+	RTD869_REF_NO	,A15	; BSI ref no		|  16 thru 30  
+	RTD869_REF_DATE	,D6	; BSI ref date		|  31 thru 36
+	RTD869_PO_NO	,A22	; Purchase order number |  37 thru 58
+	RTD869_PO_DATE	,D6	; Purchase order date	|  59 thru 64
+				;
+	RTD869_PO_LINE	,D6	; PO Line Number	|  65 thru 70
+	RTD869_CUST_ITEM,A22	; Customer Partno	|  71 thru 92
+	RTD869_SIZE_CODE,A15	; Buyer's Size Code	|  93 thru 107
+		;------Additional Part Information ------
+	RTD869_UPC	,A12	; UPC Code		| 108 thru 119
+	RTD869_VND_ITEM	,A30	; Vndrs Item/or PartNo	| 120 thru 149
+	RTD869_CAT_ITEM	,A30	; Buyers Catalog No	| 159 thru 179
+			,A21	; Filler		| 180 thru 200
+RECORD, X
+	RTD869_KEY	,A107	; Sort/compare key
+

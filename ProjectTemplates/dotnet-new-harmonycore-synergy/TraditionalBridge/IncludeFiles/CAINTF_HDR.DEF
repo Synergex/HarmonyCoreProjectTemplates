@@ -1,0 +1,51 @@
+RECORD CAINTF_HDR
+;
+; CAINTF_HDR.DEF - CARaS Interface header
+;
+; 	STRUCTURE = ISAM
+;	RECORD LENGTH = 512
+;
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------
+;-------------------------------------------------------------------------------
+	IH_TP_DESIG	,A2	; Trading Partner Designator
+	IH_SHIP_NO	,A9	; Master Bill of Lading # and Master Shipper #
+				; (Numeric field)
+	IH_DIV_ABBRV	,A5	; Division Abbr
+	IH_DEST_ABBRV	,A5	; Destination Abbr
+	IH_BLTO_ABBRV	,A5	; Bill to Destination Abbr
+	IH_BLTO_NAME	,A30	; 	  Name
+	IH_BLTO_ADDR1	,A30	;	  Address Line 1
+	IH_BLTO_ADDR2	,A30	;	  Address Line 2
+	IH_BLTO_ADDR3	,A30	;	  City State and Zipcode
+	IH_SHPTO_ABBRV	,A5	; Ship to Destination Abbr
+	IH_SHPTO_NAME	,A30	; 	  Name
+	IH_SHPTO_ADDR1	,A30	;	  Address Line 1
+	IH_SHPTO_ADDR2	,A30	;	  Address Line 2
+	IH_SHPTO_ADDR3	,A30	;	  City State and Zipcode
+	IH_SHIP_DATE	,A6	; Ship Date (YYMMDD)
+				; (Numeric field)
+	IH_FREIGHT_CODE	,A10	; Freight type
+	IH_FOB		,A35	; F.O.B. Location
+	IH_TERMS	,A35	; Terms Description
+	IH_AETC		,A10	; A.E.T.C. #
+	IH_CARRIER	,A35	; Carrier (Ship Via)
+	IH_SUPP_ID	,A35	; Supplier ID
+	IH_MST_SHIP_NO	,A9	; Master Bill of Lading # and Master Shipper #
+				; (Numeric field)
+	IH_PACK_SLIP	,A15	; Packing Slip Number
+	IH_DATE_ADDED	,A6	; Date Stamp
+				; (Numeric field)
+	IH_TIME_STAMP	,A4	; Time Stamp
+				; (Numeric field)
+	IH_INTERFACE_FLG,A1	; Interface flag (0 = no interface)
+				; (Numeric field)
+			,A40
+;-------------------------------------------------------------------------------
+;              ------- Key Definitions ------
+;-------------------------------------------------------------------------------
+RECORD,X
+	;
+	;	No Changes, No Duplicates
+	;
+	IH_KEY0		,A11	; primary key

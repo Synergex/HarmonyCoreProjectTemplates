@@ -1,0 +1,38 @@
+;FORASN_DTL.DEF                                                                                                                     
+;                                                                                                                                   
+;       FORD 856 RECEIVE ASN DETAIL                                                                                                 
+;       DATE : 14-FEB-11                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   366                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  FORASN_DTL                                                                                                                  
+        FRD_ISA_CTL               ,A14          ; ISA CONTROL NUMBER                          1 thru    14                          
+        FRD_GS_CTL                ,A14          ; GS CONTROL NUMBER                          15 thru    28                          
+        FRD_ASN_NO                ,A11          ; ASN NUMBER                                 29 thru    39                          
+        FRD_SHIP_TO               ,A5           ; SHIP TO CODE                               40 thru    44                          
+        FRD_ASN_PURPOSE           ,A2           ; PURPOSE CODE                               45 thru    46                          
+        FRD_ASN_DATE              ,D8           ; ASN DATE                                   47 thru    54                          
+        FRD_ASN_TIME              ,D4           ; ASN TIME                                   55 thru    58                          
+        FRD_CUST_PART             ,A22          ; FORD PART NUMBER                           59 thru    80                          
+        FRD_SHIP_DATE             ,D8           ; SHIP DATE                                  81 thru    88                          
+        FRD_SHIP_TIME             ,D4           ; SHIP TIME                                  89 thru    92                          
+        FRD_PART_QUAL             ,A2           ; PART NUMBER QUALIFIER                      93 thru    94                          
+        FRD_SHIP_QTY              ,D9           ; QUANTITY SHIPPED                           95 thru   103                          
+        FRD_UOFM                  ,A2           ; UNIT OF MEASURE                           104 thru   105                          
+        FRD_YTD_CUM               ,D9           ; YTD SHIP QUANTITY                         106 thru   114                          
+        FRD_UNIT_PRICE            ,D10          ; UNIT PRICE                                115 thru   124                          
+        FRD_PO_NUM                ,A22          ; PURCHASE ORDER NUMBER                     125 thru   146                          
+        FRD_DELV_NO               ,A15          ; DELIVERY ORDER NUMBER                     147 thru   161                          
+        FRD_HEAT_CODE             ,A15          ; HEAT CODE                                 162 thru   176                          
+        FRD_PACK_SLIP             ,A15          ; PACKING SLIP                              177 thru   191                          
+        FRD_LOT_NO                ,A15          ; LOT NUMBER                                192 thru   206                          
+        FRD_SHIPPER_NO            ,A15          ; SHIPPER NUMBER                            207 thru   221                          
+        FRD_HANDL_CHG             ,D8           ; HANDLING CHARGE                           222 thru   229                          
+        FRD_DOCK                  ,A30          ; DOCK CODE                                 230 thru   259                          
+        FRD_COMP_CODE             ,A8           ; COMPANY CODE                              260 thru   267                          
+        FRD_FILLER                ,A99          ; FILLER                                    268 thru   366                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        FORASN_DTL_KEY            ,A80          ; PRIMARY SORT KEY                                                                  
+                                  ,A286         ; PRIMARY KEY POSITIONING                                                           

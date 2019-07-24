@@ -1,0 +1,357 @@
+;CA841_MST.DEF                                                                                                                      
+;                                                                                                                                   
+;       TECHNIAL INFORMATION SPECS                                                                                                  
+;       DATE : 30-SEP-96                                                                                                            
+;       Record Size :   1024                                                               Field Positions                          
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA841_MST                                                                                                                   
+	T841_TP_DESIG		,A2
+	T841_SPI_REF		,A30
+	T841_DEPTH		,D2
+	T841_HL_PARENT		,A21
+	T841_LVL1_SEQ		,A3
+	T841_LVL2_SEQ		,A3
+	T841_LVL3_SEQ		,A3
+	T841_LVL4_SEQ		,A3
+	T841_LVL5_SEQ		,A3
+	T841_LVL6_SEQ		,A3
+	T841_LVL7_SEQ		,A3
+	T841_HL_ID		,A12
+	T841_SEG_TYPE		,A3
+	T841_SEQ_NO		,D3
+	T841_CREATE_DT		,D6
+	T841_DESC		,A80
+				,A844
+
+;	Record type SPI - specifications/technical information
+RECORD	,X
+				     ,A180
+				     ,A2
+        T841_SPI_SEC_LV              ,A2           ; SECURITY LEVEL CODE
+        T841_SPI_REF_QL              ,A2           ; REFERENCE NUMBER QUALIFIER               
+        T841_SPI_REF_NO              ,A30          ; REFERENCE NUMBER                         
+        T841_SPI_ENTITY              ,A99          ; ENTITY TITLE                             
+        T841_SPI_STATUS              ,A1           ; ENTITY STATUS CODE                       
+        T841_SPI_PURP                ,A2           ; PURPOSE CODE                             
+        T841_SPI_REP                 ,A2           ; REPORT TYPE CODE                         
+        T841_SPI_LVL2                ,A2           ; SECOND SECURITY LEVEL                    
+        T841_X1_LIC_AGT              ,A1           ; LICENSING AGENCY CODE                    
+        T841_X1_EXP_LIC              ,A12          ; EXPORT LICENSE NUMBER                    
+        T841_X1_EXP_STA              ,A1           ; EXPORT LICENSE STATUS                    
+        T841_X1_LIC_DAT              ,D6           ; EXPORT LICENSE DATE                      
+        T841_X1_LIC_SYM              ,A2           ; LICENSE SYMBOL CODE                      
+        T841_X1_LIC_CTL              ,A1           ; EXPORT LICENSE CONTROL CODE              
+        T841_X1_CTRY                 ,A2           ; COUNTRY CODE                             
+        T841_X1_B_CODE               ,A7           ; SCHEDULE B CODE                          
+        T841_X1_INT_DOM              ,A1           ; INTERNATIONAL DOMINION CODE              
+        T841_X1_LAD_QTY              ,D7           ; LADING QUANTITY                          
+        T841_X1_LAD_VAL              ,D9           ; LADING VALUE                             
+        T841_X1_LIC_FIL              ,A1           ; EXPORT FILING KEY CODE                   
+        T841_X1_UOFM                 ,A2           ; UNIT OF MEASURE                          
+        T841_X1_PRICE                ,D14          ; UNIT PRICE                               
+	T841_X1_TYPE		     ,A1	   ; U.S. GOVERNMENT LICENSE TYPE
+        T841_X2_IMP_LIC              ,A30          ; IMPORT LICENSE NUMBER                    
+        T841_X2_IMP_ISS              ,D6           ; IMPORT LICENSE ISSUE DATE                
+        T841_X2_IMP_EXP              ,D6           ; IMPORT LICENSE EXPIRATION DATE           
+        T841_X7_CUSTOM               ,02A30        ; CUSTOMERS INFORMATION                    
+        T841_LIN_LINE                ,A11          ; LINE NUMBER                              
+        T841_LIN_QL                  ,10A2         ; PRODUCT SERVICE ID QUALIFIER             
+	GROUP LIN_ID1
+	        T841_LIN_ID          ,10A30        ; PRODUCT/SERVICE ID  
+	ENDGROUP
+	GROUP LIN_ID2	,X
+		T841_LIN_ID1	,A30
+		T841_LIN_ID2	,A30
+		T841_LIN_ID3	,A30
+		T841_LIN_ID4	,A30
+		T841_LIN_ID5	,A30
+		T841_LIN_ID6	,A30
+		T841_LIN_ID7	,A30
+		T841_LIN_ID8	,A30
+		T841_LIN_ID9	,A30
+		T841_LIN_ID10	,A30
+	ENDGROUP
+	T841_SUPP_ABBRV		     ,A5	   ; Supplier Abbrv.
+	T841_DEST_ID		     ,A17	   ; Destination id
+	T841_DIV_ID		     ,A17	   ; Division id
+	T841_DEST_ABBRV		     ,A5	   ; Dest abbrv.
+	GROUP T841_XMIT_DATE_GP
+	   T841_XMIT_DATE_CC	     ,D2	   ; Transmission century
+	   T841_XMIT_DATE	     ,D6	   ; Transmission date
+	ENDGROUP
+	T841_XMIT_TIME		     ,D4	   ; Transmission time
+	T841_TRANS_ICS		     ,D9	   ; Control number
+	T841_NEW_PART		     ,A30	   ; new part w/same packaging
+	T841_REPLC_PART		     ,A30	   ; new replace part same pack
+	GROUP T841_AUX_DATE_GP
+	   T841_AUX_DATE_CC	     ,D2	   ; Auxiliary century
+	   T841_AUX_DATE	     ,D6	   ; Auxiliary date
+	ENDGROUP
+	T841_AUX_TIME		     ,D4	   ; Auxiliary time
+
+;	Record type N1 Name record
+
+RECORD	,X                                                                                                                   
+				    ,A180
+        T841_N1_ADDR_QL              ,A2           ; ADDRESS QUALIFIER                        
+	T841_N1_NAME		     ,A35	   ; NAME
+        T841_N2_NAME                 ,04A35        ; NAME                                     
+        T841_N3_ADDR                 ,04A35        ; ADDRESS                                  
+        T841_N4_CITY                 ,A19          ; CITY                                     
+        T841_N4_STATE                ,A2           ; STATE CODE                               
+        T841_N4_ZIP                  ,A9           ; ZIP CODE                                 
+        T841_N4_CTRY                 ,A2           ; COUNTRY CODE                             
+        T841_N4_LOC_QL               ,A2           ; LOCATION QUALIFIER                       
+        T841_N4_LOC_ID               ,A25          ; LOCATION ID                              
+        T841_N1_ID_QL                ,A2           ; ID QUALIFIER                                   
+        T841_N1_ID                   ,A17          ; ID CODE     
+
+;	Record type HL Hierarchical Record
+
+RECORD	,X                                                                                                                   
+				    ,A180
+	T841_HL_LEVEL_CODE	    ,A2
+
+;	Record type CID Characteristic/Class id
+RECORD	,X                           
+				     ,A180  
+        T841_CID_MEA_QL               ,A3           ; CID MEASUEREMENT QUALIFIER               
+        T841_CID_CHAR                 ,A3           ; CHARACTERISTICS CODE                     
+        T841_CID_AGENCY               ,A2           ; AGENCY QUALIFIER                         
+        T841_CID_PROD                 ,A12          ; PRODUCT DESCRIPTION CODE                 
+        T841_CID_UOFM                 ,A2           ; UNIT OF MEASURE                          
+        T841_CID_PRICE                ,D14          ; UNIT PRICE                               
+        T841_CID_BASE                 ,A2           ; PRICE BASIS                              
+        T841_PSD_PROC                 ,A2           ; SAMPLE STATUS CODE                       
+        T841_PSD_MTH                  ,A2           ; SAMPLE SELECTION METHOD                  
+        T841_PSD_FREQ                 ,D9           ; SAMPLE FREQUENCY PER UOFM                
+        T841_PSD_UOFM                 ,A2           ; SAMPLE UNIT OF MEASURE                   
+        T841_PSD_DESC                 ,A2           ; SAMPLE DESCRIPTION CODE                  
+        T841_PSD_DIR                  ,A2           ; SAMPLE DIR CODE                          
+        T841_PSD_LOC                  ,A2           ; SAMPLE LOCATION CODE                     
+        T841_PSD_SAMP                 ,A80          ; SAMPLE DESCRIPTION                       
+	T841_PSD_MODULU 	      ,D6	    ; SAMPLE SELECTION MODULUS
+        T841_SPS_POP                  ,D9           ; SAMPLE POPULATINO SIZE                   
+        T841_SPS_SAMP                 ,D9           ; SAMPLE SIZE                              
+        T841_SPS_SUB                  ,D9           ; SUBGROUP SIZE                            
+        T841_SPS_CONF                 ,D4           ; CONFIDENCE LIMIT                         
+        T841_SPS_UOFM                 ,A2           ; SAMPLE UNIT OF MEASURE                   
+        T841_SPS_FREQ                 ,D9           ; SAMPLE FREQUENECY PER UOFM               
+	T841_CSS_SEQ_QL		      ,A2           ; SAMPLING SEQUENCE QUALIFIER
+	T841_CSS_UOFM		      ,A2	    ; SAMPLING UNIT OF MEASURE
+	T841_CSS_VALUE		      ,5D3	    ; SAMPLING SEQUENCE VALUE
+
+;	Record type PID Product/Item description
+
+RECORD	,X
+				 ,A180
+        T841_PID_TYPE             ,A1           ; ITEM DESCRIPTION TYPE                    
+        T841_PID_CHAR             ,A3           ; CHARACTERISTICS CODE                     
+        T841_PID_AGENCY           ,A2           ; AGENCY QUALIFIER                         
+        T841_PID_CODE             ,A12          ; PRODUCT DESCRIPTION COD                  
+        T841_PID_SURF             ,A2           ; SURFACE/LAYER POSITION CODE              
+	T841_PID_SUB		  ,A15		; SOURCE SUBQUALIFIER
+	T841_PID_COND		  ,A1		; YES/NO CONDITION OR RESPONSE
+	T841_LOC1_REFQL	          ,A2		; REFERENCE NUMBER QUALIFIER
+	T841_LOC1_REF  	          ,A30		; LOCATION REFERENCE NUMBER
+	T841_LOC1_REF2   	  ,A30		; LOCATION REFERENCE NUMBER
+	T841_LOC_CAT	          ,A6		; LOCATION CATEGORY
+	T841_LOC2_REFQL	          ,A2		; REFERENCE NUMBER QUALIFIER
+	T841_LOC2_REF  	          ,A30		; LOCATION REFERENCE NUMBER
+	T841_LOC2_REF2	          ,A30		; LOCATION REFERENCE NUMBER
+	T841_LOC_VAL	          ,6D10		; MEASUREMENT VALUE
+	T841_LOC_UOFM		  ,6A2		; MEASUREMENT UNIT 
+	T841_LOC3_REFQL	          ,A2		; REFERENCE NUMBER QUALIFIER
+	T841_LOC3_REF	          ,A30		; LOCATION REFERENCE NUMBER
+        T841_LOC_DESC             ,A80          ; PRODUCT DESCRIPTION                      
+
+;	Record type RDT Revision date/time
+RECORD	,X
+				 ,A180
+        T841_RDT_LVL              ,A1           ; REVISION LEVEL CODE                      
+        T841_RDT_VALUE            ,A30          ; REVISION VALUE                           
+        T841_RDT_DTTMQL           ,A3           ; DATE/TIME QUALIFIER                      
+        T841_RDT_DATE             ,D6           ; REVISION DATE                            
+        T841_RDT_TIME             ,D4           ; REVISION TIME                            
+        T841_RDT_TIM_CD           ,A2           ; REVISION TIME CODE                       
+
+;	Record type NTE - Notes
+RECORD	,X
+				 ,A180
+        T841_NTE_FORM             ,A3           ; NTE TYPE                                 
+
+;	Record type GOV Military Std 1740
+RECORD	,X
+				 ,A180
+        T841_GOV_AGENCY           ,A2           ; AGENCY QUALIFIER                          
+        T841_GOV_FILEQL           ,A30          ; RECORD/FILE QUALIFIER                     
+
+;	Record type REF Reference numbers
+RECORD	,X
+				 ,A180
+        T841_REF_QUAL             ,A2           ; REFERENCE NUMBER QUALIFIER                
+        T841_REF_NO               ,A30          ; REFERENCE NUMBER                          
+                                                                                            
+;	Record type DTM Date/Time Reference
+RECORD	,X
+				 ,A180
+        T841_DTM_QL               ,A3           ; DATE/TIME QUALIFIER                       
+        T841_DTM_DATE             ,D6           ; DATE                                      
+        T841_DTM_TIME             ,D4           ; TIME                                      
+        T841_DTM_TMCD             ,A2           ; TIME CODE                                 
+        T841_DTM_CENT             ,A2           ; CENTURY                                   
+	T841_DTM_FORMAT		  ,A3		; DATE/TIME FORMAT
+	T841_DTM_PERIOD		  ,A35		; DATE/TIME PERIOD
+
+;	Record type PER Administrative Communications Contact
+RECORD	,X
+				 ,A180
+        T841_PER_FUNCT            ,A2           ; FUNCTION CODE                             
+        T841_PER_NAME             ,A35          ; CONTACT NAME                              
+        T841_PER_QL               ,A2           ; PHONE NUMBER QUALIFIER                    
+        T841_PER_NO               ,A25          ; PHONE NUMBER    
+        T841_PER2_QL              ,A2           ; PHONE NUMBER QUALIFIER                    
+        T841_PER2_NO              ,A25          ; PHONE NUMBER    
+
+;	Record type MSG Message text. 
+RECORD	,X
+				 ,A180
+        T841_MSG_TEXT             ,A99          ; MSG TEXT                                  
+        T841_MSG_TXT2             ,A99          ; TEXT                                      
+        T841_MSG_TXT3             ,A99          ; MESSAGE TEXT                              
+        T841_MSG_CTL              ,A2           ; CARRIAGE CONTROL                          
+
+;	Record type PKD Packaging Description
+RECORD	,X
+				 ,A180
+	T841_PKD_CODE		  ,A5		; PACKAGING CODE
+        T841_PKD_SOURCE           ,A15          ; SOURCE SUBQUALIFIER                       
+        T841_PKD_AGENCY           ,A2           ; AGENCY QUAL                               
+        T841_PKD_DESC             ,A7           ; PACKAGING DESCRIPTION CODE                
+        T841_PKD_OWNER            ,A1           ; OWNERSHIP CODE                            
+                                                                                                                                    
+;	Record type QTY Quantity
+RECORD	,X
+				 ,A180
+        T841_QTY_QL               ,A2           ; QUANTITY QUALIFIER                        
+        T841_QTY                  ,D15          ; QUANTITY                                  
+        T841_QTY_UOFM             ,A2           ; UNIT OF MEASURE                           
+
+;	Record type MEA Measurements
+RECORD	,X
+				 ,A180
+        T841_MEA_REF_CD           ,A2           ; MEASUREMENT REFERENCE CODE                
+        T841_MEA_QL               ,A3           ; MEASUREMENT QUALIFIER                     
+        T841_MEA_VALUE            ,D10          ; MEASUREMENT VALUE                         
+        T841_MEA_UOFM             ,A2           ; UNIT OF MEASURE                           
+        T841_MEA_MIN              ,D10          ; RANGE MINIMUM                             
+        T841_MEA_MAX              ,D10          ; RANGE MAXIMUM                             
+        T841_MEA_SIGN             ,A2           ; MEASUREMENT SIGN CODE                     
+	T841_MEA_SIG		  ,A2		; SIGNIFICANCE CODE
+	T841_MEA_DEVICE		  ,A4		; MEASUREMENT METHOD OR DEVICE
+        T841_MEA_ATTR             ,A2           ; MEASUREMENTS ATTRIBUTES                   
+        T841_MEA_SURF             ,A2           ; MEASUREMENTS SURFACE/LAYER
+
+;	Record type UIT Unit Details
+RECORD	,X
+				 ,A180
+        T841_UIT_UOFM             ,A2           ; UNIT OF MEASURE                           
+        T841_UIT_PRICE            ,D14          ; PRICE                                     
+        T841_UIT_BASIS            ,A2           ; PRICE BASIS                               
+
+;	Record type PWK Paperwork
+RECORD	,X
+				 ,A180
+	T841_PWK_TYPE		 ,A2
+	T841_PWK_TRANS		 ,A2
+	T841_PWK_COPIES		 ,D2
+	T841_PWK_ENTITY		 ,A2
+	T841_PWK_ID_QL		 ,A2
+	T841_PWK_ID		 ,A17
+
+;	Record type PKG Marking, packaging, loading
+RECORD	,X
+				 ,A180
+	T841_PKG_TYPE		 ,A1
+	T841_PKG_CHAR		 ,A5
+	T841_PKG_AGENCY		 ,A2
+	T841_PKG_CODE		 ,A7
+	T841_PKG_LOAD     	 ,A2
+
+;	Record type BIN Binary data
+RECORD	,X
+				 ,A180
+
+;	Record type TMD Test Method
+RECORD	,X
+				 ,A180
+        T841_TMD_CHAR             ,A3           ; CHARACTERISTICS CODE                      
+        T841_TMD_AGENCY           ,A2           ; AGENCY CODE                               
+        T841_TMD_CODE             ,A12          ; PRODUCT DESCRIPTION CODE                  
+        T841_TMD_ADMIN            ,A2           ; TEST ADMINISTRATION METHOD                
+        T841_TMD_MEDIUM           ,A2           ; TEST MEDIUM CODE                          
+        T841_TMD_DATE             ,D6           ; TEST METHOD DATE                          
+        T841_TMD_REF              ,A30          ; TMD REFERENCE NUMBER      
+	T841_TMD_SUB		  ,A15		; SOURCE SUBQUALIFIER
+;	Record type STA Statistics
+RECORD	,X
+				 ,A180
+        T841_STA_CD               ,A2           ; STATISTICS CODE                           
+        T841_STA_MEA_VL           ,D10          ; STATISTICS MEASUREMENT VALUE              
+        T841_STA_UOFM             ,A2           ; STATISTICS UNIT OF MEASURE                
+        T841_STA_MEA_QL           ,A3           ; MEASUREMENT QUALIFIER                     
+        T841_STA_REF              ,A2           ; STATISTICS MEASUREMENT RE
+        T841_STA_MIN              ,D10          ; MEASUREMENT MINIMUM VALUE              
+        T841_STA_MAX              ,D10          ; MEASUREMENT MAXIMUM VALUE              
+
+;	Record type LX Assigned Number
+RECORD	,X
+				 ,A180
+	T841_LX_ID		 ,A4
+
+;	Record type EFI Electronic Format Identification
+RECORD	,X
+				 ,A180
+        T841_EFI_SL               ,A2           ; SECURITY LEVEL                            
+        T841_EFI_ST               ,A2           ; SECURITY TECHNIQUE                        
+        T841_EFI_VERS             ,A30          ; VERSION IDENTIFIER                        
+        T841_EFI_PROGR            ,A30          ; PROGRAM IDENTIFIER                        
+        T841_EFI_VERS2            ,A30          ; VERSION IDENTIFIER                        
+        T841_EFI_INTER            ,A30          ; INTERCHANGE FORMAT                        
+        T841_EFI_VERS3            ,A30          ; VERSION IDENTIFIER                        
+        T841_EFI_COMPR            ,A30          ; COMPRESSION TECHNIQUE                     
+        T841_EFI_SS               ,A2           ; DRAWING SHEET SIZE                        
+        T841_EFI_FILE             ,A64          ; FILE NAME                                 
+        T841_EFI_BLOCK            ,A4           ; BLOCK TYPE                                
+        T841_EFI_RECLEN           ,D15          ; RECORD LENGTH                             
+        T841_EFI_BLKLEN           ,D5           ; BLOCK LENGTH    
+
+;	Record type CSF Conditional Sampling Frequency
+RECORD	,X
+				  ,A180
+	T841_CSF_UOFM		  ,A2
+	T841_CSF_MODULU 	  ,D6
+	T841_CSF_FREQ		  ,D9
+	T841_LS_ID_CODE		  ,A4
+	T841_LE_ID_CODE		  ,A4
+
+RECORD  CA841_CTL	,X
+	CA841_MST_KEY0	,A94
+			,A930
+
+RECORD CA841_MST_KEY0_P1,X
+                        ,A%SIZE(T841_TP_DESIG)  ; TRADING PARTNER
+                        ,A%SIZE(T841_SPI_REF_NO)   ; SHIPMENT ID
+
+RECORD  CA841_MST_KEY1          ; Key 1
+    K1_T841_TP_DESIG    , A2    ; TRADING PARTNER
+    K1_T841_SEG_TYPE    , A3    ; SEGMENT TYPE
+    K1_T841_SPI_REF	, A30   ; SHIPMENT ID
+
+RECORD  CA841_MST_KEY1_P1 ,X    ; Key 1 - Partial Key
+    P1_T841_TP_DESIG    , A2    ; TRADING PARTNER
+    P1_T841_SEG_TYPE    , A3    ; SEGMENT TYPE
+
+RECORD  CA841_MST_KEY2          ; Key 2
+    K2_T841_TP_DESIG    , A2    ; TRADING PARTNER
+    K2_T841_CREATE_DT	, D6    ; CREATION DATE

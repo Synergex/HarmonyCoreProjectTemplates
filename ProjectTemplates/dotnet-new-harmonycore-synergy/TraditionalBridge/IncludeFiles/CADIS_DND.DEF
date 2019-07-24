@@ -1,0 +1,29 @@
+;CADIS_DND.DEF                                                                                                                      
+;                                                                                                                                   
+;       AVIDIS DISCREPANCY NOTICE DTLS                                                                                              
+;       DATE : 18-JUL-07                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   172                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CADIS_DND                                                                                                                   
+        DIS_UNB_CTL               ,A14          ; UNB CONTROL NUMBER                          1 thru    14                          
+        DIS_UNG_CTL               ,A14          ; UNG CONTROL NUMBER                         15 thru    28                          
+        DIS_UNH_CTL               ,A14          ; UNH CONTROL NUMBER                         29 thru    42                          
+        DIS_HDR_LINE              ,D6           ; HEADER LINE                                43 thru    48                          
+        DIS_CSG_LINE              ,D6           ; CONSIGNEE LINE                             49 thru    54                          
+        DIS_DTL_LINE              ,D6           ; DETAIL LINE                                55 thru    60                          
+        DIS_LINE                  ,D6           ; SCHEDULE LINE                              61 thru    66                          
+        DIS_COMP                  ,A8           ; COMPANY CODE                               67 thru    74                          
+        DIS_DATE                  ,D8           ; FIRST DATE                                 75 thru    82                          
+        DIS_TIME                  ,D4           ; TIME                                       83 thru    86                          
+        DIS_QTY                   ,D9           ; QTY                                        87 thru    95                          
+        DIS_REFERENCE             ,A17          ; REFERNCE NUMBER                            96 thru   112                          
+        DIS_NOTE_NUMBER           ,A17          ; NOTE NUMBER                               113 thru   129                          
+        DIS_DOCUMENT              ,A17          ; DOCUMENT NUMBER                           130 thru   146                          
+        DIS_SEQ_NO                ,A17          ; SEQUENCE NUMBER                           147 thru   163                          
+        DIS_QTY2                  ,D9           ; SECOND QTY                                164 thru   172                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CADIS_DND_KEY             ,A66          ; PRIMARY SORT KEY                                                                  
+                                  ,A106         ; PRIMARY KEY POSITIONING                                                           

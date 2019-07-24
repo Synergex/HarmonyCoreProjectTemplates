@@ -1,0 +1,32 @@
+;CA855_SCH.DEF                                                                                                                      
+;                                                                                                                                   
+;       CARAS COMMON 855 PO ACK SCHED                                                                                               
+;       DATE : 13-JUL-06                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   287                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA855_SCH                                                                                                                   
+        S855_TP_DESIG             ,A2           ; TRADING PARTNER DESIGNATOR                  1 thru     2                          
+        S855_INCHG_ID             ,A15          ; RECEIVER INTERCHANGE ID CODE                3 thru    17                          
+        S855_GROUP_ID             ,A15          ; RECEIVER GROUP ID CODE                     18 thru    32                          
+        S855_PO_NO                ,A22          ; PURCHASE ORDER NUMBER                      33 thru    54                          
+        S855_PO_DATE              ,D8           ; PURCHASE ORDER DATE                        55 thru    62                          
+        S855_PO_LINE              ,A20          ; PURCHASE ORDER LINE NUMBER                 63 thru    82                          
+        S855_CUST_PART            ,A30          ; CUSTOMER PART NO                           83 thru   112                          
+        S855_SCH_DATE1            ,D8           ; SCHEDULED DATE1                           113 thru   120                          
+        S855_SCH_TIME1            ,D4           ; SCHEDULE TIME 1                           121 thru   124                          
+        S855_DTM_QL1              ,A3           ; DATE/TIME QUAL FOF SCH DATE1              125 thru   127                          
+        S855_ADR_SEQ              ,D6           ; ADDRESS SEQ NO                            128 thru   133                          
+        S855_SCH_SEQ              ,D6           ; SCH CONTROL SEQ NO                        134 thru   139                          
+        S855_KEY_FILL             ,A18          ; KEY FILLER                                140 thru   157                          
+        S855_SCH_QTY              ,D9           ; SCHEDULED QUANTITY                        158 thru   166                          
+        S855_SCH_UOFM             ,A2           ; SCHED QTY UNIT OF MEASURE                 167 thru   168                          
+        S855_ASSIGN_ID            ,A20          ; ASSIGNED ID (SCH12)                       169 thru   188                          
+        S855_SCH_DATE2            ,D8           ; SCHEDULED DATE2                           189 thru   196                          
+        S855_DTM_QL2              ,A3           ; DATE/TIME QUAL FOF SCH DATE2              197 thru   199                          
+        S855_FILLER               ,A88          ; FILLER                                    200 thru   287                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA855_SCH_KEY             ,A157         ; PRIMARY SORT KEY                                                                  
+                                  ,A130         ; PRIMARY KEY POSITIONING                                                           

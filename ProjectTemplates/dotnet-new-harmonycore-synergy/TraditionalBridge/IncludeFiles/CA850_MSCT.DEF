@@ -1,0 +1,24 @@
+;CA850_MSCT.DEF                                                                                                                     
+;                                                                                                                                   
+;       COMMON PURCHASE ORDER TAX                                                                                                   
+;       DATE : 25-JUN-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   257                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA850_MSCT                                                                                                                  
+        M850_T_PO_NO              ,A22          ; PURCHASE ORDER NUMBER                       1 thru    22                          
+        M850_T_PO_DATE            ,D8           ; PURCHASE ORDER DATE                        23 thru    30                          
+        M850_T_DTL_SEQ            ,D6           ; DETAIL SEQUENCE NUMBER                     31 thru    36                          
+        M850_T_SORT_CTL           ,A3           ; SORT CONTROL FOR REPORTING                 37 thru    39                          
+        M850_T_SEG_TYPE           ,A3           ; SEGMENT TYPE                               40 thru    42                          
+        M850_T_SEQ_NO             ,D6           ; SEQUENCE NUMBER                            43 thru    48                          
+        M850_T_ID                 ,A20          ; TAX ID                                     49 thru    68                          
+        M850_T_LOC_QL             ,05A2         ; LOCATION QUALIFIER                         69 thru    78                          
+        M850_T_LOC_ID             ,05A25        ; LOCATION ID                                79 thru   203                          
+        M850_T_EXEMPT             ,A1           ; TAX EXEMPTION CODE                        204 thru   204                          
+        M850_T_FILLER             ,A53          ; FILLER                                    205 thru   257                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA850_MSCT_KEY            ,A48          ; PRIMARY SORT KEY                                                                  
+                                  ,A209         ; PRIMARY KEY POSITIONING                                                           

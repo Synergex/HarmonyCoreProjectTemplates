@@ -1,0 +1,25 @@
+;CH866_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       CHRYSLER SPD (866) HEADER                                                                                                   
+;       DATE : 03-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   129                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CH866_HDR                                                                                                                   
+        CHH_ST_CODE               ,A15          ; SHIP TO CODE                                1 thru    15                          
+        CHH_REF_NO                ,A9           ; REFERENCE NUMBER                           16 thru    24                          
+        CHH_PROC_DATE             ,D8           ; PROCESS DATE                               25 thru    32                          
+        CHH_SF_CODE               ,A15          ; SHIP FROM CODE                             33 thru    47                          
+        CHH_SUPP_CODE             ,A15          ; SUPPLIER CODE                              48 thru    62                          
+        CHH_HORIZ_START           ,D8           ; HORIZSON START DATE                        63 thru    70                          
+        CHH_HORIZ_END             ,D8           ; HORIZON END DATE                           71 thru    78                          
+        CHH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION              79 thru    83                          
+        CHH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE             84 thru    87                          
+        CHH_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBER             88 thru   101                          
+        CHH_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER             102 thru   115                          
+        CHH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM             116 thru   129                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CH866_HDR_KEY             ,A24          ; PRIMARY SORT KEY                                                                  
+                                  ,A105         ; PRIMARY KEY POSITIONING                                                           

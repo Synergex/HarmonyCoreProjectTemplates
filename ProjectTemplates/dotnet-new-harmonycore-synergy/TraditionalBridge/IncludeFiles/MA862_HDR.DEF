@@ -1,0 +1,56 @@
+;MA862_HDR.DEF                                                                                                                      
+;                                                                                                                                   
+;       MAZDA DELIVERY ORDER HEADER                                                                                                 
+;       DATE : 09-JUL-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    82                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  MA862_HDR                                                                                                                   
+        MHD_SUPP_ID               ,A15          ; SUPPLIER ID                                 1 thru    15                          
+        MHD_PLANT_CODE            ,A2           ; SUPPLIER PLANT CODE                        16 thru    17                          
+        MHD_SHIP_DEST             ,A15          ; SHIP TO DESTINATION                        18 thru    32                          
+        MHD_DOCK_CODE             ,A3           ; MAZDA DOCK CODE                            33 thru    35                          
+        MHD_PURPOSE               ,A2           ; PURPOSE CODE                               36 thru    37                          
+        MHD_ISSUE_DATE            ,D8           ; MATERIAL RELEASE ISSUE DATE                38 thru    45                          
+        MHD_ISSUE_BY              ,A15          ; MATERIAL RELEASE ISSUED BY                 46 thru    60                          
+        MHD_START_DATE            ,D8           ; HORIZON START DATE                         61 thru    68                          
+        MHD_END_DATE              ,D8           ; HORIZON END DATE                           69 thru    76                          
+        MHD_BUYER_CODE            ,A5           ; BUYER CODE                                 77 thru    81                          
+        MHD_SUB_ELEM              ,A1           ; SUB ELEMENT SEPARATOR                      82 thru    82                          
+        MHD_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION 
+        MHD_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENC 
+        MHD_HCNTRLNUM             ,A14          ; ENVELOPE HEADER CONTROL NUMBE 
+        MHD_GCNTRLNUM             ,A14          ; ENVELOPE GROUP CONTROL NUMBER 
+        MHD_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUM 
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        MA862_HDR_KEY             ,A37          ; PRIMARY SORT KEY                                                                  
+                                  ,A45          ; PRIMARY KEY POSITIONING                                                           
+
+.IFDEF XX862_HDR_WORK
+RECORD MA862_HDR_WORK
+        MHD_COMP_W              ,A8     ; Company Code
+        MHD_SEQN_W              ,D5     ; Sequence Number
+        MHD_SUPP_ID_W           ,A15    ; SUPPLIER ID                  
+        MHD_PLANT_CODE_W        ,A2     ; SUPPLIER PLANT CODE          
+        MHD_SHIP_DEST_W         ,A15    ; SHIP TO DESTINATION          
+        MHD_DOCK_CODE_W         ,A3     ; MAZDA DOCK CODE              
+        MHD_PURPOSE_W           ,A2     ; PURPOSE CODE                 
+        MHD_ISSUE_DATE_W        ,D8     ; MATERIAL RELEASE ISSUE DATE  
+        MHD_ISSUE_BY_W          ,A15    ; MATERIAL RELEASE ISSUED BY   
+        MHD_START_DATE_W        ,D8     ; HORIZON START DATE           
+        MHD_END_DATE_W          ,D8     ; HORIZON END DATE             
+        MHD_BUYER_CODE_W        ,A5     ; BUYER CODE                   
+        MHD_SUB_ELEM_W          ,A1     ; SUB ELEMENT SEPARATOR        
+        MHD_TRANSNUM_W          ,A5     ; DOCUMENT JOURNAL TRANSMISSION 
+        MHD_FILSEQNUM_W         ,D4     ; DOCUMENT JOURNAL FILE SEQUENC 
+        MHD_HCNTRLNUM_W         ,A14    ; ENVELOPE HEADER CONTROL NUMBE 
+        MHD_GCNTRLNUM_W         ,A14    ; ENVELOPE GROUP CONTROL NUMBER 
+        MHD_DCNTRLNUM_W         ,A14    ; ENVELOPE DOCUMENT CONTROL N
+        MHD_PCNT_W              ,D3.2   ; Percent of total split
+
+RECORD, X
+                        ,A8     ; Company Code
+                        ,D5     ; Sequence Number
+        MA862U_HDR      ,A%SIZE(MA862_HDR)      ; Unsplit Header
+.ENDC

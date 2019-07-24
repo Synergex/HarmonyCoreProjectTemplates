@@ -1,0 +1,40 @@
+;CA843_LDT.DEF                                                                                                                      
+;                                                                                                                                   
+;       RESPONSE TO QUOTE LEAD TIME                                                                                                 
+;       DATE : 23-MAR-00                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   399                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  CA843_LDT                                                                                                                   
+        LQT_HDR_SEQ               ,D6           ; HEADER SEQUENCE NUMBER                      1 thru     6                          
+        LQT_DTL_SEQ               ,D6           ; DETAIL SEQUENCE NUMBER                      7 thru    12                          
+        LQT_ADR_SEQ               ,D6           ; ADDRESS SEQUENCE NUMBER                    13 thru    18                          
+        LQT_SLN_SEQ               ,D6           ; SUBLINE ITEM SEQUENCE NUMBER               19 thru    24                          
+        LQT_CST_SEQ               ,D6           ; COST SEQUENCE NUMBER                       25 thru    30                          
+        LQT_SCH_SEQ               ,D6           ; SCHEDULE SEQUENCE NO                       31 thru    36                          
+        LQT_LDT_SEQ               ,D6           ; LEAD TIME SEQUENCE NUMBER                  37 thru    42                          
+        LQT_PDD_SEQ               ,D6           ; PRICING DATA SEQUENCE NUMBER               43 thru    48                          
+        LQT_SAC_SEQ               ,D6           ; ALLOWANCE/CHARGE SEQUENCE NO.              49 thru    54                          
+        LQT_INTR_ID               ,A15          ; INTERCHANGE ID                             55 thru    69                          
+        LQT_GROUP_ID              ,A15          ; GROUP ID                                   70 thru    84                          
+        LQT_SEG_TYPE              ,A3           ; SEGMENT TYPE                               85 thru    87                          
+        LQT_CODE1                 ,A2           ; LEAD TIME CODE 1                           88 thru    89                          
+        LQT_QTY1                  ,D15          ; LEAD TIME QUANTITY 1                       90 thru   104                          
+        LQT_CODE2                 ,A2           ; LEAD TIME CODE 2                          105 thru   106                          
+        LQT_QTY2                  ,D15          ; LEAD TIME QUANTITY 2                      107 thru   121                          
+        LQT_CODE3                 ,A2           ; LEAD TIME CODE 3                          122 thru   123                          
+        LQT_QTY3                  ,D15          ; LEAD TIME QUANTITY 3                      124 thru   138                          
+        LQT_CODE4                 ,A2           ; LEAD TIME CODE 4                          139 thru   140                          
+        LQT_QTY4                  ,D15          ; LEAD TIME QUANTITY 4                      141 thru   155                          
+        LQT_CODE5                 ,A2           ; LEAD TIME CODE 5                          156 thru   157                          
+        LQT_QTY5                  ,D15          ; LEAD TIME QUANTITY 5                      158 thru   172                          
+        LQT_PERIOD                ,A2           ; UNIT OF TIME PERIOD                       173 thru   174                          
+        LQT_DATE                  ,D8           ; DATE                                      175 thru   182                          
+        LQT_TEXT                  ,A19          ; TEXT FIELD FOR MESSAGE                    183 thru   201                          
+        LQT_FILLER1               ,A99          ; FILLER                                    202 thru   300                          
+        LQT_FILLER2               ,A99          ; FILLER                                    301 thru   399                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        CA843_LDT_KEY             ,A30          ; PRIMARY SORT KEY                                                                  
+                                  ,A369         ; PRIMARY KEY POSITIONING                                                           

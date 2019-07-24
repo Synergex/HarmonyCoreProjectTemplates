@@ -1,0 +1,62 @@
+RECORD CHSPD_BCD
+;
+; CHSPD_BLD.DEF - CHRYSLER SPD BUILD CODE FILE
+;
+;	STRUCTURE:	INDEXED
+;	KEY 0:		BC_PART		(Primary Key, NO Duplicates)
+;	KEY 1:		BC_CODE		(Secondary Key, Duplicates)
+;	RECORD LEN:	248
+;-------------------------------------------------------------------------------
+;		--------  Record Definition  -------
+;-------------------------------------------------------------------------------
+	BC_PART_NBR	,A8	; Chrysler Part Number
+	BC_IDENT	,A3	; Plant Identification
+	BC_CODE_1	,A6	; Build Code 1
+	BC_CODE_2	,A6	; Build Code 2
+	BC_CODE_3	,A6	; Build Code 3
+	BC_CODE_4	,A6	; Build Code 4
+	BC_CODE_5	,A6	; Build Code 5
+	BC_CODE_6	,A6	; Build Code 6
+	BC_CODE_7	,A6	; Build Code 7
+	BC_CODE_8	,A6	; Build Code 8
+	BC_CODE_9	,A6	; Build Code 9
+	BC_CODE_10	,A6	; Build Code 10
+	BC_CODE_11	,A6	; Build Code 11
+	BC_CODE_12	,A6	; Build Code 12
+	BC_CODE_13	,A6	; Build Code 13
+	BC_CODE_14	,A6	; Build Code 14
+	BC_CODE_15	,A6	; Build Code 15
+	BC_CODE_16	,A6	; Build Code 16
+	BC_CODE_17	,A6	; Build Code 17
+	BC_CODE_18	,A6	; Build Code 18
+	BC_CODE_19	,A6	; Build Code 19
+	BC_CODE_20	,A6	; Build Code 20
+	BC_CODE_21	,A6	; Build Code 21
+	BC_CODE_22	,A6	; Build Code 22
+	BC_CODE_23	,A6	; Build Code 23
+	BC_CODE_24	,A6	; Build Code 24
+	BC_CODE_25	,A6	; Build Code 25
+	BC_CODE_26	,A6	; Build Code 26
+	BC_CODE_27	,A6	; Build Code 27
+	BC_CODE_28	,A6	; Build Code 28
+	BC_CODE_29	,A6	; Build Code 29
+	BC_CODE_30	,A6	; Build Code 30
+	BC_CODE_31	,A6	; Build Code 31
+	BC_CODE_32	,A6	; Build Code 32
+	BC_CODE_33	,A6	; Build Code 33
+	BC_CODE_34	,A6	; Build Code 34
+	BC_CODE_35	,A6	; Build Code 35
+			,A27	; Filler
+RECORD, X
+	BC_PART		,A11	; Part and Plant
+			,A237	; Filler
+
+RECORD, X
+			,A8	; Filler
+	BC_CODE		,A213	; Plant and Build Codes
+			,A27	; Filler
+RECORD, X
+			,A11	; Filler
+	BC_MATRX_CODE	,35A6	; Build Codes
+			,A27	; Filler
+

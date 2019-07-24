@@ -1,0 +1,13 @@
+;RTSEG_PER.DEF                                                                                                                      
+;                                                                                                                                   
+;       RETAIL PER SEGMENT FILE                                                                                                     
+;       DATE : 15-APR-92                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :    40                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  RTSEG_PER                                                                                                                   
+        PER_SEG                   ,A3           ; RECORD TYPE - PER                           1 thru     3                          
+        PER_01                    ,A2           ; CONTACT FUNCTION CODE                       4 thru     5                          
+        PER_02                    ,A35          ; NAME                                        6 thru    40                          
+                                                                                                                                    
+                                                                                                                                    

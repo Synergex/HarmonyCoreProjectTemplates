@@ -1,0 +1,41 @@
+RECORD CASHIP_LBL
+;
+; CASHIP_LBL.DEF - CARaS Shipping Labels File
+;
+;	File Organization: Isam 		Record Size: 384
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER		DESCRIPTION
+;	--------	----------		-----------
+;	08-Aug-93	J.V.Stefaniak 		Original
+;	01-DEC-93	T. Bunker		Expand part numbers to 30.
+;						Expand record from 316 to 384	
+;-------------------------------------------------------------------------------
+;              ------- Record Definition -------			Position
+;-------------------------------------------------------------------------------
+	SHL_TP_DESIG	,A2	; Trading Partner Designator		001-002
+	SHL_SHIP_NO	,D9	; Shipper #				003-011
+	SHL_SERIAL_NO	,D9	; Serial Number                    	012-020
+	SHL_OUR_PART	,A30	; Our Item Number			021-050
+	SHL_SHIP_REF	,A20	; Shipment Reference Number. 	 	051-070
+	SHL_SHIP_DATE	,D6	; Ship Date				071-076
+				;
+				;
+	SHL_STATUS	,D1	; Status Flag 				077-077
+				; 0=New, 1=Printed, 2=Modified
+	SHL_SUPP_ID	,A15	; Supplier ID				078-092
+	SHL_CUST_PART	,A30	; Trading Partner Part Number		093-122
+	SHL_PART_DESC	,A30	; Item Description			123-152
+	SHL_SHIP_QTY	,D7	; Quantity shipped			153-159
+	SHL_USER_DEF	,A30	; User Defined Field (see CASHOP_PAR)	160-189
+	FILLER		,A195	; Filler				190-384
+
+;-------------------------------------------------------------------------------
+;              ------- Key Definition -------
+;-------------------------------------------------------------------------------
+RECORD,X
+	SHL_KEY0	,A20	; Primary Key
+				;	SHL_TP_DESIG
+				;	SHL_SHIP_NO
+				;	SHL_SERIAL_NO

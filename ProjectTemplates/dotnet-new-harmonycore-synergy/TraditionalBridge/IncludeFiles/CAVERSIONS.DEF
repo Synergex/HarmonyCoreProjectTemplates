@@ -1,0 +1,53 @@
+COMMON	CAVERSIONS
+;
+; 	Current Versions of the Various Releases.
+;
+; 	RECORD LEN: 	350
+;
+;
+;-------------------------------------------------------------------------------
+;
+;	MODIFIED	PROGRAMMER	DESCRIPTION
+;	--------	----------	------------
+;	 2-Sep-88	Kim Bishop	Original
+;	 		Bill Schmelter	Record Len to 280
+;	14-Sep-93	Bill Schmelter	Added Calsonic   (CS) from filler
+;	21-Sep-93	Bill Schmelter	Added WoodBridge (WB)
+;					and   Mack Truck (MT) from filler
+;       04-NOV-93       T. Bunker       FILE EXPANSION.  Add 70 bytes of filler
+;-------------------------------------------------------------------------------
+;
+	AF_VERSION	,A7	;Alcoa/Fujikura
+	CA_VERSION	,A7	;Caras Common
+	CH_VERSION	,A7	;Chrysler
+	CP_VERSION	,A7	;Caterpillar
+	DS_VERSION	,A7	;Diamond Star
+	FI_VERSION	,A7	;Findlay Industries
+	FO_VERSION	,A7	;Ford
+	GM_VERSION	,A7	;General Motors
+	HA_VERSION	,A7	;Haworth
+	HO_VERSION	,A7	;Honda
+	IS_VERSION	,A7	;Isuzu
+	KH_VERSION	,A7	;Kelsey Hayes
+	LB_VERSION	,A7	;Ligon Brothers
+	LS_VERSION	,A7	;Lear Sigler
+	MA_VERSION	,A7	;Mazda
+	NA_VERSION	,A7	;Navistar
+	NC_VERSION	,A7	;Nissan-Carson
+	NI_VERSION	,A7	;Nissan
+	NV_VERSION	,A7	;New Venture Gear
+	RT_VERSION	,A7	;Retail Industry
+	TO_VERSION	,A7	;Toyota
+	TW_VERSION	,A7	;TRW
+	SC_VERSION	,A7	;Steelcase
+	VO_VERSION	,A7	;Volvo
+	SI_VERSION	,A7	;Subaru-Isuzu
+	AB_VERSION	,A7	;Allen Bradley
+	DC_VERSION	,A7	;Dina Camoines
+	FG_VERSION	,A7	;Frigidaire
+	PA_VERSION	,A7	;Paccar
+	UT_VERSION	,A7	;United Technologies
+	CS_VERSION	,A7	;Calsonic Mfg Corp
+	WB_VERSION	,A7	;Woodbridge Corp
+	MT_VERSION	,A7	;Mack Truck
+			,A119	;Filler

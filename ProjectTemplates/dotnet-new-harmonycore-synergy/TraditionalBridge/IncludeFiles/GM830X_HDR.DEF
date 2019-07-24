@@ -1,0 +1,113 @@
+;GM830X_HDR.DEF                                                                                                                     
+;                                                                                                                                   
+;       GM CORPORATE X12 830 HEADER                                                                                                 
+;       DATE : 16-DEC-99                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :  1024                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  GM830X_HDR                                                                                                                  
+        XMH_SUPP_CODE             ,A15          ; SUPPLIER ID CODE                            1 thru    15                          
+        XMH_ISSUE_CODE            ,A15          ; ISSUED BY/DIVISION CODE                    16 thru    30                          
+        XMH_CUST_PART             ,A22          ; CUSTOMER PART NUMBER                       31 thru    52                          
+        XMH_MODEL_YEAR            ,A4           ; MODEL YEAR                                 53 thru    56                          
+        XMH_SHIP_TO               ,A15          ; SHIP TO/DESTINATION CODE                   57 thru    71                          
+        XMH_REL_NO                ,A8           ; RELEASE NUMBER                             72 thru    79                          
+        XMH_REL_REF               ,A15          ; RELEASE REFERENCE NNUMBER                  80 thru    94                          
+        XMH_KANBAN                ,A10          ; KANBAN # (NUMMI)                           95 thru   104                          
+        XMH_FRN                   ,A10          ; FINAL REQ # (NUMMI)                       105 thru   114                          
+        XMH_REL_DATE              ,D8           ; RELEASE/ISSUE DATE                        115 thru   122                          
+        XMH_FILLER_1              ,A4           ; UNUSED                                    123 thru   126                          
+        XMH_TEST_MODE             ,A1           ; TEST MODE FLAG                            127 thru   127                          
+        XMH_START_DATE            ,D8           ; HORIZON START DATE                        128 thru   135                          
+        XMH_END_DATE              ,D8           ; HORIZON END DATE                          136 thru   143                          
+        XMH_FILLER_2              ,A6           ; UNUSED                                    144 thru   149                          
+        XMH_REL_TYPE              ,A2           ; RELEASE TYPE                              150 thru   151                          
+        XMH_PURPOSE               ,A2           ; PURPOSE CODE                              152 thru   153                          
+        XMH_QTY_TYPE              ,A1           ; QUANTITY TYPE                             154 thru   154                          
+        XMH_PACK_SLIP             ,A9           ; PACKING SLIP                              155 thru   163                          
+        XMH_PO_NO                 ,A22          ; PURCHASE ORDER NUMBER                     164 thru   185                          
+        XMH_UOFM                  ,A2           ; UNIT OF MEASURE                           186 thru   187                          
+        XMH_PART_DESCR            ,A30          ; GM PART DESCRIPTION                       188 thru   217                          
+        XMH_CONTRACT              ,A15          ; CONTRACT NUMBER                           218 thru   232                          
+        XMH_RET_CONT              ,A22          ; RETURNABLE CONTAINER                      233 thru   254                          
+        XMH_ENG_LVL               ,A15          ; ENGINEERING CHANGE LEVEL                  255 thru   269                          
+        XMH_RELEASE               ,A15          ; RELEASE NUMBER                            270 thru   284                          
+        XMH_FAB_QTY               ,D8           ; FABRICATION QUANTITIY                     285 thru   292                          
+        XMH_FAB_DATE              ,D8           ; AUTHORIZED FABRICATION                    293 thru   300                          
+        XMH_RAW_QTY               ,D8           ; RAW MATERIAL QUANTITY                     301 thru   308                          
+        XMH_RAW_DATE              ,D8           ; AUTHORIZED RAW DATE                       309 thru   316                          
+        XMH_PREV_CUM              ,D9           ; PREVIOUS REQUIRED CUM                     317 thru   325                          
+        XMH_PREV_QTY              ,D9           ; PREVIOUS REQUIRED CUM QUANTITY            326 thru   334                          
+        XMH_RECV_QTY              ,D8           ; LAST QUANTITY RECEIVED                    335 thru   342                          
+        XMH_SHIP_QTY              ,D8           ; LAST QUANTITY SHIPPED                     343 thru   350                          
+        XMH_LAST_YTD              ,D8           ; LAST RECEIVED YTD QUANTITY                351 thru   358                          
+        XMH_RECV_DATE             ,D8           ; LAST DATE RECEIVED                        359 thru   366                          
+        XMH_SHIP_DATE             ,D8           ; LAST DATE SHIPPED                         367 thru   374                          
+        XMH_CUM_START             ,D8           ; CUM START DATE                            375 thru   382                          
+        XMH_CUM_END               ,D8           ; CUM END DATE                              383 thru   390                          
+        XMH_BUYER_NAME            ,A30          ; BUYER'S NAME                              391 thru   420                          
+        XMH_PHONE_QUAL1           ,A2           ; PHONE NUMBER TYPE                         421 thru   422                          
+        XMH_BUYER_PHONE           ,A15          ; BUYER'S PHONE NUMBER                      423 thru   437                          
+        XMH_EXP_NAME              ,A30          ; EXPEDITOR'S NAME                          438 thru   467                          
+        XMH_PHONE_QUAL2           ,A2           ; PHONE NUMBER TYPE                         468 thru   469                          
+        XMH_EXP_PHONE             ,A15          ; EXPEDITOR'S PHONE NUMBER                  470 thru   484                          
+        XMH_SUPP_NAME             ,A30          ; SUPPLIER CONTACT NAME                     485 thru   514                          
+        XMH_PHONE_QUAL3           ,A2           ; PHONE NUMBER TYPE                         515 thru   516                          
+        XMH_SUPP_PHONE            ,A15          ; SUPPLIERS PHONE NUMBER                    517 thru   531                          
+        XMH_BILL_LADING           ,A9           ; BILL OF LADING NUMBER                     532 thru   540                          
+        XMH_SHIPPER_ID            ,A9           ; SHIPPER ID NUMBER                         541 thru   549                          
+        XMH_LINE_FEED             ,A10          ; LINE FEED                                 550 thru   559                          
+        XMH_RESERVE_LF            ,A10          ; RESERVED LINE FEED                        560 thru   569                          
+        XMH_PROD_CODE             ,A12          ; PRODUCT/PROCESS CODE                      570 thru   581                          
+        XMH_PROD_DESCR            ,A30          ; PRODUCT/PROCESS DESCRIPTION               582 thru   611                          
+        XMH_ROUTE_SEQ             ,A2           ; ROUTING SEQUENCE                          612 thru   613                          
+        XMH_TRANS_MODE            ,A2           ; TRANSPORTATION MODE                       614 thru   615                          
+        XMH_TRANS_QUAL            ,A2           ; TRANSIT QUALIFIER                         616 thru   617                          
+        XMH_TRANS_TIME            ,D4           ; TRANSIT TIME                              618 thru   621                          
+        XMH_REL_STATUS            ,A2           ; PART RELEASE STATUS                       622 thru   623                          
+        XMH_CYCLE_HOURS           ,D8           ; CYCLE HOURS                               624 thru   631                          
+        XMH_PULL_SIGNAL           ,D5           ; TOTAL PULL SIGNALS                        632 thru   636                          
+        XMH_TIME_CODE             ,A1           ; TIME CODE                                 637 thru   637                          
+        XMH_SHIP_CODE             ,A2           ; SHIP CODE                                 638 thru   639                          
+        XMH_OLD_DOCK              ,A5           ; OBSOLETE DOCK CODE                        640 thru   644                          
+        XMH_CUM_FLAG              ,A1           ; CUM FLAG                                  645 thru   645                          
+        XMH_QTY_QUAL              ,A2           ; QUANTITY_QUALIFIER                        646 thru   647                          
+        XMH_BILL_TO               ,A15          ; BILL TO                                   648 thru   662                          
+        XMH_CARRIER               ,A15          ; CARRIER                                   663 thru   677                          
+        XMH_CONSIGNEE             ,A15          ; INTERMEDIATE CONSIGNEE                    678 thru   692                          
+        XMH_SHIP_FROM             ,A15          ; SHIP FROM                                 693 thru   707                          
+        XMH_SHIP_START            ,D8           ; YTD CUM SHIPPED START DATE                708 thru   715                          
+        XMH_SHIP_END              ,D8           ; YTD SHIPPED END DATE                      716 thru   723                          
+        XMH_RECV_START            ,D8           ; YTD CUM RECEIVED START DATE               724 thru   731                          
+        XMH_RECV_END              ,D8           ; YTD CUM RECEIVED END DATE                 732 thru   739                          
+        XMH_SHIP_CUM              ,D8           ; YTD CUM SHIPPED                           740 thru   747                          
+        XMH_RECV_CUM              ,D8           ; YTD CUM RECEIVED                          748 thru   755                          
+        XMH_ST_ID                 ,A9           ; ST ID                                     756 thru   764                          
+        XMH_FCST_DATE             ,D8           ; FORECAST UPDATE DATE                      765 thru   772                          
+        XMH_RAW_END_DT            ,D8           ; AUTHORIZATION RAW END DATE                773 thru   780                          
+        XMH_FAB_END_DT            ,D8           ; AUTHORIZATION FAB END DATE                781 thru   788                          
+        XMH_UPC_CODE              ,A12          ; UPC CONSUMER PACKAGING CODE               789 thru   800                          
+        XMH_DOCK_CODE             ,A30          ; DOCK CODE                                 801 thru   830                          
+        XMH_ENG_DATE              ,D8           ; ENGINEERING CHANGE LEVEL DATE             831 thru   838                          
+        XMH_ENG_NEW               ,A15          ; NEW ENGINEERING CHANGE LEVEL              839 thru   853                          
+        XMH_ORDER_BY              ,A15          ; ORDER BY CODE                             854 thru   868                          
+        XMH_OB_QUAL               ,A2           ; ORDER BY QUALIFIER                        869 thru   870                          
+        XMH_SHIP_NAME             ,A15          ; SHIP TO NAME                              871 thru   885                          
+        XMH_PACK_QTY              ,D5           ; QUANTITY PER CONTAINER                    886 thru   890                          
+        XMH_ISA_DT                ,D8           ; STANDARD DATE FIELD                       891 thru   898                          
+        XMH_ISA_TM                ,D4           ; 4 DIGIT TIME                              899 thru   902                          
+        XMH_TRANSNUM              ,A5           ; DOCUMENT JOURNAL TRANSMISSION             903 thru   907                          
+        XMH_FILSEQNUM             ,D4           ; DOCUMENT JOURNAL FILE SEQUENCE            908 thru   911                          
+        XMH_HCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUMB            912 thru   925                          
+        XMH_GCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUMB            926 thru   939                          
+        XMH_DCNTRLNUM             ,A14          ; ENVELOPE DOCUMENT CONTROL NUMB            940 thru   953                          
+        XMH_STORE_ADDR            ,A30          ; STORE ADDRESS                             954 thru   983                          
+        XMH_BFR_SEQ               ,D6           ; BFR SEQUENCE NUMBER                       984 thru   989                          
+        XMH_LIN_SEQ               ,A6           ; LIN SEQUENCE NUMBER                       990 thru   995                          
+	XMH_PREV_REQ_DT		  ,D8		; PREVIOUSLY RELEASED REQUIREMENTS DATE	    996 thru  1003
+        XMH_FILLER                ,A21          ; FILLER                                   1004 thru  1024                          
+                                                                                                                                    
+                                                                                                                                    
+RECORD  ,X                                                                                                                          
+        GM830X_HDR_KEY            ,A126         ; PRIMARY SORT KEY                                                                  
+                                  ,A898         ; PRIMARY KEY POSITIONING                                                           

@@ -1,0 +1,22 @@
+;HA862_BSS.DEF                                                                                                                      
+;                                                                                                                                   
+;       HAWORTH 862 BSS SEGMENT                                                                                                     
+;       DATE : 18-DEC-97                                                                                                            
+;       File Organization : SEQUENTIAL                                                                                              
+;       Record Size :   113                                                               Field Positions                           
+;-----------------------------------------------------------------------------------------------------------------------------------
+RECORD  HA862_BSS                                                                                                                   
+        HA862BSS_SEQ_NO           ,D5           ; BSS SEQUENCE NUMBER                         1 thru     5                          
+        HA862_BSS_FILL            ,A10          ; FILLER                                      6 thru    15                          
+        HA862_BSS_COLAT           ,A2           ; RECORD TYPE COLATING SEQ - 10              16 thru    17                          
+        HA862_BSS_REC             ,A3           ; RECORD TYPE - BSS                          18 thru    20                          
+        HA862_BSS_FILLA           ,A5           ; FILLER                                     21 thru    25                          
+        HA862_BSS_01              ,A2           ; TRANSACTION SET PURPOSE                    26 thru    27                          
+        HA862_BSS_02              ,A30          ; REFERENCE NUMBER                           28 thru    57                          
+        HA862_BSS_03              ,D8           ; DOCUMENT DATE                              58 thru    65                          
+        HA862_BSS_04              ,A2           ; SCHEDULE TYPE QUALIFIER                    66 thru    67                          
+        HA862_BSS_05              ,D8           ; HORIZON START DATE                         68 thru    75                          
+        HA862_BSS_06              ,D8           ; HORIZON END DATE                           76 thru    83                          
+        HA862_BSS_07              ,A30          ; RELEASE NUMBER                             84 thru   113                          
+                                                                                                                                    
+                                                                                                                                    
