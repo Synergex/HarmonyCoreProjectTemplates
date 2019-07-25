@@ -16,9 +16,9 @@
     <RootNamespace>TraditionalBridge</RootNamespace>
     <ProjEnvVars>
     </ProjEnvVars>
-    <DBL_qRelaxed>True</DBL_qRelaxed>
-    <DBL_qRelaxedParam>True</DBL_qRelaxedParam>
-    <DBL_qRelaxedParamad>True</DBL_qRelaxedParamad>
+    <DBL_qRelaxed>False</DBL_qRelaxed>
+    <DBL_qRelaxedParam>False</DBL_qRelaxedParam>
+    <DBL_qRelaxedParamad>False</DBL_qRelaxedParamad>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <IncludeDebugInformation>true</IncludeDebugInformation>

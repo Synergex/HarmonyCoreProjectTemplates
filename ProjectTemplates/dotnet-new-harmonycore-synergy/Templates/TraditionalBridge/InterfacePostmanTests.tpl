@@ -27,35 +27,6 @@
 			},
 			"response": []
 		},
-		{
-			"name": "UserLogin",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{ \n\t\"username\": \"MANAGER\",\n\t\"password\": \"RADLEY\",\n\t\"temp_dir\": \"TEMP\",\n\t\"company\": \"DEMO\",\n\t\"access_no\": \"MANAGER\"\n}"
-				},
-				"url": {
-					"raw": "{{server}}/Radley/UserLogin",
-					"host": [
-						"{{server}}"
-					],
-					"path": [
-						"Radley",
-						"UserLogin"
-					]
-				}
-			},
-			"response": []
-		},
 <METHOD_LOOP>
   <IF IN_OR_INOUT>
 		{
