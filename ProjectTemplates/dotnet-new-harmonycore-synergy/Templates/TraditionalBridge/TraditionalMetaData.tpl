@@ -1,13 +1,13 @@
-<CODEGEN_FILENAME><SMC_INTERFACE>DispatcherData.dbl</CODEGEN_FILENAME>
-<REQUIRES_USERTOKEN>SMC_INTERFACE</REQUIRES_USERTOKEN>
+<CODEGEN_FILENAME><StructureNoplural>MetaData.dbl</CODEGEN_FILENAME>
+<OPTIONAL_USERTOKEN>RPSDATAFILES= </OPTIONAL_USERTOKEN>
 <REQUIRES_CODEGEN_VERSION>5.4.2</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
-;// Title:       DispatcherData.tpl
+;// Title:       DataObjectMetaData.tpl
 ;//
 ;// Type:        CodeGen Template
 ;//
-;// Description: Creates a class that initializes all data object metadata
+;// Description: Template to define meta data associated with a data object
 ;//
 ;// Copyright (c) 2018, Synergex International, Inc. All rights reserved.
 ;//
@@ -35,9 +35,9 @@
 ;//
 ;;*****************************************************************************
 ;;
-;; Title:       <SMC_INTERFACE>DispatcherData.dbl
+;; Title:       <StructureNoplural>MetaData.dbl
 ;;
-;; Description: Initializes all data object metadata
+;; Description: Defines meta data associated with a data object <StructureNoplural>.
 ;;
 ;;*****************************************************************************
 ;; WARNING: GENERATED CODE!
@@ -47,18 +47,48 @@
 
 import Harmony.TraditionalBridge
 
+subroutine Meta<StructureNoplural>
+	required out metadata, @DataObjectMetadataBase
+proc
+	if(<StructureNoplural>.sMetadata == ^null)
+		<StructureNoplural>.sMetadata = new <StructureNoplural>Metadata()
+	metadata = <StructureNoplural>.sMetadata
+	xreturn
+endsubroutine
+
 namespace <NAMESPACE>
 
-	public partial class <SMC_INTERFACE>Dispatcher
+	.include "<STRUCTURE_NOALIAS>" repository <RPSDATAFILES>, structure="str<StructureNoplural>", end
 
-		;;; <summary>
-		;;; Initialize all data object metadata
-		;;; <summary>
-		private method initMetaData, void
+	public partial class <StructureNoplural>Metadata extends DataObjectMetadataBase
+		
+		public method <StructureNoplural>Metadata
 		proc
-			<STRUCTURE_LOOP>
-			DataObjectMetadataBase.LookupType("<StructureNoplural>")
-			</STRUCTURE_LOOP>		
+			RPSStructureName = "<STRUCTURE_NOALIAS>"
+			RPSStructureSize = ^size(str<StructureNoplural>)
+<FIELD_LOOP>
+	<IF CUSTOM_NOT_HARMONY_EXCLUDE>
+			;AddFieldInfo("<FieldSqlname>", "<FIELD_TYPE_NAME>", <FIELD_SIZE>, <FIELD_POSITION>, 0<FIELD_PRECISION>, false)
+	</IF CUSTOM_NOT_HARMONY_EXCLUDE>
+</FIELD_LOOP>
+		endmethod
+
+;//TODO: If we're not going to use this we should remove it from the base class and here
+		public override method GetFieldByName, @FieldDataDefinition
+			fieldName, @string
+		proc
+			mreturn ^null
+		endmethod
+
+		public override method MakeNew, @DataObjectBase
+			required in dataArea, a
+			required in grfa, a
+			record
+				new<StructureNoplural>, @<NAMESPACE>.<StructureNoplural>
+		proc
+			new<StructureNoplural> = new <StructureNoplural>(dataArea) 
+			new<StructureNoplural>.GlobalRFA = grfa
+			mreturn new<StructureNoplural>
 		endmethod
 
 	endclass

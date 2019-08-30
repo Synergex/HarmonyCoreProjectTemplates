@@ -11,7 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>1.0.75</Version>
+      <Version>1.0.77</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.Build" Version="11.0.1001.2586" />
     <PackageReference Include="Synergex.SynergyDE.synrnt" Version="10.3.3072" />

@@ -54,7 +54,9 @@ namespace Services.Controllers
         proc
             data sum, decimal
             data resultTuple = await CallMethod("AddTwoNumbers",aNumber1,aNumber2,sum)
-            data returnToken = (decimal)(resultTuple.Item2[3]) ;;Item1 = return value, Item2 = array of parameters
+            ;;Item1 in the returned Tuple is the returen value (none in this case, we're calling a subroutine)
+            ;;Item2 in the returned Tuple is an array of returned parameters
+            data returnToken = (decimal)(resultTuple.Item2[3])
             mreturn returnToken
         endmethod
 
@@ -65,8 +67,9 @@ namespace Services.Controllers
         public async method GetEnvironment, @Task<string>
         proc
             data resultTuple = await CallMethod("GetEnvironment")
-            data returnToken = (@JToken)(resultTuple.Item1) ;Item1 is the return value, a string in this case
-            mreturn returnToken.ToObject<string>()
+            ;Item1 in the returned Tuple is the return value, a string in this case
+            data returnToken = (string)(resultTuple.Item1)
+            mreturn returnToken
         endmethod
 
         ;;; <summary>
@@ -78,8 +81,9 @@ namespace Services.Controllers
             required in aLogicalName, string
         proc
             data resultTuple = await CallMethod("GetLogicalName",aLogicalName)
-            data returnToken = (@JToken)(resultTuple.Item1) ;Item1 is the return value, a string in this case
-            mreturn returnToken.ToObject<string>()
+            ;Item1 in the returned Tuple is the return value, a string in this case
+            data returnToken = (string)(resultTuple.Item1)
+            mreturn returnToken
         endmethod
 
     endclass

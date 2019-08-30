@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><INTERFACE_NAME>TestResponses.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.4.1</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.4.2</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
 ;// Title:       InterfaceTestResponse.tpl
@@ -68,7 +68,7 @@ namespace <NAMESPACE>
         </IF OUT_OR_INOUT>
       </PARAMETER_LOOP>
       <IF FUNCTION>
-            mreturn <IF ALPHA>"Z"</IF ALPHA><IF DECIMAL>9</IF DECIMAL><IF ENUM>8</IF ENUM><IF HATVAL>7</IF HATVAL><IF IMPLIED>6.6</IF IMPLIED><IF INTEGER>5</IF INTEGER>
+            mreturn <IF ALPHA>"Z"</IF ALPHA><IF DECIMAL>9</IF DECIMAL><IF ENUM>8</IF ENUM><IF HATVAL>0</IF HATVAL><IF IMPLIED>6.6</IF IMPLIED><IF INTEGER>0</IF INTEGER>
       </IF FUNCTION>
         endmethod
 

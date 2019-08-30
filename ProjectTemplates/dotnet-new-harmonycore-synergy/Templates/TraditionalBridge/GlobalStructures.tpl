@@ -1,13 +1,13 @@
-<CODEGEN_FILENAME><SMC_INTERFACE>DispatcherData.dbl</CODEGEN_FILENAME>
-<REQUIRES_USERTOKEN>SMC_INTERFACE</REQUIRES_USERTOKEN>
+<CODEGEN_FILENAME>GlobalStructures.dbl</CODEGEN_FILENAME>
+<OPTIONAL_USERTOKEN>RPSDATAFILES= </OPTIONAL_USERTOKEN>
 <REQUIRES_CODEGEN_VERSION>5.4.2</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
-;// Title:       DispatcherData.tpl
+;// Title:       DataObjectMetaData.tpl
 ;//
 ;// Type:        CodeGen Template
 ;//
-;// Description: Creates a class that initializes all data object metadata
+;// Description: Template to define meta data associated with a data object
 ;//
 ;// Copyright (c) 2018, Synergex International, Inc. All rights reserved.
 ;//
@@ -35,9 +35,9 @@
 ;//
 ;;*****************************************************************************
 ;;
-;; Title:       <SMC_INTERFACE>DispatcherData.dbl
+;; Title:       <StructureNoplural>MetaData.dbl
 ;;
-;; Description: Initializes all data object metadata
+;; Description: Defines meta data associated with a data object <StructureNoplural>.
 ;;
 ;;*****************************************************************************
 ;; WARNING: GENERATED CODE!
@@ -45,22 +45,9 @@
 ;; Any changes you make will be lost of the file is re-generated.
 ;;*****************************************************************************
 
-import Harmony.TraditionalBridge
-
 namespace <NAMESPACE>
 
-	public partial class <SMC_INTERFACE>Dispatcher
-
-		;;; <summary>
-		;;; Initialize all data object metadata
-		;;; <summary>
-		private method initMetaData, void
-		proc
-			<STRUCTURE_LOOP>
-			DataObjectMetadataBase.LookupType("<StructureNoplural>")
-			</STRUCTURE_LOOP>		
-		endmethod
-
-	endclass
-
+<STRUCTURE_LOOP>
+	.include "<STRUCTURE_NOALIAS>" repository <RPSDATAFILES>, structure="<STRUCTURE_NOALIAS>", end
+</STRUCTURE_LOOP>
 endnamespace

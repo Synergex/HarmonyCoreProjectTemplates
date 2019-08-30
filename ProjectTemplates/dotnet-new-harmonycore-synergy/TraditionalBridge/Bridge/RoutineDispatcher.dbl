@@ -22,7 +22,7 @@ namespace Harmony.TraditionalBridge
         protected mReadBufferSize, int
         protected mDispatchStubs, @StringDictionary
         protected mActivationMask, [32]i1
-        .define GetBuffer ^m(MemStruct(1:mReadBufferSize), mReadBuffer)
+.define GetBuffer ^m(MemStruct(1:mReadBufferSize), mReadBuffer)
 
         ;;; <summary>
         ;;; Constructor
@@ -206,14 +206,72 @@ namespace Harmony.TraditionalBridge
                 end
                 else if(element .is. JsonNumber) then
                 begin
-                    buffer(bufferPosition:elementInfo.ElementSize) = ((@JsonNumber)element).Value
+                    ^d(buffer(bufferPosition:elementInfo.ElementSize), elementInfo.DecimalPrecision) = ((@JsonNumber)element).Value
                 end
                 else if(element .is. JsonInt) then
                 begin
                     if(elementInfo.DataType == FieldDataType.IntegerField) then
-                        buffer(bufferPosition:elementInfo.ElementSize) = ((@JsonNumber)element).Value
+                        ^i(buffer(bufferPosition:elementInfo.ElementSize)) = ((@JsonInt)element).Value
                     else
-                        buffer(bufferPosition:elementInfo.ElementSize) = %string(((@JsonNumber)element).Value)
+                        ^d(buffer(bufferPosition:elementInfo.ElementSize), elementInfo.DecimalPrecision) = %string(((@JsonInt)element).Value)
+                end
+                else if(element .is. JsonBoolean) then
+                begin
+                                        
+                end
+                else if(element .is. JsonArray)
+                begin
+
+                end
+                bufferPosition += elementInfo.ElementSize
+            end
+
+        endmethod
+
+        public method UnwrapObjectCollection, void
+            handle, D_HANDLE
+            elementInfo, @ArgumentDataDefinition
+            inout bufferPosition, i
+            collection, @JsonArray
+            record
+                element, @JsonValue
+            endrecord
+            structure localStr
+                fld, a1
+            endstructure
+
+        proc
+            foreach element in collection.arrayValues
+            begin
+                if(element .is. JsonObject) then
+                begin
+                    data valueToken, @JsonValue
+                    data stringValue, @string
+                    if(((@JsonObject)element).TryGetProperty("Value", valueToken)) then
+                    begin
+                        stringValue = ((@JsonText)valueToken).Value
+                    end
+                    else
+                    begin
+                        stringValue = Convert.FromBase64String(((@JsonText)((@JsonObject)element).GetProperty("Base64Value")).Value)
+                    end
+                    MaybeLog(6, "filling handle bufferPosition: " + %string(bufferPosition) + " elementSize: " + %string(elementInfo.ElementSize))
+                    ^m(localStr.fld(bufferPosition:elementInfo.ElementSize), handle) = stringValue
+                end
+                else if(element .is. JsonText) then
+                begin
+                    ^m(localStr.fld(bufferPosition:elementInfo.ElementSize), handle) = ((@JsonText)element).Value
+                end
+                else if(element .is. JsonNumber) then
+                begin
+                    ^d(^m(localStr.fld(bufferPosition:elementInfo.ElementSize), handle), elementInfo.DecimalPrecision) = ((@JsonNumber)element).Value
+                end
+                else if(element .is. JsonInt) then
+                begin
+                    if(elementInfo.DataType == FieldDataType.IntegerField) then
+                        ^i(^m(localStr.fld(bufferPosition:elementInfo.ElementSize), handle)) = ((@JsonInt)element).Value
+                    else
+                        ^d(^m(localStr.fld(bufferPosition:elementInfo.ElementSize), handle), elementInfo.DecimalPrecision) = %string(((@JsonInt)element).Value)
                 end
                 else if(element .is. JsonBoolean) then
                 begin
@@ -235,11 +293,15 @@ namespace Harmony.TraditionalBridge
         ;;; <returns></returns>
         public method GetArgumentDataDefForCollection, @ArgumentDataDefinition
             argument, @JsonObject
+            in optional elementSize, int
             record
                 result, @ArgumentDataDefinition
                 dataType, i4
             endrecord
         proc
+            result = new ArgumentDataDefinition()
+            result.ElementSize = elementSize
+
             argument.TryGetProperty("DecimalPrecision", result.DecimalPrecision)
             argument.TryGetProperty("ElementSize", result.ElementSize)
             if(argument.TryGetProperty("DataType", dataType))
@@ -257,10 +319,109 @@ namespace Harmony.TraditionalBridge
             collection, @JsonArray
             record
                 result, @ArrayList
+                buffer, a65535
         proc
             result = new ArrayList()
-            UnwrapObjectCollection(collection, result)
+            UnwrapObjectCollection(collection, result, false, ^null, buffer)
             mreturn result
+        endmethod
+
+        private method UnwrapJsonValue, @object
+            element, @JsonValue
+            elementIsEncoded, boolean
+            elementType, @DataObjectMetadataBase
+            inout elementBuffer, a
+            optional desiredType, FieldDataType
+            optional desiredSize, int
+            optional desiredPrecision, int
+            optional grfa, a
+        proc
+            if(element .is. JsonText) then
+            begin
+                if(^passed(desiredSize)) then
+                begin
+                    if(!^passed(desiredType)) then
+                    begin
+                        elementBuffer(1: desiredSize) = ((@JsonText)element).Value
+                        mreturn (@*)elementBuffer(1: desiredSize)
+                    end
+                    else if(desiredType == FieldDataType.DataObjectField) then
+                    begin
+                        elementBuffer(1: desiredSize) = ((@JsonText)element).Value
+                        if(^passed(grfa)) then
+                            mreturn elementType.MakeNew(elementBuffer(1: desiredSize), grfa)
+                        else
+                            mreturn elementType.MakeNew(elementBuffer(1: desiredSize), "")
+                    end
+                    else if(desiredType == FieldDataType.StringField) then
+                    begin
+                        mreturn ((@JsonText)element).Value
+                    end
+                    else if(desiredType == FieldDataType.AlphaField)
+                    begin
+                        elementBuffer(1: desiredSize) = ((@JsonText)element).Value
+                        mreturn (@*)elementBuffer(1: desiredSize)
+                    end
+                end
+                else
+                begin
+                    mreturn (@a)(a)((@JsonText)element).Value
+                end
+            end
+            else if(element .is. JsonNumber) then
+            begin
+                if(!^passed(desiredType)) then
+                begin
+                    ^d(elementBuffer(1: 28), 10) = ((@JsonNumber)element).Value 
+                    mreturn (@*)^d(elementBuffer(1: 28), 10)
+                end
+                else if(desiredType == FieldDataType.IntegerField) then
+                begin
+                    ^i(elementBuffer(1: desiredSize)) = ((@JsonNumber)element).Value 
+                    mreturn (@*)^i(elementBuffer(1: desiredSize))
+                end
+                else if(desiredType == FieldDataType.DecimalField) then
+                begin
+                    ^d(elementBuffer(1: desiredSize)) = ((@JsonNumber)element).Value
+                    mreturn (@*)^d(elementBuffer(1: desiredSize))
+                end
+                else if(desiredType == FieldDataType.ImpliedDecimal) then
+                begin
+                    ^d(elementBuffer(1: desiredSize), desiredPrecision) = ((@JsonNumber)element).Value
+                    mreturn (@*)^d(elementBuffer(1: desiredSize), desiredPrecision)
+                end
+                else
+                    throw new Exception("invalid desired type " + %string(desiredType))
+            end
+            else if(element .is. JsonInt) then
+            begin
+                if(!^passed(desiredType)) then
+                begin
+                    ^i(elementBuffer(1: 8)) = ((@JsonInt)element).Value 
+                    mreturn (@*)^i(elementBuffer(1: 8))
+                end
+                else if(desiredType == FieldDataType.IntegerField) then
+                begin
+                    ^i(elementBuffer(1: desiredSize)) = ((@JsonInt)element).Value 
+                    mreturn (@*)^i(elementBuffer(1: desiredSize))
+                end
+                else if(desiredType == FieldDataType.DecimalField) then
+                begin
+                    ^d(elementBuffer(1: desiredSize)) = ((@JsonInt)element).Value
+                    mreturn (@*)^d(elementBuffer(1: desiredSize))
+                end
+                else if(desiredType == FieldDataType.ImpliedDecimal) then
+                begin
+                    ^d(elementBuffer(1: desiredSize), desiredPrecision) = ((@JsonInt)element).Value
+                    mreturn (@*)^d(elementBuffer(1: desiredSize), desiredPrecision)
+                end
+                else
+                    throw new Exception("invalid desired type " + %string(desiredType))
+            end
+            else if(element .is. JsonBoolean)
+            begin
+                mreturn (@boolean)((@JsonBoolean)element).Value
+            end
         endmethod
 
         ;;; <summary>
@@ -271,7 +432,61 @@ namespace Harmony.TraditionalBridge
         ;;; <param name="targetArrayList"></param>
         public method UnwrapObjectCollection, void
             collection, @JsonArray
-            targetArrayList, @ArrayList
+            ;;must be an arraylist or a typed dynamic array
+            targetCollection, @Array
+            elementIsEncoded, boolean
+            elementType, @DataObjectMetadataBase
+            inout elementBuffer, a
+            optional desiredType, FieldDataType
+            optional desiredSize, int
+            optional desiredPrecision, int
+            record
+                element, @JsonValue
+                index, int
+            endrecord
+        proc
+            if(targetCollection.Length != collection.arrayValues.Count)
+                throw new Exception("Dynamic array must be correctly sized before unwrapping object collection into it")
+            index = 1
+
+            foreach element in collection.arrayValues
+            begin
+                if(element .is. JsonObject) then
+                begin
+                    data valueToken, @JsonValue
+                    if(((@JsonObject)element).TryGetProperty("Value", valueToken)) then
+                    begin
+                        if(elementType != ^null && ^passed(desiredType) && desiredType == FieldDataType.AlphaField) then
+                            elementType.SetIntoArray((@a)UnwrapJsonValue(valueToken, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision), targetCollection, index)
+                        else
+                            targetCollection.SetValue(UnwrapJsonValue(valueToken, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision), index)
+                    end
+                    else
+                    begin
+                        targetCollection.SetValue(UnwrapJsonValue(((@JsonObject)element).GetProperty("Base64Value"), true, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision), index)
+                    end
+                end
+                else
+                begin
+                    if(elementType != ^null && ^passed(desiredType) && desiredType == FieldDataType.AlphaField) then
+                        elementType.SetIntoArray((@a)UnwrapJsonValue(element, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision), targetCollection, index)
+                    else
+                        targetCollection.SetValue(UnwrapJsonValue(element, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision), index)
+                end
+                incr index
+            end
+        endmethod
+
+        public method UnwrapObjectCollection, void
+            collection, @JsonArray
+            ;;must be an arraylist or a typed dynamic array
+            targetCollection, @ArrayList
+            elementIsEncoded, boolean
+            elementType, @DataObjectMetadataBase
+            inout elementBuffer, a
+            optional desiredType, FieldDataType
+            optional desiredSize, int
+            optional desiredPrecision, int
             record
                 element, @JsonValue
             endrecord
@@ -281,39 +496,18 @@ namespace Harmony.TraditionalBridge
                 if(element .is. JsonObject) then
                 begin
                     data valueToken, @JsonValue
-                    data stringValue, @string
                     if(((@JsonObject)element).TryGetProperty("Value", valueToken)) then
                     begin
-                        stringValue = ((@JsonText)valueToken).Value
+                        targetCollection.Add(UnwrapJsonValue(valueToken, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision))
                     end
                     else
                     begin
-                        stringValue = Convert.FromBase64String(((@JsonText)((@JsonObject)element).GetProperty("Base64Value")).Value)
+                        targetCollection.Add(UnwrapJsonValue(((@JsonObject)element).GetProperty("Base64Value"), true, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision))
                     end
-
-                    targetArrayList.Add((@a)(a)stringValue)
                 end
-                else if(element .is. JsonText) then
+                else
                 begin
-                    ;;TODO this needs to handle the arg type, could be d, id, a
-                    targetArrayList.Add((@a)(a)((@JsonText)element).Value)
-                end
-                else if(element .is. JsonNumber) then
-                begin
-                    targetArrayList.Add((@id)((@JsonNumber)element).Value)
-                end
-                else if(element .is. JsonInt) then
-                begin
-                    ;;TODO this needs to handle the arg type, could be i, d, id
-                    targetArrayList.Add((@i)((@JsonInt)element).Value)
-                end
-                else if(element .is. JsonBoolean) then
-                begin
-                    targetArrayList.Add((@boolean)((@JsonBoolean)element).Value)
-                end
-                else if(element .is. JsonArray)
-                begin
-
+                    targetCollection.Add(UnwrapJsonValue(element, false, elementType, elementBuffer, desiredType, desiredSize, desiredPrecision))
                 end
             end
         endmethod
@@ -672,6 +866,9 @@ namespace Harmony.TraditionalBridge
                 result, boolean
                 readerPosition, int
                 remainingRead, int
+                constrainedRemainingRead, int
+                innerString, @string
+                innerHandle, D_HANDLE
             endrecord
         proc
             jsonReader = new Json()
@@ -708,7 +905,11 @@ namespace Harmony.TraditionalBridge
             do 
             begin
                 MaybeLog(6, "Dispatcher: Reading " + %string(remainingRead) + " bytes from input")
-                gets(ttChannel, ^m(MemStruct(readerPosition:remainingRead), mReadBuffer), wait:100, MASK:mActivationMask) [$ERR_TIMOUT=again]
+                if(remainingRead > 65535) then
+                    constrainedRemainingRead = 65535
+                else
+                    constrainedRemainingRead = remainingRead
+                gets(ttChannel, ^m(MemStruct(readerPosition:constrainedRemainingRead), mReadBuffer), wait:100, MASK:mActivationMask) [$ERR_TIMOUT=again]
             again,  
                 MaybeLog(7, "Dispatcher: Reading Content from input" + ^m(MemStruct(readerPosition:remainingRead), mReadBuffer) + ": got " + %string(%rdlen(ttChannel)) + " bytes, was expecting " + %string(remainingRead) + " bytes")
                 readerPosition += %rdlen(ttChannel)
@@ -717,9 +918,13 @@ namespace Harmony.TraditionalBridge
             end
             until remainingRead <= 0
 
-            MaybeLog(6, "Dispatcher: Parsing buffer " + ^m(MemStruct(1:frameHeader), mReadBuffer))
-            parsedJson = jsonReader.ParseJson(^m(MemStruct(1:readerPosition - 1), mReadBuffer))
-
+            if(frameHeader > 64000) then
+                MaybeLog(6, "Dispatcher: Parsing buffer " + ^m(MemStruct(1:64000), mReadBuffer))
+            else
+                MaybeLog(6, "Dispatcher: Parsing buffer " + ^m(MemStruct(1:frameHeader), mReadBuffer))
+            ;innerHandle = %mem_proc(DM_REG, readerPosition - 1, ^addr(^m(MemStruct(1:1), mReadBuffer)))
+            innerString = %string_from_handle(mReadBuffer)
+            parsedJson = jsonReader.ParseJson(innerString.Substring(0, readerPosition - 1))
             if (!(parsedJson .is. @JsonObject) && !(parsedJson .is. @JsonArray))
             begin
                 ReportError("failed to parse json request", (int)-32700, (int)-1, serializer)
@@ -758,7 +963,6 @@ namespace Harmony.TraditionalBridge
                 end
                 serializer.ArrayClose()
             end
-
             flush(ttChannel)
             mreturn result
 
@@ -892,29 +1096,29 @@ namespace Harmony.TraditionalBridge
             end
         endmethod
 
-		public method ReportResult, void
-			requestId, int
-			result, [#]@object
-			inputSet, [#]boolean
-			resultTypes, [#]FieldDataType
-			serializer, @DispatchSerializer
-			record
-				arg, @object
-				ii, int
-		proc
-				serializer.ArrayOpen()
-				ii = 0
-				foreach arg in result
-				begin
-					incr ii
-					if(inputSet[ii])
-					begin
-						;;TODO input set
-					end
-				end
-				MaybeLog(5, "ReportResult: array(" + %string(result.Length) + ") messageId" + %string(requestId))
+        public method ReportResult, void
+            requestId, int
+            result, [#]@object
+            inputSet, [#]boolean
+            resultTypes, [#]FieldDataType
+            serializer, @DispatchSerializer
+            record
+                arg, @object
+                ii, int
+        proc
+            serializer.ArrayOpen()
+            ii = 0
+            foreach arg in result
+            begin
+                incr ii
+                if(inputSet[ii])
+                begin
+                    ;;TODO input set
+                end
+            end
+            MaybeLog(5, "ReportResult: array(" + %string(result.Length) + ") messageId" + %string(requestId))
 			
-		endmethod
+        endmethod
 
         ;;; <summary>
         ;;; 
@@ -968,9 +1172,9 @@ namespace Harmony.TraditionalBridge
                     again,          
                         
                     end
-					until lengthReadPos > 16 && PacketLength(lengthReadPos - 1:1) == %char(10)
+                    until lengthReadPos > 16 && PacketLength(lengthReadPos - 1:1) == %char(10)
 
-					MaybeLog(6, "Dispatcher: Reading ContentLength from input" + %atrim(PacketLength) + ":" + %string(lengthReadPos))
+                    MaybeLog(6, "Dispatcher: Reading ContentLength from input" + %atrim(PacketLength) + ":" + %string(lengthReadPos))
 
                     clear PacketLength(lengthReadPos - 2:2)
                     frameHeader = ^d(%atrim(lengthValue))
@@ -1000,8 +1204,9 @@ namespace Harmony.TraditionalBridge
                     MaybeLog(5, "Dispatcher: starting callblock processing with ContentLength " + %atrim(lengthValue) + " ContentType " + %atrim(ContentType))
 
                     running = ReadCallBlock(ttChannel, (int)frameHeader + 1, leftoverData, leftoverLength)
+                    Logger.Instance.FinishMemoryLog()
                 end
-				MaybeLog(1, "Shutting down due to running == false")
+                MaybeLog(1, "Shutting down due to running == false")
             end
             catch(ex, @Exception)
             begin
@@ -1099,49 +1304,49 @@ namespace Harmony.TraditionalBridge
                             ReportResult(requestId, 0, serializer)
                         end
 
-					end
-					else if(name == "rpc.chain") then
-					begin
-						;;TODO: flush everything out and stop chain to ourselves
-						ReportError("rpc.chain not yet implemented", -32603, requestId, serializer)
-					end
-					else
-					begin
-						;;extension method was called but isnt supported
-						ReportError("unknown extension method", -32601, requestId, serializer)
-					end
-				end
-				else
-				begin
-					if(mDispatchStubs.TryGet(name, dispatchStub)) then
-					begin
-						MaybeLog(5, "Dispatcher: dispatching compiled stub for " + name)
-						dispatchStub.Dispatch(name, jsonData, serializer, this)
-						MaybeLog(5, "Dispatcher: finished dispatching compiled stub for " + name)
-					end
-					else
-					begin
-						throw new RoutineNotFound(name + " was not found")
-					end
-				end
-				serializer.OutputScopeClose()
-			end
-			catch(rtnNotFound, @RoutineNotFound)
-			begin
-				serializer.OutputScopeAbort()
-				ReportError(rtnNotFound.ToString(), -32601, requestId, serializer)
-			end
-			catch(ex, @Exception)
-			begin
-				serializer.OutputScopeAbort()
-				;;TODO maybe this should be a specific type, we might need to do additional processing for certain exception types here
-				ReportError(ex.ToString(), -32000, requestId, serializer)
-			end
-			endtry
+                    end
+                    else if(name == "rpc.chain") then
+                    begin
+                        ;;TODO: flush everything out and stop chain to ourselves
+                        ReportError("rpc.chain not yet implemented", -32603, requestId, serializer)
+                    end
+                    else
+                    begin
+                        ;;extension method was called but isnt supported
+                        ReportError("unknown extension method", -32601, requestId, serializer)
+                    end
+                end
+                else
+                begin
+                    if(mDispatchStubs.TryGet(name, dispatchStub)) then
+                    begin
+                        MaybeLog(5, "Dispatcher: dispatching compiled stub for " + name)
+                        dispatchStub.Dispatch(name, jsonData, serializer, this)
+                        MaybeLog(5, "Dispatcher: finished dispatching compiled stub for " + name)
+                    end
+                    else
+                    begin
+                        throw new RoutineNotFound(name + " was not found")
+                    end
+                end
+                serializer.OutputScopeClose()
+            end
+            catch(rtnNotFound, @RoutineNotFound)
+            begin
+                serializer.OutputScopeAbort()
+                ReportError(rtnNotFound.ToString(), -32601, requestId, serializer)
+            end
+            catch(ex, @Exception)
+            begin
+                serializer.OutputScopeAbort()
+                ;;TODO maybe this should be a specific type, we might need to do additional processing for certain exception types here
+                ReportError(ex.ToString(), -32000, requestId, serializer)
+            end
+            endtry
 
-			mreturn true
-		endmethod
-	endclass
+            mreturn true
+        endmethod
+    endclass
 
     ;;; <summary>
     ;;; 
@@ -1192,130 +1397,130 @@ namespace Harmony.TraditionalBridge
             serializer.MapClose()
             ;;Terminate the response object
             serializer.MapClose()
-		endmethod
+        endmethod
 
-		public method RCBInit, void
-			required in targetMethod, a
-			required in argumentCount, int
-			required inout existingHandle, D_HANDLE
-		proc
-			MaybeLog(5, "Dispatcher: dispatching RCB for " + targetMethod)
-			if(existingHandle) then
-				nop
-			else
-				existingHandle = %rcb_create(argumentCount, DM_STATIC)
+        public method RCBInit, void
+            required in targetMethod, a
+            required in argumentCount, int
+            required inout existingHandle, D_HANDLE
+        proc
+            MaybeLog(5, "Dispatcher: dispatching RCB for " + targetMethod)
+            if(existingHandle) then
+                nop
+            else
+                existingHandle = %rcb_create(argumentCount, DM_STATIC)
 
-			xcall rcb_setfnc(existingHandle, targetMethod)
-		endmethod
+            xcall rcb_setfnc(existingHandle, targetMethod)
+        endmethod
 
-		public method RCBArg, void
-			index, int
-			argObject, @JsonObject
-			argType, FieldDataType
-			inout argBuffer, a
-			rcbid, D_HANDLE
-			argBufferPrecision, int
-			optional out passed, boolean
-			record
-				argLength, i4
-				argPrecision, i4
-				argValue, @JsonValue
-				argIsEncoded, boolean
-		proc
-			argLength = ^size(argBuffer)
-			argPrecision = 0
+        public method RCBArg, void
+            index, int
+            argObject, @JsonObject
+            argType, FieldDataType
+            inout argBuffer, a
+            rcbid, D_HANDLE
+            argBufferPrecision, int
+            optional out passed, boolean
+            record
+                argLength, i4
+                argPrecision, i4
+                argValue, @JsonValue
+                argIsEncoded, boolean
+        proc
+            argLength = ^size(argBuffer)
+            argPrecision = 0
 
-			if(argObject.TryGetProperty("PassedValue", argValue)) then
-			begin
-				if(^passed(passed))
-					passed = true
+            if(argObject.TryGetProperty("PassedValue", argValue)) then
+            begin
+                if(^passed(passed))
+                    passed = true
 
-				if(!argObject.TryGetBoolProperty("ElementIsEncoded", argIsEncoded))
-					argIsEncoded = false
+                if(!argObject.TryGetBoolProperty("ElementIsEncoded", argIsEncoded))
+                    argIsEncoded = false
 
-				if(argType != FieldDataType.DataObjectField && argType != FieldDataType.DataObjectCollectionField) then
-				begin
-					data elementSizeValue, @JsonValue
-					if(argObject.HasProperty("DecimalPrecision"))
-						argPrecision = ((@JsonInt)argObject.GetProperty("DecimalPrecision")).Value
+                if(argType != FieldDataType.DataObjectField && argType != FieldDataType.DataObjectCollectionField) then
+                begin
+                    data elementSizeValue, @JsonValue
+                    if(argObject.HasProperty("DecimalPrecision"))
+                        argPrecision = ((@JsonInt)argObject.GetProperty("DecimalPrecision")).Value
 
-					if(argType == FieldDataType.AlphaField) then
-					begin
-						if(argIsEncoded) then
-							argBuffer = Convert.FromBase64String(((@JsonText)argValue).Value)
-						else
-							argBuffer = ((@JsonText)argValue).Value
-					end
-					else if(argType == FieldDataType.DecimalField) then
-					begin
-						if(argValue .is. JsonNumber) then
-						begin
-							MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " JsonNumber value " + %string(((@JsonNumber)argValue).Value))
-							^d(argBuffer) = ((@JsonNumber)argValue).Value
-						end
-						else if(argValue .is. JsonInt)
-						begin
-							MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " and arglength " + %string(argLength) + " JsonInt value " + %string(((@JsonInt)argValue).Value))
-							^d(argBuffer) = %implied(((@JsonInt)argValue).Value)
-						end
-					end
-					else if(argType == FieldDataType.ImpliedDecimalField) then
-					begin
-						if(argValue .is. JsonNumber) then
-							^d(argBuffer, argBufferPrecision) = ((@JsonNumber)argValue).Value
-						else if(argValue .is. JsonInt)
-							^d(argBuffer, argBufferPrecision) = %implied(((@JsonInt)argValue).Value)
-					end
-					else if(argType == FieldDataType.IntegerField) then
-					begin
-						MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType)  + " and arglength " + %string(argLength) + " JsonInt value " + %string(((@JsonInt)argValue).Value))
-						^i(argBuffer) = ((@JsonInt)argValue).Value
-					end
+                    if(argType == FieldDataType.AlphaField) then
+                    begin
+                        if(argIsEncoded) then
+                            argBuffer = Convert.FromBase64String(((@JsonText)argValue).Value)
+                        else
+                            argBuffer = ((@JsonText)argValue).Value
+                    end
+                    else if(argType == FieldDataType.DecimalField) then
+                    begin
+                        if(argValue .is. JsonNumber) then
+                        begin
+                            MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " JsonNumber value " + %string(((@JsonNumber)argValue).Value))
+                            ^d(argBuffer) = ((@JsonNumber)argValue).Value
+                        end
+                        else if(argValue .is. JsonInt)
+                        begin
+                            MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " and arglength " + %string(argLength) + " JsonInt value " + %string(((@JsonInt)argValue).Value))
+                            ^d(argBuffer) = %implied(((@JsonInt)argValue).Value)
+                        end
+                    end
+                    else if(argType == FieldDataType.ImpliedDecimalField) then
+                    begin
+                        if(argValue .is. JsonNumber) then
+                            ^d(argBuffer, argBufferPrecision) = ((@JsonNumber)argValue).Value
+                        else if(argValue .is. JsonInt)
+                            ^d(argBuffer, argBufferPrecision) = %implied(((@JsonInt)argValue).Value)
+                    end
+                    else if(argType == FieldDataType.IntegerField) then
+                    begin
+                        MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType)  + " and arglength " + %string(argLength) + " JsonInt value " + %string(((@JsonInt)argValue).Value))
+                        ^i(argBuffer) = ((@JsonInt)argValue).Value
+                    end
 
-					else
-						throw new Exception("unexpected arg type during RCB dispatch " + %string(argType))
+                    else
+                        throw new Exception("unexpected arg type during RCB dispatch " + %string(argType))
 
-					MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " argBuffer value " + argBuffer)
-					xcall rcb_setarg(rcbid, argBuffer, index, (i)argType, argLength, argPrecision)
-				end
-				else
-					throw new Exception("Object parameters to RCB dispatch is not currently implemented")
-			end
-			else
-			begin
-				if(^passed(passed))
-					passed = false
-				MaybeLog(4, "argument " + %string(index) + " was not passed to rcb dispatcher")
-			end
+                    MaybeLog(4, "argument " + %string(index) + " passed to rcb dispatcher with argType " + %string(argType) + " argBuffer value " + argBuffer)
+                    xcall rcb_setarg(rcbid, argBuffer, index, (i)argType, argLength, argPrecision)
+                end
+                else
+                    throw new Exception("Object parameters to RCB dispatch is not currently implemented")
+            end
+            else
+            begin
+                if(^passed(passed))
+                    passed = false
+                MaybeLog(4, "argument " + %string(index) + " was not passed to rcb dispatcher")
+            end
 
-		endmethod
+        endmethod
 		
-		public method RCBSerializeArg, void
-			index, int
-			passed, boolean
-			argType, FieldDataType
-			argBuffer, a
-			argLength, i4
-			argPrecision, i4
-			serializer, @DispatchSerializer
-		proc
-			MaybeLog(4, "RCBSerializeArg: serializing argType " + %string(argType) + " marked as passed: " + %string(passed) + " with buffer " + argBuffer)
+        public method RCBSerializeArg, void
+            index, int
+            passed, boolean
+            argType, FieldDataType
+            argBuffer, a
+            argLength, i4
+            argPrecision, i4
+            serializer, @DispatchSerializer
+        proc
+            MaybeLog(4, "RCBSerializeArg: serializing argType " + %string(argType) + " marked as passed: " + %string(passed) + " with buffer " + argBuffer)
 
-			if(passed)
-			begin
-				case (argType) of
-				begincase
-				FieldDataType.AlphaField:
-					serializer.ArgumentData(index, argBuffer, argType, argLength, argPrecision, true)
-				FieldDataType.IntegerField:
-					serializer.ArgumentData(index, ^i(argBuffer), argType, argLength, argPrecision, false)
-				FieldDataType.ImpliedDecimalField:
-					serializer.ArgumentData(index, ^d(argBuffer, argPrecision), argType, argLength, argPrecision, false)
-				FieldDataType.DecimalField:
-					serializer.ArgumentData(index, ^d(argBuffer), argType, argLength, argPrecision, false)
-				endcase
-			end
-		endmethod
+            if(passed)
+            begin
+                case (argType) of
+                begincase
+                FieldDataType.AlphaField:
+                    serializer.ArgumentData(index, argBuffer, argType, argLength, argPrecision, false)
+                FieldDataType.IntegerField:
+                    serializer.ArgumentData(index, ^i(argBuffer), argType, argLength, argPrecision, false)
+                FieldDataType.ImpliedDecimalField:
+                    serializer.ArgumentData(index, ^d(argBuffer, argPrecision), argType, argLength, argPrecision, false)
+                FieldDataType.DecimalField:
+                    serializer.ArgumentData(index, ^d(argBuffer), argType, argLength, argPrecision, false)
+                endcase
+            end
+        endmethod
     endclass
 
 
