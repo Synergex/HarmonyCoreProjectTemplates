@@ -1,5 +1,0 @@
-	server_socket		,D_ADDR
-	client_socket		,D_ADDR
-	serverport		,i4
-	debug_socket_detail	,d1
-	debug_channel		,i4

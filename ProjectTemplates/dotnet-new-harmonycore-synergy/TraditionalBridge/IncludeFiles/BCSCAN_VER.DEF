@@ -1,2 +1,0 @@
-.INCLUDE 'BCSCAN_VER' Dictionary,Record='BCSCAN_VER'
-.INCLUDE 'A_BCSCAN_VER' Dictionary,Record='A_BCSCAN_VER'

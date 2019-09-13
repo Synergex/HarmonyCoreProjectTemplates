@@ -1,5 +1,0 @@
-external function
-	docprofileload		,i
-
-.include 'DP_KEYS' repository, structure='dp_keys'
-.include 'DP_CHILD' repository, structure='dp_child'

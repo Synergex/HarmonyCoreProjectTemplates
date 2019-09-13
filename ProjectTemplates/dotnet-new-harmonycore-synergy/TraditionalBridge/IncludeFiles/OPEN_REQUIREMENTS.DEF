@@ -1,2 +1,0 @@
-        .include 'OPEN_REQUIREMENTS' repository, record='open_requirements'
-        .include 'OPEN_REQUIREMENTS_KEY2' repository, record='or_key2'

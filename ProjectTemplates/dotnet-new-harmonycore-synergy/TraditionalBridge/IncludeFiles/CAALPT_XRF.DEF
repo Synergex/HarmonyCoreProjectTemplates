@@ -1,7 +1,0 @@
-;
-;-------------------------------------------------------------------------------
-;---- CAALPT_XRF.DEF - Alternate Part File Record Definition -------------------
-;-------------------------------------------------------------------------------
-;
-	.INCLUDE 'CAALPT_XRF' DICTIONARY,RECORD='CAALPT_XRF'
-	.INCLUDE 'CAALPT_XRF_KEY1' DICTIONARY,RECORD='PMA_KEY1'

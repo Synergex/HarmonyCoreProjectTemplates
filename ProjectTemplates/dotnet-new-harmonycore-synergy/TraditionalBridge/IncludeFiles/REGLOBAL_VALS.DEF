@@ -1,7 +1,0 @@
-.ifdef GLOBAL_INIT
-	global data section reglobal_vals,init
-.else
-	global data section reglobal_vals
-.endc
-		.include 'REGLOBAL_VALS' repository,record="reglobal_vals"
-	endglobal

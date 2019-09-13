@@ -1,8 +1,0 @@
-;
-; Record of returned values for calling UPARSE
-;
-;
-RECORD 	CAPARSE_RET
-	CA_PATHNAME	,A80    ; pathname
-	CA_FILENAME	,A80    ; filname
-	CA_EXTENSION	,A80	; filename extension

@@ -1,4 +1,0 @@
-        .include 'INVENTORY_HISTORY' repository, record='inventory_history'
-.ifdef alt_inventory_history
-        .include 'INVENTORY_HISTORY_ALT' repository, record='a_inventory_history'
-.endc

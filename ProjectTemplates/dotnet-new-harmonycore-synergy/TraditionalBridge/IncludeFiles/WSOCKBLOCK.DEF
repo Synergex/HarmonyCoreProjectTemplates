@@ -1,8 +1,0 @@
-group ss_client_block
-	ss_hostname		,a256 	; Hostname or IP address in dotted decimal notation
-	ss_port_number		,i4	; Listener Port number
-	ss_client_socket	,d_addr	; Socket descriptor (assigned by %ss_connect)
-	ss_function		,a20	; Last %SS_ synergy socket function called
-	ss_mnemonic		,a20	; SS error mnemonic literal
-	ss_err_descr		,a80	; SS error description	
-endgroup

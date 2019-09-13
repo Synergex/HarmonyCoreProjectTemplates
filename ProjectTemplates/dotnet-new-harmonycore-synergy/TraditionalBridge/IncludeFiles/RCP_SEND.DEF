@@ -1,6 +1,0 @@
-	headers		,a2048
-	channel		,i4
-	post_data	,a1024
-	post_end	,a255
-	return_data	,a2560
-	bytes_returned	,i4
