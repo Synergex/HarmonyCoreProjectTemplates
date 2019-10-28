@@ -1,16 +1,16 @@
 {
     "info": {
-        "_postman_id": "97e37e09-72eb-4e57-81d3-6de6f4895e12",
+        "_postman_id": "f3f9615b-c3fb-47eb-85bd-35ae73784376",
         "name": "Harmony Core Sample API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
         {
-            "_postman_id": "a548ac13-465f-404e-8136-54ef9124ae1f",
+            "_postman_id": "e055f9ef-9279-4eb2-b751-f963ccfc22ce",
             "name": "Customer Tests",
             "item": [
                 {
-                    "_postman_id": "39906898-9fd4-453b-b4f2-e808d75d40a5",
+                    "_postman_id": "1edb3b23-fed9-402a-9053-5d1be00dbb1e",
                     "name": "Read customers",
                     "request": {
                         "method": "GET",
@@ -42,7 +42,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "509c6052-8646-4b36-a763-61e69aa2c687",
+                    "_postman_id": "1e3c9044-545e-4b9b-a647-805422abfde7",
                     "name": "Count customers",
                     "request": {
                         "method": "GET",
@@ -75,7 +75,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b5b8d948-542b-4a00-bd56-12d0cf90979d",
+                    "_postman_id": "73eb7686-9e59-4a90-bad7-aca70cc5b5f5",
                     "name": "Read customer",
                     "request": {
                     "method": "GET",
@@ -107,7 +107,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "a628e014-d173-444c-af2b-68d377d84d92",
+                    "_postman_id": "168b2f44-5979-4cb0-970d-d5b7bb9534b3",
                     "name": "Read customers by State",
                     "request": {
                     "method": "GET",
@@ -139,7 +139,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c770cebf-7860-450c-93fc-33b4719d0ca8",
+                    "_postman_id": "028cc651-22c8-4b36-95fc-9f064a1c6619",
                     "name": "Count customers by State",
                     "request": {
                     "method": "GET",
@@ -172,7 +172,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "02c28697-30c7-4015-946f-b4ac6bc98473",
+                    "_postman_id": "c308619c-c2ff-441c-9948-a06ea5c62222",
                     "name": "Read customers by Zip",
                     "request": {
                     "method": "GET",
@@ -204,7 +204,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "aeb334f6-b468-488d-9122-acf7f4295c51",
+                    "_postman_id": "f330d6f3-f666-4fa4-beee-849863f80825",
                     "name": "Count customers by Zip",
                     "request": {
                     "method": "GET",
@@ -237,7 +237,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "9203edf2-32ae-4990-bc3a-c41358394fc7",
+                    "_postman_id": "70304a89-9c28-43b2-9ef1-10426fcfc625",
                     "name": "Read customers by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -269,7 +269,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "23d3b871-d34e-4ab3-b1f5-fe6f09387e3d",
+                    "_postman_id": "148304dd-2caf-47af-834e-e513752ca5da",
                     "name": "Count customers by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -302,391 +302,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "90aa726d-1c93-4e3a-99d8-7921beae94f8",
-                    "name": "Read customer name",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/Name",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/Name"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "2fb3d498-408b-4846-b085-c84dd54eec22",
-                    "name": "Read customer street",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/Street",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/Street"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "a2845d8f-d3be-4713-8dd7-3c95cf90541a",
-                    "name": "Read customer city",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/City",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/City"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "832fe3ac-0962-4a83-8013-d6511c49714c",
-                    "name": "Read customer state",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/State",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/State"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e45e070d-6c29-4b34-9a28-079047e76b4f",
-                    "name": "Read customer zipCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/ZipCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/ZipCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "2d6aca28-8f0c-46c8-98e9-d159ddb12643",
-                    "name": "Read customer contact",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/Contact",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/Contact"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "3139ee41-c37e-4f1b-aa11-a57846856b03",
-                    "name": "Read customer phone",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/Phone",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/Phone"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "bb28ddb6-14ce-4caf-b79b-cf2cfa3852e5",
-                    "name": "Read customer fax",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/Fax",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/Fax"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e5a2f9f9-0f57-47e4-a744-17888858b23b",
-                    "name": "Read customer favoriteItem",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/FavoriteItem",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/FavoriteItem"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "0349972a-25a2-4c1f-8d42-5c2249c5bf18",
-                    "name": "Read customer paymentTermsCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/PaymentTermsCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/PaymentTermsCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "b6d85c64-a888-4be2-a214-9970250e15de",
-                    "name": "Read customer taxId",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/TaxId",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/TaxId"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "8b575030-3d23-4d94-8c4d-a95ff4a67479",
-                    "name": "Read customer creditLimit",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Customers(CustomerNumber=123)/CreditLimit",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Customers(CustomerNumber=123)/CreditLimit"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "15fde8e6-8c46-4f41-a6b0-0e96e9c6c4b7",
+                    "_postman_id": "aaae8a1e-e903-4f77-9860-9f448e627a5b",
                     "name": "Create customer (auto assign key)",
                     "request": {
                     "method": "POST",
@@ -718,7 +334,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c68a6627-7420-4adc-857f-7c5581bda882",
+                    "_postman_id": "9b7e4f8d-218f-4697-9682-f9fecbd865c5",
                     "name": "Create or update customer",
                     "request": {
                     "method": "PUT",
@@ -781,7 +397,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "d372a467-c88e-4c41-89bf-30440b95ce94",
+                    "_postman_id": "d1c76080-b619-4840-a453-46bd95218d75",
                     "name": "Delete customer",
                     "request": {
                     "method": "DELETE",
@@ -814,11 +430,11 @@
             ]
         },
         {
-            "_postman_id": "7d48bddb-bc43-47c5-98a6-1f508f5945ce",
+            "_postman_id": "8f22f07c-09b6-4954-99a9-b60941e39a82",
             "name": "Item Tests",
             "item": [
                 {
-                    "_postman_id": "165bbfff-c5f0-4c0e-b10a-3409c8ad0dbb",
+                    "_postman_id": "e682fe03-631b-4bfa-a7f4-ef8633cf5d94",
                     "name": "Read items",
                     "request": {
                         "method": "GET",
@@ -850,7 +466,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "918d5b07-5815-4fdc-92ec-48789a92f71e",
+                    "_postman_id": "1728b67e-de68-4a99-925d-81c080b5ea85",
                     "name": "Count items",
                     "request": {
                         "method": "GET",
@@ -883,7 +499,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "7a309c57-a3e8-4123-b438-983e8cc48255",
+                    "_postman_id": "6d59ba44-bf05-4703-a00a-2bdeead327c8",
                     "name": "Read item",
                     "request": {
                     "method": "GET",
@@ -915,7 +531,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "560b4f83-5dc7-4388-a282-bd21d187bc16",
+                    "_postman_id": "e8dbab84-1a4a-4948-a707-52c4da6825e4",
                     "name": "Read items by VendorNumber",
                     "request": {
                     "method": "GET",
@@ -947,7 +563,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "1eec1a81-8a43-4f90-aefa-ed300ef351fb",
+                    "_postman_id": "0016b971-5120-4b13-aa11-3f07dba941be",
                     "name": "Count items by VendorNumber",
                     "request": {
                     "method": "GET",
@@ -980,7 +596,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "fea9adde-b39e-4e3c-97e2-a7a8a368cf15",
+                    "_postman_id": "eb870968-e913-4c9d-9288-d219a64c5c05",
                     "name": "Read items by Color",
                     "request": {
                     "method": "GET",
@@ -1012,7 +628,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8228c3eb-d55f-4c6c-8654-43c52c5a8eaf",
+                    "_postman_id": "69f6930d-6d42-4111-beb8-c44be7db9dd6",
                     "name": "Count items by Color",
                     "request": {
                     "method": "GET",
@@ -1045,7 +661,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "e6f017c6-93af-45f6-944f-ea49029ac94a",
+                    "_postman_id": "9732ec47-c0d1-4480-9a99-68a81d347230",
                     "name": "Read items by Size",
                     "request": {
                     "method": "GET",
@@ -1077,7 +693,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ffc5055d-4f7e-4857-820f-4330397b9d01",
+                    "_postman_id": "f79eb52e-82e3-4a46-9e4b-c660b536906b",
                     "name": "Count items by Size",
                     "request": {
                     "method": "GET",
@@ -1110,7 +726,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b87b4caf-9a1b-431f-945e-64d50d74d662",
+                    "_postman_id": "bafad812-1832-444e-82d2-a9124a962efe",
                     "name": "Read items by Name",
                     "request": {
                     "method": "GET",
@@ -1142,7 +758,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "48f07ac3-0847-4948-901e-925ac33fc31e",
+                    "_postman_id": "a6c85457-16b5-47e0-b4dd-3d5035e59683",
                     "name": "Count items by Name",
                     "request": {
                     "method": "GET",
@@ -1175,647 +791,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "92188192-4743-4b25-be16-089d1121fffd",
-                    "name": "Read item vendorNumber",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/VendorNumber",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/VendorNumber"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "a4cd41ec-0142-4c0b-b7de-c443ef562f8f",
-                    "name": "Read item size",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/Size",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/Size"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "65fdaa00-b9fb-4e21-a23b-ac5984337b3e",
-                    "name": "Read item commonName",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/CommonName",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/CommonName"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "77fa8e32-1821-4733-a36e-03e95b3faf8d",
-                    "name": "Read item latinName",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/LatinName",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/LatinName"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "dd9bbcf6-44b7-47f7-a7e2-917ea8310ae3",
-                    "name": "Read item zoneCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/ZoneCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/ZoneCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "d3a9db17-cf6b-4d1d-84e1-f28b3ac55343",
-                    "name": "Read item type",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/Type",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/Type"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "28987cfd-eacd-4d59-8677-1d9e23cce864",
-                    "name": "Read item flowering",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/Flowering",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/Flowering"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "404685f9-af3d-409d-b236-2ffffce3a86c",
-                    "name": "Read item flowerColor",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/FlowerColor",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/FlowerColor"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "4f1974be-7a76-4968-8603-05063c3bb5d3",
-                    "name": "Read item shape",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/Shape",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/Shape"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "3c2f2fd1-dc6f-4c9a-b799-238842d1e4b4",
-                    "name": "Read item maxHeight",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/MaxHeight",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/MaxHeight"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "a90110e4-a0a8-4dc8-8d26-19ec81a5a76a",
-                    "name": "Read item maxWidth",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/MaxWidth",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/MaxWidth"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "7f5964c3-404a-47cb-b084-6ab60bd448ec",
-                    "name": "Read item waterRequirement",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/WaterRequirement",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/WaterRequirement"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "98a32799-5b05-4720-855e-ec4147be9f8b",
-                    "name": "Read item sunRequirement",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/SunRequirement",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/SunRequirement"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "524856a8-a735-4a2c-93d9-47e6812bf859",
-                    "name": "Read item binLocation",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/BinLocation",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/BinLocation"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "f6a813ee-1a52-4a0d-a2e2-e2aaf08b3f19",
-                    "name": "Read item qtyOnHand",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/QtyOnHand",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/QtyOnHand"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "49b148c6-d1a8-457c-bb31-f8184cc93bfd",
-                    "name": "Read item qtyAllocated",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/QtyAllocated",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/QtyAllocated"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "440a0092-5558-447e-b5e5-562f7385061d",
-                    "name": "Read item qtyOnOrder",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/QtyOnOrder",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/QtyOnOrder"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e697c757-50ba-4362-b55b-e0b3d1534dc9",
-                    "name": "Read item reorderLevel",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/ReorderLevel",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/ReorderLevel"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "5dd5f2e2-695e-4ee2-8154-9dce325a6653",
-                    "name": "Read item unitPrice",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/UnitPrice",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/UnitPrice"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "92da9dd6-686a-4da4-b65d-c480418709f7",
-                    "name": "Read item costPrice",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Items(ItemNumber=123)/CostPrice",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Items(ItemNumber=123)/CostPrice"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "d451eb76-b693-4fe4-a92f-1bab033152f7",
+                    "_postman_id": "8479e9ac-72c8-4741-b4d2-8fd245fa5885",
                     "name": "Create item (auto assign key)",
                     "request": {
                     "method": "POST",
@@ -1847,7 +823,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "2a3869e9-8b96-46bc-8c56-80f500276cc9",
+                    "_postman_id": "402ec84a-b881-4524-bbf2-9b5155184c70",
                     "name": "Create or update item",
                     "request": {
                     "method": "PUT",
@@ -1910,7 +886,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c02b0257-1d19-44a0-a20a-f03310634c1d",
+                    "_postman_id": "af79378e-465c-4f73-8e9c-fe0aad851d46",
                     "name": "Delete item",
                     "request": {
                     "method": "DELETE",
@@ -1943,11 +919,11 @@
             ]
         },
         {
-            "_postman_id": "15c913bd-6c24-446d-80dc-ddbdd2f96c4a",
+            "_postman_id": "0f4998f5-3cb1-4505-a8e0-6b8b46471680",
             "name": "Order Tests",
             "item": [
                 {
-                    "_postman_id": "8a9368f0-4bfd-4448-ab4c-75c7a8c38b68",
+                    "_postman_id": "f543ac5e-e83a-401b-b5b7-a390b99bb73c",
                     "name": "Read orders",
                     "request": {
                         "method": "GET",
@@ -1979,7 +955,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ba780074-b88b-4850-9bfa-a5159264cb72",
+                    "_postman_id": "725b4bf8-8bea-4e0e-b463-5ab3985f7f19",
                     "name": "Count orders",
                     "request": {
                         "method": "GET",
@@ -2012,7 +988,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "16825ac2-1c2c-4429-afb5-32f11a518af8",
+                    "_postman_id": "8624775a-2b63-4cac-8219-7a85ade920b1",
                     "name": "Read order",
                     "request": {
                     "method": "GET",
@@ -2044,7 +1020,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "126066d4-42f1-4154-bd67-0b3ff181f4e2",
+                    "_postman_id": "3aff2411-89d9-47b1-94fd-ef0664a46d5f",
                     "name": "Read orders by CustomerNumber",
                     "request": {
                     "method": "GET",
@@ -2076,7 +1052,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "8521b026-d39f-4ab5-bf5c-d2de903f827a",
+                    "_postman_id": "66cf5716-c327-4238-b0ba-04318c8b9ef7",
                     "name": "Count orders by CustomerNumber",
                     "request": {
                     "method": "GET",
@@ -2109,7 +1085,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "5a79d361-89a3-4de1-89b2-1f4adc5438ed",
+                    "_postman_id": "4e0205aa-27ba-4258-9f32-f1638de93880",
                     "name": "Read orders by DateOrdered",
                     "request": {
                     "method": "GET",
@@ -2124,7 +1100,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(DateOrdered=2019-08-29)",
+                        "raw": "https://localhost:8086/odata/v1/Orders(DateOrdered=2019-10-28)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2133,7 +1109,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "Orders(DateOrdered=2019-08-29)"
+                            "Orders(DateOrdered=2019-10-28)"
                         ]
                     }
                     },
@@ -2141,7 +1117,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "15a52775-6769-4b7e-aa91-d2ded03446e2",
+                    "_postman_id": "17175fcc-c202-4871-983b-f009a8e92299",
                     "name": "Count orders by DateOrdered",
                     "request": {
                     "method": "GET",
@@ -2156,7 +1132,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(DateOrdered=2019-08-29)/$count",
+                        "raw": "https://localhost:8086/odata/v1/Orders(DateOrdered=2019-10-28)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2165,7 +1141,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "Orders(DateOrdered=2019-08-29)",
+                            "Orders(DateOrdered=2019-10-28)",
                             "$count"
                         ]
                     }
@@ -2174,7 +1150,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "81769f4f-cc01-4889-af9c-16cb343858a4",
+                    "_postman_id": "51dfa215-3e08-4534-ad11-f705657a458c",
                     "name": "Read orders by DateCompleted",
                     "request": {
                     "method": "GET",
@@ -2189,7 +1165,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(DateCompleted=2019-08-29)",
+                        "raw": "https://localhost:8086/odata/v1/Orders(DateCompleted=2019-10-28)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2198,7 +1174,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "Orders(DateCompleted=2019-08-29)"
+                            "Orders(DateCompleted=2019-10-28)"
                         ]
                     }
                     },
@@ -2206,7 +1182,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c96a1338-e56b-40f4-b7d9-58439fa92336",
+                    "_postman_id": "ba670146-7cb1-4efe-b7bc-d391ddc820c9",
                     "name": "Count orders by DateCompleted",
                     "request": {
                     "method": "GET",
@@ -2221,7 +1197,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(DateCompleted=2019-08-29)/$count",
+                        "raw": "https://localhost:8086/odata/v1/Orders(DateCompleted=2019-10-28)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2230,7 +1206,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "Orders(DateCompleted=2019-08-29)",
+                            "Orders(DateCompleted=2019-10-28)",
                             "$count"
                         ]
                     }
@@ -2239,199 +1215,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b7e14d8d-6d99-447d-8b08-d680c6e1e405",
-                    "name": "Read order customerNumber",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/CustomerNumber",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/CustomerNumber"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "412b2ddf-9273-4e68-8621-61c3da68fe4f",
-                    "name": "Read order placedBy",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/PlacedBy",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/PlacedBy"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "fc010c61-65c5-4ddf-a633-097494610983",
-                    "name": "Read order customerReference",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/CustomerReference",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/CustomerReference"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "a947ba2e-cd0a-4129-8ced-b653d9e24003",
-                    "name": "Read order paymentTermsCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/PaymentTermsCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/PaymentTermsCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e26db8f1-d609-43c8-a0fe-13d87d37813f",
-                    "name": "Read order dateOrdered",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/DateOrdered",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/DateOrdered"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "6c60c4e2-c2e3-4bb0-9db3-5ef2b4b13191",
-                    "name": "Read order dateCompleted",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Orders(OrderNumber=123)/DateCompleted",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Orders(OrderNumber=123)/DateCompleted"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "88e1e17e-2fcb-4407-811d-94ccd8f6828e",
+                    "_postman_id": "d67ee777-6838-4711-bd93-95f3192271d9",
                     "name": "Create order (auto assign key)",
                     "request": {
                     "method": "POST",
@@ -2463,7 +1247,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "13003ab1-29c9-4897-b637-ac93d57d2f21",
+                    "_postman_id": "95e307fb-a0a8-4b05-ad6f-d88365ff38de",
                     "name": "Create or update order",
                     "request": {
                     "method": "PUT",
@@ -2526,7 +1310,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "ff5b6ed5-f6ef-4f8c-b904-be8bbb7842be",
+                    "_postman_id": "d962abd0-b0c0-442c-aa5a-2515281d1192",
                     "name": "Delete order",
                     "request": {
                     "method": "DELETE",
@@ -2559,11 +1343,11 @@
             ]
         },
         {
-            "_postman_id": "d68ce55d-7f69-4ad1-b751-dbde4221e65b",
+            "_postman_id": "5d473cb0-c638-4d97-b6f1-27c5e7aa9eb5",
             "name": "OrderItem Tests",
             "item": [
                 {
-                    "_postman_id": "cbe5136c-db9a-42d3-8982-9948e202c53c",
+                    "_postman_id": "565eeff7-a113-41db-9e9e-4b519a0f3348",
                     "name": "Read orderItems",
                     "request": {
                         "method": "GET",
@@ -2595,7 +1379,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "021701c0-839a-485e-aca6-1c38a1c53dce",
+                    "_postman_id": "6037fd22-93d3-41f7-bfbb-724c1756ac05",
                     "name": "Count orderItems",
                     "request": {
                         "method": "GET",
@@ -2628,7 +1412,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "6bcf5883-e10c-46b0-a310-9616952322e8",
+                    "_postman_id": "399dc1ca-31d1-4c2a-81a1-9d30baa5771f",
                     "name": "Read orderItem",
                     "request": {
                     "method": "GET",
@@ -2660,7 +1444,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "5d98dea6-7484-44d3-a7df-480baa6ef2f0",
+                    "_postman_id": "f478291a-3f2a-4c28-8291-29295993b406",
                     "name": "Read orderItems by ItemOrdered",
                     "request": {
                     "method": "GET",
@@ -2692,7 +1476,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "df803cb4-90eb-4539-b730-a21b5f31e985",
+                    "_postman_id": "8f5f56dd-35f2-46ee-b247-5ae6b6136649",
                     "name": "Count orderItems by ItemOrdered",
                     "request": {
                     "method": "GET",
@@ -2725,7 +1509,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "befaf2e1-cfb7-41ce-8404-3fbf51802b12",
+                    "_postman_id": "269a362b-abef-4eec-9caf-2d14da8b5981",
                     "name": "Read orderItems by DateShipped",
                     "request": {
                     "method": "GET",
@@ -2740,7 +1524,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(DateShipped=2019-08-29)",
+                        "raw": "https://localhost:8086/odata/v1/OrderItems(DateShipped=2019-10-28)",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2749,7 +1533,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "OrderItems(DateShipped=2019-08-29)"
+                            "OrderItems(DateShipped=2019-10-28)"
                         ]
                     }
                     },
@@ -2757,7 +1541,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "c5d81bac-530d-4e4f-a7e4-b9a77b2a2378",
+                    "_postman_id": "6d3b343d-cf46-408e-a1a8-c527ae0bfd5f",
                     "name": "Count orderItems by DateShipped",
                     "request": {
                     "method": "GET",
@@ -2772,7 +1556,7 @@
                         "raw": ""
                     },
                     "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(DateShipped=2019-08-29)/$count",
+                        "raw": "https://localhost:8086/odata/v1/OrderItems(DateShipped=2019-10-28)/$count",
                         "protocol": "https",
                         "host": [
                             "localhost"
@@ -2781,7 +1565,7 @@
                         "path": [
                             "odata",
                             "v1",
-                            "OrderItems(DateShipped=2019-08-29)",
+                            "OrderItems(DateShipped=2019-10-28)",
                             "$count"
                         ]
                     }
@@ -2790,7 +1574,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "381a50c6-06e7-4d7b-b490-905406fee117",
+                    "_postman_id": "9318fee4-7f00-4ec1-a4ca-1f4287840c8e",
                     "name": "Read orderItems by InvoiceNumber",
                     "request": {
                     "method": "GET",
@@ -2822,7 +1606,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "288d065d-ee23-460e-93c3-e2e5091c46aa",
+                    "_postman_id": "5e8f137b-0093-4fae-8623-84d4eccf9028",
                     "name": "Count orderItems by InvoiceNumber",
                     "request": {
                     "method": "GET",
@@ -2855,167 +1639,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "fd0a41ea-4297-4cf9-a57c-64f7ba0cdc06",
-                    "name": "Read orderItem itemOrdered",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(OrderNumber=123,ItemNumber=123)/ItemOrdered",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "OrderItems(OrderNumber=123,ItemNumber=123)/ItemOrdered"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "1c6598ca-2316-4b8d-b5a1-6c9a479cff80",
-                    "name": "Read orderItem quantityOrdered",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(OrderNumber=123,ItemNumber=123)/QuantityOrdered",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "OrderItems(OrderNumber=123,ItemNumber=123)/QuantityOrdered"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "ee39e79c-45dd-4fb8-b2a0-8c416b762fa2",
-                    "name": "Read orderItem unitPrice",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(OrderNumber=123,ItemNumber=123)/UnitPrice",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "OrderItems(OrderNumber=123,ItemNumber=123)/UnitPrice"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e9372f23-9cdc-4ebd-a806-0a3ab7c2c433",
-                    "name": "Read orderItem dateShipped",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(OrderNumber=123,ItemNumber=123)/DateShipped",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "OrderItems(OrderNumber=123,ItemNumber=123)/DateShipped"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "2f92e464-5ac6-4107-b4a8-634a71bedea8",
-                    "name": "Read orderItem invoiceNumber",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/OrderItems(OrderNumber=123,ItemNumber=123)/InvoiceNumber",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "OrderItems(OrderNumber=123,ItemNumber=123)/InvoiceNumber"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "7e29234b-cfdd-4a48-b06f-7c98ab177bfa",
+                    "_postman_id": "7ae5ada9-55b9-4514-a6b5-2b6a84339930",
                     "name": "Create orderItem (auto assign key)",
                     "request": {
                     "method": "POST",
@@ -3047,7 +1671,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "015f0596-3b90-493e-b882-a20663e1b6b5",
+                    "_postman_id": "049aa4b2-99ac-40a0-ad3f-60ac9933fd99",
                     "name": "Create or update orderItem",
                     "request": {
                     "method": "PUT",
@@ -3110,7 +1734,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "37e0c08d-7c52-4799-884a-d35180c0af81",
+                    "_postman_id": "3ec4c6b0-4c12-4d5c-a474-aee9a7f36b81",
                     "name": "Delete orderItem",
                     "request": {
                     "method": "DELETE",
@@ -3143,11 +1767,11 @@
             ]
         },
         {
-            "_postman_id": "6a8407ad-679a-48ca-9d65-bdb54b9c340c",
+            "_postman_id": "d7939b77-fd1d-46ce-b449-e908d8b80c52",
             "name": "Vendor Tests",
             "item": [
                 {
-                    "_postman_id": "8e2eca85-ab02-4fca-8feb-1e59ebb709e8",
+                    "_postman_id": "71ef86dc-9038-437c-886e-78acfe25561e",
                     "name": "Read vendors",
                     "request": {
                         "method": "GET",
@@ -3179,7 +1803,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "069a5e00-5b95-4fc6-93ff-13a886c9c4ee",
+                    "_postman_id": "1619aae6-8229-4133-9227-ac5cf67733e0",
                     "name": "Count vendors",
                     "request": {
                         "method": "GET",
@@ -3212,7 +1836,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "38b8609c-f8f1-4061-9122-ac6523d9be1e",
+                    "_postman_id": "5a614e32-3e25-4678-b276-4ced75aa9ae5",
                     "name": "Read vendor",
                     "request": {
                     "method": "GET",
@@ -3244,7 +1868,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "85fae327-91d0-4a73-99bd-1071f34a07aa",
+                    "_postman_id": "4d6feb06-bb96-4a30-a433-39751f89d353",
                     "name": "Read vendors by State",
                     "request": {
                     "method": "GET",
@@ -3276,7 +1900,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "40060b83-b206-43b5-887d-ca42df3a77b7",
+                    "_postman_id": "18bac02b-4ee5-4879-8e9b-b0732674a813",
                     "name": "Count vendors by State",
                     "request": {
                     "method": "GET",
@@ -3309,7 +1933,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "28699948-bcb7-4860-872c-7b7d6cec7d4c",
+                    "_postman_id": "1a83ce18-ec4c-4429-99b9-2caf4bfffd1e",
                     "name": "Read vendors by Zip",
                     "request": {
                     "method": "GET",
@@ -3341,7 +1965,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "f9befa27-7b92-4fd2-9042-48b3abbb84c4",
+                    "_postman_id": "256d3b1a-78eb-48bd-bce8-156ed453538b",
                     "name": "Count vendors by Zip",
                     "request": {
                     "method": "GET",
@@ -3374,7 +1998,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "59c415ad-789b-40ae-b5fe-99b7d4a0baba",
+                    "_postman_id": "915efc2e-543b-4914-a2db-73ae6fb3f814",
                     "name": "Read vendors by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -3406,7 +2030,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "87e1737b-c004-4a65-bc54-9c0b74279f25",
+                    "_postman_id": "dd6be776-af58-420b-a0dc-1fd845e3ec6c",
                     "name": "Count vendors by PaymentTerms",
                     "request": {
                     "method": "GET",
@@ -3439,295 +2063,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "84de958c-9f33-4ac1-b384-8868bac79ae6",
-                    "name": "Read vendor name",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/Name",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/Name"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "25f750c8-e4dc-4384-9b2f-c74e3577197e",
-                    "name": "Read vendor street",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/Street",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/Street"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "ef88cada-4c63-4fff-a83f-527efba37c86",
-                    "name": "Read vendor city",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/City",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/City"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "66953dd8-a875-4387-91c2-44e17c88f7e5",
-                    "name": "Read vendor state",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/State",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/State"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "a1b9de44-73bb-4d9a-92b3-b17f45f00cf8",
-                    "name": "Read vendor zipCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/ZipCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/ZipCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "bc7c87bb-30e6-434e-b83c-dca96918ac71",
-                    "name": "Read vendor contact",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/Contact",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/Contact"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "b4085307-3262-4829-9c2d-8b6a7e94e67d",
-                    "name": "Read vendor phone",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/Phone",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/Phone"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e9a1a602-a160-493b-8e7d-9e3d52606d22",
-                    "name": "Read vendor fax",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/Fax",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/Fax"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "05f4a876-c5c6-49fa-9e75-34e90903bbe4",
-                    "name": "Read vendor paymentTermsCode",
-                    "request": {
-                    "method": "GET",
-                    "header": [
-                        {
-                        "key": "Accept",
-                        "value": "application/json"
-                        }
-                    ],
-                    "body": {
-                        "mode": "raw",
-                        "raw": ""
-                    },
-                    "url": {
-                        "raw": "https://localhost:8086/odata/v1/Vendors(VendorNumber=123)/PaymentTermsCode",
-                        "protocol": "https",
-                        "host": [
-                            "localhost"
-                        ],
-                        "port": "8086",
-                        "path": [
-                            "odata",
-                            "v1",
-                            "Vendors(VendorNumber=123)/PaymentTermsCode"
-                        ]
-                    }
-                    },
-                    "response": []
-                }
-                ,
-                {
-                    "_postman_id": "e8c9d0ab-37ae-4b1e-90c9-a5add8c469d3",
+                    "_postman_id": "bb9958d7-ea73-48fb-a45a-0dd684b07e7a",
                     "name": "Create vendor (auto assign key)",
                     "request": {
                     "method": "POST",
@@ -3759,7 +2095,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "98c3cf05-0a14-4ae0-b048-42b0b35ddd1a",
+                    "_postman_id": "0bd800a9-b410-41ad-b756-58371db9b14c",
                     "name": "Create or update vendor",
                     "request": {
                     "method": "PUT",
@@ -3822,7 +2158,7 @@
                 }
                 ,
                 {
-                    "_postman_id": "b06275a1-1a03-4ada-b697-a01d936ca534",
+                    "_postman_id": "84b43dbb-a571-4ce9-83d6-75eac496e168",
                     "name": "Delete vendor",
                     "request": {
                     "method": "DELETE",
@@ -3859,7 +2195,7 @@
         {
             "listen": "prerequest",
             "script": {
-                "id": "8a258290-6036-452c-86db-f8888714865b",
+                "id": "b3836143-e992-4c24-97db-996ef7837003",
                 "type": "text/javascript",
                 "exec": [
                     ""
@@ -3869,7 +2205,7 @@
         {
             "listen": "test",
             "script": {
-                "id": "bc925585-ac26-4426-b075-5997c96cc811",
+                "id": "b09eecd3-a0e5-47f5-9193-0bc2d5a850d2",
                 "type": "text/javascript",
                 "exec": [
                     ""

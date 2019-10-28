@@ -69,30 +69,18 @@ rem FILE_ALIASES        Optional aliases for the structures listed in FILE_STRUC
 rem
 rem FILE_FILES          Repository file assignments for the structures listed in FILE_STRUCTURES
 rem
-rem CUSTOM_STRUCTURES	Is a list of structures that you wish to generate models and metadata
+rem CUSTOM_STRUCTURES    Is a list of structures that you wish to generate models and metadata
 rem                     for, but which will NOT be exposed to the Entity Framework provider.
 rem                     These classes are intended for use only by custom code-based endpoints
 rem                     and the DbContext and EdmBuilder classes will know nothing about them.
 rem
 rem CUSTOM_ALIASES      Optional aliases for the structures listed in CUSTOM_STRUCTURES
 
-rem BRIDGE_STRUCTURES	Is a list of structures that you wish to generate models and metadata
+rem BRIDGE_STRUCTURES    Is a list of structures that you wish to generate models and metadata
 rem                     for use with a Traditional Bridge environment. These types will NOT
 rem                     be exposed to the Entity Framework provider.
 rem
 rem BRIDGE_ALIASES      Optional aliases for the structures listed in BRIDGE_STRUCTURES
-
-rem ================================================================================================================================
-rem Specify optional "system parameter file" structure
-
-set PARAMSTR=SYSPARAMS
-
-rem In the sammple environment the system parameter file is a relative file that contains
-rem "next available record number" data for use in conjunction with POST (create with automated
-rem primary key assignment) operaitons. Naming the structure associated with that file here
-rem ensures that a copy of that file will be made available in the sample self-host environment
-rem along with other data files in the sample data folder. This mechanism will require customization
-rem for use in other environments.
 
 rem ================================================================================================================================
 rem Comment or uncomment the following lines to enable or disable optional features:
@@ -110,7 +98,7 @@ set ENABLE_API_VERSIONING=-define ENABLE_API_VERSIONING
 set ENABLE_POSTMAN_TESTS=YES
 set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
 set ENABLE_COUNT=-define ENABLE_COUNT
-set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
+rem set ENABLE_PROPERTY_ENDPOINTS=-define ENABLE_PROPERTY_ENDPOINTS
 rem set ENABLE_PROPERTY_VALUE_DOCS=-define ENABLE_PROPERTY_VALUE_DOCS
 set ENABLE_SELECT=-define ENABLE_SELECT
 set ENABLE_FILTER=-define ENABLE_FILTER
@@ -131,7 +119,7 @@ rem set ENABLE_SIGNALR=-define ENABLE_SIGNALR
 rem set ENABLE_UNIT_TEST_GENERATION=YES
 rem set ENABLE_CASE_SENSITIVE_URL=-define ENABLE_CASE_SENSITIVE_URL
 rem set ENABLE_CORS=-define ENABLE_CORS
-set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
+rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
@@ -157,7 +145,7 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
   rem Generate model and metadata classes
   codegen -s  %DATA_STRUCTURES% %CUSTOM_STRUCTURES% ^
           -a  %DATA_ALIASES% %CUSTOM_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataModel ODataMetaData ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ModelsProject% ^
@@ -168,7 +156,7 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
   rem Generate controller classes
   codegen -s  %DATA_STRUCTURES% ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataController ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ControllersProject% ^
@@ -179,7 +167,7 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
   rem Generate the DbContext class
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataDbContext ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ModelsProject% ^
@@ -190,7 +178,7 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
   rem Generate the EdmBuilder and Startup classes
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataEdmBuilder ODataStartup ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ServicesProject% ^
@@ -205,9 +193,9 @@ rem Self hosting
 
 if DEFINED ENABLE_SELF_HOST_GENERATION (
 
-  codegen -s  %FILE_STRUCTURES% %PARAMSTR% -ms ^
+  codegen -s  %FILE_STRUCTURES% -ms ^
           -a  %FILE_ALIASES% ^
-		  -fo %FILE_FILES% ^
+          -fo %FILE_FILES% ^
           -t  ODataSelfHost ODataSelfHostEnvironment ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%HostProject% ^
@@ -225,7 +213,7 @@ if DEFINED ENABLE_SWAGGER_DOCS (
   rem Generate main Swagger files
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataSwaggerYaml ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ServicesProject%\wwwroot ^
@@ -235,7 +223,7 @@ if DEFINED ENABLE_SWAGGER_DOCS (
   rem Generate Swagger files for each model
   codegen -s  %DATA_STRUCTURES% ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataSwaggerType ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%ServicesProject%\wwwroot ^
@@ -247,7 +235,7 @@ rem Generate Postman Tests
 if DEFINED ENABLE_POSTMAN_TESTS (
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataPostManTests ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir% ^
@@ -263,7 +251,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   rem Generate OData client model, data loader and unit test classes
   codegen -s  %DATA_STRUCTURES% ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataClientModel ODataTestDataLoader ODataUnitTests ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%TestProject% -tf ^
@@ -272,9 +260,9 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   if ERRORLEVEL 1 goto error
 
   rem Generate the test environment
-  codegen -s  %FILE_STRUCTURES% %PARAMSTR% -ms ^
+  codegen -s  %FILE_STRUCTURES% -ms ^
           -a  %FILE_ALIASES% ^
-		  -fo %FILE_FILES% ^
+          -fo %FILE_FILES% ^
           -t  ODataTestEnvironment ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%TestProject% ^
@@ -285,7 +273,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   rem Generate the unit test environment class, and the unit test hosting program
   codegen -s  %FILE_STRUCTURES% -ms ^
           -a  %FILE_ALIASES% ^
-		  -fo %FILE_FILES% ^
+          -fo %FILE_FILES% ^
           -t  ODataUnitTestEnvironment ODataUnitTestHost ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%TestProject% ^
@@ -296,7 +284,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   rem Generate the unit test constants properties classes
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataTestConstantsProperties ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%TestProject% ^
@@ -307,7 +295,7 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
   rem Generate unit test constants values class; one time, not replaced
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
-		  -fo %DATA_FILES% ^
+          -fo %DATA_FILES% ^
           -t  ODataTestConstantsValues ^
           -i  %SolutionDir%Templates ^
           -o  %SolutionDir%%TestProject% ^

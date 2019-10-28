@@ -145,7 +145,7 @@ namespace Services
                 vOptions.ReportApiVersions = true
                 ;vOptions.AssumeDefaultVersionWhenUnspecified = true
                 vOptions.RouteConstraintName = "apiVersion"
-                vOptions.DefaultApiVersion = new ApiVersion(1, 0)
+                vOptions.DefaultApiVersion = ApiVersion.Parse("1")
             end
 
             services.AddApiVersioning(APIVersionConfig)
@@ -186,10 +186,10 @@ namespace Services
                     &    Title = "Harmony Core Sample API " + description.ApiVersion.ToString(),
                     &    Version = description.ApiVersion.ToString(),
                     &    Description = "This environment presents an example of using Harmony Core to expose a collection of RESTful Web Service endpoints that allow you to interact with a small sample dataset.",
-                    &    Contact = new Contact() { Name = "Jodah Veloper", Email = "jodah.veloper@synergexpsg.com" },
+                    &    Contact = new Swashbuckle.AspNetCore.Swagger.Contact() { Name = "Jodah Veloper", Email = "jodah.veloper@synergexpsg.com" },
                     &    TermsOfService = "Open Source",
-                    &    License = new License() { Name = "BSD 2-Clause", Url = "https://opensource.org/licenses/BSD-2-Clause" }
-                    & }
+                    &    License = new Swashbuckle.AspNetCore.Swagger.License() { Name = "BSD 2-Clause", Url = "https://opensource.org/licenses/BSD-2-Clause" }
+                    &    }
 
                     options.SwaggerDoc( description.GroupName, info )
                 end
@@ -226,16 +226,6 @@ namespace Services
 
             services.AddHttpsRedirection(httpsConfig)
 
-            ;;-------------------------------------------------------
-            ;;Enable support for hosting in IIS
-
-            lambda iisOptions(options)
-            begin
-                options.ForwardClientCertificate = false
-            end
-
-            services.Configure<IISOptions>(iisOptions)
-            
             ;;If there is a ConfigureServicesCustom method, call it
             ConfigureServicesCustom(services)
 
