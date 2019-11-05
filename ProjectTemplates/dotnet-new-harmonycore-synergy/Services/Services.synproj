@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk" DefaultTargets="restore;Build">
   <Import Project="..\Common.props" />
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <DefaultLanguageSourceExtension>.dbl</DefaultLanguageSourceExtension>
     <EnableDefaultItems>false</EnableDefaultItems>
     <Name>Services</Name>
@@ -11,16 +11,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>1.0.77</Version>
+      <Version>1.1.26</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.AspNetCore">
-      <Version>1.0.77</Version>
+      <Version>1.1.26</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>1.0.77</Version>
+      <Version>1.1.26</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.OData">
-      <Version>1.0.77</Version>
+      <Version>1.1.26</Version>
     </PackageReference>
     <PackageReference Include="IdentityServer4.AccessTokenValidation">
       <Version>2.7.0</Version>
