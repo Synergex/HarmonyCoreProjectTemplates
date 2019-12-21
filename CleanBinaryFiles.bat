@@ -2,7 +2,7 @@
 pushd %~dp0
 
 pushd ProjectTemplates\dotnet-new-harmonycore-synergy
-if exist .vs\. rd /s /q .vs
+if exist obj\. rd /s /q obj
 if exist packages\. rd /s /q packages
 if exist Repository\bin\. rd /s /q Repository\bin
 if exist Repository\obj\. rd /s /q Repository\obj
