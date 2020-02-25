@@ -19,7 +19,8 @@
   "guids": [
     "f9257051-cc32-4541-baf3-3dd58c1e7f61",
     "2ac4727b-cc19-4b7e-b168-4c7dcfb191e6",
-    "9F59F1FE-5272-46EF-911E-AFC94D9B311F"
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F",
+    "495f7e9c-8900-4cf8-95a8-4223596915da"
   ],
   "symbols": {
     "TargetFrameworkOverride": {
@@ -68,7 +69,10 @@
       "path": "Repository/Repository.synproj"
     },
     {
-      "path": "Services/Services.synproj"
+      "path": "SynergyEfProvider/SynergyEfProvider.synproj"
+    },
+    {
+      "path": "SynergyEfProviderTest/SynergyEfProviderTest.synproj"
     }
   ],
   "defaultName": "SynergyEfProvider",

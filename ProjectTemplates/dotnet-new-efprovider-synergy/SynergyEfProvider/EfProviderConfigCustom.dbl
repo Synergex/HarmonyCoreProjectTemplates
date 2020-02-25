@@ -33,7 +33,7 @@ namespace SynergyEfProvider
             ;;------------------------------------------------------------------------------------------
             ;; Add a custom "primary key generator" service
 
-            services.AddScoped<IPrimaryKeyFactory,PrimaryKeyGenerator>()
+            ;services.AddScoped<IPrimaryKeyFactory,PrimaryKeyGenerator>()
 
             ;;------------------------------------------------------------------------------------------
             ;; Add a custom "file spec resolver" service

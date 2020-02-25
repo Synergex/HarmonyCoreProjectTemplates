@@ -1,0 +1,33 @@
+
+import System
+import System.Linq
+import Microsoft.Extensions.DependencyInjection
+import SynergyEfProvider
+import SynergyEfProvider.Models
+
+main
+proc
+
+    ;;Create a DI container
+    data serviceBuilder = new ServiceCollection()
+
+    ;;Add the Synergy EF Provider service
+    EfProviderConfig.ConfigureProvider(serviceBuilder)
+
+    ;;Get s service provider
+    data sp = serviceBuilder.BuildServiceProvider()
+
+    ;;Get a DbContext instance from the SI container
+    data db, @SynergyEfProvider.DbContext, sp.GetService<SynergyEfProvider.DbContext>()
+
+    ;;And use it to access the data
+    data cust, @Customer
+    foreach cust in db.Customers
+    begin
+        Console.WriteLine(cust.Name)
+    end
+
+    Console.ReadLine()
+
+
+endmain
