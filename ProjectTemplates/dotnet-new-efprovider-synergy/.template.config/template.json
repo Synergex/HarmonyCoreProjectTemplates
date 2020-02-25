@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Synergex International Corp",
+  "classifications": [
+    "Solution"
+  ],
+  "name": "Synergy EF Provider Solution",
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "Creates a solution that includes the suggested projects for getting started with the Synergy EF Provider.",
+  "groupIdentity": "Synergy.EfProvider",
+  "identity": "Synergy.EfProvider.StarterSolution",
+  "shortName": "efprovider",
+  "tags": {
+    "language": "Synergy",
+    "type": "project"
+  },
+  "sourceName": "SynergyEfProvider",
+  "preferNameDirectory": true,
+  "guids": [
+    "f9257051-cc32-4541-baf3-3dd58c1e7f61",
+    "2ac4727b-cc19-4b7e-b168-4c7dcfb191e6",
+    "9F59F1FE-5272-46EF-911E-AFC94D9B311F"
+  ],
+  "symbols": {
+    "TargetFrameworkOverride": {
+      "type": "parameter",
+      "description": "Overrides the target framework",
+      "replaces": "TargetFrameworkOverride",
+      "datatype": "string",
+      "defaultValue": ""
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netstandard2.1",
+          "description": "Target netstandard2.1"
+        },
+        {
+          "choice": "netcoreapp2.1",
+          "description": "Target netcoreapp2.1"
+        }
+      ],
+      "replaces": "netcoreapp2.1",
+      "defaultValue": "netcoreapp2.1"
+    },
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": "SynergyEfProvider.sln"
+    },
+    {
+      "path": "Repository/Repository.synproj"
+    },
+    {
+      "path": "Services/Services.synproj"
+    }
+  ],
+  "defaultName": "SynergyEfProvider",
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}

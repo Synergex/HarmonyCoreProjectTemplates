@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="restore;Build">
+  <Import Project="..\Common.props" />
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <DefaultLanguageSourceExtension>.dbl</DefaultLanguageSourceExtension>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <Name>Services</Name>
+    <EnableCommonProperties>True</EnableCommonProperties>
+    <ProjectGuid>{f9257051-cc32-4541-baf3-3dd58c1e7f61}</ProjectGuid>
+    <Prefer32Bit>False</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath />
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Harmony.Core">
+      <Version>1.1.57</Version>
+    </PackageReference>
+    <PackageReference Include="Harmony.Core.EF">
+      <Version>1.1.57</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory">
+      <Version>2.2.6</Version>
+    </PackageReference>
+    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.1.1000.2668-beta1" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="11.1.1000" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Repository\Repository.synproj">
+      <Name>Repository</Name>
+      <Project>{cc6c33fb-c46c-4484-972c-c454743f8add}</Project>
+      <Private>True</Private>
+      <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EfProviderConfig.dbl" />
+    <Compile Include="EfProviderConfigCustom.dbl" />
+    <Compile Include="DbContext.dbl" />
+    <Compile Include="Models\Customer.dbl" />
+    <Compile Include="Models\CustomerMetaData.dbl" />
+    <Compile Include="Models\Item.dbl" />
+    <Compile Include="Models\ItemMetaData.dbl" />
+    <Compile Include="Models\Order.dbl" />
+    <Compile Include="Models\OrderItem.dbl" />
+    <Compile Include="Models\OrderItemMetaData.dbl" />
+    <Compile Include="Models\OrderMetaData.dbl" />
+    <Compile Include="Models\Vendor.dbl" />
+    <Compile Include="Models\VendorMetaData.dbl" />
+    <Folder Include="Models" />
+    <Compile Include="PrimaryKeyGenerator.dbl" />
+  </ItemGroup>
+</Project>
