@@ -67,7 +67,7 @@ codegen -s  %DATA_STRUCTURES% ^
         -a  %DATA_ALIASES% ^
         -fo %DATA_FILES% ^
         -t  EfProviderModel EfProviderMetaData ^
-        -i  %SolutionDir%Templates ^
+        -i  %SolutionDir%Templates\StandaloneEf ^
         -o  %SolutionDir%%EfProviderProject%\Models ^
         -n  %EfProviderProject%.Models ^
             %STDOPTS%
@@ -78,7 +78,7 @@ codegen -s  %DATA_STRUCTURES% -ms ^
         -a  %DATA_ALIASES% ^
         -fo %DATA_FILES% ^
         -t  EfProviderDbContext ^
-        -i  %SolutionDir%Templates ^
+        -i  %SolutionDir%Templates\StandaloneEf ^
         -o  %SolutionDir%%EfProviderProject% ^
         -n  %EfProviderProject% ^
         -ut MODELS_NAMESPACE=%EfProviderProject%.Models ^
@@ -90,7 +90,7 @@ codegen -s  %DATA_STRUCTURES% -ms ^
         -a  %DATA_ALIASES% ^
         -fo %DATA_FILES% ^
         -t  EfProviderConfig ^
-        -i  %SolutionDir%Templates ^
+        -i  %SolutionDir%Templates\StandaloneEf ^
         -o  %SolutionDir%%EfProviderProject% ^
         -n  %EfProviderProject% ^
         -ut MODELS_NAMESPACE=%EfProviderProject%.Models ^

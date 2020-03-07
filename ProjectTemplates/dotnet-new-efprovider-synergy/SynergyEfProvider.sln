@@ -7,10 +7,10 @@ Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "SynergyEfProvider", "Synerg
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{6C9AD151-7DA4-477B-A52C-FB883D9D1057}"
 	ProjectSection(SolutionItems) = preProject
-		Templates\EfProviderConfig.tpl = Templates\EfProviderConfig.tpl
-		Templates\EfProviderDbContext.tpl = Templates\EfProviderDbContext.tpl
-		Templates\EfProviderMetaData.tpl = Templates\EfProviderMetaData.tpl
-		Templates\EfProviderModel.tpl = Templates\EfProviderModel.tpl
+		Templates\StandaloneEf\EfProviderConfig.tpl = Templates\StandaloneEf\EfProviderConfig.tpl
+		Templates\StandaloneEf\EfProviderDbContext.tpl = Templates\StandaloneEf\EfProviderDbContext.tpl
+		Templates\StandaloneEf\EfProviderMetaData.tpl = Templates\StandaloneEf\EfProviderMetaData.tpl
+		Templates\StandaloneEf\EfProviderModel.tpl = Templates\StandaloneEf\EfProviderModel.tpl
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29AEA4C4-62B2-4F46-9B80-5F061D950BE1}"
