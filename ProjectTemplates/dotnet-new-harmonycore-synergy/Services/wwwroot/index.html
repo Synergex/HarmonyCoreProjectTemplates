@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>Harmony Core Service</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        body {
+            font-family: "Helvetica";
+            background-color: lightsteelblue;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        h2 {
+            color: navy;
+        }
+
+        a:link {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: blue;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: red;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: red;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+s    <img src="HarmonyCoreLogo.png" style="width: 600px; height: auto" />
+
+    <h1> Welcome to your RESTful Web Service</h1>
+    <ul>
+        <li><a href="/odata/v1">OData Service Document</a></li>
+        <li><a href="/odata/v1/$metadata">OData Metadata</a></li>
+        <li><a href="/api-docs">API Documentation</a></li>
+        <li><a href="#customization">Customizing the Services</a></li>
+    </ul>
+
+    <!------------------------------------------------------------------------------->
+    <hr noshade>
+    <a name="customization"><h2>Customizing the Services</h2></a>
+
+    <p>
+        To build a Harmony Core service with your own data files and structures, the basic
+        procedure that you will need to follow is:
+    </p>
+
+    <ul>
+        <li>In the Repository project, replace the content of the schema file (repository.scm) with your own repository schema.</li>
+        <li>
+            Edit regen.bat and
+            <ul>
+                <li>Change the content of the DATA_STRUCTURES environment variable so that it lists the structures you wish to expose.</li>
+                <li>Remove the value SYSPARAMS from the value of the environment variable PARAMSTR.</li>
+                <li>Review which of the ENABLE_ options are commented in and out to define the options that you wish to use.</li>
+            </ul>
+        </li>
+        <li>Execute the regen.bat file to generate code for your environment.</li>
+        <li>Add the newly generated source files into the Services.Controllers and Services.Models projects as necessary.</li>
+        <li>If you wish to maintain the use of a static home page (this page) then edit the content of index.html which you will find in the wwwroot folder of the Services project.</li>
+    </ul>
+
+</body>
+</html>
