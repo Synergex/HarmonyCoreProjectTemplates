@@ -6,7 +6,7 @@
   ],
   "name": "Harmony Core Starter Solution",
   "generatorVersions": "[1.0.0.0-*)",
-  "description": "Creates a solution that includes the suggested projects for getting started with Harmony Core development, including a sample repository, but no pre-generated environment.",
+  "description": "Creates a solution that includes the suggested projects for getting started with Harmony Core development, including a sample repository, but no pre-generated environment code.",
   "groupIdentity": "Harmony.Core.ProjectTemplates",
   "identity": "Harmony.Core.ProjectTemplates.StarterSolution",
   "shortName": "harmonycore",
@@ -23,8 +23,7 @@
     "9F59F1FE-5272-46EF-911E-AFC94D9B311F",
     "04111e5c-9d68-489b-b09a-433b6d2c7d5e",
     "74d56bb7-0a25-477e-8070-0100c0839700",
-    "74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0",
-    "d97b34c9-43d5-4df8-8c8e-788455b321eb"
+    "74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0"
   ],
   "symbols": {
     "TargetFrameworkOverride": {
@@ -86,9 +85,6 @@
     },
     {
       "path": "Services.Models/Services.Models.synproj"
-    },
-    {
-      "path": "TraditionalBridge/TraditionalBridge.synproj"
     }
   ],
   "defaultName": "HarmonyCoreServices",
