@@ -7,7 +7,7 @@
   "name": "Harmony Core Starter Solution",
   "generatorVersions": "[1.0.0.0-*)",
   "description": "Creates a solution that includes the suggested projects for getting started with Harmony Core development, including a sample repository, but no pre-generated environment code.",
-  "groupIdentity": "Harmony.Core.ProjectTemplates",
+  "groupIdentity": "Harmony.Core.ProjectTemplates.StarterSolution",
   "identity": "Harmony.Core.ProjectTemplates.StarterSolution",
   "shortName": "harmonycore",
   "tags": {
