@@ -51,7 +51,7 @@ namespace TraditionalBridge.Dispatchers
 
             arguments = callFrame.GetProperty("params")
 
-            ;;Arguiments 1 and 2 are passed
+            ;;Arguments 1 and 2 are passed in to the underlying routine
             arg1 = dispatcher.GetImplied(arguments[1])
             arg2 = dispatcher.GetImplied(arguments[2])
 
@@ -61,9 +61,9 @@ namespace TraditionalBridge.Dispatchers
             xcall AddTwoNumbers(arg1,arg2,arg3)
 
             ;;------------------------------------------------------------
-            ;;Process outbound return value and parameters
+            ;;Process any outbound return value and/or parameters
 
-            ;;Argument 3 is the returned
+            ;;Argument 3 is the returned value
             serializer.ArgumentData(3,arg3,FieldDataType.ImpliedDecimal,28,10,false)
 
         endmethod

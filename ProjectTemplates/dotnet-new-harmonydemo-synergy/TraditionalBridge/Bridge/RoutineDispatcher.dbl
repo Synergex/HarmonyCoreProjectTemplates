@@ -22,6 +22,8 @@ import System.Text.Json
 .define MaybeLog(priority, msg) if((priority) <= Logger.LogLevel) Logger.Instance.Log(msg)
 ;.define MaybeLog(priority, msg) Logger.Instance.Log(msg)
 
+.define TEMP_AD_TYPE a28
+
 namespace Harmony.TraditionalBridge
 
     ;;; <summary>
@@ -451,7 +453,7 @@ namespace Harmony.TraditionalBridge
                 throw new Exception("Dynamic array must be correctly sized before unwrapping object collection into it")
             
             
-            for index from 1 thru collectionLength by 1
+            for index from 1 thru collectionLength - 1 by 1
             begin
                 element = collection[index]
                 if(IS_OBJ(element)) then
@@ -497,8 +499,10 @@ namespace Harmony.TraditionalBridge
             endrecord
         proc
             collectionLength = collection.GetArrayLength()
-            for i from 0 thru collectionLength by 1
+            MaybeLog(6, "collection array length:" + %string(collectionLength))
+            for i from 0 thru collectionLength - 1 by 1
             begin
+                MaybeLog(6, "indexing array:" + %string(i) + " for array of length:" + %string(collectionLength))
                 element = collection[i]
                 if(IS_OBJ(element)) then
                 begin
@@ -530,12 +534,12 @@ namespace Harmony.TraditionalBridge
         proc
             collectionLength = collection.GetArrayLength()
             result = new string[collectionLength]
-            for i from 0 thru collectionLength by 1
+            for i from 0 thru collectionLength - 1 by 1
             begin
                 element = collection[i]
                 if(IS_TEXT(element)) then
                 begin
-                    result[i] = element.GetString()
+                    result[i + 1] = element.GetString()
                 end
                 else
                     throw new InvalidCastException()
@@ -554,7 +558,7 @@ namespace Harmony.TraditionalBridge
         proc
             collectionLength = collection.GetArrayLength()
             result = new int[collectionLength]
-            for i from 0 thru collectionLength by 1
+            for i from 0 thru collectionLength - 1 by 1
             begin
                 element = collection[i]
                 if(IS_NUMBER(element)) then
@@ -578,7 +582,7 @@ namespace Harmony.TraditionalBridge
         proc
             collectionLength = collection.GetArrayLength()
             result = new boolean[collectionLength]
-            for i from 0 thru collectionLength by 1
+            for i from 0 thru collectionLength - 1 by 1
             begin
                 element = collection[i]
                 if(IS_BOOLEAN(element)) then
@@ -602,7 +606,7 @@ namespace Harmony.TraditionalBridge
         proc
             collectionLength = collection.GetArrayLength()
             result = new @id[collectionLength]
-            for i from 0 thru collectionLength by 1
+            for i from 0 thru collectionLength - 1 by 1
             begin
                 element = collection[i]
                 if(IS_NUMBER(element)) then
@@ -667,20 +671,32 @@ namespace Harmony.TraditionalBridge
         ;;; </summary>
         ;;; <param name="value"></param>
         ;;; <returns></returns>
-        public method GetImplied, d.
+public method GetImplied, d.
             value, JSON_ELEMENT
             record
                 precisionValue, d18
+                aVal, TEMP_AD_TYPE
                 passedValue, JSON_ELEMENT
+                precisionElement, JSON_ELEMENT
             endrecord
         proc
             passedValue = value.GetProperty("PassedValue")
-            precisionValue = value.GetProperty("DecimalPrecision").GetDecimal()
 
             if(IS_TEXT(passedValue)) then
+            begin
                 mreturn %implied(passedValue.GetString())
+            end
             else
-                mreturn ^d(%string(passedValue.GetDecimal()),precisionValue)
+            begin
+                if(value.TryGetProperty("DecimalPrecision", precisionElement)) then
+                begin
+                    aVal = ^a(passedValue.GetDecimal())
+                    mreturn ^d(aVal,precisionElement.GetDecimal())
+                end
+                else
+                    mreturn passedValue.GetDecimal()
+            end
+
         endmethod
 
         ;;; <summary>
@@ -1282,10 +1298,17 @@ namespace Harmony.TraditionalBridge
 
             if(passed)
             begin
+                ;;alpha data can contain binary bits, if we're on pre v11 we cant encode these properly unless we let the serializer know ahead of time
+                ;;this is the true/false last parameter to ArgumentData seen below
                 case (argType) of
                 begincase
                 FieldDataType.AlphaField:
+.if DBLV11
                     serializer.ArgumentData(index, argBuffer, argType, argLength, argPrecision, false)
+.else
+                    serializer.ArgumentData(index, argBuffer, argType, argLength, argPrecision, true)
+.endc
+
                 FieldDataType.IntegerField:
                     serializer.ArgumentData(index, ^i(argBuffer), argType, argLength, argPrecision, false)
                 FieldDataType.ImpliedDecimalField:

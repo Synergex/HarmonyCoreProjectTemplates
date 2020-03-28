@@ -7,7 +7,7 @@
   "name": "Harmony Core Demo Solution",
   "generatorVersions": "[1.0.0.0-*)",
   "description": "Creates a solution that includes the suggested projects for getting started with Harmony Core development, including a sample repository, and a pre-generated environment for several data files.",
-  "groupIdentity": "Harmony.Core.ProjectTemplates",
+  "groupIdentity": "Harmony.Core.ProjectTemplates.DemoSolution",
   "identity": "Harmony.Core.ProjectTemplates.DemoSolution",
   "shortName": "harmonydemo",
   "tags": {

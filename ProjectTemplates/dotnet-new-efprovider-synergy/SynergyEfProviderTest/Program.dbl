@@ -7,17 +7,16 @@ import SynergyEfProvider.Models
 
 main
 proc
-
-    ;;Create a DI container
+    ;;Create a dependency injection (DI) container
     data serviceBuilder = new ServiceCollection()
 
-    ;;Add the Synergy EF Provider service
+    ;;Add the Synergy EF Provider service to the SI container
     EfProviderConfig.ConfigureProvider(serviceBuilder)
 
-    ;;Get s service provider
+    ;;Get a service provider from the SI container
     data sp = serviceBuilder.BuildServiceProvider()
 
-    ;;Get a DbContext instance from the SI container
+    ;;Get a DbContext instance from the service provider
     data db, @SynergyEfProvider.DbContext, sp.GetService<SynergyEfProvider.DbContext>()
 
     ;;And use it to access the data
@@ -27,7 +26,7 @@ proc
         Console.WriteLine(cust.Name)
     end
 
-    Console.ReadLine()
-
+    Console.Write("Press a key: ")
+    Console.ReadKey()
 
 endmain

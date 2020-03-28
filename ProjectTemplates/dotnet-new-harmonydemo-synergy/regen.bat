@@ -166,6 +166,19 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
               %STDOPTS%
   if ERRORLEVEL 1 goto error
   
+if DEFINED ENABLE_PROPERTY_ENDPOINTS (
+  rem Generate partial controller class for individual property endpoints
+
+  codegen -s  %DATA_STRUCTURES% ^
+          -a  %DATA_ALIASES% ^
+		  -fo %DATA_FILES% ^
+          -t  ODataControllerPropertyEndpoints ^
+          -i  %SolutionDir%Templates ^
+          -o  %SolutionDir%%ControllersProject% ^
+          -n  %ControllersProject% ^
+              %STDOPTS%
+  if ERRORLEVEL 1 goto error
+)
   rem Generate the DbContext class
   codegen -s  %DATA_STRUCTURES% -ms ^
           -a  %DATA_ALIASES% ^
