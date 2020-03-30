@@ -19,10 +19,9 @@ import System.Text.Json
 .define IS_BOOLEAN(element) ((element).JsonType == JSON_TYPE.BOOL)
 .endc
 
+.define TEMP_AD_TYPE a28
 .define MaybeLog(priority, msg) if((priority) <= Logger.LogLevel) Logger.Instance.Log(msg)
 ;.define MaybeLog(priority, msg) Logger.Instance.Log(msg)
-
-.define TEMP_AD_TYPE a28
 
 namespace Harmony.TraditionalBridge
 
@@ -498,11 +497,11 @@ namespace Harmony.TraditionalBridge
                 collectionLength, int
             endrecord
         proc
-            collectionLength = collection.GetArrayLength()
-            MaybeLog(6, "collection array length:" + %string(collectionLength))
+			collectionLength = collection.GetArrayLength()
+			MaybeLog(6, "collection array length:" + %string(collectionLength))
             for i from 0 thru collectionLength - 1 by 1
-            begin
-                MaybeLog(6, "indexing array:" + %string(i) + " for array of length:" + %string(collectionLength))
+			begin
+				MaybeLog(6, "indexing array:" + %string(i) + " for array of length:" + %string(collectionLength))
                 element = collection[i]
                 if(IS_OBJ(element)) then
                 begin
@@ -671,33 +670,33 @@ namespace Harmony.TraditionalBridge
         ;;; </summary>
         ;;; <param name="value"></param>
         ;;; <returns></returns>
-public method GetImplied, d.
-            value, JSON_ELEMENT
-            record
-                precisionValue, d18
-                aVal, TEMP_AD_TYPE
-                passedValue, JSON_ELEMENT
-                precisionElement, JSON_ELEMENT
-            endrecord
-        proc
-            passedValue = value.GetProperty("PassedValue")
+		public method GetImplied, d.
+			value, JSON_ELEMENT
+			record
+				precisionValue, d18
+				aVal, TEMP_AD_TYPE
+				passedValue, JSON_ELEMENT
+				precisionElement, JSON_ELEMENT
+			endrecord
+		proc
+			passedValue = value.GetProperty("PassedValue")
 
-            if(IS_TEXT(passedValue)) then
-            begin
-                mreturn %implied(passedValue.GetString())
-            end
-            else
-            begin
-                if(value.TryGetProperty("DecimalPrecision", precisionElement)) then
-                begin
-                    aVal = ^a(passedValue.GetDecimal())
-                    mreturn ^d(aVal,precisionElement.GetDecimal())
-                end
-                else
-                    mreturn passedValue.GetDecimal()
-            end
+			if(IS_TEXT(passedValue)) then
+			begin
+				mreturn %implied(passedValue.GetString())
+			end
+			else
+			begin
+				if(value.TryGetProperty("DecimalPrecision", precisionElement)) then
+				begin
+					aVal = ^a(passedValue.GetDecimal())
+					mreturn ^d(aVal,precisionElement.GetDecimal())
+				end
+				else
+					mreturn passedValue.GetDecimal()
+			end
 
-        endmethod
+		endmethod
 
         ;;; <summary>
         ;;; 
@@ -1297,12 +1296,12 @@ public method GetImplied, d.
             MaybeLog(4, "RCBSerializeArg: serializing argType " + %string(argType) + " marked as passed: " + %string(passed) + " with buffer " + argBuffer)
 
             if(passed)
-            begin
-                ;;alpha data can contain binary bits, if we're on pre v11 we cant encode these properly unless we let the serializer know ahead of time
+			begin
+				;;alpha data can contain binary bits, if we're on pre v11 we cant encode these properly unless we let the serializer know ahead of time
                 ;;this is the true/false last parameter to ArgumentData seen below
                 case (argType) of
                 begincase
-                FieldDataType.AlphaField:
+				FieldDataType.AlphaField:
 .if DBLV11
                     serializer.ArgumentData(index, argBuffer, argType, argLength, argPrecision, false)
 .else
