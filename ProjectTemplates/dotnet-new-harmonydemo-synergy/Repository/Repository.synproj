@@ -29,9 +29,6 @@
   <ItemGroup>
     <Compile Include="repository.scm" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
