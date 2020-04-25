@@ -1,3 +1,18 @@
+<CODEGEN_FILENAME>AuthenticationTools.dbl</CODEGEN_FILENAME>
+<REQUIRES_USERTOKEN>CUSTOM_JWT_ISSUER</REQUIRES_USERTOKEN>
+<REQUIRES_USERTOKEN>CUSTOM_JWT_AUDIENCE</REQUIRES_USERTOKEN>
+<REQUIRES_USERTOKEN>CUSTOM_JWT_SECRET</REQUIRES_USERTOKEN>
+;;*****************************************************************************
+;;
+;; Title:       AuthenticationTools.dbl
+;;
+;; Description: Utility class used diuring custom autentication.
+;;
+;; This code was originally code generated but will not be replaced by the code
+;; re-generation once in existence.
+;;
+;;*****************************************************************************
+
 import System
 import System.Collections.Generic
 import System.Text
@@ -5,33 +20,33 @@ import Microsoft.IdentityModel.Tokens
 import System.Security.Claims
 import System.IdentityModel.Tokens.Jwt
 
-namespace Services.Controllers
+namespace <NAMESPACE>
 
-    public static class AuthTools
+    public static class AuthenticationTools
 
         public static method GetKey, [#]Byte
             endparams
         proc
-            ;TODO: DO NOT HARD CODE THIS LIKE THIS IN PRODUCTION!!!!!
-            mreturn Encoding.UTF8.Getbytes("put some really long and really secret key value here!!!")
+            ;TODO: DO NOT HARD CODE THIS LIKE THIS IN PRODUCTION, AND USE SOMETHIONG MUCH MORE COMPLEX!!!!!
+            mreturn Encoding.UTF8.Getbytes("<CUSTOM_JWT_SECRET>")
         endmethod
 
         private static ourKey, @SymmetricSecurityKey, new SymmetricSecurityKey(GetKey())
 
         public static method GetToken  ,string
             aUser,          string
-            aTokenDuration  ,int
-            endparams
+            aTokenDuration, int
+            ;;Cound add other parameters to pass in custom claims to be added to the JWT.
 
             record
-                logical         ,a40
-                loglen          ,i4
-                tokdur          ,d8
+                logical,    a40
+                loglen,     i4
+                tokdur,     d8
 
         proc
 
-            ;; token duration (hours)
-            data tokenDuration   ,int ,0
+            ;;Token duration in hours
+            data tokenDuration, int ,0
 
             if (aTokenDuration > 0) then
                 tokenDuration = aTokenDuration
@@ -62,29 +77,22 @@ namespace Services.Controllers
             ;;  not that latest version of JWT using Microsoft namespace instead of System
             ;;  Also note that ourKey length should be >256b
             ;;  so you have to make sure that your private key has a proper length
+
             data credentials, @Microsoft.IdentityModel.Tokens.SigningCredentials, new SigningCredentials(ourKey, SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest)
-
-            ;data credentials, @Microsoft.IdentityModel.Tokens.SigningCredentials, new Microsoft.IdentityModel.Tokens.SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature)
-            ;;   Finally create a Token
-            ;data header = new JwtHeader(credentials)
-            ;; Some PayLoad that contain information about the  customer
-            ; data payload = new JwtPayload()
-            ;payload.AddClaim()
-            ;data claims = new Claim[#] { new Claim("token", %atrimtostring(readUser.USERNAME)) }
-            ;data secToken = new JwtSecurityToken((string)"RCC", (string)"RCCAPI", (@IEnumerable<Claim>)claims, ^null, credentials)
-
             data handler = new JwtSecurityTokenHandler()
-
             data ident = new ClaimsIdentity()
 
             ident.AddClaim(new Claim("token", %atrimtostring(aUser)))
+
             ;Add custom claims as necessary
-            ident.AddClaim(new Claim("username", %atrimtostring(aUser)))
+            ;ident.AddClaim(new Claim("name1", "value1"))
+            ;ident.AddClaim(new Claim("name2", "value2"))
+            ;ident.AddClaim(new Claim("name3", "value3"))
 
             data theFuture, DateTime, DateTime.Now.AddHours(tokenDuration)
             data current,   DateTime, DateTime.Now.AddHours(-1)
 
-            data betterToken = handler.CreateJwtSecurityToken("MyCompany", "MyApiName", ident, new Nullable<DateTime>(current),new Nullable<DateTime>(theFuture), new Nullable<DateTime>(DateTime.Now), credentials, ^null)
+            data betterToken = handler.CreateJwtSecurityToken("<CUSTOM_JWT_ISSUER>", "<CUSTOM_JWT_AUDIENCE>", ident, new Nullable<DateTime>(current),new Nullable<DateTime>(theFuture), new Nullable<DateTime>(DateTime.Now), credentials, ^null)
 
             ;;  Token to String so you can use it in your client
             data tokenString = handler.WriteToken(betterToken)
@@ -99,4 +107,3 @@ namespace Services.Controllers
     endclass
 
 endnamespace
-

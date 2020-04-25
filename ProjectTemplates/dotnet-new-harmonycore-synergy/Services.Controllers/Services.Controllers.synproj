@@ -50,7 +50,6 @@
     <PackageReference Include="HarmonyCore.CodeDomProvider" Version="1.0.7" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthTools.dbl" />
     <Compile Include="IsolatedMethodsBase.dbl" />
   </ItemGroup>
   <ItemGroup>
