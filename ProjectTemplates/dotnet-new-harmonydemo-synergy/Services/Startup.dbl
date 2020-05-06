@@ -220,7 +220,7 @@ namespace Services
                     &    Description = "This environment presents an example of using Harmony Core to expose a collection of RESTful Web Service endpoints that allow you to interact with a small sample dataset.",
                     &    Contact = new OpenApiContact() { Name = "Jodah Veloper", Email = "jodah.veloper@synergexpsg.com" },
                     &    TermsOfService = new Uri("https://opensource.org/licenses/BSD-2-Clause"),
-                    &    License = new OpenApiLicense() { Name = "BSD 2-Clause", Url = new Uri("https://opensource.org/licenses/BSD-2-Clause") }
+                    &    License = new OpenApiLicense() { Name = "BSD-2-Clause", Url = new Uri("https://opensource.org/licenses/BSD-2-Clause") }
                     &    }
 
                     options.SwaggerDoc( description.GroupName, info )
