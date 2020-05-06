@@ -466,7 +466,7 @@ namespace Services.Models
 .region "Relation validation"
 
         ;;; <summary>
-        ;;; Validate data
+        ;;; Validate data for relations
         ;;; </summary>
         ;;; <param name="type">Validation type (create, update or delete)</param>
         ;;; <param name="sp">Serices provider</param>
@@ -474,9 +474,30 @@ namespace Services.Models
             required in vType, ValidationType
             required in sp, @IServiceProvider
         proc
+            ;;No relation validation if the record is being deleted
+            if (vType == ValidationType.Delete)
+                mreturn
+
+            ;;Get an instance of IDataObjectProvider
+            data dataObjectProvider, @IDataObjectProvider, sp.GetService<IDataObjectProvider>()
+
+            ;;--------------------------------------------------------------------------------
+            ;;Validate data for relation 1 (REL_Vendor)
+
+            ;;Validation mode: None
+
+            ;;--------------------------------------------------------------------------------
+            ;;Validate data for relation 2 (REL_OrderItems)
+
+            ;;Validation mode: None
+
+            ;;--------------------------------------------------------------------------------
             ;;If we have a ValidateCustom method, call it
+
             ValidateCustom(vType,sp)
+
         endmethod
+
 
         private partial method ValidateCustom, void
             required in vType, ValidationType
