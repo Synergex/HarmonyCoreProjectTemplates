@@ -19,7 +19,7 @@ main TraditionalBridgeHost
         ttChan,         i4                  ;;Terminal channel number
         length,         int                 ;;Length of a strin
         tmpa,           a10                 ;;Temporary alpha variable
-        logLevel,       int, 2              ;;Logging level. 2 is normal logging, 6 is highest logging.
+        logLevel,       int                 ;;Logging level
         logFileName,    string              ;;Log file name
         dispatcher,     @MethodDispatcher   ;;Message dispatcher instance
     endrecord
@@ -27,16 +27,22 @@ proc
     try
     begin
         ;;Configure the environment and open the terminal chanel.
-        ;;Remember this (STDIN) is the mechanism by which Harmony Core will send
-        ;;us requests, and is the mechanism by which we will issue responses.
-
+        ;; - STDIN  is the mechanism by which Harmony Core sends us requests
+        ;; - STDOUT is the mechanism by which we will issue responses
         xcall flags(1907050020)
         open(ttChan=0,o,"TT:")
 
         ;;Does the environment define the logging level?
         getlog("HARMONY_LOG_LEVEL", tmpa, length)
-        if (length)
+        if (length) then
+        begin
             logLevel = %integer(tmpa)
+        end
+        else
+        begin
+            ;Levels are 1 to 6, 2 is normal logging, 6 is highest logging
+            logLevel = 2
+        end
         
         ;;Define the log file name
         logFileName = "BRIDGE_" + %string(%jbno) + ".LOG"
@@ -44,7 +50,7 @@ proc
         ;;Initiate logging
         Logger.Instance = new Logger(logFileName, logLevel, false)
         
-        ;;Create a new instance of the main "dispather" class
+        ;;Create a new instance of the main "dispatcher" class
         dispatcher = new MethodDispatcher()
         
         ;;Issue the "READY" message.
@@ -55,17 +61,21 @@ proc
         dispatcher.Dispatch(ttChan)
 
     end
-    catch(e, @Exception)
+    catch(ex, @Exception)
     begin
         ;;If anything failed, log an error if we can
         if (Logger.Instance != ^null)
-            Logger.Instance.Log("DISPATCHER EXITED with exception" + e.ToString())
+        begin
+            Logger.Instance.Log("DISPATCHER EXITED with exception" + ex.ToString())
+        end
     end
     endtry
     
     ;;Close the log
     if (Logger.Instance != ^null)
+    begin
         Logger.Instance.CloseLog()
+    end
 
     stop
 
