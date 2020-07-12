@@ -1,0 +1,13 @@
+;;*****************************************************************************
+;;
+;; Title:       SelfHost.dbl
+;;
+;; Description: A program to self-host Harmony Core unit tests
+;;
+;;*****************************************************************************
+
+main SelfHost
+
+proc
+
+endmain
