@@ -1,19 +1,19 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "Synergex International Corp",
+  "author": "Synergex",
   "classifications": [
     "Solution"
   ],
-  "name": "Synergy EF Provider Solution",
-  "generatorVersions": "[1.0.0.0-*)",
-  "description": "Creates a solution that includes the suggested projects for getting started with the Synergy EF Provider.",
-  "groupIdentity": "Synergy.EfProvider",
   "identity": "Synergy.EfProvider.StarterSolution",
+  "name": "Synergy EF Provider Solution",
   "shortName": "efprovider",
   "tags": {
     "language": "Synergy",
     "type": "project"
   },
+  "generatorVersions": "[1.0.0.0-*)",
+  "description": "Creates a solution that includes the suggested projects for getting started with the Synergy EF Provider.",
+  "groupIdentity": "Synergy.EfProvider",
   "sourceName": "SynergyEfProvider",
   "preferNameDirectory": true,
   "guids": [
