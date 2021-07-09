@@ -1,9 +1,9 @@
-<CODEGEN_FILENAME><INTERFACE_NAME>MethodDispachers.dbl</CODEGEN_FILENAME>
+<CODEGEN_FILENAME><INTERFACE_NAME>MethodDispatchers.dbl</CODEGEN_FILENAME>
 <REQUIRES_USERTOKEN>MODELS_NAMESPACE</REQUIRES_USERTOKEN>
 <REQUIRES_CODEGEN_VERSION>5.4.6</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
-;// Title:       MethodDispachers.tpl
+;// Title:       MethodDispatchers.tpl
 ;//
 ;// Type:        CodeGen Template
 ;//
@@ -37,7 +37,7 @@
 ;//
 ;;*****************************************************************************
 ;;
-;; Title:       <INTERFACE_NAME>MethodDispachers.dbl
+;; Title:       <INTERFACE_NAME>MethodDispatchers.dbl
 ;;
 ;; Description: Dispatcher classes for exposed methods that uses the RCB API
 ;;              to call the underlying methods. This is done in order to have
@@ -186,7 +186,7 @@ namespace <NAMESPACE>.<INTERFACE_NAME>
 </IF FUNCTION>
             <PARAMETER_LOOP>
             <COUNTER_1_INCREMENT>
-                RCBArg(<COUNTER_1_VALUE> + <COUNTER_2_VALUE>, arguments[<COUNTER_1_VALUE>], FieldDataType.<PARAMETER_TYPE>Field, arg<COUNTER_1_VALUE>, mRcbid, 0<PARAMETER_PRECISION>, arg<COUNTER_1_VALUE>Passed)
+                <IF OUT>RCBOutArg<ELSE>RCBArg</IF>(<COUNTER_1_VALUE> + <COUNTER_2_VALUE>, arguments[<COUNTER_1_VALUE>], FieldDataType.<PARAMETER_TYPE>Field, arg<COUNTER_1_VALUE>, mRcbid, 0<PARAMETER_PRECISION>, arg<COUNTER_1_VALUE>Passed)
             </PARAMETER_LOOP>
                 <IF FUNCTION>
                     <IF HATVAL>
@@ -194,7 +194,7 @@ namespace <NAMESPACE>.<INTERFACE_NAME>
                 RCBSerializeArg(0, true, FieldDataType.IntegerField, ^a(returnValue), %size(returnValue), 0, serializer)
                     <ELSE>
                 rcb_call(mRcbid)
-                RCBSerializeArg(0, true, FieldDataType.IntegerField, ^a(returnValue), %size(returnValue), 0, serializer)
+                RCBSerializeArg(0, true, FieldDataType.<IF ALPHA>Alpha<ELSE DECIMAL>Decimal<ELSE INTEGER>Integer<ELSE IMPLIED>ImpliedDecimal</IF>Field, ^a(returnValue), <METHOD_RETURN_SIZE>, 0<METHOD_RETURN_PRECISION>, serializer)
                     </IF HATVAL>
                 <ELSE>
                 rcb_call(mRcbid)

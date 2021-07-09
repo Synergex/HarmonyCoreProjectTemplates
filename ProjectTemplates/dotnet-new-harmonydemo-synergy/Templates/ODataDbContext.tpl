@@ -57,7 +57,7 @@ namespace <NAMESPACE>
     ;;; <summary>
     ;;;
     ;;; </summary>
-    public class DbContext extends Microsoft.EntityFrameworkCore.DbContext
+    public partial class DbContext extends Microsoft.EntityFrameworkCore.DbContext
 
         ;;; <summary>
         ;;; Construct a new DbContext.
@@ -102,7 +102,7 @@ namespace <NAMESPACE>
             </PRIMARY_KEY>
             </IF STRUCTURE_ISAM>
             <IF STRUCTURE_RELATIVE>
-            parm.Entity<<StructureNoplural>>().HasKey(RecordNumber)
+            parm.Entity<<StructureNoplural>>().HasKey("RecordNumber")
             </IF STRUCTURE_RELATIVE>
             </STRUCTURE_LOOP>
 
@@ -156,7 +156,7 @@ namespace <NAMESPACE>
 .region "Entity Relationships"
 
             <STRUCTURE_LOOP>
-            <IF STRUCTURE_RELATIONS>
+            <IF STRUCTURE_RELATIONS AND HARMONYCORE_RELATIONS_ENABLED>
             ;;--------------------------------------
             ;; Relationships from <STRUCTURE_NOPLURAL>
 
@@ -214,8 +214,22 @@ namespace <NAMESPACE>
 .endregion
 </IF DEFINED_ENABLE_RELATIONS>
 
+            ;;-----------------------------------------------
+            ;;If we have a OnModelCreatingCustom method, call it 
+
+            OnModelCreatingCustom(parm)
+
+            ;;-----------------------------------------------
+            ;;All done, call the code in our base class
+
             parent.OnModelCreating(parm)
 
+        endmethod
+
+        ;;Declare the OnModelCreatingCustom partial method
+        ;;This method can be implemented in a partial class to provide custom code
+        partial static method OnModelCreatingCustom, void
+            builder, @ModelBuilder
         endmethod
 
     endclass

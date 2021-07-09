@@ -76,23 +76,32 @@ namespace <NAMESPACE>
         private m<FieldSqlname>Formatter, @ILiteralFormatter, new <HARMONYCORE_CUSTOM_FIELD_TYPE>Converter.LiteralFormatter()
     <ELSE>
       <IF DATEORTIME>
+        <IF DATE_YYPP>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYPP")
+        </IF DATE_YYPP>
+        <IF DATE_YYYYPP>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYYYPP")
+        </IF DATE_YYYYPP>
         <IF DATE_YYMMDD>
           <IF CUSTOM_HARMONY_AS_STRING>
         private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XX-XX-XX")
           <ELSE>
-        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYMMDD")
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYMMDD")
           </IF CUSTOM_HARMONY_AS_STRING>
         </IF DATE_YYMMDD>
         <IF DATE_YYYYMMDD>
           <IF CUSTOM_HARMONY_AS_STRING>
         private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XXXX-XX-XX")
           <ELSE>
-        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYYYMMDD")
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYYYMMDD")
           </IF CUSTOM_HARMONY_AS_STRING>
         </IF DATE_YYYYMMDD>
         <IF DATE_YYYYJJJ>
-        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:YYYYJJJ")
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYYYJJJ")
         </IF DATE_YYYYJJJ>
+        <IF DATE_YYJJJ>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("YYJJJ")
+        </IF DATE_YYJJJ>
         <IF TIME>
           <IF CUSTOM_HARMONY_AS_STRING>
             <IF TIME_HHMM>
@@ -102,7 +111,12 @@ namespace <NAMESPACE>
         private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalConverter.LiteralFormatter("XX:XX:XX")
             </IF TIME_HHMMSS>
           <ELSE>
-        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("FORMAT:HHMM")
+          <IF TIME_HHMM>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("HHMM")
+          </IF TIME_HHMM>
+          <IF TIME_HHMMSS>
+        private m<FieldSqlname>Formatter, @ILiteralFormatter, new SynergyDecimalDateConverter.LiteralFormatter("HHMMSS")
+          </IF TIME_HHMM>
           </IF CUSTOM_HARMONY_AS_STRING>
         </IF TIME>
       <ELSE>
@@ -292,6 +306,21 @@ namespace <NAMESPACE>
             required in joinedObjects, [#]KeyValuePair<String, Object>
         proc
             data new<StructureNoplural> = new <StructureNoplural>(dataArea, grfa)
+            UpdateExistingJoin(new<StructureNoplural>, joinedObjects)
+            mreturn new<StructureNoplural>
+        endmethod
+        
+        public override method UpdateExistingJoin, void
+            required in existing, @DataObjectBase
+            required in joinedObjects, [#]KeyValuePair<String, Object>
+        proc
+            UpdateExistingJoin((@<StructureNoplural>)existing, joinedObjects)
+        endmethod
+
+        public method UpdateExistingJoin, void
+            required in existing, @<StructureNoplural>
+            required in joinedObjects, [#]KeyValuePair<String, Object>
+        proc
 <IF DEFINED_ENABLE_RELATIONS>
   <IF STRUCTURE_RELATIONS>
             data joinedObject, KeyValuePair<String, Object>
@@ -300,34 +329,25 @@ namespace <NAMESPACE>
                 using joinedObject.Key select
     <RELATION_LOOP_RESTRICTED>
 ;//
-      <IF MANY_TO_ONE_TO_MANY>
                 ("<HARMONYCORE_RELATION_NAME>"),
-                    new<StructureNoplural>.<HARMONYCORE_RELATION_NAME> = (@<RelationTostructureNoplural>)joinedObject.Value
-      </IF MANY_TO_ONE_TO_MANY>
+                begin
+                    if(existing.<HARMONYCORE_RELATION_NAME> == ^null)
+                    begin
+      <IF MANY_TO_ONE_TO_MANY OR ONE_TO_ONE OR ONE_TO_ONE_TO_ONE>
+                        existing.<HARMONYCORE_RELATION_NAME> = (@<RelationTostructureNoplural>)joinedObject.Value
+      </IF>
 ;//
-      <IF ONE_TO_ONE>
-                ("<HARMONYCORE_RELATION_NAME>"),
-                    new<StructureNoplural>.<HARMONYCORE_RELATION_NAME> = (@<RelationTostructureNoplural>)joinedObject.Value
-      </IF ONE_TO_ONE>
+      <IF ONE_TO_MANY_TO_ONE OR ONE_TO_MANY>
+                        existing.<HARMONYCORE_RELATION_NAME> = (@ICollection<<RelationTostructureNoplural>>)joinedObject.Value
+      </IF>
 ;//
-      <IF ONE_TO_MANY_TO_ONE>
-                ("<HARMONYCORE_RELATION_NAME>"),
-                    new<StructureNoplural>.<HARMONYCORE_RELATION_NAME> = (@ICollection<<RelationTostructureNoplural>>)joinedObject.Value
-      </IF ONE_TO_MANY_TO_ONE>
-;//
-      <IF ONE_TO_MANY>
-                ("<HARMONYCORE_RELATION_NAME>"),
-                    new<StructureNoplural>.<HARMONYCORE_RELATION_NAME> = (@ICollection<<RelationTostructureNoplural>>)joinedObject.Value
-      </IF ONE_TO_MANY>
-;//
+                    end
+                end
     </RELATION_LOOP_RESTRICTED>
                 endusing
             end
   </IF STRUCTURE_RELATIONS>
 </IF DEFINED_ENABLE_RELATIONS>
-
-            mreturn new<StructureNoplural>
-
         endmethod
 
 <IF STRUCTURE_ISAM>

@@ -108,6 +108,9 @@ namespace <NAMESPACE>
         {ODataRoute}
         {Produces("application/json")}
         {ProducesResponseType(^typeof(ODataValue<IEnumerable<<StructureNoplural>>>),StatusCodes.Status200OK)}
+  <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+  </IF DEFINED_ENABLE_AUTHENTICATION>
   <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
   </IF DEFINED_ENABLE_AUTHENTICATION_AND_USERTOKEN_ROLES_GET>
@@ -133,6 +136,9 @@ namespace <NAMESPACE>
         {ODataRoute("(<PRIMARY_KEY><SEGMENT_LOOP><IF SEG_TAG_EQUAL><ELSE><FieldSqlName>={a<FieldSqlName>}<,></IF SEG_TAG_EQUAL></SEGMENT_LOOP></PRIMARY_KEY>)")}
         {Produces("application/json")}
         {ProducesResponseType(^typeof(<StructureNoplural>),StatusCodes.Status200OK)}
+  <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+  </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
   <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
@@ -179,6 +185,9 @@ namespace <NAMESPACE>
         {ODataRoute("(<PRIMARY_KEY><SEGMENT_LOOP><IF SEG_TAG_EQUAL><ELSE><FieldSqlName>={a<FieldSqlName>}<,></IF SEG_TAG_EQUAL></SEGMENT_LOOP></PRIMARY_KEY>)")}
         {Produces("application/json")}
         {ProducesResponseType(^typeof(ODataValue<IEnumerable<<StructureNoplural>>>),StatusCodes.Status200OK)}
+  <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+  </IF DEFINED_ENABLE_AUTHENTICATION>
   <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
   </IF DEFINED_ENABLE_AUTHENTICATION>
@@ -224,6 +233,9 @@ namespace <NAMESPACE>
         {ODataRoute("(aRecordNumber)")}
         {Produces("application/json")}
         {ProducesResponseType(^typeof(<StructureNoplural>),StatusCodes.Status200OK)}
+  <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+  </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
   <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
@@ -252,19 +264,25 @@ namespace <NAMESPACE>
 ;//
 <IF STRUCTURE_ISAM AND DEFINED_ENABLE_ALTERNATE_KEYS AND ALTERNATE_KEY_ENDPOINTS> 
   <ALTERNATE_KEY_LOOP_UNIQUE>
-    <IF DUPLICATES>
-        {ODataRoute("(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><ELSE><FieldSqlName>={a<FieldSqlName>}<,></IF SEG_TAG_EQUAL></SEGMENT_LOOP>)")}
+        {ODataRoute("(<SEGMENT_LOOP><IF NOT SEG_TAG_EQUAL><FieldSqlName>={a<FieldSqlName>}<,></IF></SEGMENT_LOOP>)")}
         {Produces("application/json")}
+    <IF DUPLICATES>
         {ProducesResponseType(^typeof(ODataValue<IEnumerable<<StructureNoplural>>>),StatusCodes.Status200OK)}
+    <ELSE>
+        {ProducesResponseType(^typeof(ODataValue<<StructureNoplural>>),StatusCodes.Status200OK)}
+    </IF DUPLICATES>
+      <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+      </IF>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
       <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
-      </IF DEFINED_ENABLE_AUTHENTICATION>
+      </IF>
       <IF DEFINED_ENABLE_FIELD_SECURITY>
         {HarmonyFieldSecurity<API_ENABLE_QUERY_PARAMS>}
       <ELSE>
         {EnableQuery<API_ENABLE_QUERY_PARAMS>}
-      </IF DEFINED_ENABLE_FIELD_SECURITY>
+      </IF>
         ;;; <summary>
         ;;; Get <structurePlural> by alternate key key <KeyName>.
         ;;; </summary>
@@ -278,63 +296,70 @@ namespace <NAMESPACE>
       <SEGMENT_LOOP>
         <IF NOT SEG_TAG_EQUAL>
             {FromODataUri}
-          <IF CUSTOM_HARMONY_AS_STRING>
-            required in a<FieldSqlName>, string
-          <ELSE>
-            required in a<FieldSqlName>, <HARMONYCORE_SEGMENT_DATATYPE>
-          </IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, <IF CUSTOM_HARMONY_AS_STRING>string<ELSE><HARMONYCORE_SEGMENT_DATATYPE></IF>
         </IF>
       </SEGMENT_LOOP>
         proc
-            data result = _DbContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",<IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>)
+            data result = _DbContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",<IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName></IF><,></SEGMENT_LOOP>)
             if (result == ^null)
                 mreturn NotFound()
+
             mreturn Ok(result)
         endmethod
-    <ELSE>
-        {ODataRoute("(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><ELSE><FieldSqlName>={a<FieldSqlName>}<,></IF SEG_TAG_EQUAL></SEGMENT_LOOP>)")}
+
+  </ALTERNATE_KEY_LOOP_UNIQUE>
+</IF>
+;//
+;// GET BY PARTIAL KEY --------------------------------------------------------
+;//
+<IF STRUCTURE_ISAM AND DEFINED_ENABLE_PARTIAL_KEYS>
+  <PARTIAL_KEY_LOOP>
+    <IF (PRIMARY_KEY AND DEFINED_ENABLE_GET_ONE AND GET_ENDPOINT) OR ((NOT PRIMARY_KEY) AND DEFINED_ENABLE_ALTERNATE_KEYS AND ALTERNATE_KEY_ENDPOINTS)>
+        {ODataRoute("(<SEGMENT_LOOP><IF NOT SEG_TAG_EQUAL><FieldSqlName>={a<FieldSqlName>}<,></IF></SEGMENT_LOOP>)")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(<StructureNoplural>),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(ODataValue<IEnumerable<<StructureNoplural>>>),StatusCodes.Status200OK)}
+      <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+      </IF>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
       <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_GET>
         {Authorize(Roles="<ROLES_GET>")}
-      </IF DEFINED_ENABLE_AUTHENTICATION>
+      </IF>
       <IF DEFINED_ENABLE_FIELD_SECURITY>
         {HarmonyFieldSecurity<API_ENABLE_QUERY_PARAMS>}
       <ELSE>
         {EnableQuery<API_ENABLE_QUERY_PARAMS>}
-      </IF DEFINED_ENABLE_FIELD_SECURITY>
+      </IF>
         ;;; <summary>
-        ;;; Get <structureNoplural> by alternate key <KeyName>.
+        ;;; Get <structurePlural> by partial key <KeyName>.
         ;;; </summary>
       <SEGMENT_LOOP>
         <IF NOT SEG_TAG_EQUAL>
         ;;; <param name="a<FieldSqlName>"><FIELD_DESC></param>
         </IF>
       </SEGMENT_LOOP>
-        ;;; <returns>Returns a SingleResult indicating the status of the operation and containing any data that was returned.</returns>
-        public method Get<StructureNoplural>By<KeyName>, @SingleResult<<StructureNoplural>>
+        ;;; <returns>Returns an IActionResult indicating the status of the operation and containing any data that was returned.</returns>
+        public method Get<StructurePlural>By<KeyName>, @IActionResult
       <SEGMENT_LOOP>
         <IF NOT SEG_TAG_EQUAL>
             {FromODataUri}
-          <IF CUSTOM_HARMONY_AS_STRING>
-            required in a<FieldSqlName>, string
-          <ELSE>
-            required in a<FieldSqlName>, <HARMONYCORE_SEGMENT_DATATYPE>
-          </IF CUSTOM_HARMONY_AS_STRING>
+            required in a<FieldSqlName>, <IF CUSTOM_HARMONY_AS_STRING>string<ELSE><HARMONYCORE_SEGMENT_DATATYPE></IF>
         </IF>
       </SEGMENT_LOOP>
         proc
-            mreturn new SingleResult<<StructureNoplural>>(_DbContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",<IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName><IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE><ELSE><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA></IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>))
+            data result = _DbContext.<StructurePlural>.AsNoTracking().FindAlternate(<SEGMENT_LOOP>"<FieldSqlName>",<IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName></IF><,></SEGMENT_LOOP>)
+            if (result == ^null)
+                mreturn NotFound()
+            mreturn Ok(result)
         endmethod
-    </IF DUPLICATES>
 
-  </ALTERNATE_KEY_LOOP_UNIQUE>
-</IF STRUCTURE_ISAM>
+    </IF>
+  </PARTIAL_KEY_LOOP>
+</IF>
 ;//
 ;// POST ----------------------------------------------------------------------
 ;//
-<IF STRUCTURE_ISAM AND DEFINED_ENABLE_POST AND POST_ENDPOINT>
+<IF STRUCTURE_ISAM AND DEFINED_ENABLE_POST AND POST_ENDPOINT AND STRUCTURE_HAS_UNIQUE_PK>
   <IF DEFINED_ENABLE_AUTHENTICATION>
     <IF USERTOKEN_ROLES_POST>
         {Authorize(Roles="<ROLES_POST>")}
@@ -343,6 +368,9 @@ namespace <NAMESPACE>
         {ODataRoute}
         {Produces("application/json")}
         {ProducesResponseType(^typeof(<StructureNoplural>),StatusCodes.Status200OK)}
+  <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+  </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status400BadRequest)}
         {HttpPost}
         ;;; <summary>
@@ -390,11 +418,10 @@ namespace <NAMESPACE>
 
 </IF STRUCTURE_ISAM>
 ;//
-;// PUT -----------------------------------------------------------------------
+;// PUT (By non-unique primary key, if no unique key exists)-------------------
 ;//
 <IF STRUCTURE_ISAM AND DEFINED_ENABLE_PUT AND PUT_ENDPOINT>
-  <KEY_LOOP>
-    <IF FIRST_UNIQUE_KEY OR (NODUPLICATES AND DEFINED_ENABLE_ALT_PUT)>
+  <PRIMARY_KEY>
       <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_PUT>
         {Authorize(Roles="<ROLES_PUT>")}
       </IF DEFINED_ENABLE_AUTHENTICATION>
@@ -402,12 +429,14 @@ namespace <NAMESPACE>
         {Produces("application/json")}
         {ProducesResponseType(StatusCodes.Status201Created)}
         {ProducesResponseType(StatusCodes.Status400BadRequest)}
+      <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+      </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {HttpPut}
         ;;; <summary>
         ;;; Create (with a client-supplied primary key) or replace a <structureNoplural>.
         ;;; </summary>
-
       <SEGMENT_LOOP>
         <IF NOT SEG_TAG_EQUAL>
         ;;; <param name="a<FieldSqlName>"><FIELD_DESC></param>
@@ -428,10 +457,23 @@ namespace <NAMESPACE>
             {FromBody}
             required in a<StructureNoplural>, @<StructureNoplural>
         proc
+        <IF NOT STRUCTURE_HAS_UNIQUE_KEY>
+            ;;Ensure that the key values in the URI win over any data that may be in the model object
+      <SEGMENT_LOOP>
+        <IF SEG_TAG_EQUAL>
+            a<StructureNoplural>.<FieldSqlname> = <SEGMENT_TAG_VALUE>
+        <ELSE>
+            a<StructureNoplural>.<FieldSqlname> = a<FieldSqlName>
+        </IF SEG_TAG_EQUAL>
+            ModelState.Remove("<FieldSqlname>")
+      </SEGMENT_LOOP>
+        </IF>
+
             ;; Validate inbound data
             if (!ModelState.IsValid)
                 mreturn ValidationHelper.ReturnValidationError(ModelState)
 
+        <IF STRUCTURE_HAS_UNIQUE_KEY>
             ;;Ensure that the key values in the URI win over any data that may be in the model object
       <SEGMENT_LOOP>
         <IF SEG_TAG_EQUAL>
@@ -440,7 +482,9 @@ namespace <NAMESPACE>
             a<StructureNoplural>.<FieldSqlname> = a<FieldSqlName>
         </IF SEG_TAG_EQUAL>
       </SEGMENT_LOOP>
+        </IF STRUCTURE_HAS_UNIQUE_KEY>
 
+            <IF STRUCTURE_HAS_UNIQUE_KEY>
             try
             begin
                 ;;Add and commit
@@ -458,6 +502,14 @@ namespace <NAMESPACE>
                     mreturn NoContent()
                 end
             end
+            <ELSE>
+            try
+            begin
+                _DbContext.<StructurePlural>.Add(a<StructureNoplural>)
+                _DbContext.SaveChanges()
+                mreturn Created(a<StructureNoplural>)
+            end
+            </IF STRUCTURE_HAS_UNIQUE_KEY>
             catch (e, @InvalidOperationException)
             begin
                 mreturn BadRequest(e)
@@ -470,15 +522,13 @@ namespace <NAMESPACE>
             endtry
 
         endmethod
-    </IF FIRST_UNIQUE_KEY>
-  </KEY_LOOP>
+  </PRIMARY_KEY>
 </IF STRUCTURE_ISAM>
 ;//
 ;// PATCH ---------------------------------------------------------------------
 ;//
 <IF STRUCTURE_ISAM AND DEFINED_ENABLE_PATCH AND PATCH_ENDPOINT>
-  <KEY_LOOP>
-    <IF FIRST_UNIQUE_KEY OR (NODUPLICATES AND DEFINED_ENABLE_ALT_PATCH)>
+  <PRIMARY_KEY>
     <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_PATCH>
         {Authorize(Roles="<ROLES_PATCH>")}
     </IF DEFINED_ENABLE_AUTHENTICATION>
@@ -486,6 +536,9 @@ namespace <NAMESPACE>
         {Produces("application/json")}
         {ProducesResponseType(StatusCodes.Status204NoContent)}
         {ProducesResponseType(StatusCodes.Status400BadRequest)}
+      <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+      </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {HttpPatch}
         ;;; <summary>
@@ -519,13 +572,14 @@ namespace <NAMESPACE>
             try
             begin
                 ;;Get the <structureNoplural> to be updated
-                data <structureNoplural>ToUpdate = _DbContext.<StructurePlural>.Find(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName><IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE><ELSE><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA></IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>)
+                data <structureNoplural>ToUpdate = _DbContext.<StructurePlural>.Find<IF NOT STRUCTURE_HAS_UNIQUE_KEY>Query<<StructureNoplural>></IF>(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName><IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE><ELSE><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA></IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>)
                 data patchError, @JsonPatchError, ^null
                 ;;Did we find it?
                 if(<structureNoplural>ToUpdate == ^null)
                     mreturn NotFound()
 
                 ;;Apply the changes to the <structureNoplural> we read
+                <IF STRUCTURE_HAS_UNIQUE_KEY>
                 a<StructureNoplural>.ApplyTo(<structureNoplural>ToUpdate, lambda(error) { patchError = error })
                 ;;if the patchdoc was bad return the error info
                 if(patchError != ^null)
@@ -533,6 +587,19 @@ namespace <NAMESPACE>
 
                 ;;Update and commit
                 _DbContext.<StructurePlural>.Update(<structureNoplural>ToUpdate)
+                <ELSE>
+                data item, @<StructureNoplural>
+                foreach item in <structureNoplural>ToUpdate
+                begin
+                    a<StructureNoplural>.ApplyTo(item, lambda(error) { patchError = error })
+                    ;;if the patchdoc was bad return the error info
+                    if(patchError != ^null)
+                        mreturn BadRequest(string.Format("Error applying patch document: error message {0}, caused by {1}", patchError.ErrorMessage, JsonConvert.SerializeObject(patchError.Operation)))
+
+                    ;;Update and commit
+                    _DbContext.<StructurePlural>.Update(item)
+                end
+                </IF STRUCTURE_HAS_UNIQUE_KEY>
                 _DbContext.SaveChanges()
             end
             catch (e, @InvalidOperationException)
@@ -549,20 +616,21 @@ namespace <NAMESPACE>
             mreturn NoContent()
 
         endmethod
-    </IF FIRST_UNIQUE_KEY>
-  </KEY_LOOP>
+  </PRIMARY_KEY>
 </IF STRUCTURE_ISAM>
 ;//
 ;// DELETE --------------------------------------------------------------------
 ;//
 <IF STRUCTURE_ISAM AND DEFINED_ENABLE_DELETE AND DELETE_ENDPOINT>
-   <KEY_LOOP>
-    <IF FIRST_UNIQUE_KEY OR (NODUPLICATES AND DEFINED_ENABLE_ALT_DELETE)>
+  <PRIMARY_KEY>
     <IF DEFINED_ENABLE_AUTHENTICATION AND USERTOKEN_ROLES_DELETE>
         {Authorize(Roles="<ROLES_DELETE>")}
     </IF DEFINED_ENABLE_AUTHENTICATION>
         {ODataRoute("(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><ELSE><FieldSqlName>={a<FieldSqlName>}<,></IF SEG_TAG_EQUAL></SEGMENT_LOOP>)")}
         {ProducesResponseType(StatusCodes.Status204NoContent)}
+    <IF DEFINED_ENABLE_AUTHENTICATION>
+        {ProducesResponseType(StatusCodes.Status401Unauthorized)}
+    </IF DEFINED_ENABLE_AUTHENTICATION>
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {HttpDelete}
         ;;; <summary>
@@ -587,21 +655,28 @@ namespace <NAMESPACE>
         </SEGMENT_LOOP>
         proc
             ;;Get the <structureNoplural> to be deleted
-            data <structureNoplural>ToRemove = _DbContext.<StructurePlural>.Find(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName><IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE><ELSE><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA></IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>)
+            data <structureNoplural>ToRemove = _DbContext.<StructurePlural>.Find<IF NOT STRUCTURE_HAS_UNIQUE_KEY>Query<<StructureNoplural>></IF>(<SEGMENT_LOOP><IF SEG_TAG_EQUAL><SEGMENT_TAG_VALUE><ELSE>a<FieldSqlName><IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE><ELSE><IF ALPHA>.PadRight(<FIELD_SIZE>)</IF ALPHA></IF HARMONYCORE_CUSTOM_SEGMENT_DATATYPE></IF SEG_TAG_EQUAL><,></SEGMENT_LOOP>)
 
             ;;Did we find it?
             if (<structureNoplural>ToRemove == ^null)
                 mreturn NotFound()
 
             ;;Delete and commit
+            <IF STRUCTURE_HAS_UNIQUE_KEY>
             _DbContext.<StructurePlural>.Remove(<structureNoplural>ToRemove)
+            <ELSE>
+            data item, @<StructureNoplural>
+            foreach item in <structureNoplural>ToRemove
+            begin
+                _DbContext.<StructurePlural>.Remove(item)
+            end
+            </IF STRUCTURE_HAS_UNIQUE_KEY>
             _DbContext.SaveChanges()
 
             mreturn NoContent()
 
         endmethod
-    </IF FIRST_UNIQUE_KEY>
-  </KEY_LOOP>
+  </PRIMARY_KEY>
 </IF STRUCTURE_ISAM>
     endclass
 

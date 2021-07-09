@@ -9,6 +9,7 @@ Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Host", "Services.H
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{6C9AD151-7DA4-477B-A52C-FB883D9D1057}"
 	ProjectSection(SolutionItems) = preProject
+		Templates\GenerateTestValues.tpl = Templates\GenerateTestValues.tpl
 		Templates\HarmonyCoreCustomization.tpl = Templates\HarmonyCoreCustomization.tpl
 		Templates\ODataClientModel.tpl = Templates\ODataClientModel.tpl
 		Templates\ODataController.tpl = Templates\ODataController.tpl
@@ -31,13 +32,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Templates\ODataUnitTestEnvironment.tpl = Templates\ODataUnitTestEnvironment.tpl
 		Templates\ODataUnitTestHost.tpl = Templates\ODataUnitTestHost.tpl
 		Templates\ODataUnitTests.tpl = Templates\ODataUnitTests.tpl
+		Templates\SystemTextJsonModel.tpl = Templates\SystemTextJsonModel.tpl
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29AEA4C4-62B2-4F46-9B80-5F061D950BE1}"
 	ProjectSection(SolutionItems) = preProject
+		Harmony.Core.CodeGen.json = Harmony.Core.CodeGen.json
 		publish.bat = publish.bat
 		regen.bat = regen.bat
+		regen.bat.example = regen.bat.example
+		regen_ef_mysql.bat = regen_ef_mysql.bat
+		regen_typescript.bat = regen_typescript.bat
 		UserDefinedTokens.tkn = UserDefinedTokens.tkn
+		UserDefinedTokens.tkn.example = UserDefinedTokens.tkn.example
 	EndProjectSection
 EndProject
 Project("{BBD0F5D1-1CC4-42FD-BA4C-A96779C64378}") = "Services.Isolated", "Services.Isolated\Services.Isolated.synproj", "{74D56BB7-0A25-477E-8070-0100C0839700}"
@@ -53,12 +60,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TraditionalBridge", "Tradit
 		Templates\TraditionalBridge\GlobalStructures.tpl = Templates\TraditionalBridge\GlobalStructures.tpl
 		Templates\TraditionalBridge\InterfaceController.tpl = Templates\TraditionalBridge\InterfaceController.tpl
 		Templates\TraditionalBridge\InterfaceDispatcher.tpl = Templates\TraditionalBridge\InterfaceDispatcher.tpl
+		Templates\TraditionalBridge\InterfaceDispatcherCustom.tpl = Templates\TraditionalBridge\InterfaceDispatcherCustom.tpl
 		Templates\TraditionalBridge\InterfaceDispatcherData.tpl = Templates\TraditionalBridge\InterfaceDispatcherData.tpl
 		Templates\TraditionalBridge\InterfaceMethodDispatchers.tpl = Templates\TraditionalBridge\InterfaceMethodDispatchers.tpl
+		Templates\TraditionalBridge\InterfaceMethodStubs.tpl = Templates\TraditionalBridge\InterfaceMethodStubs.tpl
 		Templates\TraditionalBridge\InterfacePostmanTests.tpl = Templates\TraditionalBridge\InterfacePostmanTests.tpl
 		Templates\TraditionalBridge\InterfaceService.tpl = Templates\TraditionalBridge\InterfaceService.tpl
 		Templates\TraditionalBridge\InterfaceServiceModels.tpl = Templates\TraditionalBridge\InterfaceServiceModels.tpl
+		Templates\TraditionalBridge\InterfaceSuperDispatcher.tpl = Templates\TraditionalBridge\InterfaceSuperDispatcher.tpl
+		Templates\TraditionalBridge\InterfaceTestRequests.tpl = Templates\TraditionalBridge\InterfaceTestRequests.tpl
 		Templates\TraditionalBridge\InterfaceTestResponses.tpl = Templates\TraditionalBridge\InterfaceTestResponses.tpl
+		Templates\TraditionalBridge\InterfaceUnitTests.tpl = Templates\TraditionalBridge\InterfaceUnitTests.tpl
+		Templates\TraditionalBridge\InterfaceUnitTestValues.tpl = Templates\TraditionalBridge\InterfaceUnitTestValues.tpl
+		Templates\TraditionalBridge\MetadataInit.tpl = Templates\TraditionalBridge\MetadataInit.tpl
+		Templates\TraditionalBridge\MultiInterfaceServiceModels.tpl = Templates\TraditionalBridge\MultiInterfaceServiceModels.tpl
 		Templates\TraditionalBridge\ODataActionModels.tpl = Templates\TraditionalBridge\ODataActionModels.tpl
 		Templates\TraditionalBridge\ODataMetaData.tpl = Templates\TraditionalBridge\ODataMetaData.tpl
 		Templates\TraditionalBridge\ODataModel.tpl = Templates\TraditionalBridge\ODataModel.tpl
@@ -71,6 +86,29 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalR", "SignalR", "{F11D78B0-4DF7-453C-854C-A87CA031EC84}"
 	ProjectSection(SolutionItems) = preProject
 		Templates\SignalR\SignalRHub.tpl = Templates\SignalR\SignalRHub.tpl
+		Templates\SignalR\SignalRRequestFactory.tpl = Templates\SignalR\SignalRRequestFactory.tpl
+		Templates\SignalR\SignalRResponseValidation.tpl = Templates\SignalR\SignalRResponseValidation.tpl
+		Templates\SignalR\SignalRTests.tpl = Templates\SignalR\SignalRTests.tpl
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySQL", "MySQL", "{0AE51FCB-6E58-4A51-A681-05498CA61E37}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\MySQL\ODataController.tpl = Templates\MySQL\ODataController.tpl
+		Templates\MySQL\ODataEdmBuilder.tpl = Templates\MySQL\ODataEdmBuilder.tpl
+		Templates\MySQL\ODataPostManTests.tpl = Templates\MySQL\ODataPostManTests.tpl
+		Templates\MySQL\ODataSelfHostEnvironment.tpl = Templates\MySQL\ODataSelfHostEnvironment.tpl
+		Templates\MySQL\ODataStartup.tpl = Templates\MySQL\ODataStartup.tpl
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReactRedux", "ReactRedux", "{8F14351E-8ECB-4B55-9688-2992D80FAA65}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\ReactRedux\ODataReactAPI.tpl = Templates\ReactRedux\ODataReactAPI.tpl
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypeScript", "TypeScript", "{2C584094-5A66-4A3B-BDEF-634886A6DA1D}"
+	ProjectSection(SolutionItems) = preProject
+		Templates\TypeScript\TypeScriptInterfaceMethods.tpl = Templates\TypeScript\TypeScriptInterfaceMethods.tpl
+		Templates\TypeScript\TypeScriptInterfaceStructures.tpl = Templates\TypeScript\TypeScriptInterfaceStructures.tpl
 	EndProjectSection
 EndProject
 Global
@@ -162,6 +200,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1E3F00B9-F73D-459B-A8DB-310E97FEE18C} = {6C9AD151-7DA4-477B-A52C-FB883D9D1057}
 		{F11D78B0-4DF7-453C-854C-A87CA031EC84} = {6C9AD151-7DA4-477B-A52C-FB883D9D1057}
+		{0AE51FCB-6E58-4A51-A681-05498CA61E37} = {6C9AD151-7DA4-477B-A52C-FB883D9D1057}
+		{8F14351E-8ECB-4B55-9688-2992D80FAA65} = {6C9AD151-7DA4-477B-A52C-FB883D9D1057}
+		{2C584094-5A66-4A3B-BDEF-634886A6DA1D} = {6C9AD151-7DA4-477B-A52C-FB883D9D1057}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F59F1FE-5272-46EF-911E-AFC94D9B311F}

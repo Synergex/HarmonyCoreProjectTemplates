@@ -60,6 +60,7 @@ import System.Net.Http.Headers
 </IF DEFINED_ENABLE_AUTHENTICATION>
 import <SERVICES_NAMESPACE>
 import <CLIENT_MODELS_NAMESPACE>
+import System.Linq
 
 namespace <NAMESPACE>
 
@@ -73,7 +74,7 @@ namespace <NAMESPACE>
 ;//
 ;// If ENABLE_GET_ALL is enabled
 ;//
-  <IF DEFINED_ENABLE_GET_ALL>
+  <IF DEFINED_ENABLE_GET_ALL AND GET_ALL_ENDPOINT>
 
         ;;------------------------------------------------------------
         ;;Get all <StructurePlural>
@@ -90,7 +91,7 @@ namespace <NAMESPACE>
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
             data <structurePlural>, @OData<StructurePlural>, JsonConvert.DeserializeObject<OData<StructurePlural>>(result)
-            Assert.AreEqual(<structurePlural>.Value.Count,TestConstants.Get<StructurePlural>_Count)
+            Assert.AreEqual(<structurePlural>.Value.Count,TestConstants.Instance.Get<StructurePlural>_Count)
         endmethod
 ;//
 ;// If ENABLE_GET_ALL and ENABLE_RELATIONS are enabled
@@ -104,23 +105,9 @@ namespace <NAMESPACE>
 
         {TestMethod}
         {TestCategory("<StructureNoplural> Tests - Read All")}
-          <IF MANY_TO_ONE_TO_MANY>
         public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
             data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
-          <ELSE ONE_TO_ONE>
-        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
-        proc
-            data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
-          <ELSE ONE_TO_MANY_TO_ONE>
-        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
-        proc
-            data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
-          <ELSE ONE_TO_MANY>
-        public method Get<StructurePlural>_Expand_<HARMONYCORE_RELATION_NAME>, void
-        proc
-            data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<HARMONYCORE_RELATION_NAME>"
-          </IF>
             disposable data client = UnitTestEnvironment.Server.CreateClient()
           <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
@@ -138,7 +125,7 @@ namespace <NAMESPACE>
         {TestCategory("<StructureNoplural> Tests - Read All")}
         public method Get<StructurePlural>_Expand_All, void
         proc
-            data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<RELATION_LOOP_RESTRICTED><IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY><,></RELATION_LOOP_RESTRICTED>"
+            data uri = "/odata/v<API_VERSION>/<StructurePlural>?$expand=<RELATION_LOOP_RESTRICTED><HARMONYCORE_RELATION_NAME><,></RELATION_LOOP_RESTRICTED>"
             disposable data client = UnitTestEnvironment.Server.CreateClient()
             <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
@@ -149,7 +136,7 @@ namespace <NAMESPACE>
         endmethod
       </IF STRUCTURE_RELATIONS>
     </IF DEFINED_ENABLE_RELATIONS>
-  </IF DEFINED_ENABLE_GET_ALL>
+  </IF>
 ;//
 ;// If ENABLE_GET_ONE is enabled
 ;//
@@ -166,7 +153,7 @@ namespace <NAMESPACE>
     <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
     </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Instance.Get<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
@@ -179,17 +166,17 @@ namespace <NAMESPACE>
       <RELATION_LOOP_RESTRICTED>
 
         ;;------------------------------------------------------------
-        ;;Get a single <StructureNoplural> by primary key and expand relation <IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>
+        ;;Get a single <StructureNoplural> by primary key and expand relation <HARMONYCORE_RELATION_NAME>
 
         {TestMethod}
         {TestCategory("<StructureNoplural> Tests - Read by Primary Key")}
-        public method Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>, void
+        public method Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>, void
         proc
             disposable data client = UnitTestEnvironment.Server.CreateClient()
         <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
         </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_<IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<HARMONYCORE_RELATION_NAME>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Instance.Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
@@ -208,7 +195,7 @@ namespace <NAMESPACE>
       <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
       </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<RELATION_LOOP_RESTRICTED><IF MANY_TO_ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF MANY_TO_ONE_TO_MANY><IF ONE_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_ONE><IF ONE_TO_MANY_TO_ONE><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY_TO_ONE><IF ONE_TO_MANY><HARMONYCORE_RELATION_NAME></IF ONE_TO_MANY><,></RELATION_LOOP_RESTRICTED>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_Expand_All_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP></PRIMARY_KEY>)?$expand=<RELATION_LOOP_RESTRICTED><HARMONYCORE_RELATION_NAME><,></RELATION_LOOP_RESTRICTED>","",<PRIMARY_KEY><SEGMENT_LOOP>TestConstants.Instance.Get<StructureNoplural>_Expand_All_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
@@ -222,6 +209,7 @@ namespace <NAMESPACE>
   <IF DEFINED_ENABLE_ALTERNATE_KEYS>
     <ALTERNATE_KEY_LOOP_UNIQUE>
 
+      <IF DUPLICATES>
         ;;------------------------------------------------------------
         ;;Get a single <StructureNoplural> by alternate key <KEY_NUMBER> (<KeyName>)
 
@@ -233,16 +221,13 @@ namespace <NAMESPACE>
       <IF DEFINED_ENABLE_AUTHENTICATION>
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
       </IF DEFINED_ENABLE_AUTHENTICATION>
-            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)", "", <SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName><IF DATE>.ToString("yyyy-MM-dd")</IF DATE><,></SEGMENT_LOOP>)
+            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)", "", <SEGMENT_LOOP>TestConstants.Instance.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName><IF DATE>.ToString("yyyy-MM-dd")</IF DATE><IF TIME_HHMM>.ToString("hh:mm")</IF TIME_HHMM><IF TIME_HHMMSS>.ToString("hh:mm:ss")</IF TIME_HHMMSS><IF BOOLEAN>.ToString().ToLower()</IF BOOLEAN><,></SEGMENT_LOOP>)
             data response = client.GetAsync(request).Result
             data result = response.Content.ReadAsStringAsync().Result
             response.EnsureSuccessStatusCode()
-      <IF DUPLICATES>
             data <structurePlural>, @OData<StructurePlural>,JsonConvert.DeserializeObject<OData<StructurePlural>>(result)
-      <ELSE>
-            data <structureNoplural>, @OData<StructureNoplural>,JsonConvert.DeserializeObject<OData<StructureNoplural>>(result)
-      </IF DUPLICATES>
         endmethod
+    </IF DUPLICATES>
     </ALTERNATE_KEY_LOOP_UNIQUE>
   </IF DEFINED_ENABLE_ALTERNATE_KEYS>
 ;//
@@ -286,7 +271,7 @@ namespace <NAMESPACE>
   </IF DEFINED_ENABLE_AUTHENTICATION>
 
             ;;Get one <structureNoplural> from the file
-            data getRequest = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Get<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data getRequest = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Instance.Get<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             data getResponse = client.GetAsync(getRequest).Result
             data getResult = getResponse.Content.ReadAsStringAsync().Result
 
@@ -294,11 +279,11 @@ namespace <NAMESPACE>
             getResponse.EnsureSuccessStatusCode()
 
             ;;Deserialize the JSON into a <StructureNoplural> object
-            data do<StructureNoplural>, @<StructureNoplural>, JsonConvert.DeserializeObject<<StructureNoplural>>(getResult)
+            data do<StructureNoplural>, @<StructureNoplural>, JsonConvert.DeserializeObject<<IF NOT STRUCTURE_HAS_UNIQUE_KEY>OData</IF><StructureNoplural>>(getResult)<IF NOT STRUCTURE_HAS_UNIQUE_KEY>.Value[0]</IF>
 
   <PRIMARY_KEY>
     <SEGMENT_LOOP>
-            do<StructureNoplural>.<FieldSqlName> = TestConstants.Update<StructureNoplural>_<SegmentName>
+            do<StructureNoplural>.<FieldSqlName> = TestConstants.Instance.Update<StructureNoplural>_<SegmentName>
     </SEGMENT_LOOP>
   </PRIMARY_KEY>
 
@@ -306,7 +291,7 @@ namespace <NAMESPACE>
 
             ;;Create new item
             disposable data requestBody = new StringContent(JsonConvert.SerializeObject(do<StructureNoplural>),System.Text.Encoding.UTF8, "application/json")
-            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Update<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Instance.Update<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             disposable data response = client.PutAsync(request, requestBody).Result
 
             ;;Check that we got a successful response from the web service
@@ -320,7 +305,19 @@ namespace <NAMESPACE>
             getResponse.EnsureSuccessStatusCode()
 
             ;;Deserialize the JSON into a <StructureNoplural> object
+            <IF NOT STRUCTURE_HAS_UNIQUE_KEY>
+            data results = JsonConvert.DeserializeObject<OData<StructureNoplural>>(getResult).Value
+            data resultItem, @<StructureNoplural>
+            do<StructureNoplural> = results[0]
+
+            ;;Test that all value PKs are the same
+            foreach resultItem in results
+            begin
+                Assert.AreEqual(do<StructureNoplural>.<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>, resultItem.<SegmentName></SEGMENT_LOOP></PRIMARY_KEY>)
+            end
+            <ELSE>
             do<StructureNoplural> = JsonConvert.DeserializeObject<<StructureNoplural>>(getResult)
+            </IF NOT STRUCTURE_HAS_UNIQUE_KEY>
 
             ;;Change the first non key field to test full update
   <COUNTER_1_RESET>
@@ -339,7 +336,7 @@ namespace <NAMESPACE>
 
             ;;Update full item
             requestBody = new StringContent(JsonConvert.SerializeObject(do<StructureNoplural>),System.Text.Encoding.UTF8, "application/json")
-            request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Update<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
+            request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<PRIMARY_KEY><SEGMENT_LOOP><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP>)","",<SEGMENT_LOOP>TestConstants.Instance.Update<StructureNoplural>_<SegmentName><,></SEGMENT_LOOP></PRIMARY_KEY>)
             response = client.PutAsync(request, requestBody).Result
 
             ;;Check that we got a successful response from the web service
@@ -353,7 +350,7 @@ namespace <NAMESPACE>
             getResponse.EnsureSuccessStatusCode()
 
             ;;Deserialize the JSON into a <StructureNoplural> object
-            do<StructureNoplural> = JsonConvert.DeserializeObject<<StructureNoplural>>(getResult)
+            do<StructureNoplural> = JsonConvert.DeserializeObject<<IF NOT STRUCTURE_HAS_UNIQUE_KEY>Odata</IF><StructureNoplural>>(getResult)<IF NOT STRUCTURE_HAS_UNIQUE_KEY>.Value.FirstOrDefault(lambda (k) {k.<COUNTER_1_RESET><FIELD_LOOP><IF NOTKEYSEGMENT AND NOT USED_IN_RELATION><COUNTER_1_INCREMENT><IF COUNTER_1_EQ_1><FieldSqlName></IF COUNTER_1_EQ_1></IF></FIELD_LOOP>.Equals("Y")})</IF>
 
   <COUNTER_1_RESET>
   <FIELD_LOOP>
@@ -361,8 +358,10 @@ namespace <NAMESPACE>
       <COUNTER_1_INCREMENT>
       <IF COUNTER_1_EQ_1>
         <IF ALPHA>
+
             Assert.AreEqual(do<StructureNoplural>.<FieldSqlName>, "Y")
         <ELSE>
+
             Assert.AreEqual(do<StructureNoplural>.<FieldSqlName>, 8)
         </IF ALPHA>
       </IF COUNTER_1_EQ_1>
@@ -416,7 +415,7 @@ namespace <NAMESPACE>
             getResponse.EnsureSuccessStatusCode()
 
             ;;Deserialize the JSON into a <StructureNoplural> object
-            do<StructureNoplural> = JsonConvert.DeserializeObject<<StructureNoplural>>(getResult)
+            do<StructureNoplural> = JsonConvert.DeserializeObject<<IF NOT STRUCTURE_HAS_UNIQUE_KEY>Odata</IF><StructureNoplural>>(getResult)<IF NOT STRUCTURE_HAS_UNIQUE_KEY>.Value[0]</IF>
 
             ;;Verify that the property was changed
   <COUNTER_1_RESET>
@@ -443,7 +442,7 @@ namespace <NAMESPACE>
             getResponse = client.GetAsync(request).Result
 
             ;;Check we got a fail state from the web service
-            Assert.AreEqual(getResponse.IsSuccessStatusCode, false)
+            Assert.AreEqual(getResponse.IsSuccessStatusCode, <IF STRUCTURE_HAS_UNIQUE_KEY>false<ELSE>true</IF STRUCTURE_HAS_UNIQUE_KEY>)
 
         endmethod
 </IF>
@@ -464,7 +463,7 @@ namespace <NAMESPACE>
 ;//    <IF DEFINED_ENABLE_AUTHENTICATION>
 ;//            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer",UnitTestEnvironment.AccessToken)
 ;//    </IF DEFINED_ENABLE_AUTHENTICATION>
-;//            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<SEGMENT_LOOP_FILTER><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP_FILTER>)","",<SEGMENT_LOOP_FILTER>TestConstants.Get<StructureNoplural>_ByPartialPrimaryKey_<SegmentName><,></SEGMENT_LOOPFILTER>)
+;//            data request = String.Format("/odata/v<API_VERSION>/<StructurePlural>(<SEGMENT_LOOP_FILTER><SegmentName>=<IF ALPHA>'</IF ALPHA>{<SEGMENT_NUMBER>}<IF ALPHA>'</IF ALPHA><,></SEGMENT_LOOP_FILTER>)","",<SEGMENT_LOOP_FILTER>TestConstants.Instance.Get<StructureNoplural>_ByPartialPrimaryKey_<SegmentName><,></SEGMENT_LOOPFILTER>)
 ;//            data response = client.GetAsync(request).Result
 ;//            data result = response.Content.ReadAsStringAsync().Result
 ;//            response.EnsureSuccessStatusCode()

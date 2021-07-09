@@ -204,6 +204,10 @@ namespace <NAMESPACE>
                 <STRUCTURE_LOOP>
                 objectProvider.AddDataObjectMapping<<StructureNoplural>>("<FILE_NAME>", <IF STRUCTURE_ISAM>FileOpenMode.UpdateIndexed</IF STRUCTURE_ISAM><IF STRUCTURE_RELATIVE>FileOpenMode.UpdateRelative</IF STRUCTURE_RELATIVE>)
                 </STRUCTURE_LOOP>
+
+                ;;If we have an AddDataObjectMappingsCustom method, call it
+                AddDataObjectMappingsCustom(objectProvider)
+
                 mreturn objectProvider
             end
 
@@ -301,12 +305,15 @@ namespace <NAMESPACE>
                 end
                 
                 op.MaxIAsyncEnumerableBufferLimit = int.MaxValue
+
+                ;;If there is a MvcConfigCustom method, call it
+                MvcConfigCustom(op)
             end
 
             data mvcBuilder = services.AddMvcCore(MvcCoreConfig)
             &    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2 )
             &    .AddDataAnnotations()      ;;Enable data annotations
-            &    .AddNewtonsoftJson()      ;;For PATCH
+            &    .AddNewtonsoftJson(<IF DEFINED_ENABLE_NEWTONSOFT>lambda (opts) { opts.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver()}</IF>)
             &    .AddApplicationPart(^typeof(IsolatedMethodsBase).Assembly)
 
         <IF DEFINED_ENABLE_AUTHENTICATION>
@@ -419,6 +426,14 @@ namespace <NAMESPACE>
             services.AddCors()
 
         </IF DEFINED_ENABLE_CORS>
+        <IF DEFINED_ENABLE_SIGNALR>
+            ;; -------------------------------------------------------------------------------
+            ;;Add SignalR support
+            services.AddSignalR().AddNewtonsoftJsonProtocol()
+            services.AddDistributedMemoryCache()
+            services.AddSession()
+
+        </IF DEFINED_ENABLE_SIGNALR>
             ;;If there is a ConfigureServicesCustom method, call it
             ConfigureServicesCustom(services)
 
@@ -593,9 +608,11 @@ namespace <NAMESPACE>
 
             lambda corsOptions(builder)
             begin
-                builder.AllowAnyOrigin()
+                builder
+                &   .AllowCredentials()
                 &    .AllowAnyMethod()
                 &    .AllowAnyHeader()
+                &   .SetIsOriginAllowed(lambda(p) { true } )
             end
 
             app.UseCors(corsOptions)
@@ -640,7 +657,7 @@ namespace <NAMESPACE>
 
         endmethod
 
-        .region "Partial method extensibility points"
+.region "Partial method extensibility points"
 
         ;;; <summary>
         ;;; Declare the ConfigueServicesCustom partial method.
@@ -648,7 +665,7 @@ namespace <NAMESPACE>
         ;;; </summary>
         ;;; <param name="services"></param>
         partial method ConfigureServicesCustom, void
-            services, @IServiceCollection
+            required in services, @IServiceCollection
         endmethod
 
         ;;; <summary>
@@ -679,10 +696,19 @@ namespace <NAMESPACE>
         ;;; </summary>
         ;;; <param name="options">MVC options</param>
         partial method MvcConfigCustom, void
-            options, @MvcOptions
+            required in options, @MvcOptions
         endmethod
 
-        .endregion
+        ;;; <summary>
+        ;;; Declare the AddDataObjectMappingsCustom partial method
+        ;;; Developers can use this to inject additional data object mappings
+        ;;; </summary>
+        ;;; <param name="serviceProvider">Data object provider</param>
+        partial method AddDataObjectMappingsCustom, void
+            required in provider, @DataObjectProvider
+        endmethod
+
+.endregion
 
     endclass
 
