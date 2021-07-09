@@ -4,3 +4,4 @@
 
 /WORKAROUND.TXT
 *.nupkg
+/ProjectTemplates/dotnet-new-harmonydemo-synergy/regen_last.bat
