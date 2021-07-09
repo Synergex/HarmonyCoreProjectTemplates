@@ -15,13 +15,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.2</Version>
+      <Version>3.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <Version>3.1.2</Version>
     </PackageReference>
-    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.1.1030.2704" />
-    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="11.1.1031" />
+    <PackageReference Include="Synergex.SynergyDE.Build" Version="11.1.1070.3107" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="11.1.1070" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SynergyEfProvider\SynergyEfProvider.synproj">
