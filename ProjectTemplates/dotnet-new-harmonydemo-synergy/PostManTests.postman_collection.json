@@ -1,0 +1,2303 @@
+{
+    "info": {
+        "_postman_id": "fba9c6df-91be-451e-baa9-97e576891979",
+        "name": "Harmony Core Sample API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "_postman_id": "c3c6f439-1656-4d34-a257-f6ec842e4e28",
+            "name": "Customer Tests",
+            "item": [
+                {
+                    "_postman_id": "9edb14d8-53cd-43ee-8c64-5d15a2049f78",
+                    "name": "Read customers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Customers",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Customers"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "340ee86d-c2bd-4f41-b66d-c2723e84662a",
+                    "name": "Count customers",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Customers/$count",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Customers",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "23d36b96-d741-4a6b-97b9-b2d78449bd06",
+                    "name": "Read customer",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                        "key": "Accept",
+                        "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(CustomerNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(CustomerNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "491ad502-8f0b-480d-a858-1a93c32d6b3d",
+                    "name": "Read customers by State",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(State='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(State='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "9fcb2891-6020-4de5-b845-3764ab97aeb3",
+                    "name": "Count customers by State",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(State='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(State='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "936d0ccf-708d-44ec-8278-7e3af3662082",
+                    "name": "Read customers by Zip",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(ZipCode=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(ZipCode=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "04fe2c51-3a4e-45cc-910f-f0df55231ee3",
+                    "name": "Count customers by Zip",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(ZipCode=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(ZipCode=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "e5d5eaa5-6664-4276-a8a9-8d4d83ba77c9",
+                    "name": "Read customers by PaymentTerms",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(PaymentTermsCode='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(PaymentTermsCode='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "d2de833c-9397-45d8-8716-9248d9a3fb9c",
+                    "name": "Count customers by PaymentTerms",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(PaymentTermsCode='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(PaymentTermsCode='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "256e9867-dc43-4331-9725-51de87deadd6",
+                    "name": "Create customer (auto assign key)",
+                    "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"CustomerNumber\": 355232,\n    \"Name\": \"Abe's Nursery\",\n    \"Street\": \"1032 Main Street\",\n    \"City\": \"Springfield\",\n    \"State\": \"MO\",\n    \"ZipCode\": 64127,\n    \"Contact\": \"Abe Albright\",\n    \"Phone\": \"(555) 123-4567\",\n    \"Fax\": \"(555) 987-6543\",\n    \"FavoriteItem\": 7,\n    \"PaymentTermsCode\": \"30\",\n    \"TaxId\": 546874521,\n    \"CreditLimit\": 5000\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "ac1b918b-7a93-4b5f-9bd2-13120df9d267",
+                    "name": "Create or update customer",
+                    "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"CustomerNumber\": 355232,\n    \"Name\": \"Abe's Nursery\",\n    \"Street\": \"1032 Main Street\",\n    \"City\": \"Springfield\",\n    \"State\": \"MO\",\n    \"ZipCode\": 64127,\n    \"Contact\": \"Abe Albright\",\n    \"Phone\": \"(555) 123-4567\",\n    \"Fax\": \"(555) 987-6543\",\n    \"FavoriteItem\": 7,\n    \"PaymentTermsCode\": \"30\",\n    \"TaxId\": 546874521,\n    \"CreditLimit\": 5000\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(CustomerNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(CustomerNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+              ,
+                {
+                    "name": "Patch customer",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"PropertyName\",\r\n    \"value\": \"PropertyValue\"\r\n  }\r\n]"
+                        },
+                    "url": {
+                        "raw": "/Customers(CustomerNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(CustomerNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "ebc58927-754d-4e5f-bbad-e2064339c2aa",
+                    "name": "Delete customer",
+                    "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Customers(CustomerNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Customers(CustomerNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "_postman_id": "c93db3a0-9089-4d70-b2b1-c0b27259088a",
+            "name": "Item Tests",
+            "item": [
+                {
+                    "_postman_id": "3698edc3-52b9-44b7-8580-7f69b83fbde3",
+                    "name": "Read items",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Items",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Items"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "7dcd1fd8-ea93-41df-8c44-b8b764932003",
+                    "name": "Count items",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Items/$count",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Items",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "e730273e-ecb0-4bb2-bb14-904b400d4107",
+                    "name": "Read item",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                        "key": "Accept",
+                        "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "39bcc76d-3785-4661-b42e-976384f23886",
+                    "name": "Read items by VendorNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(VendorNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(VendorNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "26e4220c-8ffe-465d-8d2d-444d8d12ce2f",
+                    "name": "Count items by VendorNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(VendorNumber=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(VendorNumber=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "2ec24d56-f08f-43d6-a254-ca92caf07003",
+                    "name": "Read items by Color",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(FlowerColor='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(FlowerColor='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "bc007b47-4867-4b7e-b0d5-e6adb2a14452",
+                    "name": "Count items by Color",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(FlowerColor='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(FlowerColor='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "4334ac0a-45d8-4e26-92df-81ab7da4e331",
+                    "name": "Read items by Size",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(Size=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(Size=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "951b3437-e8da-45d9-902e-9e5deb3e3a8f",
+                    "name": "Count items by Size",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(Size=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(Size=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "3e757dec-8bba-4863-b448-7729b3b014e0",
+                    "name": "Read items by Name",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(CommonName='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(CommonName='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "6fbfc6f5-32e9-415e-bf63-5cb94f42a70c",
+                    "name": "Count items by Name",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(CommonName='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(CommonName='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "6a68f0bc-c6ae-46f5-9648-577a7b3abcb0",
+                    "name": "Create item (auto assign key)",
+                    "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"ItemNumber\": 19,\n    \"VendorNumber\": 41,\n    \"Size\": 5,\n    \"CommonName\": \"European Hackberry\",\n    \"LatinName\": \"Celtis australis\",\n    \"ZoneCode\": 2,\n    \"Type\": 1,\n    \"Flowering\": \"Y\",\n    \"FlowerColor\": \"Red\",\n    \"Shape\": \"1\",\n    \"MaxHeight\": 24,\n    \"MaxWidth\": 30,\n    \"WaterRequirement\": \"Low\",\n    \"SunRequirement\": \"Part\",\n    \"BinLocation\": \"B06\",\n    \"QtyOnHand\": 17,\n    \"QtyAllocated\": 2,\n    \"QtyOnOrder\": 10,\n    \"ReorderLevel\": 20,\n    \"UnitPrice\": 15.99,\n    \"CostPrice\": 9.99\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "df388cba-f52e-47e8-8c43-6da9e42a396e",
+                    "name": "Create or update item",
+                    "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"ItemNumber\": 19,\n    \"VendorNumber\": 41,\n    \"Size\": 5,\n    \"CommonName\": \"European Hackberry\",\n    \"LatinName\": \"Celtis australis\",\n    \"ZoneCode\": 2,\n    \"Type\": 1,\n    \"Flowering\": \"Y\",\n    \"FlowerColor\": \"Red\",\n    \"Shape\": \"1\",\n    \"MaxHeight\": 24,\n    \"MaxWidth\": 30,\n    \"WaterRequirement\": \"Low\",\n    \"SunRequirement\": \"Part\",\n    \"BinLocation\": \"B06\",\n    \"QtyOnHand\": 17,\n    \"QtyAllocated\": 2,\n    \"QtyOnOrder\": 10,\n    \"ReorderLevel\": 20,\n    \"UnitPrice\": 15.99,\n    \"CostPrice\": 9.99\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+              ,
+                {
+                    "name": "Patch item",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"PropertyName\",\r\n    \"value\": \"PropertyValue\"\r\n  }\r\n]"
+                        },
+                    "url": {
+                        "raw": "/Items(ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "41913d6c-b13a-41fb-92ae-89936ed27492",
+                    "name": "Delete item",
+                    "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Items(ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Items(ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "_postman_id": "2e8064dc-a33d-4f9d-82eb-104592e6d9c6",
+            "name": "Order Tests",
+            "item": [
+                {
+                    "_postman_id": "46f6ffca-e3d4-45f8-b9f2-3f32b3ecd862",
+                    "name": "Read orders",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Orders",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Orders"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "6fb06fc7-1c57-4bea-ba95-b672d9793980",
+                    "name": "Count orders",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Orders/$count",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Orders",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "2378ead8-c2b5-4754-a3e7-b98c7481fb83",
+                    "name": "Read order",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                        "key": "Accept",
+                        "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(OrderNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(OrderNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "5df781a4-f737-4540-849e-201876a79785",
+                    "name": "Read orders by CustomerNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(CustomerNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(CustomerNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "c4f5c89e-9ce4-428f-b5bf-47edd1b8ed37",
+                    "name": "Count orders by CustomerNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(CustomerNumber=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(CustomerNumber=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "6bce4a96-8446-402c-b4a4-03badee9b189",
+                    "name": "Read orders by DateOrdered",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(DateOrdered=2021-07-09)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(DateOrdered=2021-07-09)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "8492de2c-1bd4-48a5-b2ca-f2e682cd244f",
+                    "name": "Count orders by DateOrdered",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(DateOrdered=2021-07-09)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(DateOrdered=2021-07-09)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "c62f93c1-7d38-4018-9a98-29defda02111",
+                    "name": "Read orders by DateCompleted",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(DateCompleted=2021-07-09)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(DateCompleted=2021-07-09)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "72cd3a12-6e7e-4a1a-a610-07fdec268f22",
+                    "name": "Count orders by DateCompleted",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(DateCompleted=2021-07-09)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(DateCompleted=2021-07-09)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "d84db08f-b780-4efa-b5fc-ac09b2d5324e",
+                    "name": "Create order (auto assign key)",
+                    "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"OrderNumber\": 162512,\n    \"CustomerNumber\": 622822,\n    \"PlacedBy\": \"John Doe\",\n    \"CustomerReference\": \"PO12345\",\n    \"PaymentTermsCode\": \"30\",\n    \"DateOrdered\": 2018-03-01T00:00:00-08:00,\n    \"DateCompleted\": 2018-03-12T00:00:00-08:00,\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "f920bb53-b131-4492-a5ab-1980c24f7db1",
+                    "name": "Create or update order",
+                    "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"OrderNumber\": 162512,\n    \"CustomerNumber\": 622822,\n    \"PlacedBy\": \"John Doe\",\n    \"CustomerReference\": \"PO12345\",\n    \"PaymentTermsCode\": \"30\",\n    \"DateOrdered\": 2018-03-01T00:00:00-08:00,\n    \"DateCompleted\": 2018-03-12T00:00:00-08:00,\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(OrderNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(OrderNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+              ,
+                {
+                    "name": "Patch order",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"PropertyName\",\r\n    \"value\": \"PropertyValue\"\r\n  }\r\n]"
+                        },
+                    "url": {
+                        "raw": "/Orders(OrderNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(OrderNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "1c0b4991-f838-4b2e-96a8-9bdcdf970894",
+                    "name": "Delete order",
+                    "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Orders(OrderNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Orders(OrderNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "_postman_id": "b040e510-c663-426b-9027-899d064fbbe2",
+            "name": "OrderItem Tests",
+            "item": [
+                {
+                    "_postman_id": "cb8632df-bb7d-46ed-965a-deb5462df1fd",
+                    "name": "Read orderItems",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/OrderItems",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "OrderItems"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "cd87a99e-f255-4729-ba52-ec0175ecbfe8",
+                    "name": "Count orderItems",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/OrderItems/$count",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "OrderItems",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "ddda88b1-b3b6-472d-ac21-ab038022a5ad",
+                    "name": "Read orderItem",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                        "key": "Accept",
+                        "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(OrderNumber=123,ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(OrderNumber=123,ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "d41dbf16-5f98-4805-a6f2-ff0a0b60fd83",
+                    "name": "Read orderItems by ItemOrdered",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(ItemOrdered=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(ItemOrdered=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "05d5ae9e-57b8-4273-917f-d8633c5b2714",
+                    "name": "Count orderItems by ItemOrdered",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(ItemOrdered=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(ItemOrdered=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "2b27ae53-b551-4d19-9c7d-6255bde74766",
+                    "name": "Read orderItems by DateShipped",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(DateShipped=2021-07-09)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(DateShipped=2021-07-09)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "12d37f7a-3b9e-441b-ae90-f8bcf019e7c5",
+                    "name": "Count orderItems by DateShipped",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(DateShipped=2021-07-09)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(DateShipped=2021-07-09)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "760050a1-e8f6-41a3-8af0-8342c0594fbf",
+                    "name": "Read orderItems by InvoiceNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(InvoiceNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(InvoiceNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "7dd2d79b-1c0b-4f59-a5fb-c5f5fcef2107",
+                    "name": "Count orderItems by InvoiceNumber",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(InvoiceNumber=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(InvoiceNumber=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "82774b68-f792-4582-80d4-478baf29a653",
+                    "name": "Create orderItem (auto assign key)",
+                    "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"OrderNumber\": 5238,\n    \"ItemNumber\": 1,\n    \"ItemOrdered\": 21,\n    \"QuantityOrdered\": 3,\n    \"UnitPrice\": 15.99,\n    \"DateShipped\": 2018-03-17T00:00:00-08:00,\n    \"InvoiceNumber\": 166825\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "ce88df5d-600f-4943-960d-3b38bbb47dac",
+                    "name": "Create or update orderItem",
+                    "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"OrderNumber\": 5238,\n    \"ItemNumber\": 1,\n    \"ItemOrdered\": 21,\n    \"QuantityOrdered\": 3,\n    \"UnitPrice\": 15.99,\n    \"DateShipped\": 2018-03-17T00:00:00-08:00,\n    \"InvoiceNumber\": 166825\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(OrderNumber=123,ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(OrderNumber=123,ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+              ,
+                {
+                    "name": "Patch orderItem",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"PropertyName\",\r\n    \"value\": \"PropertyValue\"\r\n  }\r\n]"
+                        },
+                    "url": {
+                        "raw": "/OrderItems(OrderNumber=123,ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(OrderNumber=123,ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "998e653e-117f-4c6f-8268-c07410e44c27",
+                    "name": "Delete orderItem",
+                    "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/OrderItems(OrderNumber=123,ItemNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "OrderItems(OrderNumber=123,ItemNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "_postman_id": "1dd74d4b-6fb3-4770-a656-52a58088b06d",
+            "name": "Vendor Tests",
+            "item": [
+                {
+                    "_postman_id": "e123d26b-cb5c-408e-9c74-076e9e6b700d",
+                    "name": "Read vendors",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Vendors",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Vendors"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "b92819f0-a68a-4e59-9c44-46b3fc035d13",
+                    "name": "Count vendors",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": ""
+                        },
+                        "url": {
+                            "raw": "{{ServerBaseUri}}/Vendors/$count",
+                            "host": [
+                                "{{ServerBaseUri}}"
+                            ],
+                            "path": [
+                                "Vendors",
+                                "$count"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "de638f18-3ed9-4f12-b385-3c88aa1a7bcd",
+                    "name": "Read vendor",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                        "key": "Accept",
+                        "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(VendorNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(VendorNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "197f0b01-fc6b-45a1-bbfe-e4e1a19bcd56",
+                    "name": "Read vendors by State",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(State='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(State='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "6ed574da-bee8-41c2-8d6e-7c053ea71207",
+                    "name": "Count vendors by State",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(State='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(State='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "3994acda-b57f-4e85-98b7-4ec8047b6cfc",
+                    "name": "Read vendors by Zip",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(ZipCode=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(ZipCode=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "8d10fcfe-299b-4fa6-82c0-e5ce5bda2e56",
+                    "name": "Count vendors by Zip",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(ZipCode=123)/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(ZipCode=123)",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "e027fe8d-07c6-4112-a1e0-2fcf0d4763ca",
+                    "name": "Read vendors by PaymentTerms",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(PaymentTermsCode='ABC')",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(PaymentTermsCode='ABC')"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "b0261306-8d7d-4e6e-ae3d-fc032b6d36f0",
+                    "name": "Count vendors by PaymentTerms",
+                    "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(PaymentTermsCode='ABC')/$count",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(PaymentTermsCode='ABC')",
+                            "$count"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "e32a2159-8bda-4afe-8793-c9623f495a37",
+                    "name": "Create vendor (auto assign key)",
+                    "request": {
+                    "method": "POST",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"VendorNumber\": 39,\n    \"Name\": \"Gardens R Us\",\n    \"Street\": \"97 Main St\",\n    \"City\": \"Concord\",\n    \"State\": \"NH\",\n    \"ZipCode\": 03214,\n    \"Contact\": \"Jeremiah Johnson\",\n    \"Phone\": \"(555) 627-2663\",\n    \"Fax\": \"(555) 627-6382\",\n    \"PaymentTermsCode\": \"60\"\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "c8a04ac6-e6e3-48dd-a43b-6dedb66174f0",
+                    "name": "Create or update vendor",
+                    "request": {
+                    "method": "PUT",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                         "raw": "{\n    \"VendorNumber\": 39,\n    \"Name\": \"Gardens R Us\",\n    \"Street\": \"97 Main St\",\n    \"City\": \"Concord\",\n    \"State\": \"NH\",\n    \"ZipCode\": 03214,\n    \"Contact\": \"Jeremiah Johnson\",\n    \"Phone\": \"(555) 627-2663\",\n    \"Fax\": \"(555) 627-6382\",\n    \"PaymentTermsCode\": \"60\"\n}"
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(VendorNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(VendorNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+              ,
+                {
+                    "name": "Patch vendor",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "x-tenant-id",
+                                "value": "{{TenantID}}",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[\r\n  {\r\n    \"op\": \"replace\",\r\n    \"path\": \"PropertyName\",\r\n    \"value\": \"PropertyValue\"\r\n  }\r\n]"
+                        },
+                    "url": {
+                        "raw": "/Vendors(VendorNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(VendorNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+                ,
+                {
+                    "_postman_id": "fab18951-8d2d-4f4f-b9f5-8283b380cef3",
+                    "name": "Delete vendor",
+                    "request": {
+                    "method": "DELETE",
+                    "header": [
+                        {
+                            "key": "Accept",
+                            "value": "application/json"
+                        },
+                        {
+                            "key": "x-tenant-id",
+                            "value": "{{TenantID}}",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": ""
+                    },
+                    "url": {
+                        "raw": "{{ServerBaseUri}}/Vendors(VendorNumber=123)",
+                        "host": [
+                            "{{ServerBaseUri}}"
+                        ],
+                        "path": [
+                            "Vendors(VendorNumber=123)"
+                        ]
+                    }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "69b7d19a-80e2-432d-8d04-2c5589efa020",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "2d73b39a-c3f9-44f3-8476-935c171c20b4",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "0bfdea7f-d183-4735-bdcd-47d235db575e",
+            "key": "TenantID",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "id": "12ff06aa-cbaa-4b3e-b8b7-e537ecadf34c",
+            "key": "ServerBaseUri",
+            "value": "https://localhost:8086/odata/v1",
+            "type": "string"
+        },
+        {
+            "id": "0f530487-36e0-4223-b100-5543ebde42a6",
+            "key": "ServerAuthUri",
+            "value": "https://localhost:8086",
+            "type": "string"
+        }
+    ]
+}

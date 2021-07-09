@@ -527,7 +527,10 @@ if DEFINED ENABLE_XFSERVERPLUS_MIGRATION (
 
   rem Generate code for each interface
   for %%x in (%SMC_INTERFACES%) do (
-    if "%%x" == "asp" (set METHODS_TO_EXCLUDE=-mexclude ASP_LOGIN)
+    
+    rem If you want to exclude some methods from an interface, do this:
+    rem if "%%x" == "InterfaceName" (set METHODS_TO_EXCLUDE=-mexclude METHOD1 METHOD2 METHOD3)
+
     call :GenerateCodeForInterface %%x
   )
 
@@ -537,7 +540,10 @@ if DEFINED ENABLE_XFSERVERPLUS_MIGRATION (
   rem Generate SignalR hub(s)
   if DEFINED ENABLE_SIGNALR (
     for %%x in (%SMC_INTERFACES%) do (
-      if "%%x" == "asp" (set METHODS_TO_EXCLUDE=-mexclude ASP_LOGIN)
+    
+      rem If you want to exclude some methods from an interface, do this:
+      rem if "%%x" == "InterfaceName" (set METHODS_TO_EXCLUDE=-mexclude METHOD1 METHOD2 METHOD3)
+
       call :GenerateSignalRHub %%x
     )
   )
