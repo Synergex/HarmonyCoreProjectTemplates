@@ -8,19 +8,20 @@
     <ProjectGuid>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</ProjectGuid>
     <EnableCommonProperties>True</EnableCommonProperties>
     <Prefer32Bit>False</Prefer32Bit>
-  <GenerateMvcApplicationPartsAssemblyAttributes>false</GenerateMvcApplicationPartsAssemblyAttributes></PropertyGroup>
+    <GenerateMvcApplicationPartsAssemblyAttributes>false</GenerateMvcApplicationPartsAssemblyAttributes>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>3.1.442</Version>
+      <Version>3.1.459</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.AspNetCore">
-      <Version>3.1.442</Version>
+      <Version>3.1.459</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>3.1.442</Version>
+      <Version>3.1.459</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.OData">
-      <Version>3.1.442</Version>
+      <Version>3.1.459</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions">
       <Version>2.2.0</Version>
@@ -47,7 +48,6 @@
     </PackageReference>
     <PackageReference Include="SSH.NET" Version="2016.1.0" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IsolatedMethodsBase.dbl" />
