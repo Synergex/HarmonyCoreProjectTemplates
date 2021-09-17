@@ -9,7 +9,7 @@
   "name": "Harmony Core Unit Test Project",
   "shortName": "harmonytest",
   "tags": {
-    "language": "Synergy",
+    "language": "Synergy DBL",
     "type":"project"
   },
   "groupIdentity": "Harmony.Core.ProjectTemplates.UnitTestProject",

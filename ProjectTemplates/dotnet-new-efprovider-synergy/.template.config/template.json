@@ -8,7 +8,7 @@
   "name": "Synergy EF Provider Solution",
   "shortName": "efprovider",
   "tags": {
-    "language": "Synergy",
+    "language": "Synergy DBL",
     "type": "project"
   },
   "generatorVersions": "[1.0.0.0-*)",
