@@ -1,4 +1,4 @@
-﻿<CODEGEN_FILENAME>DbContext.dbl</CODEGEN_FILENAME>
+<CODEGEN_FILENAME>DbContext.dbl</CODEGEN_FILENAME>
 <REQUIRES_CODEGEN_VERSION>5.4.6</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>MODELS_NAMESPACE</REQUIRES_USERTOKEN>
 ;//****************************************************************************
@@ -7,9 +7,9 @@
 ;//
 ;// Type:        CodeGen Template
 ;//
-;// Description: Used to create a Synergy EF Provider DbContext class
+;// Description: Used to create OData DbContext classes in a Harmony Core environment
 ;//
-;// Copyright (c) 2020, Synergex International, Inc. All rights reserved.
+;// Copyright (c) 2018, Synergex International, Inc. All rights reserved.
 ;//
 ;// Redistribution and use in source and binary forms, with or without
 ;// modification, are permitted provided that the following conditions are met:
@@ -37,7 +37,7 @@
 ;;
 ;; Title:       DbContext.dbl
 ;;
-;; Description: Synergy EF Provider DbContext class
+;; Description: OData DbContext class
 ;;
 ;;*****************************************************************************
 ;; WARNING: GENERATED CODE!
@@ -57,7 +57,7 @@ namespace <NAMESPACE>
     ;;; <summary>
     ;;;
     ;;; </summary>
-    public class DbContext extends Microsoft.EntityFrameworkCore.DbContext
+    public partial class DbContext extends Microsoft.EntityFrameworkCore.DbContext
 
         ;;; <summary>
         ;;; Construct a new DbContext.
@@ -102,7 +102,7 @@ namespace <NAMESPACE>
             </PRIMARY_KEY>
             </IF STRUCTURE_ISAM>
             <IF STRUCTURE_RELATIVE>
-            parm.Entity<<StructureNoplural>>().HasKey(RecordNumber)
+            parm.Entity<<StructureNoplural>>().HasKey("RecordNumber")
             </IF STRUCTURE_RELATIVE>
             </STRUCTURE_LOOP>
 
@@ -156,7 +156,7 @@ namespace <NAMESPACE>
 .region "Entity Relationships"
 
             <STRUCTURE_LOOP>
-            <IF STRUCTURE_RELATIONS>
+            <IF STRUCTURE_RELATIONS AND HARMONYCORE_RELATIONS_ENABLED>
             ;;--------------------------------------
             ;; Relationships from <STRUCTURE_NOPLURAL>
 
@@ -214,8 +214,22 @@ namespace <NAMESPACE>
 .endregion
 </IF DEFINED_ENABLE_RELATIONS>
 
+            ;;-----------------------------------------------
+            ;;If we have a OnModelCreatingCustom method, call it 
+
+            OnModelCreatingCustom(parm)
+
+            ;;-----------------------------------------------
+            ;;All done, call the code in our base class
+
             parent.OnModelCreating(parm)
 
+        endmethod
+
+        ;;Declare the OnModelCreatingCustom partial method
+        ;;This method can be implemented in a partial class to provide custom code
+        partial static method OnModelCreatingCustom, void
+            builder, @ModelBuilder
         endmethod
 
     endclass

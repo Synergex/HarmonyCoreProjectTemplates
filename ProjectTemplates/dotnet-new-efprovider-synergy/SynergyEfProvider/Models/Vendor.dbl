@@ -20,6 +20,7 @@ import Harmony.Core.Converters
 import Harmony.Core.Context
 import Harmony.Core.FileIO
 import Microsoft.Extensions.DependencyInjection
+import System.Runtime.Serialization
 
 namespace SynergyEfProvider.Models
 
@@ -28,6 +29,7 @@ namespace SynergyEfProvider.Models
         ;;make the record available and a copy
         private mSynergyData, strVendor
         private mOriginalSynergyData, strVendor
+        protected mGlobalRFA  ,a10
 
         private static sMetadata, @VendorMetadata
 
@@ -247,6 +249,17 @@ namespace SynergyEfProvider.Models
             endmethod
         endproperty
 
+        public override property GlobalRFA, [#]byte
+            method get
+            proc
+                mreturn mGlobalRFA
+            endmethod
+            method set
+            proc
+                mGlobalRFA = value
+            endmethod
+        endproperty
+
 .endregion
 
 .region "Public methods"
@@ -261,60 +274,12 @@ namespace SynergyEfProvider.Models
         endmethod
 
         ;;; <summary>
-        ;;; Allow the host to validate all fields. Each field will fire the validation method.
-        ;;; </summary>
-        public override method InitialValidateData, void
-        proc
-        endmethod
-
-        ;;; <summary>
         ;;;
         ;;; </summary>
         public override method InternalGetValues, [#]@object
         proc
             ;;TODO: This should be returning boxed values for each of our fields
             mreturn new Object[10]
-        endmethod
-
-        ;;; <summary>
-        ;;; Validate data for one-to-one relations
-        ;;; </summary>
-        ;;; <param name="type">Validation type (create, update or delete)</param>
-        ;;; <param name="sp">Serices provider</param>
-        public override method Validate, void
-            required in vType, ValidationType
-            required in sp, @IServiceProvider
-
-            ;;From key for REL_Items
-            record rel1FromKey
-              vendor_number, d6
-            endrecord
-        proc
-            ;;No relation validation if the record is being deleted
-            if (vType == ValidationType.Delete)
-                mreturn
-
-            ;;Get an instance of IDataObjectProvider
-            data doProvider, @IDataObjectProvider, sp.GetService<IDataObjectProvider>()
-
-            ;;--------------------------------------------------------------------------------
-            ;;Validate data for relation 1 (REL_Items)
-
-            rel1FromKey.vendor_number = mSynergyData.vendor_number
-            disposable data rel1FileIO = doProvider.GetFileIO<Item>()
-            if (rel1FileIO.FindRecord(0,rel1FromKey) != FileAccessResults.Success)
-                throw new ValidationException("Invalid data for relation REL_Items")
-
-
-            ;;If we have a ValidateCustom method, call it
-            ValidateCustom(vType,sp)
-
-        endmethod
-
-
-        private partial method ValidateCustom, void
-            required in vType, ValidationType
-            required in sp, @IServiceProvider
         endmethod
 
 .endregion
@@ -329,25 +294,86 @@ namespace SynergyEfProvider.Models
 
 .endregion
 
+.region "Relation validation"
+
+        ;;; <summary>
+        ;;; Validate data
+        ;;; </summary>
+        ;;; <param name="type">Validation type (create, update or delete)</param>
+        ;;; <param name="sp">Serices provider</param>
+        public override method Validate, void
+            required in vType, ValidationType
+            required in sp, @IServiceProvider
+        proc
+            ;;If we have a ValidateCustom method, call it
+            ValidateCustom(vType,sp)
+        endmethod
+
+        private partial method ValidateCustom, void
+            required in vType, ValidationType
+            required in sp, @IServiceProvider
+        endmethod
+
+.endregion
+
 .region "Properties to represent keys"
 
         ;;Access keys
 
-        private _KEY_VENDOR_NUMBER, string, ""
-        public readonly property KEY_VENDOR_NUMBER, string, ""
+        {IgnoreDataMember}
+        public property KEY_VENDOR_NUMBER, string
+            method get
+            proc
+                mreturn VendorNumber.ToString()
+                
+            endmethod
+            method set
+            proc
+                
+            endmethod
+        endproperty
 
-        private _KEY_STATE, string, ""
-        public readonly property KEY_STATE, string, ""
+        {IgnoreDataMember}
+        public property KEY_STATE, string
+            method get
+            proc
+                mreturn State.ToString()
+                
+            endmethod
+            method set
+            proc
+                
+            endmethod
+        endproperty
 
-        private _KEY_ZIP, string, ""
-        public readonly property KEY_ZIP, string, ""
+        {IgnoreDataMember}
+        public property KEY_ZIP, string
+            method get
+            proc
+                mreturn ZipCode.ToString()
+                
+            endmethod
+            method set
+            proc
+                
+            endmethod
+        endproperty
 
-        private _KEY_PAYMENT_TERMS, string, ""
-        public readonly property KEY_PAYMENT_TERMS, string, ""
-
+        {IgnoreDataMember}
+        public property KEY_PAYMENT_TERMS, string
+            method get
+            proc
+                mreturn PaymentTermsCode.ToString()
+                
+            endmethod
+            method set
+            proc
+                
+            endmethod
+        endproperty
 
 .endregion
 
-endclass
+    endclass
 
 endnamespace
