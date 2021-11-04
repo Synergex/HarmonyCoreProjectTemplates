@@ -9,6 +9,7 @@
     <ProjectGuid>{f9257051-cc32-4541-baf3-3dd58c1e7f61}</ProjectGuid>
     <Prefer32Bit>False</Prefer32Bit>
     <GenerateMvcApplicationPartsAssemblyAttributes>false</GenerateMvcApplicationPartsAssemblyAttributes>
+    <RootNamespace>Services</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
@@ -72,7 +73,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BridgeNoPool.dbl" />
+    <Compile Include="Filters\ModelStateValidationFilter.dbl" />
     <Compile Include="StartupCustom.dbl" />
+    <Folder Include="Filters" />
     <Folder Include="wwwroot" />
     <Compile Include="EdmBuilder.dbl" />
     <Compile Include="PrimaryKeyGenerator.dbl" />

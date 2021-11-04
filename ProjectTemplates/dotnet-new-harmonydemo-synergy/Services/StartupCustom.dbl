@@ -18,7 +18,6 @@ import Harmony.Core.Interface
 import Harmony.Core.Utility
 import Harmony.OData
 import Harmony.OData.Adapter
-
 import Microsoft.AspNetCore.Builder
 import Microsoft.AspNetCore.Hosting
 import Microsoft.AspNetCore.Http
@@ -39,13 +38,12 @@ import Microsoft.Extensions.Primitives
 import Microsoft.OData
 import Microsoft.OData.Edm
 import Microsoft.OData.UriParser
-
+import Renci.SshNet
 import System.Collections.Generic
 import System.IO
 import System.Linq
 import System.Text
 import System.Threading.Tasks
-
 import Services.Controllers
 import Services.Models
 
@@ -53,11 +51,29 @@ namespace Services
 
     public partial class Startup
 
+        private bridgeOS,           RemoteTargetOS
+        private bridgeServer,       String
+        private bridgeUser,         String
+        private bridgePassword,     String
+        private bridgeCryptoKey,    String
+        private bridgeLogLevel,     String
+        private startCommand,       String
+        private poolSize,           int
+        private connectTimeout,     int
+        private callTimeout,        int
+        private usePooling,         boolean
+        private usePassword,        boolean
+
         partial method ConfigureServicesCustom, void
             services, @IServiceCollection 
         proc
-            ;;-----------------------------------------------------------------
-            ;; Add a custom "primary key generator" service
+
+            ;;------------------------------------------------------------------------
+            ;; Add any environment variables defined in AppSettings.json files
+            ;; to the actual environment
+
+            data settings = _config.GetSection("AppSettings").Get<AppSettings>()
+            settings.ProcessEnvironmentVariables()
 
             ;;------------------------------------------------------------------------
             ;;Configure a custom primary key factory to provide new primary key
@@ -86,40 +102,13 @@ namespace Services
             ;;Add the service
             services.AddScoped<IPrimaryKeyFactory,PrimaryKeyGenerator>()
 
-            ;;-----------------------------------------------------------------
+            ;;------------------------------------------------------------------------
             ;; Add a custom "file spec resolver" service
 
 ;            services.AddSingleton<IFileChannelManager,MyFileSpecResolver>()
             
-            ;;-----------------------------------------------------------------
-            ; Configure "out of process" Traditional Bridge to a Windows Server
-
-;            data targetOs, RemoteTargetOS, RemoteTargetOS.Windows
-;            data bridgeServer, string, "localhost"
-;            data bridgeUser, string, "username"
-;            data bridgePassword, string, "password"
-;            data bridgeCommand, string, "TraditionalBridgeHost.bat"
-;
-;            .define CALL_TIMEOUT 100000
-;            .define CONNECTION_TIMEOUT 600000
-;            .define ITEMS_IN_POOL 4
-;
-;            data contextPool, @RemoteExternalContextPool<TraditionalBridgeService>
-;
-;            contextPool = new RemoteExternalContextPool<TraditionalBridgeService>
-;            &    (
-;            &    targetOs,
-;            &    bridgeServer,
-;            &    bridgeUser,
-;            &    new Renci.SshNet.PasswordAuthenticationMethod(bridgeUser,bridgePassword),
-;            &    bridgeCommand,
-;            &    ITEMS_IN_POOL,
-;            &    CALL_TIMEOUT,
-;            &    CONNECTION_TIMEOUT
-;            &    ) 
-
-            ;;-----------------------------------------------------------------
-            ;; Configure "in process" Traditional Bridge to the local Windows system
+            ;;------------------------------------------------------------------------
+            ;; Configure "in process" Traditional Bridge on the local Windows system
 
             data traditionalBridgeDirectory, string
 
@@ -133,30 +122,308 @@ namespace Services
             end
 
             data launchCommand, string, Path.Combine(traditionalBridgeDirectory,"launch.bat")
-            data environmentVariables, @Dictionary<string,string>,new Dictionary<string,string>(){{"HARMONY_LOG_LEVEL","6"}}
-
-            data contextPool, @ExternalContextPool<TraditionalBridgeService>, new ExternalContextPool<TraditionalBridgeService>
+            
+            data context, @ExternalContextPool<TraditionalBridgeService>, new ExternalContextPool<TraditionalBridgeService>
             &    (
             &    launchCommand,
             &    "optional_command_parameters",
             &    traditionalBridgeDirectory,
-            &    environmentVariables,
+            &    ^null,
             &    4
             &    ) 
 
-            ;;-----------------------------------------------------------------
-            ;; Make 'TraditionalBridgeService' available as a DI service
-
-            services.AddSingleton<IContextFactory<TraditionalBridgeService>>(contextPool)
-            services.AddContextPool<TraditionalBridgeService>()        
-
-;            ;;-----------------------------------------------------------------
-;            ;; Enable "SignalR" support
+            ;; Make TraditionalBridgeService available as a DI service
+            services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
+            services.AddContextPool<TraditionalBridgeService>()
+            
+            ;;------------------------------------------------------------------------
+            ;; Configure "out of process" Traditional Bridge to a remote server
+             
+;            using Environment.GetEnvironmentVariable("BRIDGE_SERVER_OS") select
+;            ("WINDOWS"),
+;                bridgeOS = RemoteTargetOS.Windows
+;            ("LINUX"),
+;                bridgeOS = RemoteTargetOS.Linux
+;            ("UNIX"),
+;                bridgeOS = RemoteTargetOS.Unix
+;            ("VMS"),
+;                bridgeOS = RemoteTargetOS.VMS
+;            (), 
+;                throw new ApplicationException("Invalid value for BRIDGE_SERVER_OS in AppSettings.jsonl. Specify WONDOWS, LINUX, UNIX or VMS.")
+;            endusing
 ;
+;            bridgeServer    = Environment.GetEnvironmentVariable("BRIDGE_SERVER")
+;            bridgeUser      = Environment.GetEnvironmentVariable("BRIDGE_USER")
+;            bridgePassword  = Environment.GetEnvironmentVariable("BRIDGE_PASSWORD")
+;            bridgeCryptoKey = Environment.GetEnvironmentVariable("BRIDGE_CRYPTO_KEY")
+;            bridgeLogLevel  = Environment.GetEnvironmentVariable("BRIDGE_LOG_LEVEL")
+;
+;            Console.WriteLine("Traditional bridge services are connecting via {0}@{1} with logging level {2}",bridgeUser,bridgeServer,bridgeLogLevel)
+;
+;            if (!Int.TryParse(Environment.GetEnvironmentVariable("BRIDGE_POOL_SIZE"),poolSize))
+;                poolSize = 4
+;
+;            if (!Int.TryParse(Environment.GetEnvironmentVariable("BRIDGE_CONNECT_TIMEOUT"),connectTimeout))
+;                connectTimeout = 600000
+;
+;            if (!Int.TryParse(Environment.GetEnvironmentVariable("BRIDGE_CALL_TIMEOUT"),callTimeout))
+;                callTimeout = 100000
+;
+;            using Environment.GetEnvironmentVariable("BRIDGE_POOLING") select
+;            ("ENABLED"),
+;                usePooling = true
+;            ("DISABLED"),
+;                usePooling = false
+;            (),
+;                throw new ApplicationException("Invalid value for BRIDGE_POOLING in AppSettings.json. Specify ENABLED or DISABLED.")
+;            endusing
+;
+;            using Environment.GetEnvironmentVariable("BRIDGE_AUTH_MODE") select
+;            ("PASSWORD"),
+;                usePassword = true
+;            ("CRYPTO_KEY"),
+;                usePassword = false
+;            (),
+;                throw new ApplicationException("Invalid value for BRIDGE_AUTH_MODE in AppSettings.json. Specify PASSWORD or CRYPTO_KEY")
+;            endusing
+;
+;            ;; Command to send to remote server to start a new connection.
+;            startCommand    = String.Format("TraditionalBridge/launch {0}",bridgeLogLevel)
+;
+;            ;; Set environment variables for shared corporate files
+;
+;            data logicalName = String.Empty
+;            data sts, i4
+;            foreach logicalName in Environment.GetEnvironmentVariable("LALLEMAND_CORPORATE_CODES").Split(",")
+;            begin
+;                xcall setlog(logicalName,String.Format("{0}:@{1}",logicalName,bridgeServer),sts)
+;            end
+;
+;            ;; Set environment variables for all data companies
+;
+;            data companyCode = String.Empty
+;            foreach companyCode in Environment.GetEnvironmentVariable("LALLEMAND_COMPANY_CODES").Split(",")
+;            begin
+;                xcall setlog(companyCode,String.Format("{0}:@{1}",companyCode,bridgeServer),sts)
+;            end
+;
+;            ;; Configure the Traditional Bridge environment
+;
+;            if (usePooling) then
+;            begin
+;                data context, @RemoteExternalContextPool<TraditionalBridgeService>
+;
+;                if (usePassword) then
+;                begin
+;                    ;; ----------------------------------------------------------------------------
+;                    ;; Pooled connection authenticated via username and password
+;                    
+;                    context = new RemoteExternalContextPool<TraditionalBridgeService>
+;                    &    (
+;                    &    bridgeOS,
+;                    &    bridgeServer,
+;                    &    bridgeUser,
+;                    &    new Renci.SshNet.PasswordAuthenticationMethod(bridgeUser,bridgePassword),
+;                    &    startCommand,
+;                    &    poolSize,
+;                    &    callTimeout,
+;                    &    connectTimeout
+;                    &    ) 
+;                end
+;                else
+;                begin
+;                    ;; ----------------------------------------------------------------------------
+;                    ;; Pooled connection authenticated via username and cryptographic key
+;                    
+;                    data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
+;                    context = new RemoteExternalContextPool<TraditionalBridgeService>
+;                    &    (
+;                    &    bridgeOS,
+;                    &    bridgeServer,
+;                    &    bridgeUser,
+;                    &    new PrivateKeyAuthenticationMethod(bridgeUser, keyFiles),
+;                    &    startCommand,
+;                    &    poolSize,
+;                    &    callTimeout,
+;                    &    connectTimeout
+;                    &    ) 					
+;                end
+;
+;                ;;Add DI service
+;                services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
+;            end
+;            else
+;            begin
+;                ;;No pooling
+;                data context, @BridgeNoPool<TraditionalBridgeService>
+;
+;                if (usePassword) then
+;                begin
+;                    ;; ----------------------------------------------------------------------------
+;                    ;; Non-pooled connection authenticated via username and password
+;                    ;;
+;                    context = new BridgeNoPool<TraditionalBridgeService>
+;                    &    (
+;                    &    bridgeOS,
+;                    &    bridgeServer,
+;                    &    bridgeUser,
+;                    &    new Renci.SshNet.PasswordAuthenticationMethod(bridgeUser,bridgePassword),
+;                    &    startCommand,
+;                    &    poolSize,
+;                    &    callTimeout,
+;                    &    connectTimeout,
+;                    &    false) 
+;                end
+;                else
+;                begin
+;                    ;; ----------------------------------------------------------------------------
+;                    ;; Non-pooled connection authenticated via username and cryptographic key
+;                    ;;
+;                    data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
+;                    context = new BridgeNoPool<TraditionalBridgeService>
+;                    &    (
+;                    &    bridgeOS,
+;                    &    bridgeServer,
+;                    &    bridgeUser,
+;                    &    new PrivateKeyAuthenticationMethod(bridgeUser, keyFiles),
+;                    &    startCommand,
+;                    &    poolSize,
+;                    &    callTimeout,
+;                    &    connectTimeout,
+;                    &    false
+;                    &    ) 
+;                end
+;
+;                ;;Add DI service
+;                services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
+;            end
+;
+;            ;;Add the traditional bridge service as a DI service
+;            services.AddContextPool<TraditionalBridgeService>()
+
+            ;;------------------------------------------------------------------------
+            ;; Enable "SignalR" support
+
 ;            services.AddSignalR()
 
         endmethod
 
+        ;;; <summary>
+        ;;; 
+        ;;; </summary>
+        ;;; <param name="app"></param>
+        ;;; <param name="env"></param>
+        partial method ConfigureCustom, void
+            required in app, @IApplicationBuilder
+            required in env, @IHostingEnvironment
+        proc
+
+            ;;------------------------------------------------------------------------
+            ;; If you need to call a traditional bridge method during startup, this is
+            ;; a good place to do so. Here is an example!
+
+            ;; Get an instance of the traditional bidge service
+            data factory = (IContextFactory<TraditionalBridgeService>)app.ApplicationServices.GetService(^typeof(IContextFactory<TraditionalBridgeService>))
+            data service = factory.MakeContext(app.ApplicationServices)
+
+            try
+            begin
+                Console.Write("Determining traditional Synergy environment")
+                data responseTask, @Task<string>
+                ;; Call the method and wait for the async call to complete
+                responseTask = service.GetEnvironment()
+                responseTask.Wait()
+                ;; Extract the response
+                data result = responseTask.Result
+                Console.WriteLine(" ... done")
+                Console.WriteLine("Traditional Synergy environment is {0}",result)
+            end
+            catch (e, @Exception)
+            begin
+                Console.WriteLine(" ... failed!")
+                Console.WriteLine("Error was {0}",e.Message)
+            end
+            finally
+            begin
+                ;; Return the service instance to the pool for re-use
+                factory.ReturnContext(service)
+            end
+            endtry
+
+            ;;------------------------------------------------------------------------
+            ;; Enable SignalR
+
+;            lambda mapRoutes(route)
+;            begin
+;                route.MapHub<aspHub>(new PathString("/hub/asp"))
+;            end
+;
+;            app.UseSignalR(mapRoutes)
+
+        endmethod
+
+;        ;;; <summary>
+;        ;;; 
+;        ;;; </summary>
+;        ;;; <param name="app"></param>
+;        ;;; <param name="env"></param>
+;        partial method ConfigureCustomBeforeMvc, void
+;            required in app, @IApplicationBuilder
+;            required in env, @IHostingEnvironment
+;        proc
+;            app.UseMultiTenancy(GetTenantId)
+;        endmethod
+
+;        ;;; <summary>
+;        ;;; 
+;        ;;; </summary>
+;        ;;; <param name="httpCtx"></param>
+;        ;;; <returns></returns>
+;        private method GetTenantId, string
+;            required in context, @HttpContext
+;        proc
+;            ; Do we have a JWT?
+;            data identity = ^as(context.User.Identity,System.Security.Claims.ClaimsIdentity)
+;            data defaultCompany = identity?.FindFirst("DefaultCompany")?.Value
+;            data allowedCompanies = identity?.FindFirst("AllowedCompanies")?.Value
+;
+;            ;;Do we have an x-tenant-id header?
+;            data xTenantId, string
+;            data xTenantIdValues, StringValues
+;            if(context.Request.Headers.TryGetValue("X-TENANT-ID", xTenantIdValues) && xTenantIdValues.Count == 1)
+;            begin
+;                xTenantId = xTenantIdValues.ToArray().First().ToUpper()
+;            end
+;
+;            ;;If we have x-tenant-id and it specifies a company the user has access to, use it.
+;            if (!String.IsNullOrWhiteSpace(xTenantId)
+;            &    && !String.IsNullOrWhiteSpace(defaultCompany) 
+;            &    && !String.IsNullOrWhiteSpace(allowedCompanies) 
+;            &    && String.Format(",{0},",allowedCompanies).Contains(String.Format(",{0},",xTenantId))) then
+;            begin
+;                mreturn xTenantId
+;            end
+;            else if (!String.IsNullOrWhiteSpace(defaultCompany))
+;            begin
+;                ;;Otherwise, use the users default company
+;                mreturn defaultCompany
+;            end
+;
+;            mreturn ^null
+;
+;        endmethod
+
+        ;;; <summary>
+        ;;; 
+        ;;; </summary>
+        ;;; <param name="options"></param>
+        partial method MvcConfigCustom, void
+            options, @Microsoft.AspNetCore.Mvc.MvcOptions
+        proc
+            options.Filters.Add(^typeof(Services.Filters.ModelStateValidationFilter))
+            ;options.Filters.Add(^typeof(Services.Filters.TenantValidationFilter))
+        endmethod
+    
     endclass
 
 endnamespace

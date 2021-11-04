@@ -38,7 +38,6 @@
     <PackageReference Include="System.Text.Encoding.CodePages">
       <Version>4.7.1</Version>
     </PackageReference>
-    
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.synproj">
@@ -67,6 +66,12 @@
     <Content Include="appsettings.json">
       <SubType>Content</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.Production.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="appsettings.Test.json">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="Properties\launchSettings.json">
       <SubType>Content</SubType>

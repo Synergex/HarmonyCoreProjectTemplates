@@ -166,6 +166,7 @@ namespace Services.Host
         proc
             data chout, int
             data dataFile, string
+            data fileExtension, a10
             data xdlFile, string
 
             data customers = loadCustomers()
@@ -177,7 +178,8 @@ namespace Services.Host
             ;;Create and load the customers file
 
             dataFile = "DAT:customers.ism"
-            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
 
             data customer, @Customer
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -188,7 +190,8 @@ namespace Services.Host
             ;;Create and load the items file
 
             dataFile = "DAT:items.ism"
-            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
 
             data item, @Item
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -199,7 +202,8 @@ namespace Services.Host
             ;;Create and load the orders file
 
             dataFile = "DAT:orders.ism"
-            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
 
             data order, @Order
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -210,7 +214,8 @@ namespace Services.Host
             ;;Create and load the orderItems file
 
             dataFile = "DAT:order_items.ism"
-            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
 
             data orderItem, @OrderItem
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -221,7 +226,8 @@ namespace Services.Host
             ;;Create and load the vendors file
 
             dataFile = "DAT:vendors.ism"
-            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
 
             data vendor, @Vendor
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -293,7 +299,9 @@ namespace Services.Host
         public static method loadCustomers, @List<Customer>
         proc
             data dataFile = "DAT:customers.ism"
-            data textFile = dataFile.ToLower().Replace(".ism",".txt")
+            data fileExtension, a10
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
             data customerCh, int, 0
             data customerRec, strCustomer
             data customers = new List<Customer>()
@@ -312,7 +320,9 @@ namespace Services.Host
         public static method loadItems, @List<Item>
         proc
             data dataFile = "DAT:items.ism"
-            data textFile = dataFile.ToLower().Replace(".ism",".txt")
+            data fileExtension, a10
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
             data itemCh, int, 0
             data itemRec, strItem
             data items = new List<Item>()
@@ -331,7 +341,9 @@ namespace Services.Host
         public static method loadOrders, @List<Order>
         proc
             data dataFile = "DAT:orders.ism"
-            data textFile = dataFile.ToLower().Replace(".ism",".txt")
+            data fileExtension, a10
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
             data orderCh, int, 0
             data orderRec, strOrder
             data orders = new List<Order>()
@@ -350,7 +362,9 @@ namespace Services.Host
         public static method loadOrderItems, @List<OrderItem>
         proc
             data dataFile = "DAT:order_items.ism"
-            data textFile = dataFile.ToLower().Replace(".ism",".txt")
+            data fileExtension, a10
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
             data orderItemCh, int, 0
             data orderItemRec, strOrderItem
             data orderItems = new List<OrderItem>()
@@ -369,7 +383,9 @@ namespace Services.Host
         public static method loadVendors, @List<Vendor>
         proc
             data dataFile = "DAT:vendors.ism"
-            data textFile = dataFile.ToLower().Replace(".ism",".txt")
+            data fileExtension, a10
+            xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
+            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
             data vendorCh, int, 0
             data vendorRec, strVendor
             data vendors = new List<Vendor>()
