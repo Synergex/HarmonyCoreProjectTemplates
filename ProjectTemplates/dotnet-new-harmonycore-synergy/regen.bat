@@ -40,12 +40,6 @@ set FILE_STRUCTURES=%DATA_STRUCTURES%
 set FILE_ALIASES=%DATA_ALIASES%
 set FILE_FILES=%DATA_FILES%
 
-set CUSTOM_STRUCTURES=
-set CUSTOM_ALIASES=%CUSTOM_STRUCTURES%
-
-set BRIDGE_STRUCTURES=
-set BRIDGE_ALIASES=%BRIDGE_STRUCTURES%
-
 rem DATA_STRUCTURES     Is a list all structures that you wish to generate models, metadata and
 rem                     controllers for. In other words it declares all of the "entities"
 rem                     that are being represented and exposed by the OData environment. The
@@ -73,19 +67,6 @@ rem FILE_ALIASES        Optional aliases for the structures listed in FILE_STRUC
 rem
 rem FILE_FILES          Repository file assignments for the structures listed in FILE_STRUCTURES
 rem
-rem CUSTOM_STRUCTURES    Is a list of structures that you wish to generate models and metadata
-rem                     for, but which will NOT be exposed to the Entity Framework provider.
-rem                     These classes are intended for use only by custom code-based endpoints
-rem                     and the DbContext and EdmBuilder classes will know nothing about them.
-rem
-rem CUSTOM_ALIASES      Optional aliases for the structures listed in CUSTOM_STRUCTURES
-
-rem BRIDGE_STRUCTURES    Is a list of structures that you wish to generate models and metadata
-rem                     for use with a Traditional Bridge environment. These types will NOT
-rem                     be exposed to the Entity Framework provider.
-rem
-rem BRIDGE_ALIASES      Optional aliases for the structures listed in BRIDGE_STRUCTURES
-
 rem ================================================================================================================================
 rem Comment or uncomment the following lines to enable or disable optional features:
 
@@ -128,7 +109,6 @@ rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
-rem set ENABLE_TRADITIONAL_BRIDGE_GENERATION=YES
 rem set ENABLE_XFSERVERPLUS_MIGRATION=YES
 rem set ENABLE_XFSERVERPLUS_MODEL_GENERATION=YES
 rem set ENABLE_XFSERVERPLUS_METHOD_STUBS=YES
@@ -166,8 +146,8 @@ if DEFINED ENABLE_ODATA_ENVIRONMENT (
     echo Generating model and metadata classes
 
     set command=codegen ^
--s  %DATA_STRUCTURES% %CUSTOM_STRUCTURES% ^
--a  %DATA_ALIASES% %CUSTOM_ALIASES% ^
+-s  %DATA_STRUCTURES% ^
+-a  %DATA_ALIASES% ^
 -fo %DATA_FILES% ^
 -t  ODataModel ODataMetaData ^
 -i  %SolutionDir%Templates ^
@@ -470,29 +450,6 @@ if DEFINED ENABLE_UNIT_TEST_GENERATION (
 )
 
 rem ================================================================================
-rem Generate code for the TraditionalBridge sample environment
-
-if DEFINED ENABLE_TRADITIONAL_BRIDGE_GENERATION (
-
-  echo.
-  echo ************************************************************************
-  echo Generating traditional bridge server-side data model classes
-  echo rem Generating traditional bridge server-side data model classes >> regen_last.bat
-
-  set command=codegen ^
--s %BRIDGE_STRUCTURES% ^
--a %BRIDGE_ALIASES% ^
--t ODataModel ^
--i %SolutionDir%Templates\TraditionalBridge ^
--o %SolutionDir%%TraditionalBridgeProject%\source ^
--n %TraditionalBridgeProject% ^
--e -r -lf
-  echo !command! >> regen_last.bat
-  !command!
-  if ERRORLEVEL 1 goto error
-)
-
-rem ================================================================================
 rem Generate TraditionalBridge / xfServerPlus Migration Code
 
 :generateBridge
@@ -571,7 +528,7 @@ rem ============================================================================
   echo Generating Traditional Bridge code for interface %1
   echo rem Generating Traditional Bridge code for interface %1 >> regen_last.bat
   echo.
-  echo Generating interface method stubs (Traditional)
+  echo Generating interface method stubs [Traditional]
 
   if defined ENABLE_XFSERVERPLUS_METHOD_STUBS (
 
@@ -588,7 +545,7 @@ rem ============================================================================
   )
 
   echo.
-  echo Generating interface method dispatcher classes (Traditional)
+  echo Generating interface method dispatcher classes [Traditional]
 
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -604,7 +561,7 @@ rem ============================================================================
   if ERRORLEVEL 1 goto error
 
   echo.
-  echo Generating interface dispatcher classes (Traditional)
+  echo Generating interface dispatcher classes [Traditional]
   
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -620,7 +577,7 @@ rem ============================================================================
   if ERRORLEVEL 1 goto error
 
   echo.
-  echo Generating interface data model classes (Traditional)
+  echo Generating interface data model classes [Traditional]
 
   set command=codegen ^
 -smcstrs %SMC_XML_FILE% ^
@@ -635,7 +592,24 @@ rem ============================================================================
   if ERRORLEVEL 1 goto error
 
   echo.
-  echo Generating interface data model classes (.NET)
+  echo Generating code to initialize metadata [Traditional]
+
+  set command=codegen ^
+-smcstrs %SMC_XML_FILE% -ms ^
+-interface %1 ^
+-t InterfaceDispatcherCustom ^
+-i Templates\TraditionalBridge ^
+-o %TraditionalBridgeProject%\source\dispatchers ^
+-n %TraditionalBridgeProject%.Dispatchers ^
+-ut MODELS_NAMESPACE=%TraditionalBridgeProject%.Models ^
+-ut SMC_INTERFACE=%1 ^
+%STDOPTS%
+  echo !command! >> regen_last.bat
+  !command!
+  if ERRORLEVEL 1 goto error
+
+  echo.
+  echo Generating interface data model classes [.NET]
 
   if defined ENABLE_XFSERVERPLUS_MODEL_GENERATION (
 
@@ -657,7 +631,7 @@ rem ============================================================================
   )
 
   echo.
-  echo Generating interface request/response DTO classes (.NET)
+  echo Generating interface request/response DTO classes [.NET]
 
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -673,7 +647,7 @@ rem ============================================================================
   if ERRORLEVEL 1 goto error
 
   echo.
-  echo Generating interface service classes (.NET)
+  echo Generating interface service classes [.NET]
 
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -689,7 +663,7 @@ rem ============================================================================
   if ERRORLEVEL 1 goto error
 
   echo.
-  echo Generating interface controller classes (.NET)
+  echo Generating interface controller classes [.NET]
 
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -724,7 +698,7 @@ rem ============================================================================
   if DEFINED ENABLE_UNIT_TEST_GENERATION (
 
     echo.
-    echo Generating interface unit tests (.NET)
+    echo Generating interface unit tests [.NET]
 
     set command=codegen ^
 -smc %SMC_XML_FILE% ^
@@ -794,8 +768,8 @@ rem ============================================================================
 :GenerateMainDispatcher
 
   echo.
-  echo Generating multi-interface dispatcher class (Traditional)
-  echo rem Generating multi-interface dispatcher class (Traditional) >> regen_last.bat
+  echo Generating multi-interface dispatcher class [Traditional]
+  echo rem Generating multi-interface dispatcher class [Traditional] >> regen_last.bat
 
   set command=codegen ^
 -smc %SMC_XML_FILE% ^
