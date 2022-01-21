@@ -24,6 +24,7 @@ import System.Runtime.Serialization
 
 namespace Services.Models
 
+    {Newtonsoft.Json.JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)}
     public partial class Customer extends DataObjectBase
 
         ;;make the record available and a copy
@@ -72,6 +73,7 @@ namespace Services.Models
         {Key}
         {Required(ErrorMessage="Customer number is required. ")}
         {Range(1,999999, ErrorMessage="Customer number must be between 1 and 999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property CustomerNumber, int
             method get
             proc
@@ -88,6 +90,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Customer name is required. ")}
         {StringLength(30, ErrorMessage="Customer name cannot exceed 30 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property Name, String
             method get
             proc
@@ -104,6 +107,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Street address is required. ")}
         {StringLength(25, ErrorMessage="Street address cannot exceed 25 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property Street, String
             method get
             proc
@@ -120,6 +124,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="City is required. ")}
         {StringLength(20, ErrorMessage="City cannot exceed 20 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property City, String
             method get
             proc
@@ -136,6 +141,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="State is required. ")}
         {StringLength(2, ErrorMessage="State cannot exceed 2 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property State, String
             method get
             proc
@@ -152,6 +158,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Zip code is required. ")}
         {Range(1,999999999, ErrorMessage="Zip code must be between 1 and 999999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property ZipCode, int
             method get
             proc
@@ -167,6 +174,7 @@ namespace Services.Models
         ;;; Contact name
         ;;; </summary>
         {StringLength(25, ErrorMessage="Contact name cannot exceed 25 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property Contact, String
             method get
             proc
@@ -182,6 +190,7 @@ namespace Services.Models
         ;;; Phone number
         ;;; </summary>
         {Required(ErrorMessage="Phone number is required. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property Phone, String
             method get
             proc
@@ -196,6 +205,7 @@ namespace Services.Models
         ;;; <summary>
         ;;; Fax number
         ;;; </summary>
+        {Newtonsoft.Json.JsonProperty}
         public property Fax, String
             method get
             proc
@@ -212,6 +222,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Customers favorite item is required. ")}
         {Range(1,999999, ErrorMessage="Customers favorite item must be between 1 and 999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property FavoriteItem, int
             method get
             proc
@@ -228,6 +239,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Payment terms code is required. ")}
         {StringLength(2, ErrorMessage="Payment terms code cannot exceed 2 characters. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property PaymentTermsCode, String
             method get
             proc
@@ -243,6 +255,7 @@ namespace Services.Models
         ;;; Customers tax ID number
         ;;; </summary>
         {Range(0,999999999, ErrorMessage="Customers tax ID number must be between 0 and 999999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property TaxId, int
             method get
             proc
@@ -259,6 +272,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Credit limit is required. ")}
         {Range(0,99999.99, ErrorMessage="Credit limit must be between 0 and 99999.99. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property CreditLimit, decimal
             method get
             proc
@@ -341,12 +355,14 @@ namespace Services.Models
 
 .region "Relationships to other entities"
 
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
         ;;; <summary>
         ;;; Relationship (Type D)
         ;;; CUSTOMER.CUSTOMER_NUMBER (one) <-> (many) ORDER.CUSTOMER_NUMBER
         ;;; </summary>
         public readwrite property REL_Orders, @ICollection<Order>
 
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
         ;;; <summary>
         ;;; Relationship (Type C)
         ;;; CUSTOMER.FAVORITE_ITEM (one) --> (one) ITEM.ITEM_NUMBER

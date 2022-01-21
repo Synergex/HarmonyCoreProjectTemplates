@@ -7,11 +7,11 @@
 ;;
 ;;*****************************************************************************
 
-	subroutine AddTwoNumbers
-	    required in  number1, n
-	    required in  number2, n
-	    required out result,  n
-	proc
-	    result = number1 + number2
-	    xreturn
-	endsubroutine
+subroutine AddTwoNumbers
+	required in  number1, d28.10
+	required in  number2, d28.10
+	required out result,  d28.10
+proc
+	result = number1 + number2
+	xreturn
+endsubroutine

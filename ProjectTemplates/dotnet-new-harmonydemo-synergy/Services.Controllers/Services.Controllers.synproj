@@ -50,13 +50,13 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BridgeMethodsController.dbl" />
+    <Compile Include="BridgeMethodsService.dbl" />
     <Compile Include="CustomersController.dbl" />
     <Compile Include="IsolatedMethodsBase.dbl" />
     <Compile Include="ItemsController.dbl" />
     <Compile Include="OrderItemsController.dbl" />
     <Compile Include="OrdersController.dbl" />
-    <Compile Include="TraditionalBridgeController.dbl" />
-    <Compile Include="TraditionalBridgeService.dbl" />
     <Compile Include="VendorsController.dbl" />
   </ItemGroup>
   <ItemGroup>

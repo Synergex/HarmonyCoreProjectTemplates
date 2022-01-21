@@ -7,8 +7,8 @@
 ;;
 ;;*****************************************************************************
 
-function GetLogicalName, a
-    required in aLogicalName, a
+function GetLogicalName, string
+    required in aLogicalName, string
     stack record
         translation,    a1024
         length,         i4

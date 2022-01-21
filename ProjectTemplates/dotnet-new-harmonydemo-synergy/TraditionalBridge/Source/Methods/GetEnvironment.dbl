@@ -7,7 +7,7 @@
 ;;
 ;;*****************************************************************************
 
-function GetEnvironment, a
+function GetEnvironment, string
 
 proc
     freturn %versn

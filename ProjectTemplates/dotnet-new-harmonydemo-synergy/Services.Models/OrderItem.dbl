@@ -24,6 +24,7 @@ import System.Runtime.Serialization
 
 namespace Services.Models
 
+    {Newtonsoft.Json.JsonObject(Newtonsoft.Json.MemberSerialization.OptIn)}
     public partial class OrderItem extends DataObjectBase
 
         ;;make the record available and a copy
@@ -71,6 +72,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Order number is required. ")}
         {Range(1,999999, ErrorMessage="Order number must be between 1 and 999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property OrderNumber, int
             method get
             proc
@@ -87,6 +89,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Line item number is required. ")}
         {Range(1,99, ErrorMessage="Line item number must be between 1 and 99. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property ItemNumber, int
             method get
             proc
@@ -103,6 +106,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Item ordered is required. ")}
         {Range(1,999999, ErrorMessage="Item ordered must be between 1 and 999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property ItemOrdered, int
             method get
             proc
@@ -119,6 +123,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Quantity ordered is required. ")}
         {Range(1,999999, ErrorMessage="Quantity ordered must be between 1 and 999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property QuantityOrdered, int
             method get
             proc
@@ -135,6 +140,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Unit price is required. ")}
         {Range(0,99999.99, ErrorMessage="Unit price must be between 0 and 99999.99. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property UnitPrice, decimal
             method get
             proc
@@ -149,6 +155,7 @@ namespace Services.Models
         ;;; <summary>
         ;;; Date shipped
         ;;; </summary>
+        {Newtonsoft.Json.JsonProperty}
         public property DateShipped, DateTime
             method get
             proc
@@ -166,6 +173,7 @@ namespace Services.Models
         ;;; Invoice number
         ;;; </summary>
         {Range(0,9999999, ErrorMessage="Invoice number must be between 0 and 9999999. ")}
+        {Newtonsoft.Json.JsonProperty}
         public property InvoiceNumber, int
             method get
             proc
@@ -248,12 +256,14 @@ namespace Services.Models
 
 .region "Relationships to other entities"
 
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
         ;;; <summary>
         ;;; Relationship (Type A)
         ;;; ORDER_ITEM.ORDER_NUMBER_AND_LINE_ITEM (one) --> (one) --> (many) ORDER.ORDER_NUMBER
         ;;; </summary>
         public readwrite property REL_Order, @Order
 
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
         ;;; <summary>
         ;;; Relationship (Type A)
         ;;; ORDER_ITEM.ITEM_ORDERED (one) --> (one) --> (many) ITEM.ITEM_NUMBER

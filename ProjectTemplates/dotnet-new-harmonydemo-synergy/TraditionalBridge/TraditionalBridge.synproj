@@ -1,11 +1,12 @@
 ﻿<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Common.props" />
   <Import Project="$(SolutionDir)Common.props" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Configuration)' == '' ">x86</Platform>
     <Name>TraditionalBridge</Name>
     <StartupObject>&lt;Synergy Main&gt;</StartupObject>
-    <OutputName>TraditionalBridgeHost</OutputName>
+    <OutputName>host</OutputName>
     <ProjectGuid>{d97b34c9-43d5-4df8-8c8e-788455b321eb}</ProjectGuid>
     <ProjectTypeGuids>{7B8CF543-378A-4EC1-BB1B-98E4DC6E6820};{BBD0F5D1-1CC4-42fd-BA4C-A96779C64378}</ProjectTypeGuids>
     <OutputType>application</OutputType>
@@ -53,33 +54,38 @@
     <DebugOptimize>Optimize</DebugOptimize>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Bridge\ArgumentDataDefinition.dbl" />
-    <Compile Include="Bridge\CallbackDispatcher.dbl" />
-    <Compile Include="Bridge\Convert.dbl" />
-    <Compile Include="Bridge\DataObjectBase.dbl" />
-    <Compile Include="Bridge\DataObjectMetadataBase.dbl" />
-    <Compile Include="Bridge\FieldDataDefinition.dbl" />
-    <Compile Include="Bridge\Json.dbl" />
-    <Compile Include="Bridge\Logger.dbl" />
-    <Compile Include="Bridge\RoutineDispatcher.dbl" />
-    <Compile Include="Bridge\Serializer.dbl" />
-    <Compile Include="Bridge\SerializerV11.dbl" />
-    <Compile Include="Bridge\StringDictionary.dbl" />
-    <Compile Include="Dispatchers\AddTwoNumbersDispatcher.dbl" />
-    <Compile Include="Dispatchers\GetEnvironmentDispatcher.dbl" />
-    <Compile Include="Dispatchers\GetLogicalNameDispatcher.dbl" />
-    <Compile Include="Dispatchers\MethodDispatcher.dbl" />
-    <Compile Include="Methods\AddTwoNumbers.dbl" />
-    <Compile Include="Methods\GetEnvironment.dbl" />
-    <Compile Include="Methods\GetLogicalName.dbl" />
-    <Compile Include="Models\AaaDummyModel.dbl" />
-    <Compile Include="TraditionalBridgeHost.dbl" />
+    <Compile Include="Source\Bridge\ArgumentDataDefinition.dbl" />
+    <Compile Include="Source\Bridge\CallbackDispatcher.dbl" />
+    <Compile Include="Source\Bridge\Convert.dbl" />
+    <Compile Include="Source\Bridge\DataObjectBase.dbl" />
+    <Compile Include="Source\Bridge\DataObjectMetadataBase.dbl" />
+    <Compile Include="Source\Bridge\FieldDataDefinition.dbl" />
+    <Compile Include="Source\Bridge\Json.dbl" />
+    <Compile Include="Source\Bridge\Logger.dbl" />
+    <Compile Include="Source\Bridge\RoutineDispatcher.dbl" />
+    <Compile Include="Source\Bridge\Serializer.dbl" />
+    <Compile Include="Source\Bridge\SerializerV11.dbl" />
+    <Compile Include="Source\Bridge\StringDictionary.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeMethodsDispatcher.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeMethodsDispatcherCustom.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeMethodsMethodDispatchers.dbl" />
+    <Compile Include="Source\Dispatchers\MethodDispatcher.dbl" />
+    <Compile Include="Source\host.dbl" />
+    <Compile Include="Source\Methods\AddTwoNumbers.dbl" />
+    <Compile Include="Source\Methods\GetCustomer.dbl" />
+    <Compile Include="Source\Methods\GetEnvironment.dbl" />
+    <Compile Include="Source\Methods\GetLogicalName.dbl" />
+    <Compile Include="Source\Models\Customer.dbl" />
+    <Compile Include="Source\Models\CustomerMetaData.dbl" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bridge" />
-    <Folder Include="Dispatchers" />
-    <Folder Include="Methods" />
-    <Folder Include="Models" />
+    <Folder Include="MethodCatalog" />
+    <Folder Include="Source" />
+    <Folder Include="Source\Bridge" />
+    <Folder Include="Source\Dispatchers" />
+    <Folder Include="Source\Methods" />
+    <Folder Include="Source\Models" />
+    <Folder Include="Source\Stubs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.synproj">
@@ -92,6 +98,9 @@
     <Content Include="launch.bat">
       <SubType>Content</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MethodCatalog\MethodDefinitions.xml">
+      <SubType>Content</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets" />

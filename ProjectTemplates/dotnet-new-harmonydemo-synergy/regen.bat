@@ -109,11 +109,11 @@ rem set ENABLE_IIS_SUPPORT=-define ENABLE_IIS_SUPPORT
 rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
-rem set ENABLE_XFSERVERPLUS_MIGRATION=YES
+set ENABLE_XFSERVERPLUS_MIGRATION=YES
 rem set ENABLE_XFSERVERPLUS_MODEL_GENERATION=YES
 rem set ENABLE_XFSERVERPLUS_METHOD_STUBS=YES
 rem set ENABLE_BRIDGE_OPTIONAL_PARAMETERS=YES
-rem set ENABLE_NEWTONSOFT=-define ENABLE_NEWTONSOFT
+set ENABLE_NEWTONSOFT=-define ENABLE_NEWTONSOFT
 
 if not "NONE%ENABLE_SELECT%%ENABLE_FILTER%%ENABLE_ORDERBY%%ENABLE_TOP%%ENABLE_SKIP%%ENABLE_RELATIONS%"=="NONE" (
   set PARAM_OPTIONS_PRESENT=-define PARAM_OPTIONS_PRESENT
@@ -453,11 +453,11 @@ rem ============================================================================
 rem Generate TraditionalBridge / xfServerPlus Migration Code
 
 rem Specify the path to a SMC export file and the method catalog location
-rem set SMC_XML_FILE=%SolutionDir%TraditionalBridge\MethodCatalog\MethodDefinitions.xml
-rem set XFPL_SMCPATH=%SolutionDir%TraditionalBridge\MethodCatalog
+set SMC_XML_FILE=%SolutionDir%TraditionalBridge\MethodCatalog\MethodDefinitions.xml
+set XFPL_SMCPATH=%SolutionDir%TraditionalBridge\MethodCatalog
 
 rem Specify the name of one or more interfaces defined in the SMC export file, space separated
-rem set SMC_INTERFACES=MyInterface
+set SMC_INTERFACES=BridgeMethods
 
 rem ================================================================================
 rem CodeGen options

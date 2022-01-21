@@ -123,7 +123,7 @@ namespace Services
 
             data launchCommand, string, Path.Combine(traditionalBridgeDirectory,"launch.bat")
             
-            data context, @ExternalContextPool<TraditionalBridgeService>, new ExternalContextPool<TraditionalBridgeService>
+            data context, @ExternalContextPool<BridgeMethodsService>, new ExternalContextPool<BridgeMethodsService>
             &    (
             &    launchCommand,
             &    "optional_command_parameters",
@@ -133,8 +133,8 @@ namespace Services
             &    ) 
 
             ;; Make TraditionalBridgeService available as a DI service
-            services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
-            services.AddContextPool<TraditionalBridgeService>()
+            services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
+            services.AddContextPool<BridgeMethodsService>()
             
             ;;------------------------------------------------------------------------
             ;; Configure "out of process" Traditional Bridge to a remote server
@@ -211,14 +211,14 @@ namespace Services
 ;
 ;            if (usePooling) then
 ;            begin
-;                data context, @RemoteExternalContextPool<TraditionalBridgeService>
+;                data context, @RemoteExternalContextPool<BridgeMethodsService>
 ;
 ;                if (usePassword) then
 ;                begin
 ;                    ;; ----------------------------------------------------------------------------
 ;                    ;; Pooled connection authenticated via username and password
 ;                    
-;                    context = new RemoteExternalContextPool<TraditionalBridgeService>
+;                    context = new RemoteExternalContextPool<BridgeMethodsService>
 ;                    &    (
 ;                    &    bridgeOS,
 ;                    &    bridgeServer,
@@ -236,7 +236,7 @@ namespace Services
 ;                    ;; Pooled connection authenticated via username and cryptographic key
 ;                    
 ;                    data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
-;                    context = new RemoteExternalContextPool<TraditionalBridgeService>
+;                    context = new RemoteExternalContextPool<BridgeMethodsService>
 ;                    &    (
 ;                    &    bridgeOS,
 ;                    &    bridgeServer,
@@ -250,19 +250,19 @@ namespace Services
 ;                end
 ;
 ;                ;;Add DI service
-;                services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
+;                services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
 ;            end
 ;            else
 ;            begin
 ;                ;;No pooling
-;                data context, @BridgeNoPool<TraditionalBridgeService>
+;                data context, @BridgeNoPool<BridgeMethodsService>
 ;
 ;                if (usePassword) then
 ;                begin
 ;                    ;; ----------------------------------------------------------------------------
 ;                    ;; Non-pooled connection authenticated via username and password
 ;                    ;;
-;                    context = new BridgeNoPool<TraditionalBridgeService>
+;                    context = new BridgeNoPool<BridgeMethodsService>
 ;                    &    (
 ;                    &    bridgeOS,
 ;                    &    bridgeServer,
@@ -280,7 +280,7 @@ namespace Services
 ;                    ;; Non-pooled connection authenticated via username and cryptographic key
 ;                    ;;
 ;                    data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
-;                    context = new BridgeNoPool<TraditionalBridgeService>
+;                    context = new BridgeNoPool<BridgeMethodsService>
 ;                    &    (
 ;                    &    bridgeOS,
 ;                    &    bridgeServer,
@@ -295,11 +295,11 @@ namespace Services
 ;                end
 ;
 ;                ;;Add DI service
-;                services.AddSingleton<IContextFactory<TraditionalBridgeService>>(context)
+;                services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
 ;            end
 ;
 ;            ;;Add the traditional bridge service as a DI service
-;            services.AddContextPool<TraditionalBridgeService>()
+;            services.AddContextPool<BridgeMethodsService>()
 
             ;;------------------------------------------------------------------------
             ;; Enable "SignalR" support
@@ -323,20 +323,19 @@ namespace Services
             ;; a good place to do so. Here is an example!
 
             ;; Get an instance of the traditional bidge service
-            data factory = (IContextFactory<TraditionalBridgeService>)app.ApplicationServices.GetService(^typeof(IContextFactory<TraditionalBridgeService>))
+            data factory = (IContextFactory<BridgeMethodsService>)app.ApplicationServices.GetService(^typeof(IContextFactory<BridgeMethodsService>))
             data service = factory.MakeContext(app.ApplicationServices)
 
             try
             begin
                 Console.Write("Determining traditional Synergy environment")
-                data responseTask, @Task<string>
+                data responseTask, @Task<BridgeMethods.GetEnvironment_Response>
                 ;; Call the method and wait for the async call to complete
                 responseTask = service.GetEnvironment()
                 responseTask.Wait()
                 ;; Extract the response
-                data result = responseTask.Result
                 Console.WriteLine(" ... done")
-                Console.WriteLine("Traditional Synergy environment is {0}",result)
+                Console.WriteLine("Traditional Synergy environment is {0}",responseTask.Result.ReturnValue)
             end
             catch (e, @Exception)
             begin

@@ -1,0 +1,22 @@
+;;*****************************************************************************
+;;
+;; Title:       GetCustomer.dbl
+;;
+;; Description: An example routine being exposed by Traditional Bridge.
+;;              Returns a customer record.
+;;
+;;*****************************************************************************
+
+
+import TraditionalBridge.Models
+
+subroutine GetCustomer
+    required in CustomerId, d6
+    required out Customer, strCustomer
+    endparams
+proc
+    init Customer
+    Customer.customer_number = CustomerId
+    Customer.name = "ACME, Inc."
+    xreturn
+endsubroutine

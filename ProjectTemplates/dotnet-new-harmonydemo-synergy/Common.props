@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <CommonEnvVars>RPSMFIL=$(SolutionDir)Repository\bin\$(Configuration)\rpsmain.ism;RPSTFIL=$(SolutionDir)Repository\bin\$(Configuration)\rpstext.ism;EXEDIR=$(SolutionDir)TBEXE\$(Configuration)</CommonEnvVars>
+    <CommonEnvVars>RPSMFIL=$(SolutionDir)Repository\bin\$(Configuration)\rpsmain.ism;RPSTFIL=$(SolutionDir)Repository\bin\$(Configuration)\rpstext.ism;EXEDIR=$(SolutionDir)TBEXE\$(Configuration);XFPL_SMCPATH=$(SolutionDir)TraditionalBridge\MethodCatalog;DAT=$(SolutionDir)SampleData</CommonEnvVars>
   </PropertyGroup>
 </Project>
