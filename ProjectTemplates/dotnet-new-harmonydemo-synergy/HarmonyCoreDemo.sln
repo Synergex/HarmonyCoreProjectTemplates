@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{
 		Templates\ODataUnitTestEnvironment.tpl = Templates\ODataUnitTestEnvironment.tpl
 		Templates\ODataUnitTestHost.tpl = Templates\ODataUnitTestHost.tpl
 		Templates\ODataUnitTests.tpl = Templates\ODataUnitTests.tpl
+		Templates\PostManDevelopmentEnvironment.tpl = Templates\PostManDevelopmentEnvironment.tpl
 		Templates\SystemTextJsonModel.tpl = Templates\SystemTextJsonModel.tpl
 	EndProjectSection
 EndProject
@@ -64,6 +65,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TraditionalBridge", "Tradit
 		Templates\TraditionalBridge\InterfaceController.tpl = Templates\TraditionalBridge\InterfaceController.tpl
 		Templates\TraditionalBridge\InterfaceDispatcher.tpl = Templates\TraditionalBridge\InterfaceDispatcher.tpl
 		Templates\TraditionalBridge\InterfaceDispatcherCustom.tpl = Templates\TraditionalBridge\InterfaceDispatcherCustom.tpl
+		Templates\TraditionalBridge\InterfaceDispatcherData.tpl = Templates\TraditionalBridge\InterfaceDispatcherData.tpl
+		Templates\TraditionalBridge\InterfaceDocumentation.tpl = Templates\TraditionalBridge\InterfaceDocumentation.tpl
 		Templates\TraditionalBridge\InterfaceDispatcherData.tpl = Templates\TraditionalBridge\InterfaceDispatcherData.tpl
 		Templates\TraditionalBridge\InterfaceMethodDispatchers.tpl = Templates\TraditionalBridge\InterfaceMethodDispatchers.tpl
 		Templates\TraditionalBridge\InterfaceMethodStubs.tpl = Templates\TraditionalBridge\InterfaceMethodStubs.tpl
@@ -112,6 +115,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReactRedux", "ReactRedux", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypeScript", "TypeScript", "{61F142E5-655A-4731-9A77-0AD4D249C3CC}"
 	ProjectSection(SolutionItems) = preProject
+		Templates\TypeScript\TypeScriptInterfaceClient.tpl = Templates\TypeScript\TypeScriptInterfaceClient.tpl
 		Templates\TypeScript\TypeScriptInterfaceMethods.tpl = Templates\TypeScript\TypeScriptInterfaceMethods.tpl
 		Templates\TypeScript\TypeScriptInterfaceStructures.tpl = Templates\TypeScript\TypeScriptInterfaceStructures.tpl
 	EndProjectSection
