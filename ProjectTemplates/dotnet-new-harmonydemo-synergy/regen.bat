@@ -462,7 +462,7 @@ set SMC_INTERFACES=BridgeMethods
 rem ================================================================================
 rem CodeGen options
 
-set NOREPLACEOPTS=%SHOW_CODEGEN_COMMANDS% -lf -u %SolutionDir%UserDefinedTokens.tkn -rps %RPSMFIL% %RPSTFIL% %ENABLE_AUTHENTICATION% %GLOBAL_MODELSTATE_FILTER% %ENABLE_NEWTONSOFT% %ENABLE_OVERLAYS%
+set NOREPLACEOPTS=%SHOW_CODEGEN_COMMANDS% -lf -u %SolutionDir%UserDefinedTokens.tkn -rps %RPSMFIL% %RPSTFIL% %NO_CUSTOM_PLURALIZATION% %ENABLE_AUTHENTICATION% %GLOBAL_MODELSTATE_FILTER% %ENABLE_NEWTONSOFT% %ENABLE_OVERLAYS%
 set STDOPTS=%NOREPLACEOPTS% -r
 
 rem ================================================================================
