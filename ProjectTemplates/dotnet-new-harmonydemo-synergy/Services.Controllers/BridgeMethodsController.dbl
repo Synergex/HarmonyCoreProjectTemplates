@@ -21,6 +21,7 @@ import System.Collections.Generic
 import System.Linq
 import System.Text
 import System.Threading.Tasks
+import BridgeMethods
 
 import Services.Controllers
 
@@ -49,12 +50,12 @@ namespace Services.Controllers
         {HttpPost}
         {Route("AddTwoNumbers")}
         ;;; <summary>
-        ;;; 
+        ;;; Add two numbers
         ;;; </summary>
         ;;; <returns></returns>
-        public async method Post_AddTwoNumbers, @Task<ActionResult<BridgeMethods.AddTwoNumbers_Response>>
+        public async method AddTwoNumbers, @Task<ActionResult<AddTwoNumbers_Response>>
             {FromBody}
-            required in aRequest, @BridgeMethods.AddTwoNumbers_Request
+            required in aRequest, @AddTwoNumbers_Request
         proc
             mreturn ok(await _BridgeMethodsService.AddTwoNumbers(aRequest))
         endmethod
@@ -62,12 +63,12 @@ namespace Services.Controllers
         {HttpPost}
         {Route("GetCustomer")}
         ;;; <summary>
-        ;;; 
+        ;;; Get a customer
         ;;; </summary>
         ;;; <returns></returns>
-        public async method Post_GetCustomer, @Task<ActionResult<BridgeMethods.GetCustomer_Response>>
+        public async method GetCustomer, @Task<ActionResult<GetCustomer_Response>>
             {FromBody}
-            required in aRequest, @BridgeMethods.GetCustomer_Request
+            required in aRequest, @GetCustomer_Request
         proc
             mreturn ok(await _BridgeMethodsService.GetCustomer(aRequest))
         endmethod
@@ -75,10 +76,10 @@ namespace Services.Controllers
         {HttpGet}
         {Route("GetEnvironment")}
         ;;; <summary>
-        ;;; 
+        ;;; Get environment string
         ;;; </summary>
-        ;;; <returns></returns>
-        public async method Get_GetEnvironment, @Task<ActionResult<BridgeMethods.GetEnvironment_Response>>
+        ;;; <returns>Returned environment string</returns>
+        public async method GetEnvironment, @Task<ActionResult<GetEnvironment_Response>>
         proc
             mreturn ok(await _BridgeMethodsService.GetEnvironment())
         endmethod
@@ -86,12 +87,12 @@ namespace Services.Controllers
         {HttpPost}
         {Route("GetLogicalName")}
         ;;; <summary>
-        ;;; 
+        ;;; Get a logical names value
         ;;; </summary>
         ;;; <returns></returns>
-        public async method Post_GetLogicalName, @Task<ActionResult<BridgeMethods.GetLogicalName_Response>>
+        public async method GetLogicalName, @Task<ActionResult<GetLogicalName_Response>>
             {FromBody}
-            required in aRequest, @BridgeMethods.GetLogicalName_Request
+            required in aRequest, @GetLogicalName_Request
         proc
             mreturn ok(await _BridgeMethodsService.GetLogicalName(aRequest))
         endmethod

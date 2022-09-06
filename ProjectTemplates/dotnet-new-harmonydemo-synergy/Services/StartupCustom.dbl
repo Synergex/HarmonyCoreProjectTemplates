@@ -21,13 +21,17 @@ import Harmony.OData.Adapter
 import Microsoft.AspNetCore.Builder
 import Microsoft.AspNetCore.Hosting
 import Microsoft.AspNetCore.Http
+import Microsoft.AspNetCore.Mvc
 import Microsoft.AspNetCore.Mvc.Abstractions
+import Microsoft.AspNetCore.Mvc.ApiExplorer
 import Microsoft.AspNetCore.StaticFiles
-import Microsoft.AspNet.OData
-import Microsoft.AspNet.OData.Extensions
-import Microsoft.AspNet.OData.Builder
-import Microsoft.AspNet.OData.Routing
-import Microsoft.AspNet.OData.Routing.Conventions
+import Microsoft.AspNetCore.Builder
+import Microsoft.AspNetCore.Mvc.ApplicationModels
+import Microsoft.AspNetCore.OData
+import Microsoft.AspNetCore.Routing
+import Microsoft.Extensions.Configuration
+import Microsoft.Extensions.DependencyInjection
+import Microsoft.Extensions.DependencyInjection.Extensions
 import Microsoft.EntityFrameworkCore
 import Microsoft.Extensions.Configuration
 import Microsoft.Extensions.DependencyInjection
@@ -35,10 +39,14 @@ import Microsoft.Extensions.DependencyInjection.Extensions
 import Microsoft.Extensions.Logging
 import Microsoft.Extensions.Options
 import Microsoft.Extensions.Primitives
+import Microsoft.Net.Http.Headers
 import Microsoft.OData
 import Microsoft.OData.Edm
 import Microsoft.OData.UriParser
-import Renci.SshNet
+import Microsoft.AspNetCore.OData
+import Microsoft.AspNetCore.OData.Extensions
+import Microsoft.AspNetCore.OData.Routing
+import Microsoft.AspNetCore.OData.Formatter
 import System.Collections.Generic
 import System.IO
 import System.Linq
@@ -46,6 +54,9 @@ import System.Text
 import System.Threading.Tasks
 import Services.Controllers
 import Services.Models
+import Swashbuckle.AspNetCore.Swagger
+import Microsoft.OpenApi.Models
+
 
 namespace Services
 

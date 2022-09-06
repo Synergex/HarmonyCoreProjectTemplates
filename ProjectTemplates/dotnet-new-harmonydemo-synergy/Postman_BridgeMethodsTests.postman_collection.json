@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2648742f-eaf1-4fe1-8a13-52af1cd8534a",
-		"name": "Harmony Core Sample API (BridgeMethods)",
+		"name": "Harmony Core Sample API (Code: BridgeMethods)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -22,12 +22,12 @@
 					"raw": "{ \n\t\"number1\": 9.9,\n\t\"number2\": 9.9 \n}"
 				},
 				"url": {
-					"raw": "{{server}}/BridgeMethods/AddTwoNumbers",
+					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/AddTwoNumbers",
 					"host": [
-						"{{server}}"
+						"{{BridgeBaseUri}}"
 					],
 					"path": [
-						"BridgeMethods",
+						"{{ControllerPath}}",
 						"AddTwoNumbers"
 					]
 				}
@@ -51,12 +51,12 @@
 					"raw": "{ \n\t\"CustomerNumber\": 9 \n}"
 				},
 				"url": {
-					"raw": "{{server}}/BridgeMethods/GetCustomer",
+					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/GetCustomer",
 					"host": [
-						"{{server}}"
+						"{{BridgeBaseUri}}"
 					],
 					"path": [
-						"BridgeMethods",
+						"{{ControllerPath}}",
 						"GetCustomer"
 					]
 				}
@@ -69,12 +69,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{server}}/BridgeMethods/GetEnvironment",
+					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/GetEnvironment",
 					"host": [
-						"{{server}}"
+						"{{BridgeBaseUri}}"
 					],
 					"path": [
-						"BridgeMethods",
+						"{{ControllerPath}}",
 						"GetEnvironment"
 					]
 				}
@@ -98,12 +98,12 @@
 					"raw": "{ \n\t\"aLogicalName\": \"Z\" \n}"
 				},
 				"url": {
-					"raw": "{{server}}/BridgeMethods/GetLogicalName",
+					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/GetLogicalName",
 					"host": [
-						"{{server}}"
+						"{{BridgeBaseUri}}"
 					],
 					"path": [
-						"BridgeMethods",
+						"{{ControllerPath}}",
 						"GetLogicalName"
 					]
 				}
@@ -146,8 +146,14 @@
 	"variable": [
 		{
 			"id": "348faa4b-487a-4d1e-9c94-9880cb11f521",
-			"key": "server",
+			"key": "BridgeBaseUri",
 			"value": "https://localhost:8086",
+			"type": "string"
+		},
+		{
+			"id": "a3b6a948-ca0e-4b59-958f-560f2eaa2205",
+			"key": "ControllerPath",
+			"value": "BridgeMethods",
 			"type": "string"
 		}
 	]

@@ -2,21 +2,13 @@
 cls
 setlocal EnableDelayedExpansion
 
-echo rem CodeGen commands used for last regen > regen_last.bat
-
 set SolutionDir=%~dp0
-
 pushd "%SolutionDir%"
 
-if not defined RPSMFIL (
-    echo RPSMFIL is not defined!
-    goto error
-)
+if not defined RPSMFIL set RPSMFIL=.\Repository\rpsmain.ism
+if not defined RPSTFIL set RPSTFIL=.\Repository\rpstext.ism
 
-if not defined RPSTFIL (
-    echo RPSTFIL is not defined!
-    goto error
-)
+echo rem CodeGen commands used for last regen > regen_last.bat
 
 rem ================================================================================================================================
 rem Specify the names of the projects to generate code into:
@@ -262,6 +254,18 @@ if DEFINED ENABLE_POSTMAN_TESTS (
 -i  %SolutionDir%Templates%TEMPLATESUBDIR% ^
 -o  %SolutionDir% ^
 %STDOPTS%
+  echo !command! >> regen_last.bat
+  !command!
+  if ERRORLEVEL 1 goto error
+
+  echo.
+  echo Generating Postman development environment
+
+  set command=codegen ^
+-t PostManDevelopmentEnvironment ^
+-i Templates ^
+-o . ^
+%NOREPLACEOPTS%
   echo !command! >> regen_last.bat
   !command!
   if ERRORLEVEL 1 goto error
