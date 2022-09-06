@@ -6,3 +6,4 @@
 *.nupkg
 /ProjectTemplates/dotnet-new-harmonydemo-synergy/regen_last.bat
 /ProjectTemplates/dotnet-new-harmonydemo-synergy/Publish.Settings.bat
+/ProjectTemplates/dotnet-new-harmonycore-synergy/Publish.Settings.bat

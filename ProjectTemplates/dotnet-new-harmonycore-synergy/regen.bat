@@ -265,6 +265,18 @@ if DEFINED ENABLE_POSTMAN_TESTS (
   echo !command! >> regen_last.bat
   !command!
   if ERRORLEVEL 1 goto error
+
+  echo.
+  echo Generating Postman development environment
+
+  set command=codegen ^
+-t PostManDevelopmentEnvironment ^
+-i Templates ^
+-o . ^
+%NOREPLACEOPTS%
+  echo !command! >> regen_last.bat
+  !command!
+  if ERRORLEVEL 1 goto error
 )
 
 rem ================================================================================
