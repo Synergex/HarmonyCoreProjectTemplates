@@ -20,7 +20,6 @@ import Harmony.Core.Converters
 import Harmony.Core.Context
 import Harmony.Core.FileIO
 import Microsoft.Extensions.DependencyInjection
-import System.Runtime.Serialization
 
 namespace SynergyEfProvider.Models
 
@@ -213,15 +212,15 @@ namespace SynergyEfProvider.Models
         endproperty
 
         public override property GlobalRFA, [#]byte
-            method get
-            proc
+			method get
+			proc
                 mreturn mGlobalRFA
-            endmethod
-            method set
-            proc
+			endmethod
+			method set
+			proc
                 mGlobalRFA = value
-            endmethod
-        endproperty
+			endmethod
+		endproperty
 
 .endregion
 
@@ -289,57 +288,17 @@ namespace SynergyEfProvider.Models
 
         ;;Access keys
 
-        {IgnoreDataMember}
-        public property KEY_ORDER_NUMBER, string
-            method get
-            proc
-                mreturn OrderNumber.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_ORDER_NUMBER, string, ""
+        public readonly property KEY_ORDER_NUMBER, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_CUSTOMER_NUMBER, string
-            method get
-            proc
-                mreturn CustomerNumber.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_CUSTOMER_NUMBER, string, ""
+        public readonly property KEY_CUSTOMER_NUMBER, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_DATE_ORDERED, string
-            method get
-            proc
-                mreturn DateOrdered.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_DATE_ORDERED, string, ""
+        public readonly property KEY_DATE_ORDERED, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_DATE_COMPLETED, string
-            method get
-            proc
-                mreturn DateCompleted.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_DATE_COMPLETED, string, ""
+        public readonly property KEY_DATE_COMPLETED, string, ""
 
 .endregion
 

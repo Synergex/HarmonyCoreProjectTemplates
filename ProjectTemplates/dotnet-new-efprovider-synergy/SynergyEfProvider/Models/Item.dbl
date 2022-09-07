@@ -20,7 +20,6 @@ import Harmony.Core.Converters
 import Harmony.Core.Context
 import Harmony.Core.FileIO
 import Microsoft.Extensions.DependencyInjection
-import System.Runtime.Serialization
 
 namespace SynergyEfProvider.Models
 
@@ -419,15 +418,15 @@ namespace SynergyEfProvider.Models
         endproperty
 
         public override property GlobalRFA, [#]byte
-            method get
-            proc
+			method get
+			proc
                 mreturn mGlobalRFA
-            endmethod
-            method set
-            proc
+			endmethod
+			method set
+			proc
                 mGlobalRFA = value
-            endmethod
-        endproperty
+			endmethod
+		endproperty
 
 .endregion
 
@@ -495,70 +494,20 @@ namespace SynergyEfProvider.Models
 
         ;;Access keys
 
-        {IgnoreDataMember}
-        public property KEY_ITEM_NUMBER, string
-            method get
-            proc
-                mreturn ItemNumber.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_ITEM_NUMBER, string, ""
+        public readonly property KEY_ITEM_NUMBER, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_VENDOR_NUMBER, string
-            method get
-            proc
-                mreturn VendorNumber.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_VENDOR_NUMBER, string, ""
+        public readonly property KEY_VENDOR_NUMBER, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_COLOR, string
-            method get
-            proc
-                mreturn FlowerColor.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_COLOR, string, ""
+        public readonly property KEY_COLOR, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_SIZE, string
-            method get
-            proc
-                mreturn Size.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_SIZE, string, ""
+        public readonly property KEY_SIZE, string, ""
 
-        {IgnoreDataMember}
-        public property KEY_NAME, string
-            method get
-            proc
-                mreturn CommonName.ToString()
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_NAME, string, ""
+        public readonly property KEY_NAME, string, ""
 
 .endregion
 

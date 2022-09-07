@@ -51,13 +51,9 @@ import System.ComponentModel.DataAnnotations
 import System.Text
 import Harmony.Core
 import Harmony.Core.Converters
-<IF DEFINED_ENABLE_FIELD_SECURITY>
-import Harmony.OData
-</IF DEFINED_ENABLE_FIELD_SECURITY>
 import Harmony.Core.Context
 import Harmony.Core.FileIO
 import Microsoft.Extensions.DependencyInjection
-import System.Runtime.Serialization
 
 namespace <NAMESPACE>
 
@@ -119,7 +115,7 @@ namespace <NAMESPACE>
   <ELSE>
     <IF CUSTOM_NOT_HARMONY_EXCLUDE>
         ;;; <summary>
-        ;;; <FIELD_DESC>
+        ;;; <FIELD_DESC_DOUBLE>
         ;;; </summary>
 ;//
 ;// Field property attributes
@@ -151,19 +147,11 @@ namespace <NAMESPACE>
       <IF DEFINED_ENABLE_NEWTONSOFT>
         {Newtonsoft.Json.JsonProperty}
       </IF>
-      <IF DEFINED_ENABLE_FIELD_SECURITY>
-        <IF CUSTOM_HARMONY_AUTHENTICATE>
-        {AuthorizeField}
-        </IF CUSTOM_HARMONY_AUTHENTICATE>
-        <IF HARMONY_ROLES>
-        {AuthorizeField("<HARMONY_ROLES>")}
-        </IF HARMONY_ROLES>
-      </IF DEFINED_ENABLE_FIELD_SECURITY>
       <COUNTER_1_INCREMENT>
       <IF CUSTOM_HARMONY_AS_STRING>
         public property <FieldSqlname>, String
       <ELSE>
-        public property <FieldSqlname>, <IF DATE_YYPP OR DATE_YYYYPP>@<FieldSqlname>Format<ELSE><HARMONYCORE_FIELD_DATATYPE></IF>
+        public property <FieldSqlname>, <HARMONYCORE_FIELD_DATATYPE>
       </IF CUSTOM_HARMONY_AS_STRING>
 ;//
 ;// Field property get method
@@ -180,18 +168,14 @@ namespace <NAMESPACE>
           <IF CUSTOM_HARMONY_AS_STRING>
                 mreturn %string(mSynergyData.<field_original_name_modified>,"XXXX-XX-XX")
           <ELSE>
-            <IF DATE_YYPP OR DATE_YYYYPP>
-                data <FieldSqlname>String = (string)mSynergyData.<FieldSqlname>
-                mreturn new <FieldSqlname>Format(int.Parse(<FieldSqlname>String.Substring(0, <IF DATE_YYPP>2<ELSE>4</IF DATE_YYPP>)), int.Parse(<FieldSqlname>String.Substring(<IF DATE_YYPP>2<ELSE>4</IF DATE_YYPP>)))
-            <ELSE>
+            <IF DATE_YYYYMMDD>
                 data formatString = "YYYYMMDD"
-              <IF DATE_YYMMDD>
-                formatString = "YYMMDD"
-              <ELSE DATE_YYYYJJJ>
-                formatString = "YYYYJJJ"
-              </IF DATE_YYMMDD>
-                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, formatString, ^null)
+            <ELSE DATE_YYMMDD>
+                data formatString = "YYMMDD"
+            <ELSE DATE_YYYYJJJ>
+                data formatString = "YYYYJJJ"
             </IF>
+                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, formatString, ^null)
           </IF CUSTOM_HARMONY_AS_STRING>
         </IF DATE>
         <IF TIME_HHMM>
@@ -235,9 +219,6 @@ namespace <NAMESPACE>
         <IF AUTO_TIMESTAMP>
                 mreturn (<FIELD_SNTYPE>)mSynergyData.<field_original_name_modified>
         </IF AUTO_TIMESTAMP>
-        <IF STRUCTFIELD>
-                mreturn (String)mSynergyData.<field_original_name_modified>
-        </IF STRUCTFIELD>
       </IF HARMONYCORE_CUSTOM_FIELD>
             endmethod
 ;//
@@ -259,38 +240,26 @@ namespace <NAMESPACE>
           <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XXXX-XX-XX")
           <ELSE>
-            <IF DATE_YYPP OR DATE_YYYYPP>
-                mSynergyData.<FieldSqlname> = value.<IF DATE_YYYYPP>YYYY<ELSE>YY</IF DATE_YYYYPP> * 100 + value.PP
-            <ELSE>
+            <IF DATE_YYYYMMDD>
                 data formatString = "YYYYMMDD"
-              <IF DATE_YYMMDD>
-                formatString = "YYMMDD"
-              </IF DATE_YYMMDD>
-              <IF DATE_YYYYJJJ>
-                formatString = "YYYYJJJ"
-              </IF DATE_YYYYJJJ>
-                mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyDecimalDateConverter.ConvertBack(value, ^null, formatString, ^null)
+            <ELSE DATE_YYMMDD>
+                data formatString = "YYMMDD"
+            <ELSE DATE_YYYYJJJ>
+                data formatString = "YYYYJJJ"
             </IF>
+                mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyDecimalDateConverter.ConvertBack(value, ^null, formatString, ^null)
           </IF CUSTOM_HARMONY_AS_STRING>
         <ELSE TIME_HHMM>
           <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XX:XX")
           <ELSE>
-          <IF DATE_NULLABLE>
-                mSynergyData.<field_original_name_modified> = (value.Value.Hour * 100) + value.Value.Minute
-          <ELSE>
                 mSynergyData.<field_original_name_modified> = (value.Hour * 100) + value.Minute
-          </IF DATE_NULLABLE>
           </IF CUSTOM_HARMONY_AS_STRING>
         <ELSE TIME_HHMMSS>
           <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XX:XX:XX")
           <ELSE>
-            <IF DATE_NULLABLE>
-                mSynergyData.<field_original_name_modified> = (value.Value.Hour * 10000) + (value.Value.Minute * 100) + value.Value.Second
-            <ELSE>
                 mSynergyData.<field_original_name_modified> = (value.Hour * 10000) + (value.Minute * 100) + value.Second
-            </IF DATE_NULLABLE>
           </IF CUSTOM_HARMONY_AS_STRING>
         <ELSE DECIMAL>
           <IF CUSTOM_HARMONY_AS_STRING>
@@ -311,9 +280,6 @@ namespace <NAMESPACE>
         <ELSE AUTO_TIMESTAMP>
                 mSynergyData.<field_original_name_modified> = value
         </IF ALPHA>
-        <IF STRUCTFIELD>
-                mSynergyData.<field_original_name_modified> = value
-        </IF STRUCTFIELD>
       </IF HARMONYCORE_CUSTOM_FIELD>
             endmethod
 ;//
@@ -362,15 +328,15 @@ namespace <NAMESPACE>
         endproperty
 
         public override property GlobalRFA, [#]byte
-            method get
-            proc
+			method get
+			proc
                 mreturn mGlobalRFA
-            endmethod
-            method set
-            proc
+			endmethod
+			method set
+			proc
                 mGlobalRFA = value
-            endmethod
-        endproperty
+			endmethod
+		endproperty
 
 .endregion
 
@@ -647,30 +613,14 @@ namespace <NAMESPACE>
   </IF STRUCTURE_RELATIONS>
 </IF DEFINED_ENABLE_RELATIONS>
 
-<IF STRUCTURE_FILES AND STRUCTURE_ISAM>
+<IF STRUCTURE_FILES AND STRUCTURE_HAS_UNIQUE_KEY>
 .region "Properties to represent keys"
 
         ;;Access keys
 
   <KEY_LOOP_UNIQUE>
-        {IgnoreDataMember}
-        public property KEY_<KEY_NAME>, string
-            method get
-            proc
-            <IF SINGLE_SEGMENT>
-                <SEGMENT_LOOP>
-                mreturn <FieldSqlname>.ToString()
-                </SEGMENT_LOOP>
-            <ELSE>
-                mreturn string.Join('|',  <SEGMENT_LOOP><IF SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"<ELSE><FieldSqlname></IF><,></SEGMENT_LOOP>)
-            </IF>
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_<KEY_NAME>, string, ""
+        public readonly property KEY_<KEY_NAME>, string, ""
 
   </KEY_LOOP_UNIQUE>
   <FOREIGN_KEY_LOOP>
@@ -678,24 +628,8 @@ namespace <NAMESPACE>
         ;;Foreign keys
 
     </IF FIRST>
-        {IgnoreDataMember}
-        public property KEY_<KEY_NAME>, string
-            method get
-            proc
-            <IF SINGLE_SEGMENT>
-                <SEGMENT_LOOP>
-                mreturn <FieldSqlname>.ToString()
-                </SEGMENT_LOOP>
-            <ELSE>
-                mreturn string.Join('|',  <SEGMENT_LOOP><IF SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"<ELSE><FieldSqlname></IF><,></SEGMENT_LOOP>)
-            </IF>
-                
-            endmethod
-            method set
-            proc
-                
-            endmethod
-        endproperty
+        private _KEY_<KEY_NAME>, string, ""
+        public readonly property KEY_<KEY_NAME>, string, ""
 
   </FOREIGN_KEY_LOOP>
 .endregion
