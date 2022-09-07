@@ -40,12 +40,12 @@
           "description": "Target netstandard2.1"
         },
         {
-          "choice": "netcoreapp2.1",
-          "description": "Target netcoreapp2.1"
+          "choice": "net6.0",
+          "description": "Target net6.0"
         }
       ],
-      "replaces": "netcoreapp2.1",
-      "defaultValue": "netcoreapp2.1"
+      "replaces": "net6.0",
+      "defaultValue": "net6.0"
     },
     "HostIdentifier": {
       "type": "bind",
