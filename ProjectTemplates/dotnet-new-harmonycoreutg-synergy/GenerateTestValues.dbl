@@ -1,0 +1,23 @@
+import System
+import System.Text.Json
+import System.Text.Json.Serialization
+import System.IO
+import Services.Test
+
+main GenerateTestValues
+proc
+    Services.Test.UnitTestEnvironment.AssemblyInitialize(^null)
+    new GenerateTestValues().SerializeValues()
+endmain
+
+namespace Services.Test.GenerateValues
+    public class GenerateTestValues
+
+        public method SerializeValues, void
+            endparams
+        proc
+            data jsonFilePath = Services.Test.UnitTestEnvironment.FindRelativeFolderForAssembly("Services.Test")
+            File.WriteAllText(Path.Combine(jsonFilePath, "TestConstants.Values.json"), JsonSerializer.Serialize(TestConstants.Instance, new JsonSerializerOptions(){ WriteIndented = true }))
+        endmethod
+    endclass
+endnamespace

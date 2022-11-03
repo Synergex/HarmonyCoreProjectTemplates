@@ -61,10 +61,16 @@
       "defaultValue": "false"
     }
   },
-  "primaryOutputs": [
+  "sources": [
     {
-      "path": ".gitignore"
-    },
+      "modifiers": [
+      {
+        "copyOnly": [ ".gitignore" ]
+      }
+      ]
+    }
+    ],
+  "primaryOutputs": [
     {
       "path": "HarmonyCoreServices.sln"
     },

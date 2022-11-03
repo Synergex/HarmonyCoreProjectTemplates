@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Synergex",
+  "classifications": [ "Library" ], 
+  "name": "Harmony Core Services Test",
+  "identity": "Harmony.Core.ProjectTemplates.Services.Test.GenerateValues",         
+  "shortName": "harmonycore-utg",                    
+  "tags": {
+    "language": "Synergy DBL",                         
+    "type":"project"
+  },
+  "groupIdentity": "Harmony.Core.ProjectTemplates.Services.Test.GenerateValues",
+  "sourceName": "Services.Test.GenerateValues",
+  "preferNameDirectory": true,
+  "guids": [
+    "518fa7fa-9bcd-420b-a7f5-1f02aa5df595"
+  ],
+  "primaryOutputs": [
+    {
+      "path": "Services.Test.GenerateValues.synproj"
+    },
+	{
+      "path": "GenerateTestValues.dbl"
+    }]
+}
