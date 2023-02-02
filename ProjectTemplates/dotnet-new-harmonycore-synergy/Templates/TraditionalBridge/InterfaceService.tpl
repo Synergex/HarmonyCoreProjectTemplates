@@ -59,6 +59,7 @@ import System
 import System.Collections.Generic
 import System.Text
 import Microsoft.AspNetCore.Mvc
+import Microsoft.AspNetCore.OData
 import Microsoft.AspNetCore.Authorization
 import Newtonsoft.Json.Linq
 import System.Linq
@@ -70,6 +71,7 @@ namespace <NAMESPACE>
     public partial class <INTERFACE_NAME>Service extends DynamicCallProvider
 
         static IsInitialized, boolean
+
         static method <INTERFACE_NAME>Service
         proc
         <METHOD_LOOP>
@@ -79,7 +81,20 @@ namespace <NAMESPACE>
                 </IF STRUCTURE>
             </PARAMETER_LOOP>
         </METHOD_LOOP>
+
+            ;;If there is a <INTERFACE_NAME>ServiceCustom method, call it
+            <INTERFACE_NAME>ServiceCustom()
+
             IsInitialized = true
+
+        endmethod
+
+        ;;; <summary>
+        ;;; Partial method to allow custom constructor code.
+        ;;; </summary>
+        ;;; <param name="services"></param>
+        partial static method <INTERFACE_NAME>ServiceCustom, void
+
         endmethod
 
         ;;; <summary>
