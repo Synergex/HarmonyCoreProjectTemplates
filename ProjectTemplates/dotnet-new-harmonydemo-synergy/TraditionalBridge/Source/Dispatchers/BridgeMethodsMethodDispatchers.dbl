@@ -115,7 +115,7 @@ namespace TraditionalBridge.Dispatchers.BridgeMethods
                 arg1,               d6
                 ;;Argument 2 (REQUIRED OUT Customer structure @StrCustomer)
                 arg2DataObject,     @DataObjectBase
-                arg2,               StrCustomer
+                arg2,               strCustomer
             endrecord
 
 

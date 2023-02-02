@@ -22,6 +22,7 @@ import System
 import System.Collections.Generic
 import System.Text
 import Microsoft.AspNetCore.Mvc
+import Microsoft.AspNetCore.OData
 import Microsoft.AspNetCore.Authorization
 import Newtonsoft.Json.Linq
 import System.Linq
@@ -33,10 +34,24 @@ namespace Services.Controllers
     public partial class BridgeMethodsService extends DynamicCallProvider
 
         static IsInitialized, boolean
+
         static method BridgeMethodsService
         proc
             DataObjectMetadataBase.LookupType(^typeof(Customer))
+
+            ;;If there is a BridgeMethodsServiceCustom method, call it
+            BridgeMethodsServiceCustom()
+
             IsInitialized = true
+
+        endmethod
+
+        ;;; <summary>
+        ;;; Partial method to allow custom constructor code.
+        ;;; </summary>
+        ;;; <param name="services"></param>
+        partial static method BridgeMethodsServiceCustom, void
+
         endmethod
 
         ;;; <summary>

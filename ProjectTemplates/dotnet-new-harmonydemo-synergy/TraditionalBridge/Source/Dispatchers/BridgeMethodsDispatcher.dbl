@@ -24,8 +24,8 @@ namespace TraditionalBridge.Dispatchers
             mDispatchStubs.Add("GetCustomer", new GetCustomer_Dispatcher())
             mDispatchStubs.Add("GetEnvironment", new GetEnvironment_Dispatcher())
             mDispatchStubs.Add("GetLogicalName", new GetLogicalName_Dispatcher())
+            InitHook()
         endmethod
-
     endclass
 
 endnamespace

@@ -19,6 +19,7 @@ import Newtonsoft.Json
 import System
 import System.Collections.Generic
 import System.Linq
+import System.Net.Mime
 import System.Text
 import System.Threading.Tasks
 import BridgeMethods
@@ -27,7 +28,14 @@ import Services.Controllers
 
 namespace Services.Controllers
 
+    {Produces("application/json")}
     {Route("BridgeMethods")}
+    ;;; <summary>
+    ;;; BridgeMethods
+    ;;; </summary>
+    ;;; <remarks>
+    ;;; Custom coded endpoints for interface BridgeMethods
+    ;;; </remarks>
     public partial class BridgeMethodsController extends ControllerBase
 
         ;;Services provided via dependency injection
@@ -49,9 +57,17 @@ namespace Services.Controllers
 
         {HttpPost}
         {Route("AddTwoNumbers")}
+        {Consumes(MediaTypeNames.Application.Json)}
+        {Produces("application/json")}
         ;;; <summary>
-        ;;; Add two numbers
+        ;;;   Add two numbers
         ;;; </summary>
+        ;;; <remarks>
+        ;;;   The functinality of this endpoint is based on custom code in the underlying application. 
+        ;;; </remarks>
+        ;;; <response code="200">OK. The operation completed successfully.</response>
+        ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
+        ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
         ;;; <returns></returns>
         public async method AddTwoNumbers, @Task<ActionResult<AddTwoNumbers_Response>>
             {FromBody}
@@ -62,9 +78,17 @@ namespace Services.Controllers
 
         {HttpPost}
         {Route("GetCustomer")}
+        {Consumes(MediaTypeNames.Application.Json)}
+        {Produces("application/json")}
         ;;; <summary>
-        ;;; Get a customer
+        ;;;   Get a customer
         ;;; </summary>
+        ;;; <remarks>
+        ;;;   The functinality of this endpoint is based on custom code in the underlying application. 
+        ;;; </remarks>
+        ;;; <response code="200">OK. The operation completed successfully.</response>
+        ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
+        ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
         ;;; <returns></returns>
         public async method GetCustomer, @Task<ActionResult<GetCustomer_Response>>
             {FromBody}
@@ -75,9 +99,17 @@ namespace Services.Controllers
 
         {HttpGet}
         {Route("GetEnvironment")}
+        {Consumes(MediaTypeNames.Application.Json)}
+        {Produces("application/json")}
         ;;; <summary>
-        ;;; Get environment string
+        ;;;   Get environment string
         ;;; </summary>
+        ;;; <remarks>
+        ;;;   The functinality of this endpoint is based on custom code in the underlying application. 
+        ;;; </remarks>
+        ;;; <response code="200">OK. The operation completed successfully.</response>
+        ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
+        ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
         ;;; <returns>Returned environment string</returns>
         public async method GetEnvironment, @Task<ActionResult<GetEnvironment_Response>>
         proc
@@ -86,9 +118,17 @@ namespace Services.Controllers
 
         {HttpPost}
         {Route("GetLogicalName")}
+        {Consumes(MediaTypeNames.Application.Json)}
+        {Produces("application/json")}
         ;;; <summary>
-        ;;; Get a logical names value
+        ;;;   Get a logical names value
         ;;; </summary>
+        ;;; <remarks>
+        ;;;   The functinality of this endpoint is based on custom code in the underlying application. 
+        ;;; </remarks>
+        ;;; <response code="200">OK. The operation completed successfully.</response>
+        ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
+        ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
         ;;; <returns></returns>
         public async method GetLogicalName, @Task<ActionResult<GetLogicalName_Response>>
             {FromBody}
