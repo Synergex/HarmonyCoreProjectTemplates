@@ -14,10 +14,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>6.0.82</Version>
+      <Version>6.0.153</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>6.0.82</Version>
+      <Version>6.0.153</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory">
       <Version>6.0.8</Version>
@@ -26,7 +26,7 @@
       <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.Build" Version="22.8.1287" />
-    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.1.1.3278" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.2.1.1003" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.synproj">
