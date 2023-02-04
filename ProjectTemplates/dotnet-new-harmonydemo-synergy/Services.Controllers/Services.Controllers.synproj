@@ -8,6 +8,8 @@
     <ProjectGuid>{04111e5c-9d68-489b-b09a-433b6d2c7d5e}</ProjectGuid>
     <EnableCommonProperties>True</EnableCommonProperties>
     <Prefer32Bit>False</Prefer32Bit>
+    <DBL_qDisWarnOpt>316</DBL_qDisWarnOpt>
+    <DBLCmdOptions>-WD=316</DBLCmdOptions>
     <GenerateMvcApplicationPartsAssemblyAttributes>false</GenerateMvcApplicationPartsAssemblyAttributes>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
