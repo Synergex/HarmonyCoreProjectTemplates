@@ -94,7 +94,13 @@
       <SubType>Content</SubType>
     </Content>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets" />
+<Import Project="$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets" Condition="Exists('$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets')" />
+  <Target Name="EnsureTraditionalBridgeImports" BeforeTargets="PrepareForBuild">
+<PropertyGroup>
+<ErrorText>This project cannot be built by 'dotnet' and must be built using msbuild on a system with Synergy SDI installed</ErrorText>
+</PropertyGroup>
+<Error Condition="!Exists('$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(MSBuildExtensionsPath)\Synergex\dbl\Synergex.SynergyDE.Traditional.targets'))" />
+</Target>
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
