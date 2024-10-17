@@ -85,7 +85,7 @@ if /i "%1" == "LINUX" goto publish_linux
 
 :publish_windows
 set PLATFORM=windows
-set RUNTIME=win7-x64
+set RUNTIME=win-x64
 goto do_publish
 
 :publish_linux

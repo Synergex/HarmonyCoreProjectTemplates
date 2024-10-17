@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="restore;Build">
   <Import Project="$(SolutionDir)Common.props" />
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <DefaultLanguageSourceExtension>.dbl</DefaultLanguageSourceExtension>
     <EnableDefaultItems>false</EnableDefaultItems>
     <Name>Services.Isolated</Name>
@@ -23,9 +23,9 @@
       <Version>6.0.153</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.Build">
-      <Version>22.11.1340</Version>
+      <Version>24.9.2004</Version>
     </PackageReference>
-    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.2.1.1003" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.4.1.1001" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IsolatedMethods.dbl" />
