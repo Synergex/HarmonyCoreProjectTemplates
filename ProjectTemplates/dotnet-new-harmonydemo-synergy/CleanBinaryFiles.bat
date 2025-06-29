@@ -3,7 +3,8 @@ pushd %~dp0
 if exist .vs\. rd /s /q .vs
 if exist bin\. rd /s /q bin
 if exist obj\. rd /s /q obj
-if exist PUBLISH\. rd /s /q PUBLISH
+if exist Publish\LINUXTMP\. rd /s /q Publish/LINUXTMP
+if exist Publish\WINDOWSTMP\. rd /s /q Publish/WINDOWSTMP
 if exist Repository\bin\. rd /s /q Repository\bin
 if exist Repository\obj\. rd /s /q Repository\obj
 if exist Services\.intellisense\. rd /s /q Services\.intellisense
