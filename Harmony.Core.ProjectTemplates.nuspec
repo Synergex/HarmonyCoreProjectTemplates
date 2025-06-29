@@ -7,13 +7,15 @@
     <authors>Synergex International Corporation</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Harmony Core Project Templates for .Net Core and .Net Standard. Click the project URL for release note information.</description>
-	<projectUrl>http://www.github.com/Synergex/HarmonyCore</projectUrl>
-	<packageTypes>
+	  <projectUrl>http://www.github.com/Synergex/HarmonyCore</projectUrl>
+	  <packageTypes>
       <packageType name="Template" />
     </packageTypes>
+    <icon>HarmonyCore.png</icon>
   </metadata>
   <files>
-	<file src="ProjectTemplates\**\*.*" target="" />
+	  <file src="ProjectTemplates\**\*.*" target="" />
+     <file src="HarmonyCore.png" target="HarmonyCore.png" />
   </files>
   
 </package>
