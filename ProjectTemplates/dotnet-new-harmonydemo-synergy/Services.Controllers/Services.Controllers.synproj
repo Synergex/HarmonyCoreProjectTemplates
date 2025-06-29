@@ -57,13 +57,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BridgeMethodsController.dbl" />
-    <Compile Include="BridgeMethodsService.dbl" />
+    <Compile Include="BridgeAPIController.dbl" />
+    <Compile Include="BridgeAPIService.dbl" />
     <Compile Include="CustomersController.dbl" />
     <Compile Include="IsolatedMethodsBase.dbl" />
     <Compile Include="ItemsController.dbl" />
     <Compile Include="OrderItemsController.dbl" />
     <Compile Include="OrdersController.dbl" />
+    <Compile Include="Temp\EagerContextMiddlewareAttribute.dbl" />
     <Compile Include="VendorsController.dbl" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,9 @@
       <Project>{74d61da7-929e-4aa5-b6c4-5ddc2ccce1f0}</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Temp" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy /Y &quot;$(ProjectDir)bin\$(Platform)\$(Configuration)\Services.Controllers.xml&quot; &quot;$(SolutionDir)XmlDoc\Services.Controllers.xml&quot; &gt; nul" />

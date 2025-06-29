@@ -6,7 +6,7 @@
     },
     "item": [
         {
-            "name": "Customer Tests",
+            "name": "Customers Tests",
             "item": [
                 {
                     "name": "Read customers",
@@ -76,7 +76,7 @@
                 }
                 ,
                 {
-                    "name": "Read customer",
+                    "name": "Read customers",
                     "request": {
                     "method": "GET",
                     "header": [
@@ -289,7 +289,7 @@
                 }
                 ,
                 {
-                    "name": "Create customer (auto assign key)",
+                    "name": "Create customers (auto assign key)",
                     "request": {
                     "method": "POST",
                     "header": [
@@ -323,7 +323,7 @@
                 }
                 ,
                 {
-                    "name": "Create or update customer",
+                    "name": "Create or update customers",
                     "request": {
                     "method": "PUT",
                     "header": [
@@ -357,7 +357,7 @@
                 }
               ,
                 {
-                    "name": "Patch customer",
+                    "name": "Patch customers",
                     "request": {
                         "method": "PATCH",
                         "header": [
@@ -391,7 +391,7 @@
                 }
                 ,
                 {
-                    "name": "Delete customer",
+                    "name": "Delete customers",
                     "request": {
                     "method": "DELETE",
                     "header": [
@@ -426,7 +426,7 @@
             ]
         },
         {
-            "name": "Item Tests",
+            "name": "Items Tests",
             "item": [
                 {
                     "name": "Read items",
@@ -496,7 +496,7 @@
                 }
                 ,
                 {
-                    "name": "Read item",
+                    "name": "Read items",
                     "request": {
                     "method": "GET",
                     "header": [
@@ -770,7 +770,7 @@
                 }
                 ,
                 {
-                    "name": "Create item (auto assign key)",
+                    "name": "Create items (auto assign key)",
                     "request": {
                     "method": "POST",
                     "header": [
@@ -804,7 +804,7 @@
                 }
                 ,
                 {
-                    "name": "Create or update item",
+                    "name": "Create or update items",
                     "request": {
                     "method": "PUT",
                     "header": [
@@ -838,7 +838,7 @@
                 }
               ,
                 {
-                    "name": "Patch item",
+                    "name": "Patch items",
                     "request": {
                         "method": "PATCH",
                         "header": [
@@ -872,7 +872,7 @@
                 }
                 ,
                 {
-                    "name": "Delete item",
+                    "name": "Delete items",
                     "request": {
                     "method": "DELETE",
                     "header": [
@@ -907,7 +907,7 @@
             ]
         },
         {
-            "name": "Order Tests",
+            "name": "Orders Tests",
             "item": [
                 {
                     "name": "Read orders",
@@ -977,7 +977,7 @@
                 }
                 ,
                 {
-                    "name": "Read order",
+                    "name": "Read orders",
                     "request": {
                     "method": "GET",
                     "header": [
@@ -1190,7 +1190,7 @@
                 }
                 ,
                 {
-                    "name": "Create order (auto assign key)",
+                    "name": "Create orders (auto assign key)",
                     "request": {
                     "method": "POST",
                     "header": [
@@ -1224,7 +1224,7 @@
                 }
                 ,
                 {
-                    "name": "Create or update order",
+                    "name": "Create or update orders",
                     "request": {
                     "method": "PUT",
                     "header": [
@@ -1258,7 +1258,7 @@
                 }
               ,
                 {
-                    "name": "Patch order",
+                    "name": "Patch orders",
                     "request": {
                         "method": "PATCH",
                         "header": [
@@ -1292,7 +1292,7 @@
                 }
                 ,
                 {
-                    "name": "Delete order",
+                    "name": "Delete orders",
                     "request": {
                     "method": "DELETE",
                     "header": [
@@ -1327,7 +1327,7 @@
             ]
         },
         {
-            "name": "OrderItem Tests",
+            "name": "OrderItems Tests",
             "item": [
                 {
                     "name": "Read orderItems",
@@ -1397,7 +1397,7 @@
                 }
                 ,
                 {
-                    "name": "Read orderItem",
+                    "name": "Read orderItems",
                     "request": {
                     "method": "GET",
                     "header": [
@@ -1610,7 +1610,7 @@
                 }
                 ,
                 {
-                    "name": "Create orderItem (auto assign key)",
+                    "name": "Create orderItems (auto assign key)",
                     "request": {
                     "method": "POST",
                     "header": [
@@ -1644,7 +1644,7 @@
                 }
                 ,
                 {
-                    "name": "Create or update orderItem",
+                    "name": "Create or update orderItems",
                     "request": {
                     "method": "PUT",
                     "header": [
@@ -1678,7 +1678,7 @@
                 }
               ,
                 {
-                    "name": "Patch orderItem",
+                    "name": "Patch orderItems",
                     "request": {
                         "method": "PATCH",
                         "header": [
@@ -1712,7 +1712,7 @@
                 }
                 ,
                 {
-                    "name": "Delete orderItem",
+                    "name": "Delete orderItems",
                     "request": {
                     "method": "DELETE",
                     "header": [
@@ -1747,7 +1747,7 @@
             ]
         },
         {
-            "name": "Vendor Tests",
+            "name": "Vendors Tests",
             "item": [
                 {
                     "name": "Read vendors",
@@ -1817,7 +1817,7 @@
                 }
                 ,
                 {
-                    "name": "Read vendor",
+                    "name": "Read vendors",
                     "request": {
                     "method": "GET",
                     "header": [
@@ -2030,7 +2030,7 @@
                 }
                 ,
                 {
-                    "name": "Create vendor (auto assign key)",
+                    "name": "Create vendors (auto assign key)",
                     "request": {
                     "method": "POST",
                     "header": [
@@ -2064,7 +2064,7 @@
                 }
                 ,
                 {
-                    "name": "Create or update vendor",
+                    "name": "Create or update vendors",
                     "request": {
                     "method": "PUT",
                     "header": [
@@ -2098,7 +2098,7 @@
                 }
               ,
                 {
-                    "name": "Patch vendor",
+                    "name": "Patch vendors",
                     "request": {
                         "method": "PATCH",
                         "header": [
@@ -2132,7 +2132,7 @@
                 }
                 ,
                 {
-                    "name": "Delete vendor",
+                    "name": "Delete vendors",
                     "request": {
                     "method": "DELETE",
                     "header": [

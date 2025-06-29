@@ -66,7 +66,7 @@ namespace Services.Controllers
 
         {HttpGet("Vendors")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(IEnumerable<Vendor>),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(IEnumerable<Vendors>),StatusCodes.Status200OK)}
         {EnableQuery(MaxExpansionDepth=4)}
         ;;; <summary>
         ;;; Query the entire collection of records
@@ -84,7 +84,7 @@ namespace Services.Controllers
 
         {HttpGet("Vendors(VendorNumber={aVendorNumber})")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(Vendor),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(Vendors),StatusCodes.Status200OK)}
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {EnableQuery(MaxExpansionDepth=4)}
         ;;; <summary>
@@ -98,15 +98,15 @@ namespace Services.Controllers
         ;;; <response code="200">OK. The operation completed successfully.</response>
         ;;; <response code="404">Not found. The entity being addressed does not exist.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
-        public method GetVendorByPK, @SingleResult<Vendor>
+        public method GetVendorsByPK, @SingleResult<Vendors>
             required in aVendorNumber, int
         proc
-            mreturn new SingleResult<Vendor>(_DbContext.Vendors.AsNoTracking().FindQuery<Vendor>(_DbContext,aVendorNumber))
+            mreturn new SingleResult<Vendors>(_DbContext.Vendors.AsNoTracking().FindQuery<Vendors>(_DbContext,aVendorNumber))
         endmethod
 
         {HttpGet("Vendors(State={aState})")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(IEnumerable<Vendor>),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(IEnumerable<Vendors>),StatusCodes.Status200OK)}
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {EnableQuery(MaxExpansionDepth=4)}
         ;;; <summary>
@@ -132,7 +132,7 @@ namespace Services.Controllers
 
         {HttpGet("Vendors(ZipCode={aZipCode})")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(IEnumerable<Vendor>),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(IEnumerable<Vendors>),StatusCodes.Status200OK)}
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {EnableQuery(MaxExpansionDepth=4)}
         ;;; <summary>
@@ -158,7 +158,7 @@ namespace Services.Controllers
 
         {HttpGet("Vendors(PaymentTermsCode={aPaymentTermsCode})")}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(IEnumerable<Vendor>),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(IEnumerable<Vendors>),StatusCodes.Status200OK)}
         {ProducesResponseType(StatusCodes.Status404NotFound)}
         {EnableQuery(MaxExpansionDepth=4)}
         ;;; <summary>
@@ -184,7 +184,7 @@ namespace Services.Controllers
 
         {Consumes(MediaTypeNames.Application.Json)}
         {Produces("application/json")}
-        {ProducesResponseType(^typeof(Vendor),StatusCodes.Status200OK)}
+        {ProducesResponseType(^typeof(Vendors),StatusCodes.Status200OK)}
         {ProducesResponseType(StatusCodes.Status400BadRequest)}
         {HttpPost("Vendors")}
         ;;; <summary>
@@ -197,9 +197,9 @@ namespace Services.Controllers
         ;;; <response code="200">OK. The operation completed successfully.</response>
         ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
-        public method PostVendor, @IActionResult
+        public method PostVendors, @IActionResult
             {FromBody}
-            required in aVendor, @Vendor
+            required in aVendors, @Vendors
         proc
             ;;Remove the primary key fields from ModelState
             ModelState.Remove("VendorNumber")
@@ -210,12 +210,12 @@ namespace Services.Controllers
 
             ;;Get the next available primary key value
             disposable data keyFactory = (@IPrimaryKeyFactory)_ServiceProvider.GetService(^typeof(IPrimaryKeyFactory))
-            KeyFactory.AssignPrimaryKey(aVendor)
+            KeyFactory.AssignPrimaryKey(aVendors)
 
-            ;;Add the new vendor
+            ;;Add the new vendors
             try
             begin
-                _DbContext.Vendors.Add(aVendor)
+                _DbContext.Vendors.Add(aVendors)
                 _DbContext.SaveChanges(keyFactory)
             end
             catch (e, @ValidationException)
@@ -225,7 +225,7 @@ namespace Services.Controllers
             end
             endtry
 
-            mreturn Created(aVendor)
+            mreturn Created(aVendors)
 
         endmethod
 
@@ -246,10 +246,10 @@ namespace Services.Controllers
         ;;; <response code="201">Created. The entity was created but no data is being returned.</response>
         ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
-        public method PutVendor, @IActionResult
+        public method PutVendors, @IActionResult
             required in aVendorNumber, int
             {FromBody}
-            required in aVendor, @Vendor
+            required in aVendors, @Vendors
         proc
 
             ;; Validate inbound data
@@ -257,7 +257,7 @@ namespace Services.Controllers
                 mreturn ValidationHelper.ReturnValidationError(ModelState)
 
             ;;Ensure that the key values in the URI win over any data that may be in the model object
-            aVendor.VendorNumber = aVendorNumber
+            aVendors.VendorNumber = aVendorNumber
 
             try
             begin
@@ -265,13 +265,13 @@ namespace Services.Controllers
                 data existing = _DbContext.Vendors.Find(aVendorNumber)
                 if(existing == ^null) then
                 begin
-                    _DbContext.Vendors.Add(aVendor)
+                    _DbContext.Vendors.Add(aVendors)
                     _DbContext.SaveChanges()
-                    mreturn Created(aVendor)
+                    mreturn Created(aVendors)
                 end
                 else
                 begin
-                    aVendor.CopyTo(existing)
+                    aVendors.CopyTo(existing)
                     _DbContext.SaveChanges()
                     mreturn NoContent()
                 end
@@ -306,33 +306,33 @@ namespace Services.Controllers
         ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
         ;;; <response code="404">Not found. The entity being addressed does not exist.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
-        public method PatchVendor, @IActionResult
+        public method PatchVendors, @IActionResult
             required in aVendorNumber, int
             {FromBody}
-            required in aVendor, @JsonPatchDocument<Vendor>
+            required in aVendors, @JsonPatchDocument<Vendors>
         proc
             ;; Validate inbound data
             if (!ModelState.IsValid)
                 mreturn ValidationHelper.ReturnValidationError(ModelState)
 
-            ;;Patch the existing vendor
+            ;;Patch the existing vendors
             try
             begin
-                ;;Get the vendor to be updated
-                data vendorToUpdate = _DbContext.Vendors.Find(aVendorNumber)
+                ;;Get the vendors to be updated
+                data vendorsToUpdate = _DbContext.Vendors.Find(aVendorNumber)
                 data patchError, @JsonPatchError, ^null
                 ;;Did we find it?
-                if(vendorToUpdate == ^null)
+                if(vendorsToUpdate == ^null)
                     mreturn NotFound()
 
-                ;;Apply the changes to the vendor we read
-                aVendor.ApplyTo(vendorToUpdate, lambda(error) { patchError = error })
+                ;;Apply the changes to the vendors we read
+                aVendors.ApplyTo(vendorsToUpdate, lambda(error) { patchError = error })
                 ;;if the patchdoc was bad return the error info
                 if(patchError != ^null)
                     mreturn BadRequest(string.Format("Error applying patch document: error message {0}, caused by {1}", patchError.ErrorMessage, JsonConvert.SerializeObject(patchError.Operation)))
 
                 ;;Update and commit
-                _DbContext.Vendors.Update(vendorToUpdate)
+                _DbContext.Vendors.Update(vendorsToUpdate)
                 _DbContext.SaveChanges()
             end
             catch (e, @InvalidOperationException)
@@ -363,18 +363,18 @@ namespace Services.Controllers
         ;;; <response code="204">No content. The operation was successful but no data is being returned.</response>
         ;;; <response code="404">Not found. The entity being addressed does not exist.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
-        public method DeleteVendor, @IActionResult
+        public method DeleteVendors, @IActionResult
             required in aVendorNumber, int
         proc
-            ;;Get the vendor to be deleted
-            data vendorToRemove = _DbContext.Vendors.Find(aVendorNumber)
+            ;;Get the vendors to be deleted
+            data vendorsToRemove = _DbContext.Vendors.Find(aVendorNumber)
 
             ;;Did we find it?
-            if (vendorToRemove == ^null)
+            if (vendorsToRemove == ^null)
                 mreturn NotFound()
 
             ;;Delete and commit
-            _DbContext.Vendors.Remove(vendorToRemove)
+            _DbContext.Vendors.Remove(vendorsToRemove)
             _DbContext.SaveChanges()
 
             mreturn NoContent()

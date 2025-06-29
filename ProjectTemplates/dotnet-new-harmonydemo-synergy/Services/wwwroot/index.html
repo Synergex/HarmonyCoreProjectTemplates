@@ -66,12 +66,14 @@
 
     <h1> Welcome to your RESTful Web Service</h1>
     <ul>
+        <li><a href="/swagger">API Documentation</a></li>
         <li><a href="/odata/v1">OData Entities</a></li>
         <li><a href="/odata/v1/$metadata">OData Metadata (XML)</a></li>
         <li><a href="/odata/v1/$metadata?$format=json">OData Metadata (JSON)</a></li>
         <li><a href="/odata/v1/$odata">Endpoint Mappings</a></li>
-        <li><a href="/swagger">API Documentation</a></li>
         <li><a href="#data-centric">Data-Centric Service Examples (OData)</a></li>
+        <li><a href="#code-centric">Code-Centric Service Examples (Traditional Bridge)</a></li>
+        <li><a href="#customization">Customizing the Services</a></li>
     </ul>
 
     <!------------------------------------------------------------------------------->
@@ -455,6 +457,47 @@
     <p><strong>Complex queries</strong> combine $select, $filter, $orderby and $expand</p>
     <ul>
         <li><a href="odata/v1/Vendors?$orderby=State,City&$select=VendorNumber,Name,City,State">All vendors ordered by city within state, vendor number, name, city and state.</a></li>
+    </ul>
+
+    <!------------------------------------------------------------------------------->
+    <hr noshade>
+    <a name="code-centric"><h2>Code-Centric Service Examples (Traditional Bridge)</h2></a>
+
+    <p>
+        We also provide a simple pre-configured example of how to use Traditional Bridge to incorporate traditional Synergy
+        subroutines and functions in a Harmony Core service. It is only possible to test operations that do not have inbound
+        parameters through the browser, so only a small subset of the available operations are listed here. To see all available
+        operations refer to the <a href="/odata/v1/$odata#standard">Endpoint Mappings</a> page, and to view and test all operations you
+        can use either the <a href="/swagger">API Documentation</a> page, or a utility such as Postman.
+    </p>
+
+    <ul>
+        <li><a href="BridgeAPI/GetEnvironment">Call method GetEnvironment</a></li>
+    </ul>
+
+    <!------------------------------------------------------------------------------->
+    <hr noshade>
+    <a name="customization"><h2>Customizing the Services</h2></a>
+
+    <p>
+        When you are ready to get started with your own data files and structures, the basic
+        procedure that you will need to follow is:
+    </p>
+
+    <ul>
+        <li>In the Repository project, replace the content of the schema file (repository.scm) with your own repository schema.</li>
+        <li>In the Services.Controllers project, delete the source files related to the sample data (CustomersController.dbl, ItemsController.dbl, OrderItemsController.dbl, OrdersController.dbl and VendorsController.dbl).</li>
+        <li>In the Services.Models project, delete the source files related to the sample data (Customer.dbl, CustomerMetaData.dbl, Item.dbl, ItemMetaData.dbl, Order.dbl, OrderItem.dbl, OrderItemMetaData.dbl, OrderMetaData.dbl, Vendor.dbl and VendorMetaData.dbl).</li>
+        <li>
+            Edit regen.bat and
+            <ul>
+                <li>Change the content of the DATA_STRUCTURES environment variable so that it lists the structures you wish to expose.</li>
+                <li>Review which of the ENABLE_ options are commented in and out to define the options that you wish to use.</li>
+            </ul>
+        </li>
+        <li>Execute the regen.bat file to generate code for your environment.</li>
+        <li>Add the newly generated source files into the Services.Controllers and Services.Models projects as necessary.</li>
+        <li>If you wish to maintain the use of a static home page (this page) then edit the content of index.html which you will find in the wwwroot folder of the Services project.</li>
     </ul>
 
 </body>

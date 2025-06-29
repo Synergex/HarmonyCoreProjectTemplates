@@ -64,7 +64,7 @@ rem Comment or uncomment the following lines to enable or disable optional featu
 
 set ENABLE_ODATA_ENVIRONMENT=YES
 rem set EF_PROVIDER_MYSQL=-define EF_PROVIDER_MYSQL
-rem set NO_CUSTOM_PLURALIZATION=-ncp
+set NO_CUSTOM_PLURALIZATION=-ncp
 set GLOBAL_MODELSTATE_FILTER=-define GLOBAL_MODELSTATE_FILTER
 set ENABLE_SELF_HOST_GENERATION=YES
 set ENABLE_CREATE_TEST_FILES=-define ENABLE_CREATE_TEST_FILES
@@ -102,8 +102,8 @@ rem set ENABLE_OVERLAYS=-f o
 rem set ENABLE_ALTERNATE_FIELD_NAMES=-af
 rem set ENABLE_READ_ONLY_PROPERTIES=-define ENABLE_READ_ONLY_PROPERTIES
 set ENABLE_XFSERVERPLUS_MIGRATION=YES
-rem set ENABLE_XFSERVERPLUS_MODEL_GENERATION=YES
-rem set ENABLE_XFSERVERPLUS_METHOD_STUBS=YES
+set ENABLE_XFSERVERPLUS_MODEL_GENERATION=YES
+set ENABLE_XFSERVERPLUS_METHOD_STUBS=YES
 rem set ENABLE_BRIDGE_OPTIONAL_PARAMETERS=YES
 set ENABLE_NEWTONSOFT=-define ENABLE_NEWTONSOFT
 
@@ -461,7 +461,7 @@ set SMC_XML_FILE=%SolutionDir%TraditionalBridge\MethodCatalog\MethodDefinitions.
 set XFPL_SMCPATH=%SolutionDir%TraditionalBridge\MethodCatalog
 
 rem Specify the name of one or more interfaces defined in the SMC export file, space separated
-set SMC_INTERFACES=BridgeMethods
+set SMC_INTERFACES=BridgeAPI
 
 rem ================================================================================
 rem CodeGen options

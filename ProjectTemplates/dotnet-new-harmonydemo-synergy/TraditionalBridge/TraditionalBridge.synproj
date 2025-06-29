@@ -69,17 +69,21 @@
     <Compile Include="Source\Bridge\Serializer.dbl" />
     <Compile Include="Source\Bridge\SerializerV11.dbl" />
     <Compile Include="Source\Bridge\StringDictionary.dbl" />
-    <Compile Include="Source\Dispatchers\BridgeMethodsDispatcher.dbl" />
-    <Compile Include="Source\Dispatchers\BridgeMethodsDispatcherCustom.dbl" />
-    <Compile Include="Source\Dispatchers\BridgeMethodsMethodDispatchers.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeAPIDispatcher.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeAPIDispatcherCustom.dbl" />
+    <Compile Include="Source\Dispatchers\BridgeAPIMethodDispatchers.dbl" />
     <Compile Include="Source\Dispatchers\MethodDispatcher.dbl" />
+    <Compile Include="Source\helpers\CheckOpenChannels.dbl" />
+    <Compile Include="Source\helpers\StuckProcessTracking.dbl" />
     <Compile Include="Source\host.dbl" />
-    <Compile Include="Source\Methods\AddTwoNumbers.dbl" />
     <Compile Include="Source\Methods\GetCustomer.dbl" />
     <Compile Include="Source\Methods\GetEnvironment.dbl" />
     <Compile Include="Source\Methods\GetLogicalName.dbl" />
-    <Compile Include="Source\Models\Customer.dbl" />
-    <Compile Include="Source\Models\CustomerMetaData.dbl" />
+    <Compile Include="Source\Methods\LoremIpsum.dbl" />
+    <Compile Include="Source\Methods\StuckProcessTest.dbl" />
+    <Compile Include="Source\Models\Customers.dbl" />
+    <Compile Include="Source\Models\CustomersMetaData.dbl" />
+    <None Include="Source\Stubs\BridgeAPIMethodStubs.dbl" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MethodCatalog" />
@@ -88,6 +92,7 @@
     <Folder Include="Source\Dispatchers" />
     <Folder Include="Source\Methods" />
     <Folder Include="Source\Models" />
+    <Folder Include="Source\helpers" />
     <Folder Include="Source\Stubs" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +103,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="launch">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="launch.bat">
       <SubType>Content</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

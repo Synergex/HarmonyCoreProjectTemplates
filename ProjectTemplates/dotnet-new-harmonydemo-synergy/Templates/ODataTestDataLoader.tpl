@@ -48,30 +48,33 @@
 ;;*****************************************************************************
 
 import System.Collections.Generic
-import <MODELS_NAMESPACE>
+
+;NOTE:  DO NOT rely on importing the <MODELS_NAMESPACE> namespace because the
+;       compiler imports more then it should from the <NAMESPACE> 
+;       namespace and you will wind up with bogus ambiguous symbol errors.
+;       Also, you may see lots of bogus red squigglies here.
 
 namespace <NAMESPACE>
 
     public static partial class <StructureNoplural>Loader
     
-        public static method LoadFromFile, @List<<StructureNoplural>>
+        public static method LoadFromFile, @List<<MODELS_NAMESPACE>.<StructureNoplural>>
         proc
-            data dataFile = "<FILE_NAME>"
-            data textFile = dataFile.Replace(".ism",".txt", StringComparison.CurrentCultureIgnoreCase)
-			UnitTestEnvironment.EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), <STRUCTURE_SIZE>)
-			data <structureNoplural>Ch, int, 0
-            data <structureNoplural>Rec, str<StructureNoplural>
+            data dataFile, string, "<FILE_NAME>"
+            data textFile, string, dataFile.ToLower().Replace(".ism",".txt")
+            data ch, int, 0
+            data <structureNoplural>Rec, <MODELS_NAMESPACE>.str<StructureNoplural>
             data grfa, a10
-            data <structurePlural> = new List<<StructureNoplural>>()
-            open(<structureNoplural>Ch,i:s,textFile)
+            data results, @List<<MODELS_NAMESPACE>.<StructureNoplural>>, new List<<MODELS_NAMESPACE>.<StructureNoplural>>()
+            open(ch,i:s,textFile)
             repeat
             begin
-                reads(<structureNoplural>Ch,<structureNoplural>Rec,eof)
-                <structurePlural>.Add(new <StructureNoplural>(<structureNoplural>Rec, grfa))
+                reads(ch,<structureNoplural>Rec,eof)
+                results.Add(new <MODELS_NAMESPACE>.<StructureNoplural>(<structureNoplural>Rec, grfa))
             end
         eof,
-            close <structureNoplural>Ch
-            mreturn <structurePlural>
+            close ch
+            mreturn results
         endmethod
 
     endclass

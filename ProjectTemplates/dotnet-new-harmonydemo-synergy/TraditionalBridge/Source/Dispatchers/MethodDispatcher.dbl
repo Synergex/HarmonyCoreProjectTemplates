@@ -24,7 +24,7 @@ namespace TraditionalBridge.Dispatchers
             endrecord
         proc
             dispatchers = new RoutineDispatcher[1]
-            dispatchers[1] = new BridgeMethodsDispatcher()
+            dispatchers[1] = new BridgeAPIDispatcher()
             mreturn dispatchers
         endmethod
 

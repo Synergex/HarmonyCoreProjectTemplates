@@ -37,18 +37,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.dbl" />
-    <Compile Include="BridgeMethodsServiceModels.dbl" />
-    <Compile Include="Customer.dbl" />
-    <Compile Include="CustomerMetaData.dbl" />
+    <Compile Include="BridgeAPIServiceModels.dbl" />
+    <Compile Include="Customers.dbl" />
+    <Compile Include="CustomersMetaData.dbl" />
     <Compile Include="DbContext.dbl" />
-    <Compile Include="Item.dbl" />
-    <Compile Include="ItemMetaData.dbl" />
-    <Compile Include="Order.dbl" />
-    <Compile Include="OrderItem.dbl" />
-    <Compile Include="OrderItemMetaData.dbl" />
-    <Compile Include="OrderMetaData.dbl" />
-    <Compile Include="Vendor.dbl" />
-    <Compile Include="VendorMetaData.dbl" />
+    <Compile Include="Items.dbl" />
+    <Compile Include="ItemsMetaData.dbl" />
+    <Compile Include="OrderItems.dbl" />
+    <Compile Include="OrderItemsMetaData.dbl" />
+    <Compile Include="Orders.dbl" />
+    <Compile Include="OrdersMetaData.dbl" />
+    <Compile Include="Vendors.dbl" />
+    <Compile Include="VendorsMetaData.dbl" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Repository\Repository.synproj">

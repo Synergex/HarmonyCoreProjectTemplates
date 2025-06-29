@@ -1,17 +1,17 @@
 <CODEGEN_FILENAME>GenerateTestValues.dbl</CODEGEN_FILENAME>
 <REQUIRES_CODEGEN_VERSION>5.6.5</REQUIRES_CODEGEN_VERSION>
-<REQUIRES_USERTOKEN>UNIT_TESTS_BASE_NAMESPACE</REQUIRES_USERTOKEN>
+<REQUIRES_USERTOKEN>UNIT_TESTS_NAMESPACE</REQUIRES_USERTOKEN>
 
 import System
 import System.Text.Json
 import System.Text.Json.Serialization
 import System.IO
 import Harmony.Core.FileIO
-import <UNIT_TESTS_BASE_NAMESPACE>
+import <UNIT_TESTS_NAMESPACE>
 
 main GenerateTestValues
 proc
-    <UNIT_TESTS_BASE_NAMESPACE>.UnitTestEnvironment.AssemblyInitialize(^null)
+    <UNIT_TESTS_NAMESPACE>.UnitTestEnvironment.AssemblyInitialize(^null)
     new GenerateTestValues().SerializeValues()
 endmain
 
@@ -21,7 +21,7 @@ namespace <NAMESPACE>
 
     <STRUCTURE_LOOP>
         <IF STRUCTURE_ISAM>
-        .include "<STRUCTURE_NOALIAS>" repository, record="<structureNoplural>", end
+        .include "<STRUCTURE_NOALIAS>" repository, record="<structureNoplural>Rec", end
         </IF STRUCTURE_ISAM>
     </STRUCTURE_LOOP>
 
@@ -34,12 +34,6 @@ namespace <NAMESPACE>
                 ChannelManager = new FileChannelManager()
         endmethod
 
-    <STRUCTURE_LOOP>
-        <IF STRUCTURE_ISAM>
-        private m<StructureNoplural>FileSpec, string, "<FILE_NAME>"
-        </IF STRUCTURE_ISAM>
-    </STRUCTURE_LOOP>
-
         partial method GetCustomFileSpec, void
             required inout aFileSpec, string
         endmethod
@@ -49,42 +43,33 @@ namespace <NAMESPACE>
         proc
             data chin, int
             data count, int
+            data fileSpec, string
+
 <STRUCTURE_LOOP>
   <IF STRUCTURE_ISAM>
             ;------------------------------------------------------------
             ;Test data for <StructureNoplural>
 
-            Console.WriteLine("Processing file <FILE_NAME>")
+            fileSpec = "<FILE_NAME>"
 
             ;If there is a GetCustomFileSpec method, call it
-            GetCustomFileSpec(m<StructureNoplural>FileSpec)
+            GetCustomFileSpec(fileSpec)
 
-            ;Open the data file
-            Console.WriteLine(" - Opening " + m<StructureNoplural>FileSpec + "...")
+            Console.WriteLine("Processing <StructureNoplural>")
+            Console.WriteLine(" - Opening {0}",fileSpec)
 
-            ;;------------------------------------------------------------
-            ;;Test data for <StructureNoplural>
-            chin = ChannelManager.GetChannel("<FILE_NAME>", FileOpenMode.InputIndexed)
-            
+            try
+            begin
+                chin = ChannelManager.GetChannel(fileSpec,FileOpenMode.InputIndexed)
+
 ;//
 ;// ENABLE_GET_ALL
 ;//
     <IF DEFINED_ENABLE_GET_ALL>
-            ;Total number of records
-            Console.WriteLine(" - Counting records...")
-            count = 0
-            repeat
-            begin
-                reads(chin,<structureNoplural>,eof<StructureNoplural>1)
-                count += 1
-                nextloop
-            eof<StructureNoplural>1,
-                if (count) then
-                    TestConstants.Instance.Get<StructurePlural>_Count = count
-                else
-                    Console.WriteLine("ERROR: Failed to read record from <FILE_NAME>")
-                exitloop
-            end
+                ;Total number of records
+                Console.WriteLine(" - Record count: {0}",count=%isinfo(chin,"NUMRECS"))
+                TestConstants.Instance.Get<StructurePlural>_Count = count
+
 ;//
 ;//RELATION LOGIC MISSING
     </IF DEFINED_ENABLE_GET_ALL>
@@ -92,35 +77,56 @@ namespace <NAMESPACE>
 ;// ENABLE_GET_ONE
 ;//
     <IF DEFINED_ENABLE_GET_ONE>
-            ;Get by primary key
-            Console.WriteLine(" - Determining parameters for read by primary key...")
-            repeat
-            begin
-                read(chin,<structureNoplural>,^LAST) [ERR=eof<StructureNoplural>2]
-              <PRIMARY_KEY>
-                <SEGMENT_LOOP>
-                TestConstants.Instance.Get<StructureNoplural>_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>.<segment_name>, "<FIELD_CLASS>")<ELSE SEG_TYPE_FIELD><structureNoplural>.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF DATEORTIME>
-                </SEGMENT_LOOP>
-              </PRIMARY_KEY>
-                exitloop
-            eof<StructureNoplural>2,
-                Console.WriteLine("ERROR: Failed to read first record from <FILE_NAME>")
-                exitloop
-            end
+                ;Get by primary key
+                Console.WriteLine(" - Determining parameters for read by primary key...")
+
+                if (count) then
+                begin
+                    try
+                    begin
+                        read(chin,<structureNoplural>Rec,^LAST)
+      <PRIMARY_KEY>
+        <SEGMENT_LOOP>
+                        TestConstants.Instance.Get<StructureNoplural>_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>Rec.<segment_name>, "<FIELD_CLASS>")<ELSE SEG_TYPE_FIELD><structureNoplural>Rec.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF DATEORTIME>
+        </SEGMENT_LOOP>
+      </PRIMARY_KEY>
+                    end
+                    catch (e, @Exception)
+                    begin
+                        Console.WriteLine(" - ERROR: Failed to read last record!")
+                    end
+                    endtry
+                end
+                else
+                begin
+                    Console.WriteLine(" - ERROR: Can't read by primary key because file is empty!")
+                end
 
       <IF DEFINED_ENABLE_RELATIONS>
         <IF STRUCTURE_RELATIONS>
           <RELATION_LOOP_RESTRICTED>
             <PRIMARY_KEY>
               <SEGMENT_LOOP>
-            TestConstants.Instance.Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>.<segment_name>, "<FIELD_CLASS>")<ELSE SEG_TYPE_FIELD><structureNoplural>.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF DATEORTIME>
+                <IF DATEORTIME>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>_<SegmentName> = DecToDateTime(<structureNoplural>Rec.<segment_name>, "<FIELD_CLASS>")
+                <ELSE SEG_TYPE_FIELD>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>_<SegmentName> = <structureNoplural>Rec.<segment_name>
+                <ELSE SEG_TYPE_LITERAL>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_<HARMONYCORE_RELATION_NAME>_<SegmentName> = "<SEGMENT_LITVAL>"
+                </IF>
               </SEGMENT_LOOP>
             </PRIMARY_KEY>
           </RELATION_LOOP_RESTRICTED>
 ;//
           <PRIMARY_KEY>
             <SEGMENT_LOOP>
-            TestConstants.Instance.Get<StructureNoplural>_Expand_All_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>.<segment_name>, "<FIELD_CLASS>")<ELSE SEG_TYPE_FIELD><structureNoplural>.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF DATEORTIME>
+              <IF DATEORTIME>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_All_<SegmentName> = DecToDateTime(<structureNoplural>Rec.<segment_name>, "<FIELD_CLASS>")
+              <ELSE SEG_TYPE_FIELD>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_All_<SegmentName> = <structureNoplural>Rec.<segment_name>
+              <ELSE SEG_TYPE_LITERAL>
+                TestConstants.Instance.Get<StructureNoplural>_Expand_All_<SegmentName> = "<SEGMENT_LITVAL>"
+              </IF>
             </SEGMENT_LOOP>
           </PRIMARY_KEY>
         </IF STRUCTURE_RELATIONS>
@@ -135,7 +141,13 @@ namespace <NAMESPACE>
   <ALTERNATE_KEY_LOOP_UNIQUE>
   <IF DUPLICATES>
     <SEGMENT_LOOP>
-            TestConstants.Instance.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>.<segment_name>, "<FIELD_CLASS>")<ELSE SEG_TYPE_FIELD><structureNoplural>.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF DATEORTIME>
+      <IF DATEORTIME>
+                TestConstants.Instance.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName> = DecToDateTime(<structureNoplural>Rec.<segment_name>, "<FIELD_CLASS>")
+      <ELSE SEG_TYPE_FIELD>
+                TestConstants.Instance.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName> = <structureNoplural>Rec.<segment_name>
+      <ELSE SEG_TYPE_LITERAL>
+                TestConstants.Instance.Get<StructureNoplural>_ByAltKey_<KeyName>_<SegmentName> = "<SEGMENT_LITVAL>"
+      </IF>
     </SEGMENT_LOOP>
   </IF DUPLICATES>
   </ALTERNATE_KEY_LOOP_UNIQUE>
@@ -144,22 +156,48 @@ namespace <NAMESPACE>
 ;//
   <PRIMARY_KEY>
     <SEGMENT_LOOP>
-            TestConstants.Instance.Update<StructureNoplural>_<SegmentName> = <IF DATEORTIME>DecToDateTime(<structureNoplural>.<segment_name>, "<FIELD_CLASS>").AddDays(1)<ELSE><IF SEG_TYPE_FIELD><structureNoplural>.<segment_name><ELSE SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"</IF SEG_TYPE_FIELD> + <IF ALPHA>"A"<ELSE>1</IF ALPHA></IF DATEORTIME>
+      <IF DATEORTIME>
+                TestConstants.Instance.Update<StructureNoplural>_<SegmentName> = DecToDateTime(<structureNoplural>Rec.<segment_name>, "<FIELD_CLASS>").AddDays(1)
+      <ELSE SEG_TYPE_FIELD>
+                TestConstants.Instance.Update<StructureNoplural>_<SegmentName> = <structureNoplural>Rec.<segment_name> + <IF ALPHA OR USER>"A"<ELSE>1</IF>
+      <ELSE SEG_TYPE_LITERAL>
+                TestConstants.Instance.Update<StructureNoplural>_<SegmentName> = "<SEGMENT_LITVAL>" + <IF ALPHA OR USER>"A"<ELSE>1</IF>
+      </IF>
     </SEGMENT_LOOP>
   </PRIMARY_KEY>
 
-            ChannelManager.ReturnChannel(chin)
+                ChannelManager.ReturnChannel(chin)
+
+            end
+            catch (e, @Exception)
+            begin
+                Console.WriteLine(" - ERROR: Failed to open file. Error was {0}",e.Message)
+            end
+            endtry
+
   </IF STRUCTURE_ISAM>
 </STRUCTURE_LOOP>
-
             ;Determine where to create the output file
-            data jsonFilePath = <UNIT_TESTS_BASE_NAMESPACE>.UnitTestEnvironment.FindRelativeFolderForAssembly("<UNIT_TESTS_BASE_NAMESPACE>")
+            data jsonFilePath = <UNIT_TESTS_NAMESPACE>.UnitTestEnvironment.FindRelativeFolderForAssembly("<UNIT_TESTS_NAMESPACE>")
             File.WriteAllText(Path.Combine(jsonFilePath, "TestConstants.Values.json"), JsonSerializer.Serialize(TestConstants.Instance, new JsonSerializerOptions(){ WriteIndented = true }))
+
+            ;If there is a GenerateInterfaceTestRequests method, call it
+            GenerateInterfaceTestRequests()
+
+            ;Console.WriteLine()
+            ;Console.Write("Press a key: ")
+            ;Console.ReadKey()
+            ;Console.WriteLine()
+
         endmethod
 
         ;;It may be useful to set MultiTenantProvider.TenantId to a predefined tenantid if this is used inside your custom ChannelManager
         ;;this is where ChannelManager should be set to a custom type
         partial method CustomServiceInit, void
+        endmethod
+
+        ;;This partial method is intended to allow you to call out to any <InterFaceName>TestReuests.MakeTestRequestFiles() methods
+        partial method GenerateInterfaceTestRequests, void
         endmethod
 
     endclass

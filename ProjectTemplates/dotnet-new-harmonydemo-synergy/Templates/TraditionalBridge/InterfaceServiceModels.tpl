@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><INTERFACE_NAME>ServiceModels.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.8.5</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.9.9</REQUIRES_CODEGEN_VERSION>
 <REQUIRES_USERTOKEN>MODELS_NAMESPACE</REQUIRES_USERTOKEN>
 ;//****************************************************************************
 ;//
@@ -90,6 +90,12 @@ namespace <NAMESPACE>
         <IF ALPHA>
         {StringLength(<PARAMETER_SIZE>,ErrorMessage="<PARAMETER_NAME> is limited to <PARAMETER_SIZE> characters")}
         </IF ALPHA>
+        <IF DECIMAL>
+        {Range(<PARAMETER_MINVALUE>,<PARAMETER_MAXVALUE>,ErrorMessage="<PARAMETER_NAME> must be between <PARAMETER_MINVALUE> and <PARAMETER_MAXVALUE>")}
+        </IF DECIMAL>
+        <IF INTEGER>
+        {Range(<PARAMETER_MINVALUE>,<PARAMETER_MAXVALUE>,ErrorMessage="<PARAMETER_NAME> must be between <PARAMETER_MINVALUE> and <PARAMETER_MAXVALUE>")}
+        </IF INTEGER>
         ;;; <summary>
         ;;; Parameter <PARAMETER_NUMBER> (<PARAMETER_REQUIRED> <PARAMETER_DIRECTION> <PARAMETER_DEFINITION>)
         <IF COMMENT>
@@ -98,7 +104,7 @@ namespace <NAMESPACE>
         ;;; No description found in method catalog
         </IF COMMENT>
         ;;; </summary>
-        public <PARAMETER_NAME>, <IF COLLECTION>[#]</IF><HARMONYCORE_BRIDGE_PARAMETER_TYPE><IF HANDLE>, String.Empty</IF>
+        public readwrite property <PARAMETER_NAME>, <IF COLLECTION>[#]</IF><HARMONYCORE_BRIDGE_PARAMETER_TYPE><IF HANDLE>, String.Empty</IF>
         </IF IN_OR_INOUT>
       </PARAMETER_LOOP>
 

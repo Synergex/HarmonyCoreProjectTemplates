@@ -67,7 +67,7 @@ namespace <NAMESPACE>
 			<IF STRUCTURE>
 			<PARAMETER_NAME> = new Object()
 			<ELSE>
-			<PARAMETER_NAME> = <PARAMETER_SAMPLE_DATA>
+            <PARAMETER_NAME> = <PARAMETER_SAMPLE_DATA>
 			</IF STRUCTURE>
             </IF OPTIONAL>
         </IF OUT_OR_INOUT>

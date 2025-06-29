@@ -7,18 +7,26 @@
 ;;
 ;;*****************************************************************************
 
-function GetLogicalName, string
-    required in aLogicalName, string
+function GetLogicalName, STRING
+    required in  LogicalName, string
+    required out TranslatedValue, string
+    required out ErrorMessage, string
     stack record
-        translation,    a1024
-        length,         i4
+        translation, a1024
+        length, i4
     endrecord
 proc
-    xcall getlog(aLogicalName,translation,length)
+    xcall getlog(LogicalName,translation,length)
 
-    if (length)
-        freturn translation(1:length)
-    
-    freturn ""
+    if (!length)
+    begin
+        TranslatedValue = ""
+        ErrorMessage = ""
+        freturn "ERROR"
+    end
+
+    TranslatedValue = translation(1:length)
+    ErrorMessage = ""
+    freturn "OK"
 
 endfunction

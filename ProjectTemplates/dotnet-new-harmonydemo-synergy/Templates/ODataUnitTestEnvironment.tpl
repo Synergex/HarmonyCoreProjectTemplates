@@ -164,13 +164,13 @@ namespace <NAMESPACE>
 
             if (!String.IsNullOrWhiteSpace(UnitTestEnvironment.TestRequestsFolder))
             begin
-                ;;Make sure we have a TestResponses folder
-                UnitTestEnvironment.TestResponsesFolder = UnitTestEnvironment.FindRelativeFolderForAssembly("TestResponses")
-                if (String.IsNullOrWhiteSpace(UnitTestEnvironment.TestResponsesFolder))
-                begin
-                    UnitTestEnvironment.TestResponsesFolder = UnitTestEnvironment.TestRequestsFolder.Replace("TestRequests","TestResponses")
-                    Directory.CreateDirectory(UnitTestEnvironment.TestResponsesFolder)
-                end
+            ;;Make sure we have a TestResponses folder
+            UnitTestEnvironment.TestResponsesFolder = UnitTestEnvironment.FindRelativeFolderForAssembly("TestResponses")
+            if (String.IsNullOrWhiteSpace(UnitTestEnvironment.TestResponsesFolder))
+            begin
+                UnitTestEnvironment.TestResponsesFolder = UnitTestEnvironment.TestRequestsFolder.Replace("TestRequests","TestResponses")
+                Directory.CreateDirectory(UnitTestEnvironment.TestResponsesFolder)
+            end
             end
 
 </IF DEFINED_ENABLE_SIGNALR>
@@ -269,7 +269,7 @@ namespace <NAMESPACE>
 
             dataFile = "<FILE_NAME>"
   <IF STRUCTURE_ISAM>
-            xdlFile = "@" + dataFile.Replace(".ism",".xdl", StringComparison.CurrentCultureIgnoreCase)
+            xdlFile = "@" + dataFile.ToLower().Replace(".ism",".xdl")
 
             data <structureNoplural>, @<StructureNoplural>
             open(chout=0,o:i,dataFile,FDL:xdlFile)
