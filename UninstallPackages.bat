@@ -1,2 +1,2 @@
-dotnet new -u Harmony.Core.ProjectTemplates
+dotnet new uninstall Harmony.Core.ProjectTemplates
 pause
