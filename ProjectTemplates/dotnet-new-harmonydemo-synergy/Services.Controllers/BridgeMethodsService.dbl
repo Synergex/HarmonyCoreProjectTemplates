@@ -13,6 +13,7 @@
 
 import Harmony.Core
 import Harmony.Core.Context
+import Harmony.Core.Converters
 import Harmony.Core.Interface
 import Harmony.Core.EF.Extensions
 import Harmony.OData
@@ -47,7 +48,7 @@ namespace Services.Controllers
         endmethod
 
         ;;; <summary>
-        ;;; Partial method to allow custom constructor code.
+        ;;; Partial method to allow custom constrctor code.
         ;;; </summary>
         ;;; <param name="services"></param>
         partial static method BridgeMethodsServiceCustom, void
@@ -75,6 +76,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeMethods.AddTwoNumbers_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("AddTwoNumbers"
             &   ,args.number1
@@ -98,6 +100,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeMethods.GetCustomer_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetCustomer"
             &   ,args.CustomerNumber
@@ -119,6 +122,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeMethods.GetEnvironment_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetEnvironment"
             &   )
@@ -141,6 +145,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeMethods.GetLogicalName_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetLogicalName"
             &   ,args.aLogicalName

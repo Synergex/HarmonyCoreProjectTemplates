@@ -154,7 +154,6 @@ namespace Services.Models
                     if(existing.REL_Item == ^null)
                     begin
                         existing.REL_Item = (@Item)joinedObject.Value
-                        existing.REL_Item = (@Item)joinedObject.Value
                     end
                 end
                 endusing

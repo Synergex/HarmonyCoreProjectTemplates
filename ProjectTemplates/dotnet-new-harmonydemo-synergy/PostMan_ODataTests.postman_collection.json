@@ -310,11 +310,11 @@
                     "url": {
                         "raw": "{{ServerBaseUri}}/{{ODataPath}}/v{{ApiVersion}}/Customers",
                         "host": [
-                            "{{ODataPath}}",
-                            "v{{ApiVersion}}",
                             "{{ServerBaseUri}}"
                         ],
                         "path": [
+                            "{{ODataPath}}",
+                            "v{{ApiVersion}}",
                             "Customers"
                         ]
                     }
@@ -791,11 +791,11 @@
                     "url": {
                         "raw": "{{ServerBaseUri}}/{{ODataPath}}/v{{ApiVersion}}/Items",
                         "host": [
-                            "{{ODataPath}}",
-                            "v{{ApiVersion}}",
                             "{{ServerBaseUri}}"
                         ],
                         "path": [
+                            "{{ODataPath}}",
+                            "v{{ApiVersion}}",
                             "Items"
                         ]
                     }
@@ -1211,11 +1211,11 @@
                     "url": {
                         "raw": "{{ServerBaseUri}}/{{ODataPath}}/v{{ApiVersion}}/Orders",
                         "host": [
-                            "{{ODataPath}}",
-                            "v{{ApiVersion}}",
                             "{{ServerBaseUri}}"
                         ],
                         "path": [
+                            "{{ODataPath}}",
+                            "v{{ApiVersion}}",
                             "Orders"
                         ]
                     }
@@ -1631,11 +1631,11 @@
                     "url": {
                         "raw": "{{ServerBaseUri}}/{{ODataPath}}/v{{ApiVersion}}/OrderItems",
                         "host": [
-                            "{{ODataPath}}",
-                            "v{{ApiVersion}}",
                             "{{ServerBaseUri}}"
                         ],
                         "path": [
+                            "{{ODataPath}}",
+                            "v{{ApiVersion}}",
                             "OrderItems"
                         ]
                     }
@@ -2051,11 +2051,11 @@
                     "url": {
                         "raw": "{{ServerBaseUri}}/{{ODataPath}}/v{{ApiVersion}}/Vendors",
                         "host": [
-                            "{{ODataPath}}",
-                            "v{{ApiVersion}}",
                             "{{ServerBaseUri}}"
                         ],
                         "path": [
+                            "{{ODataPath}}",
+                            "v{{ApiVersion}}",
                             "Vendors"
                         ]
                     }

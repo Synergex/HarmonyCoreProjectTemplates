@@ -1,13 +1,12 @@
-;;*****************************************************************************
-;;
-;; Title:       StartupCustom.dbl
-;;
-;; Description: Custom startup code
-;;
-;;*****************************************************************************
-;; This code was hand crafted
-;;*****************************************************************************
-;; 
+;******************************************************************************
+;
+; Title:        StartupCustom.dbl
+;
+; Description:  Custom startup code
+;
+;*****************************************************************************
+; This code was hand crafted
+;******************************************************************************
 
 import Harmony.AspNetCore
 import Harmony.AspNetCore.Context
@@ -84,8 +83,8 @@ namespace Services
             services, @IServiceCollection 
         proc
 
-            ;;---------------------------------------------------------------------
-            ;; Load logical names from appsettings.json
+            ;---------------------------------------------------------------------
+            ; Load logical names from appsettings.json
 
             data settings = _config.GetSection("AppSettings").Get<AppSettings>()
 
@@ -98,11 +97,11 @@ namespace Services
                 settings.ProcessEnvironmentVariables()
             end
 
-            ;;------------------------------------------------------------------------
-            ;;Configure a custom primary key factory to provide new primary key
-            ;;values for entities created via POST operations
+            ;------------------------------------------------------------------------
+            ;Configure a custom primary key factory to provide new primary key
+            ;values for entities created via POST operations
 
-            ;;Create a new parameter file
+            ;Create a new parameter file
             data parameterFile, string, "DAT:sysparams.ddf"
             data tmpChn = 0
             try
@@ -122,16 +121,16 @@ namespace Services
             end
             endtry
             
-            ;;Add the service
+            ;Add the service
             services.AddScoped<IPrimaryKeyFactory,PrimaryKeyGenerator>()
 
-            ;;------------------------------------------------------------------------
-            ;; Add a custom "file spec resolver" service
+            ;------------------------------------------------------------------------
+            ; Add a custom "file spec resolver" service
 
 ;            services.AddSingleton<IFileChannelManager,MyFileSpecResolver>()
 
-            ;;---------------------------------------------------------------------
-            ;; Configure the environment for our Traditional Bridge environment
+            ;---------------------------------------------------------------------
+            ; Configure the environment for our Traditional Bridge environment
 
             using bridgeMode = Environment.GetEnvironmentVariable("BRIDGE_MODE") select
             ("LOCAL", "REMOTE"),
@@ -196,8 +195,8 @@ namespace Services
             startCommand = String.Format("launch {0}",bridgeLogLevel)
 
 
-            ;; ------------------------------------------------------------------------------------
-            ;; Add a traditional bridge service for the xfServerPlus interface BridgeMethods
+            ; ------------------------------------------------------------------------------------
+            ; Add a traditional bridge service for the xfServerPlus interface BridgeMethods
 
             using bridgeMode select
             ("LOCAL"),
@@ -233,9 +232,9 @@ namespace Services
 
                 if (usePooling) then
                 begin
-                    ;; ----------------------------------------------------------------------------
-                    ;; Local pooled connection
-                    ;;
+                    ; ----------------------------------------------------------------------------
+                    ; Local pooled connection
+                    ;
                     data context, @ExternalContextPool<BridgeMethodsService>, new ExternalContextPool<BridgeMethodsService>
                     &    (
                     &    startCommand,
@@ -245,14 +244,14 @@ namespace Services
                     &    poolSize
                     &    )
 
-                    ;;Add DI service
+                    ;Add DI service
                     services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
                 end
                 else
                 begin
-                    ;; ----------------------------------------------------------------------------
-                    ;; Local non-pooled connection
-                    ;;
+                    ; ----------------------------------------------------------------------------
+                    ; Local non-pooled connection
+                    ;
                     data context, @BridgeNoPoolLocal<BridgeMethodsService>, new BridgeNoPoolLocal<BridgeMethodsService>
                     &    (
                     &    startCommand,
@@ -262,7 +261,7 @@ namespace Services
                     &    poolSize
                     &    )
 
-                    ;;Add DI service
+                    ;Add DI service
                     services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
                 end
             end
@@ -277,7 +276,7 @@ namespace Services
                     startCommand = "launch.com"
                 endusing
 
-                ;; Command to send to remote server to start a new connection.
+                ; Command to send to remote server to start a new connection.
                 startCommand    = String.Format("{0} {1}",startCommand,bridgeLogLevel)
 
                 if (usePooling) then
@@ -286,9 +285,9 @@ namespace Services
 
                     if (usePassword) then
                     begin
-                        ;; ----------------------------------------------------------------------------
-                        ;; Pooled connection authenticated via username and password
-                        ;;
+                        ; ----------------------------------------------------------------------------
+                        ; Pooled connection authenticated via username and password
+                        ;
                         context = new RemoteExternalContextPool<BridgeMethodsService>
                         &    (
                         &    bridgeOS,
@@ -303,9 +302,9 @@ namespace Services
                     end
                     else
                     begin
-                        ;; ----------------------------------------------------------------------------
-                        ;; Pooled connection authenticated via username and cryptographic key
-                        ;;
+                        ; ----------------------------------------------------------------------------
+                        ; Pooled connection authenticated via username and cryptographic key
+                        ;
                         data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
                         context = new RemoteExternalContextPool<BridgeMethodsService>
                         &    (
@@ -320,19 +319,19 @@ namespace Services
                         &    )
                     end
 
-                    ;;Add DI service
+                    ;Add DI service
                     services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
                 end
                 else
                 begin
-                    ;;No pooling
+                    ;No pooling
                     data context, @BridgeNoPoolRemote<BridgeMethodsService>
 
                     if (usePassword) then
                     begin
-                        ;; ----------------------------------------------------------------------------
-                        ;; Non-pooled connection authenticated via username and password
-                        ;;
+                        ; ----------------------------------------------------------------------------
+                        ; Non-pooled connection authenticated via username and password
+                        ;
                         context = new BridgeNoPoolRemote<BridgeMethodsService>
                         &    (
                         &    bridgeOS,
@@ -347,9 +346,9 @@ namespace Services
                     end
                     else
                     begin
-                        ;; ----------------------------------------------------------------------------
-                        ;; Non-pooled connection authenticated via username and cryptographic key
-                        ;;
+                        ; ----------------------------------------------------------------------------
+                        ; Non-pooled connection authenticated via username and cryptographic key
+                        ;
                         data keyFiles = new PrivateKeyFile[#] { new PrivateKeyFile(bridgeCryptoKey) }
                         context = new BridgeNoPoolRemote<BridgeMethodsService>
                         &    (
@@ -365,17 +364,17 @@ namespace Services
                         &    )
                     end
 
-                    ;;Add DI service
+                    ;Add DI service
                     services.AddSingleton<IContextFactory<BridgeMethodsService>>(context)
                 end
             end
             endusing
 
-            ;;Add the traditional bridge services as DI services
+            ;Add the traditional bridge services as DI services
             services.AddContextPool<BridgeMethodsService>()
 
-            ;;------------------------------------------------------------------------
-            ;; Enable "SignalR" support
+            ;------------------------------------------------------------------------
+            ; Enable "SignalR" support
 
             ;services.AddSignalR()
 
@@ -391,11 +390,11 @@ namespace Services
             required in env, @IHostingEnvironment
         proc
 
-            ;;------------------------------------------------------------------------
-            ;; If you need to call a traditional bridge method during startup, this is
-            ;; a good place to do so. Here is an example!
+            ;------------------------------------------------------------------------
+            ; If you need to call a traditional bridge method during startup, this is
+            ; a good place to do so. Here is an example!
 
-            ;; Get an instance of the traditional bidge service
+            ; Get an instance of the traditional bidge service
             data factory = (IContextFactory<BridgeMethodsService>)app.ApplicationServices.GetService(^typeof(IContextFactory<BridgeMethodsService>))
             data service = factory.MakeContext(app.ApplicationServices)
 
@@ -403,10 +402,10 @@ namespace Services
             begin
                 Console.Write("Determining traditional Synergy environment")
                 data responseTask, @Task<BridgeMethods.GetEnvironment_Response>
-                ;; Call the method and wait for the async call to complete
+                ; Call the method and wait for the async call to complete
                 responseTask = service.GetEnvironment()
                 responseTask.Wait()
-                ;; Extract the response
+                ; Extract the response
                 Console.WriteLine(" ... done")
                 Console.WriteLine("Traditional Synergy environment is {0}",responseTask.Result.ReturnValue)
             end
@@ -417,73 +416,73 @@ namespace Services
             end
             finally
             begin
-                ;; Return the service instance to the pool for re-use
+                ; Return the service instance to the pool for re-use
                 factory.ReturnContext(service)
             end
             endtry
 
-            ;;------------------------------------------------------------------------
-            ;; Enable SignalR
-
-            ;lambda mapRoutes(route)
-            ;begin
-            ;    route.MapHub<aspHub>(new PathString("/hub/asp"))
-            ;end
-            ;
-            ;app.UseSignalR(mapRoutes)
-
+;            ;------------------------------------------------------------------------
+;            ; Enable SignalR
+;
+;            lambda mapRoutes(route)
+;            begin
+;                route.MapHub<aspHub>(new PathString("/hub/asp"))
+;            end
+;            
+;            app.UseSignalR(mapRoutes)
+;
         endmethod
 
-        ;;; <summary>
-        ;;; 
-        ;;; </summary>
-        ;;; <param name="app"></param>
-        ;;; <param name="env"></param>
-        ;partial method ConfigureCustomBeforeMvc, void
-        ;    required in app, @IApplicationBuilder
-        ;    required in env, @IHostingEnvironment
-        ;proc
-        ;    app.UseMultiTenancy(GetTenantId)
-        ;endmethod
+;        ;;; <summary>
+;        ;;; 
+;        ;;; </summary>
+;        ;;; <param name="app"></param>
+;        ;;; <param name="env"></param>
+;        partial method ConfigureCustomBeforeMvc, void
+;            required in app, @IApplicationBuilder
+;            required in env, @IHostingEnvironment
+;        proc
+;            app.UseMultiTenancy(GetTenantId)
+;        endmethod
 
-        ;;; <summary>
-        ;;; 
-        ;;; </summary>
-        ;;; <param name="httpCtx"></param>
-        ;;; <returns></returns>
-        ;private method GetTenantId, string
-        ;    required in context, @HttpContext
-        ;proc
-        ;    ; Do we have a JWT?
-        ;    data identity = ^as(context.User.Identity,System.Security.Claims.ClaimsIdentity)
-        ;    data defaultCompany = identity?.FindFirst("DefaultCompany")?.Value
-        ;    data allowedCompanies = identity?.FindFirst("AllowedCompanies")?.Value
-        ;
-        ;    ;;Do we have an x-tenant-id header?
-        ;    data xTenantId, string
-        ;    data xTenantIdValues, StringValues
-        ;    if(context.Request.Headers.TryGetValue("X-TENANT-ID", xTenantIdValues) && xTenantIdValues.Count == 1)
-        ;    begin
-        ;        xTenantId = xTenantIdValues.ToArray().First().ToUpper()
-        ;    end
-        ;
-        ;    ;;If we have x-tenant-id and it specifies a company the user has access to, use it.
-        ;    if (!String.IsNullOrWhiteSpace(xTenantId)
-        ;    &    && !String.IsNullOrWhiteSpace(defaultCompany) 
-        ;    &    && !String.IsNullOrWhiteSpace(allowedCompanies) 
-        ;    &    && String.Format(",{0},",allowedCompanies).Contains(String.Format(",{0},",xTenantId))) then
-        ;    begin
-        ;        mreturn xTenantId
-        ;    end
-        ;    else if (!String.IsNullOrWhiteSpace(defaultCompany))
-        ;    begin
-        ;        ;;Otherwise, use the users default company
-        ;        mreturn defaultCompany
-        ;    end
-        ;
-        ;    mreturn ^null
-        ;
-        ;endmethod
+;        ;;; <summary>
+;        ;;; 
+;        ;;; </summary>
+;        ;;; <param name="httpCtx"></param>
+;        ;;; <returns></returns>
+;        private method GetTenantId, string
+;            required in context, @HttpContext
+;        proc
+;            ;Do we have a JWT?
+;            data identity = ^as(context.User.Identity,System.Security.Claims.ClaimsIdentity)
+;            data defaultCompany = identity?.FindFirst("DefaultCompany")?.Value
+;            data allowedCompanies = identity?.FindFirst("AllowedCompanies")?.Value
+;        
+;            ;Do we have an x-tenant-id header?
+;            data xTenantId, string
+;            data xTenantIdValues, StringValues
+;            if(context.Request.Headers.TryGetValue("X-TENANT-ID", xTenantIdValues) && xTenantIdValues.Count == 1)
+;            begin
+;                xTenantId = xTenantIdValues.ToArray().First().ToUpper()
+;            end
+;        
+;            ;If we have x-tenant-id and it specifies a company the user has access to, use it.
+;            if (!String.IsNullOrWhiteSpace(xTenantId)
+;            &    && !String.IsNullOrWhiteSpace(defaultCompany) 
+;            &    && !String.IsNullOrWhiteSpace(allowedCompanies) 
+;            &    && String.Format(",{0},",allowedCompanies).Contains(String.Format(",{0},",xTenantId))) then
+;            begin
+;                mreturn xTenantId
+;            end
+;            else if (!String.IsNullOrWhiteSpace(defaultCompany))
+;            begin
+;                ;Otherwise, use the users default company
+;                mreturn defaultCompany
+;            end
+;        
+;            mreturn ^null
+;        
+;        endmethod
 
         ;;; <summary>
         ;;; 
