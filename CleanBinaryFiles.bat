@@ -51,6 +51,7 @@ if exist TraditionalBridge\obj\. rd /s /q TraditionalBridge\obj
 popd
 
 pushd ProjectTemplates\dotnet-new-harmonydemo-synergy
+if exist .vs\. rd /s /q .vs
 if exist obj\. rd /s /q obj
 if exist packages\. rd /s /q packages
 if exist PUBLISH\. rd /s /q PUBLISH
@@ -84,7 +85,12 @@ if exist Services.Models\bin\. rd /s /q Services.Models\bin
 if exist Services.Models\obj\. rd /s /q Services.Models\obj
 if exist TraditionalBridge\.intellisense\. rd /s /q TraditionalBridge\.intellisense
 if exist TraditionalBridge\bin\. rd /s /q TraditionalBridge\bin
+if exist TraditionalBridge\EXE\*.log del /q TraditionalBridge\EXE\*.log > nul
+if exist TraditionalBridge\EXE\*.dbp del /q TraditionalBridge\EXE\*.dbp > nul
+if exist TraditionalBridge\EXE\*.dbr del /q TraditionalBridge\EXE\*.dbr > nul
+if exist TraditionalBridge\EXE\*.bat del /q TraditionalBridge\EXE\*.bat > nul
 if exist TraditionalBridge\obj\. rd /s /q TraditionalBridge\obj
+if exist regen_last.bat del /q regen_last.bat > nul
 popd
 
 popd

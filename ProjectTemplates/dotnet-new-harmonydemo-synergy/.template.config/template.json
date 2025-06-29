@@ -73,7 +73,7 @@
     ],
   "primaryOutputs": [
     {
-      "path": "HarmonyCoreDemo.sln"
+      "path": "HarmonyCoreService.sln"
     },
     {
       "path": "Repository/Repository.synproj"
