@@ -137,11 +137,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publish", "Publish", "{02EA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinuxFiles", "LinuxFiles", "{7D6A3BBB-4BB7-497D-A0E7-A82AF2886E53}"
 	ProjectSection(SolutionItems) = preProject
-		Publish\LinuxFiles\check = Publish\LinuxFiles\check
-		Publish\LinuxFiles\dump = Publish\LinuxFiles\dump
-		Publish\LinuxFiles\startserver = Publish\LinuxFiles\startserver
+		Publish\LinuxFiles\check.bash = Publish\LinuxFiles\check.bash
+		Publish\LinuxFiles\dump.bash = Publish\LinuxFiles\dump.bash
+		Publish\LinuxFiles\startserver.bash = Publish\LinuxFiles\startserver.bash
 		Publish\LinuxFiles\startserver.LinuxDemo.config = Publish\LinuxFiles\startserver.LinuxDemo.config
-		Publish\LinuxFiles\stopserver = Publish\LinuxFiles\stopserver
+		Publish\LinuxFiles\stopserver.bash = Publish\LinuxFiles\stopserver.bash
 	EndProjectSection
 EndProject
 Global
