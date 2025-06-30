@@ -213,10 +213,10 @@ if exist TraditionalBridge\launch (
 
 echo Providing service configuration and control scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\startserver" "%DeployDir%\startserver" > nul 2>&1
+copy /y "%SolutionDir%Publish\LinuxFiles\startserver.bash" "%DeployDir%\startserver" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\startserver"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\stopserver" "%DeployDir%\stopserver" > nul 2>&1
+copy /y "%SolutionDir%Publish\LinuxFiles\stopserver.bash" "%DeployDir%\stopserver" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\stopserver"
 
 copy /y "%SolutionDir%Publish\LinuxFiles\startserver.*.config" "%DeployDir%" > nul 2>&1
@@ -226,10 +226,10 @@ copy /y "%SolutionDir%Publish\LinuxFiles\startserver.*.config" "%DeployDir%" > n
 
 echo Providing useful utility scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\check" "%DeployDir%\check" > nul 2>&1
+copy /y "%SolutionDir%Publish\LinuxFiles\check.bash" "%DeployDir%\check" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\check"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\dump" "%DeployDir%\dump" > nul 2>&1
+copy /y "%SolutionDir%Publish\LinuxFiles\dump.bash" "%DeployDir%\dump" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\dump"
 
 ::-----------------------------------------------------------------------------
