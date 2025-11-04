@@ -213,11 +213,11 @@ if exist TraditionalBridge\launch (
 
 echo Providing service configuration and control scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\startserver.bash" "%DeployDir%\startserver" > nul 2>&1
-"%DOS2UNIXEXE%" -q "%DeployDir%\startserver"
+copy /y "%SolutionDir%Publish\LinuxFiles\startserver.sh" "%DeployDir%\startserver.sh" > nul 2>&1
+"%DOS2UNIXEXE%" -q "%DeployDir%\startserver.sh"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\stopserver.bash" "%DeployDir%\stopserver" > nul 2>&1
-"%DOS2UNIXEXE%" -q "%DeployDir%\stopserver"
+copy /y "%SolutionDir%Publish\LinuxFiles\stopserver.sh" "%DeployDir%\stopserver.sh" > nul 2>&1
+"%DOS2UNIXEXE%" -q "%DeployDir%\stopserver.sh"
 
 copy /y "%SolutionDir%Publish\LinuxFiles\startserver.*.config" "%DeployDir%" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\startserver.*.config"
@@ -226,11 +226,11 @@ copy /y "%SolutionDir%Publish\LinuxFiles\startserver.*.config" "%DeployDir%" > n
 
 echo Providing useful utility scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\check.bash" "%DeployDir%\check" > nul 2>&1
-"%DOS2UNIXEXE%" -q "%DeployDir%\check"
+copy /y "%SolutionDir%Publish\LinuxFiles\check.sh" "%DeployDir%\check.sh" > nul 2>&1
+"%DOS2UNIXEXE%" -q "%DeployDir%\check.sh"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\dump.bash" "%DeployDir%\dump" > nul 2>&1
-"%DOS2UNIXEXE%" -q "%DeployDir%\dump"
+copy /y "%SolutionDir%Publish\LinuxFiles\dump.sh" "%DeployDir%\dump.sh" > nul 2>&1
+"%DOS2UNIXEXE%" -q "%DeployDir%\dump.sh"
 
 ::-----------------------------------------------------------------------------
 :: Provide an SSL certificate
