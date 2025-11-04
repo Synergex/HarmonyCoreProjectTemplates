@@ -25,7 +25,7 @@ proc
 
     try
     begin
-        open(ch=0,i:i,"DAT:employee.ism")
+        open(ch=0,i:i,"DAT:customers.ism")
         read(ch,CustomerRecord,CustomerID)
     end
     catch (e, @KeyNotSameException)

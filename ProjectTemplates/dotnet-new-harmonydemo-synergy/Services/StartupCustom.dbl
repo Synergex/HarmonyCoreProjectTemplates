@@ -187,7 +187,7 @@ namespace Services
                     end
                     else
                     begin
-                        startScript = "launch"
+                        startScript = "launch.sh"
                         startParameters = settings.Bridge.LogLevel.ToString()
                     end
 
@@ -299,13 +299,13 @@ namespace Services
                     (ServerOS.Linux),
                     begin
                         bridgeOS = RemoteTargetOS.Linux
-                        startCommand = "launch"
+                        startCommand = "launch.sh"
                         startParameters = String.Format("{0}",settings.Bridge.LogLevel)
                     end
                     (ServerOS.Unix),
                     begin
                         bridgeOS = RemoteTargetOS.Unix
-                        startCommand = "launch"
+                        startCommand = "launch.sh"
                         startParameters = String.Format("{0}",settings.Bridge.LogLevel)
                     end
                     (ServerOS.VMS),
