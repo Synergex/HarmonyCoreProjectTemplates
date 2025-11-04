@@ -23,7 +23,7 @@ namespace TraditionalBridge.Dispatchers
             mDispatchStubs.Add("GetCustomer", new GetCustomer_Dispatcher())
             mDispatchStubs.Add("GetEnvironment", new GetEnvironment_Dispatcher())
             mDispatchStubs.Add("GetLogicalName", new GetLogicalName_Dispatcher())
-            mDispatchStubs.Add("LoremIpsumBridge", new LoremIpsumBridge_Dispatcher())
+            mDispatchStubs.Add("LoremIpsum", new LoremIpsum_Dispatcher())
             mDispatchStubs.Add("StuckProcessTest", new StuckProcessTest_Dispatcher())
             InitHook()
         endmethod

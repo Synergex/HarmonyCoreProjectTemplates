@@ -153,13 +153,13 @@ namespace BridgeAPI
 
 
 ;;--------------------------------------------------------------------------------
-;; LoremIpsumBridge
+;; LoremIpsum
 
     {JsonObject(MemberSerialization.OptIn)}
     ;;; <summary>
-    ;;; Represents IN parameters for method BridgeAPI.LoremIpsumBridge.
+    ;;; Represents IN parameters for method BridgeAPI.LoremIpsum.
     ;;; </summary>
-    public class LoremIpsumBridge_Request
+    public class LoremIpsum_Request
 
         {JsonProperty}
         {Required(ErrorMessage="RecordsToReturn is required")}
@@ -174,9 +174,9 @@ namespace BridgeAPI
 
     {JsonObject(MemberSerialization.OptIn)}
     ;;; <summary>
-    ;;; Represents OUT parameters and return value for method BridgeAPI.LoremIpsumBridge.
+    ;;; Represents OUT parameters and return value for method BridgeAPI.LoremIpsum.
     ;;; </summary>
-    public class LoremIpsumBridge_Response
+    public class LoremIpsum_Response
 
         {JsonProperty}
         ;;; <summary>

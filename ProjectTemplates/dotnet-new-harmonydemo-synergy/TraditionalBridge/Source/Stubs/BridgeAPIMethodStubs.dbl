@@ -91,7 +91,7 @@ endfunction
 ;;--------------------------------------------------------------------------------------------------
 ;; LoremIpsum (A test method that returns Lorem Ipsum data)
 ;;
-{xfMethod(name="LoremIpsumBridge",id="LoremIpsum",interface="BridgeAPI",elb="EXE:bridgeapi")}
+{xfMethod(name="LoremIpsum",id="LoremIpsum",interface="BridgeAPI",elb="EXE:bridgeapi")}
 ;;; <summary>
 ;;; A test method that returns Lorem Ipsum data
 ;;; </summary>

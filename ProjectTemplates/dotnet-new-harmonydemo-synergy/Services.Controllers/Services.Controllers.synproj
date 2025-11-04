@@ -60,6 +60,7 @@
     <Compile Include="BridgeAPIController.dbl" />
     <Compile Include="BridgeAPIService.dbl" />
     <Compile Include="CustomersController.dbl" />
+    <Compile Include="CustomFunctionsController.dbl" />
     <Compile Include="IsolatedMethodsBase.dbl" />
     <Compile Include="ItemsController.dbl" />
     <Compile Include="OrderItemsController.dbl" />

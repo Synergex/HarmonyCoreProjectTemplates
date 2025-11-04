@@ -119,7 +119,7 @@ namespace Services.Controllers
         endmethod
 
         {HttpPost}
-        {Route("LoremIpsumBridge")}
+        {Route("LoremIpsum")}
         {Consumes(MediaTypeNames.Application.Json)}
         {Produces("application/json")}
         ;;; <summary>
@@ -132,11 +132,11 @@ namespace Services.Controllers
         ;;; <response code="400">Bad request. The request was malformed or contained inappropriate content.</response>
         ;;; <response code="500">Internal server error. Report the issue to the API maintainer.</response>
         ;;; <returns>Returns OK or ERROR</returns>
-        public async method LoremIpsumBridge, @Task<ActionResult<LoremIpsumBridge_Response>>
+        public async method LoremIpsum, @Task<ActionResult<LoremIpsum_Response>>
             {FromBody}
-            required in aRequest, @LoremIpsumBridge_Request
+            required in aRequest, @LoremIpsum_Request
         proc
-            mreturn ok(await _BridgeAPIService.LoremIpsumBridge(aRequest))
+            mreturn ok(await _BridgeAPIService.LoremIpsum(aRequest))
         endmethod
 
         {HttpPost}

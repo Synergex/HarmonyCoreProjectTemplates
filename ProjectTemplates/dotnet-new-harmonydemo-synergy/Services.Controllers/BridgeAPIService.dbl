@@ -149,14 +149,14 @@ namespace Services.Controllers
         ;;; <summary>
         ;;; A test method that returns Lorem Ipsum data
         ;;; </summary>
-        public async method LoremIpsumBridge, @Task<BridgeAPI.LoremIpsumBridge_Response>
-            required in args, @BridgeAPI.LoremIpsumBridge_Request
+        public async method LoremIpsum, @Task<BridgeAPI.LoremIpsum_Response>
+            required in args, @BridgeAPI.LoremIpsum_Request
         proc
             ;;Prepare the response object
-            data response = new BridgeAPI.LoremIpsumBridge_Response()
+            data response = new BridgeAPI.LoremIpsum_Response()
 
             ;;Make the JSON-RPC call the traditional Synergy routine
-            data resultTuple = await CallMethod("LoremIpsumBridge"
+            data resultTuple = await CallMethod("LoremIpsum"
             &   ,args.RecordsToReturn
             &   ,ArgumentHelper.MaybeNull(response.Records)
             &   ,ArgumentHelper.MaybeNull(response.ErrorMessage)

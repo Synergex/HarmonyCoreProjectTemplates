@@ -82,7 +82,7 @@
 			"response": []
 		},
 		{
-			"name": "LoremIpsumBridge",
+			"name": "LoremIpsum",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -98,13 +98,13 @@
 					"raw": "{ \n\t\"RecordsToReturn\": 9 \n}"
 				},
 				"url": {
-					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/LoremIpsumBridge",
+					"raw": "{{BridgeBaseUri}}/{{ControllerPath}}/LoremIpsum",
 					"host": [
 						"{{BridgeBaseUri}}"
 					],
 					"path": [
 						"{{ControllerPath}}",
-						"LoremIpsumBridge"
+						"LoremIpsum"
 					]
 				}
 			},

@@ -138,7 +138,7 @@
         </comment>
       </param>
     </method>
-    <method name="LoremIpsumBridge" id="LoremIpsum" routine="LoremIpsum" elb="EXE:bridgeapi">
+    <method name="LoremIpsum" id="LoremIpsum" routine="LoremIpsum" elb="EXE:bridgeapi">
       <comment>
         <line1>A test method that returns Lorem Ipsum data</line1>
       </comment>

@@ -56,6 +56,10 @@ namespace Services.Models
             AddFieldInfo("TaxId", "DECIMAL", 9, 146, 0, false)
             AddFieldInfo("CreditLimit", "IMPLIED", 7, 155, 02, false)
 
+            ;; Define relations
+            AddFieldInfo("REL_Orders", "COLLECTION", 0, 0, 0, false)
+            AddFieldInfo("REL_Item", "DATAOBJECT", 0, 0, 0, false)
+
             ;; Define all fields that are associated wity key segments
             AddKeyInfo(0, "CustomerNumber")
             AddKeyInfo(1, "State")
@@ -93,6 +97,7 @@ namespace Services.Models
 
         ;;; <summary>
         ;;; Returns a new Customers object containing data from a record and a GRFA.
+        ;;; The related data properties (REL_Orders and REL_Item) will not be populated.
         ;;; </summary>
         ;;; <param name="dataArea">The record containing the data for the new Customers object.</param>
         ;;; <param name="grfa">The GRFA associated with the current state of the data.</param>
@@ -106,10 +111,11 @@ namespace Services.Models
 
         ;;; <summary>
         ;;; Returns a new Customers object containing data from a record and a GRFA.
+        ;;; The related data properties (REL_Orders and REL_Item) will be populated.
         ;;; </summary>
         ;;; <param name="dataArea">The record containing the data for the new Customers object.</param>
         ;;; <param name="grfa">The GRFA associated with the current state of the data.</param>
-        ;;; <param name="joinedObjects">Data to allow the related data properties to be populated.</param>
+        ;;; <param name="joinedObjects">Data to allow the related data properties (REL_Orders and REL_Item) to be populated.</param>
         ;;; <returns></returns>
         public override method MakeNew, @DataObjectBase
             required in dataArea, a
@@ -132,6 +138,26 @@ namespace Services.Models
             required in existing, @Customers
             required in joinedObjects, [#]KeyValuePair<String, Object>
         proc
+            data joinedObject, KeyValuePair<String, Object>
+            foreach joinedObject in joinedObjects
+            begin
+                using joinedObject.Key select
+                ("REL_Orders"),
+                begin
+                    if(existing.REL_Orders == ^null)
+                    begin
+                        existing.REL_Orders = (@ICollection<Orders>)joinedObject.Value
+                    end
+                end
+                ("REL_Item"),
+                begin
+                    if(existing.REL_Item == ^null)
+                    begin
+                        existing.REL_Item = (@Items)joinedObject.Value
+                    end
+                end
+                endusing
+            end
         endmethod
 
         ;;; <summary>

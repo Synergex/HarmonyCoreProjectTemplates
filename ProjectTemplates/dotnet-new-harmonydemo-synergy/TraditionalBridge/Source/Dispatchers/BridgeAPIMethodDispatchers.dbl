@@ -233,12 +233,12 @@ namespace TraditionalBridge.Dispatchers.BridgeAPI
 
     ;;-------------------------------------------------------------------------
     ;;; <summary>
-    ;;; Dispatcher for method BridgeAPI.LoremIpsumBridge
+    ;;; Dispatcher for method BridgeAPI.LoremIpsum
     ;;; </summary>
-    public class LoremIpsumBridge_Dispatcher extends RoutineStub
+    public class LoremIpsum_Dispatcher extends RoutineStub
 
 
-        public method LoremIpsumBridge_Dispatcher
+        public method LoremIpsum_Dispatcher
         proc
             ;;Initialize the meta data for any data objects that are used by parameters to the method
         endmethod

@@ -365,6 +365,47 @@ namespace Services.Models
 
 .endregion
 
+.region "Relationships to other entities"
+
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
+        ;;; <summary>
+        ;;; Relationship (Type D)
+        ;;; CUSTOMERS.CUSTOMER_NUMBER (one) <-> (many) ORDERS.CUSTOMER_NUMBER
+        ;;; </summary>
+        public readwrite property REL_Orders, @ICollection<Orders>
+
+        {Newtonsoft.Json.JsonProperty(DefaultValueHandling=DefaultValueHandling.Ignore)}
+        ;;; <summary>
+        ;;; Relationship (Type C)
+        ;;; CUSTOMERS.FAVORITE_ITEM (one) --> (one) ITEMS.ITEM_NUMBER
+        ;;; </summary>
+        public readwrite property REL_Item, @Items
+
+.endregion
+
+.region "Relation validation"
+
+        ;;; <summary>
+        ;;; Validate data
+        ;;; </summary>
+        ;;; <param name="type">Validation type (create, update or delete)</param>
+        ;;; <param name="sp">Serices provider</param>
+        public override method Validate, void
+            required in vType, ValidationType
+            required in sp, @IServiceProvider
+        proc
+            ;;If we have a ValidateCustom method, call it
+            ValidateCustom(vType,sp)
+
+        endmethod
+
+        private partial method ValidateCustom, void
+            required in vType, ValidationType
+            required in sp, @IServiceProvider
+        endmethod
+
+.endregion
+
 .region "Properties to represent keys"
 
         ;;Access keys
@@ -374,11 +415,11 @@ namespace Services.Models
             method get
             proc
                 mreturn CustomerNumber.ToString()
-
+                
             endmethod
             method set
             proc
-
+                
             endmethod
         endproperty
 
@@ -387,11 +428,11 @@ namespace Services.Models
             method get
             proc
                 mreturn State.ToString()
-
+                
             endmethod
             method set
             proc
-
+                
             endmethod
         endproperty
 
@@ -400,11 +441,11 @@ namespace Services.Models
             method get
             proc
                 mreturn ZipCode.ToString()
-
+                
             endmethod
             method set
             proc
-
+                
             endmethod
         endproperty
 
@@ -413,11 +454,11 @@ namespace Services.Models
             method get
             proc
                 mreturn PaymentTermsCode.ToString()
-
+                
             endmethod
             method set
             proc
-
+                
             endmethod
         endproperty
 
@@ -428,11 +469,11 @@ namespace Services.Models
             method get
             proc
                 mreturn FavoriteItem.ToString()
-
+                
             endmethod
             method set
             proc
-
+                
             endmethod
         endproperty
 

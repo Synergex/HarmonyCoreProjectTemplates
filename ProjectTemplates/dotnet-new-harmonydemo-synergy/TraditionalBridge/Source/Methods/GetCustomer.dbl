@@ -20,6 +20,8 @@ function GetCustomer, string
     endrecord
 proc
     retval = "OK"
+    init CustomerRecord
+    ErrorMessage = ""
 
     try
     begin
