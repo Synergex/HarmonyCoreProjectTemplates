@@ -29,7 +29,39 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <TargetISAM4>False</TargetISAM4>
   </PropertyGroup>
-  <ItemGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>.\</OutputPath>
+    <UnevaluatedOutputPath>.\</UnevaluatedOutputPath>
+    <MOutputName>rpsmain</MOutputName>
+    <TOutputName>rpstext</TOutputName>
+    <PlatformTarget>x64</PlatformTarget>
+    <TargetISAM4>False</TargetISAM4>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>.\</OutputPath>
+    <UnevaluatedOutputPath>.\</UnevaluatedOutputPath>
+    <MOutputName>rpsmain</MOutputName>
+    <TOutputName>rpstext</TOutputName>
+    <PlatformTarget>x64</PlatformTarget>
+    <TargetISAM4>False</TargetISAM4>
+  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|linux64' ">
+		<OutputPath>.\</OutputPath>
+		<UnevaluatedOutputPath>.\</UnevaluatedOutputPath>
+		<MOutputName>rpsmain</MOutputName>
+		<TOutputName>rpstext</TOutputName>
+		<PlatformTarget>linux64</PlatformTarget>
+		<TargetISAM4>False</TargetISAM4>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|linux64' ">
+		<OutputPath>.\</OutputPath>
+		<UnevaluatedOutputPath>.\</UnevaluatedOutputPath>
+		<MOutputName>rpsmain</MOutputName>
+		<TOutputName>rpstext</TOutputName>
+		<PlatformTarget>linux64</PlatformTarget>
+		<TargetISAM4>False</TargetISAM4>
+	</PropertyGroup>
+	<ItemGroup>
     <Compile Include="repository.scm" />
   </ItemGroup>
   <PropertyGroup>
@@ -38,11 +70,11 @@
     <PostBuildEvent>
     </PostBuildEvent>
   </PropertyGroup>
-  
-  
-<Import Project="$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\24.9.2004\build\rps\Synergex.SynergyDE.Build.targets" Condition="Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\24.9.2004\build\rps\Synergex.SynergyDE.Build.targets')" /><Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-<PropertyGroup>
-<ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-</PropertyGroup>
-<Error Condition="!Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\24.9.2004\build\rps\Synergex.SynergyDE.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\24.9.2004\build\rps\Synergex.SynergyDE.Build.targets'))" />
-</Target></Project>
+  <Import Project="$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\25.6.1647\build\rps\Synergex.SynergyDE.Build.targets" Condition="Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\25.6.1647\build\rps\Synergex.SynergyDE.Build.targets')" />
+    <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\25.6.1647\build\rps\Synergex.SynergyDE.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(USERPROFILE)\.nuget\packages\synergex.synergyde.build\25.6.1647\build\rps\Synergex.SynergyDE.Build.targets'))" />
+  </Target>
+</Project>

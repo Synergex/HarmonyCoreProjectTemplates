@@ -1,8 +1,10 @@
 @echo off
 
-:: Publishes the Harmony Core service for deployment to either Windows or Linux
+rem Publishes the Harmony Core service for deployment to either Windows or Linux
 
-:: If we have no parameters, show usage info
+rem ---------------------------------------------------------------------------
+rem If we have no parameters, show usage info
+
 if /i "%1" == "" (
     echo.
     echo Usage: publish WINDOWS [DEBUG]
@@ -13,23 +15,49 @@ if /i "%1" == "" (
 
 setlocal ENABLEEXTENSIONS ENABLEDELAYEDEXPANSION
 
-set SolutionDir=%~dp0..\
-pushd "%SolutionDir%"
-
-::-----------------------------------------------------------------------------
-:: Options
+rem ---------------------------------------------------------------------------
+rem Options
 
 set PROVIDE_SAMPLE_DATA=YES
 
-::-----------------------------------------------------------------------------
-:: Set up the environment
+rem ---------------------------------------------------------------------------
+rem Make sure we're in the solution directory
+
+set SolutionDir=%~dp0
+pushd "%SolutionDir%"
+
+rem ---------------------------------------------------------------------------
+rem First clean the environment to ensure a complete rebuild
+
+if exist CleanBinaryFiles.bat call CleanBinaryFiles.bat > nul 2>&1
+
+rem ---------------------------------------------------------------------------
+rem Make sure we have the VS installer
+
+if not exist "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" (
+    echo ERROR: The Visual Studio Installer is not installed!
+    goto fail
+)
+
+rem ---------------------------------------------------------------------------
+rem Locate MSBuild (VS 2019/2022) via vswhere
+
+set MSBUILD=
+for /f "usebackq tokens=*" %%A in (`"%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe`) do set MSBUILD=%%A
+if not defined MSBUILD (
+    echo ERROR: Failed to detect MSBUILD location!
+    goto fail
+)
+
+rem ---------------------------------------------------------------------------
+rem Set up the environment
 
 set SYNCMPOPT=-WD=316
 
 if not defined RPSMFIL set RPSMFIL="%SolutionDir%Repository\rpsmain.ism"
 if not defined RPSTFIL set RPSTFIL="%SolutionDir%Repository\rpstext.ism"
 
-:: Are we targeting Windows or Linux?
+rem Are we targeting Windows or Linux?
 set TARGET=
 if /i "%1" == "WINDOWS" set TARGET=WINDOWS
 if /i "%1" == "LINUX"   set TARGET=LINUX
@@ -40,16 +68,17 @@ if not defined TARGET (
     goto fail
 )
 
-:: Check for dos2unix tool
+  rem Check for dos2unix tool
 set DOS2UNIXEXE=%SolutionDir%Tools\dos2unix.exe
-if not exist "%DOS2UNIXEXE%" (
+if /i "%TARGET%" equ "LINUX" (
+  if not exist "%DOS2UNIXEXE%" (
     echo.
     echo ERROR: The dos2unix tool is not present!
     echo.
     goto fail
+  )
 )
-
-:: Check for 7-zip
+rem Check for 7-zip
 set SEVENZIPEXE=%ProgramW6432%\7-zip\7z.exe
 if not exist "%SEVENZIPEXE%" (
     echo.
@@ -58,24 +87,24 @@ if not exist "%SEVENZIPEXE%" (
     goto fail
 )
 
-:: Release or Debug?
+rem Release or Debug?
 set CONFIGURATION=Release
 if /i "%2" == "DEBUG" set CONFIGURATION=Debug
 
 set HC_PLATFORM=AnyCPU
 
-:: Set the harmony core runtime based on the target
+rem Set the harmony core runtime based on the target
 if "%TARGET%" == "WINDOWS" set HC_RUNTIME=win-x64
 if "%TARGET%" == "LINUX"   set HC_RUNTIME=linux-x64
 
-:: Set the traditional bridge platform based on the target
+rem Set the traditional bridge platform based on the target
 if "%TARGET%" == "WINDOWS" set BRIDGE_PLATFORM=x64
 if "%TARGET%" == "LINUX"   set BRIDGE_PLATFORM=linux64
 
-:: Set up the deployment directory
+rem Set up the deployment directory
 set DeployDir=%SolutionDir%PUBLISH\%TARGET%TMP
 
-:: If there is an old PUBLISH folder, delete it
+rem If there is an old PUBLISH folder, delete it
 if exist "%DeployDir%\." rmdir /S /Q "%DeployDir%" > nul 2>&1
 if exist "%DeployDir%\." (
     echo.
@@ -84,24 +113,24 @@ if exist "%DeployDir%\." (
     goto fail
 )
 
-:: And create a new one
+rem And create a new one
 mkdir "%DeployDir%"
 
-:: Set release date/time stamp
-for /f %%i in ('powershell -command "[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss')"') do set DateTimeStamp=%%i
+rem Set release date/time stamp
+for /f %%i in ('powershell -NoProfile -Command "[DateTime]::UtcNow.ToString('yyyyMMdd-HHmmss')"') do set TIMESTAMP=%%i
 
-:: Set the ZIP file name
-set ZIP_FILE=%SolutionDir%Publish\HarmonyCore-%HC_RUNTIME%-%DateTimeStamp%.zip
+rem Set the ZIP file name
+set ZIP_FILE=%SolutionDir%Publish\HarmonyCore-%HC_RUNTIME%-%TIMESTAMP%.zip
 
-:: ---------------------------------------------------------------------------
-:: Build the Traditional Bridge code
+rem ---------------------------------------------------------------------------
+rem Build the Traditional Bridge code
 
 echo.
 echo Building Traditional Bridge code in %CONFIGURATION% mode
 
 pushd TraditionalBridge
 
-msbuild ^
+"%MSBUILD%" ^
 -target:Rebuild ^
 -p:Platform=%BRIDGE_PLATFORM% ^
 -p:Configuration=%CONFIGURATION% ^
@@ -109,8 +138,6 @@ msbuild ^
 -nodeReuse:false ^
 -nologo ^
 TraditionalBridge.synproj
-
-msbuild -target:Rebuild -p:Platform=linux64 -p:Configuration=Release -verbosity:minimal -nodeReuse:false -nologo TraditionalBridge.synproj
 
 if errorlevel 0 (
     echo.
@@ -126,8 +153,8 @@ if errorlevel 0 (
 
 popd
 
-:: ---------------------------------------------------------------------------
-:: Build and publish the Harmony Core code
+rem ---------------------------------------------------------------------------
+rem Build and publish the Harmony Core code
 
 echo.
 echo Publishing Harmony Core service in %CONFIGURATION% mode
@@ -142,7 +169,6 @@ dotnet publish ^
 --runtime %HC_RUNTIME% ^
 --self-contained true ^
 --output "%DeployDir%" ^
---no-restore ^
 --verbosity minimal ^
 -nologo
 
@@ -160,8 +186,8 @@ if errorlevel 0 (
 
 popd
 
-::-----------------------------------------------------------------------------
-:: Include the Traditional Bridge host program and dbp
+rem ---------------------------------------------------------------------------
+rem Include the Traditional Bridge host program and dbp
 
 if exist TraditionalBridge\EXE\host.dbr (
     echo Providing traditional bridge host application
@@ -178,8 +204,8 @@ if exist TraditionalBridge\EXE\host.dbp (
     goto fail
 )
 
-::-----------------------------------------------------------------------------
-:: Provide launch script and other files (Windows)
+rem ---------------------------------------------------------------------------
+rem Provide launch script and other files (Windows)
 
 :windows_files
 
@@ -193,47 +219,55 @@ if exist "TraditionalBridge\launch.bat" (
     goto fail
 )
 
-::-----------------------------------------------------------------------------
-:: Provide launch script and other files (Linux)
+rem Replace the web.config file with our own version that sets the
+rem ASPNETCORE_ENVIRONMENT to Production
+if exist "%SolutionDir%web.config" (
+  echo Providing updated web.config
+  if exist "%DeployDir%\web.config" del /q "%DeployDir%\web.config"
+  copy /y "%SolutionDir%web.config" "%DeployDir%\web.config" > nul 2>&1
+)
+
+rem ---------------------------------------------------------------------------
+rem Provide launch script and other files (Linux)
 
 :linux_files
 
 if /i "%TARGET%" neq "LINUX" goto ssl_cert
 
-if exist TraditionalBridge\launch (
+if exist TraditionalBridge\launch.sh (
     echo Providing traditional bridge launch script
-    copy /y TraditionalBridge\launch "%DeployDir%" > nul 2>&1
-    "%DOS2UNIXEXE%" -q "%DeployDir%\launch"
+    copy /y TraditionalBridge\launch.sh "%DeployDir%" > nul 2>&1
+    "%DOS2UNIXEXE%" -q "%DeployDir%\launch.sh"
 ) else (
     echo ERROR: Traditional bridge launch script not found!
     goto fail
 )
 
-:: Provide service control scripts
+rem Provide service control scripts
 
 echo Providing service configuration and control scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\startserver.sh" "%DeployDir%\startserver.sh" > nul 2>&1
+copy /y "%SolutionDir%Linux\startserver.sh" "%DeployDir%\startserver.sh" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\startserver.sh"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\stopserver.sh" "%DeployDir%\stopserver.sh" > nul 2>&1
+copy /y "%SolutionDir%Linux\stopserver.sh" "%DeployDir%\stopserver.sh" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\stopserver.sh"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\startserver.*.config" "%DeployDir%" > nul 2>&1
+copy /y "%SolutionDir%Linux\startserver.*.config" "%DeployDir%" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\startserver.*.config"
 
-:: Provide check and dump scripts
+rem Provide check and dump scripts
 
 echo Providing useful utility scripts
 
-copy /y "%SolutionDir%Publish\LinuxFiles\check.sh" "%DeployDir%\check.sh" > nul 2>&1
+copy /y "%SolutionDir%Linux\check.sh" "%DeployDir%\check.sh" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\check.sh"
 
-copy /y "%SolutionDir%Publish\LinuxFiles\dump.sh" "%DeployDir%\dump.sh" > nul 2>&1
+copy /y "%SolutionDir%Linux\dump.sh" "%DeployDir%\dump.sh" > nul 2>&1
 "%DOS2UNIXEXE%" -q "%DeployDir%\dump.sh"
 
-::-----------------------------------------------------------------------------
-:: Provide an SSL certificate
+rem ---------------------------------------------------------------------------
+rem Provide an SSL certificate
 
 :ssl_cert
 
@@ -246,32 +280,25 @@ if not exist "%DeployDir%\Services.Host.pfx" (
     goto fail
 )
 
-::-----------------------------------------------------------------------------
-:: Provide XML documentation files
-
-:xml_doc
+rem ---------------------------------------------------------------------------
+rem Provide XML documentation files
 
 echo Providing XML documentation files
 
 if not exist "%DeployDir%\XmlDoc" mkdir "%DeployDir%\XmlDoc"
 
-if exist "XmlDoc\Services.xml" ( 
-    copy /y "XmlDoc\Services.xml" "%DeployDir%\XmlDoc" > nul 2>&1
-    "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.xml"
+if exist "XmlDoc\Services.xml" copy /y "XmlDoc\Services.xml" "%DeployDir%\XmlDoc" > nul 2>&1
+if exist "XmlDoc\Services.Controllers.xml" copy /y "XmlDoc\Services.Controllers.xml" "%DeployDir%\XmlDoc" > nul 2>&1
+if exist "XmlDoc\Services.Models.xml" copy /y "XmlDoc\Services.Models.xml" "%DeployDir%\XmlDoc" > nul 2>&1
+
+if /i "%TARGET%" equ "LINUX" (
+  if exist "%DeployDir%\XmlDoc\Services.xml" "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.xml"
+  if exist "%DeployDir%\XmlDoc\Services.Controllers.xml" "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.Controllers.xml"
+  if exist "%DeployDir%\XmlDoc\Services.Models.xml" "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.Models.xml"
 )
 
-if exist "XmlDoc\Services.Controllers.xml" (
-    copy /y "XmlDoc\Services.Controllers.xml" "%DeployDir%\XmlDoc" > nul 2>&1
-    "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.Controllers.xml"
-)
-
-if exist "XmlDoc\Services.Models.xml" (
-  copy /y "XmlDoc\Services.Models.xml" "%DeployDir%\XmlDoc" > nul 2>&1
-  "%DOS2UNIXEXE%" -q "%DeployDir%\XmlDoc\Services.Models.xml"
-)
-
-::-----------------------------------------------------------------------------
-:: Provide sample data (don't do this in a production environment!)
+rem ---------------------------------------------------------------------------
+rem Provide sample data (don't do this in a production environment!)
 
 :sample_data
 
@@ -295,8 +322,8 @@ copy "%SolutionDir%SampleData\vendors.xdl" "%DeployDir%\SampleData" > nul 2>&1
 
 copy "%SolutionDir%SampleData\sysparams.txt" "%DeployDir%\SampleData\sysparams.ddf" > nul 2>&1
 
-::-----------------------------------------------------------------------------
-:: Create the ZIP file
+rem ---------------------------------------------------------------------------
+rem Create the ZIP file
 
 :zip
 
@@ -309,7 +336,7 @@ if exist "%DeployDir%\." (
     if ERRORLEVEL 0 (
         echo.
         echo Publish complete
-        ::Remove the temporary deployment directory
+        rem Remove the temporary deployment directory
         popd
         rmdir /S /Q "%DeployDir%" > nul 2>&1
     ) else (
@@ -321,8 +348,8 @@ if exist "%DeployDir%\." (
     )
 )
 
-::-----------------------------------------------------------------------------
-:: Exit points
+rem ---------------------------------------------------------------------------
+rem Exit points
 
 :done
 

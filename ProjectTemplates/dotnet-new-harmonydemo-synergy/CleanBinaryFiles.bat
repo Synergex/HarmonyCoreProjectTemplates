@@ -3,10 +3,11 @@ pushd %~dp0
 if exist .vs\. rd /s /q .vs
 if exist bin\. rd /s /q bin
 if exist obj\. rd /s /q obj
-if exist Publish\LINUXTMP\. rd /s /q Publish/LINUXTMP
-if exist Publish\WINDOWSTMP\. rd /s /q Publish/WINDOWSTMP
+if exist PUBLISH\. rd /s /q PUBLISH
 if exist Repository\bin\. rd /s /q Repository\bin
 if exist Repository\obj\. rd /s /q Repository\obj
+if exist SampleData\*.ism del /q SampleData\*.ism
+if exist SampleData\*.is1 del /q SampleData\*.is1
 if exist Services\.intellisense\. rd /s /q Services\.intellisense
 if exist Services\bin\. rd /s /q Services\bin
 if exist Services\obj\. rd /s /q Services\obj
@@ -27,6 +28,7 @@ if exist TraditionalBridge\bin\. rd /s /q TraditionalBridge\bin
 if exist TraditionalBridge\obj\. rd /s /q TraditionalBridge\obj
 if exist TraditionalBridge\exe\host.dbp del /q TraditionalBridge\exe\host.dbp
 if exist TraditionalBridge\exe\host.dbr del /q TraditionalBridge\exe\host.dbr
+if exist TraditionalBridge\exe\launch del /q TraditionalBridge\exe\launch
 if exist TraditionalBridge\exe\launch.bat del /q TraditionalBridge\exe\launch.bat
 if exist TraditionalBridge\XmlDoc\Services.Controllers.xml del /q TraditionalBridge\XmlDoc\Services.Controllers.xml
 if exist TraditionalBridge\XmlDoc\Services.Models.xml del /q TraditionalBridge\XmlDoc\Services.Models.xml
