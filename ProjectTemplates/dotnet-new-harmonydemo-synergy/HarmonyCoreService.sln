@@ -139,6 +139,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{ADF8CC8D
 		Linux\stopserver.sh = Linux\stopserver.sh
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestClientTests", "RestClientTests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		RestClientTests\BridgeAPI.http = RestClientTests\BridgeAPI.http
+		RestClientTests\Customers.http = RestClientTests\Customers.http
+		RestClientTests\Items.http = RestClientTests\Items.http
+		RestClientTests\OrderItems.http = RestClientTests\OrderItems.http
+		RestClientTests\Orders.http = RestClientTests\Orders.http
+		RestClientTests\Vendors.http = RestClientTests\Vendors.http
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

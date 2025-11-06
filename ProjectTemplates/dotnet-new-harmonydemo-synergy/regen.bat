@@ -72,6 +72,7 @@ rem set DO_NOT_SET_FILE_LOGICALS=-define DO_NOT_SET_FILE_LOGICALS
 set ENABLE_GET_ALL=-define ENABLE_GET_ALL
 set ENABLE_GET_ONE=-define ENABLE_GET_ONE
 set ENABLE_POSTMAN_TESTS=YES
+set ENABLE_REST_CLIENT_TESTS=YES
 set ENABLE_ALTERNATE_KEYS=-define ENABLE_ALTERNATE_KEYS
 rem set ENABLE_PARTIAL_KEYS=-define ENABLE_PARTIAL_KEYS
 set ENABLE_COUNT=-define ENABLE_COUNT
@@ -267,6 +268,27 @@ if DEFINED ENABLE_POSTMAN_TESTS (
 -i Templates ^
 -o . ^
 %NOREPLACEOPTS%
+  echo !command! >> regen_last.bat
+  !command!
+  if ERRORLEVEL 1 goto error
+)
+
+rem ================================================================================
+rem Visual Studio REST client tests
+
+if DEFINED ENABLE_REST_CLIENT_TESTS (
+
+  echo.
+  echo Generating REST Client tests for OData environment
+
+  set command=codegen ^
+-s  %DATA_STRUCTURES% ^
+-a  %DATA_ALIASES% ^
+-fo %DATA_FILES% ^
+-t  ODataVsRestClientTests ^
+-i  %SolutionDir%Templates ^
+-o  %SolutionDir%RestClientTests ^
+%STDOPTS%
   echo !command! >> regen_last.bat
   !command!
   if ERRORLEVEL 1 goto error
@@ -692,6 +714,23 @@ rem ============================================================================
 -t InterfacePostmanTests ^
 -i %SolutionDir%Templates\TraditionalBridge ^
 -o %SolutionDir% ^
+%STDOPTS%
+    echo !command! >> regen_last.bat
+    !command!
+    if ERRORLEVEL 1 goto error
+  )
+
+  if DEFINED ENABLE_REST_CLIENT_TESTS (
+
+  echo.
+  echo Generating interface REST client tests
+
+  set command=codegen ^
+-smc %SMC_XML_FILE% ^
+-interface %1 %METHODS_TO_EXCLUDE% ^
+-t InterfaceVsRestClientTests ^
+-i %SolutionDir%Templates\TraditionalBridge ^
+-o %SolutionDir%RestClientTests ^
 %STDOPTS%
     echo !command! >> regen_last.bat
     !command!
