@@ -127,8 +127,7 @@ namespace <NAMESPACE>
 ;//
 ;//
 ;//
-  <IF DATE_PARAMETERS>
-            ;;Define temporary variables to handle date parameters
+            ;;Define any temporary variables
     <PARAMETER_LOOP>
       <IF DATE>
             data tmp<PARAMETER_NAME>, d8, 0
@@ -136,8 +135,6 @@ namespace <NAMESPACE>
             data tmp<PARAMETER_NAME>, @string, String.Empty
       </IF>
     </PARAMETER_LOOP>
-
-  </IF>
 ;//
 ;//
 ;//

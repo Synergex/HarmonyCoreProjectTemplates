@@ -65,7 +65,6 @@ import System.Threading.Tasks
 import <DTOS_NAMESPACE>
 
 import <NAMESPACE>
-import <NAMESPACE>.Temp
 
 namespace <NAMESPACE>
 
@@ -74,7 +73,6 @@ namespace <NAMESPACE>
     </IF DEFINED_ENABLE_AUTHENTICATION>
     {Produces("application/json")}
     {Route("<INTERFACE_NAME>")}
-    {EagerContextMiddleware(^typeof(<INTERFACE_NAME>Service))}
     ;;; <summary>
     ;;; <INTERFACE_NAME>
     ;;; </summary>

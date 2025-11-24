@@ -107,7 +107,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Order placed by is required. ")}
         {StringLength(25, ErrorMessage="Order placed by cannot exceed 25 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property PlacedBy, String
             method get
             proc
@@ -115,8 +115,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 25)
-                    throw new ApplicationException("PlacedBy cannot exceed 25 characters.")
                 mSynergyData.placed_by = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -125,7 +123,7 @@ namespace Services.Models
         ;;; Customer order reference
         ;;; </summary>
         {StringLength(25, ErrorMessage="Customer order reference cannot exceed 25 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property CustomerReference, String
             method get
             proc
@@ -133,8 +131,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 25)
-                    throw new ApplicationException("CustomerReference cannot exceed 25 characters.")
                 mSynergyData.customer_reference = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -143,7 +139,7 @@ namespace Services.Models
         ;;; Payment terms code
         ;;; </summary>
         {StringLength(2, ErrorMessage="Payment terms code cannot exceed 2 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property PaymentTermsCode, String
             method get
             proc
@@ -151,8 +147,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 2)
-                    throw new ApplicationException("PaymentTermsCode cannot exceed 2 characters.")
                 mSynergyData.payment_terms_code = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -169,7 +163,7 @@ namespace Services.Models
             endmethod
             method set
             proc
-                mSynergyData.date_ordered = (D)SynergyDecimalDateConverter.ConvertBack(value, ^null, "YYYYMMDD", ^null)
+            SynergyConverter.ConvertBack(value, mSynergyData.date_ordered, "YYYYMMDD", ^null)
             endmethod
         endproperty
 
@@ -184,7 +178,7 @@ namespace Services.Models
             endmethod
             method set
             proc
-                mSynergyData.date_completed = (D)SynergyDecimalDateConverter.ConvertBack(value, ^null, "YYYYMMDD", ^null)
+            SynergyConverter.ConvertBack(value, mSynergyData.date_completed, "YYYYMMDD", ^null)
             endmethod
         endproperty
 
@@ -275,7 +269,7 @@ namespace Services.Models
 
 .endregion
 
-.region "Relation validation"
+.region "Data validation"
 
         ;;; <summary>
         ;;; Validate data
@@ -307,11 +301,11 @@ namespace Services.Models
             method get
             proc
                 mreturn OrderNumber.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -320,11 +314,11 @@ namespace Services.Models
             method get
             proc
                 mreturn CustomerNumber.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -333,11 +327,11 @@ namespace Services.Models
             method get
             proc
                 mreturn DateOrdered.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -346,11 +340,11 @@ namespace Services.Models
             method get
             proc
                 mreturn DateCompleted.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 

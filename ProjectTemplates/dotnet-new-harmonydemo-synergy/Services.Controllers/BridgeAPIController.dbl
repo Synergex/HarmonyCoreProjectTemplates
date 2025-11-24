@@ -25,13 +25,11 @@ import System.Threading.Tasks
 import BridgeAPI
 
 import Services.Controllers
-import Services.Controllers.Temp
 
 namespace Services.Controllers
 
     {Produces("application/json")}
     {Route("BridgeAPI")}
-    {EagerContextMiddleware(^typeof(BridgeAPIService))}
     ;;; <summary>
     ;;; BridgeAPI
     ;;; </summary>

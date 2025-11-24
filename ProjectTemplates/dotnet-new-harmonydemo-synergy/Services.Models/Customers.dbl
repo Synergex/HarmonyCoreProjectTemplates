@@ -90,7 +90,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Customer name is required. ")}
         {StringLength(30, ErrorMessage="Customer name cannot exceed 30 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property Name, String
             method get
             proc
@@ -98,8 +98,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 30)
-                    throw new ApplicationException("Name cannot exceed 30 characters.")
                 mSynergyData.name = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -109,7 +107,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Street address is required. ")}
         {StringLength(25, ErrorMessage="Street address cannot exceed 25 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property Street, String
             method get
             proc
@@ -117,8 +115,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 25)
-                    throw new ApplicationException("Street cannot exceed 25 characters.")
                 mSynergyData.street = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -128,7 +124,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="City is required. ")}
         {StringLength(20, ErrorMessage="City cannot exceed 20 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property City, String
             method get
             proc
@@ -136,8 +132,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 20)
-                    throw new ApplicationException("City cannot exceed 20 characters.")
                 mSynergyData.city = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -147,7 +141,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="State is required. ")}
         {StringLength(2, ErrorMessage="State cannot exceed 2 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property State, String
             method get
             proc
@@ -155,8 +149,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 2)
-                    throw new ApplicationException("State cannot exceed 2 characters.")
                 mSynergyData.state = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -182,7 +174,7 @@ namespace Services.Models
         ;;; Contact name
         ;;; </summary>
         {StringLength(25, ErrorMessage="Contact name cannot exceed 25 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property Contact, String
             method get
             proc
@@ -190,8 +182,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 25)
-                    throw new ApplicationException("Contact cannot exceed 25 characters.")
                 mSynergyData.contact = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -249,7 +239,7 @@ namespace Services.Models
         ;;; </summary>
         {Required(ErrorMessage="Payment terms code is required. ")}
         {StringLength(2, ErrorMessage="Payment terms code cannot exceed 2 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property PaymentTermsCode, String
             method get
             proc
@@ -257,8 +247,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 2)
-                    throw new ApplicationException("PaymentTermsCode cannot exceed 2 characters.")
                 mSynergyData.payment_terms_code = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -383,7 +371,7 @@ namespace Services.Models
 
 .endregion
 
-.region "Relation validation"
+.region "Data validation"
 
         ;;; <summary>
         ;;; Validate data
@@ -415,11 +403,11 @@ namespace Services.Models
             method get
             proc
                 mreturn CustomerNumber.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -428,11 +416,11 @@ namespace Services.Models
             method get
             proc
                 mreturn State.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -441,11 +429,11 @@ namespace Services.Models
             method get
             proc
                 mreturn ZipCode.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -454,11 +442,11 @@ namespace Services.Models
             method get
             proc
                 mreturn PaymentTermsCode.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -469,11 +457,11 @@ namespace Services.Models
             method get
             proc
                 mreturn FavoriteItem.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 

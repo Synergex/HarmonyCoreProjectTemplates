@@ -242,8 +242,8 @@ namespace Services
                         ;; ----------------------------------------------------------------------------
                         ;; Local pooled connection
                         ;;
-                        ;;data context = new MyExternalContextPool<BridgeAPIService>
-                        data contextPoolType, @Type, ^typeof(MyExternalContextPool<>)
+                        ;;data context = new ExternalContextPool<BridgeAPIService>
+                        data contextPoolType, @Type, ^typeof(ExternalContextPool<>)
                         data contextPoolRealType = contextPoolType.MakeGenericType(^typeof(BridgeAPIService))
                         data waitTimeSpan = new TimeSpan(0,0,settings.Bridge.PoolMaxWait)
                         data contextPoolConstructorArguments = new Object[#]

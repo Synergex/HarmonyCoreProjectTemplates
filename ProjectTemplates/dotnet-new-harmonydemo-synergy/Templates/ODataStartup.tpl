@@ -77,6 +77,7 @@ import Microsoft.AspNetCore.OData
 import Microsoft.AspNetCore.OData.Extensions
 import Microsoft.AspNetCore.OData.Routing
 import Microsoft.AspNetCore.OData.Formatter
+import Microsoft.AspNetCore.OData.NewtonsoftJson
 import Microsoft.AspNetCore.Routing
 import Microsoft.EntityFrameworkCore
 import Microsoft.Extensions.Configuration
@@ -111,7 +112,7 @@ import Swashbuckle.AspNetCore.Swagger
 namespace <NAMESPACE>
 
     ;;; <summary>
-    ;;; Service startup code
+    ;;;
     ;;; </summary>
     public partial class Startup
 
@@ -267,17 +268,9 @@ namespace <NAMESPACE>
 
             services.AddControllers().AddOData(ODataConfig)
 
-<IF DEFINED_ENABLE_NEWTONSOFT>
-            lambda newtonsoftOptions(option)
-            begin
-                option.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver()
-                option.AllowInputFormatterExceptionMessages = false
-            end
-
-</IF DEFINED_ENABLE_NEWTONSOFT>
             data mvcBuilder = services.AddMvcCore(MvcCoreConfig)
             &    .AddDataAnnotations()      ;;Enable data annotations
-            &    .AddNewtonsoftJson(<IF DEFINED_ENABLE_NEWTONSOFT>newtonsoftOptions</IF>)
+            &    .AddODataNewtonsoftJson()
             &    .AddApplicationPart(^typeof(IsolatedMethodsBase).Assembly)
             &    .AddApplicationPart(^typeof(Microsoft.AspNetCore.OData.Routing.Controllers.MetadataController).Assembly)
             &    .AddApiExplorer()
@@ -302,65 +295,32 @@ namespace <NAMESPACE>
 
                 ;;Add OData query fields to swagger documentation
                 c.OperationFilter<ODataParametersSwaggerDefinition>()
-<IF DEFINED_ENABLE_XMLDOC>
 
-                ;Do we have an XmlDoc folder?
                 data xmlDocFolder = findRelativeFolderForAssembly("XmlDoc")
 
                 if(!string.IsNullOrWhiteSpace(xmlDocFolder))
                 begin
-                    ;;If present, use information from XmlDoc\Services.xml in swagger documentation
+                    ;;If present, use information from Services.xml in swagger documentation
                     data filePath = Path.Combine(xmlDocFolder, "Services.xml")
                     if (File.Exists(filePath))
                     begin
-                        try
-                        begin
-                            c.IncludeXmlComments(filePath, true)
-                        end
-                        catch (e, @Exception)
-                        begin
-                            ;DBLNET compiler had an issue producing duplicate names in XmlDoc files
-                            ;in turn causing exceptions here. This is here just in case!
-                            nop
-                        end
-                        endtry
+                        c.IncludeXmlComments(filePath, true)
                     end
 
-                    ;;If present, use information from XmlDoc\Services.Controllers.xml in swagger documentation
+                    ;;If present, use information from Services.Controllers.xml in swagger documentation
                     filePath = Path.Combine(xmlDocFolder, "Services.Controllers.xml")
                     if (File.Exists(filePath))
                     begin
-                        try
-                        begin
-                            c.IncludeXmlComments(filePath, true)
-                        end
-                        catch (e, @Exception)
-                        begin
-                            ;DBLNET compiler had an issue producing duplicate names in XmlDoc files
-                            ;in turn causing exceptions here. This is here just in case!
-                            nop
-                        end
-                        endtry
+                        c.IncludeXmlComments(filePath, true)
                     end
 
-                    ;;If present, use information from XmlDoc\Services.Models.xml in swagger documentation
+                    ;;If present, use information from Services.Models.xml in swagger documentation
                     filePath = Path.Combine(xmlDocFolder, "Services.Models.xml")
                     if (File.Exists(filePath))
                     begin
-                        try
-                        begin
-                            c.IncludeXmlComments(filePath, true)
-                        end
-                        catch (e, @Exception)
-                        begin
-                            ;DBLNET compiler had an issue producing duplicate names in XmlDoc files
-                            ;in turn causing exceptions here. This is here just in case!
-                            nop
-                        end
-                        endtry
+                        c.IncludeXmlComments(filePath, true)
                     end
                 end
-</IF DEFINED_ENABLE_XMLDOC>
 <IF DEFINED_ENABLE_AUTHENTICATION>
   <IF DEFINED_ENABLE_CUSTOM_AUTHENTICATION>
 
@@ -476,7 +436,6 @@ namespace <NAMESPACE>
           </IF DEFINED_ENABLE_CUSTOM_AUTHENTICATION>
         </IF DEFINED_ENABLE_AUTHENTICATION>
 
-        <IF DEFINED_ENABLE_BLOCK_HTTP>
             ;;-------------------------------------------------------
             ;;Enable HTTP redirection to HTTPS
 
@@ -487,7 +446,6 @@ namespace <NAMESPACE>
             end
 
             services.AddHttpsRedirection(httpsConfig)
-        </IF DEFINED_ENABLE_BLOCK_HTTP>
 
         <IF DEFINED_ENABLE_IIS_SUPPORT>
             ;;-------------------------------------------------------
@@ -583,13 +541,11 @@ namespace <NAMESPACE>
                 ;app.UseHsts()
             ;end
 
-        <IF DEFINED_ENABLE_BLOCK_HTTP>
             ;;-------------------------------------------------------
             ;;Enable HTTP redirection to HTTPS
 
-;            app.UseHttpsRedirection()
+            app.UseHttpsRedirection()
 
-        </IF DEFINED_ENABLE_BLOCK_HTTP>
         <IF DEFINED_ENABLE_AUTHENTICATION>
             ;;-------------------------------------------------------
             ;;Enable the authentication middleware
@@ -645,7 +601,7 @@ namespace <NAMESPACE>
             AddCustomMimeTypes(staticFilesProvider)
             app.UseDefaultFiles()
             if (staticFilesProvider == ^null) then
-            app.UseStaticFiles()
+                app.UseStaticFiles()
             else
                 app.UseStaticFiles(new StaticFileOptions() { ContentTypeProvider = staticFilesProvider })
 

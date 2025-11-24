@@ -285,7 +285,7 @@ namespace <NAMESPACE>
             required in aRecordNumber, int
         proc
 ;//Shouldn't really need the generic type arg on FindQuery. Compiler issue?
-            mreturn new SingleResult<<StructureNoplural>>(_DbContext.<StructurePlural>.AsNoTracking().FindQuery<<StructureNoplural>>(_DbContext, aRecordNumber))
+            mreturn new SingleResult<<StructureNoplural>>(_DbContext.<StructurePlural>.AsNoTracking().FindQuery<<StructureNoplural>>(_DbContext,aRecordNumber))
         endmethod
 
 </IF STRUCTURE_RELATIVE>

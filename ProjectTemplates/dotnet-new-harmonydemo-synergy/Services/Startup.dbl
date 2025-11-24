@@ -33,6 +33,7 @@ import Microsoft.AspNetCore.OData
 import Microsoft.AspNetCore.OData.Extensions
 import Microsoft.AspNetCore.OData.Routing
 import Microsoft.AspNetCore.OData.Formatter
+import Microsoft.AspNetCore.OData.NewtonsoftJson
 import Microsoft.AspNetCore.Routing
 import Microsoft.EntityFrameworkCore
 import Microsoft.Extensions.Configuration
@@ -62,7 +63,7 @@ import Swashbuckle.AspNetCore.Swagger
 namespace Services
 
     ;;; <summary>
-    ;;; Service startup code
+    ;;;
     ;;; </summary>
     public partial class Startup
 
@@ -220,15 +221,9 @@ namespace Services
 
             services.AddControllers().AddOData(ODataConfig)
 
-            lambda newtonsoftOptions(option)
-            begin
-                option.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver()
-                option.AllowInputFormatterExceptionMessages = false
-            end
-
             data mvcBuilder = services.AddMvcCore(MvcCoreConfig)
             &    .AddDataAnnotations()      ;;Enable data annotations
-            &    .AddNewtonsoftJson(newtonsoftOptions)
+            &    .AddODataNewtonsoftJson()
             &    .AddApplicationPart(^typeof(IsolatedMethodsBase).Assembly)
             &    .AddApplicationPart(^typeof(Microsoft.AspNetCore.OData.Routing.Controllers.MetadataController).Assembly)
             &    .AddApiExplorer()
@@ -253,6 +248,32 @@ namespace Services
 
                 ;;Add OData query fields to swagger documentation
                 c.OperationFilter<ODataParametersSwaggerDefinition>()
+
+                data xmlDocFolder = findRelativeFolderForAssembly("XmlDoc")
+
+                if(!string.IsNullOrWhiteSpace(xmlDocFolder))
+                begin
+                    ;;If present, use information from Services.xml in swagger documentation
+                    data filePath = Path.Combine(xmlDocFolder, "Services.xml")
+                    if (File.Exists(filePath))
+                    begin
+                        c.IncludeXmlComments(filePath, true)
+                    end
+
+                    ;;If present, use information from Services.Controllers.xml in swagger documentation
+                    filePath = Path.Combine(xmlDocFolder, "Services.Controllers.xml")
+                    if (File.Exists(filePath))
+                    begin
+                        c.IncludeXmlComments(filePath, true)
+                    end
+
+                    ;;If present, use information from Services.Models.xml in swagger documentation
+                    filePath = Path.Combine(xmlDocFolder, "Services.Models.xml")
+                    if (File.Exists(filePath))
+                    begin
+                        c.IncludeXmlComments(filePath, true)
+                    end
+                end
             end
 
             services.AddSwaggerGen(configSwaggerGen)
@@ -261,6 +282,16 @@ namespace Services
             ;This requires a reference to the NuGet package Swashbuckle.AspNetCore.Newtonsoft in the Services project
             services.AddSwaggerGenNewtonsoftSupport()
 
+            ;;-------------------------------------------------------
+            ;;Enable HTTP redirection to HTTPS
+
+            lambda httpsConfig(options)
+            begin
+                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect
+                options.HttpsPort = 8086
+            end
+
+            services.AddHttpsRedirection(httpsConfig)
 
             ;;If there is a ConfigureServicesCustom method, call it
             ConfigureServicesCustom(services)
@@ -329,6 +360,11 @@ namespace Services
                 ;app.UseHsts()
             ;end
 
+            ;;-------------------------------------------------------
+            ;;Enable HTTP redirection to HTTPS
+
+            app.UseHttpsRedirection()
+
 
             ;;-------------------------------------------------------
             ;;Enable MVC
@@ -361,7 +397,7 @@ namespace Services
             AddCustomMimeTypes(staticFilesProvider)
             app.UseDefaultFiles()
             if (staticFilesProvider == ^null) then
-            app.UseStaticFiles()
+                app.UseStaticFiles()
             else
                 app.UseStaticFiles(new StaticFileOptions() { ContentTypeProvider = staticFilesProvider })
 

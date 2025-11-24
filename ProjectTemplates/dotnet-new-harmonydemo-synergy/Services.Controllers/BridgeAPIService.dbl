@@ -76,6 +76,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeAPI.GetCustomer_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetCustomer"
             &   ,args.CustomerID
@@ -102,6 +103,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeAPI.GetEnvironment_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetEnvironment"
             &   ,ArgumentHelper.MaybeNull(response.EnvironmentString)
@@ -128,6 +130,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeAPI.GetLogicalName_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("GetLogicalName"
             &   ,args.LogicalName
@@ -155,6 +158,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeAPI.LoremIpsum_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("LoremIpsum"
             &   ,args.RecordsToReturn
@@ -182,6 +186,7 @@ namespace Services.Controllers
             ;;Prepare the response object
             data response = new BridgeAPI.StuckProcessTest_Response()
 
+            ;;Define any temporary variables
             ;;Make the JSON-RPC call the traditional Synergy routine
             data resultTuple = await CallMethod("StuckProcessTest"
             &   ,args.SecondsToRun

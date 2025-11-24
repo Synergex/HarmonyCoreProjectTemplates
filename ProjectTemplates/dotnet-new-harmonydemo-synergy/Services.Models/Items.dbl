@@ -122,7 +122,7 @@ namespace Services.Models
         ;;; Common name
         ;;; </summary>
         {StringLength(30, ErrorMessage="Common name cannot exceed 30 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property CommonName, String
             method get
             proc
@@ -130,8 +130,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 30)
-                    throw new ApplicationException("CommonName cannot exceed 30 characters.")
                 mSynergyData.common_name = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -140,7 +138,7 @@ namespace Services.Models
         ;;; Latin name
         ;;; </summary>
         {StringLength(30, ErrorMessage="Latin name cannot exceed 30 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property LatinName, String
             method get
             proc
@@ -148,8 +146,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 30)
-                    throw new ApplicationException("LatinName cannot exceed 30 characters.")
                 mSynergyData.latin_name = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -190,7 +186,7 @@ namespace Services.Models
         ;;; Flowering?
         ;;; </summary>
         {StringLength(1, ErrorMessage="Flowering? cannot exceed 1 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property Flowering, String
             method get
             proc
@@ -198,8 +194,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 1)
-                    throw new ApplicationException("Flowering cannot exceed 1 characters.")
                 mSynergyData.flowering = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -208,7 +202,7 @@ namespace Services.Models
         ;;; Flower color
         ;;; </summary>
         {StringLength(6, ErrorMessage="Flower color cannot exceed 6 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property FlowerColor, String
             method get
             proc
@@ -216,8 +210,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 6)
-                    throw new ApplicationException("FlowerColor cannot exceed 6 characters.")
                 mSynergyData.flower_color = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -226,7 +218,7 @@ namespace Services.Models
         ;;; Shape
         ;;; </summary>
         {StringLength(10, ErrorMessage="Shape cannot exceed 10 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property Shape, String
             method get
             proc
@@ -234,8 +226,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 10)
-                    throw new ApplicationException("Shape cannot exceed 10 characters.")
                 mSynergyData.shape = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -276,7 +266,7 @@ namespace Services.Models
         ;;; Water requirements
         ;;; </summary>
         {StringLength(4, ErrorMessage="Water requirements cannot exceed 4 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property WaterRequirement, String
             method get
             proc
@@ -284,8 +274,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 4)
-                    throw new ApplicationException("WaterRequirement cannot exceed 4 characters.")
                 mSynergyData.water_requirement = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -294,7 +282,7 @@ namespace Services.Models
         ;;; Sun requirements
         ;;; </summary>
         {StringLength(6, ErrorMessage="Sun requirements cannot exceed 6 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property SunRequirement, String
             method get
             proc
@@ -302,8 +290,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 6)
-                    throw new ApplicationException("SunRequirement cannot exceed 6 characters.")
                 mSynergyData.sun_requirement = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -312,7 +298,7 @@ namespace Services.Models
         ;;; Bin/aisle
         ;;; </summary>
         {StringLength(3, ErrorMessage="Bin/aisle cannot exceed 3 characters. ")}
-        {Newtonsoft.Json.JsonProperty(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)}
+        {Newtonsoft.Json.JsonProperty}
         public property BinLocation, String
             method get
             proc
@@ -320,8 +306,6 @@ namespace Services.Models
             endmethod
             method set
             proc
-                if (value.Length > 3)
-                    throw new ApplicationException("BinLocation cannot exceed 3 characters.")
                 mSynergyData.bin_location = (A)SynergyAlphaConverter.ConvertBack(value, ^null, ^null, ^null)
             endmethod
         endproperty
@@ -509,7 +493,7 @@ namespace Services.Models
 
 .endregion
 
-.region "Relation validation"
+.region "Data validation"
 
         ;;; <summary>
         ;;; Validate data
@@ -541,11 +525,11 @@ namespace Services.Models
             method get
             proc
                 mreturn ItemNumber.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -554,11 +538,11 @@ namespace Services.Models
             method get
             proc
                 mreturn VendorNumber.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -567,11 +551,11 @@ namespace Services.Models
             method get
             proc
                 mreturn FlowerColor.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -580,11 +564,11 @@ namespace Services.Models
             method get
             proc
                 mreturn Size.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -593,11 +577,11 @@ namespace Services.Models
             method get
             proc
                 mreturn CommonName.ToString()
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 

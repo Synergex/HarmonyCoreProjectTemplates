@@ -48,33 +48,30 @@
 ;;*****************************************************************************
 
 import System.Collections.Generic
-
-;NOTE:  DO NOT rely on importing the <MODELS_NAMESPACE> namespace because the
-;       compiler imports more then it should from the <NAMESPACE> 
-;       namespace and you will wind up with bogus ambiguous symbol errors.
-;       Also, you may see lots of bogus red squigglies here.
+import <MODELS_NAMESPACE>
 
 namespace <NAMESPACE>
 
     public static partial class <StructureNoplural>Loader
     
-        public static method LoadFromFile, @List<<MODELS_NAMESPACE>.<StructureNoplural>>
+        public static method LoadFromFile, @List<<StructureNoplural>>
         proc
-            data dataFile, string, "<FILE_NAME>"
-            data textFile, string, dataFile.ToLower().Replace(".ism",".txt")
-            data ch, int, 0
-            data <structureNoplural>Rec, <MODELS_NAMESPACE>.str<StructureNoplural>
+            data dataFile = "<FILE_NAME>"
+            data textFile = dataFile.Replace(".ism",".txt", StringComparison.CurrentCultureIgnoreCase)
+			UnitTestEnvironment.EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), <STRUCTURE_SIZE>)
+			data <structureNoplural>Ch, int, 0
+            data <structureNoplural>Rec, str<StructureNoplural>
             data grfa, a10
-            data results, @List<<MODELS_NAMESPACE>.<StructureNoplural>>, new List<<MODELS_NAMESPACE>.<StructureNoplural>>()
-            open(ch,i:s,textFile)
+            data <structurePlural> = new List<<StructureNoplural>>()
+            open(<structureNoplural>Ch,i:s,textFile)
             repeat
             begin
-                reads(ch,<structureNoplural>Rec,eof)
-                results.Add(new <MODELS_NAMESPACE>.<StructureNoplural>(<structureNoplural>Rec, grfa))
+                reads(<structureNoplural>Ch,<structureNoplural>Rec,eof)
+                <structurePlural>.Add(new <StructureNoplural>(<structureNoplural>Rec, grfa))
             end
         eof,
-            close ch
-            mreturn results
+            close <structureNoplural>Ch
+            mreturn <structurePlural>
         endmethod
 
     endclass

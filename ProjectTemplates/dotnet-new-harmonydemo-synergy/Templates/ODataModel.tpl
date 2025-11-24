@@ -1,5 +1,5 @@
 <CODEGEN_FILENAME><StructureNoplural>.dbl</CODEGEN_FILENAME>
-<REQUIRES_CODEGEN_VERSION>5.9.5</REQUIRES_CODEGEN_VERSION>
+<REQUIRES_CODEGEN_VERSION>5.8.5</REQUIRES_CODEGEN_VERSION>
 ;//****************************************************************************
 ;//
 ;// Title:       ODataModel.tpl
@@ -128,9 +128,6 @@ namespace <NAMESPACE>
       <IF REQUIRED>
         {Required(ErrorMessage="<FIELD_DESC_DOUBLE> is required. ")}
       </IF REQUIRED>
-      <IF HARMONYCORE_CUSTOM_FIELD_VALIDATOR>
-        {<HARMONYCORE_CUSTOM_FIELD_VALIDATOR>Validator(ErrorMessage="<FieldSqlname> failed <HARMONYCORE_CUSTOM_FIELD_VALIDATOR> validation. ")}
-      </IF HARMONYCORE_CUSTOM_FIELD_VALIDATOR>
       <IF HARMONYCORE_CUSTOM_FIELD_DATATYPE>
 ;//We can't add validation attributes for fields with custom data types!!!
       <ELSE>
@@ -138,7 +135,7 @@ namespace <NAMESPACE>
         {StringLength(<FIELD_SIZE>, ErrorMessage="<FIELD_DESC_DOUBLE> cannot exceed <FIELD_SIZE> characters. ")}
         </IF ALPHA>
         <IF DECIMAL>
-          <IF CUSTOM_NOT_HARMONY_AS_STRING AND CUSTOM_NOT_HARMONY_NO_RANGE_CHECK>
+          <IF CUSTOM_NOT_HARMONY_AS_STRING>
         {Range(<FIELD_MINVALUE>,<FIELD_MAXVALUE>, ErrorMessage="<FIELD_DESC_DOUBLE> must be between <FIELD_MINVALUE> and <FIELD_MAXVALUE>. ")}
           </IF CUSTOM_NOT_HARMONY_AS_STRING>
         </IF DECIMAL>
@@ -150,7 +147,7 @@ namespace <NAMESPACE>
 ;// Field property
 ;//
       <IF DEFINED_ENABLE_NEWTONSOFT>
-        {Newtonsoft.Json.JsonProperty<IF ALPHA OR ARRAY>(NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)</IF>}
+        {Newtonsoft.Json.JsonProperty}
       </IF>
       <IF DEFINED_ENABLE_FIELD_SECURITY>
         <IF CUSTOM_HARMONY_AUTHENTICATE>
@@ -171,25 +168,19 @@ namespace <NAMESPACE>
 ;//
             method get
             proc
-      <IF HARMONYCORE_CUSTOM_FIELD AND HARMONYCORE_CUSTOM_FIELD_PARAM>
-                mreturn <HARMONYCORE_CUSTOM_FIELD_TYPE>Converter.Convert(mSynergyData.<field_original_name_modified>,mSynergyData.<HARMONYCORE_CUSTOM_FIELD_PARAM>)
-      <ELSE HARMONYCORE_CUSTOM_FIELD AND NOT HARMONYCORE_CUSTOM_FIELD_PARAM>
+      <IF HARMONYCORE_CUSTOM_FIELD>
                 mreturn <HARMONYCORE_CUSTOM_FIELD_TYPE>Converter.Convert(mSynergyData.<field_original_name_modified>)
       <ELSE ALPHA OR USER>
                 mreturn (<FIELD_SNTYPE>)SynergyAlphaConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, ^null, ^null)
       <ELSE DATE>
         <IF CUSTOM_HARMONY_AS_STRING>
                 mreturn %string(mSynergyData.<field_original_name_modified>,"XXXX-XX-XX")
-        <ELSE DATE_YYYYMMDD>
-                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, "YYYYMMDD", ^null)
-        <ELSE DATE_YYMMDD>
-                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, "YYMMDD", ^null)
-        <ELSE DATE_YYYYJJJ>
-                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, "YYYYJJJ", ^null)
         <ELSE DATE_YYYYPP>
                 mreturn %string(mSynergyData.<field_original_name_modified>,"XXXX/XX")
         <ELSE DATE_YYPP>
                 mreturn %string(mSynergyData.<field_original_name_modified>,"XX/XX")
+        <ELSE>
+                mreturn (<FIELD_SNTYPE>)SynergyDecimalDateConverter.Convert(mSynergyData.<field_original_name_modified>, ^null, "<FIELD_CLASS>", ^null)
         </IF>
       <ELSE TIME_HHMM>
         <IF CUSTOM_HARMONY_AS_STRING>
@@ -239,43 +230,31 @@ namespace <NAMESPACE>
       <IF DEFINED_ENABLE_READ_ONLY_PROPERTIES AND READONLY>
                 throw new ApplicationException("Property <FieldSqlname> is read only!")
       </IF>
-      <IF HARMONYCORE_CUSTOM_FIELD AND HARMONYCORE_CUSTOM_FIELD_PARAM>
-                mSynergyData.<field_original_name_modified> = <HARMONYCORE_CUSTOM_FIELD_TYPE>Converter.ConvertBack(value,mSynergyData.<HARMONYCORE_CUSTOM_FIELD_PARAM>)
-      <ELSE HARMONYCORE_CUSTOM_FIELD AND NOT HARMONYCORE_CUSTOM_FIELD_PARAM>
+      <IF HARMONYCORE_CUSTOM_FIELD>
                 mSynergyData.<field_original_name_modified> = <HARMONYCORE_CUSTOM_FIELD_TYPE>Converter.ConvertBack(value)
       <ELSE ALPHA OR USER>
-                if (value.Length > <FIELD_SIZE>)
-                    throw new ApplicationException("<FieldSqlname> cannot exceed <FIELD_SIZE> characters.")
                 mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyAlphaConverter.ConvertBack(value<IF UPPERCASE>.ToUpper()</IF UPPERCASE>, ^null, ^null, ^null)
       <ELSE DATE>
         <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XXXX-XX-XX")
-        <ELSE DATE_YYYYMMDD>
-                mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyDecimalDateConverter.ConvertBack(value, ^null, "YYYYMMDD", ^null)
-        <ELSE DATE_YYMMDD>
-                mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyDecimalDateConverter.ConvertBack(value, ^null, "YYMMDD", ^null)
-        <ELSE DATE_YYYYJJJ>
-                mSynergyData.<field_original_name_modified> = (<FIELD_TYPE>)SynergyDecimalDateConverter.ConvertBack(value, ^null, "YYYYJJJ", ^null)
         <ELSE DATE_YYYYPP>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XXXX/XX")
         <ELSE DATE_YYPP>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XX/XX")
+        <ELSE>
+            SynergyConverter.ConvertBack(value, mSynergyData.<field_original_name_modified>, "<FIELD_CLASS>", ^null)
         </IF>
       <ELSE TIME_HHMM>
         <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XX:XX")
-        <ELSE DATE_NULLABLE>
-                mSynergyData.<field_original_name_modified> = (value.Value.Hour * 100) + value.Value.Minute
         <ELSE>
-                mSynergyData.<field_original_name_modified> = (value.Hour * 100) + value.Minute
+                SynergyConverter.ConvertBack(value, mSynergyData.<field_original_name_modified>, "<FIELD_CLASS>", ^null)
         </IF>
       <ELSE TIME_HHMMSS>
         <IF CUSTOM_HARMONY_AS_STRING>
                 mSynergyData.<field_original_name_modified> = SynergyDecimalConverter.ConvertBack(value,"XX:XX:XX")
-        <ELSE DATE_NULLABLE>
-                mSynergyData.<field_original_name_modified> = (value.Value.Hour * 10000) + (value.Value.Minute * 100) + value.Value.Second
         <ELSE>
-                mSynergyData.<field_original_name_modified> = (value.Hour * 10000) + (value.Minute * 100) + value.Second
+                SynergyConverter.ConvertBack(value, mSynergyData.<field_original_name_modified>, "<FIELD_CLASS>", ^null)
         </IF>
       <ELSE DECIMAL>
         <IF CUSTOM_HARMONY_AS_STRING>
@@ -447,10 +426,10 @@ namespace <NAMESPACE>
 .endregion
 ;//
 ;// ==========================================================================================
-;// RUNTIME VALIDATION FOR RELATIONS
+;// DATA VALIDATION
 ;//
 
-.region "Relation validation"
+.region "Data validation"
 
 <IF DEFINED_ENABLE_RELATIONS AND STRUCTURE_RELATIONS AND DEFINED_ENABLE_RELATIONS_VALIDATION>
 ;//=========================================
@@ -464,32 +443,32 @@ namespace <NAMESPACE>
         public override method Validate, void
             required in vType, ValidationType
             required in sp, @IServiceProvider
-    <RELATION_LOOP_RESTRICTED>
-      <IF VALIDATION_VALUE_PRESENT OR VALIDATION_ALWAYS>
+  <RELATION_LOOP_RESTRICTED>
+    <IF VALIDATION_VALUE_PRESENT OR VALIDATION_ALWAYS>
             ;;From key for <HARMONYCORE_RELATION_NAME>
             record rel<RELATION_NUMBER>FromKey
-        <COUNTER_1_RESET>
-        <FROM_KEY_SEGMENT_LOOP>
-          <IF SEG_TYPE_FIELD>
+      <COUNTER_1_RESET>
+      <FROM_KEY_SEGMENT_LOOP>
+        <IF SEG_TYPE_FIELD>
               <segment_name>, <segment_spec>
-          <ELSE SEG_TYPE_LITERAL>
-            <COUNTER_1_INCREMENT>
+        <ELSE SEG_TYPE_LITERAL>
+          <COUNTER_1_INCREMENT>
               litseg<COUNTER_1_VALUE>, a*, "<SEGMENT_LITVAL>"
-          </IF SEG_TYPE_FIELD>
-        </FROM_KEY_SEGMENT_LOOP>
+        </IF SEG_TYPE_FIELD>
+      </FROM_KEY_SEGMENT_LOOP>
             endrecord
 
             ;;From key for <HARMONYCORE_RELATION_NAME> (no tags)
             record rel<RELATION_NUMBER>FromKeyNoTag
-        <COUNTER_1_RESET>
-        <FROM_KEY_SEGMENT_LOOP>
-          <IF SEG_TYPE_FIELD>
+      <COUNTER_1_RESET>
+      <FROM_KEY_SEGMENT_LOOP>
+        <IF SEG_TYPE_FIELD>
               <segment_name>, <segment_spec>
-          </IF SEG_TYPE_FIELD>
-        </FROM_KEY_SEGMENT_LOOP>
+        </IF SEG_TYPE_FIELD>
+      </FROM_KEY_SEGMENT_LOOP>
             endrecord
-      </IF VALIDATION_VALUE_PRESENT>
-    </RELATION_LOOP_RESTRICTED>
+    </IF VALIDATION_VALUE_PRESENT>
+  </RELATION_LOOP_RESTRICTED>
         proc
             ;;No relation validation if the record is being deleted
             if (vType == ValidationType.Delete)
@@ -498,7 +477,7 @@ namespace <NAMESPACE>
             ;;Get an instance of IDataObjectProvider
             data dataObjectProvider, @IDataObjectProvider, sp.GetService<IDataObjectProvider>()
 
-    <RELATION_LOOP_RESTRICTED>
+  <RELATION_LOOP_RESTRICTED>
             ;;--------------------------------------------------------------------------------
             ;;Validate data for relation <RELATION_NUMBER> (<HARMONYCORE_RELATION_NAME>)
     <IF VALIDATION_NONE>
@@ -509,16 +488,16 @@ namespace <NAMESPACE>
             ;;Validation mode: ValuePresent
 
             ;;Populate from key values
-        <COUNTER_1_RESET>
-        <FROM_KEY_SEGMENT_LOOP>
-          <IF SEG_TYPE_FIELD>
+      <COUNTER_1_RESET>
+      <FROM_KEY_SEGMENT_LOOP>
+        <IF SEG_TYPE_FIELD>
             rel<RELATION_NUMBER>FromKey.<segment_name> = mSynergyData.<segment_name>
             rel<RELATION_NUMBER>FromKeyNoTag.<segment_name> = mSynergyData.<segment_name>
-          <ELSE SEG_TYPE_LITERAL>
-            <COUNTER_1_INCREMENT>
+        <ELSE SEG_TYPE_LITERAL>
+          <COUNTER_1_INCREMENT>
             rel<RELATION_NUMBER>FromKey.litseg<COUNTER_1_VALUE> = "<SEGMENT_LITVAL>"
-          </IF SEG_TYPE_FIELD>
-        </FROM_KEY_SEGMENT_LOOP>
+        </IF SEG_TYPE_FIELD>
+      </FROM_KEY_SEGMENT_LOOP>
 
             ;;Move the key value, excluding tag literals, into a string so we can use String.Replace()
             data rel<RELATION_NUMBER>FromKeyValue, string, rel<RELATION_NUMBER>FromKeyNoTag
@@ -539,15 +518,15 @@ namespace <NAMESPACE>
             ;;Validation mode: Always
 
             ;;Populate from key values
-        <COUNTER_1_RESET>
-        <FROM_KEY_SEGMENT_LOOP>
-          <IF SEG_TYPE_FIELD>
+      <COUNTER_1_RESET>
+      <FROM_KEY_SEGMENT_LOOP>
+        <IF SEG_TYPE_FIELD>
             rel<RELATION_NUMBER>FromKey.<segment_name> = mSynergyData.<segment_name>
-          <ELSE SEG_TYPE_LITERAL>
-            <COUNTER_1_INCREMENT>
+        <ELSE SEG_TYPE_LITERAL>
+          <COUNTER_1_INCREMENT>
             rel<RELATION_NUMBER>FromKey.litseg<COUNTER_1_VALUE> = "<SEGMENT_LITVAL>"
-          </IF SEG_TYPE_FIELD>
-        </FROM_KEY_SEGMENT_LOOP>
+        </IF SEG_TYPE_FIELD>
+      </FROM_KEY_SEGMENT_LOOP>
 
             ;;Get a file I/O object for type "<RelationTostructureNoplural>".
             disposable data rel<RELATION_NUMBER>FileIO = dataObjectProvider.GetFileIO<<RelationTostructureNoplural>>()
@@ -563,7 +542,7 @@ namespace <NAMESPACE>
             ;TODO: The mechanism for custom code validation has not yet been defined
     </IF VALIDATION_NONE>
 
-    </RELATION_LOOP_RESTRICTED>
+  </RELATION_LOOP_RESTRICTED>
             ;;--------------------------------------------------------------------------------
             ;;If we have a ValidateCustom method, call it
 
@@ -645,11 +624,11 @@ namespace <NAMESPACE>
             <ELSE>
                 mreturn string.Join('|',  <SEGMENT_LOOP><IF SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"<ELSE><FieldSqlname></IF><,></SEGMENT_LOOP>)
             </IF>
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 
@@ -670,11 +649,11 @@ namespace <NAMESPACE>
             <ELSE>
                 mreturn string.Join('|',  <SEGMENT_LOOP><IF SEG_TYPE_LITERAL>"<SEGMENT_LITVAL>"<ELSE><FieldSqlname></IF><,></SEGMENT_LOOP>)
             </IF>
-                
+
             endmethod
             method set
             proc
-                
+
             endmethod
         endproperty
 

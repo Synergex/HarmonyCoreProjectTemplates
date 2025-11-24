@@ -46,7 +46,7 @@ Content-Type:application/json
 Accept:application/json
 x-tenant-id: {{tenantid}}
 
-{ "LogicalName": "DBLDIR" }
+{ "LogicalName": "Z" }
 
 ###
 ### LoremIpsum
