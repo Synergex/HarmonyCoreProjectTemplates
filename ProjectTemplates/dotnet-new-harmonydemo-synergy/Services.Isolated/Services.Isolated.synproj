@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" DefaultTargets="restore;Build">
   <Import Project="$(SolutionDir)Common.props" />
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <DefaultLanguageSourceExtension>.dbl</DefaultLanguageSourceExtension>
     <EnableDefaultItems>false</EnableDefaultItems>
     <Name>Services.Isolated</Name>
@@ -20,19 +20,20 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>8.0.117</Version>
+      <Version>10.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.OData">
       <Version>9.4.0</Version>
     </PackageReference>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.OData.Edm">
       <Version>8.4.2</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.Build">
-      <Version>25.10.2527</Version>
+      <Version>26.5.1464</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.synrnt">
-      <Version>12.4.1.1003</Version>
+      <Version>12.4.1.1005</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
