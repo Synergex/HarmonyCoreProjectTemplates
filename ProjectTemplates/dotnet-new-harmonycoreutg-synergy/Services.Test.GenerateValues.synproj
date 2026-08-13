@@ -23,10 +23,13 @@
     <OutputPath />
   </PropertyGroup>
   <ItemGroup>
-    <!-- Needed for the transitive MSTest compile references (TestContext) to materialize
-         through the Services.Test project reference (mirrors HarmonyCore's project) -->
-    <PackageReference Include="Microsoft.NET.Test.Sdk">
-      <Version>17.11.1</Version>
+    <!-- The generated GenerateTestValues.dbl calls Services.Test.UnitTestEnvironment
+         .AssemblyInitialize, whose signature uses MSTest's TestContext. dblnet resolves
+         types surfaced in a referenced project's public signatures only from DIRECT
+         package references (transitive flow through the ProjectReference is not enough),
+         so this project must reference MSTest.TestFramework itself. -->
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>3.6.1</Version>
     </PackageReference>
     <PackageReference Include="Synergex.SynergyDE.Build">
       <Version>26.5.1464</Version>
