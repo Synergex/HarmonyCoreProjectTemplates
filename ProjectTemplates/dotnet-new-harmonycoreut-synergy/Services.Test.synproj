@@ -4,6 +4,10 @@
     <TargetFramework>net10.0</TargetFramework>
     <DefaultLanguageSourceExtension>.dbl</DefaultLanguageSourceExtension>
     <EnableDefaultItems>false</EnableDefaultItems>
+    <!-- Microsoft.Testing.Platform (via MSTest 3.6+) generates a C#/VB/F# entry point and
+         fails on Synergy projects; this project supplies its own main (mirrors HarmonyCore's
+         Services.Test.synproj) -->
+    <ProvidesMainMethod>true</ProvidesMainMethod>
     <Name>Services.Test</Name>
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
     <ProjectGuid>{0b8d5276-8628-42d9-848e-421c0a0d81df}</ProjectGuid>

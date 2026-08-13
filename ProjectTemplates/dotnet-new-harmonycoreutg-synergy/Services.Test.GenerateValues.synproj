@@ -12,6 +12,12 @@
     <StartupObject>Services.Test.GenerateValues</StartupObject>
     <Prefer32Bit>False</Prefer32Bit>
     <IncludeDebugInformation>False</IncludeDebugInformation>
+    <!-- Microsoft.Testing.Platform targets (transitive via MSTest 3.6+) generate C#/VB/F#
+         sources and fail with "Language 'Synergy' is not supported"; opt out — this project
+         has its own main (mirrors HarmonyCore's Services.Test.GenerateValues.synproj) -->
+    <GenerateTestingPlatformEntryPoint>False</GenerateTestingPlatformEntryPoint>
+    <GenerateSelfRegisteredExtensions>False</GenerateSelfRegisteredExtensions>
+    <ProvidesMainMethod>true</ProvidesMainMethod>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath />
