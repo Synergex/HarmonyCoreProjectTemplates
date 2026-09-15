@@ -9,7 +9,7 @@ cd $SCRIPT_DIR
 
 # Get the environment name
 
-if [ -e environment ]; then
+if [ -e .environment ]; then
   ENVIRONMENT=`cat .environment`
   if [ -z "$ENVIRONMENT" ]; then
     echo "ERROR: Failed to determine environment name. Check hidden file '.environment'"
@@ -65,7 +65,7 @@ export ASPNETCORE_Kestrel__Certificates__Default__Password="p@ssw0rd"
 
 # Check the service is not already running
 
-if pgrep -x "$SERVER_BINARY" > /dev/null
+if pidof "$SERVER_BINARY" > /dev/null
 then
   echo "$SERVER_BINARY is already running!"
   return 2> /dev/null; exit
@@ -77,15 +77,15 @@ chmod +x $SERVER_BINARY
 
 if [[ ${1,,} == "attach" ]]; then
   #Run the service in the current process
-  $SERVER_BINARY
+  ./$SERVER_BINARY
   stty echo
 
 elif [[ ${1,,} == "detach" ]]; then
   #Run the service in a detached process
   TIMESTAMP=`date "+%Y-%m-%d-%H-%M-%S"`
   SERVER_LOG_FILE=$SERVER_BINARY-$TIMESTAMP.log
-  nohup setsid $SERVER_BINARY < /dev/null > $SERVER_LOG_FILE 2>&1 &
-  echo Server was started as a deatched process. Log file is $SERVER_LOG_FILE
+  nohup setsid ./$SERVER_BINARY < /dev/null > $SERVER_LOG_FILE 2>&1 &
+  echo Server was started as a detached process. Log file is $SERVER_LOG_FILE
 
 else
   echo -e "\nUsage: startserver.sh attach|detach\n"
@@ -138,7 +138,7 @@ fi
 
 # Determine if the server process is running, and get its pid
 
-pid=$(pgrep -x "$SERVER_BINARY")
+pid=$(pidof "$SERVER_BINARY")
 
 if ! [[ -n "$pid" ]]; then
   echo "ERROR: Process $SERVER_BINARY is not running"
@@ -167,21 +167,21 @@ ok=true
 
 if ! [[ "$end_core" =~ ^[1-9][0-9]*$ ]] || [ "$end_core" -gt "$max_cores" ]; then
   echo "ERROR: EndCore must be a positive integer less than or equal to $max_cores"
-  ok = false
+  ok=false
 fi
 
 # Validate StartCore is a positive integer and less than end_core
 
 if ! [[ "$start_core" =~ ^[1-9][0-9]*$ ]] || [ "$start_core" -ge "$end_core" ]; then
   echo "ERROR: StartCore must be a positive integer less than EndCore"
-  ok = false
+  ok=false
 fi
 
 #Validate that Enabled is true or false
 
 if [[ "$enabled" != "true" && "$enabled" != "false" ]]; then
   echo "ERROR: Enabled must be true or false"
-  ok = false
+  ok=false
 fi
 
 # Validate that both ok and enabled contain "true"
@@ -189,7 +189,7 @@ fi
 if [[ "$ok" == "true" && "$enabled" == "true" ]]; then
   # Limit the process to the specified CPU cores
   taskset -pc $start_core-$end_core $pid
-  echo "Process $SERVER_BINARY has been restructed to CPU cores $start_core to $end_core"
+  echo "Process $SERVER_BINARY has been restricted to CPU cores $start_core to $end_core"
 fi
 
 # End of CPU core locking

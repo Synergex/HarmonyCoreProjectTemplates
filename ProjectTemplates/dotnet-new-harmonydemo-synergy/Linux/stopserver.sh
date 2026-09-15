@@ -63,7 +63,7 @@ sleep 1
 # Check if the SIGTERM worked
 
 SERVER_PID=`pidof $SERVER_BINARY`
-if [ -z "$SERVER_PID"]; then
+if [ -z "$SERVER_PID" ]; then
   echo "Service stopped via SIGTERM"
   return 2> /dev/null; exit
 fi
@@ -77,7 +77,7 @@ sleep 1
 # Check if the SIGABRT worked
 
 SERVER_PID=`pidof $SERVER_BINARY`
-if [ -z "$SERVER_PID"]; then
+if [ -z "$SERVER_PID" ]; then
   echo "Service stopped via SIGABRT"
   return 2> /dev/null; exit
 fi

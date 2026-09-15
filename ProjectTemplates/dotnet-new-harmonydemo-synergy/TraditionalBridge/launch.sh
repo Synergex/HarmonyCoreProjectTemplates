@@ -28,14 +28,14 @@ cd $SCRIPT_DIR
 #------------------------------------------------------------------------------
 # Determine the environment name
 
-if [ -e environment ]; then
-  ENVIRONMENT=`cat environment`
+if [ -e .environment ]; then
+  ENVIRONMENT=`cat .environment`
   if [ -z "$ENVIRONMENT" ]; then
-    echo "ERROR: Failed to determine environment name. Check file 'environment'"
+    echo "ERROR: Failed to determine environment name. Check hidden file '.environment'"
     return 2> /dev/null; exit
   fi
 else
-  echo "ERROR: Unable to determine environment. Define the environment name in file 'environment'"
+  echo "ERROR: Unable to determine environment. Define the environment name in hidden file '.environment'"
   return 2> /dev/null; exit
 fi
 
