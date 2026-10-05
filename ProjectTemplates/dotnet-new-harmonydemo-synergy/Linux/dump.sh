@@ -5,9 +5,7 @@
 isroot=`id -u`
 if [[ $isroot != 0 ]]
 then
-  echo -e "
-ERROR: This script must be run as root.
-"
+  echo -e "\nERROR: This script must be run as root.\n"
   return 2> /dev/null; exit
 fi
 
@@ -15,9 +13,7 @@ fi
 
 if [ ! -x /root/.dotnet/tools/dotnet-dump ]
 then
-  echo -e "
-ERROR: The dotnet-dump utility was not found!
-"
+  echo -e "\nERROR: The dotnet-dump utility was not found!\n"
   return 2> /dev/null; exit
 fi
 
@@ -39,9 +35,7 @@ fi
 thepid=$(pidof $SERVER_BINARY)
 if [ -z "$thepid" ]
 then
-  echo -e "
-ERROR: $SERVER_BINARY is not running!
-"
+  echo -e "\nERROR: $SERVER_BINARY is not running!\n"
   return 2> /dev/null; exit
 fi
 
@@ -56,9 +50,7 @@ echo "Creating coredump file"
 
 if [[ ! $? -eq 0 ]]
 then
-  echo -e "
-ERROR: The createdump command failed!
-"
+  echo -e "\nERROR: The createdump command failed!\n"
   return 2> /dev/null; exit
 fi
 
@@ -66,9 +58,7 @@ fi
 
 if [ ! -e /tmp/coredump.$thepid ]
 then
-  echo -e "
-ERROR: Dump file /tmp/coredump.$thepid not found!
-"
+  echo -e "\nERROR: Dump file /tmp/coredump.$thepid not found!\n"
   return 2> /dev/null; exit
 fi
 
