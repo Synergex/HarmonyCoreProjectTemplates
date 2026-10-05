@@ -183,7 +183,7 @@ namespace Services.Host
 
             dataFile = "DAT:customers.ism"
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
+            xdlFile = "@" + dataFile.Replace(%atrim(fileExtension),".xdl", StringComparison.CurrentCultureIgnoreCase)
 
             data customers, @Customers
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -195,7 +195,7 @@ namespace Services.Host
 
             dataFile = "DAT:items.ism"
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
+            xdlFile = "@" + dataFile.Replace(%atrim(fileExtension),".xdl", StringComparison.CurrentCultureIgnoreCase)
 
             data items, @Items
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -207,7 +207,7 @@ namespace Services.Host
 
             dataFile = "DAT:orders.ism"
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
+            xdlFile = "@" + dataFile.Replace(%atrim(fileExtension),".xdl", StringComparison.CurrentCultureIgnoreCase)
 
             data orders, @Orders
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -219,7 +219,7 @@ namespace Services.Host
 
             dataFile = "DAT:order_items.ism"
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
+            xdlFile = "@" + dataFile.Replace(%atrim(fileExtension),".xdl", StringComparison.CurrentCultureIgnoreCase)
 
             data orderItems, @OrderItems
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -231,7 +231,7 @@ namespace Services.Host
 
             dataFile = "DAT:vendors.ism"
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            xdlFile = "@" + dataFile.ToLower().Replace(%atrim(fileExtension),".xdl")
+            xdlFile = "@" + dataFile.Replace(%atrim(fileExtension),".xdl", StringComparison.CurrentCultureIgnoreCase)
 
             data vendors, @Vendors
             open(chout=0,o:i,dataFile,FDL:xdlFile)
@@ -305,7 +305,7 @@ namespace Services.Host
             data dataFile = "DAT:customers.ism"
             data fileExtension, a10
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
+            data textFile = dataFile.Replace(%atrim(fileExtension),".txt", StringComparison.CurrentCultureIgnoreCase)
 			EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), 161)
             data customersCh, int, 0
             data customersRec, strCustomers
@@ -327,7 +327,7 @@ namespace Services.Host
             data dataFile = "DAT:items.ism"
             data fileExtension, a10
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
+            data textFile = dataFile.Replace(%atrim(fileExtension),".txt", StringComparison.CurrentCultureIgnoreCase)
 			EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), 151)
             data itemsCh, int, 0
             data itemsRec, strItems
@@ -349,7 +349,7 @@ namespace Services.Host
             data dataFile = "DAT:orders.ism"
             data fileExtension, a10
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
+            data textFile = dataFile.Replace(%atrim(fileExtension),".txt", StringComparison.CurrentCultureIgnoreCase)
 			EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), 100)
             data ordersCh, int, 0
             data ordersRec, strOrders
@@ -371,7 +371,7 @@ namespace Services.Host
             data dataFile = "DAT:order_items.ism"
             data fileExtension, a10
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
+            data textFile = dataFile.Replace(%atrim(fileExtension),".txt", StringComparison.CurrentCultureIgnoreCase)
 			EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), 100)
             data orderItemsCh, int, 0
             data orderItemsRec, strOrderItems
@@ -393,7 +393,7 @@ namespace Services.Host
             data dataFile = "DAT:vendors.ism"
             data fileExtension, a10
             xcall parse(dataFile.ToLower(),1,,,,,fileExtension)
-            data textFile = dataFile.ToLower().Replace(%atrim(fileExtension),".txt")
+            data textFile = dataFile.Replace(%atrim(fileExtension),".txt", StringComparison.CurrentCultureIgnoreCase)
 			EnsurePlatformSpecificLineEndings(textFile.Replace(":", System.IO.Path.DirectorySeparatorChar).Replace("dat", Environment.GetEnvironmentVariable("DAT"), StringComparison.CurrentCultureIgnoreCase), 135)
             data vendorsCh, int, 0
             data vendorsRec, strVendors

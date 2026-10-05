@@ -17,16 +17,29 @@ then
   return 2> /dev/null; exit
 fi
 
-# Find the process ID of Services.Host
+# Make sure we are in the same directory as the script
 
-thepid=$(pidof Services.Host)
-if [ -z $thepid ]
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+cd $SCRIPT_DIR
+
+# startserver.sh runs the service as Services.Host.<environment>
+
+if [ -e .environment ]; then
+  SERVER_BINARY=Services.Host.`cat .environment`
+else
+  SERVER_BINARY=Services.Host
+fi
+
+# Find the process ID of the service
+
+thepid=$(pidof $SERVER_BINARY)
+if [ -z "$thepid" ]
 then
-  echo -e "\nERROR: Services.Host is not running!\n"
+  echo -e "\nERROR: $SERVER_BINARY is not running!\n"
   return 2> /dev/null; exit
 fi
 
-echo "Services.Host process found (pid $thepid)"
+echo "$SERVER_BINARY process found (pid $thepid)"
 
 # Dump the process (this creates /tmp/coredump.<pid>)
 
@@ -48,34 +61,8 @@ then
   echo -e "\nERROR: Dump file /tmp/coredump.$thepid not found!\n"
   return 2> /dev/null; exit
 fi
-  
+
 # Analyze the dump file (interactive)
 
-echo "Analyzing coresump file"
+echo "Analyzing coredump file"
 sudo /root/.dotnet/tools/dotnet-dump analyze /tmp/coredump.$thepid
-
-else
-  echo -e "\nERROR: No such process!\n"
-  return 2> /dev/null; exit
-fi
-
-# Dump the process (this creates /tmp/coredump.<pid>)
-
-./createdump $1
-
-if [[ ! $? -eq 0 ]]
-then
-  echo -e "\nERROR: The createdump command failed!\n"
-  return 2> /dev/null; exit
-fi
-
-if [ ! -e /tmp/coredump.$1 ]
-then
-  echo -e "\nERROR: Dump file /tmp/coredump.$1 not found!\n"
-  return 2> /dev/null; exit
-fi
-
-# Analyze the dump file (interactive)
-
-sudo /root/.dotnet/tools/dotnet-dump analyze /tmp/coredump.$1
-
