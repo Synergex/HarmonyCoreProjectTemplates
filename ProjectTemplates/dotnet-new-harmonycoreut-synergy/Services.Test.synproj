@@ -114,7 +114,7 @@ rem xcopy /I /Y $(SolutionDir)SampleData $(OutDir)SampleData</PreBuildEvent>
       <Version>2.5.301</Version>
     </PackageReference>
 	<PackageReference Include="Synergex.SynergyDE.Build" Version="26.8.1648" />
-    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.4.1.1005" />
+    <PackageReference Include="Synergex.SynergyDE.synrnt" Version="12.5.1.1008" />
     <PackageReference Include="System.Linq.Dynamic.Core">
       <Version>1.6.10</Version>
     </PackageReference>
