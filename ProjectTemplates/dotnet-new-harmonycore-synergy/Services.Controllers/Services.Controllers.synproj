@@ -24,16 +24,16 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.AspNetCore">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.OData">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.IdentityModel.Tokens">
       <Version>8.1.1</Version>

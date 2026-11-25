@@ -23,10 +23,10 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Harmony.Core">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Harmony.Core.EF">
-      <Version>10.0.43</Version>
+      <Version>10.0.64</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.OData.Edm">
       <Version>8.4.2</Version>
